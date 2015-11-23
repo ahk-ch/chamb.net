@@ -18,9 +18,6 @@ Route::group(['prefix' => 'auth'], function ()
 
 Route::group(['prefix' => 'admin'], function ()
 {
-	Route::group(['prefix' => 'auth'], function ()
-	{
-		get('login', ['as' => 'admin.auth.login', 'uses' => 'Admin\Auth\AuthController@getLogin']);
-		get('register', ['as' => 'admin.auth.register', 'uses' => 'Admin\Auth\AuthController@getRegister']);
-	});
+	get('dashboard', ['as' => 'admin.dashboard', 'uses' => 'Admin\DashboardController@dashboard']);
+	get('auth/login', ['as' => 'admin.auth.login', 'uses' => 'Admin\Auth\AuthController@getLogin']);
 });

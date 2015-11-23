@@ -19,4 +19,5 @@ return [
 	'about'       => 'About',
 	'login'       => 'Login',
 	'register'    => 'Register',
+	'dashboard'   => 'Dashboard',
 ];
