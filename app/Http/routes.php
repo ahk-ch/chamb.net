@@ -1,11 +1,5 @@
 <?php
 
-Route::get('/', function ()
-{
-	return view('welcome');
-});
+get('/', ['as' => 'home_path', 'uses' => 'HomeController@home']);
+get('about', ['as' => 'about_path', 'uses' => 'HomeController@about']);
 
-Route::get('about', function ()
-{
-	return view('about');
-});

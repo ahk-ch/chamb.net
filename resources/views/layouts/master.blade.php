@@ -32,12 +32,13 @@
     <link href='{!! url("assets/plugins/animate.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/plugins/line-icons/line-icons.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/plugins/font-awesome/css/font-awesome.min.css") !!}' rel='stylesheet' type='text/css'/>
-    <link href='{!! url("assets/plugins/parallax-slider/css/parallax-slider.css") !!}' rel='stylesheet' type='text/css'/>
-    <link href='{!! url("assets/plugins/owl-carousel/owl-carousel/owl.carousel.css") !!}' rel='stylesheet' type='text/css'/>
+    @yield('css-implementing-plugins')
 
-    <!-- CSS Customization -->
-    @yield('inline-styles')
+            <!-- CSS Customization -->
     <link href='{!! url("assets/css/custom.css") !!}' rel='stylesheet' type='text/css'/>
+    <!-- CSS Page Style -->
+    @yield('css-page-style')
+    @yield('inline-styles')
 </head>
 
 <body>
@@ -59,11 +60,10 @@
 <script type="text/javascript" src="{!! url('assets/plugins/back-to-top.js') !!}"></script>
 <script type="text/javascript" src="{!! url('assets/plugins/smoothScroll.js') !!}"></script>
 @yield('js-implementing-plugins')
-<!-- JS Customization -->
+        <!-- JS Customization -->
 <script type="text/javascript" src="{!! url('assets/js/custom.js') !!}"></script>
 @yield('inline-scripts')
-        <!-- JS Page Level -->
-@yield('js-page-level')
+        <!-- JS Page Level -->@yield('js-page-level')
 <!--[if lt IE 9]>
 <script src="{!! url('assets/plugins/respond.js') !!}"></script>
 <script src="{!! url('assets/plugins/html5shiv.js') !!}"></script>
