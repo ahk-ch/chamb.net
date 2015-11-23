@@ -2,29 +2,30 @@
 @section('title', 'Welcome')
 @section('content')
 
-<!--=== Slider ===-->
+
+        <!--=== Slider ===-->
 <div class="slider-inner">
     <div id="da-slider" class="da-slider">
         <div class="da-slide">
-            <h2><i>CLEAN &amp; FRESH</i> <br/> <i>FULLY RESPONSIVE</i> <br/> <i>DESIGN</i></h2>
-            <p><i>Lorem ipsum dolor amet</i> <br/> <i>tempor incididunt ut</i> <br/> <i>veniam omnis </i></p>
-            <div class="da-img"><img class="img-responsive" src="assets/plugins/parallax-slider/img/1.png" alt="">
-            </div>
+            <h2><i>CLEAN &amp; FRESH</i> <br /> <i>FULLY RESPONSIVE</i> <br /> <i>DESIGN</i></h2>
+            <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i> <br /> <i>veniam omnis </i></p>
+            <div class="da-img"><img class="img-responsive" src="assets/plugins/parallax-slider/img/1.png" alt=""></div>
         </div>
         <div class="da-slide">
-            <h2><i>RESPONSIVE VIDEO</i> <br/> <i>SUPPORT AND</i> <br/> <i>MANY MORE</i></h2>
-            <p><i>Lorem ipsum dolor amet</i> <br/> <i>tempor incididunt ut</i></p>
+            <h2><i>RESPONSIVE VIDEO</i> <br /> <i>SUPPORT AND</i> <br /> <i>MANY MORE</i></h2>
+            <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i></p>
             <div class="da-img">
                 <iframe src="http://player.vimeo.com/video/47911018" width="530" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
             </div>
         </div>
         <div class="da-slide">
-            <h2><i>USING BEST WEB</i> <br/> <i>SOLUTIONS WITH</i> <br/> <i>HTML5/CSS3</i></h2>
-            <p><i>Lorem ipsum dolor amet</i> <br/> <i>tempor incididunt ut</i> <br/> <i>veniam omnis </i></p>
-            <div class="da-img"><img src="assets/plugins/parallax-slider/img/html5andcss3.png" alt="image01"/></div>
+            <h2><i>USING BEST WEB</i> <br /> <i>SOLUTIONS WITH</i> <br /> <i>HTML5/CSS3</i></h2>
+            <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i> <br /> <i>veniam omnis </i></p>
+            <div class="da-img"><img src="assets/plugins/parallax-slider/img/html5andcss3.png" alt="image01" /></div>
         </div>
         <div class="da-arrows">
-            <span class="da-arrows-prev"></span> <span class="da-arrows-next"></span>
+            <span class="da-arrows-prev"></span>
+            <span class="da-arrows-next"></span>
         </div>
     </div>
 </div><!--/slider-->
@@ -36,7 +37,7 @@
         <div class="row">
             <div class="col-md-9 animated fadeInLeft">
                 <span>Unify is a clean and fully responsive incredible Template.</span>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi vehicula sem ut volutpat. Ut non libero magna fusce condimentum eleifend enim a feugiat corrupti quos.</p>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi  vehicula sem ut volutpat. Ut non libero magna fusce condimentum eleifend enim a feugiat corrupti quos.</p>
             </div>
             <div class="col-md-3 btn-buy animated fadeInRight">
                 <a href="#" class="btn-u btn-u-lg"><i class="fa fa-cloud-download"></i> Download Now</a>
@@ -45,7 +46,6 @@
     </div>
 </div><!--/row-->
 <!-- End Purchase Block -->
-
 
 <!--=== Content Part ===-->
 <div class="container content-sm">
@@ -196,9 +196,11 @@
 
                 <div class="carousel-arrow">
                     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                        <i class="fa fa-angle-left"></i> </a>
+                        <i class="fa fa-angle-left"></i>
+                    </a>
                     <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                        <i class="fa fa-angle-right"></i> </a>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 </div>
             </div>
         </div><!--/col-md-4-->
@@ -239,5 +241,6 @@
     <!-- End Owl Clients v1 -->
 </div><!--/container-->
 <!-- End Content Part -->
+
 
 @endsection
