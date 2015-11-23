@@ -45,11 +45,11 @@
                 <!-- End Home -->
 
                 <!-- Pages -->
-                <li class="dropdown {!! activate(['health_info', 'health_news']) !!}">
+                <li class="dropdown {!! activate(['health.info', 'health_news']) !!}">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> Health </a>
                     <ul class="dropdown-menu">
-                        <li class="{!! activate(['health_info']) !!}"><a href="{!! route('health_info') !!}">Info</a></li>
-                        <li class="{!! activate(['health_news']) !!}"><a href="{!! route('health_news') !!}">News</a></li>
+                        <li class="{!! activate(['health.info']) !!}"><a href="{!! route('health.info') !!}">Info</a></li>
+                        <li class="{!! activate(['health.news']) !!}"><a href="{!! route('health.news') !!}">News</a></li>
                     </ul>
 
                 </li>

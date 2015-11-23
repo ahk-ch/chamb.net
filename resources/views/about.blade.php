@@ -8,7 +8,7 @@
     <link href='{!! url("assets/css/pages/page_about.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
 @section('content')
-    @include('_partials.breadcrumbs')
+    {!! Breadcrumbs::render('about') !!}
     <div class="container content"><!--=== Content Part ===-->
         <div class="title-box-v2">
             <h2>About <span class="color-green">Unify</span></h2>
