@@ -16,3 +16,11 @@ Route::group(['prefix' => 'auth'], function ()
 	get('register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@getRegister']);
 });
 
+Route::group(['prefix' => 'admin'], function ()
+{
+	Route::group(['prefix' => 'auth'], function ()
+	{
+		get('login', ['as' => 'admin.auth.login', 'uses' => 'Admin\Auth\AuthController@getLogin']);
+		get('register', ['as' => 'admin.auth.register', 'uses' => 'Admin\Auth\AuthController@getRegister']);
+	});
+});
