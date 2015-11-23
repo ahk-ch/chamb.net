@@ -2,7 +2,7 @@
 <div class="header">
     <div class="container">
         <!-- Logo -->
-        <a class="logo" href="index.html"> <img src="{!! url('assets/img/logo1-default.png') !!}" alt="Logo"> </a>
+        <a class="logo" href="{!! route('home_path') !!}"> <img src="{!! url('assets/img/logo1-default.png') !!}" alt="Logo"> </a>
         <!-- End Logo -->
 
         <!-- Topbar -->
@@ -22,7 +22,7 @@
                 <li class="topbar-devider"></li>
                 <li><a href="page_faq.html">Help</a></li>
                 <li class="topbar-devider"></li>
-                <li><a href="page_login.html">Login</a></li>
+                <li><a href="{!! route('auth.login') !!}">Login</a></li>
             </ul>
         </div>
         <!-- End Topbar -->

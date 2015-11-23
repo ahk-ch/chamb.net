@@ -17,4 +17,5 @@ return [
 	'health_news' => 'Health News',
 	'companies'   => 'Companies',
 	'about'       => 'About',
+	'login'       => 'Login',
 ];

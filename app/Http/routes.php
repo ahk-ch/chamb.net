@@ -10,3 +10,9 @@ Route::group(['prefix' => 'health'], function ()
 	get('news', ['as' => 'health.news', 'uses' => 'HealthController@news']);
 });
 
+Route::group(['prefix' => 'auth'], function ()
+{
+	get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@getLogin']);
+	get('register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@register']);
+});
+
