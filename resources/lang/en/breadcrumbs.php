@@ -15,5 +15,6 @@ return [
 	'home'        => 'Home',
 	'health_info' => 'Health Info',
 	'health_news' => 'Health News',
+	'companies'   => 'Companies',
 	'about'       => 'About',
 ];

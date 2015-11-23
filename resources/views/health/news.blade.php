@@ -1,13 +1,15 @@
 @extends('layouts.master')
-@section('title', 'Info')
+@section('title', 'News')
 @section('css-implementing-plugins')
-    <link href='{!! url("assets/plugins/flexslider/flexslider.css") !!}' rel='stylesheet' type='text/css'/>
+    <link href='{!! url("") !!}' rel='stylesheet' type='text/css'/>
 @endsection
 @section('css-page-style')
     <link href='{!! url("assets/css/pages/page_search.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
 @section('content')
-    @include('_partials.breadcrumbs')
+
+    {!! Breadcrumbs::render() !!}
+
     <div class="container content-sm"><!--=== News Block ===-->
         <div class="text-center margin-bottom-50">
             <h2 class="title-v2 title-center">RECENT NEWS</h2>

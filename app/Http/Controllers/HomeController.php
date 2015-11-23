@@ -42,4 +42,14 @@ class HomeController extends Controller {
 	{
 		return view('health');
 	}
+
+	/**
+	 * Display the companies resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function companies()
+	{
+		return view('companies');
+	}
 }

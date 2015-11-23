@@ -48,16 +48,18 @@
                 <li class="dropdown {!! activate(['health.info', 'health_news']) !!}">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> Health </a>
                     <ul class="dropdown-menu">
-                        <li class="{!! activate(['health.info']) !!}"><a href="{!! route('health.info') !!}">Info</a></li>
-                        <li class="{!! activate(['health.news']) !!}"><a href="{!! route('health.news') !!}">News</a></li>
+                        <li class="{!! activate(['health.info']) !!}"><a href="{!! route('health.info') !!}">Info</a>
+                        </li>
+                        <li class="{!! activate(['health.news']) !!}"><a href="{!! route('health.news') !!}">News</a>
+                        </li>
                     </ul>
 
                 </li>
                 <!-- End Pages -->
 
                 <!-- Companies -->
-                <li class="">
-                    <a href="javascript:void(0);"> Companies </a>
+                <li class="{!! activate(['companies_path']) !!}">
+                    <a href="{!! route('companies_path') !!}"> Companies </a>
                 </li>
                 <!-- End Companies -->
 

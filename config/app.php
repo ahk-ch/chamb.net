@@ -204,7 +204,6 @@ return [
 		 * External aliases
 		 */
 		'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
-
 	],
 
 ];
