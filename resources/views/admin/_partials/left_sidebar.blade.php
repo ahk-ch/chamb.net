@@ -31,6 +31,15 @@
                     <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
                 </ul>
             </li>
+            <li class="treeview {!! activate(['admin.users.subscribers', 'admin.users.administrators']) !!}">
+                <a href="#"> <i class="fa fa-users"></i> <span>Users</span>
+                    <i class="fa fa-angle-left pull-right"></i> </a>
+                <ul class="treeview-menu">
+                    <li class="{!! activate(['admin.users.subscribers']) !!}"><a href="{!! route('admin.users.subscribers') !!}"><i class="fa fa-users"></i> Subscribers</a></li>
+                    <li class="{!! activate(['admin.users.administrators']) !!}"><a href="{!! route('admin.users.administrators') !!}"><i class="fa fa-users"></i> Administrators</a></li>
+                </ul>
+            </li>
+
         </ul>
     </section>
     <!-- /.sidebar -->

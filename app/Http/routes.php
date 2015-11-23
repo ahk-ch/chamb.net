@@ -19,5 +19,11 @@ Route::group(['prefix' => 'auth'], function ()
 Route::group(['prefix' => 'admin'], function ()
 {
 	get('dashboard', ['as' => 'admin.dashboard', 'uses' => 'Admin\DashboardController@dashboard']);
+	Route::group(['prefix' => 'users'], function ()
+	{
+		get('subscribers', ['as' => 'admin.users.subscribers', 'uses' => 'Admin\UsersController@subscribers']);
+		get('administrators', ['as' => 'admin.users.administrators', 'uses' => 'Admin\UsersController@administrators']);
+	});
+	get('users', ['as' => 'admin.users', 'uses' => 'Admin\DashboardController@dashboard']);
 	get('auth/login', ['as' => 'admin.auth.login', 'uses' => 'Admin\Auth\AuthController@getLogin']);
 });

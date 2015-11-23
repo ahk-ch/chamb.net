@@ -24,11 +24,9 @@
     @include('admin._partials.left_sidebar')
 
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Blank page
-                <small>it all starts here</small>
+                @yield('title')
             </h1>
         </section>
 
