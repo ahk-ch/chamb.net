@@ -37,3 +37,9 @@ Breadcrumbs::register('auth.login', function ($breadcrumbs)
 	$breadcrumbs->parent('home_path');
 	$breadcrumbs->push(trans('breadcrumbs.login'), route('auth.login'));
 });
+
+Breadcrumbs::register('auth.register', function ($breadcrumbs)
+{
+	$breadcrumbs->parent('home_path');
+	$breadcrumbs->push(trans('breadcrumbs.register'), route('auth.register'));
+});

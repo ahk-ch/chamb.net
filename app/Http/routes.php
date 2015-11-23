@@ -13,6 +13,6 @@ Route::group(['prefix' => 'health'], function ()
 Route::group(['prefix' => 'auth'], function ()
 {
 	get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@getLogin']);
-	get('register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@register']);
+	get('register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@getRegister']);
 });
 

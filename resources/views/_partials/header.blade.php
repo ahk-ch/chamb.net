@@ -20,9 +20,9 @@
                     </ul>
                 </li>
                 <li class="topbar-devider"></li>
-                <li><a href="page_faq.html">Help</a></li>
-                <li class="topbar-devider"></li>
                 <li><a href="{!! route('auth.login') !!}">Login</a></li>
+                <li class="topbar-devider"></li>
+                <li><a href="{!! route('auth.register') !!}">Register</a></li>
             </ul>
         </div>
         <!-- End Topbar -->
