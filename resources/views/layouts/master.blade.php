@@ -58,24 +58,12 @@
 <!-- JS Implementing Plugins -->
 <script type="text/javascript" src="{!! url('assets/plugins/back-to-top.js') !!}"></script>
 <script type="text/javascript" src="{!! url('assets/plugins/smoothScroll.js') !!}"></script>
-<script type="text/javascript" src="{!! url('assets/plugins/parallax-slider/js/modernizr.js') !!}"></script>
-<script type="text/javascript" src="{!! url('assets/plugins/parallax-slider/js/jquery.cslider.js') !!}"></script>
-<script type="text/javascript" src="{!! url('assets/plugins/owl-carousel/owl-carousel/owl.carousel.js') !!}"></script>
+@yield('js-implementing-plugins')
 <!-- JS Customization -->
 <script type="text/javascript" src="{!! url('assets/js/custom.js') !!}"></script>
-@yield('scripts')
 @yield('inline-scripts')
         <!-- JS Page Level -->
-<script type="text/javascript" src="{!! url('assets/js/app.js') !!}"></script>
-<script type="text/javascript" src="{!! url('assets/js/plugins/owl-carousel.js') !!}"></script>
-<script type="text/javascript" src="{!! url('assets/js/plugins/parallax-slider.js') !!}"></script>
-<script type="text/javascript">
-    jQuery(document).ready(function () {
-        App.init();
-        OwlCarousel.initOwlCarousel();
-        ParallaxSlider.initParallaxSlider();
-    });
-</script>
+@yield('js-page-level')
 <!--[if lt IE 9]>
 <script src="{!! url('assets/plugins/respond.js') !!}"></script>
 <script src="{!! url('assets/plugins/html5shiv.js') !!}"></script>
