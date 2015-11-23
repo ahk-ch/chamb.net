@@ -32,4 +32,14 @@ class HomeController extends Controller {
 	{
 		return view('about');
 	}
+
+	/**
+	 * Display the health resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function health()
+	{
+		return view('health');
+	}
 }

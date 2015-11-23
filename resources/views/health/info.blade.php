@@ -1,8 +1,6 @@
 @extends('layouts.master')
-@section('title', 'Welcome')
+@section('title', 'Info')
 @section('css-implementing-plugins')
-@endsection
-@section('css-page-style')
 @endsection
 @section('content')
 

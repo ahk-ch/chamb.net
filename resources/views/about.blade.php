@@ -8,20 +8,8 @@
     <link href='{!! url("assets/css/pages/page_about.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
 @section('content')
-    <div class="breadcrumbs"><!--=== Breadcrumbs ===-->
-        <div class="container">
-            <h1 class="pull-left">About Us</h1>
-            <ul class="pull-right breadcrumb">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="">Pages</a></li>
-                <li class="active">About Us</li>
-            </ul>
-        </div><!--/container-->
-    </div><!--/breadcrumbs-->
-    <!--=== End Breadcrumbs ===-->
-
-    <!--=== Content Part ===-->
-    <div class="container content">
+    @include('_partials.breadcrumbs')
+    <div class="container content"><!--=== Content Part ===-->
         <div class="title-box-v2">
             <h2>About <span class="color-green">Unify</span></h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -372,12 +360,10 @@
 @section('js-inline')
 @endsection
 @section('js-page-level')
-    <script type="text/javascript" src="{!! url('assets/js/app.js') !!}"></script>
     <script type="text/javascript" src="{!! url('assets/js/pages/page_contacts.js') !!}"></script>
     <script type="text/javascript" src="{!! url('assets/js/plugins/owl-carousel.js') !!}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function () {
-            App.init();
             App.initParallaxBg();
             ContactPage.initMap();
             OwlCarousel.initOwlCarousel();

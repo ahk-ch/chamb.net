@@ -2,7 +2,7 @@
 <div class="header">
     <div class="container">
         <!-- Logo -->
-        <a class="logo" href="index.html"> <img src="assets/img/logo1-default.png" alt="Logo"> </a>
+        <a class="logo" href="index.html"> <img src="{!! url('assets/img/logo1-default.png') !!}" alt="Logo"> </a>
         <!-- End Logo -->
 
         <!-- Topbar -->
@@ -45,8 +45,13 @@
                 <!-- End Home -->
 
                 <!-- Pages -->
-                <li class="">
-                    <a href="javascript:void(0);"> Info </a>
+                <li class="dropdown {!! activate(['health_info', 'health_news']) !!}">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> Health </a>
+                    <ul class="dropdown-menu">
+                        <li class="{!! activate(['health_info']) !!}"><a href="{!! route('health_info') !!}">Info</a></li>
+                        <li class="{!! activate(['health_news']) !!}"><a href="{!! route('health_news') !!}">News</a></li>
+                    </ul>
+
                 </li>
                 <!-- End Pages -->
 
