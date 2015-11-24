@@ -26,20 +26,22 @@
                 <p class="fieldset">
                     <label class="image-replace cd-password" for="signin-password">Password</label>
                     <input class="full-width has-padding has-border" id="signin-password" type="text" placeholder="Password">
-                    <a href="javascript:void(0);" class="hide-password">Hide</a>
+                    <a href="javascript:void(0);" class="hide-password">{!! trans('ahk.hide') !!}</a>
                     <span class="cd-error-message">Error message here!</span>
                 </p>
 
                 <p class="fieldset">
-                    <input type="checkbox" id="remember-me" checked> <label for="remember-me">Remember me</label>
+                    <input type="checkbox" id="remember-me" checked>
+                    <label for="remember-me">{!! trans('ahk.remember_me') !!}</label>
                 </p>
 
                 <p class="fieldset">
-                    <input class="full-width" type="submit" value="Login">
+                    <input class="full-width" type="submit" value="{!! trans('ahk.login') !!}">
                 </p>
             </form>
 
-            <p class="cd-form-bottom-message"><a href="javascript:void(0);">Forgot your password?</a></p>
+            <p class="cd-form-bottom-message">
+                <a href="javascript:void(0);">{!! trans('ahk.forgot_your_password') !!}</a></p>
             <!-- <a href="javascript:void(0);" class="cd-close-form">Close</a> -->
         </div> <!-- cd-login -->
 
@@ -57,7 +59,7 @@
 
                 <p class="fieldset">
                     <label class="image-replace cd-username" for="signup-username">{!! trans('ahk.username') !!}</label>
-                    <input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username">
+                    <input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="{!! trans('ahk.username') !!}">
                     <span class="cd-error-message">Error message here!</span>
                 </p>
 
@@ -68,19 +70,20 @@
                 </p>
 
                 <p class="fieldset">
-                    <label class="image-replace cd-password" for="signup-password">Password</label>
-                    <input class="full-width has-padding has-border" id="signup-password" type="text" placeholder="Password">
+                    <label class="image-replace cd-password" for="signup-password">{!! trans('ahk.password') !!}</label>
+                    <input class="full-width has-padding has-border" id="signup-password" type="text" placeholder="{!! trans('ahk.password') !!}">
                     <a href="javascript:void(0);" class="hide-password">Hide</a>
                     <span class="cd-error-message">Error message here!</span>
                 </p>
 
                 <p class="fieldset">
-                    <input type="checkbox" id="accept-terms"> <label for="accept-terms">I agree to the
-                        <a href="page_terms.html">Terms</a></label>
+                    <input type="checkbox" id="accept-terms">
+                    <label for="accept-terms">{!! trans('ahk.i_agree_to_the') !!}
+                        <a href="page_terms.html">{!! trans('ahk.i_agree_to_the') !!}</a></label>
                 </p>
 
                 <p class="fieldset">
-                    <input class="full-width has-padding" type="submit" value="Create account">
+                    <input class="full-width has-padding" type="submit" value="{!! trans('ahk.create_account') !!}">
                 </p>
             </form>
 
@@ -88,7 +91,7 @@
         </div> <!-- cd-signup -->
 
         <div id="cd-reset-password"> <!-- reset password form -->
-            <p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+            <p class="cd-form-message">{!! trans('ahk.lost_password_prompt_message') !!}</p>
 
             <form class="cd-form">
                 <p class="fieldset">
@@ -102,9 +105,9 @@
                 </p>
             </form>
 
-            <p class="cd-form-bottom-message"><a href="javascript:void(0);">Back to log-in</a></p>
+            <p class="cd-form-bottom-message"><a href="javascript:void(0);">{!! trans('ahk.back_to_login') !!}</a></p>
         </div> <!-- cd-reset-password -->
-        <a href="javascript:void(0);" class="cd-close-form">Close</a>
+        <a href="javascript:void(0);" class="cd-close-form">{!! trans('ahk.close') !!}</a>
     </div> <!-- cd-user-modal-container -->
 </div> <!-- cd-user-modal -->
 
