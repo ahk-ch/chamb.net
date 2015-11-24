@@ -9,7 +9,7 @@
         <!-- Settings tab content -->
         <div class="tab-pane active">
 
-            <h3 class="control-sidebar-heading">General Settings</h3>
+            <h3 class="control-sidebar-heading">{!! trans('admin.general_settings') !!}</h3>
 
             <div class="form-group">
                 <div class="input-group-btn">
@@ -28,39 +28,6 @@
                     </ul>
                 </div><!-- /btn-group -->
             </div><!-- /btn-group -->
-
-            <div class="form-group">
-                <label class="control-sidebar-subheading"> Allow mail redirect
-                    <input type="checkbox" class="pull-right" checked> </label>
-                <p>
-                    Other sets of options are available
-                </p>
-            </div><!-- /.form-group -->
-
-            <div class="form-group">
-                <label class="control-sidebar-subheading"> Expose author name in posts
-                    <input type="checkbox" class="pull-right" checked> </label>
-                <p>
-                    Allow the user to show his name in blog posts
-                </p>
-            </div><!-- /.form-group -->
-
-            <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-            <div class="form-group">
-                <label class="control-sidebar-subheading"> Show me as online
-                    <input type="checkbox" class="pull-right" checked> </label>
-            </div><!-- /.form-group -->
-
-            <div class="form-group">
-                <label class="control-sidebar-subheading"> Turn off notifications
-                    <input type="checkbox" class="pull-right"> </label>
-            </div><!-- /.form-group -->
-
-            <div class="form-group">
-                <label class="control-sidebar-subheading"> Delete chat history
-                    <a href="javascript::;" class="text-red pull-right"><i class="fa fa-trash-o"></i></a> </label>
-            </div><!-- /.form-group -->
 
         </div><!-- /.tab-pane -->
     </div>

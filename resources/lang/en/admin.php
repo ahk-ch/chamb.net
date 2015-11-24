@@ -15,5 +15,11 @@ return [
 	*/
 
 	'toggle_navigation' => 'Toggle navigation',
+	'general_settings'  => 'General Settings',
+	'sign_out'          => 'Sign Out',
+	'dashboard'         => 'Dashboard',
+	'users'             => 'Users',
+	'subscribers'       => 'Subscribers',
+	'administrators'    => 'Administrators',
 ];
 

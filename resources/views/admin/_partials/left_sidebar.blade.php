@@ -24,19 +24,22 @@
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
-                <a href="#"> <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                <a href="#"> <i class="fa fa-dashboard"></i> <span>{!! trans('admin.dashboard') !!}</span>
                     <i class="fa fa-angle-left pull-right"></i> </a>
                 <ul class="treeview-menu">
-                    <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                    <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Demo</a></li>
                 </ul>
             </li>
             <li class="treeview {!! activate(['admin.users.subscribers', 'admin.users.administrators']) !!}">
-                <a href="#"> <i class="fa fa-users"></i> <span>Users</span>
+                <a href="#"> <i class="fa fa-users"></i> <span>{!! trans('admin.users') !!}</span>
                     <i class="fa fa-angle-left pull-right"></i> </a>
                 <ul class="treeview-menu">
-                    <li class="{!! activate(['admin.users.subscribers']) !!}"><a href="{!! route('admin.users.subscribers') !!}"><i class="fa fa-users"></i> Subscribers</a></li>
-                    <li class="{!! activate(['admin.users.administrators']) !!}"><a href="{!! route('admin.users.administrators') !!}"><i class="fa fa-users"></i> Administrators</a></li>
+                    <li class="{!! activate(['admin.users.subscribers']) !!}">
+                        <a href="{!! route('admin.users.subscribers') !!}"><i class="fa fa-users"></i> {!! trans('admin.subscribers') !!}</a>
+                    </li>
+                    <li class="{!! activate(['admin.users.administrators']) !!}">
+                        <a href="{!! route('admin.users.administrators') !!}"><i class="fa fa-users"></i> {!! trans('admin.administrators') !!}</a>
+                    </li>
                 </ul>
             </li>
 

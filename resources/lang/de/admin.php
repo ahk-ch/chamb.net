@@ -15,5 +15,11 @@ return [
 	*/
 
 	'toggle_navigation' => 'Umschalten navigation',
+	'general_settings'  => 'Allgemeine Einstellungen',
+	'sign_out'          => 'Austragen',
+	'dashboard'         => 'Armaturenbrett',
+	'users'             => 'Benutzer',
+	'subscribers'       => 'Abonnenten',
+	'administrators'    => 'Administratoren',
 ];
 
