@@ -14,7 +14,7 @@ Route::group(['prefix' => 'health'], function ()
 Route::group(['prefix' => 'auth'], function ()
 {
 	get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@getLogin']);
-	get('register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@getRegister']);
+	get('register', ['as' => 'auth.register', 'uses' => 'UsersController@create']);
 });
 
 Route::group(['prefix' => 'admin'], function ()

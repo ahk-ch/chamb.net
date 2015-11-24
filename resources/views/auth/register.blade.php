@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Welcome')
+@section('title', 'Register')
 @section('css-implementing-plugins')
     <link href='{!! url("assets/css/pages/page_log_reg_v1.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection

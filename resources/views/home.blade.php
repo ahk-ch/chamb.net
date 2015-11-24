@@ -4,6 +4,8 @@
     <link href='{!! url("assets/plugins/parallax-slider/css/parallax-slider.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/plugins/owl-carousel/owl-carousel/owl.carousel.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
+@section('css-page-style')
+@endsection
 @section('content')
     <div class="slider-inner"><!--=== Slider ===-->
         <div id="da-slider" class="da-slider">

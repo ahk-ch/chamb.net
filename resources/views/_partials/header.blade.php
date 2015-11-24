@@ -23,9 +23,7 @@
                     </ul>
                 </li>
                 <li class="topbar-devider"></li>
-                <li><a href="{!! route('auth.login') !!}">{!! trans('ahk.login') !!}</a></li>
-                <li class="topbar-devider"></li>
-                <li><a href="{!! route('auth.register') !!}">{!! trans('ahk.register') !!}</a></li>
+                <li class="cd-log_reg"><a class="cd-signin" href="javascript:void(0);">Login</a></li>
             </ul>
         </div>
         <!-- End Topbar -->
