@@ -11,7 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 
-class HealthController extends Controller {
+class HealthController extends BaseController {
 	/**
 	 * Display a listing of the info resource.
 	 *

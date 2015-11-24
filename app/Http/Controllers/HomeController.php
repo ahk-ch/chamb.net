@@ -11,7 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 
-class HomeController extends Controller {
+class HomeController extends BaseController {
 
 	/**
 	 * Display the home resource.
