@@ -27,4 +27,5 @@ Route::group(['prefix' => 'admin'], function ()
 	});
 	get('users', ['as' => 'admin.users', 'uses' => 'Admin\DashboardController@dashboard']);
 	get('auth/login', ['as' => 'admin.auth.login', 'uses' => 'Admin\Auth\AuthController@getLogin']);
+	get('lang/{lang}', ['as' => 'admin.set_language', 'uses' => 'Admin\SettingsController@setLocale']);
 });

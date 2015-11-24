@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-class DashboardController extends Controller {
+class DashboardController extends BaseController {
 	/**
 	 * Display a listing of the resource.
 	 *

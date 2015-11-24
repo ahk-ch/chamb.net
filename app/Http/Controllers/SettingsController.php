@@ -12,7 +12,7 @@ use App\Http\Requests;
 class SettingsController extends BaseController {
 
 	/**
-	 * Display a listing of the resource.
+	 * Change the language of the app.
 	 *
 	 * @param Requests\SetLanguageRequest $request
 	 * @return \Illuminate\Http\Response

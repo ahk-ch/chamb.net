@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-class UsersController extends Controller {
+class UsersController extends BaseController {
 	/**
 	 * Display a listing of the resource.
 	 *
