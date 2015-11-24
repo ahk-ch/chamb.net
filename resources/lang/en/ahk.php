@@ -14,15 +14,19 @@ return [
 	|
 	*/
 
-	'login'             => 'Login',
-	'register'          => 'Register',
-	'toggle_navigation' => 'Toggle navigation',
-	'home'              => 'Zuhause',
-	'health'            => 'Health',
-	'info'              => 'Info',
-	'news'              => 'News',
-	'companies'         => 'Companies',
-	'about'             => 'About',
-	'search'            => 'Search',
-	'go'                => 'Go',
+	'about'                           => 'About',
+	'companies'                       => 'Companies',
+	'go'                              => 'Go',
+	'health'                          => 'Health',
+	'home'                            => 'Zuhause',
+	'info'                            => 'Info',
+	'login'                           => 'Login',
+	'or_register_your_new_account_on' => 'Or register your new account on',
+	'or_use_your_account'             => 'Or user your account.',
+	'register'                        => 'Register',
+	'news'                            => 'News',
+	'search'                          => 'Search',
+	'toggle_navigation'               => 'Toggle navigation',
+	'username'                        => 'Username',
+
 ];

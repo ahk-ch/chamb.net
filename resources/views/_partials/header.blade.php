@@ -23,7 +23,8 @@
                     </ul>
                 </li>
                 <li class="topbar-devider"></li>
-                <li class="cd-log_reg"><a class="cd-signin" href="javascript:void(0);">Login</a></li>
+                <li class="cd-log_reg"><a class="cd-signin" href="javascript:void(0);">{!! trans('ahk.login') !!}</a>
+                </li>
             </ul>
         </div>
         <!-- End Topbar -->
