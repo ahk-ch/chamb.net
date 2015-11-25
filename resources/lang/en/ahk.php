@@ -24,7 +24,7 @@ return [
 	'go'                              => 'Go',
 	'health'                          => 'Health',
 	'hide'                            => 'Hide',
-	'home'                            => 'Zuhause',
+	'home'                            => 'Home',
 	'i_agree_to_the'                  => 'I agree to the',
 	'info'                            => 'Info',
 	'login'                           => 'Login',

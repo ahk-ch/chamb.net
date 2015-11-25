@@ -34,6 +34,7 @@ Route::group(['prefix' => 'admin'], function ()
 		get('administrators', ['as' => 'admin.users.administrators', 'uses' => 'Admin\UsersController@administrators']);
 	});
 	get('users', ['as' => 'admin.users', 'uses' => 'Admin\DashboardController@dashboard']);
-	get('auth/login', ['as' => 'admin.auth.login', 'uses' => 'Admin\Auth\AuthController@getLogin']);
+	get('auth/login', ['as' => 'admin.sessions.create', 'uses' => 'Admin\SessionsController@create']);
+	post('auth/login', ['as' => 'admin.sessions.store', 'uses' => 'Admin\SessionsController@store']);
 	get('lang/{lang}', ['as' => 'admin.set_language', 'uses' => 'Admin\SettingsController@setLocale']);
 });
