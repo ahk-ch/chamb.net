@@ -13,8 +13,8 @@
 
     <div class="container content"><!--=== Content Part ===-->
         <div class="title-box-v2">
-            <h2>About <span class="color-green">Unify</span></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h2>About <span class="color-green">AHK</span></h2>
+            <p>The Hellenic German Chamber of Commerce and Industry is a non-profit organization with 850 member companies in Greece and Germany and the official representation of the German industry and commerce in Greece. It is a member of the German Chamber Network, which operates 125 offices in 85 countries. The Athens Central Office of DGIHK was founded in 1924 whereas the Northern Greece branch was established in 1981.</p>
         </div>
 
         <!-- About Sldier -->
@@ -28,13 +28,13 @@
 
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img class="img-responsive" src="assets/img/sliders/11.jpg" alt="">
+                        <img class="img-responsive" src="{!! url('img/about_us/AHK-Griechenland-RGB.jpg') !!}" alt="Full AHK Logo">
                     </div>
                     <div class="item">
-                        <img class="img-responsive" src="assets/img/sliders/4.jpg" alt="">
+                        <img class="img-responsive" src="{!! url('img/about_us/photo_pool_1.jpg') !!}" alt="Photo Pool 1">
                     </div>
                     <div class="item">
-                        <img class="img-responsive" src="assets/img/sliders/10.jpg" alt="">
+                        <img class="img-responsive" src="{!! url('img/about_us/photo_pool_2.jpg') !!}" alt="Photo Pool 2">
                     </div>
                 </div>
 
@@ -52,22 +52,22 @@
             <div class="col-sm-4">
                 <div class="service-block service-block-default">
                     <i class="icon-custom rounded icon-color-dark icon-line icon-badge"></i>
-                    <h2 class="heading-md">Purple Box</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus. At vero eos et accusamus et iusto odio dignissimos ducimus qui.</p>
+                    <h2 class="heading-md">Platform</h2>
+                    <p>Establish a neutral, non-politically influenced Platform</p>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="service-block service-block-default">
                     <i class="icon-custom rounded icon-color-dark icon-line icon-fire"></i>
-                    <h2 class="heading-md">Purple Box</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus. At vero eos et accusamus et iusto odio dignissimos ducimus qui.</p>
+                    <h2 class="heading-md">Relations & Communication Channels</h2>
+                    <p>Facilitate German-Greek and International Relationship Networks & Communication Channels.</p>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="service-block service-block-default">
                     <i class="icon-custom rounded icon-color-dark icon-line icon-directions"></i>
-                    <h2 class="heading-md">Aqua Box</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus. At vero eos et accusamus et iusto odio dignissimos ducimus qui.</p>
+                    <h2 class="heading-md">News</h2>
+                    <p>RSS Feed/EMail/Articles subscription for industry news, connection possibilities, to keep all member companies aware of current market news, events, and workshops.</p>
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
         <div class="container content parallax-about">
             <div class="title-box-v2">
                 <h2>About our <span class="color-green">company</span></h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>The Greek-Commerce and Industrial Chamber, for 90 years, promotes development and expansion of market and business relations between Greece and Germany through a wide range of services and activities</p>
             </div>
 
             <div class="row">
@@ -88,7 +88,7 @@
                         <i class="rounded-x icon-bell"></i>
                         <div class="overflow-h">
                             <h3>Our mission</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt sit amet dui auctor pellentesque. Nulla ut posuere purus.</p>
+                            <p>Is to promote and support bilateral business relations between Greece and Germany. Therefore the Chamber is the primary contact for German and Greek companies, organizations and individuals interested in market entry into the respective other country.</p>
                         </div>
                     </div>
                     <div class="banner-info dark margin-bottom-10">
@@ -108,7 +108,7 @@
                     <div class="margin-bottom-20"></div>
                 </div>
                 <div class="col-md-6">
-                    <img class="img-responsive" src="assets/img/mockup/1.png" alt="">
+                    <img class="img-responsive" src="{!! url('img/about_us/about_our_company.jpg') !!}" alt="">
                 </div>
             </div>
         </div><!--/container-->
@@ -361,7 +361,7 @@
 @section('js-inline')
 @endsection
 @section('js-page-level')
-    <script type="text/javascript" src="{!! url('assets/js/pages/page_contacts.js') !!}"></script>
+    <script type="text/javascript" src="{!! url('assets/js/google_map.js') !!}"></script>
     <script type="text/javascript" src="{!! url('assets/js/plugins/owl-carousel.js') !!}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function () {

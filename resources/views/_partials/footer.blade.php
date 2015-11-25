@@ -5,7 +5,7 @@
             <div class="row">
                 <!-- About -->
                 <div class="col-md-3 md-margin-bottom-40">
-                    <a href="index.html"><img id="logo-footer" class="footer-logo" src="{!! url('assets/img/logo2-default.png') !!}" alt=""></a>
+                    <a href="index.html"><img id="logo-footer" class="footer-logo" src="{!! url('img/logo.png') !!}" alt=""></a>
                     <p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>
                     <p>Duis eleifend fermentum ante ut aliquam. Cras mi risus, dignissim sed adipiscing ut, placerat non arcu.</p>
                 </div><!--/col-md-3-->
@@ -37,7 +37,7 @@
                 <div class="col-md-3 md-margin-bottom-40">
                     <div class="headline"><h2>Useful Links</h2></div>
                     <ul class="list-unstyled link-list">
-                        <li><a href="#">About us</a><i class="fa fa-angle-right"></i></li>
+                        <li><a href="{!! route('about_path') !!}">About us</a><i class="fa fa-angle-right"></i></li>
                         <li><a href="#">Portfolio</a><i class="fa fa-angle-right"></i></li>
                         <li><a href="#">Latest jobs</a><i class="fa fa-angle-right"></i></li>
                         <li><a href="#">Community</a><i class="fa fa-angle-right"></i></li>
@@ -50,9 +50,9 @@
                 <div class="col-md-3 map-img md-margin-bottom-40">
                     <div class="headline"><h2>Contact Us</h2></div>
                     <address class="md-margin-bottom-40">
-                        25, Lorem Lis Street, Orange <br/> California, US <br/> Phone: 800 123 3456
-                        <br/> Fax: 800 123 3456 <br/> Email:
-                        <a href="mailto:info@anybiz.com" class="">info@anybiz.com</a>
+                        10-12, Dorileou, GR-11521 <br/> Athens, Greece <br/> Phone: +30 210 64 190 00
+                        <br/> Fax: +30 210 64 451 75 <br/> Email:
+                        <a href="mailto:ahkathen@ahk.com.gr" class="">ahkathen@ahk.com.gr</a>
                     </address>
                 </div><!--/col-md-3-->
                 <!-- End Address -->
