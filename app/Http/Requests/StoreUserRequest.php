@@ -24,9 +24,9 @@ class StoreUserRequest extends Request {
 	public function rules()
 	{
 		return [
-			'sign_up_username' => 'required|unique:users',
-			'sign_up_email'    => 'required|email|max:255|unique:users',
-			'sign_up_password' => 'required|min:6',
+			'username' => 'required|unique:users,username',
+			'email'    => 'required|email|max:255|unique:users,email',
+			'password' => 'required|min:6',
 		];
 	}
 

@@ -61,23 +61,23 @@
 
             <p class="fieldset">
                 <label class="image-replace cd-username" for="signup-username">{!! trans('ahk.username') !!}</label>
-                {!! Form::text('sign_up_username', null, ['class' => 'full-width has-padding has-border ' .
-                (! $errors->first('sign_up_username') ? '': 'has-error'), 'placeholder' =>  trans('ahk.username') ]) !!}
-                {!! $errors->first('sign_up_username', '<span class="cd-error-message is-visible">:message</span>') !!}
+                {!! Form::text('username', null, ['class' => 'full-width has-padding has-border ' .
+                (! $errors->first('username') ? '': 'has-error'), 'placeholder' =>  trans('ahk.username') ]) !!}
+                {!! $errors->first('username', '<span class="cd-error-message is-visible">:message</span>') !!}
             </p>
 
             <p class="fieldset">
                 <label class="image-replace cd-email" for="signup-email">E-mail</label>
-                {!! Form::email('sign_up_email', null, ['class' => 'full-width has-padding has-border',
+                {!! Form::email('email', null, ['class' => 'full-width has-padding has-border',
                 'placeholder' =>  'E-mail' ]) !!}
-                {!! $errors->first('sign_up_email', '<span class="cd-error-message is-visible">:message</span>') !!}
+                {!! $errors->first('email', '<span class="cd-error-message is-visible">:message</span>') !!}
             </p>
 
             <p class="fieldset">
                 <label class="image-replace cd-password" for="signup-password">{!! trans('ahk.password') !!}</label>
-                {!! Form::text('sign_up_email', null, ['class' => 'full-width has-padding has-border', 'placeholder' =>  trans('ahk.password') ]) !!}
+                {!! Form::text('password', null, ['class' => 'full-width has-padding has-border', 'placeholder' =>  trans('ahk.password') ]) !!}
                 <a href="javascript:void(0);" class="hide-password">Hide</a>
-                {!! $errors->first('sign_up_password', '<span class="cd-error-message is-visible">:message</span>') !!}
+                {!! $errors->first('password', '<span class="cd-error-message is-visible">:message</span>') !!}
             </p>
 
             <p class="fieldset">
