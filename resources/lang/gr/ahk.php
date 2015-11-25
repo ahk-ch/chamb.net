@@ -40,4 +40,5 @@ return [
 	'terms'                           => 'Όρους',
 	'toggle_navigation'               => 'Εναλλαγη πλοηγησης',
 	'username'                        => 'Ψευδώνυμο',
+	'welcome'                         => 'Καλώς ορίσατε!',
 ];

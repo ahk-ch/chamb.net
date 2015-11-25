@@ -15,6 +15,8 @@ return [
 	|
 	*/
 
+	'credentials_mismatch'      => 'Diese Anmeldeinformationen nicht übereinstimmen unserer Datenbank.',
+	'successful_logout'         => 'Sie haben sich erfolgreich abgemeldet!',
 	'unable_to_store_user'      => 'Ynavle Blinde Auxerre.',
 	'user_created'              => 'Benutzer erstellt.',
 	'validation_error_occurred' => 'Validation Fehler aufgetreten.',

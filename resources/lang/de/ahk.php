@@ -39,4 +39,5 @@ return [
 	'terms'                           => 'Allgemeine Geschäftsbedingungen',
 	'toggle_navigation'               => 'Umschalten navigation',
 	'username'                        => 'Benutzername',
+	'welcome'                         => 'Willkommen!',
 ];

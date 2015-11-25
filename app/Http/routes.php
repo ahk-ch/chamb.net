@@ -1,17 +1,29 @@
 <?php
 
+################ AHK ####################
+
+# Pages
 get('/', ['as' => 'home_path', 'uses' => 'HomeController@home']);
 get('about', ['as' => 'about_path', 'uses' => 'HomeController@about']);
 get('companies', ['as' => 'companies_path', 'uses' => 'HomeController@companies']);
 get('lang/{lang}', ['as' => 'set_language', 'uses' => 'SettingsController@setLocale']);
-
-post('users/store', ['as' => 'users.store', 'uses' => 'UsersController@store']);
-
 Route::group(['prefix' => 'health'], function ()
 {
 	get('info', ['as' => 'health.info', 'uses' => 'HealthController@info']);
 	get('news', ['as' => 'health.news', 'uses' => 'HealthController@news']);
 });
+
+# Registration
+post('users/store', ['as' => 'users.store', 'uses' => 'UsersController@store']);
+
+# Authentication
+Route::group(['prefix' => 'auth'], function ()
+{
+	post('login', ['as' => 'sessions.store', 'uses' => 'SessionsController@store']);
+	post('logout', ['as' => 'sessions.destroy', 'uses' => 'SessionsController@destroy']);
+});
+
+################ Administration panel ####################
 
 Route::group(['prefix' => 'admin'], function ()
 {

@@ -15,6 +15,8 @@ return [
 	|
 	*/
 
+	'credentials_mismatch'      => 'Those credentials do not match our database.',
+	'successful_logout'         => 'You have successfully signed out!',
 	'unable_to_store_user'      => 'Unable to store user.',
 	'user_created'              => 'User created!',
 	'validation_error_occurred' => 'Validation errors occurred.',

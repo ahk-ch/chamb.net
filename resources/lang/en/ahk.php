@@ -39,4 +39,5 @@ return [
 	'terms'                           => 'Terms',
 	'toggle_navigation'               => 'Toggle navigation',
 	'username'                        => 'Username',
+	'welcome'                         => 'Welcome!',
 ];
