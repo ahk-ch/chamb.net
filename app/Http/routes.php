@@ -20,7 +20,7 @@ post('users/store', ['as' => 'users.store', 'uses' => 'UsersController@store']);
 Route::group(['prefix' => 'auth'], function ()
 {
 	post('login', ['as' => 'sessions.store', 'uses' => 'SessionsController@store']);
-	post('logout', ['as' => 'sessions.destroy', 'uses' => 'SessionsController@destroy']);
+	delete('logout', ['as' => 'sessions.destroy', 'uses' => 'SessionsController@destroy']);
 });
 
 ################ Administration panel ####################

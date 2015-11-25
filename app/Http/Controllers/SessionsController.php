@@ -48,8 +48,8 @@ class SessionsController extends BaseController {
 	{
 		Auth::logout();
 
-		Flash::success(trans('ahk_messages.credentials_mismatch'));
+		Flash::success(trans('ahk_messages.successful_logout'));
 
-		return redirect()->route('sessions.create');
+		return redirect()->route('home_path');
 	}
 }

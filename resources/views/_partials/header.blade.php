@@ -23,8 +23,22 @@
                     </ul>
                 </li>
                 <li class="topbar-devider"></li>
-                <li class="cd-log_reg"><a class="cd-signin" href="javascript:void(0);">{!! trans('ahk.login') !!}</a>
-                </li>
+                @if( ! Auth::check())
+                    <li class="cd-log_reg">
+                        <a class="cd-signin" href="javascript:void(0);">{!! trans('ahk.login') !!}</a>
+                    </li>
+                @else
+                    <li class="hoverSelector">
+                        <i class="fa fa-user"></i> <a>{!! $user->username !!}</a>
+                        <ul class="languages hoverSelectorBlock">
+                            <li>
+                                {!! Form::open(['route' => 'sessions.destroy', 'role' => 'form', 'method' => 'DELETE']) !!}
+                                <button type="submit" class="btn btn-link">{!! trans('ahk.logout') !!}</button>
+                                {!! Form::close() !!}
+                            </li>
+                        </ul>
+                    </li>
+                @endif
             </ul>
         </div>
         <!-- End Topbar -->

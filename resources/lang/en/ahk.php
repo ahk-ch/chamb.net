@@ -28,6 +28,7 @@ return [
 	'i_agree_to_the'                  => 'I agree to the',
 	'info'                            => 'Info',
 	'login'                           => 'Login',
+	'logout'                          => 'Logout',
 	'lost_password_prompt_message'    => 'Lost your password? Please enter your email address. You will receive a link to create a new password.',
 	'or_register_your_new_account_on' => 'Or register your new account on',
 	'or_use_your_account'             => 'Or user your account.',

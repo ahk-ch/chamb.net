@@ -28,6 +28,7 @@ return [
 	'i_agree_to_the'                  => 'Ich stimme dem zu',
 	'info'                            => 'Info',
 	'login'                           => 'Einloggen',
+	'logout'                          => 'Abmelden',
 	'lost_password_prompt_message'    => 'Passwort vergessen? Geben Sie bitte Ihre Email-Adresse ein. Sie erhalten einen Link, um ein neues Passwort zu erhalten.',
 	'news'                            => 'Nachrichten',
 	'or_use_your_account'             => 'Oder verwenden Sie Ihr Konto',

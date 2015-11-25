@@ -8,6 +8,7 @@ namespace app\Http\ViewComposers;
  */
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 
 class HeaderComposer {
@@ -21,5 +22,10 @@ class HeaderComposer {
 	public function compose(View $view)
 	{
 		$view->with('locale', App::getLocale());
+
+		if ( Auth::check() )
+		{
+			$view->with('user', Auth::user());
+		}
 	}
 }
