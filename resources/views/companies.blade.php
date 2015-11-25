@@ -690,7 +690,6 @@
 @section('js-implementing-plugins')
 @endsection
 @section('js-inline')
-    <script type="text/javascript" src="{!! url('assets/plugins/jquery.parallax.js') !!}"></script>
     <script type="text/javascript" src="{!! url('assets/plugins/image-hover/js/touch.js') !!}"></script>
 @endsection
 @section('js-page-level')

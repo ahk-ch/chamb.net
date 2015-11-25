@@ -244,7 +244,6 @@
     <!-- End Content Part -->
 @endsection
 @section('js-implementing-plugins')
-    <script type="text/javascript" src="{!! url('assets/plugins/parallax-slider/js/modernizr.js') !!}"></script>
     <script type="text/javascript" src="{!! url('assets/plugins/parallax-slider/js/jquery.cslider.js') !!}"></script>
     <script type="text/javascript" src="{!! url('assets/plugins/owl-carousel/owl-carousel/owl.carousel.js') !!}"></script>
 @endsection

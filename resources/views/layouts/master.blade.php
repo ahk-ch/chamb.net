@@ -47,6 +47,8 @@
 
     @include('_partials.header')
 
+    @include('flash::message')
+
     @yield('content')
 
     @include('_partials.footer')
@@ -62,17 +64,19 @@
 <!-- JS Implementing Plugins -->
 <script type="text/javascript" src="{!! url('assets/plugins/back-to-top.js') !!}"></script>
 <script type="text/javascript" src="{!! url('assets/plugins/smoothScroll.js') !!}"></script>
+<script type="text/javascript" src="{!! url('assets/plugins/jquery.parallax.js') !!}"></script>
 <script type="text/javascript" src="{!! url('assets/plugins/parallax-slider/js/modernizr.js') !!}"></script>
-<script type="text/javascript" src="{!! url('assets/plugins/login-signup-modal-window/js/main.js') !!}"></script>
+<script type="text/javascript" src="{!! url('assets/plugins/parallax-slider/js/modernizr.js') !!}"></script>
+<script type="text/javascript" src="{!! url('assets/js/login-signup.js') !!}"></script>
 @yield('js-implementing-plugins')
-        <!-- JS Customization -->
 <script type="text/javascript" src="{!! url('assets/js/custom.js') !!}"></script>
 @yield('js-inline')
-        <!-- JS Page Level -->
 <script type="text/javascript" src="{!! url('assets/js/app.js') !!}"></script>
 <script type="text/javascript">
     jQuery(document).ready(function () {
         App.init();
+        $( "#foo" ).trigger( "click" );
+
     });
 </script>
 @yield('js-page-level')

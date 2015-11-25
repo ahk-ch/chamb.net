@@ -5,6 +5,8 @@ get('about', ['as' => 'about_path', 'uses' => 'HomeController@about']);
 get('companies', ['as' => 'companies_path', 'uses' => 'HomeController@companies']);
 get('lang/{lang}', ['as' => 'set_language', 'uses' => 'SettingsController@setLocale']);
 
+post('users/store', ['as' => 'users.store', 'uses' => 'UsersController@store']);
+
 Route::group(['prefix' => 'health'], function ()
 {
 	get('info', ['as' => 'health.info', 'uses' => 'HealthController@info']);

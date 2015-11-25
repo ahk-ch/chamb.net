@@ -358,7 +358,6 @@
 @section('js-implementing-plugins')
 @endsection
 @section('js-inline')
-    <script type="text/javascript" src="{!! url('assets/plugins/jquery.parallax.js') !!}"></script>
     <script type="text/javascript" src="{!! url('assets/plugins/counter/waypoints.min.js') !!}"></script>
     <script type="text/javascript" src="{!! url('assets/plugins/counter/jquery.counterup.min.js') !!}"></script>
     <script type="text/javascript" src="{!! url('assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js') !!}"></script>

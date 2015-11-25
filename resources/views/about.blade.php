@@ -354,7 +354,6 @@
     <!--=== End Contacts ===-->
 @endsection
 @section('js-implementing-plugins')
-    <script type="text/javascript" src="{!! url('assets/plugins/jquery.parallax.js') !!}"></script>
     <script type="text/javascript" src="{!! url('assets/plugins/owl-carousel/owl-carousel/owl.carousel.js') !!}"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" src="{!! url('assets/plugins/gmap/gmap.js') !!}"></script>

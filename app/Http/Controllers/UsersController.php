@@ -2,73 +2,51 @@
 
 namespace App\Http\Controllers;
 
+use App\AHK\Repositories\User\UserRepository;
 use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreUserRequest;
+use Laracasts\Flash\Flash;
 
 class UsersController extends BaseController {
+	/**
+	 * @var UserRepository
+	 */
+	private $userRepository;
 
 	/**
 	 * Create a new authentication controller instance.
-	 *
+	 * @param UserRepository $userRepository
 	 */
-	public function __construct()
+	public function __construct(UserRepository $userRepository)
 	{
-		$this->middleware('guest', ['except' => 'getLogout']);
-	}
+		parent::__construct();
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function create()
-	{
-		return view('auth.register');
+		$this->middleware('guest', ['except' => 'getLogout']);
+
+		$this->userRepository = $userRepository;
 	}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request $request
+	 * @param StoreUserRequest $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request)
+	public function store(StoreUserRequest $request)
 	{
-		//
-	}
+		$userStored = $this->userRepository->store($request);
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function show($id)
-	{
-		//
-	}
+		dd();
+		if ( ! $userStored )
+		{
+			Flash::error(trans('ahk_messages.unable_to_store_user'));
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
+			return redirect()->back();
+		}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request $request
-	 * @param  int $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function update(Request $request, $id)
-	{
-		//
+		Flash::success(trans('ahk_messages.user_created'));
+
+		return redirect()->route('home_path');
 	}
 }
