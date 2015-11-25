@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\AHK\Notifications\Flash;
 use Illuminate\Support\Facades\Auth;
-use Laracasts\Flash\Flash;
 
 class StoreUserRequest extends Request {
 	/**

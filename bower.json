@@ -1,0 +1,6 @@
+{
+	"name": "AHK",
+	"dependencies": {
+		"pnotify": "~2.1.0"
+	}
+}

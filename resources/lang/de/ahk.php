@@ -20,6 +20,7 @@ return [
 	'companies'                       => 'Firmen',
 	'create_account'                  => 'Benutzerkonto erstellen',
 	'forgot_your_password'            => 'Haben Sie Ihr Passwort vergessen?',
+	'error'                           => 'Fehler',
 	'go'                              => 'Anfang',
 	'health'                          => 'Gesundheit',
 	'hide'                            => 'Verstecken',

@@ -20,6 +20,7 @@ return [
 	'companies'                       => 'Companies',
 	'create_account'                  => 'Create account',
 	'forgot_your_password'            => 'Forgot your password?',
+	'error'                           => 'Error',
 	'go'                              => 'Go',
 	'health'                          => 'Health',
 	'hide'                            => 'Hide',

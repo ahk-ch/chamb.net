@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\AHK\Notifications\Flash;
 use App\AHK\Repositories\User\UserRepository;
 use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests;
 use App\Http\Requests\StoreUserRequest;
-use Laracasts\Flash\Flash;
 
 class UsersController extends BaseController {
 	/**

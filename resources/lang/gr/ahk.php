@@ -21,6 +21,7 @@ return [
 	'companies'                       => 'Εταιρειες',
 	'create_account'                  => 'Δημιουργια λογαριασμου',
 	'forgot_your_password'            => 'Ξέχασες τον κωδικό σου;',
+	'error'                           => 'Σφάλμα',
 	'go'                              => 'Έναρξη',
 	'health'                          => 'Υγεια',
 	'hide'                            => 'Απόκρυψη',
