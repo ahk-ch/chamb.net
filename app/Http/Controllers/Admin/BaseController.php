@@ -15,6 +15,6 @@ class BaseController extends Controller {
 	{
 		! session('locale') ?: App::setLocale(session('locale'));
 
-		$this->middleware('auth');
+		$this->middleware('admin.auth');
 	}
 }

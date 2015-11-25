@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Middleware\Admin;
 
 use App\AHK\Notifications\Flash;
 use Closure;
-use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Auth\Guard;
 
 class Authenticate {
 	/**
@@ -41,9 +41,9 @@ class Authenticate {
 				return response('Unauthorized.', 401);
 			} else
 			{
-				Flash::error(trans('ahk_messages.you_need_to_login'));
+				Flash::error("You need to login first.");
 
-				return redirect()->guest(route('home_path'));
+				return redirect()->guest(route('admin.sessions.create'));
 			}
 		}
 

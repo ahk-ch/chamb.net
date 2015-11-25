@@ -33,10 +33,10 @@
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
 
-        {!! Form::open(['route' => 'sessions.store', 'method' => 'POST']) !!}
+        {!! Form::open(['route' => 'admin.sessions.store', 'method' => 'POST']) !!}
 
         <div class='form-group @if($errors->first('username')) has-error @endif has-feedback'>
-            {!! Form::text('username', $user->code, ['class' => 'form-control', 'placeholder' => 'Enter username', 'required' => 'required']) !!}
+            {!! Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Enter username', 'required' => 'required']) !!}
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
             {!! $errors->first('username', '<div class="help-block col-sm-reset inline">:message</div>') !!}
         </div>
@@ -52,7 +52,7 @@
         <div class="row">
             <div class="col-xs-7">
                 <div class="checkbox icheck">
-                    <label> <input type="checkbox"> Remember me </label>
+                    <label> {!! Form::checkbox('remember') !!} Remember me </label>
                 </div>
             </div>
             <!-- /.col -->

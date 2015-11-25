@@ -20,5 +20,6 @@ return [
 	'unable_to_store_user'      => 'Unable to store user.',
 	'user_created'              => 'User created!',
 	'validation_error_occurred' => 'Validation errors occurred.',
+	'you_need_to_login'         => 'You need to login first.',
 
 ];
