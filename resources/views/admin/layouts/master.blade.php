@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="{!! url('admin/dist/css/AdminLTE.min.css') !!}">
     <link rel="stylesheet" href="{!! url('admin/dist/css/skins/skin-blue.min.css') !!}">
+    <link href='{!! url("vendor/pnotify/src/pnotify.core.css") !!}' rel='stylesheet' type='text/css'/>
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -49,5 +50,8 @@
 <script src="{!! url('admin/plugins/slimScroll/jquery.slimscroll.min.js') !!}"></script>
 <script src="{!! url('admin/plugins/fastclick/fastclick.min.js') !!}"></script>
 <script src="{!! url('admin/dist/js/app.min.js') !!}"></script>
+<script type="text/javascript" src='{!! url("vendor/pnotify/src/pnotify.core.min.js") !!}'></script>
+<script type="text/javascript" src='{!! url("vendor/pnotify/src/pnotify.confirm.min.js") !!}'></script>
+@include('admin._partials.flash')
 </body>
 </html>

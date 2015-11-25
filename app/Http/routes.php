@@ -36,5 +36,6 @@ Route::group(['prefix' => 'admin'], function ()
 	get('users', ['as' => 'admin.users', 'uses' => 'Admin\DashboardController@dashboard']);
 	get('auth/login', ['as' => 'admin.sessions.create', 'uses' => 'Admin\SessionsController@create']);
 	post('auth/login', ['as' => 'admin.sessions.store', 'uses' => 'Admin\SessionsController@store']);
+	delete('auth/logout', ['as' => 'admin.sessions.destroy', 'uses' => 'Admin\SessionsController@destroy']);
 	get('lang/{lang}', ['as' => 'admin.set_language', 'uses' => 'Admin\SettingsController@setLocale']);
 });

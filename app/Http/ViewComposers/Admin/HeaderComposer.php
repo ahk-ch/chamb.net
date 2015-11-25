@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\ViewComposers;
+namespace app\Http\ViewComposers\Admin;
 
 /**
  * @author  Rizart Dokollari <r.dokollari@gmail.com>
@@ -21,11 +21,6 @@ class HeaderComposer {
 	 */
 	public function compose(View $view)
 	{
-		$view->with('locale', App::getLocale());
-
-		if ( Auth::check() )
-		{
-			$view->with('user', Auth::user());
-		}
+		$view->with('user', Auth::user());
 	}
 }

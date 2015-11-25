@@ -18,20 +18,22 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="{!! url('admin/dist/img/user2-160x160.jpg') !!}" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Alexander Pierce</span> </a>
+                        <span class="hidden-xs">{!! $user->name or $user->username !!}</span> </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
                             <img src="{!! url('admin/dist/img/user2-160x160.jpg') !!}" class="img-circle" alt="User Image">
                             <p>
-                                Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                {!! $user->username !!}
+                                <small>Member since {!! $user->created_at !!}</small>
                             </p>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">{!! trans('admin.sign_out') !!}</a>
+                                {!! Form::open(['route' => 'admin.sessions.destroy', 'role' => 'form', 'method' => 'DELETE']) !!}
+                                <button type="submit" class="btn btn-default btn-flat">{!! trans('ahk.logout') !!}</button>
+                                {!! Form::close() !!}
                             </div>
                         </li>
                     </ul>

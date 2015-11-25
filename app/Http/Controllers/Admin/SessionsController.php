@@ -45,4 +45,18 @@ class SessionsController extends Controller {
 
 		return redirect()->back();
 	}
+
+	/**
+	 * Remove the specified session from storage.
+	 *
+	 * @return Response
+	 */
+	public function destroy()
+	{
+		Auth::logout();
+
+		Flash::success('You have successfully signed out!');
+
+		return redirect()->route('admin.sessions.create');
+	}
 }

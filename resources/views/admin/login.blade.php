@@ -68,7 +68,7 @@
 </div>
 <!-- /.login-box -->
 
-<script src="{!! url('vendor/jquery/dist/jquery.min.js') !!}"></script>
+<script src="{!! url('admin/plugins/jQuery/jQuery-2.1.4.min.js') !!}"></script>
 <script src="{!! url('admin/bootstrap/js/bootstrap.min.js') !!}"></script>
 <script src="{!! url('admin/plugins/iCheck/icheck.min.js') !!}"></script>
 <script type="text/javascript" src='{!! url("vendor/pnotify/src/pnotify.core.min.js") !!}'></script>

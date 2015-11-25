@@ -17,6 +17,10 @@ class ComposerServiceProvider extends ServiceProvider {
 		);
 
 		view()->composer(
+			'admin._partials.header', 'App\Http\ViewComposers\Admin\HeaderComposer'
+		);
+
+		view()->composer(
 			'admin._partials.right_sidebar', 'App\Http\ViewComposers\Admin\RightSideBarComposer'
 		);
 
