@@ -54,6 +54,26 @@ class ArticlesController extends BaseController {
 	}
 
 	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function published()
+	{
+		return redirect()->route('admin.dashboard');
+	}
+
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function unpublished()
+	{
+		return redirect()->route('admin.dashboard');
+	}
+
+	/**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return \Illuminate\Http\Response
