@@ -7,15 +7,15 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="{!! url('admin/bootstrap/css/bootstrap.min.css') !!}">
+    <link rel="stylesheet" href="{!! url('vendor/AdminLTE/bootstrap/css/bootstrap.min.css') !!}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{!! url('admin/dist/css/AdminLTE.min.css') !!}">
+    <link rel="stylesheet" href="{!! url('vendor/AdminLTE/dist/css/AdminLTE.min.css') !!}">
     <!-- iCheck -->
-    <link rel="stylesheet" href="{!! url('admin/plugins/iCheck/square/blue.css') !!}">
+    <link rel="stylesheet" href="{!! url('vendor/AdminLTE/plugins/iCheck/square/blue.css') !!}">
     <link href='{!! url("vendor/pnotify/src/pnotify.core.css") !!}' rel='stylesheet' type='text/css'/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -68,9 +68,9 @@
 </div>
 <!-- /.login-box -->
 
-<script src="{!! url('admin/plugins/jQuery/jQuery-2.1.4.min.js') !!}"></script>
-<script src="{!! url('admin/bootstrap/js/bootstrap.min.js') !!}"></script>
-<script src="{!! url('admin/plugins/iCheck/icheck.min.js') !!}"></script>
+<script src="{!! url('vendor/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js') !!}"></script>
+<script src="{!! url('vendor/AdminLTE/bootstrap/js/bootstrap.min.js') !!}"></script>
+<script src="{!! url('vendor/AdminLTE/plugins/iCheck/icheck.min.js') !!}"></script>
 <script type="text/javascript" src='{!! url("vendor/pnotify/src/pnotify.core.min.js") !!}'></script>
 <script type="text/javascript" src='{!! url("vendor/pnotify/src/pnotify.confirm.min.js") !!}'></script>
 @include('admin._partials.flash')
