@@ -30,6 +30,11 @@
 
         </div><!-- /.box-body -->
         <div class="box-footer clearfix">
+            <ul class="pagination pagination-sm pull-left">
+
+                <a href="{!! route('admin.articles.categories.create') !!}" class="btn btn-block btn-primary btn-flat">
+                    {!! trans('admin.create') !!}</a>
+            </ul>
             <ul class="pagination pagination-sm no-margin pull-right">
                 {!! $categories->render() !!}
             </ul>

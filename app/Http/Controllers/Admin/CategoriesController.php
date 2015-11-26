@@ -33,4 +33,15 @@ class CategoriesController extends BaseController {
 
 		return view('admin.articles.categories.index', compact('categories'));
 	}
+
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function create()
+	{
+		return view('admin.articles.categories.create');
+	}
+
 }

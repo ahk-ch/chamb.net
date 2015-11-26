@@ -44,7 +44,8 @@
                     </li>
                 </ul>
             </li>
-            <li class="treeview {!! activate(['admin.articles.published', 'admin.articles.unpublished', 'admin.articles.create']) !!}">
+            <li class="treeview {!! activate(['admin.articles.published', 'admin.articles.unpublished',
+                'admin.articles.create', 'admin.articles.categories.index', 'admin.articles.categories.create']) !!}">
                 <a href="#"> <i class="fa fa-newspaper-o"></i> <span>{!! trans('admin.articles') !!}</span>
                     <i class="fa fa-angle-left pull-right"></i> </a>
                 <ul class="treeview-menu">
@@ -56,8 +57,8 @@
                         <a href="{!! route('admin.articles.unpublished') !!}"><i class="fa fa-archive"></i> {!! trans('admin.unpublished') !!}
                         </a>
                     </li>
-                    <li class="{!! activate(['admin.articles.categories']) !!}">
-                        <a href="{!! route('admin.articles.categories') !!}"><i class="fa fa-list"></i> {!! trans('admin.categories') !!}
+                    <li class="{!! activate(['admin.articles.categories.index', 'admin.articles.categories.create']) !!}">
+                        <a href="{!! route('admin.articles.categories.index') !!}"><i class="fa fa-list"></i> {!! trans('admin.categories') !!}
                         </a>
                     </li>
                     <li class="{!! activate(['admin.articles.create']) !!}">
