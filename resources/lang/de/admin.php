@@ -14,12 +14,17 @@ return [
 	|
 	*/
 
-	'toggle_navigation' => 'Umschalten navigation',
-	'general_settings'  => 'Allgemeine Einstellungen',
-	'sign_out'          => 'Austragen',
-	'dashboard'         => 'Armaturenbrett',
-	'users'             => 'Benutzer',
-	'subscribers'       => 'Abonnenten',
 	'administrators'    => 'Administratoren',
+	'articles'          => 'Articles',
+	'create'            => 'Schaffen',
+	'dashboard'         => 'Armaturenbrett',
+	'general_settings'  => 'Allgemeine Einstellungen',
+	'news'              => 'Nachrichten',
+	'published'         => 'Erschienen',
+	'sign_out'          => 'Austragen',
+	'subscribers'       => 'Abonnenten',
+	'toggle_navigation' => 'Umschalten navigation',
+	'unpublished'       => 'Unveröffentlicht',
+	'users'             => 'Benutzer',
 ];
 

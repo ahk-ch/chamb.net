@@ -14,12 +14,17 @@ return [
 	|
 	*/
 
-	'toggle_navigation' => 'Toggle navigation',
-	'general_settings'  => 'General Settings',
-	'sign_out'          => 'Sign Out',
-	'dashboard'         => 'Dashboard',
-	'users'             => 'Users',
-	'subscribers'       => 'Subscribers',
 	'administrators'    => 'Administrators',
+	'articles'          => 'Articles',
+	'create'            => 'Create',
+	'dashboard'         => 'Dashboard',
+	'general_settings'  => 'General Settings',
+	'news'              => 'News',
+	'published'         => 'Published',
+	'sign_out'          => 'Sign Out',
+	'subscribers'       => 'Subscribers',
+	'toggle_navigation' => 'Toggle navigation',
+	'unpublished'       => 'Unpublished',
+	'users'             => 'Users',
 ];
 

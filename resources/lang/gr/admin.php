@@ -14,12 +14,17 @@ return [
 	|
 	*/
 
-	'toggle_navigation' => 'Εναλλαγη πλοηγησης',
-	'general_settings'  => 'Γενικές Ρυθμίσεις',
-	'sign_out'          => 'Αποσύνδεση',
-	'dashboard'         => 'Ταμπλό',
-	'users'             => 'Χρήστες',
-	'subscribers'       => 'Συνδρομητές',
 	'administrators'    => 'Διαχειριστές',
+	'articles'          => 'Άρθρα',
+	'create'            => 'Δημιουργία',
+	'dashboard'         => 'Ταμπλό',
+	'general_settings'  => 'Γενικές Ρυθμίσεις',
+	'news'              => 'Νέα',
+	'published'         => 'Δημοσιευμένα',
+	'sign_out'          => 'Αποσύνδεση',
+	'subscribers'       => 'Συνδρομητές',
+	'toggle_navigation' => 'Εναλλαγη πλοηγησης',
+	'unpublished'       => 'Αδημοσίευτα',
+	'users'             => 'Χρήστες',
 ];
 
