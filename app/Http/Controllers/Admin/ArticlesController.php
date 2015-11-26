@@ -2,25 +2,45 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\AHK\Article;
+use App\AHK\Notifications\Flash;
+use App\AHK\Repositories\Article\ArticleRepository;
 use App\AHK\Repositories\Category\CategoryRepository;
+use App\AHK\Repositories\Tag\TagRepository;
 use App\Http\Requests;
+use App\Http\Requests\Admin\StoreArticleRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticlesController extends BaseController {
+
 	/**
 	 * @var CategoryRepository
 	 */
 	private $categoryRepository;
+	/**
+	 * @var TagRepository
+	 */
+	private $tagRepository;
+	/**
+	 * @var ArticleRepository
+	 */
+	private $articleRepository;
 
 	/**
 	 * CategoriesController constructor.
+	 * @param ArticleRepository $articleRepository
 	 * @param CategoryRepository $categoryRepository
+	 * @param TagRepository $tagRepository
 	 */
-	public function __construct(CategoryRepository $categoryRepository)
+	public function __construct(ArticleRepository $articleRepository, CategoryRepository $categoryRepository,
+	                            TagRepository $tagRepository)
 	{
 		parent::__construct();
 
 		$this->categoryRepository = $categoryRepository;
+		$this->tagRepository = $tagRepository;
+		$this->articleRepository = $articleRepository;
 	}
 
 	/**
@@ -40,22 +60,40 @@ class ArticlesController extends BaseController {
 	 */
 	public function create()
 	{
-		$tags = ['Tag1', 'Tag2'];
+		$article = new Article();
+
+		$tags = $this->tagRepository->all()->lists('name', 'id');
 
 		$categories = $this->categoryRepository->all()->lists('name', 'id');
 
-		return view('admin.articles.create', compact('tags', 'categories'));
+		return view('admin.articles.create', compact('tags', 'categories', 'article'));
 	}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request $request
+	 * @param StoreArticleRequest $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request)
+	public function store(StoreArticleRequest $request)
 	{
-		//
+		dd();
+		$category = $this->categoryRepository->getById($request->get('category_id'));
+
+		$tagIds = $request->get('tagIds');
+
+		$articleStored = $this->articleRepository->store(Auth::user(), $request->only('name'), $category, $tagIds);
+
+		if ( ! $articleStored )
+		{
+			Flash::error(trans('admin.unable_to_store_article'));
+
+			return redirect()->back();
+		}
+
+		Flash::success(trans('admin.article_created'));
+
+		return redirect()->route('admin.articles.edit', $articleStored);
 	}
 
 	/**

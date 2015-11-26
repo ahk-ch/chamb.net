@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\AHK\Repositories\Article\ArticleRepository;
+use App\AHK\Repositories\Article\DbArticleRepository;
 use App\AHK\Repositories\Category\CategoryRepository;
 use App\AHK\Repositories\Category\DbCategoryRepository;
 use App\AHK\Repositories\Tag\DbTagRepository;
@@ -31,5 +33,6 @@ class BackendServiceProvider extends ServiceProvider {
 		$this->app->bind(UserRepository::class, DbUserRepository::class);
 		$this->app->bind(CategoryRepository::class, DbCategoryRepository::class);
 		$this->app->bind(TagRepository::class, DbTagRepository::class);
+		$this->app->bind(ArticleRepository::class, DbArticleRepository::class);
 	}
 }

@@ -41,7 +41,7 @@ class Authenticate {
 				return response('Unauthorized.', 401);
 			} else
 			{
-				Flash::error("You need to login first.");
+				Flash::error(trans('admin.you_need_to_login_first'));
 
 				return redirect()->guest(route('admin.sessions.create'));
 			}

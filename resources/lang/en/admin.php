@@ -15,6 +15,7 @@ return [
 	*/
 
 	'administrators'           => 'Administrators',
+	'article_created'          => 'Article created.',
 	'articles'                 => 'Articles',
 	'categories'               => 'Categories',
 	'category_created'         => 'Category created.',
@@ -32,9 +33,11 @@ return [
 	'tag_created'              => 'Tag created.',
 	'tag_updated'              => 'Tag updated.',
 	'toggle_navigation'        => 'Toggle navigation',
+	'unable_to_store_article'  => 'Unable to store article.',
 	'unable_to_store_category' => 'Unable to store category.',
 	'unable_to_store_tag'      => 'Unable to store tag.',
 	'unpublished'              => 'Unpublished',
 	'users'                    => 'Users',
+	'you_need_to_login_first'  => 'You need to login first.',
 ];
 

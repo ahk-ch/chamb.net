@@ -14,14 +14,6 @@ class Article extends Model {
 	protected $fillable = ['title', 'published', 'source', 'description', 'content'];
 
 	/**
-	 * Get the category this article belongs to.
-	 */
-	public function firm()
-	{
-		return $this->belongsTo('App\AHK\Category');
-	}
-
-	/**
 	 * The tags this article belongs to.
 	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -29,5 +21,23 @@ class Article extends Model {
 	public function tags()
 	{
 		return $this->belongsTo('App\AHK\Tag');
+	}
+
+	public function assignAuthor(User $user)
+	{
+		$this->author()->associate($user);
+	}
+
+	public function assignCategory(Category $category)
+	{
+		$this->category()->associate($category);
+	}
+
+	/**
+	 * Get the category this article belongs to.
+	 */
+	public function category()
+	{
+		return $this->belongsTo('App\AHK\Category');
 	}
 }

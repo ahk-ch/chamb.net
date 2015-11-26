@@ -42,7 +42,7 @@ Route::group(['prefix' => 'admin'], function ()
 		Route::resource('categories', 'Admin\CategoriesController', ['except' => ['show', 'destroy']]);
 		Route::resource('tags', 'Admin\TagsController', ['except' => ['show', 'destroy']]);
 	});
-	Route::resource('articles', 'Admin\ArticlesController', ['except' => ['index', 'store', 'show', 'edit', 'update', 'destroy']]);
+	Route::resource('articles', 'Admin\ArticlesController', ['except' => ['index', 'show', 'edit', 'update', 'destroy']]);
 
 
 	# Users
