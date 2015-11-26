@@ -29,7 +29,7 @@ class CategoriesController extends BaseController {
 	 */
 	public function index()
 	{
-		$categories = $this->categoryRepository->all();
+		$categories = $this->categoryRepository->all()->paginate(10);
 
 		return view('admin.articles.categories.index', compact('categories'));
 	}

@@ -19,6 +19,6 @@ class DbCategoryRepository extends DbRepository implements CategoryRepository {
 	 */
 	public function all()
 	{
-		return Category::with('author')->get();
+		return Category::with('author');
 	}
 }

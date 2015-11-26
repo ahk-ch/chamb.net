@@ -16,24 +16,22 @@
                     <th>Created by</th>
                     <th>Created at</th>
                     <th>Update At</th>
+                    <th>Actions</th>
                 </tr>
                 @foreach($categories as $category)
                     <tr>
                         <td>{!! $category->name !!}</td>
-                        <td>{!! $category->created_by !!}</td>
+                        <td>{!! $category->author->name or $category->author->username !!}</td>
                         <td>{!! $category->created_at !!}</td>
-                        <td>{!! $category->author->name or $category->author->usernmae !!}</td>
+                        <td>{!! $category->updated_at !!}</td>
                     </tr>
                 @endforeach
             </table>
+
         </div><!-- /.box-body -->
         <div class="box-footer clearfix">
             <ul class="pagination pagination-sm no-margin pull-right">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">&raquo;</a></li>
+                {!! $categories->render() !!}
             </ul>
         </div>
     </div><!-- /.box -->
