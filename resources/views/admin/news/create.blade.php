@@ -2,6 +2,7 @@
 @section('title', 'Create Article')
 @section('styles')
     <link href='{!! url("vendor/AdminLTE/plugins/select2/select2.min.css") !!}' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="{!! url('vendor/AdminLTE/plugins/iCheck/square/blue.css') !!}">
 @endsection
 @section('inline-styles')
 @endsection
@@ -70,10 +71,11 @@
 
                                         <div class="col-lg-6">
                                             <div class='form-group @if($errors->first('published')) has-error @endif'>
-                                                <i class="fa fa-mobile fa-lg"></i>
-                                                {!! Form::label('publish', 'Publish On Creation') !!}
+                                                <div class="checkbox icheck">
+                                                    <i class="fa fa-mobile fa-lg"></i>
+                                                    {!! Form::label('publish', 'Publish On Creation') !!}
                                                 {!! Form::checkbox('publish', 1,  null, ['class' => 'checkbox']) !!}
-                                                {!! $errors->first('tags', '<div class="help-block col-sm-reset inline">:message</div>') !!}
+                                                </div>
                                             </div>
                                         </div>
 
@@ -119,6 +121,7 @@
 @section('scripts')
     <script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
     <script src='{!! url("vendor/AdminLTE/plugins/select2/select2.min.js") !!}'></script>
+    <script src="{!! url('vendor/AdminLTE/plugins/iCheck/icheck.min.js') !!}"></script>
 @endsection
 @section('inline-scripts')
     <script>
@@ -126,6 +129,12 @@
             CKEDITOR.replace('news_editor');
 
             $('.select2').select2();
+
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' // optional
+            });
         });
     </script>
 @endsection
