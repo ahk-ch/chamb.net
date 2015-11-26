@@ -27,7 +27,7 @@ class ArticlesController extends BaseController {
 
 		$categories = ['Category1', 'Category2'];
 
-		return view('admin.news.create', compact('tags', 'categories'));
+		return view('admin.articles.create', compact('tags', 'categories'));
 	}
 
 	/**

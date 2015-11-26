@@ -35,8 +35,12 @@ Route::group(['prefix' => 'admin'], function ()
 	});
 
 	# Articles
-	get('articles/published', ['as' => 'admin.articles.published', 'uses' => 'Admin\ArticlesController@published']);
-	get('articles/unpublished', ['as' => 'admin.articles.unpublished', 'uses' => 'Admin\ArticlesController@unpublished']);
+	Route::group(['prefix' => 'articles'], function ()
+	{
+		get('published', ['as' => 'admin.articles.published', 'uses' => 'Admin\ArticlesController@published']);
+		get('unpublished', ['as' => 'admin.articles.unpublished', 'uses' => 'Admin\ArticlesController@unpublished']);
+		get('categories', ['as' => 'admin.articles.categories', 'uses' => 'Admin\CategoriesController@index']);
+	});
 	Route::resource('articles', 'Admin\ArticlesController', ['except' => ['index', 'store', 'show', 'edit', 'update', 'destroy']]);
 
 

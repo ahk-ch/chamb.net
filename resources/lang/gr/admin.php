@@ -16,6 +16,7 @@ return [
 
 	'administrators'    => 'Διαχειριστές',
 	'articles'          => 'Άρθρα',
+	'categories'        => 'Κατηγορίες',
 	'create'            => 'Δημιουργία',
 	'dashboard'         => 'Ταμπλό',
 	'general_settings'  => 'Γενικές Ρυθμίσεις',

@@ -16,6 +16,7 @@ return [
 
 	'administrators'    => 'Administratoren',
 	'articles'          => 'Articles',
+	'categories'        => 'Categories',
 	'create'            => 'Schaffen',
 	'dashboard'         => 'Armaturenbrett',
 	'general_settings'  => 'Allgemeine Einstellungen',

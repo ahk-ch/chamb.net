@@ -16,6 +16,7 @@ return [
 
 	'administrators'    => 'Administrators',
 	'articles'          => 'Articles',
+	'categories'        => 'Categories',
 	'create'            => 'Create',
 	'dashboard'         => 'Dashboard',
 	'general_settings'  => 'General Settings',

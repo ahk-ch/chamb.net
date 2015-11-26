@@ -56,6 +56,10 @@
                         <a href="{!! route('admin.articles.unpublished') !!}"><i class="fa fa-archive"></i> {!! trans('admin.unpublished') !!}
                         </a>
                     </li>
+                    <li class="{!! activate(['admin.articles.categories']) !!}">
+                        <a href="{!! route('admin.articles.categories') !!}"><i class="fa fa-list"></i> {!! trans('admin.categories') !!}
+                        </a>
+                    </li>
                     <li class="{!! activate(['admin.articles.create']) !!}">
                         <a href="{!! route('admin.articles.create') !!}"><i class="fa fa-plus"></i> {!! trans('admin.create') !!}
                         </a>

@@ -11,7 +11,9 @@
 |
 */
 
-$factory->define(App\AHK\User::class, function (Faker\Generator $faker)
+use App\AHK\User;
+
+$factory->define(User::class, function (Faker\Generator $faker)
 {
 	return [
 		'name'           => $faker->name,
@@ -19,5 +21,13 @@ $factory->define(App\AHK\User::class, function (Faker\Generator $faker)
 		'email'          => $faker->email,
 		'password'       => bcrypt(str_random(10)),
 		'remember_token' => str_random(10),
+	];
+});
+
+$factory->define(App\AHK\Category::class, function (Faker\Generator $faker)
+{
+	return [
+		'name'      => implode(' ', $faker->words),
+		'author_id' => factory(User::class)->create()->id,
 	];
 });
