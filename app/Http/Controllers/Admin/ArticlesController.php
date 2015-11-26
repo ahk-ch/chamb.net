@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
-class ArticlesController extends Controller {
+class ArticlesController extends BaseController {
 	/**
 	 * Display a listing of the resource.
 	 *
