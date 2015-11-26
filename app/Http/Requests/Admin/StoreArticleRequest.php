@@ -24,8 +24,8 @@ class StoreArticleRequest extends Request {
 	public function rules()
 	{
 		return [
-			'title'       => 'required|unique:articles,name|min:1',
-			'published'   => 'boolean',
+			'title'       => 'required|unique:articles|min:1',
+			'publish'     => 'boolean',
 			'source'      => 'url',
 			'description' => 'required|min:1',
 			'content'     => 'required|min:1',

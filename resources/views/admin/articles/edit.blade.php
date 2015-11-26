@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Create Article')
+@section('title', 'Edit Article')
 @section('styles')
     <link href='{!! url("vendor/AdminLTE/plugins/select2/select2.min.css") !!}' rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" href="{!! url('vendor/AdminLTE/plugins/iCheck/square/blue.css') !!}">
@@ -8,10 +8,11 @@
 @endsection
 @section('content')
 
-    {!! Form::model($article, ['route' => ['admin.articles.store'], 'role' => 'form']) !!}
+    {!! Form::model($article, ['route' => ['admin.articles.update'], 'role' => 'form', 'method' => 'PUT']) !!}
+    {!! Form::hidden('id', $article->id) !!}
     @include('admin.articles._partials.form')
     <div class="box-footer">
-        {!! Form::button('Create', ['class' => 'btn btn-primary btn-flat', 'type' => 'submit']) !!}
+        {!! Form::button('Update', ['class' => 'btn btn-primary btn-flat', 'type' => 'submit']) !!}
     </div>
     {!! Form::close() !!}
 @endsection
@@ -35,3 +36,4 @@
         });
     </script>
 @endsection
+

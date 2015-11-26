@@ -16,7 +16,7 @@ class CreateArticlesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('title');
-			$table->boolean('published');
+			$table->boolean('publish')->nullable()->default(false);
 			$table->string('source');
 			$table->mediumText('description');
 			$table->longText('content');

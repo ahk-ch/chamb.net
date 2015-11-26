@@ -11,7 +11,7 @@ class Article extends Model {
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['title', 'published', 'source', 'description', 'content'];
+	protected $fillable = ['title', 'publish', 'source', 'description', 'content'];
 
 	/**
 	 * The tags this article belongs to.
@@ -20,12 +20,20 @@ class Article extends Model {
 	 */
 	public function tags()
 	{
-		return $this->belongsTo('App\AHK\Tag');
+		return $this->belongsToMany('App\AHK\Tag')->withTimestamps();;
 	}
 
 	public function assignAuthor(User $user)
 	{
 		$this->author()->associate($user);
+	}
+
+	/**
+	 * Get the user this category was created from.
+	 */
+	public function author()
+	{
+		return $this->belongsTo('App\AHK\User');
 	}
 
 	public function assignCategory(Category $category)

@@ -77,12 +77,11 @@ class ArticlesController extends BaseController {
 	 */
 	public function store(StoreArticleRequest $request)
 	{
-		dd();
 		$category = $this->categoryRepository->getById($request->get('category_id'));
 
-		$tagIds = $request->get('tagIds');
-
-		$articleStored = $this->articleRepository->store(Auth::user(), $request->only('name'), $category, $tagIds);
+		$articleStored = $this->articleRepository->store(
+			Auth::user(), $request->only(['title', 'description', 'publish', 'source', 'content']),
+			$category, $request->get('tagIds', []));
 
 		if ( ! $articleStored )
 		{
@@ -115,7 +114,13 @@ class ArticlesController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$article = $this->articleRepository->getById($id);
+
+		$tags = $this->tagRepository->all()->lists('name', 'id');
+
+		$categories = $this->categoryRepository->all()->lists('name', 'id');
+
+		return view('admin.articles.edit', compact('article', 'tags', 'categories'));
 	}
 
 	/**

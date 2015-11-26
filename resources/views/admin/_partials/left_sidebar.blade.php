@@ -45,7 +45,7 @@
                 </ul>
             </li>
             <li class="treeview {!! activate([
-                'admin.articles.published', 'admin.articles.unpublished','admin.articles.create',
+                'admin.articles.published', 'admin.articles.unpublished','admin.articles.create', 'admin.articles.edit',
                 'admin.articles.categories.index', 'admin.articles.categories.create', 'admin.articles.categories.edit',
                  'admin.articles.tags.index', 'admin.articles.tags.create', 'admin.articles.tags.edit']) !!}">
                 <a href="#"> <i class="fa fa-newspaper-o"></i> <span>{!! trans('admin.articles') !!}</span>

@@ -48,18 +48,18 @@ class DbArticleRepository extends DbRepository implements ArticleRepository {
 	}
 
 	/**
-	 * Update a category given it id.
+	 * Update an article given it id.
 	 * @param $id
 	 * @param array $fillable
 	 * @return mixed
 	 */
 	public function updateById($id, array $fillable)
 	{
-		$category = $this->getById($id);
+		$article = $this->getById($id);
 
-		$category->fill($fillable);
+		$article->fill($fillable);
 
-		return $category->save() ? $category : false;
+		return $article->save() ? $article : false;
 	}
 
 	/**

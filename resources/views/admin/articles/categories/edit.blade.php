@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Update Category')
+@section('title', 'Edit Category')
 @section('styles')
     <link href='{!! url("vendor/AdminLTE/plugins/select2/select2.min.css") !!}' rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" href="{!! url('vendor/AdminLTE/plugins/iCheck/square/blue.css') !!}">
