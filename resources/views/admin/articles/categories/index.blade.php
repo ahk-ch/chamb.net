@@ -20,6 +20,11 @@
                 </tr>
                 @foreach($categories as $category)
                     <tr>
+                        <td>
+                            <a href="{!! route('admin.articles.categories.edit', $category) !!}" class="btn bg-purple btn-flat btn-sm btn-block">
+                                {!! trans('admin.edit') !!}
+                            </a>
+                        </td>
                         <td>{!! $category->name !!}</td>
                         <td>{!! $category->author->name or $category->author->username !!}</td>
                         <td>{!! $category->created_at !!}</td>
@@ -30,11 +35,10 @@
 
         </div><!-- /.box-body -->
         <div class="box-footer clearfix">
-            <ul class="pagination pagination-sm pull-left">
-
+            <div class="pagination pagination-sm pull-left">
                 <a href="{!! route('admin.articles.categories.create') !!}" class="btn btn-block btn-primary btn-flat">
                     {!! trans('admin.create') !!}</a>
-            </ul>
+            </div>
             <ul class="pagination pagination-sm no-margin pull-right">
                 {!! $categories->render() !!}
             </ul>

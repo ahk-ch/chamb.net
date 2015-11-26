@@ -21,6 +21,7 @@ return [
 	'category_updated'         => 'Category updated.',
 	'create'                   => 'Create',
 	'dashboard'                => 'Dashboard',
+	'edit'                     => 'Edit',
 	'general_settings'         => 'General Settings',
 	'news'                     => 'News',
 	'published'                => 'Published',

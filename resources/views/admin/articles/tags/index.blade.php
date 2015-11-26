@@ -20,6 +20,11 @@
                 </tr>
                 @foreach($tags as $tag)
                     <tr>
+                        <td>
+                            <a href="{!! route('admin.articles.tags.edit', $tag) !!}" class="btn bg-purple btn-flat btn-sm btn-block">
+                                {!! trans('admin.edit') !!}
+                            </a>
+                        </td>
                         <td>{!! $tag->name !!}</td>
                         <td>{!! $tag->author->name or $tag->author->username !!}</td>
                         <td>{!! $tag->created_at !!}</td>
@@ -30,11 +35,10 @@
 
         </div><!-- /.box-body -->
         <div class="box-footer clearfix">
-            <ul class="pagination pagination-sm pull-left">
-
+            <div class="pagination pagination-sm pull-left">
                 <a href="{!! route('admin.articles.tags.create') !!}" class="btn btn-block btn-primary btn-flat">
                     {!! trans('admin.create') !!}</a>
-            </ul>
+            </div>
             <ul class="pagination pagination-sm no-margin pull-right">
                 {!! $tags->render() !!}
             </ul>

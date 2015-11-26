@@ -21,6 +21,7 @@ return [
 	'category_updated'         => 'Kategorie aktualisiert..',
 	'create'                   => 'Schaffen',
 	'dashboard'                => 'Armaturenbrett',
+	'edit'                     => 'Bearbeiten',
 	'general_settings'         => 'Allgemeine Einstellungen',
 	'news'                     => 'Nachrichten',
 	'published'                => 'Erschienen',

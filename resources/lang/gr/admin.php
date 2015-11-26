@@ -21,6 +21,7 @@ return [
 	'category_updated'         => 'Κατηγορία ενημερώθηκε.',
 	'create'                   => 'Δημιουργία',
 	'dashboard'                => 'Ταμπλό',
+	'edit'                     => 'Επεξεργασία',
 	'general_settings'         => 'Γενικές Ρυθμίσεις',
 	'news'                     => 'Νέα',
 	'published'                => 'Δημοσιευμένα',
