@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\AHK\Notifications\Flash;
 use App\AHK\Repositories\Tag\TagRepository;
+use App\AHK\Tag;
 use App\Http\Requests;
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\StoreTagRequest;
+use App\Http\Requests\Admin\UpdateTagRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TagsController extends BaseController {
 	/**
@@ -13,9 +17,7 @@ class TagsController extends BaseController {
 	private $tagRepository;
 
 	/**
-	 * CategoriesController constructor.
 	 * @param TagRepository $tagRepository
-	 * @internal param TagRepository $categoryRepository
 	 */
 	public function __construct(TagRepository $tagRepository)
 	{
@@ -43,18 +45,31 @@ class TagsController extends BaseController {
 	 */
 	public function create()
 	{
-		//
+		$tag = new Tag();
+
+		return view('admin.articles.tags.create', compact('tag'));
 	}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request $request
+	 * @param StoreTagRequest $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request)
+	public function store(StoreTagRequest $request)
 	{
-		//
+		$tagStored = $this->tagRepository->store(Auth::user(), $request->only('name'));
+
+		if ( ! $tagStored )
+		{
+			Flash::error(trans('admin.unable_to_store_tag'));
+
+			return redirect()->back();
+		}
+
+		Flash::success(trans('admin.tag_created'));
+
+		return redirect()->route('admin.articles.tags.edit', $tagStored);
 	}
 
 	/**
@@ -76,19 +91,32 @@ class TagsController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$tag = $this->tagRepository->getById($id);
+
+		return view('admin.articles.tags.edit', compact('tag'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request $request
 	 * @param  int $id
+	 * @param UpdateTagRequest $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id)
+	public function update($id, UpdateTagRequest $request)
 	{
-		//
+		$tagSaved = $this->tagRepository->updateById($id, $request->only('name'));
+
+		if ( ! $tagSaved )
+		{
+			Flash::error(trans('admin.something_went_wrong'));
+
+			return redirect()->back();
+		}
+
+		Flash::success(trans('admin.tag_updated'));
+
+		return redirect()->route('admin.articles.tags.edit', $tagSaved);
 	}
 
 	/**

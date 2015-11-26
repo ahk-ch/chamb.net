@@ -28,8 +28,11 @@ return [
 	'something_went_wrong'     => 'Κάτι πήγε στραβά.',
 	'subscribers'              => 'Συνδρομητές',
 	'tags'                     => 'Ετικέτες',
+	'tag_created'              => 'Ετικέτα δημιουργήθηκε.',
+	'tag_updated'              => 'Ετικέτα ενημερώθηκε.',
 	'toggle_navigation'        => 'Εναλλαγη πλοηγησης',
 	'unable_to_store_category' => 'Δεν είναι δυνατόν να αποθηκεύσουμε την κατηγορία αυτή.',
+	'unable_to_store_tag'      => 'Δεν είναι δυνατή η αποθήκευση της ετικέτας.',
 	'unpublished'              => 'Αδημοσίευτα',
 	'users'                    => 'Χρήστες',
 ];

@@ -28,8 +28,11 @@ return [
 	'subscribers'              => 'Subscribers',
 	'something_went_wrong'     => 'Something went wrong.',
 	'tags'                     => 'Tags',
+	'tag_created'              => 'Tag created.',
+	'tag_updated'              => 'Tag updated.',
 	'toggle_navigation'        => 'Toggle navigation',
 	'unable_to_store_category' => 'Unable to store category.',
+	'unable_to_store_tag'      => 'Unable to store tag.',
 	'unpublished'              => 'Unpublished',
 	'users'                    => 'Users',
 ];
