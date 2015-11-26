@@ -2,25 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\AHK\Repositories\Category\CategoryRepository;
+use App\AHK\Repositories\Tag\TagRepository;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
-class ArticlesController extends BaseController {
+class TagsController extends BaseController {
 	/**
-	 * @var CategoryRepository
+	 * @var TagRepository
 	 */
-	private $categoryRepository;
+	private $tagRepository;
 
 	/**
 	 * CategoriesController constructor.
-	 * @param CategoryRepository $categoryRepository
+	 * @param TagRepository $tagRepository
+	 * @internal param TagRepository $categoryRepository
 	 */
-	public function __construct(CategoryRepository $categoryRepository)
+	public function __construct(TagRepository $tagRepository)
 	{
 		parent::__construct();
 
-		$this->categoryRepository = $categoryRepository;
+		$this->tagRepository = $tagRepository;
 	}
 
 	/**
@@ -30,7 +31,9 @@ class ArticlesController extends BaseController {
 	 */
 	public function index()
 	{
-		//
+		$tags = $this->tagRepository->all()->paginate(10);
+
+		return view('admin.articles.tags.index', compact('tags'));
 	}
 
 	/**
@@ -40,11 +43,7 @@ class ArticlesController extends BaseController {
 	 */
 	public function create()
 	{
-		$tags = ['Tag1', 'Tag2'];
-
-		$categories = $this->categoryRepository->all()->lists('name', 'id');
-
-		return view('admin.articles.create', compact('tags', 'categories'));
+		//
 	}
 
 	/**

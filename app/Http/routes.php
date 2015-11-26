@@ -40,6 +40,7 @@ Route::group(['prefix' => 'admin'], function ()
 		get('published', ['as' => 'admin.articles.published', 'uses' => 'Admin\ArticlesController@published']);
 		get('unpublished', ['as' => 'admin.articles.unpublished', 'uses' => 'Admin\ArticlesController@unpublished']);
 		Route::resource('categories', 'Admin\CategoriesController', ['except' => ['show', 'destroy']]);
+		Route::resource('tags', 'Admin\TagsController', ['except' => ['show', 'destroy']]);
 	});
 	Route::resource('articles', 'Admin\ArticlesController', ['except' => ['index', 'store', 'show', 'edit', 'update', 'destroy']]);
 

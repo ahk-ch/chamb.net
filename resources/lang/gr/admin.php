@@ -27,6 +27,7 @@ return [
 	'sign_out'                 => 'Αποσύνδεση',
 	'something_went_wrong'     => 'Κάτι πήγε στραβά.',
 	'subscribers'              => 'Συνδρομητές',
+	'tags'                     => 'Ετικέτες',
 	'toggle_navigation'        => 'Εναλλαγη πλοηγησης',
 	'unable_to_store_category' => 'Δεν είναι δυνατόν να αποθηκεύσουμε την κατηγορία αυτή.',
 	'unpublished'              => 'Αδημοσίευτα',

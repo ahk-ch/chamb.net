@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Categories')
+@section('title', 'Tags')
 @section('styles')
 @endsection
 @section('inline-styles')
@@ -18,12 +18,12 @@
                     <th>Update At</th>
                     <th>Actions</th>
                 </tr>
-                @foreach($categories as $category)
+                @foreach($tags as $tag)
                     <tr>
-                        <td>{!! $category->name !!}</td>
-                        <td>{!! $category->author->name or $category->author->username !!}</td>
-                        <td>{!! $category->created_at !!}</td>
-                        <td>{!! $category->updated_at !!}</td>
+                        <td>{!! $tag->name !!}</td>
+                        <td>{!! $tag->author->name or $tag->author->username !!}</td>
+                        <td>{!! $tag->created_at !!}</td>
+                        <td>{!! $tag->updated_at !!}</td>
                     </tr>
                 @endforeach
             </table>
@@ -32,11 +32,11 @@
         <div class="box-footer clearfix">
             <ul class="pagination pagination-sm pull-left">
 
-                <a href="{!! route('admin.articles.categories.create') !!}" class="btn btn-block btn-primary btn-flat">
+                <a href="{!! route('admin.articles.tags.create') !!}" class="btn btn-block btn-primary btn-flat">
                     {!! trans('admin.create') !!}</a>
             </ul>
             <ul class="pagination pagination-sm no-margin pull-right">
-                {!! $categories->render() !!}
+                {!! $tags->render() !!}
             </ul>
         </div>
     </div><!-- /.box -->

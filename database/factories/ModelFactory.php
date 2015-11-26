@@ -31,3 +31,11 @@ $factory->define(App\AHK\Category::class, function (Faker\Generator $faker)
 		'author_id' => factory(User::class)->create()->id,
 	];
 });
+
+$factory->define(App\AHK\Tag::class, function (Faker\Generator $faker)
+{
+	return [
+		'name'      => implode(' ', $faker->words),
+		'author_id' => factory(User::class)->create()->id,
+	];
+});

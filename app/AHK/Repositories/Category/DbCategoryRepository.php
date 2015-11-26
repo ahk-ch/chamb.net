@@ -10,7 +10,6 @@ namespace App\AHK\Repositories\Category;
 use App\AHK\Category;
 use App\AHK\Repositories\DbRepository;
 use App\AHK\User;
-use App\Http\Requests\Admin\StoreCategoryRequest;
 use Illuminate\Database\Eloquent\Collection;
 
 class DbCategoryRepository extends DbRepository implements CategoryRepository {
@@ -26,13 +25,13 @@ class DbCategoryRepository extends DbRepository implements CategoryRepository {
 
 	/**
 	 * Store a category on the storage
-	 * @param StoreCategoryRequest $request
 	 * @param User $author
+	 * @param array $fillable
 	 * @return Category|false
 	 */
-	public function store(StoreCategoryRequest $request, User $author)
+	public function store(User $author, array $fillable)
 	{
-		$category = new Category($request->only('name'));
+		$category = new Category($fillable);
 
 		$category->assignAuthor($author);
 

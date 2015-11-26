@@ -4,33 +4,33 @@
  * @since   26/11/2015
  */
 
-namespace App\AHK\Repositories\Category;
+namespace App\AHK\Repositories\Tag;
 
 
-use App\AHK\Category;
+use App\AHK\Tag;
 use App\AHK\User;
 use Illuminate\Database\Eloquent\Collection;
 
-interface CategoryRepository {
+interface TagRepository {
 
 	/**
-	 * Get all categories
+	 * Get all tags
 	 * @return Collection
 	 */
 	public function all();
 
 	/**
-	 * Store a category on the storage
+	 * Store a tag on the storage
 	 * @param User $author
 	 * @param array $fillable
-	 * @return Category|false
+	 * @return Tag|false
 	 */
 	public function store(User $author, array $fillable);
 
 	/**
-	 * Get a category given its id.
+	 * Get a tag given its id.
 	 * @param $id
-	 * @return Category
+	 * @return Tag
 	 */
 	public function getById($id);
 

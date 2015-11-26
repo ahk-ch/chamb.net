@@ -27,6 +27,7 @@ return [
 	'sign_out'                 => 'Sign Out',
 	'subscribers'              => 'Subscribers',
 	'something_went_wrong'     => 'Something went wrong.',
+	'tags'                     => 'Tags',
 	'toggle_navigation'        => 'Toggle navigation',
 	'unable_to_store_category' => 'Unable to store category.',
 	'unpublished'              => 'Unpublished',

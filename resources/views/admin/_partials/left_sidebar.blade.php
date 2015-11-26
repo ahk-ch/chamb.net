@@ -44,9 +44,10 @@
                     </li>
                 </ul>
             </li>
-            <li class="treeview {!! activate(['admin.articles.published', 'admin.articles.unpublished',
-                'admin.articles.create', 'admin.articles.categories.index', 'admin.articles.categories.create',
-                'admin.articles.categories.edit']) !!}">
+            <li class="treeview {!! activate([
+                'admin.articles.published', 'admin.articles.unpublished','admin.articles.create',
+                'admin.articles.categories.index', 'admin.articles.categories.create', 'admin.articles.categories.edit',
+                 'admin.articles.tags.index', 'admin.articles.tags.create', 'admin.articles.tags.edit']) !!}">
                 <a href="#"> <i class="fa fa-newspaper-o"></i> <span>{!! trans('admin.articles') !!}</span>
                     <i class="fa fa-angle-left pull-right"></i> </a>
                 <ul class="treeview-menu">
@@ -58,13 +59,18 @@
                         <a href="{!! route('admin.articles.unpublished') !!}"><i class="fa fa-archive"></i> {!! trans('admin.unpublished') !!}
                         </a>
                     </li>
-                    <li class="{!! activate(['admin.articles.categories.index', 'admin.articles.categories.create',
-                    'admin.articles.categories.edit']) !!}">
-                        <a href="{!! route('admin.articles.categories.index') !!}"><i class="fa fa-list"></i> {!! trans('admin.categories') !!}
-                        </a>
-                    </li>
                     <li class="{!! activate(['admin.articles.create']) !!}">
                         <a href="{!! route('admin.articles.create') !!}"><i class="fa fa-plus"></i> {!! trans('admin.create') !!}
+                        </a>
+                    </li>
+                    <li class="{!! activate(['admin.articles.categories.index', 'admin.articles.categories.create',
+                    'admin.articles.categories.edit']) !!}">
+                        <a href="{!! route('admin.articles.categories.index') !!}"><i class="fa fa-puzzle-piece"></i> {!! trans('admin.categories') !!}
+                        </a>
+                    </li>
+                    <li class="{!! activate(['admin.articles.tags.index', 'admin.articles.tags.create',
+                    'admin.articles.tags.edit']) !!}">
+                        <a href="{!! route('admin.articles.tags.index') !!}"><i class="fa fa-tags"></i> {!! trans('admin.tags') !!}
                         </a>
                     </li>
                 </ul>

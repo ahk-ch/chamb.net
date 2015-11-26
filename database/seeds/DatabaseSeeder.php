@@ -1,6 +1,7 @@
 <?php
 
 use database\seeds\ArticleCategoryTableSeeder;
+use database\seeds\ArticleTagTableSeeder;
 use database\seeds\UserTableSeeder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
@@ -17,6 +18,7 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call(UserTableSeeder::class);
 		$this->call(ArticleCategoryTableSeeder::class);
+		$this->call(ArticleTagTableSeeder::class);
 
 		Model::reguard();
 	}

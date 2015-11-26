@@ -27,6 +27,7 @@ return [
 	'sign_out'                 => 'Austragen',
 	'something_went_wrong'     => 'Etwas ist schief gelaufen.',
 	'subscribers'              => 'Abonnenten',
+	'tags'                     => 'Schlagwörter',
 	'toggle_navigation'        => 'Umschalten navigation',
 	'unable_to_store_category' => 'Unfähig, Kategorie zu speichern.',
 	'unpublished'              => 'Unveröffentlicht',
