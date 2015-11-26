@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Create Article')
+@section('title', 'Update Category')
 @section('styles')
     <link href='{!! url("vendor/AdminLTE/plugins/select2/select2.min.css") !!}' rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" href="{!! url('vendor/AdminLTE/plugins/iCheck/square/blue.css') !!}">
@@ -23,12 +23,13 @@
                             <i class="fa fa-times"></i></button>
                     </div><!-- /. tools -->
                 </div><!-- /.box-header -->
-                {!! Form::model($category, ['route' => ['admin.articles.categories.store'], 'role' => 'form']) !!}
+                {!! Form::model($category, ['method' => 'PUT', 'route' => ['admin.articles.categories.update', $category->id], 'role' => 'form']) !!}
+                {!! Form::hidden('id', $category->id) !!}
                 <div class="box-body">
                     @include('admin.articles.categories._partials.form')
                 </div>
                 <div class="box-footer">
-                    {!! Form::button('Create', ['class' => 'btn btn-primary btn-flat', 'type' => 'submit']) !!}
+                    {!! Form::button('Update', ['class' => 'btn btn-primary btn-flat', 'type' => 'submit']) !!}
                 </div>
                 {!! Form::close() !!}
             </div><!-- /.box -->
@@ -56,4 +57,3 @@
         });
     </script>
 @endsection
-

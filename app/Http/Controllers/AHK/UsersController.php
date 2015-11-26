@@ -4,7 +4,7 @@ namespace App\Http\Controllers\AHK;
 
 use App\AHK\Notifications\Flash;
 use App\AHK\Repositories\User\UserRepository;
-use App\Http\Controllers\Admin\BaseController;
+use App\Http\Controllers\AHK\BaseController;
 use App\Http\Requests;
 use App\Http\Requests\StoreUserRequest;
 

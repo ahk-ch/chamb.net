@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\AHK;
 
 use App\AHK\Notifications\Flash;
-use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests;
 use App\Http\Requests\StoreSessionRequest;
 use Illuminate\Http\Response;

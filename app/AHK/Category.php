@@ -12,6 +12,10 @@ class Category extends Model {
 	 */
 	protected $fillable = ['name'];
 
+	public function assignAuthor(User $user)
+	{
+		$this->author()->associate($user);
+	}
 
 	/**
 	 * Get the user this category was created from.

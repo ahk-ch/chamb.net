@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth\AHK;
 
-use App\Http\Controllers\Admin\BaseController;
+use App\Http\Controllers\AHK\BaseController;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 

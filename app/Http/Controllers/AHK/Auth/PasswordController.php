@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Auth\AHK;
 
+use App\Http\Controllers\AHK\BaseController;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
-class PasswordController extends Controller
+class PasswordController extends BaseController
 {
     /*
     |--------------------------------------------------------------------------
