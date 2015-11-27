@@ -62,7 +62,7 @@ class ArticlesController extends BaseController {
 	{
 		$articles = $this->articleRepository->published()->paginate(10);
 
-		return view('admin.articles.published', compact('articles'));
+		return view('admin.articles.index', compact('articles'));
 	}
 
 	/**
@@ -72,7 +72,9 @@ class ArticlesController extends BaseController {
 	 */
 	public function unpublished()
 	{
-		return redirect()->route('admin.dashboard');
+		$articles = $this->articleRepository->unpublished()->paginate(10);
+
+		return view('admin.articles.index', compact('articles'));
 	}
 
 	/**

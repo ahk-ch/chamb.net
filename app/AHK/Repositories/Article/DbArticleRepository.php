@@ -91,4 +91,13 @@ class DbArticleRepository extends DbRepository implements ArticleRepository {
 	{
 		return Article::with('author', 'category', 'tags')->where('publish', true);
 	}
+
+	/**
+	 * Return unpublished articles
+	 * @return mixed
+	 */
+	public function unpublished()
+	{
+		return Article::with('author', 'category', 'tags')->where('publish', false);
+	}
 }

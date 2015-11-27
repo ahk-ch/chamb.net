@@ -36,6 +36,12 @@ interface ArticleRepository {
 	public function published();
 
 	/**
+	 * Return unpublished articles
+	 * @return mixed
+	 */
+	public function unpublished();
+
+	/**
 	 * Get an article given its id.
 	 * @param $id
 	 * @return Article
