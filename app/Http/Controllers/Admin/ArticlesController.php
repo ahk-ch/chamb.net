@@ -191,12 +191,9 @@ class ArticlesController extends BaseController {
 
 		Flash::success(trans('admin.article_updated'));
 
-		if ( $request->has('tagIds') )
-		{
-			$tagsUpdated = $this->articleRepository->updateTagsById($articleUpdated->id, $request->get('tagIds', []));
+		$tagsUpdated = $this->articleRepository->updateTagsById($articleUpdated->id, $request->get('tagIds', []));
 
-			if ( ! $tagsUpdated ) Flash::error(trans('admin.unable_to_update_tags'));
-		}
+		if ( ! $tagsUpdated ) Flash::error(trans('admin.unable_to_update_tags'));
 
 		return redirect()->route('admin.articles.edit', $articleUpdated);
 	}
