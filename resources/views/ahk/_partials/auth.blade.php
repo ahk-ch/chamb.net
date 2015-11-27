@@ -86,7 +86,7 @@
 
             <p class="fieldset">
                 <input type="checkbox" id="accept-terms"> <label for="accept-terms">{!! trans('ahk.i_agree_to_the') !!}
-                    <a href="page_terms.html">{!! trans('ahk.terms') !!}</a></label>
+                    <a href="{!! route('terms_of_use') !!}">{!! trans('ahk.terms_of_use') !!}</a></label>
             </p>
 
             <p class="fieldset">

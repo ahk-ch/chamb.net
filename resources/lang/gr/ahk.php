@@ -38,7 +38,7 @@ return [
 	'register'                        => 'Καταγραφη',
 	'remember_me'                     => 'Να με θυμάσαι',
 	'search'                          => 'Αναζήτηση',
-	'terms'                           => 'Όρους',
+	'terms_of_use'                    => 'Όροι χρήσης.',
 	'toggle_navigation'               => 'Εναλλαγη πλοηγησης',
 	'username'                        => 'Ψευδώνυμο',
 	'welcome'                         => 'Καλώς ορίσατε!',

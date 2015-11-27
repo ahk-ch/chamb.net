@@ -52,4 +52,15 @@ class HomeController extends BaseController {
 	{
 		return view('ahk.companies');
 	}
+
+
+	/**
+	 * Display the terms of use resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function termsOfUse()
+	{
+		return view('ahk.terms_of_use');
+	}
 }

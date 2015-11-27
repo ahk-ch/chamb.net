@@ -37,7 +37,7 @@ return [
 	'register'                        => 'Neu registrieren',
 	'remember_me'                     => 'Erinnere dich an mich',
 	'search'                          => 'Suche',
-	'terms'                           => 'Allgemeine Geschäftsbedingungen',
+	'terms_of_use'                    => 'Nutzungsbedingungen.',
 	'toggle_navigation'               => 'Umschalten navigation',
 	'username'                        => 'Benutzername',
 	'welcome'                         => 'Willkommen!',

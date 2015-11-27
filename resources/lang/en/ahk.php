@@ -37,7 +37,7 @@ return [
 	'remember_me'                     => 'Remember me',
 	'news'                            => 'News',
 	'search'                          => 'Search',
-	'terms'                           => 'Terms',
+	'terms_of_use'                    => 'Terms of Use',
 	'toggle_navigation'               => 'Toggle navigation',
 	'username'                        => 'Username',
 	'welcome'                         => 'Welcome!',
