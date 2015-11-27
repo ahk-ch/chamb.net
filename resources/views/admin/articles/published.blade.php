@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Categories')
+@section('title', 'Published Articles')
 @section('styles')
 @endsection
 @section('inline-styles')
@@ -13,22 +13,28 @@
             <table class="table table-bordered">
                 <tr>
                     <th>Actions</th>
-                    <th>Name</th>
+                    <th>title</th>
+                    <th>Category</th>
+                    <th>Tags</th>
                     <th>Author</th>
-                    <th>Created at</th>
-                    <th>Updated At</th>
+                    <th>Created at / Updated at</th>
                 </tr>
-                @foreach($categories as $category)
+                @foreach($articles as $article)
                     <tr>
                         <td>
-                            <a href="{!! route('admin.articles.categories.edit', $category) !!}" class="btn bg-purple btn-flat btn-sm btn-block">
+                            <a href="{!! route('admin.articles.edit', $article) !!}" class="btn bg-purple btn-flat btn-sm btn-block">
                                 {!! trans('admin.edit') !!}
                             </a>
                         </td>
-                        <td>{!! $category->name !!}</td>
-                        <td>{!! $category->author->name or $category->author->username !!}</td>
-                        <td>{!! $category->created_at !!}</td>
-                        <td>{!! $category->updated_at !!}</td>
+                        <td>{!! $article->title !!}</td>
+                        <td>{!! $article->category->name !!}</td>
+                        <td>
+                            @foreach($article->tags as $tag)
+                                {!! $tag->name !!}
+                            @endforeach
+                        </td>
+                        <td>{!! $article->author->name or $article->author->username !!}</td>
+                        <td>{!! $article->created_at !!} / {!! $article->updated_at !!}</td>
                     </tr>
                 @endforeach
             </table>
@@ -40,7 +46,7 @@
                     {!! trans('admin.create') !!}</a>
             </div>
             <ul class="pagination pagination-sm no-margin pull-right">
-                {!! $categories->render() !!}
+                {!! $articles->render() !!}
             </ul>
         </div>
     </div><!-- /.box -->

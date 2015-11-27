@@ -29,10 +29,9 @@ class DbArticleRepository extends DbRepository implements ArticleRepository {
 	 * @param User $author
 	 * @param array $fillable
 	 * @param Category $category
-	 * @param array $tagIds
 	 * @return Article|false
 	 */
-	public function store(User $author, array $fillable, Category $category, array $tagIds)
+	public function store(User $author, array $fillable, Category $category)
 	{
 		$article = new Article($fillable);
 
@@ -40,11 +39,33 @@ class DbArticleRepository extends DbRepository implements ArticleRepository {
 
 		$article->assignCategory($category);
 
-		if ( ! $article->save() ) return false;
+		return $article->save() ? $article : false;
+	}
+
+	/**
+	 * Update the tags of an article
+	 * @param $id Article id
+	 * @param array $tagIds
+	 * @return Article|false
+	 */
+	public function updateTagsById($id, array $tagIds)
+	{
+		$article = $this->getById($id);
 
 		$article->tags()->attach($tagIds);
 
 		return $article->save() ? $article : false;
+	}
+
+	/**
+	 * Get a category given its id
+	 * @param $id
+	 * @return Category
+	 */
+	public function getById($id)
+	{
+		return Article::with('author', 'category', 'tags')
+			->where('articles.id', $id)->first();
 	}
 
 	/**
@@ -63,12 +84,11 @@ class DbArticleRepository extends DbRepository implements ArticleRepository {
 	}
 
 	/**
-	 * Get a category given its id
-	 * @param $id
-	 * @return Category
+	 * Return published articles
+	 * @return mixed
 	 */
-	public function getById($id)
+	public function published()
 	{
-		return Category::find($id);
+		return Article::with('author', 'category', 'tags')->where('publish', true);
 	}
 }

@@ -25,10 +25,15 @@ interface ArticleRepository {
 	 * @param User $author
 	 * @param array $fillable
 	 * @param Category $category
-	 * @param array $tagIds
 	 * @return Article|false
 	 */
-	public function store(User $author, array $fillable, Category $category, array $tagIds);
+	public function store(User $author, array $fillable, Category $category);
+
+	/**
+	 * Return published articles
+	 * @return mixed
+	 */
+	public function published();
 
 	/**
 	 * Get an article given its id.
@@ -44,4 +49,12 @@ interface ArticleRepository {
 	 * @return mixed
 	 */
 	public function updateById($id, array $fillable);
+
+	/**
+	 * Update tags of an article.
+	 * @param $id
+	 * @param array $tagIds
+	 * @return mixed
+	 */
+	public function  updateTagsById($id, array $tagIds);
 }

@@ -60,7 +60,9 @@ class ArticlesController extends BaseController {
 	 */
 	public function published()
 	{
-		return redirect()->route('admin.dashboard');
+		$articles = $this->articleRepository->published()->paginate(10);
+
+		return view('admin.articles.published', compact('articles'));
 	}
 
 	/**
@@ -100,8 +102,7 @@ class ArticlesController extends BaseController {
 		$category = $this->categoryRepository->getById($request->get('category_id'));
 
 		$articleStored = $this->articleRepository->store(
-			Auth::user(), $request->only(['title', 'description', 'publish', 'source', 'content']),
-			$category, $request->get('tagIds', []));
+			Auth::user(), $request->only(['title', 'description', 'publish', 'source', 'content']), $category);
 
 		if ( ! $articleStored )
 		{
@@ -111,6 +112,10 @@ class ArticlesController extends BaseController {
 		}
 
 		Flash::success(trans('admin.article_created'));
+
+		$tagsStored = $this->articleRepository->updateTagsById($articleStored->id, $request->get('tagIds', []));
+
+		if ( ! $tagsStored ) Flash::error(trans('admin.unable_to_attach_tags'));
 
 		return redirect()->route('admin.articles.edit', $articleStored);
 	}
@@ -136,9 +141,16 @@ class ArticlesController extends BaseController {
 	{
 		$article = $this->articleRepository->getById($id);
 
+		if ( $article === null )
+		{
+			Flash::error('admin.article_does_exists');
+
+			return redirect()->route('admin.articles.published');
+		}
 		$tags = $this->tagRepository->all()->lists('name', 'id');
 
 		$categories = $this->categoryRepository->all()->lists('name', 'id');
+
 
 		return view('admin.articles.edit', compact('article', 'tags', 'categories'));
 	}

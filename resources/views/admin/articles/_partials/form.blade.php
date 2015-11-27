@@ -20,7 +20,7 @@
                         <div class='form-group @if($errors->first('title')) has-error @endif'>
                             <i class="fa fa-th-large"></i>
                             {!! Form::label('title', 'Title', ['class' => 'control-label']) !!}
-                            {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter title']) !!}
+                            {!! Form::text('title', $article->title, ['class' => 'form-control', 'placeholder' => 'Enter title']) !!}
                             {!! $errors->first('title', '<div class="help-block col-sm-reset inline">:message</div>') !!}
                         </div>
                     </div>
@@ -97,8 +97,6 @@
                 </div><!-- /. tools -->
             </div><!-- /.box-header -->
             <div class="box-body pad">
-                    <textarea id="content" name="content" rows="13">
-                    </textarea>
                 {!! Form::textarea('content', null, ['class' => 'form-control', 'id'=> 'content', 'rows' => '13']) !!}
                 {!! $errors->first('source', '<div class="help-block col-sm-reset inline">:message</div>') !!}
                 <div class='form-group @if($errors->first('content')) has-error @endif'>

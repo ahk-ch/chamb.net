@@ -33,6 +33,7 @@ return [
 	'tag_created'              => 'Tag erstellt.',
 	'tag_updated'              => 'Tag aktualisiert.',
 	'toggle_navigation'        => 'Umschalten navigation',
+	'unable_to_attach_tags'    => 'Ynavle die attaki Tags.',
 	'unable_to_store_article'  => 'Können Sie Artikel zu speichern.',
 	'unable_to_store_category' => 'Unfähig, Kategorie zu speichern.',
 	'unable_to_store_tag'      => 'Unable to-Tag zu speichern.',

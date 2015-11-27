@@ -12,11 +12,11 @@
         <div class="box-body">
             <table class="table table-bordered">
                 <tr>
-                    <th>Name</th>
-                    <th>Created by</th>
-                    <th>Created at</th>
-                    <th>Update At</th>
                     <th>Actions</th>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Created at</th>
+                    <th>Updated At</th>
                 </tr>
                 @foreach($tags as $tag)
                     <tr>

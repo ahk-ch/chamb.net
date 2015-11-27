@@ -1,5 +1,6 @@
 <?php
 
+use database\DbTruncator;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +18,7 @@ class CreateArticlesTable extends Migration {
 			$table->increments('id');
 			$table->string('title');
 			$table->boolean('publish')->nullable()->default(false);
-			$table->string('source');
+			$table->string('source')->nullable();
 			$table->mediumText('description');
 			$table->longText('content');
 			$table->timestamps();
@@ -34,6 +35,6 @@ class CreateArticlesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('articles');
+		DbTruncator::truncateByTable('articles');
 	}
 }
