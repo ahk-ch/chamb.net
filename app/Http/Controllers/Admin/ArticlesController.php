@@ -90,7 +90,9 @@ class ArticlesController extends BaseController {
 
 		$categories = $this->categoryRepository->all()->lists('name', 'id');
 
-		return view('admin.articles.create', compact('tags', 'categories', 'article'));
+		$selectedTags = $article->tags()->lists('id')->toArray();
+
+		return view('admin.articles.create', compact('tags', 'categories', 'article', 'selectedTags'));
 	}
 
 	/**

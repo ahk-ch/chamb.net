@@ -42,7 +42,7 @@
         </div><!-- /.box-body -->
         <div class="box-footer clearfix">
             <div class="pagination pagination-sm pull-left">
-                <a href="{!! route('admin.articles.categories.create') !!}" class="btn btn-block btn-primary btn-flat">
+                <a href="{!! route('admin.articles.create') !!}" class="btn btn-block btn-primary btn-flat">
                     {!! trans('admin.create') !!}</a>
             </div>
             <ul class="pagination pagination-sm no-margin pull-right">
