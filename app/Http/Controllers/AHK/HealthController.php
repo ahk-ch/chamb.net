@@ -9,9 +9,27 @@ namespace App\Http\Controllers\AHK;
  * @since   23/11/2015
  */
 
+use App\AHK\Repositories\Article\ArticleRepository;
 use App\Http\Requests;
 
 class HealthController extends BaseController {
+	/**
+	 * @var ArticleRepository
+	 */
+	private $articleRepository;
+
+
+	/**
+	 * CategoriesController constructor.
+	 * @param ArticleRepository $articleRepository
+	 */
+	public function __construct(ArticleRepository $articleRepository)
+	{
+		parent::__construct();
+
+		$this->articleRepository = $articleRepository;
+	}
+
 	/**
 	 * Display a listing of the info resource.
 	 *
@@ -29,6 +47,15 @@ class HealthController extends BaseController {
 	 */
 	public function news()
 	{
-		return view('ahk.health.news');
+		$articles = $this->articleRepository->published()->paginate(6);
+
+		return view('ahk.health.news', compact('articles'));
+	}
+
+	public function newsV1()
+	{
+		$articles = $this->articleRepository->published()->paginate(6);
+
+		return view('ahk.health.news_v1', compact('articles'));
 	}
 }

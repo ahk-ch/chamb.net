@@ -69,7 +69,10 @@
                             <a href="{!! route('health.info') !!}">{!! trans('ahk.info') !!}</a>
                         </li>
                         <li class="{!! activate(['health.news']) !!}">
-                            <a href="{!! route('health.news') !!}">{!! trans('ahk.news') !!}</a>
+                            <a href="{!! route('health.news') !!}">News Full Width</a>
+                        </li>
+                        <li class="{!! activate(['health.news']) !!}">
+                            <a href="{!! route('health.news_v1') !!}">News Concise 1</a>
                         </li>
                     </ul>
 

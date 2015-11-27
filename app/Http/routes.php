@@ -11,6 +11,8 @@ Route::group(['prefix' => 'health'], function ()
 {
 	get('info', ['as' => 'health.info', 'uses' => 'AHK\HealthController@info']);
 	get('news', ['as' => 'health.news', 'uses' => 'AHK\HealthController@news']);
+
+	get('news_v1', ['as' => 'health.news_v1', 'uses' => 'AHK\HealthController@newsV1']);
 });
 
 # Registration

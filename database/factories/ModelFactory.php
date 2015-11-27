@@ -17,7 +17,7 @@ use App\AHK\User;
 $factory->define(User::class, function (Faker\Generator $faker)
 {
 	return [
-		'name'           => $faker->name,
+		'name'           => "$faker->firstName $faker->lastName",
 		'username'       => $faker->unique()->userName,
 		'email'          => $faker->unique()->email,
 		'password'       => bcrypt(str_random(10)),
@@ -55,9 +55,10 @@ $factory->define(App\AHK\Article::class, function (Faker\Generator $faker)
 	$content .= "</p>";
 
 	return [
-		'title'       => $faker->words(3, true),
+		'title'       => $faker->sentence,
 		'publish'     => $faker->boolean,
 		'source'      => $faker->url,
+		'img_url'     => $faker->imageUrl(),
 		'description' => $faker->paragraph,
 		'content'     => $content,
 		'author_id'   => factory(User::class)->create()->id,

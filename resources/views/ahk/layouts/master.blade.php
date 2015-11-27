@@ -73,13 +73,10 @@
 @yield('js-implementing-plugins')
 <script type="text/javascript" src="{!! url('assets/js/custom.js') !!}"></script>
 @include('ahk._partials.flash')
-@yield('js-inline')
 <script type="text/javascript" src="{!! url('assets/js/app.js') !!}"></script>
 <script type="text/javascript">
     jQuery(document).ready(function () {
         App.init();
-        $( "#foo" ).trigger( "click" );
-
     });
 </script>
 @yield('js-page-level')

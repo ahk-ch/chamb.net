@@ -8,12 +8,12 @@
     <link href='{!! url("assets/css/pages/page_job.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
 @section('content')
+    {!! Breadcrumbs::render('health.news') !!}
 
-    {!! Breadcrumbs::render() !!}
+    @foreach($articles->chunk(3) as $chunkOfArticles)
+        @include('ahk.health._partials.news_v1_light', ['articles' => $chunkOfArticles])
+    @endforeach
 
-    @for($i = 0; $i < $articles->count(); $i++)
-        @include('ahk.health._partials.news_full_width', ['index' => $i, 'articles' => $articles])
-    @endfor
 @endsection
 @section('js-implementing-plugins')
     <script type="text/javascript" src="{!! url('assets/plugins/fancybox/source/jquery.fancybox.pack.js') !!}"></script>
