@@ -43,12 +43,23 @@ $factory->define(App\AHK\Tag::class, function (Faker\Generator $faker)
 
 $factory->define(App\AHK\Article::class, function (Faker\Generator $faker)
 {
+	$content = "<p><img src='$faker->imageUrl'></p>";
+	$content .= "<p><strong>" . $faker->sentence() . "</strong></p>";
+	$content .= "<p>" . $faker->paragraphs(3, true) . "</p>";
+	$content .= "<p>";
+	$content .= "<a href='$faker->url'>$faker->sentence</a>";
+	$content .= $faker->paragraphs(3, true);
+	$content .= "</p>";
+	$content .= "<p>";
+	$content .= $faker->paragraphs(3, true);
+	$content .= "</p>";
+
 	return [
 		'title'       => $faker->words(3, true),
 		'publish'     => $faker->boolean,
 		'source'      => $faker->url,
 		'description' => $faker->paragraph,
-		'content'     => $faker->paragraphs(3, true),
+		'content'     => $content,
 		'author_id'   => factory(User::class)->create()->id,
 		'category_id' => factory(Category::class)->create()->id,
 	];
