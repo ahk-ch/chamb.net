@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 
-    {!! Form::model($article, ['route' => ['admin.articles.update'], 'role' => 'form', 'method' => 'PUT']) !!}
+    {!! Form::model($article, ['route' => ['admin.articles.update', $article], 'role' => 'form', 'method' => 'PUT']) !!}
     {!! Form::hidden('id', $article->id) !!}
     @include('admin.articles._partials.form')
     <div class="box-footer">

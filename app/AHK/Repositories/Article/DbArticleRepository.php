@@ -43,6 +43,25 @@ class DbArticleRepository extends DbRepository implements ArticleRepository {
 	}
 
 	/**
+	 * Update an article given it id.
+	 * @param $articleId
+	 * @param array $fillable
+	 * @param Category $category
+	 * @return mixed
+	 * @internal param $id
+	 */
+	public function updateById($articleId, array $fillable, Category $category)
+	{
+		$article = $this->getById($articleId);
+
+		$article->fill($fillable);
+
+		$article->assignCategory($category);
+
+		return $article->save() ? $article : false;
+	}
+
+	/**
 	 * Update the tags of an article
 	 * @param $id Article id
 	 * @param array $tagIds
@@ -52,7 +71,7 @@ class DbArticleRepository extends DbRepository implements ArticleRepository {
 	{
 		$article = $this->getById($id);
 
-		$article->tags()->attach($tagIds);
+		$article->tags()->sync($tagIds);
 
 		return $article->save() ? $article : false;
 	}
@@ -68,20 +87,6 @@ class DbArticleRepository extends DbRepository implements ArticleRepository {
 			->where('articles.id', $id)->first();
 	}
 
-	/**
-	 * Update an article given it id.
-	 * @param $id
-	 * @param array $fillable
-	 * @return mixed
-	 */
-	public function updateById($id, array $fillable)
-	{
-		$article = $this->getById($id);
-
-		$article->fill($fillable);
-
-		return $article->save() ? $article : false;
-	}
 
 	/**
 	 * Return published articles

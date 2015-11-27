@@ -16,6 +16,8 @@ return [
 
 	'administrators'           => 'Administratoren',
 	'article_created'          => 'Artikel erstellt.',
+	'article_updated'          => 'Artikel aktualisiert.',
+	'article_does_not_exists'  => 'Artikel existiert nicht..',
 	'articles'                 => 'Articles',
 	'categories'               => 'Categories',
 	'category_created'         => 'Kategorie erstellt.',
@@ -37,6 +39,8 @@ return [
 	'unable_to_store_article'  => 'Können Sie Artikel zu speichern.',
 	'unable_to_store_category' => 'Unfähig, Kategorie zu speichern.',
 	'unable_to_store_tag'      => 'Unable to-Tag zu speichern.',
+	'unable_to_update_article' => 'Können Sie Artikel zu aktualisieren..',
+	'unable_to_update_tags'    => 'Nicht in der Lage zu aktualisieren Tag (e).',
 	'unpublished'              => 'Unveröffentlicht',
 	'users'                    => 'Benutzer',
 	'you_need_to_login_first'  => 'Sie müssen sich erst anmelden.',

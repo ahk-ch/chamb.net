@@ -40,7 +40,7 @@
                         <div class='form-group @if($errors->first('tagIds')) has-error @endif'>
                             <i class="fa fa-mobile fa-lg"></i>
                             {!! Form::label('tagIds[]', 'Tags') !!}
-                            {!! Form::select('tagIds[]', $tags, null,
+                            {!! Form::select('tagIds[]', $tags, $selectedTags,
                             ['class' => 'select2 form-control', 'data-placeholder' => 'Select Tag(s)', 'multiple' => 'multiple', 'style' => 'width: 100%']) !!}
                             {!! $errors->first('tagIds', '<div class="help-block col-sm-reset inline">:message</div>') !!}
                         </div>

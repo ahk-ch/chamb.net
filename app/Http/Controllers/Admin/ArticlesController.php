@@ -9,7 +9,7 @@ use App\AHK\Repositories\Category\CategoryRepository;
 use App\AHK\Repositories\Tag\TagRepository;
 use App\Http\Requests;
 use App\Http\Requests\Admin\StoreArticleRequest;
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\UpdateArticleRequest;
 use Illuminate\Support\Facades\Auth;
 
 class ArticlesController extends BaseController {
@@ -149,24 +149,56 @@ class ArticlesController extends BaseController {
 
 			return redirect()->route('admin.articles.published');
 		}
+
 		$tags = $this->tagRepository->all()->lists('name', 'id');
+
+		$selectedTags = $article->tags()->lists('id')->toArray();
 
 		$categories = $this->categoryRepository->all()->lists('name', 'id');
 
-
-		return view('admin.articles.edit', compact('article', 'tags', 'categories'));
+		return view('admin.articles.edit', compact('article', 'tags', 'categories', 'selectedTags'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request $request
+	 * @param UpdateArticleRequest $request
 	 * @param  int $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id)
+	public function update($id, UpdateArticleRequest $request)
 	{
-		//
+		$article = $this->articleRepository->getById($id);
+
+		if ( $article === null )
+		{
+			Flash::error('admin.article_does_not_exists');
+
+			return redirect()->back();
+		}
+
+		$category = $this->categoryRepository->getById($request->get('category_id'));
+
+		$articleUpdated = $this->articleRepository->updateById(
+			$id, $request->only(['title', 'description', 'publish', 'source', 'content']), $category);
+
+		if ( ! $articleUpdated )
+		{
+			Flash::error(trans('admin.unable_to_update_article'));
+
+			return redirect()->back();
+		}
+
+		Flash::success(trans('admin.article_updated'));
+
+		if ( $request->has('tagIds') )
+		{
+			$tagsUpdated = $this->articleRepository->updateTagsById($articleUpdated->id, $request->get('tagIds', []));
+
+			if ( ! $tagsUpdated ) Flash::error(trans('admin.unable_to_update_tags'));
+		}
+
+		return redirect()->route('admin.articles.edit', $articleUpdated);
 	}
 
 	/**

@@ -16,6 +16,8 @@ return [
 
 	'administrators'           => 'Διαχειριστές',
 	'article_created'          => 'Το άρθρο δημιουργήθηκε.',
+	'article_does_not_exists'  => 'Το άρθρο δεν υπάρχει.',
+	'article_updated'          => 'Άρθρο ενημερώθηκε.',
 	'articles'                 => 'Άρθρα',
 	'categories'               => 'Κατηγορίες',
 	'category_created'         => 'Κατηγορία δημιουργήθηκε.',
@@ -37,6 +39,8 @@ return [
 	'unable_to_store_article'  => 'Δεν είναι δυνατόν να αποθηκεύσουμε το άρθρο.',
 	'unable_to_store_category' => 'Δεν είναι δυνατόν να αποθηκεύσουμε την κατηγορία αυτή.',
 	'unable_to_store_tag'      => 'Δεν είναι δυνατή η αποθήκευση της ετικέτας.',
+	'unable_to_update_article' => 'Δεν είναι δυνατή η ενημέρωση του άρθρου.',
+	'unable_to_update_tags'    => 'Δεν είναι δυνατή η ενημέρωση ετικέτα (ες).',
 	'unpublished'              => 'Αδημοσίευτα',
 	'users'                    => 'Χρήστες',
 	'you_need_to_login_first'  => 'Θα πρέπει να συνδεθείτε πρώτα.',

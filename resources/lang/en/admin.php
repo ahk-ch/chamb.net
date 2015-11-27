@@ -16,6 +16,8 @@ return [
 
 	'administrators'           => 'Administrators',
 	'article_created'          => 'Article created.',
+	'article_does_not_exists'  => 'Article does not exists.',
+	'article_updated'          => 'Article updated.',
 	'articles'                 => 'Articles',
 	'categories'               => 'Categories',
 	'category_created'         => 'Category created.',
@@ -37,6 +39,8 @@ return [
 	'unable_to_store_article'  => 'Unable to store article.',
 	'unable_to_store_category' => 'Unable to store category.',
 	'unable_to_store_tag'      => 'Unable to store tag.',
+	'unable_to_update_article' => 'Unable to update article.',
+	'unable_to_update_tags'    => 'Unable to update tag(s).',
 	'unpublished'              => 'Unpublished',
 	'users'                    => 'Users',
 	'you_need_to_login_first'  => 'You need to login first.',
