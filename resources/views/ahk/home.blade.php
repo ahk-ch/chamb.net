@@ -1,261 +1,225 @@
 @extends('ahk.layouts.master')
 @section('title', 'Welcome')
 @section('css-implementing-plugins')
-    <link href='{!! url("assets/plugins/parallax-slider/css/parallax-slider.css") !!}' rel='stylesheet' type='text/css'/>
-    <link href='{!! url("assets/plugins/owl-carousel/owl-carousel/owl.carousel.css") !!}' rel='stylesheet' type='text/css'/>
+    <link href='{!! url("assets/plugins/revolution-slider/rs-plugin/css/settings.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
 @section('css-page-style')
 @endsection
 @section('content')
-    <div class="slider-inner"><!--=== Slider ===-->
-        <div id="da-slider" class="da-slider">
-            <div class="da-slide">
-                <h2><i>CLEAN &amp; FRESH</i> <br/> <i>FULLY RESPONSIVE</i> <br/> <i>DESIGN</i></h2>
-                <p><i>Lorem ipsum dolor amet</i> <br/> <i>tempor incididunt ut</i> <br/> <i>veniam omnis </i></p>
-                <div class="da-img"><img class="img-responsive" src="assets/plugins/parallax-slider/img/1.png" alt="">
-                </div>
-            </div>
-            <div class="da-slide">
-                <h2><i>RESPONSIVE VIDEO</i> <br/> <i>SUPPORT AND</i> <br/> <i>MANY MORE</i></h2>
-                <p><i>Lorem ipsum dolor amet</i> <br/> <i>tempor incididunt ut</i></p>
-                <div class="da-img">
-                    <iframe src="http://player.vimeo.com/video/47911018" width="530" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-                </div>
-            </div>
-            <div class="da-slide">
-                <h2><i>USING BEST WEB</i> <br/> <i>SOLUTIONS WITH</i> <br/> <i>HTML5/CSS3</i></h2>
-                <p><i>Lorem ipsum dolor amet</i> <br/> <i>tempor incididunt ut</i> <br/> <i>veniam omnis </i></p>
-                <div class="da-img"><img src="assets/plugins/parallax-slider/img/html5andcss3.png" alt="image01"/></div>
-            </div>
-            <div class="da-arrows">
-                <span class="da-arrows-prev"></span> <span class="da-arrows-next"></span>
-            </div>
-        </div>
-    </div><!--/slider-->
-    <!--=== End Slider ===-->
 
-    <!--=== Purchase Block ===-->
-    <div class="purchase">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9 animated fadeInLeft">
-                    <span>Unify is a clean and fully responsive incredible Template.</span>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi vehicula sem ut volutpat. Ut non libero magna fusce condimentum eleifend enim a feugiat corrupti quos.</p>
-                </div>
-                <div class="col-md-3 btn-buy animated fadeInRight">
-                    <a href="#" class="btn-u btn-u-lg"><i class="fa fa-cloud-download"></i> Download Now</a>
-                </div>
-            </div>
-        </div>
-    </div><!--/row-->
-    <!-- End Purchase Block -->
+    <div class="tp-banner-container">
+        <div class="tp-banner">
+            <ul>
+                <!-- SLIDE -->
+                <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 1">
+                    <!-- MAIN IMAGE -->
+                    <img src="assets/img/sliders/7.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 
-    <!--=== Content Part ===-->
+                    <!-- LAYER -->
+                    <div class="tp-caption re-title-v1 sft start"
+                            data-x="center"
+                            data-hoffset="0"
+                            data-y="100"
+                            data-speed="1500"
+                            data-start="500"
+                            data-easing="Back.easeInOut"
+                            data-endeasing="Power1.easeIn"
+                            data-endspeed="300">
+                        Welcome To Unify
+                    </div>
+                    <!-- END LAYER -->
+
+                    <!-- LAYER -->
+                    <div class="tp-caption re-text-v1 sft"
+                            data-x="center"
+                            data-hoffset="0"
+                            data-y="200"
+                            data-speed="1400"
+                            data-start="2000"
+                            data-easing="Power4.easeOut"
+                            data-endspeed="300"
+                            data-endeasing="Power1.easeIn"
+                            data-captionhidden="off"
+                            style="z-index: 6">
+                        Unify is creative technology company providing key digital services on web and mobile. <br>
+                        We minimize the gap between technology and its audience.
+                    </div>
+                    <!-- END LAYER -->
+
+                    <!-- LAYER -->
+                    <div class="tp-caption sft"
+                            data-x="center"
+                            data-hoffset="0"
+                            data-y="320"
+                            data-speed="1600"
+                            data-start="2800"
+                            data-easing="Power4.easeOut"
+                            data-endspeed="300"
+                            data-endeasing="Power1.easeIn"
+                            data-captionhidden="off"
+                            style="z-index: 6">
+                        <a href="#" class="btn-u btn-u-lg re-btn-brd margin-right-5">Read About Us</a>
+                        <a href="#" class="btn-u btn-u-lg">Visit Our Work</a>
+                    </div>
+                    <!-- END LAYER -->
+                </li>
+                <!-- END SLIDE -->
+
+                <!-- SLIDE -->
+                <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 2">
+                    <!-- MAIN IMAGE -->
+                    <img src="assets/img/sliders/9.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+
+                    <!-- LAYER -->
+                    <div class="tp-caption re-title-v2 sft"
+                            data-x="center"
+                            data-hoffset="0"
+                            data-y="100"
+                            data-speed="1400"
+                            data-start="1000"
+                            data-easing="easeOutBack"
+                            data-endspeed="300"
+                            data-endeasing="easeInQuad"
+                            data-captionhidden="off"
+                            style="z-index: 6">
+                        We're Creative Team
+                    </div>
+
+                    <!-- LAYER -->
+                    <div class="tp-caption re-text-v1 sft"
+                            data-x="center"
+                            data-hoffset="0"
+                            data-y="150"
+                            data-speed="1600"
+                            data-start="2000"
+                            data-easing="Power4.easeOut"
+                            data-endspeed="300"
+                            data-endeasing="Power1.easeIn"
+                            data-captionhidden="off"
+                            style="z-index: 6">
+                        Unify provides key digital services on web and mobile.
+                    </div>
+
+                    <!-- LAYER -->
+                    <div class="tp-caption sfb"
+                            data-x="center"
+                            data-hoffset="0"
+                            data-y="230"
+                            data-speed="1800"
+                            data-start="3000"
+                            data-easing="Power4.easeOut"
+                            data-endspeed="300"
+                            data-endeasing="Power1.easeIn"
+                            data-captionhidden="off"
+                            style="z-index: 6">
+                        <img src="assets/img/mockup/white-ipad.png" alt="">
+                    </div>
+                </li>
+                <!-- END SLIDE -->
+
+                <!-- SLIDE -->
+                <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 3">
+                    <!-- MAIN IMAGE -->
+                    <img src="assets/img/sliders/8.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+
+                    <div class="tp-caption re-title-v2 sft start"
+                            data-x="20"
+                            data-hoffset="0"
+                            data-y="150"
+                            data-speed="1500"
+                            data-start="500"
+                            data-easing="Back.easeInOut"
+                            data-endeasing="Power1.easeIn"
+                            data-endspeed="300">
+                        Welcome To Unify
+                    </div>
+
+                    <div class="tp-caption re-text-v2 sft start"
+                            data-x="20"
+                            data-hoffset="0"
+                            data-y="220"
+                            data-speed="2000"
+                            data-start="1000"
+                            data-easing="Back.easeInOut"
+                            data-endeasing="Power1.easeIn"
+                            data-endspeed="300">
+                        Unify is creative technology company providing <br>
+                        We minimize the gap between technology and its.
+                    </div>
+
+                    <!-- LAYER -->
+                    <div class="tp-caption sft"
+                            data-x="20"
+                            data-hoffset="0"
+                            data-y="320"
+                            data-speed="1600"
+                            data-start="2800"
+                            data-easing="Power4.easeOut"
+                            data-endspeed="300"
+                            data-endeasing="Power1.easeIn"
+                            data-captionhidden="off"
+                            style="z-index: 6">
+                        <a href="#" class="btn-u btn-u-lg re-btn-brd margin-right-5">Read About Us</a>
+                        <a href="#" class="btn-u btn-u-lg">Visit Our Work</a>
+                    </div>
+                </li>
+                <!-- END SLIDE -->
+            </ul>
+            <div class="tp-bannertimer tp-bottom"></div>
+        </div>
+    </div>
+
     <div class="container content-sm">
-        <!-- Service Blocks -->
-        <div class="row margin-bottom-30">
-            <div class="col-md-4">
-                <div class="service">
-                    <i class="fa fa-compress service-icon"></i>
-                    <div class="desc">
-                        <h4>Fully Responsive</h4>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus etiam sem...</p>
-                    </div>
+        <div class="text-center margin-bottom-50">
+            <h2 class="title-v2 title-center">WE ARE UNIFY AGENCY</h2>
+            <p class="space-lg-hor">If you are going to use a <span class="color-green">passage of Lorem Ipsum</span>, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making <span class="color-green">this the first</span> true generator on the Internet.</p>
+        </div>
+
+        <div class="row content-boxes-v4">
+            <div class="col-md-4 md-margin-bottom-40">
+                <i class="pull-left fa fa-lightbulb-o"></i>
+                <div class="content-boxes-in-v4">
+                    <h2>Creative Ideas</h2>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="col-md-4 md-margin-bottom-40">
+                <i class="pull-left fa fa-flash"></i>
+                <div class="content-boxes-in-v4">
+                    <h2>Excellent Features</h2>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                    <a href="#">Learn More</a>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="service">
-                    <i class="fa fa-cogs service-icon"></i>
-                    <div class="desc">
-                        <h4>HTML5 + CSS3</h4>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus etiam sem...</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="service">
-                    <i class="fa fa-rocket service-icon"></i>
-                    <div class="desc">
-                        <h4>Launch Ready</h4>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus etiam sem...</p>
-                    </div>
+                <i class="pull-left fa fa-compress"></i>
+                <div class="content-boxes-in-v4">
+                    <h2>Fully Responsive</h2>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                    <a href="#">Learn More</a>
                 </div>
             </div>
         </div>
-        <!-- End Service Blokcs -->
-
-        <!-- Recent Works -->
-        <div class="headline"><h2>Recent Works</h2></div>
-        <div class="row margin-bottom-20">
-            <div class="col-md-3 col-sm-6">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="assets/img/main/img1.jpg" alt="">
-                        </div>
-                        <a class="btn-more hover-effect" href="#">read more +</a>
-                    </div>
-                    <div class="caption">
-                        <h3><a class="hover-effect" href="#">Project One</a></h3>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="assets/img/main/img12.jpg" alt="">
-                        </div>
-                        <a class="btn-more hover-effect" href="#">read more +</a>
-                    </div>
-                    <div class="caption">
-                        <h3><a class="hover-effect" href="#">Project Two</a></h3>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="assets/img/main/img3.jpg" alt="">
-                        </div>
-                        <a class="btn-more hover-effect" href="#">read more +</a>
-                    </div>
-                    <div class="caption">
-                        <h3><a class="hover-effect" href="#">Project Three</a></h3>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="assets/img/main/img17.jpg" alt="">
-                        </div>
-                        <a class="btn-more hover-effect" href="#">read more +</a>
-                    </div>
-                    <div class="caption">
-                        <h3><a class="hover-effect" href="#">Project Four</a></h3>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Recent Works -->
-
-        <!-- Info Blokcs -->
-        <div class="row margin-bottom-30">
-            <!-- Welcome Block -->
-            <div class="col-md-8 md-margin-bottom-40">
-                <div class="headline"><h2>Welcome To Unify</h2></div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <img class="img-responsive margin-bottom-20" src="assets/img/main/img18.jpg" alt="">
-                    </div>
-                    <div class="col-sm-8">
-                        <p>Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals. It works on all major web browsers, tablets and phone.</p>
-                        <ul class="list-unstyled margin-bottom-20">
-                            <li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida</li>
-                            <li><i class="fa fa-check color-green"></i> Corporate and Creative</li>
-                            <li><i class="fa fa-check color-green"></i> Responsive Bootstrap Template</li>
-                            <li><i class="fa fa-check color-green"></i> Corporate and Creative</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <blockquote class="hero-unify">
-                    <p>Award winning digital agency. We bring a personal and effective approach to every project we work on, which is why. Unify is an incredibly beautiful responsive Bootstrap Template for corporate professionals.</p>
-                    <small>CEO, Jack Bour</small>
-                </blockquote>
-            </div><!--/col-md-8-->
-
-            <!-- Latest Shots -->
-            <div class="col-md-4">
-                <div class="headline"><h2>Latest Shots</h2></div>
-                <div id="myCarousel" class="carousel slide carousel-v1">
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="assets/img/main/img4.jpg" alt="">
-                            <div class="carousel-caption">
-                                <p>Facilisis odio, dapibus ac justo acilisis gestinas.</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="assets/img/main/img2.jpg" alt="">
-                            <div class="carousel-caption">
-                                <p>Cras justo odio, dapibus ac facilisis into egestas.</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="assets/img/main/img24.jpg" alt="">
-                            <div class="carousel-caption">
-                                <p>Justo cras odio apibus ac afilisis lingestas de.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carousel-arrow">
-                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                            <i class="fa fa-angle-left"></i> </a>
-                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                            <i class="fa fa-angle-right"></i> </a>
-                    </div>
-                </div>
-            </div><!--/col-md-4-->
-        </div>
-        <!-- End Info Blokcs -->
-
-        <!-- Owl Clients v1 -->
-        <div class="headline"><h2>Our Clients</h2></div>
-        <div class="owl-clients-v1">
-            <div class="item">
-                <img src="assets/img/clients4/1.png" alt="">
-            </div>
-            <div class="item">
-                <img src="assets/img/clients4/2.png" alt="">
-            </div>
-            <div class="item">
-                <img src="assets/img/clients4/3.png" alt="">
-            </div>
-            <div class="item">
-                <img src="assets/img/clients4/4.png" alt="">
-            </div>
-            <div class="item">
-                <img src="assets/img/clients4/5.png" alt="">
-            </div>
-            <div class="item">
-                <img src="assets/img/clients4/6.png" alt="">
-            </div>
-            <div class="item">
-                <img src="assets/img/clients4/7.png" alt="">
-            </div>
-            <div class="item">
-                <img src="assets/img/clients4/8.png" alt="">
-            </div>
-            <div class="item">
-                <img src="assets/img/clients4/9.png" alt="">
-            </div>
-        </div>
-        <!-- End Owl Clients v1 -->
-    </div><!--/container-->
-    <!-- End Content Part -->
+    </div>
 @endsection
 @section('js-implementing-plugins')
-    <script type="text/javascript" src="{!! url('assets/plugins/parallax-slider/js/jquery.cslider.js') !!}"></script>
-    <script type="text/javascript" src="{!! url('assets/plugins/owl-carousel/owl-carousel/owl.carousel.js') !!}"></script>
+    <script type="text/javascript" src="{!! url('assets/plugins/counter/waypoints.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! url('assets/plugins/counter/jquery.counterup.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! url('assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! url('assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js') !!}"></script>
 @endsection
 @section('js-inline')
 @endsection
 @section('js-page-level')
-    <script type="text/javascript" src="{!! url('assets/js/plugins/owl-carousel.js') !!}"></script>
-    <script type="text/javascript" src="{!! url('assets/js/plugins/parallax-slider.js') !!}"></script>
+    <script type="text/javascript" src="{!! url('assets/js/app.js') !!}"></script>
+    <script type="text/javascript" src="{!! url('assets/js/plugins/revolution-slider.js') !!}"></script>
+
     <script type="text/javascript">
         jQuery(document).ready(function () {
-            OwlCarousel.initOwlCarousel();
-            ParallaxSlider.initParallaxSlider();
+            App.initCounter();
+            App.initParallaxBg();
+            RevolutionSlider.initRSfullScreenOffset();
         });
     </script>
 @endsection
