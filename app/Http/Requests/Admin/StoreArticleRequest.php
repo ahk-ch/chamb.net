@@ -25,6 +25,7 @@ class StoreArticleRequest extends Request {
 	{
 		return [
 			'title'       => 'required|unique:articles|min:1',
+			'img_url'     => 'required|url',
 			'publish'     => 'boolean',
 			'source'      => 'url',
 			'description' => 'required|min:1',

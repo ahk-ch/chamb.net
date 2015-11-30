@@ -106,7 +106,7 @@ class ArticlesController extends BaseController {
 		$category = $this->categoryRepository->getById($request->get('category_id'));
 
 		$articleStored = $this->articleRepository->store(
-			Auth::user(), $request->only(['title', 'description', 'publish', 'source', 'content']), $category);
+			Auth::user(), $request->only(['title', 'description', 'publish', 'source', 'content', 'img_url']), $category);
 
 		if ( ! $articleStored )
 		{
@@ -182,7 +182,7 @@ class ArticlesController extends BaseController {
 		$category = $this->categoryRepository->getById($request->get('category_id'));
 
 		$articleUpdated = $this->articleRepository->updateById(
-			$id, $request->only(['title', 'description', 'publish', 'source', 'content']), $category);
+			$id, $request->only(['title', 'description', 'publish', 'source', 'content', 'img_url']), $category);
 
 		if ( ! $articleUpdated )
 		{

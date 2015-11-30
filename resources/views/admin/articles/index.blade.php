@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Published Articles')
+@section('title', 'Articles')
 @section('styles')
 @endsection
 @section('inline-styles')

@@ -16,12 +16,20 @@
             <div class="box-body">
 
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class='form-group @if($errors->first('title')) has-error @endif'>
                             <i class="fa fa-th-large"></i>
                             {!! Form::label('title', 'Title', ['class' => 'control-label']) !!}
                             {!! Form::text('title', $article->title, ['class' => 'form-control', 'placeholder' => 'Enter title']) !!}
                             {!! $errors->first('title', '<div class="help-block col-sm-reset inline">:message</div>') !!}
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class='form-group @if($errors->first('img_url')) has-error @endif'>
+                            <i class="fa fa-th-large"></i>
+                            {!! Form::label('img_url', 'Representation Image', ['class' => 'control-label']) !!}
+                            {!! Form::text('img_url', $article->img_url, ['class' => 'form-control', 'placeholder' => 'Enter Representation Image URL']) !!}
+                            {!! $errors->first('img_url', '<div class="help-block col-sm-reset inline">:message</div>') !!}
                         </div>
                     </div>
                 </div>

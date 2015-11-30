@@ -9,7 +9,9 @@
 @section('content')
 
     {!! Form::model($article, ['route' => ['admin.articles.store'], 'role' => 'form']) !!}
+
     @include('admin.articles._partials.form')
+
     <div class="box-footer">
         {!! Form::button('Create', ['class' => 'btn btn-primary btn-flat', 'type' => 'submit']) !!}
     </div>

@@ -25,6 +25,7 @@ class UpdateArticleRequest extends Request {
 	{
 		return [
 			'title'       => 'required|min:1',
+			'img_url'     => 'required|url',
 			'publish'     => 'boolean',
 			'source'      => 'url',
 			'description' => 'required|min:1',
