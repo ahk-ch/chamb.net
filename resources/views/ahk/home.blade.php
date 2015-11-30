@@ -41,7 +41,7 @@
                             data-endeasing="Power1.easeIn"
                             data-captionhidden="off"
                             style="z-index: 6">
-                        We promote and support bilateral business between Greece and Germany <br> Greece and Germany
+                        We promote and support bilateral business between <br> Greece and Germany
                     </div>
                     <!-- END LAYER -->
 
@@ -57,8 +57,8 @@
                             data-endeasing="Power1.easeIn"
                             data-captionhidden="off"
                             style="z-index: 6">
-                        <a href="#" class="btn-u btn-u-lg re-btn-brd margin-right-5">Read About Us</a>
-                        <a href="#" class="btn-u btn-u-lg">Visit Our Work</a>
+                        <a href="#" class="btn-u btn-u-lg re-btn-brd margin-right-5">News</a>
+                        <a href="#" class="btn-u btn-u-lg">Community</a>
                     </div>
                     <!-- END LAYER -->
                 </li>
