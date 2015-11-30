@@ -13,7 +13,7 @@
                 <!-- SLIDE -->
                 <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 1">
                     <!-- MAIN IMAGE -->
-                    <img src="assets/img/sliders/7.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                    <img src="{!! url('assets/img/sliders/7.jpg') !!}"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 
                     <!-- LAYER -->
                     <div class="tp-caption re-title-v1 sft start"
@@ -68,7 +68,7 @@
                 <!-- SLIDE -->
                 <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 2">
                     <!-- MAIN IMAGE -->
-                    <img src="assets/img/sliders/9.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                    <img src="{!! url('assets/img/sliders/9.jpg') !!}"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 
                     <!-- LAYER -->
                     <div class="tp-caption re-title-v2 sft"
@@ -112,7 +112,7 @@
                             data-endeasing="Power1.easeIn"
                             data-captionhidden="off"
                             style="z-index: 6">
-                        <img src="assets/img/mockup/white-ipad.png" alt="">
+                        <img src="{!! url('assets/img/mockup/white-ipad.png') !!}" alt="">
                     </div>
                 </li>
                 <!-- END SLIDE -->
@@ -120,7 +120,7 @@
                 <!-- SLIDE -->
                 <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 3">
                     <!-- MAIN IMAGE -->
-                    <img src="assets/img/sliders/8.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                    <img src="{!! url('assets/img/sliders/8.jpg') !!}"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 
                     <div class="tp-caption re-title-v2 sft start"
                             data-x="20"

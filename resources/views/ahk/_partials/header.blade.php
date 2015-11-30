@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header header-sticky">
     <div class="container">
         <!-- Logo -->
         <a class="logo" href="{!! route('home_path') !!}">

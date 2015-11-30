@@ -25,14 +25,13 @@
     <link href='{!! url("assets/css/style.css") !!}' rel='stylesheet' type='text/css'/>
 
     <!-- CSS Header and Footer -->
-    <link href='{!! url("assets/css/header.css") !!}' rel='stylesheet' type='text/css'/>
-    <link href='{!! url("assets/css/footer.css") !!}' rel='stylesheet' type='text/css'/>
+    <link href='{!! url("assets/css/headers/header-default.css") !!}' rel='stylesheet' type='text/css'/>
+    <link href='{!! url("assets/css/footers/footer-v6.css") !!}' rel='stylesheet' type='text/css'/>
 
     <!-- CSS Implementing Plugins -->
     <link href='{!! url("assets/plugins/animate.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/plugins/line-icons/line-icons.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/plugins/font-awesome/css/font-awesome.min.css") !!}' rel='stylesheet' type='text/css'/>
-    <link href='{!! url("assets/plugins/login-signup-modal-window/css/style.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/plugins/login-signup-modal-window/css/style.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("vendor/pnotify/src/pnotify.core.css") !!}' rel='stylesheet' type='text/css'/>
     @yield('css-implementing-plugins')
@@ -44,7 +43,8 @@
     @yield('inline-styles')
 </head>
 
-<body>
+<body class="header-fixed">
+
 <div class="wrapper">
 
     @include('ahk._partials.header')

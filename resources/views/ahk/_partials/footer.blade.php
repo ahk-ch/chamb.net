@@ -1,5 +1,4 @@
-<!--=== Footer Version 1 ===-->
-<div class="footer-v1">
+<div id="footer-v6" class="footer-v6">
     <div class="footer">
         <div class="container">
             <div class="row">
@@ -108,5 +107,3 @@
         </div>
     </div><!--/copyright-->
 </div>
-<!--=== End Footer Version 1 ===-->
-

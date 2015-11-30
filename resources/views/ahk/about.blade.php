@@ -93,13 +93,6 @@
                             </p>
                         </div>
                     </div>
-                    <div class="banner-info dark margin-bottom-10">
-                        <i class="rounded-x fa fa-magic"></i>
-                        <div class="overflow-h">
-                            <h3>Our vision</h3>
-                            <p>Phasellus vitae rhoncus ipsum. Aliquam ultricies, velit sit amet scelerisque tincidunt, dolor neque consequat est, a dictum felis metus eget nulla.</p>
-                        </div>
-                    </div>
                     <div class="margin-bottom-20"></div>
                 </div>
                 <div class="col-md-6">
