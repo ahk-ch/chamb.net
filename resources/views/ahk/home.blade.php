@@ -13,7 +13,7 @@
                 <!-- SLIDE -->
                 <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 1">
                     <!-- MAIN IMAGE -->
-                    <img src="{!! url('assets/img/sliders/7.jpg') !!}"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                    <img src="{!! url('assets/img/sliders/7.jpg') !!}" alt="darkblurbg" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 
                     <!-- LAYER -->
                     <div class="tp-caption re-title-v1 sft start"
@@ -25,7 +25,7 @@
                             data-easing="Back.easeInOut"
                             data-endeasing="Power1.easeIn"
                             data-endspeed="300">
-                        Welcome To Unify
+                        Skillshare
                     </div>
                     <!-- END LAYER -->
 
@@ -41,8 +41,7 @@
                             data-endeasing="Power1.easeIn"
                             data-captionhidden="off"
                             style="z-index: 6">
-                        Unify is creative technology company providing key digital services on web and mobile. <br>
-                        We minimize the gap between technology and its audience.
+                        We promote and support bilateral business between Greece and Germany <br> Greece and Germany
                     </div>
                     <!-- END LAYER -->
 
@@ -68,7 +67,7 @@
                 <!-- SLIDE -->
                 <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 2">
                     <!-- MAIN IMAGE -->
-                    <img src="{!! url('assets/img/sliders/9.jpg') !!}"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                    <img src="{!! url('assets/img/sliders/9.jpg') !!}" alt="darkblurbg" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 
                     <!-- LAYER -->
                     <div class="tp-caption re-title-v2 sft"
@@ -120,7 +119,7 @@
                 <!-- SLIDE -->
                 <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 3">
                     <!-- MAIN IMAGE -->
-                    <img src="{!! url('assets/img/sliders/8.jpg') !!}"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                    <img src="{!! url('assets/img/sliders/8.jpg') !!}" alt="darkblurbg" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 
                     <div class="tp-caption re-title-v2 sft start"
                             data-x="20"
@@ -143,8 +142,8 @@
                             data-easing="Back.easeInOut"
                             data-endeasing="Power1.easeIn"
                             data-endspeed="300">
-                        Unify is creative technology company providing <br>
-                        We minimize the gap between technology and its.
+                        Unify is creative technology company providing
+                        <br> We minimize the gap between technology and its.
                     </div>
 
                     <!-- LAYER -->
@@ -172,7 +171,9 @@
     <div class="container content-sm">
         <div class="text-center margin-bottom-50">
             <h2 class="title-v2 title-center">WE ARE UNIFY AGENCY</h2>
-            <p class="space-lg-hor">If you are going to use a <span class="color-green">passage of Lorem Ipsum</span>, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making <span class="color-green">this the first</span> true generator on the Internet.</p>
+            <p class="space-lg-hor">If you are going to use a
+                <span class="color-green">passage of Lorem Ipsum</span>, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making
+                <span class="color-green">this the first</span> true generator on the Internet.</p>
         </div>
 
         <div class="row content-boxes-v4">
