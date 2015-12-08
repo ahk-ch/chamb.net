@@ -51,11 +51,4 @@ class HealthController extends BaseController {
 
 		return view('ahk.health.news', compact('articles'));
 	}
-
-	public function newsV1()
-	{
-		$articles = $this->articleRepository->published()->paginate(6);
-
-		return view('ahk.health.news_v1', compact('articles'));
-	}
 }

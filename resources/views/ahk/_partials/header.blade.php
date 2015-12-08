@@ -5,17 +5,14 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="menu-container">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                    <span class="sr-only">{!! trans('ahk.toggle_navigation') !!}</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="sr-only">{!! trans('ahk.toggle_navigation') !!}</span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> <span class="icon-bar"></span>
                 </button>
 
                 <!-- Navbar Brand -->
                 <div class="navbar-brand">
                     <a href="{!! route('home_path') !!}">
-                        <img class="default-logo" src="{!! url('img/logo.png') !!}" alt="Logo">
-                    </a>
+                        <img class="default-logo" src="{!! url('img/logo.png') !!}" alt="Logo"> </a>
                 </div>
                 <!-- ENd Navbar Brand -->
 
@@ -42,28 +39,25 @@
                             <a href="{!! route('home_path') !!}"> {!! trans('ahk.home') !!} </a>
                         </li>
                         <!-- Pages -->
-                        <li class="dropdown {!! activate(['health.info', 'health_news']) !!}">
+                        <li class="dropdown {!! activate(['health.info', 'health.news']) !!}">
                             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> {!! trans('ahk.health') !!} </a>
                             <ul class="dropdown-menu">
                                 <li class="{!! activate(['health.info']) !!}">
                                     <a href="{!! route('health.info') !!}">{!! trans('ahk.info') !!}</a>
                                 </li>
                                 <li class="{!! activate(['health.news']) !!}">
-                                    <a href="{!! route('health.news') !!}">News Full Width</a>
-                                </li>
-                                <li class="{!! activate(['health.news']) !!}">
-                                    <a href="{!! route('health.news_v1') !!}">News Concise 1</a>
+                                    <a href="{!! route('health.news') !!}">{!! trans('ahk.news') !!}</a>
                                 </li>
                             </ul>
 
                         </li>
                         <!-- End Pages -->
 
-                        <!-- Companies -->
+                        <!-- Community -->
                         <li class="{!! activate(['companies_path']) !!}">
-                            <a href="{!! route('companies_path') !!}"> {!! trans('ahk.companies') !!} </a>
+                            <a href="{!! route('companies_path') !!}"> {!! trans('ahk.community') !!} </a>
                         </li>
-                        <!-- End Companies -->
+                        <!-- Community -->
 
                         <!-- About -->
                         <li class="{!! activate(['about_path']) !!}">
@@ -76,7 +70,5 @@
         </div>
     </div>
     <!-- End Navbar -->
-<!--/navbar-collapse-->
 </div>
 <!--=== End Header ===-->
-

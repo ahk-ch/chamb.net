@@ -5,14 +5,12 @@
 # Pages
 get('/', ['as' => 'home_path', 'uses' => 'AHK\HomeController@home']);
 get('about', ['as' => 'about_path', 'uses' => 'AHK\HomeController@about']);
-get('companies', ['as' => 'companies_path', 'uses' => 'AHK\HomeController@companies']);
+get('community', ['as' => 'companies_path', 'uses' => 'AHK\HomeController@companies']);
 get('lang/{lang}', ['as' => 'set_language', 'uses' => 'AHK\SettingsController@setLocale']);
 Route::group(['prefix' => 'health'], function ()
 {
 	get('info', ['as' => 'health.info', 'uses' => 'AHK\HealthController@info']);
 	get('news', ['as' => 'health.news', 'uses' => 'AHK\HealthController@news']);
-
-	get('news_v1', ['as' => 'health.news_v1', 'uses' => 'AHK\HealthController@newsV1']);
 });
 get('terms_of_use', ['as' => 'terms_of_use', 'uses' => 'AHK\HomeController@termsOfUse']);
 

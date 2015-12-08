@@ -18,6 +18,7 @@ return [
 	'about'                           => 'Σχετικα με',
 	'back_to_login'                   => 'Επιστροφή στην σελίδα εισόδου.',
 	'close'                           => 'Κλείσιμο',
+	'community'                       => 'Κοινότητα',
 	'companies'                       => 'Εταιρειες',
 	'create_account'                  => 'Δημιουργια λογαριασμου',
 	'forgot_your_password'            => 'Ξέχασες τον κωδικό σου;',

@@ -14,6 +14,7 @@
     @for($i = 0; $i < $articles->count(); $i++)
         @include('ahk.health._partials.news_full_width', ['index' => $i, 'articles' => $articles])
     @endfor
+
 @endsection
 @section('js-implementing-plugins')
     <script type="text/javascript" src="{!! url('assets/plugins/fancybox/source/jquery.fancybox.pack.js') !!}"></script>

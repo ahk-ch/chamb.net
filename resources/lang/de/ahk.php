@@ -17,6 +17,7 @@ return [
 	'about'                           => 'Etwa',
 	'back_to_login'                   => 'Zurück zum Login.',
 	'close'                           => 'Nah dran',
+	'community'                       => 'Gemeinschaft',
 	'companies'                       => 'Firmen',
 	'create_account'                  => 'Benutzerkonto erstellen',
 	'forgot_your_password'            => 'Haben Sie Ihr Passwort vergessen?',

@@ -43,7 +43,7 @@
     @yield('inline-styles')
 </head>
 
-<body class="header-fixed">
+<body class="header-fixed header-fixed-space">
 
 <div class="wrapper">
 

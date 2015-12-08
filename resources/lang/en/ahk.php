@@ -17,6 +17,7 @@ return [
 	'about'                           => 'About',
 	'back_to_login'                   => 'Back to login',
 	'close'                           => 'Close',
+	'community'                       => 'Community',
 	'companies'                       => 'Companies',
 	'create_account'                  => 'Create account',
 	'forgot_your_password'            => 'Forgot your password?',
