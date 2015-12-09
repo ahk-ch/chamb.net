@@ -23,7 +23,7 @@ class DbTruncator {
 	 */
 	public static function truncateByTable($table)
 	{
-		switch (env('DB_CONNECTION', 'pgsql'))
+		switch (env('DB_CONNECTION', 'mysql'))
 		{
 			case "mysql":
 				DB::statement('SET FOREIGN_KEY_CHECKS=0'); // mysql
