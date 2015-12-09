@@ -25,7 +25,7 @@
     <link href='{!! url("assets/css/style.css") !!}' rel='stylesheet' type='text/css'/>
 
     <!-- CSS Header and Footer -->
-    <link href='{!! url("assets/css/headers/header-v6.css") !!}' rel='stylesheet' type='text/css'/>
+    <link href='{!! url("assets/css/headers/header-default.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/css/footers/footer-v6.css") !!}' rel='stylesheet' type='text/css'/>
 
     <!-- CSS Implementing Plugins -->
@@ -43,7 +43,7 @@
     @yield('inline-styles')
 </head>
 
-<body class="header-fixed header-fixed-space">
+<body class="header-fixed">
 
 <div class="wrapper">
 

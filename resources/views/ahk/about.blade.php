@@ -9,12 +9,10 @@
 @endsection
 @section('content')
 
-    {!! Breadcrumbs::render() !!}
-
     <div class="container content"><!--=== Content Part ===-->
         <div class="title-box-v2">
-            <h2>About <span class="color-green">us</span></h2>
-            <p>The Hellenic German Chamber of Commerce and Industry is a non-profit organization with 850 member companies in Greece and Germany and the official representation of the German industry and commerce in Greece. It is a member of the German Chamber Network, which operates 125 offices in 85 countries. The Athens Central Office of the chamber was founded in 1924 whereas the Northern Greece branch was established in 1981.</p>
+            <h2>About the Hellenic German Chamber of <br/><span class="color-green">Industry and Commerce</span></h2>
+            <p class="text-left">The Hellenic-German Chamber of Industry and Commerce, is a non-profit organization connecting 850 member companies in Greece and Germany, supporting ongoing relationships amongst industries, companies, and improve trade between the two countries. Our Organization is member of the German Chamber Network, which operates 125 offices in 85 countries. </p>
         </div>
 
         <!-- About Sldier -->
@@ -67,8 +65,7 @@
                 <div class="service-block service-block-default">
                     <i class="icon-custom rounded icon-color-dark icon-line icon-directions"></i>
                     <h2 class="heading-md">Membership</h2>
-                    <p>The Hellenic German Chamber of Commerce has an extensive membership network of many distinguished companies, firms, and executives. With more than 850 members in Greece and Germany, we enable our members to forge new business relationships. Membership benefits include lectures, seminars and networking receptions hosted by leaders of industry and government.
-                        As a member, you could benefit from discounts on selected services.</p>
+                    <p>The Hellenic German Chamber of Commerce has an extensive membership network of many distinguished companies, firms, and executives. With more than 850 members in Greece and Germany, we enable our members to forge new business relationships. Membership benefits include lectures, seminars and networking receptions hosted by leaders of industry and government. As a member, you could benefit from discounts on selected services.</p>
                 </div>
             </div>
         </div>
@@ -79,8 +76,8 @@
     <div class="parallax-bg parallaxBg1">
         <div class="container content parallax-about">
             <div class="title-box-v2">
-                <h2>About our <span class="color-green">chamber</span></h2>
-                <p>For more than 90 years the Hellenic German Chamber of Commerce and Industry promotes development and expansion of market and business relations between Greece and Germany through a wide range of services and activities.</p>
+                <h2>About <span class="color-green">CHAMB.NET</span></h2>
+                <p class="text-left">For more than 90 years the Hellenic German Chamber of Commerce and Industry promotes development and expansion of market and business relations between Greece and Germany through a wide range of services and activities.</p>
             </div>
 
             <div class="row">
@@ -88,11 +85,31 @@
                     <div class="banner-info dark margin-bottom-10">
                         <i class="rounded-x icon-bell"></i>
                         <div class="overflow-h">
-                            <h3>Our mission</h3>
-                            <p>Is to promote and support bilateral business relations between Greece and Germany. Therefore the Chamber is the primary contact for German and Greek companies, organizations and individuals interested in market entry into the respective other country.
+                            <h3>Working Groups</h3>
+                            <p>The Working Groups focus on specific issues and bring together members who are experts on that issue to develop and execute an action plan to resolve the problem and then disband. Furthermore the Working Groups structure enables the Chamber to engage interested members, over an extended period of time, in industry and sector specific policy related issues and projects. </p>
+                        </div>
+                    </div>
+                    <div class="banner-info dark margin-bottom-10">
+                        <i class="rounded-x icon-bell"></i>
+                        <div class="overflow-h">
+                            <h3>Mission</h3>
+                            <p>CHAMB.NET supports this mission and provides a sector related online platform for the exchange of information, the member’s communication and for the initiation of business cooperation within a neutral German-Greek business context. </p>
+                        </div>
+                    </div>
+                    <div class="banner-info dark margin-bottom-10">
+                        <i class="rounded-x icon-bell"></i>
+                        <div class="overflow-h">
+                            <h3>Offers</h3>
+                            <p>In particular CHAMB.NET offers its users:
+                            <ul>
+                                <li> sector related information (news, events, links, publications)</li>
+                                <li> overview about the topics and results of the sector related working groups </li>
+                                <li>detailed company and expert profiles of its members - trade leads</li>
+                            </ul>
                             </p>
                         </div>
                     </div>
+
                     <div class="margin-bottom-20"></div>
                 </div>
                 <div class="col-md-6">
