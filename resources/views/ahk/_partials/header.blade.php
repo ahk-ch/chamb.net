@@ -62,7 +62,7 @@
                 <!-- End Home -->
 
                 <!-- Pages -->
-                <li class="dropdown {!! activate(['health.info', 'health_news']) !!}">
+                <li class="dropdown {!! activate(['health.info', 'health.news']) !!}">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> {!! trans('ahk.health') !!} </a>
                     <ul class="dropdown-menu">
                         <li class="{!! activate(['health.info']) !!}">

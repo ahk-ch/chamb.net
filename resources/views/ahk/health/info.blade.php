@@ -7,12 +7,8 @@
 @endsection
 @section('css-page-style')
     <link href='{!! url("assets/css/pages/page_search.css") !!}' rel='stylesheet' type='text/css'/>
-    @endsection
-    @section('content')
-
-    {!! Breadcrumbs::render() !!}
-
-            <!--=== Content Part ===-->
+@endsection
+@section('content')
     <div class="container content">
         <div class="row">
             <div class="col-md-6">
