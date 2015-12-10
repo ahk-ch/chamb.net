@@ -25,7 +25,7 @@
                             data-easing="Back.easeInOut"
                             data-endeasing="Power1.easeIn"
                             data-endspeed="300">
-                        Skillshare
+                        Chamb.Net
                     </div>
                     <!-- END LAYER -->
 

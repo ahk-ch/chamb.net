@@ -1,21 +1,12 @@
-## AHK
+## chamb.net
 
 ## Deployment
-- Create 'BOWERPHP_TOKEN' system variable with a github token. This is required for the bowerphp to go above the GitHub API limit, and download libraries without  limitations. We use bowerphp instead of bower as to avoid to install any Node servers, etc.
-- run migrations  
-- Verify heroku has successfully run bower install and composer install for front/backend package installation
+- Clone the repo to your web server.
+- [Generate Laravel key][laravel_recipes_generate_key]
+- Use composer to install back-end packages.
+- Use bower to install front-end packages.
+- Run tests using phpunit
+- Run migrations 
 
-### Heroku
-1. Run on terminal, where already logged in heroku toolbelt:  
-`heroku config:add BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-multi.git`
-2. Verify .buildpacks contains  
-`https://github.com/heroku/heroku-buildpack-nodejs`  
-`https://github.com/ejholmes/heroku-buildpack-bower`  
-`https://github.com/heroku/heroku-buildpack-php`  
-3. Ensure package.json npm installs:
-```
- "dependencies": {
-   "bower": "latest"
- }
-```
 
+[laravel_recipes_generate_key]: http://laravel-recipes.com/recipes/283/generating-a-new-application-key
