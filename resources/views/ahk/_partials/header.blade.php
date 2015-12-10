@@ -77,7 +77,7 @@
 
                 <!-- Companies -->
                 <li class="{!! activate(['companies_path']) !!}">
-                    <a href="{!! route('companies_path') !!}"> {!! trans('ahk.companies') !!} </a>
+                    <a href="{!! route('companies_path') !!}"> {!! trans('ahk.community') !!} </a>
                 </li>
                 <!-- End Companies -->
 
