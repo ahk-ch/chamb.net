@@ -4,16 +4,14 @@
  * @author Rizart Dokollari
  * @since 12/10/2015
  */
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use App\AHK\Helpers\Helpers;
 use tests\TestCase;
 
 /**
  * Class HomeControllerTest
  */
-class LayoutControllerTest extends TestCase
-{
+class LayoutControllerTest extends TestCase {
+
 	public function test_it_reads_header()
 	{
 		$this->visit(route('home_path'))
@@ -27,6 +25,7 @@ class LayoutControllerTest extends TestCase
 
 	public function test_it_reads_footer()
 	{
-		$this->visit(route('home_path'));
+		$this->visit(route('home_path'))
+			->see(Helpers::autoCopyright('2015'));
 	}
 }

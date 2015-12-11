@@ -20,8 +20,8 @@
                             data-x="center"
                             data-hoffset="0"
                             data-y="100"
-                            data-speed="1500"
-                            data-start="500"
+                            data-speed="500"
+                            data-start="100"
                             data-easing="Back.easeInOut"
                             data-endeasing="Power1.easeIn"
                             data-endspeed="300">
@@ -34,8 +34,8 @@
                             data-x="center"
                             data-hoffset="0"
                             data-y="200"
-                            data-speed="1400"
-                            data-start="2000"
+                            data-speed="500"
+                            data-start="700"
                             data-easing="Power4.easeOut"
                             data-endspeed="300"
                             data-endeasing="Power1.easeIn"
@@ -51,7 +51,7 @@
                             data-hoffset="0"
                             data-y="320"
                             data-speed="1600"
-                            data-start="2800"
+                            data-start="1000"
                             data-easing="Power4.easeOut"
                             data-endspeed="300"
                             data-endeasing="Power1.easeIn"
@@ -70,7 +70,6 @@
 
 @endsection
 @section('js-implementing-plugins')
-    <script type="text/javascript" src="{!! url('assets/plugins/counter/waypoints.min.js') !!}"></script>
     <script type="text/javascript" src="{!! url('assets/plugins/counter/jquery.counterup.min.js') !!}"></script>
     <script type="text/javascript" src="{!! url('assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js') !!}"></script>
     <script type="text/javascript" src="{!! url('assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js') !!}"></script>

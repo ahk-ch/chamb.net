@@ -4,9 +4,8 @@
             <div class="row">
                 <!-- About -->
                 <div class="col-md-3 md-margin-bottom-40">
-                    <a href="index.html"><img id="logo-footer" class="footer-logo" src="{!! url('img/logo.png') !!}" alt=""></a>
-                    <p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>
-                    <p>Duis eleifend fermentum ante ut aliquam. Cras mi risus, dignissim sed adipiscing ut, placerat non arcu.</p>
+                    <a href="{!! route('home_path') !!}"><img id="logo-footer" class="footer-logo" src="{!! url('img/logo.png') !!}" alt="chamb.net logo"></a>
+                    <p>The Hellenic-German Chamber of Industry and Commerce, is a non-profit organization connecting 850 member companies in Greece and Germany, supporting ongoing relationships amongst industries, companies, and improve trade between the two countries. </p>
                 </div><!--/col-md-3-->
                 <!-- End About -->
 
@@ -64,7 +63,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <p>
-                        2015 &copy; All Rights Reserved. <a href="#">Privacy Policy</a> |
+                        {!! $copyrightDate !!} &copy; All Rights Reserved. <a href="#">Privacy Policy</a> |
                         <a href="#">Terms of Service</a>
                     </p>
                 </div>
