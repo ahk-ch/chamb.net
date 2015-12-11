@@ -1,5 +1,5 @@
 @extends('ahk.layouts.master')
-@section('title', 'About')
+@section('title', trans('ahk.about'))
 @section('css-implementing-plugins')
     <link href='{!! url("assets/plugins/parallax-slider/css/parallax-slider.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/plugins/owl-carousel/owl-carousel/owl.carousel.css") !!}' rel='stylesheet' type='text/css'/>
@@ -103,7 +103,7 @@
                             <p>In particular CHAMB.NET offers its users:
                             <ul>
                                 <li> sector related information (news, events, links, publications)</li>
-                                <li> overview about the topics and results of the sector related working groups </li>
+                                <li> overview about the topics and results of the sector related working groups</li>
                                 <li>detailed company and expert profiles of its members - trade leads</li>
                             </ul>
                             </p>

@@ -9,7 +9,7 @@
 @section('content')
     <div class="job-img margin-bottom-30">
         <div class="job-banner">
-            <h2>Discover the Community</h2>
+            <h2>{!! trans('ahk.discover_the_community') !!}</h2>
         </div>
         <div class="job-img-inputs">
             <div class="container">

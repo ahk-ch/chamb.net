@@ -1,5 +1,5 @@
 @extends('ahk.layouts.master')
-@section('title', 'Welcome')
+@section('title', trans('ahk.welcome'))
 @section('css-implementing-plugins')
     <link href='{!! url("assets/plugins/revolution-slider/rs-plugin/css/settings.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection

@@ -1,5 +1,5 @@
 @extends('ahk.layouts.master')
-@section('title', 'Info')
+@section('title', trans('ahk.info'))
 @section('css-implementing-plugins')
     <link href='{!! url("assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css") !!}' rel='stylesheet' type='text/css'/>

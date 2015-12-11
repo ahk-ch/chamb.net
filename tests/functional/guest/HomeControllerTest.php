@@ -23,12 +23,10 @@ class HomeControllerTest extends TestCase
 	{
 		$this->visit(route('home_path'))
 			->seePageIs(route('home_path'))
-			->see('Welcome')
+			->see(trans('ahk.welcome'))
 			->see('Chamb.Net')
 			->see(trans('ahk.we_promote_and_support_bilateral_business_between_greece_and_germany'))
 			->see(trans('ahk.news'))
 			->see(trans('ahk.community'));
-
-
 	}
 }
