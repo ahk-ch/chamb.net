@@ -18,14 +18,6 @@
                                 <a href="#">Incredible content</a>
                                 <small>May 8, 2014</small>
                             </li>
-                            <li>
-                                <a href="#">Best shoots</a>
-                                <small>June 23, 2014</small>
-                            </li>
-                            <li>
-                                <a href="#">New Terms and Conditions</a>
-                                <small>September 15, 2014</small>
-                            </li>
                         </ul>
                     </div>
                 </div><!--/col-md-3-->
@@ -36,10 +28,7 @@
                     <div class="headline"><h2>Useful Links</h2></div>
                     <ul class="list-unstyled link-list">
                         <li><a href="{!! route('about_path') !!}">About us</a><i class="fa fa-angle-right"></i></li>
-                        <li><a href="#">Portfolio</a><i class="fa fa-angle-right"></i></li>
-                        <li><a href="#">Latest jobs</a><i class="fa fa-angle-right"></i></li>
-                        <li><a href="#">Community</a><i class="fa fa-angle-right"></i></li>
-                        <li><a href="#">Contact us</a><i class="fa fa-angle-right"></i></li>
+                        <li><a href="{!! route('companies_path') !!}">Community</a><i class="fa fa-angle-right"></i></li>
                     </ul>
                 </div><!--/col-md-3-->
                 <!-- End Link List -->
@@ -63,8 +52,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <p>
-                        {!! $copyrightDate !!} &copy; All Rights Reserved. <a href="#">Privacy Policy</a> |
-                        <a href="#">Terms of Service</a>
+                        {!! $copyrightDate !!} &copy; All Rights Reserved. |
+                        <a href="{!! route('terms_of_use_path') !!}">Terms of Use</a>
                     </p>
                 </div>
 

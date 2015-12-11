@@ -11,7 +11,7 @@ Route::group(['prefix' => 'health'], function () {
     get('info', ['as' => 'health.info', 'uses' => 'AHK\HealthController@info']);
     get('news', ['as' => 'health.news', 'uses' => 'AHK\HealthController@news']);
 });
-get('terms_of_use', ['as' => 'terms_of_use', 'uses' => 'AHK\HomeController@termsOfUse']);
+get('terms_of_use', ['as' => 'terms_of_use_path', 'uses' => 'AHK\HomeController@termsOfUse']);
 
 # Registration
 post('users/store', ['as' => 'users.store', 'uses' => 'AHK\UsersController@store']);
