@@ -18,30 +18,9 @@
         <!-- About Sldier -->
         <div class="shadow-wrapper margin-bottom-50">
             <div class="carousel slide carousel-v1 box-shadow shadow-effect-2" id="myCarousel">
-                <ol class="carousel-indicators">
-                    <li class="rounded-x active" data-target="#myCarousel" data-slide-to="0"></li>
-                    <li class="rounded-x" data-target="#myCarousel" data-slide-to="1"></li>
-                    <li class="rounded-x" data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
 
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img class="img-responsive" src="{!! url('img/about_us/AHK-Griechenland-RGB.jpg') !!}" alt="Full AHK Logo">
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive" src="{!! url('img/about_us/photo_pool_4.jpg') !!}" alt="Company Photo 4">
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive" src="{!! url('img/about_us/photo_pool_3.jpg') !!}" alt="Company Photo 3">
-                    </div>
-                </div>
+                <img class="img-responsive" src="{!! url('img/about_us/photo_pool_3.jpg') !!}" alt="Company Photo 3">
 
-                <div class="carousel-arrow">
-                    <a data-slide="prev" href="#myCarousel" class="left carousel-control">
-                        <i class="fa fa-angle-left"></i> </a>
-                    <a data-slide="next" href="#myCarousel" class="right carousel-control">
-                        <i class="fa fa-angle-right"></i> </a>
-                </div>
             </div>
         </div>
         <!-- End About Sldier -->
