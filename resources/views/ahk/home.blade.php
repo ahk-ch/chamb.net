@@ -11,7 +11,7 @@
         <div class="tp-banner">
             <ul>
                 <!-- SLIDE -->
-                <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 1">
+                <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Home Company Slide">
                     <!-- MAIN IMAGE -->
                     <img src="{!! url('img/home/background.jpg') !!}" alt="chamb.net Home Company Background Image" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 

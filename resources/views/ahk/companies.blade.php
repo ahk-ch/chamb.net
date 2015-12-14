@@ -6,6 +6,13 @@
 @section('css-page-style')
     <link href='{!! url("assets/css/pages/page_job.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
+@section('inline-styles')
+    <style>
+        .job-img {
+            background: url("{!! url('img/community/background.jpg') !!}") 70% 40% no-repeat;
+        }
+    </style>
+@endsection
 @section('content')
     <div class="job-img margin-bottom-30">
         <div class="job-banner">
@@ -130,7 +137,7 @@
     <div class="parallax-team parallaxBg">
         <div class="container content">
             <div class="title-box-v2">
-                <h2>Popular <span class="color-green">Companies</span> </h2>
+                <h2>Popular <span class="color-green">Companies</span></h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
 
