@@ -13,7 +13,7 @@
                 <!-- SLIDE -->
                 <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 1">
                     <!-- MAIN IMAGE -->
-                    <img src="{!! url('assets/img/sliders/7.jpg') !!}" alt="darkblurbg" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                    <img src="{!! url('img/home/background.jpg') !!}" alt="chamb.net Home Company Background Image" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 
                     <!-- LAYER -->
                     <div class="tp-caption re-title-v1 sft start"
@@ -21,7 +21,7 @@
                             data-hoffset="0"
                             data-y="100"
                             data-speed="500"
-                            data-start="100"
+                            data-start="50"
                             data-easing="Back.easeInOut"
                             data-endeasing="Power1.easeIn"
                             data-endspeed="300">
