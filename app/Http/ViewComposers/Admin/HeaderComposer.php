@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\ViewComposers\Admin;
+namespace app\Http\ViewComposers\Cms;
 
 /**
  * @author  Rizart Dokollari <r.dokollari@gmail.com>
