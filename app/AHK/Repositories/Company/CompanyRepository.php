@@ -5,14 +5,15 @@
  * @since   17/12/2015
  */
 
-namespace app\AHK\Repositories\Company;
+namespace App\AHK\Repositories\Company;
 
 interface CompanyRepository
 {
 
 	/**
 	 * Paginate through all companies
+	 * @param int $items
 	 * @return mixed
 	 */
-	public function all();
+	public function paginate($items = 10);
 }

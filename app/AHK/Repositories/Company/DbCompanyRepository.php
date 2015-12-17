@@ -15,10 +15,11 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 
 	/**
 	 * Paginate through all companies
+	 * @param int $items
 	 * @return mixed
 	 */
-	public function all()
+	public function paginate($items = 10)
 	{
-		return Company::all();
+		return Company::paginate($items);
 	}
 }

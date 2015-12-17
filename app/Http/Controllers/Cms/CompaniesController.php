@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers\Cms;
 
-use App\Http\Controllers\Controller;
+use App\AHK\Repositories\Company\CompanyRepository;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
 class CompaniesController extends BaseController
 {
-	protected $appRepository;
+	protected $companyRepository;
 
-	public function __construct(AppRepository $appRepository)
+	public function __construct(CompanyRepository $companyRepository)
 	{
 		parent::__construct();
 
-		$this->middleware('auth.administrator');
-
-		$this->appRepository = $appRepository;
+		$this->companyRepository = $companyRepository;
 	}
 
 	/**
@@ -26,7 +24,9 @@ class CompaniesController extends BaseController
 	 */
 	public function index()
 	{
-		return view('cms.companies.index');
+		$companies = $this->companyRepository->paginate(10);
+
+		return view('cms.companies.index', compact('companies'));
 	}
 
 	/**

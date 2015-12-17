@@ -70,8 +70,8 @@ $factory->define(App\AHK\Article::class, function (Faker\Generator $faker)
 $factory->define(App\AHK\Company::class, function (Faker\Generator $faker)
 {
 	return [
-		'name'                    => $faker->unique()->word,
-		'logo'                    => $faker->unique()->image(),
-		'name_of_contact_partner' => $faker->unique()->name,
+		'name'                    => $faker->unique()->name,
+		'logo'                    => $faker->imageUrl(),
+		'name_of_contact_partner' => $faker->name,
 	];
 });

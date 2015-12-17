@@ -38,11 +38,11 @@ class DbCompanyRepositoryTest extends TestCase
 	/** @test */
 	public function it_returns_companies()
 	{
-		$this->assertSame(0, $this->dbCompanyRepository->all()->count());
+		$this->assertSame(0, $this->dbCompanyRepository->paginate()->count());
 
 		$actualCompanies = factory(Company::class, 2)->create();
 
-		$expectedCompanies = $this->dbCompanyRepository->all();
+		$expectedCompanies = $this->dbCompanyRepository->paginate(2);
 
 		$this->assertSame(2, $expectedCompanies->count());
 
