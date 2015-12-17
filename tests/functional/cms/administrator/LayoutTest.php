@@ -7,6 +7,7 @@
 
 namespace tests\functional\cms\administrator;
 
+use App\AHK\Helpers\Helpers;
 use App\AHK\User;
 use tests\TestCase;
 
@@ -17,7 +18,6 @@ class LayoutTest extends TestCase
 	public function it_reads_sidebar()
 	{
 		$administrator = factory(User::class)->create();
-
 
 		$this->actingAs($administrator)
 			->visit(route('cms.dashboard'))
@@ -31,5 +31,35 @@ class LayoutTest extends TestCase
 			->see('<i class="fa fa-plus"></i> ' . trans('cms.create'))
 			->see('<i class="fa fa-puzzle-piece"></i> ' . trans('cms.categories'))
 			->see('<i class="fa fa-tags"></i> ' . trans('cms.tags'));
+	}
+
+	/** @test */
+	public function it_reads_header()
+	{
+		$administrator = factory(User::class)->create();
+
+		$this->actingAs($administrator)
+			->visit(route('cms.dashboard'))
+			->see('<span class="logo-mini"><b>C</b>C</span>')
+			->see('<span class="logo-lg"><b>Cms</b>Chamber</span> </a>')
+			->see('<img src="' . $administrator->avatar_url . '" class="user-image" alt="User Image">')
+			->see('<span class="hidden-xs">' . $administrator->name or $administrator->username . '</span> </a>')
+			->see('<small>Member since ' . $administrator->created_at . '</small>')
+			->see('<button type="submit" class="btn btn-default btn-flat">' . trans('ahk.logout') . '</button>');
+	}
+
+	/** @test */
+	public function it_reads_footer()
+	{
+		$administrator = factory(User::class)->create();
+
+		$this->actingAs($administrator)
+			->visit(route('cms.dashboard'))
+			->see('<strong>Copyright &copy; ' . Helpers::autoCopyright('2015'))
+			->see('<a href="' . route('home_path') . '">Chamb.Net</a>.</strong> ' . trans('cms.all_rights_reserved'))
+			->see('<img src="' . $administrator->avatar_url . '" class="user-image" alt="User Image">')
+			->see('<span class="hidden-xs">' . $administrator->name or $administrator->username . '</span> </a>')
+			->see('<small>Member since ' . $administrator->created_at . '</small>')
+			->see('<button type="submit" class="btn btn-default btn-flat">' . trans('ahk.logout') . '</button>');
 	}
 }

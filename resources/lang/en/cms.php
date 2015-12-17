@@ -15,6 +15,7 @@ return [
 	*/
 
 	'administrators'                   => 'Administrators',
+	'all_rights_reserved'              => 'All Rights Reserved.',
 	'article_created'                  => 'Article created.',
 	'article_does_not_exists'          => 'Article does not exists.',
 	'article_updated'                  => 'Article updated.',

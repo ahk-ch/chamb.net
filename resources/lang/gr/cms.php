@@ -15,6 +15,7 @@ return [
 	*/
 
 	'administrators'                   => 'Διαχειριστές',
+	'all_rights_reserved'              => 'Όλα τα δικαιώματα διατηρούνται.',
 	'article_created'                  => 'Το άρθρο δημιουργήθηκε.',
 	'article_does_not_exists'          => 'Το άρθρο δεν υπάρχει.',
 	'article_updated'                  => 'Άρθρο ενημερώθηκε.',
