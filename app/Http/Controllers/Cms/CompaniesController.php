@@ -6,8 +6,19 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
-class CompaniesController extends Controller
+class CompaniesController extends BaseController
 {
+	protected $appRepository;
+
+	public function __construct(AppRepository $appRepository)
+	{
+		parent::__construct();
+
+		$this->middleware('auth.administrator');
+
+		$this->appRepository = $appRepository;
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *

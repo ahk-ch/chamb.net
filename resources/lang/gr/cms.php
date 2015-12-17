@@ -37,6 +37,7 @@ return [
 	'something_went_wrong'             => 'Κάτι πήγε στραβά.',
 	'subscribers'                      => 'Συνδρομητές',
 	'tags'                             => 'Ετικέτες',
+	'table'                            => 'Πίναξ',
 	'tag_created'                      => 'Ετικέτα δημιουργήθηκε.',
 	'tag_updated'                      => 'Ετικέτα ενημερώθηκε.',
 	'toggle_navigation'                => 'Εναλλαγη πλοηγησης',

@@ -37,6 +37,7 @@ return [
 	'sign_out'                         => 'Sign Out',
 	'subscribers'                      => 'Subscribers',
 	'something_went_wrong'             => 'Something went wrong.',
+	'table'                            => 'Table',
 	'tags'                             => 'Tags',
 	'tag_created'                      => 'Tag created.',
 	'tag_updated'                      => 'Tag updated.',

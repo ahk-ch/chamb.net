@@ -66,3 +66,12 @@ $factory->define(App\AHK\Article::class, function (Faker\Generator $faker)
 		'category_id' => factory(Category::class)->create()->id,
 	];
 });
+
+$factory->define(App\AHK\Company::class, function (Faker\Generator $faker)
+{
+	return [
+		'name'                    => $faker->unique()->word,
+		'logo'                    => $faker->unique()->image(),
+		'name_of_contact_partner' => $faker->unique()->name,
+	];
+});

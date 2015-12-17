@@ -36,6 +36,7 @@ return [
 	'sign_out'                         => 'Austragen',
 	'something_went_wrong'             => 'Etwas ist schief gelaufen.',
 	'subscribers'                      => 'Abonnenten',
+	'table'                            => 'Tabelle',
 	'tags'                             => 'Schlagwörter',
 	'tag_created'                      => 'Tag erstellt.',
 	'tag_updated'                      => 'Tag aktualisiert.',
