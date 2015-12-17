@@ -12,7 +12,7 @@ use tests\TestCase;
 class DashboardTest extends TestCase
 {
 	/** @test */
-	public function it_reads_not_dashboard()
+	public function it_denies_access()
 	{
 		$this->visit(route('cms.dashboard'))
 			->seePageIs(route('cms.sessions.create'))
