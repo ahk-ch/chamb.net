@@ -9,7 +9,7 @@
 @section('inline-styles')
     <style>
         .job-img {
-            background: url("{!! url('img/community/background.jpg') !!}") 70% 40% no-repeat;
+            background: url("{!! url('img/community/background.jpg') !!}") 100% 50% no-repeat;
         }
     </style>
 @endsection
