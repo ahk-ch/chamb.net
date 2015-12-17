@@ -37,6 +37,9 @@ Route::group(['prefix' => 'cms'], function ()
 		get('administrators', ['as' => 'cms.users.administrators', 'uses' => 'Cms\UsersController@administrators']);
 	});
 
+	# Companies
+	Route::resource('companies', 'Cms\CompaniesController', ['only' => ['index']]);
+
 	# Articles
 	Route::group(['prefix' => 'articles'], function ()
 	{
@@ -46,7 +49,6 @@ Route::group(['prefix' => 'cms'], function ()
 		Route::resource('tags', 'Cms\TagsController', ['except' => ['show', 'destroy']]);
 	});
 	Route::resource('articles', 'Cms\ArticlesController', ['except' => ['index', 'show', 'destroy']]);
-
 
 	# Users
 	get('users', ['as' => 'cms.users', 'uses' => 'Cms\DashboardController@dashboard']);

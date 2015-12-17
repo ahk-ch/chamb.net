@@ -9,10 +9,12 @@ namespace tests\functional\cms\administrator;
 
 use App\AHK\Helpers\Helpers;
 use App\AHK\User;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 
 class LayoutTest extends TestCase
 {
+	use DatabaseMigrations;
 
 	/** @test */
 	public function it_reads_sidebar()
@@ -30,7 +32,9 @@ class LayoutTest extends TestCase
 			->see('<i class="fa fa-archive"></i> ' . trans('cms.unpublished'))
 			->see('<i class="fa fa-plus"></i> ' . trans('cms.create'))
 			->see('<i class="fa fa-puzzle-piece"></i> ' . trans('cms.categories'))
-			->see('<i class="fa fa-tags"></i> ' . trans('cms.tags'));
+			->see('<i class="fa fa-tags"></i> ' . trans('cms.tags'))
+			->see('<i class="fa fa-building"></i> <span>' . trans('cms.companies'));
+
 	}
 
 	/** @test */

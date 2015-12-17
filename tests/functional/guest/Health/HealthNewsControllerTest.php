@@ -4,12 +4,15 @@
  * @author Rizart Dokollari
  * @since 12/10/2015
  */
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 
 /**
  * Class HomeControllerTest
  */
 class HealthNewsControllerTest extends TestCase {
+
+	use DatabaseMigrations;
 
 	/**
 	 * A basic functional test example.

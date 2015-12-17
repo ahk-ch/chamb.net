@@ -62,6 +62,10 @@
                 </ul>
             </li>
 
+            <li class="treeview {!! activate(['cms.companies.index']) !!}">
+                <a href="{!! route('cms.companies.index') !!}"> <i class="fa fa-building"></i> <span>{!! trans('cms.companies') !!}</span>
+                    </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->
