@@ -5,7 +5,7 @@
                 <!-- About -->
                 <div class="col-md-3 md-margin-bottom-40">
                     <a href="{!! route('home_path') !!}"><img id="logo-footer" class="footer-logo" src="{!! url('img/logo.png') !!}" alt="chamb.net logo"></a>
-                    <p>The Hellenic-German Chamber of Industry and Commerce, is a non-profit organization connecting 850 member companies in Greece and Germany, supporting ongoing relationships amongst industries, companies, and improve trade between the two countries. </p>
+                    <p>The Hellenic-German Chamber of Industry and Commerce, is a non-profit organization connecting 850 member companies in Greece and Germany, supporting ongoing relationships amongst industry, companies, and improve trade between the two countries. </p>
                 </div><!--/col-md-3-->
                 <!-- End About -->
 

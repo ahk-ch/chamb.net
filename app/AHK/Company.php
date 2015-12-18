@@ -4,15 +4,20 @@ namespace App\AHK;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Company
+ * @package App\AHK
+ */
 class Company extends Model
 {
 	protected $fillable = ['name', 'logo', 'name_of_contact_partner'];
 
+
 	/**
-	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 * Get the firm that owns this event.
 	 */
-	public function industries()
+	public function industry()
 	{
-		return $this->hasMany('App\AHK\Industry');
+		return $this->belongsTo('App\AHK\Industry');
 	}
 }

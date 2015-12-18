@@ -12,6 +12,7 @@
 */
 
 use App\AHK\Article;
+use App\AHK\Company;
 use App\AHK\Industry;
 use App\AHK\User;
 
@@ -57,7 +58,7 @@ $factory->defineAs(App\AHK\Article::class, 'without_industry', function (Faker\G
 	$article = factory(Article::class, 'without_relations')->make();
 
 	return array_merge($article->toArray(), [
-		'author_id'   => factory(User::class)->create()->id,
+		'author_id' => factory(User::class)->create()->id,
 	]);
 });
 
@@ -86,7 +87,24 @@ $factory->defineAs(App\AHK\Article::class, 'without_relations', function (Faker\
 });
 
 
-$factory->define(App\AHK\Company::class, function (Faker\Generator $faker)
+$factory->define(Company::class, function (Faker\Generator $faker)
+{
+	$company = factory(Company::class, 'without_relations')->make();
+
+	return array_merge($company->toArray(), [
+		'industry_id' => factory(Industry::class)->create()->id,
+	]);
+});
+
+$factory->defineAs(Company::class, 'without_industry', function (Faker\Generator $faker) use ($factory)
+{
+	$company = factory(Company::class, 'without_relations')->make();
+
+	return array_merge($company->toArray(), [
+	]);
+});
+
+$factory->defineAs(Company::class, 'without_relations', function (Faker\Generator $faker) use ($factory)
 {
 	return [
 		'name'                    => $faker->unique()->name,

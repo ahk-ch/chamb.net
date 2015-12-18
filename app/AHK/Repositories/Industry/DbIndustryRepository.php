@@ -16,7 +16,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 {
 
 	/**
-	 * Get all industries
+	 * Get all industry
 	 * @return Collection
 	 */
 	public function all()

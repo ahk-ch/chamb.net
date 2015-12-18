@@ -12,7 +12,7 @@
     <div class="container content"><!--=== Content Part ===-->
         <div class="title-box-v2">
             <h2>About the Hellenic German Chamber of <br/><span class="color-green">Industry and Commerce</span></h2>
-            <p class="text-left">The Hellenic-German Chamber of Industry and Commerce, is a non-profit organization connecting 850 member companies in Greece and Germany, supporting ongoing relationships amongst industries, companies, and improve trade between the two countries. Our Organization is member of the German Chamber Network, which operates 125 offices in 85 countries. </p>
+            <p class="text-left">The Hellenic-German Chamber of Industry and Commerce, is a non-profit organization connecting 850 member companies in Greece and Germany, supporting ongoing relationships amongst industry, companies, and improve trade between the two countries. Our Organization is member of the German Chamber Network, which operates 125 offices in 85 countries. </p>
         </div>
 
         <!-- About Sldier -->

@@ -72,22 +72,11 @@
                         <!-- Easy Block -->
                 <div class="col-md-3 col-sm-6 md-margin-bottom-40">
                     <div class="easy-block-v1">
-                        <div class="easy-block-v1-badge rgba-default">Marketing</div>
+                        <div class="easy-block-v1-badge rgba-default">{{ $company->industry->name }}</div>
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li class="rounded-x active" data-target="#carousel-example-generic" data-slide-to="0"></li>
-                                <li class="rounded-x" data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li class="rounded-x" data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img alt="" src="assets/img/main/img3.jpg">
-                                </div>
-                                <div class="item">
-                                    <img alt="" src="assets/img/main/img1.jpg">
-                                </div>
-                                <div class="item">
-                                    <img alt="" src="assets/img/main/img7.jpg">
+                                    <img alt="Company Logo" src="{!! $company->logo !!}" style="max-height: 150px">
                                 </div>
                             </div>
                         </div>

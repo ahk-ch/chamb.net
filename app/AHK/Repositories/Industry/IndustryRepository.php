@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Collection;
 interface IndustryRepository {
 
 	/**
-	 * Get all industries
+	 * Get all industry
 	 * @return Collection
 	 */
 	public function all();
