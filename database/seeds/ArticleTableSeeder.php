@@ -9,11 +9,13 @@ namespace database\seeds;
 
 use App\AHK\Article;
 use App\AHK\Repositories\Article\DbArticleRepository;
+use App\AHK\Repositories\Industry\DbIndustryRepository;
 use App\AHK\Repositories\Tag\DbTagRepository;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 
-class ArticleTableSeeder extends Seeder {
+class ArticleTableSeeder extends Seeder
+{
 
 	/**
 	 * Run the database seeds.
@@ -22,20 +24,14 @@ class ArticleTableSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		$dbArticleRepository = new DbArticleRepository();
-		$dbTagRepository = new DbTagRepository();
+		$dbIndustryRepository = new DbIndustryRepository();
 		$faker = Factory::create();
 
-		factory(Article::class, 26)->create();
+		$industries = $dbIndustryRepository->all()->get()->toArray();
 
-		$articles = $dbArticleRepository->all()->get();
-		$tags = $dbTagRepository->all()->get()->toArray();
-
-		foreach ($articles as $article)
+		foreach (range(0, 13) as $index)
 		{
-			$randomTag = $faker->randomElement($tags);
-
-			$dbArticleRepository->updateTagsById($article->id, [$randomTag['id']]);
+			factory(Article::class, 'without_industry')->create(['industry_id' => $faker->randomElement($industries)['id']]);
 		}
 	}
 }

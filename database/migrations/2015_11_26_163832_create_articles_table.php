@@ -5,7 +5,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticlesTable extends Migration {
+class CreateArticlesTable extends Migration
+{
 	/**
 	 * Run the migrations.
 	 *

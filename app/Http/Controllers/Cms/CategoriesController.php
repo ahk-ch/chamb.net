@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Cms;
 
 use App\AHK\Category;
 use App\AHK\Notifications\Flash;
-use App\AHK\Repositories\Category\CategoryRepository;
+use App\AHK\Repositories\Category\IndustryRepository;
 use App\Http\Requests;
 use App\Http\Requests\Cms\StoreCategoryRequest;
 use App\Http\Requests\Cms\UpdateCategoryRequest;
@@ -12,15 +12,15 @@ use Illuminate\Support\Facades\Auth;
 
 class CategoriesController extends BaseController {
 	/**
-	 * @var CategoryRepository
+	 * @var IndustryRepository
 	 */
 	private $categoryRepository;
 
 	/**
 	 * CategoriesController constructor.
-	 * @param CategoryRepository $categoryRepository
+	 * @param IndustryRepository $categoryRepository
 	 */
-	public function __construct(CategoryRepository $categoryRepository)
+	public function __construct(IndustryRepository $categoryRepository)
 	{
 		parent::__construct();
 

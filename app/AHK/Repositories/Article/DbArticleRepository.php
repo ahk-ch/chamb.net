@@ -8,12 +8,13 @@ namespace App\AHK\Repositories\Article;
 
 
 use App\AHK\Article;
-use App\AHK\Category;
+use App\AHK\Industry;
 use App\AHK\Repositories\DbRepository;
 use App\AHK\User;
 use Illuminate\Database\Eloquent\Collection;
 
-class DbArticleRepository extends DbRepository implements ArticleRepository {
+class DbArticleRepository extends DbRepository implements ArticleRepository
+{
 
 	/**
 	 * Get all articles
@@ -21,23 +22,23 @@ class DbArticleRepository extends DbRepository implements ArticleRepository {
 	 */
 	public function all()
 	{
-		return Article::with('author', 'category', 'tags');
+		return Article::with('author', 'industry', 'tags');
 	}
 
 	/**
 	 * Store an article on the storage
 	 * @param User $author
 	 * @param array $fillable
-	 * @param Category $category
+	 * @param Industry $industry
 	 * @return Article|false
 	 */
-	public function store(User $author, array $fillable, Category $category)
+	public function store(User $author, array $fillable, Industry $industry)
 	{
 		$article = new Article($fillable);
 
 		$article->assignAuthor($author);
 
-		$article->assignCategory($category);
+		$article->assignIndustry($industry);
 
 		return $article->save() ? $article : false;
 	}
@@ -46,19 +47,29 @@ class DbArticleRepository extends DbRepository implements ArticleRepository {
 	 * Update an article given it id.
 	 * @param $articleId
 	 * @param array $fillable
-	 * @param Category $category
+	 * @param Industry $industry
 	 * @return mixed
 	 * @internal param $id
 	 */
-	public function updateById($articleId, array $fillable, Category $category)
+	public function updateById($articleId, array $fillable, Industry $industry)
 	{
 		$article = $this->getById($articleId);
 
 		$article->fill($fillable);
 
-		$article->assignCategory($category);
+		$article->assignIndustry($industry);
 
 		return $article->save() ? $article : false;
+	}
+
+	/**
+	 * Get an article given its id
+	 * @param $id
+	 */
+	public function getById($id)
+	{
+		return Article::with('author', 'industry', 'tags')
+			->where('articles.id', $id)->first();
 	}
 
 	/**
@@ -77,24 +88,12 @@ class DbArticleRepository extends DbRepository implements ArticleRepository {
 	}
 
 	/**
-	 * Get a category given its id
-	 * @param $id
-	 * @return Category
-	 */
-	public function getById($id)
-	{
-		return Article::with('author', 'category', 'tags')
-			->where('articles.id', $id)->first();
-	}
-
-
-	/**
 	 * Return published articles
 	 * @return mixed
 	 */
 	public function published()
 	{
-		return Article::with('author', 'category', 'tags')->where('publish', true);
+		return Article::with('author', 'industry', 'tags')->where('publish', true);
 	}
 
 	/**
@@ -103,6 +102,6 @@ class DbArticleRepository extends DbRepository implements ArticleRepository {
 	 */
 	public function unpublished()
 	{
-		return Article::with('author', 'category', 'tags')->where('publish', false);
+		return Article::with('author', 'industry', 'tags')->where('publish', false);
 	}
 }

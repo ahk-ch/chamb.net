@@ -8,7 +8,7 @@ namespace App\AHK\Repositories\Article;
 
 
 use App\AHK\Article;
-use App\AHK\Category;
+use App\AHK\Industry;
 use App\AHK\User;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -24,19 +24,19 @@ interface ArticleRepository {
 	 * Store an article on the storage
 	 * @param User $author
 	 * @param array $fillable
-	 * @param Category $category
+	 * @param Industry $industry
 	 * @return Article|false
 	 */
-	public function store(User $author, array $fillable, Category $category);
+	public function store(User $author, array $fillable, Industry $industry);
 
 	/**
 	 * Update an article given by its id.
 	 * @param $articleId
 	 * @param array $fillable
-	 * @param Category $category
+	 * @param Industry $industry
 	 * @return mixed
 	 */
-	public function updateById($articleId, array $fillable, Category $category);
+	public function updateById($articleId, array $fillable, Industry $industry);
 
 	/**
 	 * Return published articles

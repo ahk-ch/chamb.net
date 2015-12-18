@@ -4,38 +4,38 @@
  * @since   26/11/2015
  */
 
-namespace App\AHK\Repositories\Category;
+namespace App\AHK\Repositories\Industry;
 
 
-use App\AHK\Category;
+use App\AHK\Industry;
 use App\AHK\User;
 use Illuminate\Database\Eloquent\Collection;
 
-interface CategoryRepository {
+interface IndustryRepository {
 
 	/**
-	 * Get all categories
+	 * Get all industries
 	 * @return Collection
 	 */
 	public function all();
 
 	/**
-	 * Store a category on the storage
+	 * Store an industry on the storage
 	 * @param User $author
 	 * @param array $fillable
-	 * @return Category|false
+	 * @return Industry|false
 	 */
 	public function store(User $author, array $fillable);
 
 	/**
-	 * Get a category given its id.
+	 * Get a industry given its id.
 	 * @param $id
-	 * @return Category
+	 * @return Industry
 	 */
 	public function getById($id);
 
 	/**
-	 * Update a category given it id.
+	 * Update a industry given it id.
 	 * @param $id
 	 * @param array $fillable
 	 * @return mixed

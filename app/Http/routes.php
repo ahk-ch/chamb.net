@@ -5,13 +5,15 @@
 # Pages
 get('/', ['as' => 'home_path', 'uses' => 'AHK\HomeController@home']);
 get('about', ['as' => 'about_path', 'uses' => 'AHK\HomeController@about']);
-get('community', ['as' => 'companies_path', 'uses' => 'AHK\HomeController@companies']);
+get('community', ['as' => 'companies_path', 'uses' => 'AHK\CompaniesController@index']);
 get('lang/{lang}', ['as' => 'set_language', 'uses' => 'AHK\SettingsController@setLocale']);
+
 Route::group(['prefix' => 'health'], function ()
 {
 	get('info', ['as' => 'health.info', 'uses' => 'AHK\HealthController@info']);
 	get('news', ['as' => 'health.news', 'uses' => 'AHK\HealthController@news']);
 });
+
 get('terms_of_use', ['as' => 'terms_of_use_path', 'uses' => 'AHK\HomeController@termsOfUse']);
 
 # Registration
@@ -24,7 +26,7 @@ Route::group(['prefix' => 'auth'], function ()
 	delete('logout', ['as' => 'sessions.destroy', 'uses' => 'AHK\SessionsController@destroy']);
 });
 
-################ cms.chamb.net ####################
+################ chamb.net/cms ####################
 
 Route::group(['prefix' => 'cms'], function ()
 {

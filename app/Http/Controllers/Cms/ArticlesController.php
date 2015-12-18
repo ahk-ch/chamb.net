@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Cms;
 use App\AHK\Article;
 use App\AHK\Notifications\Flash;
 use App\AHK\Repositories\Article\ArticleRepository;
-use App\AHK\Repositories\Category\CategoryRepository;
+use App\AHK\Repositories\Category\IndustryRepository;
 use App\AHK\Repositories\Tag\TagRepository;
 use App\Http\Requests;
 use App\Http\Requests\Cms\StoreArticleRequest;
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 class ArticlesController extends BaseController {
 
 	/**
-	 * @var CategoryRepository
+	 * @var IndustryRepository
 	 */
 	private $categoryRepository;
 	/**
@@ -30,10 +30,10 @@ class ArticlesController extends BaseController {
 	/**
 	 * CategoriesController constructor.
 	 * @param ArticleRepository $articleRepository
-	 * @param CategoryRepository $categoryRepository
+	 * @param IndustryRepository $categoryRepository
 	 * @param TagRepository $tagRepository
 	 */
-	public function __construct(ArticleRepository $articleRepository, CategoryRepository $categoryRepository,
+	public function __construct(ArticleRepository $articleRepository, IndustryRepository $categoryRepository,
 	                            TagRepository $tagRepository)
 	{
 		parent::__construct();

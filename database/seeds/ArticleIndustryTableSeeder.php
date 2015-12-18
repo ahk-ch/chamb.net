@@ -7,10 +7,11 @@
 namespace database\seeds;
 
 
-use App\AHK\Tag;
+use App\AHK\Industry;
 use Illuminate\Database\Seeder;
 
-class ArticleTagTableSeeder extends Seeder {
+class ArticleIndustryTableSeeder extends Seeder
+{
 
 	/**
 	 * Run the database seeds.
@@ -19,6 +20,5 @@ class ArticleTagTableSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		factory(Tag::class, 13)->create();
 	}
 }
