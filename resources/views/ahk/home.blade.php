@@ -78,12 +78,5 @@
 @endsection
 @section('js-page-level')
     <script type="text/javascript" src="{!! url('assets/js/plugins/revolution-slider.js') !!}"></script>
-
-    <script type="text/javascript">
-        jQuery(document).ready(function () {
-            App.initCounter();
-            App.initParallaxBg();
-            RevolutionSlider.initRSfullScreenOffset();
-        });
-    </script>
+    <script type="text/javascript" src="{!! url('js/ahk/home.min.js') !!}"></script>
 @endsection

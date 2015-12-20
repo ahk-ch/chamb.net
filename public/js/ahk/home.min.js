@@ -1,0 +1,1 @@
+jQuery(document).ready(function(){App.initCounter(),App.initParallaxBg(),RevolutionSlider.initRSfullScreenOffset()});

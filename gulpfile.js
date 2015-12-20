@@ -11,6 +11,18 @@ var elixir = require('laravel-elixir');
  |
  */
 
-elixir(function(mix) {
-    mix.sass('app.scss');
+elixir(function (mix) {
+
+	var ahkDevScriptsDir = 'ahk/';
+	var ahkProductionScriptsDir = 'public/js/ahk/';
+
+	var cmsScriptsDir = 'public/js/ahk';
+
+	mix.sass('app.scss');
+	mix.scripts(ahkDevScriptsDir + 'master.js', ahkProductionScriptsDir + 'master.min.js');
+	mix.scripts(ahkDevScriptsDir + 'home.js', ahkProductionScriptsDir + 'home.min.js');
+	mix.scripts(ahkDevScriptsDir + 'health/info.js', ahkProductionScriptsDir + 'health/info.min.js');
+	mix.scripts(ahkDevScriptsDir + 'health/news.js', ahkProductionScriptsDir + 'health/news.min.js');
+	mix.scripts(ahkDevScriptsDir + 'companies/index.js', ahkProductionScriptsDir + 'companies/index.min.js');
+	mix.scripts(ahkDevScriptsDir + 'about.js', ahkProductionScriptsDir + 'about.min.js');
 });

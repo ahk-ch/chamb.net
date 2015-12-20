@@ -147,10 +147,6 @@
     <script type="text/javascript" src="{!! url('assets/plugins/image-hover/js/touch.js') !!}"></script>
 @endsection
 @section('js-page-level')
-    <script type="text/javascript">
-        jQuery(document).ready(function () {
-            App.initParallaxBg();
-        });
-    </script>
+    <script type="text/javascript" src="{!! url('js/ahk/companies/index.min.js') !!}"></script>
 @endsection
 

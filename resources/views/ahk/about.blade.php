@@ -101,19 +101,10 @@
 @endsection
 @section('js-implementing-plugins')
     <script type="text/javascript" src="{!! url('assets/plugins/owl-carousel/owl-carousel/owl.carousel.js') !!}"></script>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script type="text/javascript" src="{!! url('assets/plugins/gmap/gmap.js') !!}"></script>
 @endsection
 @section('js-inline')
 @endsection
 @section('js-page-level')
-    <script type="text/javascript" src="{!! url('assets/js/google_map.js') !!}"></script>
     <script type="text/javascript" src="{!! url('assets/js/plugins/owl-carousel.js') !!}"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function () {
-            App.initParallaxBg();
-            ContactPage.initMap();
-            OwlCarousel.initOwlCarousel();
-        });
-    </script>
+    <script type="text/javascript" src="{!! url('js/ahk/about.min.js') !!}"></script>
 @endsection

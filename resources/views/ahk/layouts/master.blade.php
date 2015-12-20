@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <!--[if IE 8]>
-<html lang="en" class="ie8"> <![endif]-->
+<html lang="{!! Lang::getLocale() !!}" class="ie8"> <![endif]-->
 <!--[if IE 9]>
-<html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en"> <!--<![endif]-->
+<html lang="{!! Lang::getLocale() !!}" class="ie9"> <![endif]-->
+<!-- [if !IE] -->
+<html lang="{!! Lang::getLocale() !!}">
+<!-- [endif] -->
 <head>
     <title> @yield('title')</title>
 
@@ -74,11 +75,7 @@
 <script type="text/javascript" src="{!! url('assets/js/custom.js') !!}"></script>
 @include('ahk._partials.flash')
 <script type="text/javascript" src="{!! url('assets/js/app.js') !!}"></script>
-<script type="text/javascript">
-    jQuery(document).ready(function () {
-        App.init();
-    });
-</script>
+<script type="text/javascript" src="{!! url('js/ahk/master.min.js') !!}"></script>
 @yield('js-page-level')
 <!--[if lt IE 9]>
 <script src="{!! url('assets/plugins/respond.js') !!}"></script>

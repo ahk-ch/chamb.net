@@ -160,6 +160,11 @@ return [
 		\App\Providers\BackendServiceProvider::class,
 		\App\Providers\FlashServiceProvider::class,
 
+		/*
+		 * External SEervice Providers
+		 */
+		GrahamCampbell\HTMLMin\HTMLMinServiceProvider::class,
+
 
 	],
 
@@ -221,6 +226,7 @@ return [
 		 * Internal aliases
 		 */
 		'Flash'       => \App\AHK\Notifications\Flash::class,
+		'HTMLMin'     => GrahamCampbell\HTMLMin\Facades\HTMLMin::class,
 	],
 
 ];
