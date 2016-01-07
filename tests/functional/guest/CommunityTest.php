@@ -23,8 +23,8 @@ class CommunityTest extends TestCase
 	 */
 	public function test_it_reads_contents()
 	{
-		$industries = factory(Industry::class, 4)->create();
-		$companies = factory(Company::class, 4)->create();
+		$industries = factory(Industry::class, 2)->create();
+		$companies = factory(Company::class, 2)->create();
 
 		$this->visit(route('companies_path'))
 			->seePageIs(route('companies_path'))
@@ -32,14 +32,12 @@ class CommunityTest extends TestCase
 			->see(trans('ahk.discover_the_community'))
 			->see($industries->get(0)->name)
 			->see($industries->get(1)->name)
-			->see($industries->get(2)->name)
-			->see($industries->get(3)->name)
 			->see('<div class="easy-block-v1-badge rgba-default">' . $companies->get(0)->industry->name . '</div>')
-			->see('<img alt="Company Logo" src="' . $industries->get(0)->logo . '">')
+			->see('<img alt="Company Logo" src="' . $industries->get(1)->logo)
+			->see('<div class="easy-block-v1-badge rgba-default">' . $companies->get(1)->industry->name . '</div>')
+			->see('<img alt="Company Logo" src="' . $industries->get(1)->logo)
 			->see($companies->get(0)->name)
-			->see($companies->get(1)->name)
-			->see($companies->get(2)->name)
-			->see($companies->get(3)->name);
+			->see($companies->get(1)->name);
 
 
 	}

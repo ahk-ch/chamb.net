@@ -73,7 +73,7 @@
 <script type="text/javascript" src='{!! url("vendor/pnotify/src/pnotify.confirm.min.js") !!}'></script>
 @yield('js-implementing-plugins')
 <script type="text/javascript" src="{!! url('assets/js/custom.js') !!}"></script>
-@include('ahk._partials.flash')
+<script type="text/javascript" src="{!! elixir('js/ahk/flash.min.js') !!}"></script>
 <script type="text/javascript" src="{!! url('assets/js/app.js') !!}"></script>
 <script type="text/javascript" src="{!! url('js/ahk/master.min.js') !!}"></script>
 @yield('js-page-level')
@@ -81,6 +81,5 @@
 <script src="{!! url('assets/plugins/respond.js') !!}"></script>
 <script src="{!! url('assets/plugins/html5shiv.js') !!}"></script>
 <script src="{!! url('assets/plugins/placeholder-IE-fixes.js') !!}"></script><![endif]-->
-
 </body>
 </html>

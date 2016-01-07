@@ -4,37 +4,22 @@ namespace App\Http\Middleware;
 
 use App\AHK\Notifications\Flash;
 use Closure;
-use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Auth;
 
-class Authenticate {
-	/**
-	 * The Guard implementation.
-	 *
-	 * @var Guard
-	 */
-	protected $auth;
-
-	/**
-	 * Create a new filter instance.
-	 *
-	 * @param  Guard $auth
-	 * @return void
-	 */
-	public function __construct(Guard $auth)
-	{
-		$this->auth = $auth;
-	}
+class Authenticate
+{
 
 	/**
 	 * Handle an incoming request.
 	 *
 	 * @param  \Illuminate\Http\Request $request
 	 * @param  \Closure $next
+	 * @param null $guard
 	 * @return mixed
 	 */
-	public function handle($request, Closure $next)
+	public function handle($request, Closure $next, $guard = null)
 	{
-		if ( $this->auth->guest() )
+		if ( Auth::guard($guard)->guest() )
 		{
 			if ( $request->ajax() )
 			{

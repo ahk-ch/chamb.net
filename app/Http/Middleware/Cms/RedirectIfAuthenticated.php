@@ -3,40 +3,21 @@
 namespace App\Http\Middleware\Cms;
 
 use Closure;
-use Illuminate\Auth\Guard;
+use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
-	/**
-	 * The Guard implementation.
-	 *
-	 * @var Guard
-	 */
-	protected $auth;
-
-	/**
-	 * Create a new filter instance.
-	 *
-	 * @param  Guard $auth
-	 */
-	public function __construct(Guard $auth)
-	{
-		$this->auth = $auth;
-	}
-
 	/**
 	 * Handle an incoming request.
 	 *
 	 * @param  \Illuminate\Http\Request $request
 	 * @param  \Closure $next
+	 * @param null $guard
 	 * @return mixed
 	 */
-	public function handle($request, Closure $next)
+	public function handle($request, Closure $next, $guard = null)
 	{
-		if ( $this->auth->check() )
-		{
-			return redirect(route('cms.dashboard'));
-		}
+		if ( Auth::guard($guard)->check() ) return redirect(route('cms.dashboard'));
 
 		return $next($request);
 	}
