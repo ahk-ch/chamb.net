@@ -1,6 +1,7 @@
 var elixir = require('laravel-elixir');
 
 elixir.config.sourcemaps = false;
+process.env.DISABLE_NOTIFIER = true;
 
 elixir(function (mix) {
 
@@ -26,8 +27,13 @@ elixir(function (mix) {
 		// AHK
 		// CSS
 		// JS
-		//ahkProductionScriptsDir + 'master.min.js',
-		ahkProductionScriptsDir + 'flash.min.js'
+		ahkProductionScriptsDir + 'master.min.js',
+		ahkProductionScriptsDir + 'flash.min.js',
+		ahkProductionScriptsDir + 'home.min.js',
+		ahkProductionScriptsDir + 'about.min.js',
+		ahkProductionScriptsDir + 'health/info.min.js',
+		ahkProductionScriptsDir + 'health/news.min.js',
+		ahkProductionScriptsDir + 'companies/index.min.js'
 	]);
 
 	mix.browserSync({

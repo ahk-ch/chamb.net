@@ -17,6 +17,6 @@
 @endsection
 @section('js-page-level')
     <script type="text/javascript" src="{!! url('assets/js/plugins/fancy-box.js') !!}"></script>
-    <script type="text/javascript" src="{!! url('js/ahk/health/news.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! elixir('js/ahk/health/news.min.js') !!}"></script>
 @endsection
 

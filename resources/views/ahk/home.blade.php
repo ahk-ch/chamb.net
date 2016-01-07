@@ -3,10 +3,8 @@
 @section('css-implementing-plugins')
     <link href='{!! url("assets/plugins/revolution-slider/rs-plugin/css/settings.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
-@section('css-page-style')
-@endsection
+@section('css-page-style')@endsection
 @section('content')
-
     <div class="tp-banner-container">
         <div class="tp-banner">
             <ul>
@@ -78,5 +76,5 @@
 @endsection
 @section('js-page-level')
     <script type="text/javascript" src="{!! url('assets/js/plugins/revolution-slider.js') !!}"></script>
-    <script type="text/javascript" src="{!! url('js/ahk/home.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! elixir('js/ahk/home.min.js') !!}"></script>
 @endsection

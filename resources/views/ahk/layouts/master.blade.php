@@ -8,27 +8,20 @@
 <!-- [endif] -->
 <head>
     <title> @yield('title')</title>
-
-    <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <!-- Favicon -->
     <link rel="shortcut icon" href="{!! url('favicon.ico') !!}">
-
     <!-- Web Fonts -->
     <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
-
     <!-- CSS Global Compulsory -->
     <link href='{!! url("assets/plugins/bootstrap/css/bootstrap.min.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/css/style.css") !!}' rel='stylesheet' type='text/css'/>
-
     <!-- CSS Header and Footer -->
     <link href='{!! url("assets/css/headers/header-default.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/css/footers/footer-v6.css") !!}' rel='stylesheet' type='text/css'/>
-
     <!-- CSS Implementing Plugins -->
     <link href='{!! url("assets/plugins/animate.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/plugins/line-icons/line-icons.css") !!}' rel='stylesheet' type='text/css'/>
@@ -36,14 +29,8 @@
     <link href='{!! url("assets/plugins/login-signup-modal-window/css/style.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("vendor/pnotify/src/pnotify.core.css") !!}' rel='stylesheet' type='text/css'/>
     @yield('css-implementing-plugins')
-
-            <!-- CSS Customization -->
-    <link href='{!! url("assets/css/custom.css") !!}' rel='stylesheet' type='text/css'/>
-    <!-- CSS Page Style -->
     @yield('css-page-style')
-    @yield('inline-styles')
 </head>
-
 <body class="header-fixed">
 
 <div class="wrapper">
@@ -72,10 +59,9 @@
 <script type="text/javascript" src='{!! url("vendor/pnotify/src/pnotify.core.min.js") !!}'></script>
 <script type="text/javascript" src='{!! url("vendor/pnotify/src/pnotify.confirm.min.js") !!}'></script>
 @yield('js-implementing-plugins')
-<script type="text/javascript" src="{!! url('assets/js/custom.js') !!}"></script>
 <script type="text/javascript" src="{!! elixir('js/ahk/flash.min.js') !!}"></script>
 <script type="text/javascript" src="{!! url('assets/js/app.js') !!}"></script>
-<script type="text/javascript" src="{!! url('js/ahk/master.min.js') !!}"></script>
+<script type="text/javascript" src="{!! elixir('js/ahk/master.min.js') !!}"></script>
 @yield('js-page-level')
 <!--[if lt IE 9]>
 <script src="{!! url('assets/plugins/respond.js') !!}"></script>

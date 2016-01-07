@@ -309,7 +309,6 @@
         </div>
     </div>
     <!--=== End Call To Action ===-->
-
 @endsection
 @section('js-implementing-plugins')
 @endsection
@@ -319,5 +318,5 @@
     <script type="text/javascript" src="{!! url('assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js') !!}"></script>
 @endsection
 @section('js-page-level')
-    <script type="text/javascript" src="{!! url('js/ahk/health/info.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! elixir('js/ahk/health/info.min.js') !!}"></script>
 @endsection
