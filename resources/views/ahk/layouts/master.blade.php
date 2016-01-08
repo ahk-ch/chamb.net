@@ -21,7 +21,7 @@
     <link href='{!! url("assets/css/style.css") !!}' rel='stylesheet' type='text/css'/>
     <!-- CSS Header and Footer -->
     <link href='{!! url("assets/css/headers/header-default.css") !!}' rel='stylesheet' type='text/css'/>
-    <link href='{!! url("assets/css/footers/footer-v6.css") !!}' rel='stylesheet' type='text/css'/>
+    <link href='{!! url("assets/css/footers/footer-v2.css") !!}' rel='stylesheet' type='text/css'/>
     <!-- CSS Implementing Plugins -->
     <link href='{!! url("assets/plugins/animate.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/plugins/line-icons/line-icons.css") !!}' rel='stylesheet' type='text/css'/>

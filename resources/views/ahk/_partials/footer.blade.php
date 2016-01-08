@@ -1,4 +1,4 @@
-<div id="footer-v6" class="footer-v6">
+<div id="footer-v2" class="footer-v2">
     <div class="footer">
         <div class="container">
             <div class="row">
@@ -28,7 +28,8 @@
                     <div class="headline"><h2>Useful Links</h2></div>
                     <ul class="list-unstyled link-list">
                         <li><a href="{!! route('about_path') !!}">About us</a><i class="fa fa-angle-right"></i></li>
-                        <li><a href="{!! route('companies_path') !!}">Community</a><i class="fa fa-angle-right"></i></li>
+                        <li><a href="{!! route('companies_path') !!}">Community</a><i class="fa fa-angle-right"></i>
+                        </li>
                     </ul>
                 </div><!--/col-md-3-->
                 <!-- End Link List -->
