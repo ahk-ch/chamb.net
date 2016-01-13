@@ -19,6 +19,7 @@ class LayoutControllerTest extends TestCase {
 			->see(trans('ahk.login'))
 			->see(trans('ahk.home'))
 			->see(trans('ahk.health'))
+			->see(trans('ahk.working_groups'))
 			->see(trans('ahk.community'))
 			->see(trans('ahk.about'));
 	}

@@ -30,6 +30,7 @@
     <link href='{!! url("vendor/pnotify/src/pnotify.core.css") !!}' rel='stylesheet' type='text/css'/>
     @yield('css-implementing-plugins')
     @yield('css-page-style')
+    <link href='{!! elixir("css/ahk/app.min.css") !!}' rel='stylesheet' type='text/css'/>
 </head>
 <body class="header-fixed">
 

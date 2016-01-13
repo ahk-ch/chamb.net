@@ -1,0 +1,18 @@
+.header .navbar-nav {
+
+  > .active > a {
+    color: black;
+  }
+
+  > li > a:hover, > .active > a {
+    border-bottom: solid 2px black;
+  }
+
+  > li:hover > a {
+    color: black;
+  }
+}
+
+.header .dropdown-menu {
+  border-top: solid 2px black;
+}

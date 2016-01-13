@@ -1,5 +1,4 @@
 <?php
-
 ################ chamb.net ####################
 
 # Pages
@@ -13,6 +12,9 @@ Route::group(['prefix' => 'health'], function ()
 	Route::get('info', ['as' => 'health.info', 'uses' => 'AHK\HealthController@info']);
 	Route::get('news', ['as' => 'health.news', 'uses' => 'AHK\HealthController@news']);
 });
+
+# Working Groups
+Route::get('working_groups', ['as' => 'working_groups', 'uses' => 'AHK\WorkingGroupsController@index']);
 
 Route::get('terms_of_use', ['as' => 'terms_of_use_path', 'uses' => 'AHK\HomeController@termsOfUse']);
 

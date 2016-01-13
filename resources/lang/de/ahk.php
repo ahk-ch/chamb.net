@@ -44,4 +44,5 @@ return [
 	'username'                                                             => 'Benutzername',
 	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Wir fördern und unterstützen bilaterale Geschäfte zwischen <br/> Griechenland und Deutschland.',
 	'welcome'                                                              => 'Willkommen!',
+	'working_groups'                                                       => 'Arbeitsgruppen',
 ];

@@ -45,4 +45,5 @@ return [
 	'username'                                                             => 'Ψευδώνυμο',
 	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Προωθούμε καί στηρίζουμε  διμερείς επιχειρήσεις ανάμεσα <br/> στην Ελλάδα και τη Γερμανία.',
 	'welcome'                                                              => 'Καλώς ορίσατε!',
+	'working_groups'                                                       => 'Ομάδες Εργασίας',
 ];

@@ -76,6 +76,12 @@
                 <!-- End Pages -->
 
                 <!-- Companies -->
+                <li class="{!! activate(['working_groups']) !!}">
+                    <a href="{!! route('working_groups') !!}"> {!! trans('ahk.working_groups') !!} </a>
+                </li>
+                <!-- End Companies -->
+
+                <!-- Companies -->
                 <li class="{!! activate(['companies_path']) !!}">
                     <a href="{!! route('companies_path') !!}"> {!! trans('ahk.community') !!} </a>
                 </li>
