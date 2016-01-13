@@ -22,6 +22,7 @@ return [
 	'create_account'                                                       => 'Benutzerkonto erstellen',
 	'discover_the_community'                                               => 'Entdecken Sie die Community',
 	'error'                                                                => 'Fehler',
+	'footer_about'                                                         => 'Die Deutsch-Griechische Industrie- und Handelskammer verbindet 850 Mitgliedsunternehmen in Deutschland und Griechenland und ist Mitglied des Netzwerks deutscher Handelskammern mit 125 Büros in 85 Ländern. Als Non-Profit-Organisation bauen wir nachhaltige Beziehungen zwischen Industrien und Unternehmen auf und schaffen damit die Grundlage für Ihren vertrauensvollen Handel zwischen beiden Ländern.',
 	'forgot_your_password'                                                 => 'Haben Sie Ihr Passwort vergessen?',
 	'go'                                                                   => 'Anfang',
 	'health'                                                               => 'Gesundheit',

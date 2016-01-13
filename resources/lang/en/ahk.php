@@ -22,6 +22,7 @@ return [
 	'create_account'                                                       => 'Create account',
 	'discover_the_community'                                               => 'Discover the community',
 	'error'                                                                => 'Error',
+	'footer_about'                                                         => 'The Hellenic-German Chamber of Industry and Commerce connects 850 member companies in both countries and is member of the network of German chambers which operates 125 offices in 85 countries. As non-profit organization we build sustainable relationships between industries and companies and thereby create the foundation for bilateral trade with confidence.',
 	'forgot_your_password'                                                 => 'Forgot your password?',
 	'go'                                                                   => 'Go',
 	'health'                                                               => 'Health',
