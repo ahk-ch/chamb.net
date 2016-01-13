@@ -7,106 +7,60 @@
 @endsection
 @section('css-page-style')
     <link href='{!! url("assets/css/pages/page_search.css") !!}' rel='stylesheet' type='text/css'/>
-@endsection
-@section('content')
-    <div class="container content">
-        <div class="row">
-            <div class="col-md-6">
-                <h2 class="title-v2">OUR SERVICES</h2>
-                <p>Short services and benefits description.</p>
-            </div>
-            <div class="col-md-6">
-                <img class="img-responsive" src="http://dummyimage.com/1000x645/000/fff" alt="">
-            </div>
-        </div>
-    </div><!--/container-->
-    <!--=== End Content Part ===-->
-
-    <!--=== News Block ===-->
-    <div class="bg-grey">
-        <div class="container content-sm">
-            <div class="text-center margin-bottom-50">
-                <h2 class="title-v2 title-center">HEALTH NEWS</h2>
-                <p class="space-lg-hor">Most popular Health care sector news.</p>
-            </div>
-
-            <div class="row news-v1">
-                <div class="col-md-4 md-margin-bottom-40">
-                    <div class="news-v1-in bg-color-white">
-                        <img class="img-responsive" src="{!! url('assets/img/main/img12.jpg') !!}" alt="">
-                        <h3 class="font-normal"><a href="#">Focused on helping</a></h3>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores [..]</p>
-                        <ul class="list-inline news-v1-info no-margin-bottom">
-                            <li><span>By</span> <a href="#">Kathy Reyes</a></li>
-                            <li>|</li>
-                            <li><i class="fa fa-clock-o"></i> July 02, 2014</li>
-                            <li class="pull-right"><a href="#"><i class="fa fa-comments-o"></i> 14</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-4 md-margin-bottom-40">
-                    <div class="news-v1-in bg-color-white">
-                        <img class="img-responsive" src="{!! url('assets/img/main/img3.jpg') !!}" alt="">
-                        <h3 class="font-normal"><a href="#">We build your website</a></h3>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores [..]</p>
-                        <ul class="list-inline news-v1-info no-margin-bottom">
-                            <li><span>By</span> <a href="#">John Clarck</a></li>
-                            <li>|</li>
-                            <li><i class="fa fa-clock-o"></i> July 02, 2014</li>
-                            <li class="pull-right"><a href="#"><i class="fa fa-comments-o"></i> 07</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="news-v1-in bg-color-white">
-                        <img class="img-responsive" src="{!! url('assets/img/main/img16.jpg') !!}" alt="">
-                        <h3 class="font-normal"><a href="#">Build a successful business</a></h3>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores [..]</p>
-                        <ul class="list-inline news-v1-info no-margin-bottom">
-                            <li><span>By</span> <a href="#">Tina Kruiger</a></li>
-                            <li>|</li>
-                            <li><i class="fa fa-clock-o"></i> July 02, 2014</li>
-                            <li class="pull-right"><a href="#"><i class="fa fa-comments-o"></i> 22</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--=== End News Block ===-->
-
-    <!--=== Service Blocks ===-->
+    @endsection
+    @section('content')
+            <!--=== Service Blocks ===-->
     <div class="container content-sm">
         <div class="text-center margin-bottom-50">
-            <h2 class="title-v2 title-center">Chamber Services</h2>
-            <p class="space-lg-hor">If you are going to use a
-                <span class="color-green">passage of Lorem Ipsum</span>, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making
-                <span class="color-green">this the first</span> true generator on the Internet.</p>
+            <h2 class="title-v2 title-center">{!! trans('ahk_health_info.chambers_services_title') !!}</h2>
+            <p class="space-lg-hor">{!! trans('ahk_health_info.chambers_services_content') !!}</p>
         </div>
 
         <div class="row content-boxes-v4 content-boxes-v4-sm margin-bottom-30">
             <div class="col-md-4 md-margin-bottom-40">
                 <i class="pull-left icon-directions"></i>
                 <div class="content-boxes-in-v4">
-                    <h2>Creative Ideas</h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                    <a href="#">Learn More</a>
+                    <h2>{!! trans('ahk_health_info.market_studies_profiles_title') !!}</h2>
+                    <p>{!! trans('ahk_health_info.market_studies_profiles_content') !!}</p>
                 </div>
             </div>
             <div class="col-md-4 md-margin-bottom-40">
                 <i class="pull-left icon-handbag"></i>
                 <div class="content-boxes-in-v4">
-                    <h2>E-Commerce Pages</h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                    <a href="#">Learn More</a>
+                    <h2>{!! trans('ahk_health_info.market_entry_support_address_research_title') !!}</h2>
+                    <p>{!! trans('ahk_health_info.market_entry_support_address_research_content') !!}</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <i class="pull-left icon-chemistry"></i>
                 <div class="content-boxes-in-v4">
-                    <h2>Clean Code</h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                    <a href="#">Learn More</a>
+                    <h2>{!! trans('ahk_health_info.interpreting_and_translating_title') !!}</h2>
+                    <p>{!! trans('ahk_health_info.interpreting_and_translating_content') !!}</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row content-boxes-v4 content-boxes-v4-sm margin-bottom-30">
+            <div class="col-md-4 md-margin-bottom-40">
+                <i class="pull-left icon-info margin-right-10"></i>
+                <div class="content-boxes-in-v4">
+                    <h2>{!! trans('ahk_health_info.legal_counseling_title') !!}</h2>
+                    <p>{!! trans('ahk_health_info.legal_counseling_content') !!}</p>
+                </div>
+            </div>
+            <div class="col-md-4 md-margin-bottom-40">
+                <i class="pull-left icon-social-youtube margin-right-10"></i>
+                <div class="content-boxes-in-v4">
+                    <h2>{!! trans('ahk_health_info.mediation_arbitration_debt_collection_title') !!}</h2>
+                    <p>{!! trans('ahk_health_info.mediation_arbitration_debt_collection_content') !!}</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <i class="pull-left icon-fire margin-right-10"></i>
+                <div class="content-boxes-in-v4">
+                    <h2>{!! trans('ahk_health_info.website_creation_title') !!}</h2>
+                    <p>{!! trans('ahk_health_info.website_creation_content') !!}</p>
                 </div>
             </div>
         </div>
@@ -114,31 +68,15 @@
         <hr>
 
         <div class="row content-boxes-v4 content-boxes-v4-sm margin-bottom-30">
-            <div class="col-md-4 md-margin-bottom-40">
-                <i class="pull-left icon-info margin-right-10"></i>
-                <div class="content-boxes-in-v4">
-                    <h2>Extensive Documentation</h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                    <a href="#">Learn More</a>
-                </div>
-            </div>
-            <div class="col-md-4 md-margin-bottom-40">
-                <i class="pull-left icon-social-youtube margin-right-10"></i>
-                <div class="content-boxes-in-v4">
-                    <h2>Vimeo / Youtube</h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                    <a href="#">Learn More</a>
-                </div>
-            </div>
             <div class="col-md-4">
                 <i class="pull-left icon-fire margin-right-10"></i>
                 <div class="content-boxes-in-v4">
-                    <h2>Excellent Features</h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                    <a href="#">Learn More</a>
+                    <h2>{!! trans('ahk_health_info.recruitment_title') !!}</h2>
+                    <p>{!! trans('ahk_health_info.recruitment_content') !!}</p>
                 </div>
             </div>
         </div>
+
     </div>
     <!--=== End Service Blocks ===-->
 
