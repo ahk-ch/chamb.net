@@ -11,8 +11,9 @@
 
     <div class="container content"><!--=== Content Part ===-->
         <div class="title-box-v2">
-            <h2>About the Hellenic German Chamber of <br/><span class="color-green">Industry and Commerce</span></h2>
-            <p class="text-left">The Hellenic-German Chamber of Industry and Commerce, is a non-profit organization connecting 850 member companies in Greece and Germany, supporting ongoing relationships amongst industry, companies, and improve trade between the two countries. Our Organization is member of the German Chamber Network, which operates 125 offices in 85 countries. </p>
+            <h2>{!! trans('ahk_about.about_the_hellenic_german_chambers_of') !!}
+                <br/><span class="color-green">{!! trans('ahk_about.industry_and_commerce') !!}</span></h2>
+            <p class="text-left">{!! trans('ahk_about.about_introduction') !!} </p>
         </div>
 
         <!-- About Sldier -->
@@ -29,22 +30,22 @@
             <div class="col-sm-4">
                 <div class="service-block service-block-default">
                     <i class="icon-custom rounded icon-color-dark icon-line icon-badge"></i>
-                    <h2 class="heading-md">Consulting Services</h2>
-                    <p>The Hellenic German Chamber of Commerce and Industry provides services to companies both from Germany and Greece supporting them in their business activities. Our offices in Athens and Thessaloniki assist German and Greek companies - in most cases small- and medium-sized businesses (SMEs)- with their entry and expansion in the German and Greek market. Our consulting services range from market entry support, address researches, business partner searches, and career services, to detailed market studies. We also support you in establishing first business contacts with potential customers for your products or services and assist you with the preparations of your trade show participation.</p>
+                    <h2 class="heading-md">{!! trans('ahk_about.consulting_services') !!}</h2>
+                    <p>{!! trans('ahk_about.consulting_services_content') !!}</p>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="service-block service-block-default">
                     <i class="icon-custom rounded icon-color-dark icon-line icon-fire"></i>
-                    <h2 class="heading-md">Networking</h2>
-                    <p>The Hellenic German Chamber of Commerce and Industry supports you to connect with business professionals and decision makers of the Hellenic-German business community. Use our network and increase your corporate brand and business success by fostering new ties with professional network and industry sectors.</p>
+                    <h2 class="heading-md">{!! trans('ahk_about.networking') !!}</h2>
+                    <p>{!! trans('ahk_about.networking_content') !!}</p>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="service-block service-block-default">
                     <i class="icon-custom rounded icon-color-dark icon-line icon-directions"></i>
-                    <h2 class="heading-md">Membership</h2>
-                    <p>The Hellenic German Chamber of Commerce has an extensive membership network of many distinguished companies, firms, and executives. With more than 850 members in Greece and Germany, we enable our members to forge new business relationships. Membership benefits include lectures, seminars and networking receptions hosted by leaders of industry and government. As a member, you could benefit from discounts on selected services.</p>
+                    <h2 class="heading-md">{!! trans('ahk_about.membership') !!}</h2>
+                    <p>{!! trans('ahk_about.membership_content') !!}</p>
                 </div>
             </div>
         </div>
