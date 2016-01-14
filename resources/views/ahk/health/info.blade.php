@@ -110,60 +110,12 @@
     <!--=== Cube Portfolio ===-->
     <div class="container content-sm">
         <div class="text-center margin-bottom-30">
-            <h2 class="title-v2 title-center">Projects and Workshops</h2>
-            <p class="space-lg-hor">If you are going to use a
-                <span class="color-green">passage of Lorem Ipsum</span>, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making
-                <span class="color-green">this the first</span> true generator on the Internet.</p>
+            <h2 class="title-v2 title-center">Team</h2>
         </div>
 
         <div class="cube-portfolio container margin-bottom-20">
-            <div class="margin-bottom-30">
-                <div id="filters-container" class="cbp-l-filters-text">
-                    <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All</div>
-                    |
-                    <div data-filter=".illustration" class="cbp-filter-item"> Illustration</div>
-                    |
-                    <div data-filter=".web-design" class="cbp-filter-item"> Web Design</div>
-                    |
-                    <div data-filter=".graphic" class="cbp-filter-item"> Graphic</div>
-                    |
-                    <div data-filter=".logo" class="cbp-filter-item"> Logo</div>
-                </div><!--/end Filters Container-->
-            </div>
 
             <div id="grid-container" class="cbp-l-grid-gallery">
-                <div class="cbp-item illustration web-design">
-                    <a href="assets/ajax/cube-portfolio/project1.html" class="cbp-caption cbp-singlePageInline"
-                            data-title="World Clock Widget<br>by Paul Flavius Nechita">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="{!! url('assets/img/portfolio/20.jpg') !!}" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-title">Paul Flavius</div>
-                                    <div class="cbp-l-caption-desc">Development</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item web-design logo">
-                    <a href="assets/ajax/cube-portfolio/project2.html" class="cbp-caption cbp-singlePageInline"
-                            data-title="Bolt UI<br>by Tiberiu Neamu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="{!! url('assets/img/portfolio/19.jpg') !!}" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-title">Tiberiu Neamu</div>
-                                    <div class="cbp-l-caption-desc">Web-Design</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
                 <div class="cbp-item illustration web-design">
                     <a href="assets/ajax/cube-portfolio/project3.html" class="cbp-caption cbp-singlePageInline"
                             data-title="WhereTO App<br>by Tiberiu Neamu">
@@ -173,8 +125,8 @@
                         <div class="cbp-caption-activeWrap">
                             <div class="cbp-l-caption-alignLeft">
                                 <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-title">Tiberiu Neamu</div>
-                                    <div class="cbp-l-caption-desc">Illustration</div>
+                                    <div class="cbp-l-caption-title">Zoi Baltzi</div>
+                                    <div class="cbp-l-caption-desc">Role</div>
                                 </div>
                             </div>
                         </div>
@@ -189,8 +141,8 @@
                         <div class="cbp-caption-activeWrap">
                             <div class="cbp-l-caption-alignLeft">
                                 <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-title">Tiberiu Neamu</div>
-                                    <div class="cbp-l-caption-desc">Illustration</div>
+                                    <div class="cbp-l-caption-title">Matthias Hoffmann</div>
+                                    <div class="cbp-l-caption-desc">Role</div>
                                 </div>
                             </div>
                         </div>
@@ -205,8 +157,8 @@
                         <div class="cbp-caption-activeWrap">
                             <div class="cbp-l-caption-alignLeft">
                                 <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-title">Tiberiu Neamu</div>
-                                    <div class="cbp-l-caption-desc">Illustration</div>
+                                    <div class="cbp-l-caption-title">Maria Papanastasiou</div>
+                                    <div class="cbp-l-caption-desc">Role</div>
                                 </div>
                             </div>
                         </div>
@@ -221,8 +173,8 @@
                         <div class="cbp-caption-activeWrap">
                             <div class="cbp-l-caption-alignLeft">
                                 <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-title">Tiberiu Neamu</div>
-                                    <div class="cbp-l-caption-desc">Web-Design</div>
+                                    <div class="cbp-l-caption-title">Georgios Theodorakis</div>
+                                    <div class="cbp-l-caption-desc">Role</div>
                                 </div>
                             </div>
                         </div>
@@ -233,20 +185,6 @@
     </div>
     <!--=== End Cube Portfolio ===-->
 
-    <!--=== Call To Action ===-->
-    <div class="call-action-v1 bg-grey">
-        <div class="container">
-            <div class="call-action-v1-box">
-                <div class="call-action-v1-in">
-                    <p>Unify creative technology company providing key digital services and focused on helping our clients to build a successful business on web and mobile.</p>
-                </div>
-                <div class="call-action-v1-in inner-btn page-scroll">
-                    <a href="portfolio_4_columns_grid_no_space.html" class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-block">View Our Portfolio</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--=== End Call To Action ===-->
 @endsection
 @section('js-implementing-plugins')
 @endsection
