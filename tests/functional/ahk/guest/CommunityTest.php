@@ -1,4 +1,4 @@
-<?php namespace tests\functional\guest;
+<?php namespace tests\functional\ahk\guest;
 
 /**
  * @author Rizart Dokollari

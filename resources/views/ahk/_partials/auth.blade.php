@@ -9,16 +9,6 @@
 
             {!! Form::open(['route' => 'sessions.store', 'role' => 'form', 'class' => 'cd-form']) !!}
 
-            <p class="social-login">
-                <span class="social-login-facebook"><a href="#"><i class="fa fa-facebook"></i> Facebook</a></span>
-                <span class="social-login-google"><a href="#"><i class="fa fa-google"></i> Google</a></span>
-                <span class="social-login-twitter"><a href="#"><i class="fa fa-twitter"></i> Twitter</a></span>
-            </p>
-
-            <div class="lined-text"><span>{!! trans('ahk.or_use_your_account') !!} on AHK</span>
-                <hr>
-            </div>
-
             <p class="fieldset">
                 <label class="image-replace cd-email" for="sign_in_email">E-mail</label>
                 {!! Form::email('email', null, ['class' => 'full-width has-padding has-border ' .
@@ -27,7 +17,7 @@
             </p>
 
             <p class="fieldset">
-                <label class="image-replace cd-password" for="signin-password">Password</label>
+                <label class="image-replace cd-password" for="signin-password">{!! trans('ahk.password') !!}</label>
                 {!! Form::text('password', null, ['class' => 'full-width has-padding has-border ' .
                 (! $errors->first('password') ? '': 'has-error'), 'placeholder' =>  trans('ahk.password') ]) !!}
                 {!! $errors->first('password', '<span class="cd-error-message is-visible">:message</span>') !!}
@@ -79,7 +69,7 @@
 
             <p class="fieldset">
                 <label class="image-replace cd-password" for="signup-password">{!! trans('ahk.password') !!}</label>
-                {!! Form::text('password', null, ['class' => 'full-width has-padding has-border', 'placeholder' =>  trans('ahk.password') ]) !!}
+                {!! Form::password('password', ['class' => 'full-width has-padding has-border', 'placeholder' =>  trans('ahk.password') ]) !!}
                 <a href="javascript:void(0);" class="hide-password">Hide</a>
                 {!! $errors->first('password', '<span class="cd-error-message is-visible">:message</span>') !!}
             </p>

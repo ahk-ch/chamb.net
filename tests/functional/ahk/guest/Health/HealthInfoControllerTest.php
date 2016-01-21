@@ -1,4 +1,4 @@
-<?php namespace tests\functional\guest;
+<?php namespace tests\functional\ahk\guest\Health;
 
 /**
  * @author Rizart Dokollari
@@ -9,7 +9,7 @@ use tests\TestCase;
 /**
  * Class HomeControllerTest
  */
-class AboutControllerTest extends TestCase {
+class HealthInfoControllerTest extends TestCase {
 
 	/**
 	 * A basic functional test example.
@@ -18,8 +18,8 @@ class AboutControllerTest extends TestCase {
 	 */
 	public function test_it_reads_contents()
 	{
-		$this->visit(route('about_path'))
-			->seePageIs(route('about_path'))
-			->see("<title> " . trans('ahk.about') . "</title>");
+		$this->visit(route('health.info'))
+			->seePageIs(route('health.info'))
+			->see("<title> " . trans('ahk.info') . "</title>");
 	}
 }

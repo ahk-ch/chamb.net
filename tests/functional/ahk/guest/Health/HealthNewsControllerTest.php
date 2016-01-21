@@ -1,4 +1,4 @@
-<?php namespace tests\functional\guest\Health;
+<?php namespace tests\functional\ahk\guest\Health;
 
 /**
  * @author Rizart Dokollari

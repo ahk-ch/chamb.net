@@ -1,12 +1,9 @@
-<?php namespace tests\functional\guest;
+<?php namespace tests\functional\ahk\guest;
 
 /**
  * @author Rizart Dokollari
  * @since 12/10/2015
  */
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
 
 /**
@@ -14,10 +11,9 @@ use tests\TestCase;
  */
 class HomeControllerTest extends TestCase
 {
+
 	/**
-	 * A basic functional test example.
 	 *
-	 * @return void
 	 */
 	public function test_it_reads_contents()
 	{

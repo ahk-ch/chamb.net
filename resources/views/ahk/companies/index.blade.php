@@ -72,21 +72,26 @@
                         <!-- Easy Block -->
                 <div class="col-md-3 col-sm-6 md-margin-bottom-40">
                     <div class="easy-block-v1">
-                        <div class="easy-block-v1-badge rgba-default">{{ $company->industry->name }}</div>
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img alt="Company Logo" src="{!! $company->logo !!}" style="max-height: 150px">
+                        <a href="#industry">
+                            <div class="easy-block-v1-badge rgba-default">{{ $company->industry->name }}</div>
+                        </a>
+
+                        <a href="#company">
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <img alt="Company Logo" src="{!! $company->logo !!}" style="max-height: 150px">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="overflow-h">
-                            <h3>{{ $company->name }}</h3>
-                        </div>
-                        <ul class="list-unstyled">
-                            <li>{{ \Illuminate\Support\Str::limit($company->description, 120) }}</li>
-                        </ul>
-                        <a class="btn-u btn-u-sm" href="#">View More</a>
+                            <div class="overflow-h">
+                                <h3>{{ $company->name }}</h3>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li>{{ \Illuminate\Support\Str::limit($company->description, 120) }}</li>
+                            </ul>
+                        </a>
+
                     </div>
                 </div>
                 <!-- End Easy Block -->

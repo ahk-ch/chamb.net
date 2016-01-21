@@ -1,18 +1,20 @@
+$primaryColour: black;
+
 .header .navbar-nav {
 
   > .active > a {
-    color: black;
+    color: $primaryColour;
   }
 
   > li > a:hover, > .active > a {
-    border-bottom: solid 2px black;
+    border-bottom: solid 2px $primaryColour;
   }
 
   > li:hover > a {
-    color: black;
+    color: $primaryColour;
   }
 }
 
 .header .dropdown-menu {
-  border-top: solid 2px black;
+  border-top: solid 2px $primaryColour;
 }

@@ -117,7 +117,7 @@
 
             <div id="grid-container" class="cbp-l-grid-gallery">
                 <div class="cbp-item illustration web-design">
-                    <a href="assets/ajax/cube-portfolio/project3.html" class="cbp-caption cbp-singlePageInline"
+                    <a href="#" class="cbp-caption cbp-singlePageInline"
                             data-title="WhereTO App<br>by Tiberiu Neamu">
                         <div class="cbp-caption-defaultWrap">
                             <img src="{!! url('assets/img/portfolio/21.jpg') !!}" alt="">
@@ -133,7 +133,7 @@
                     </a>
                 </div>
                 <div class="cbp-item web-design illustration">
-                    <a href="assets/ajax/cube-portfolio/project4.html" class="cbp-caption cbp-singlePageInline"
+                    <a href="#" class="cbp-caption cbp-singlePageInline"
                             data-title="iDevices<br>by Tiberiu Neamu">
                         <div class="cbp-caption-defaultWrap">
                             <img src="{!! url('assets/img/portfolio/22.jpg') !!}" alt="">
@@ -149,7 +149,7 @@
                     </a>
                 </div>
                 <div class="cbp-item web-design graphic">
-                    <a href="assets/ajax/cube-portfolio/project5.html" class="cbp-caption cbp-singlePageInline"
+                    <a href="#" class="cbp-caption cbp-singlePageInline"
                             data-title="Seemple* Music for iPad<br>by Tiberiu Neamu">
                         <div class="cbp-caption-defaultWrap">
                             <img src="{!! url('assets/img/portfolio/24.jpg') !!}" alt="">
@@ -165,7 +165,7 @@
                     </a>
                 </div>
                 <div class="cbp-item illustration web-design graphic">
-                    <a href="assets/ajax/cube-portfolio/project6.html" class="cbp-caption cbp-singlePageInline"
+                    <a href="#" class="cbp-caption cbp-singlePageInline"
                             data-title="Remind~Me Widget<br>by Tiberiu Neamu">
                         <div class="cbp-caption-defaultWrap">
                             <img src="{!! url('assets/img/portfolio/23.jpg') !!}" alt="">

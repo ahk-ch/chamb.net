@@ -1,4 +1,4 @@
-<?php namespace tests\functional\guest;
+<?php namespace tests\functional\ahk\guest;
 
 /**
  * @author Rizart Dokollari
@@ -10,7 +10,8 @@ use tests\TestCase;
 /**
  * Class HomeControllerTest
  */
-class LayoutControllerTest extends TestCase {
+class LayoutControllerTest extends TestCase
+{
 
 	public function test_it_reads_header()
 	{
