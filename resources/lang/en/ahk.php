@@ -14,14 +14,17 @@ return [
 	|
 	*/
 
-	'about'                                                                => 'About',
+	'about'                                                                => 'About Us',
 	'back_to_login'                                                        => 'Back to login',
 	'close'                                                                => 'Close',
 	'community'                                                            => 'Community',
 	'companies'                                                            => 'Companies',
 	'create_account'                                                       => 'Create account',
 	'discover_the_community'                                               => 'Discover the community',
+	'downloads'                                                            => 'Downloads',
+	'energy'                                                               => 'Energy',
 	'error'                                                                => 'Error',
+	'events'                                                               => 'Events',
 	'footer_about'                                                         => 'The Hellenic-German Chamber of Industry and Commerce connects 850 member companies in both countries and is member of the network of German chambers which operates 125 offices in 85 countries. As non-profit organization we build sustainable relationships between industries and companies and thereby create the foundation for bilateral trade with confidence.',
 	'forgot_your_password'                                                 => 'Forgot your password?',
 	'go'                                                                   => 'Go',
@@ -30,7 +33,9 @@ return [
 	'home'                                                                 => 'Home',
 	'i_agree_to_the'                                                       => 'I agree to the',
 	'info'                                                                 => 'Info',
+	'links'                                                                => 'Links',
 	'login'                                                                => 'Login',
+	'logistics'                                                            => 'Logistics',
 	'logout'                                                               => 'Logout',
 	'lost_password_prompt_message'                                         => 'Lost your password? Please enter your email address. You will receive a link to create a new password.',
 	'or_register_your_new_account_on'                                      => 'Or register your new account on',
@@ -43,7 +48,7 @@ return [
 	'terms_of_use'                                                         => 'Terms of Use',
 	'toggle_navigation'                                                    => 'Toggle navigation',
 	'username'                                                             => 'Username',
-	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'We promote and support bilateral business between <br> Greece and Germany',
+	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Support, Develop and Upgrade</br>the Health Industry and<br/>your Business',
 	'welcome'                                                              => 'Welcome!',
-	'working_groups'                                                       => 'Working Groups',
+	'working_groups'                                                       => 'Work-Groups',
 ];

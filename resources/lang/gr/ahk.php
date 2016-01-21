@@ -15,14 +15,17 @@ return [
 	|
 	*/
 
-	'about'                                                                => 'Σχετικα με',
+	'about'                                                                => 'Σχετικα με εμας',
 	'back_to_login'                                                        => 'Επιστροφή στην σελίδα εισόδου.',
 	'close'                                                                => 'Κλείσιμο',
 	'community'                                                            => 'Κοινοτητα',
 	'companies'                                                            => 'Εταιρειες',
 	'create_account'                                                       => 'Δημιουργια λογαριασμου',
 	'discover_the_community'                                               => 'Ανακαλυψτε την κοιντητα',
+	'downloads'                                                            => 'Λήψεις',
+	'energy'                                                               => 'Ενέργεια',
 	'error'                                                                => 'Σφάλμα',
+	'events'                                                               => 'Εκδηλώσεις',
 	'forgot_your_password'                                                 => 'Ξέχασες τον κωδικό σου;',
 	'go'                                                                   => 'Έναρξη',
 	'health'                                                               => 'Υγεια',
@@ -30,7 +33,9 @@ return [
 	'home'                                                                 => 'Αρχικη',
 	'i_agree_to_the'                                                       => 'Συμφωνώ με τους',
 	'info'                                                                 => 'Πληροφορίες',
+	'links'                                                                => 'Σύνδεσμοι',
 	'login'                                                                => 'Συνδεση',
+	'logistics'                                                            => 'Επιμελητεία',
 	'logout'                                                               => 'Αποσύνδεση',
 	'lost_password_prompt_message'                                         => 'Ξεχάσατε τον κωδικό σας; Παρακαλώ εισάγετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας. Θα λάβετε ένα σύνδεσμο για να δημιουργήσετε ένα νέο κωδικό πρόσβασης.',
 	'news'                                                                 => 'Νέα',
@@ -43,7 +48,7 @@ return [
 	'terms_of_use'                                                         => 'Όροι χρήσης.',
 	'toggle_navigation'                                                    => 'Εναλλαγη πλοηγησης',
 	'username'                                                             => 'Ψευδώνυμο',
-	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Προωθούμε καί στηρίζουμε  διμερείς επιχειρήσεις ανάμεσα <br/> στην Ελλάδα και τη Γερμανία.',
+	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Υποστήριξη, Ανάπτυξη και Αναβάθμιση<br/> στον κλάδο της υγείας και<br/> της επιχείρησής σας',
 	'welcome'                                                              => 'Καλώς ορίσατε!',
 	'working_groups'                                                       => 'Ομάδες Εργασίας',
 ];

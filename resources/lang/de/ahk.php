@@ -14,14 +14,17 @@ return [
 	|
 	*/
 
-	'about'                                                                => 'ÜBER',
+	'about'                                                                => 'Über uns',
 	'back_to_login'                                                        => 'Zurück zum Login.',
 	'close'                                                                => 'Nah dran',
 	'community'                                                            => 'Gemeinschaft',
 	'companies'                                                            => 'Firmen',
 	'create_account'                                                       => 'Benutzerkonto erstellen',
 	'discover_the_community'                                               => 'Entdecken Sie die Community',
+	'downloads'                                                            => 'Downloads',
+	'energy'                                                               => 'Energie',
 	'error'                                                                => 'Fehler',
+	'events'                                                               => 'Ereignisse',
 	'footer_about'                                                         => 'Die Deutsch-Griechische Industrie- und Handelskammer verbindet 850 Mitgliedsunternehmen in Deutschland und Griechenland und ist Mitglied des Netzwerks deutscher Handelskammern mit 125 Büros in 85 Ländern. Als Non-Profit-Organisation bauen wir nachhaltige Beziehungen zwischen Industrien und Unternehmen auf und schaffen damit die Grundlage für Ihren vertrauensvollen Handel zwischen beiden Ländern.',
 	'forgot_your_password'                                                 => 'Haben Sie Ihr Passwort vergessen?',
 	'go'                                                                   => 'Anfang',
@@ -30,7 +33,9 @@ return [
 	'home'                                                                 => 'Home',
 	'i_agree_to_the'                                                       => 'Ich stimme dem zu',
 	'info'                                                                 => 'Info',
+	'links'                                                                => 'Links',
 	'login'                                                                => 'Einloggen',
+	'logistics'                                                            => 'Logistik',
 	'logout'                                                               => 'Abmelden',
 	'lost_password_prompt_message'                                         => 'Passwort vergessen? Geben Sie bitte Ihre Email-Adresse ein. Sie erhalten einen Link, um ein neues Passwort zu erhalten.',
 	'news'                                                                 => 'Nachrichten',
@@ -43,7 +48,7 @@ return [
 	'terms_of_use'                                                         => 'Nutzungsbedingungen.',
 	'toggle_navigation'                                                    => 'Umschalten navigation',
 	'username'                                                             => 'Benutzername',
-	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Wir fördern und unterstützen bilaterale Geschäfte zwischen <br/> Griechenland und Deutschland.',
+	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Unterstützung, Entwicklung und Upgrade</br>der Gesundheitswirtschaft und<br/>Ihr Unternehmen',
 	'welcome'                                                              => 'Willkommen!',
 	'working_groups'                                                       => 'Arbeitsgruppen',
 ];
