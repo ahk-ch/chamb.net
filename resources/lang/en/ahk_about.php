@@ -18,7 +18,7 @@ return [
 	'about_content'                         => 'For more than 90 years the Hellenic German Chamber of Commerce and Industry promotes development and expansion of market and business relations between Greece and Germany through a wide range of services and activities.',
 	'about_the_hellenic_german_chambers_of' => 'About the Hellenic German Chamber of',
 	'about_introduction'                    => 'The Hellenic-German Chamber of Industry and Commerce connects 850 member companies in both countries and is member of the network of German chambers which operates 125 offices in 85 countries. As non-profit organization we build sustainable relationships between industries and companies and thereby create the foundation for bilateral trade with confidence.',
-	'consulting_services'                   => 'Consulting / Beratung',
+	'consulting_services'                   => 'Consulting',
 	'consulting_services_content'           => 'With offices in Athens and Thessaloniki we support your company’s steps towards business in Germany or Greece. Most of our clients are small and medium-sized businesses (SMEs) on their way to entry and expansion in the Greek or German market. Choose from our wide service portfolio, ranging from address and business partner search to detailed market studies and legal counselling. Establish first business contacts with potential customers and get assistance preparing for your trade show participation.',
 	'industry_and_commerce'                 => 'Industry and Commerce',
 	'membership'                            => 'Membership',

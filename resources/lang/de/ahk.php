@@ -14,7 +14,7 @@ return [
 	|
 	*/
 
-	'about'                                                                => 'Etwa',
+	'about'                                                                => 'ÜBER',
 	'back_to_login'                                                        => 'Zurück zum Login.',
 	'close'                                                                => 'Nah dran',
 	'community'                                                            => 'Gemeinschaft',
@@ -27,7 +27,7 @@ return [
 	'go'                                                                   => 'Anfang',
 	'health'                                                               => 'Gesundheit',
 	'hide'                                                                 => 'Verstecken',
-	'home'                                                                 => 'Zuhause',
+	'home'                                                                 => 'Home',
 	'i_agree_to_the'                                                       => 'Ich stimme dem zu',
 	'info'                                                                 => 'Info',
 	'login'                                                                => 'Einloggen',
