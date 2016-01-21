@@ -36,8 +36,6 @@
 
 <div class="wrapper">
 
-    @include('ahk._partials.header')
-
     @yield('content')
 
     @include('ahk._partials.footer')

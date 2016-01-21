@@ -74,7 +74,7 @@
 
                 <!-- Pages -->
                 <li class="dropdown {!! activate(['health.events', 'health.news']) !!}">
-                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> {!! trans('ahk.industries') !!} </a>
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> {!! trans('ahk.health') !!} </a>
                     <ul class="dropdown-menu">
                         <li class="{!! activate(['health.news']) !!}">
                             <a href="{!! route('health.news') !!}">{!! trans('ahk.news') !!}</a>
@@ -94,6 +94,18 @@
                     </ul>
                 </li>
                 <!-- End Pages -->
+
+                <!-- Companies -->
+                <li class="{!! activate(['working_groups']) !!}">
+                    <a href="{!! route('working_groups') !!}"> {!! trans('ahk.working_groups') !!} </a>
+                </li>
+                <!-- End Companies -->
+
+                <!-- Companies -->
+                <li class="{!! activate(['companies_path']) !!}">
+                    <a href="{!! route('companies_path') !!}"> {!! trans('ahk.community') !!} </a>
+                </li>
+                <!-- End Companies -->
 
                 <!-- About -->
                 <li class="{!! activate(['about_path']) !!}">

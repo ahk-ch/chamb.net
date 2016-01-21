@@ -14,6 +14,7 @@
     </style>
 @endsection
 @section('content')
+    @include('ahk._partials.header_industries')
     <div class="job-img margin-bottom-30">
         <div class="job-banner">
             <h2>{!! trans('ahk.discover_the_community') !!}</h2>

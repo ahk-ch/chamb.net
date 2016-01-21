@@ -5,6 +5,7 @@
 @section('css-page-style')
 @endsection
 @section('content')
+    @include('ahk._partials.header_industries')
 
 @endsection
 @section('js-implementing-plugins')

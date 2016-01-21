@@ -5,6 +5,9 @@
 @endsection
 @section('css-page-style')@endsection
 @section('content')
+
+    @include('ahk._partials.header')
+
     <div class="tp-banner-container">
         <div class="tp-banner">
             <ul>
@@ -17,7 +20,7 @@
                     <div class="tp-caption re-title-v1 sft start"
                             data-x="center"
                             data-hoffset="0"
-                            data-y="100"
+                            data-y="-50"
                             data-speed="500"
                             data-start="50"
                             data-easing="Back.easeInOut"
@@ -31,7 +34,7 @@
                     <div class="tp-caption re-text-v1 sft"
                             data-x="center"
                             data-hoffset="0"
-                            data-y="200"
+                            data-y="50"
                             data-speed="500"
                             data-start="700"
                             data-easing="Power4.easeOut"
@@ -40,6 +43,26 @@
                             data-captionhidden="off"
                             style="z-index: 6">
                         {!! trans('ahk.we_promote_and_support_bilateral_business_between_greece_and_germany') !!}
+
+                        <div class="container content-sm">
+                            <div class="row">
+                                <div class="col-md-4 content-boxes-v6 md">
+                                    <i class="rounded-x icon-link"></i>
+                                    <h1 class="title-v3-md text-uppercase margin-bottom-10"></h1>
+                                    Industry Name
+                                </div>
+                                <div class="col-md-4 content-boxes-v6 md-margin-bottom-50">
+                                    <i class="rounded-x icon-paper-plane"></i>
+                                    <h1 class="title-v3-md text-uppercase margin-bottom-10"></h1>
+                                    Industry Name
+                                </div>
+                                <div class="col-md-4 content-boxes-v6">
+                                    <i class="rounded-x icon-refresh"></i>
+                                    Industry Name
+                                </div>
+                            </div><!--/row-->
+                        </div>
+
                     </div>
                     <!-- END LAYER -->
 
@@ -55,8 +78,7 @@
                             data-endeasing="Power1.easeIn"
                             data-captionhidden="off"
                             style="z-index: 6">
-                        <a href="{!! route('health.news') !!}" class="btn-u btn-u-lg re-btn-brd margin-right-5">{!! trans('ahk.news') !!}</a>
-                        <a href="{!! route('companies_path') !!}" class="btn-u btn-u-lg">{!! trans('ahk.community') !!}</a>
+
                     </div>
                     <!-- END LAYER -->
                 </li>

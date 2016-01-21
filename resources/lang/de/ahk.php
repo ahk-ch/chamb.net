@@ -32,6 +32,7 @@ return [
 	'hide'                                                                 => 'Verstecken',
 	'home'                                                                 => 'Home',
 	'i_agree_to_the'                                                       => 'Ich stimme dem zu',
+	'industries'                                                           => 'Branchen',
 	'info'                                                                 => 'Info',
 	'links'                                                                => 'Links',
 	'login'                                                                => 'Einloggen',

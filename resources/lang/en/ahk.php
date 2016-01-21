@@ -32,6 +32,7 @@ return [
 	'hide'                                                                 => 'Hide',
 	'home'                                                                 => 'Home',
 	'i_agree_to_the'                                                       => 'I agree to the',
+	'industries'                                                           => 'Industries',
 	'info'                                                                 => 'Info',
 	'links'                                                                => 'Links',
 	'login'                                                                => 'Login',
