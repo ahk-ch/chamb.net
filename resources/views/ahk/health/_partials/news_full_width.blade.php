@@ -1,4 +1,4 @@
-<div class="{!! $index % 2 ? 'bg-color-light' : '' !!} container content-md">
+<div class="{!! $index % 2 ? 'bg-color-light' : '' !!} content-md">
     <div class="row">
         <div class="col-sm-5 sm-margin-bottom-20">
             <img class="img-responsive" src="{!! $article->img_url !!}" alt="">

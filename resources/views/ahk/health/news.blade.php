@@ -7,9 +7,19 @@
     <link href='{!! url("assets/css/pages/page_job.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
 @section('content')
-    @for($i = 0; $i < $articles->count(); $i++)
-        @include('ahk.health._partials.news_full_width', ['index' => $i, 'article' => $articles->get($i)])
-    @endfor
+    <div class="container ">
+            <div class="col-sm-5">
+            </div>
+            <div class="col-sm-7">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="#">Internal</a></li>
+                    <li role="presentation"><a href="#">External</a></li>
+                </ul>
+            </div>
+        @for($i = 0; $i < $articles->count(); $i++)
+            @include('ahk.health._partials.news_full_width', ['index' => $i, 'article' => $articles->get($i)])
+        @endfor
+    </div>
 
 @endsection
 @section('js-implementing-plugins')
