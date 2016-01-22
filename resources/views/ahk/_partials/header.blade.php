@@ -56,19 +56,8 @@
         <div class="container">
             <ul class="nav navbar-nav">
                 <!-- Home -->
-                <li class="dropdown {!! activate(['home_path']) !!}">
-                    <a href="{!! route('home_path') !!}" class="dropdown-toggle disabled" data-toggle="dropdown"> {!! trans('ahk.home') !!} </a>
-                    <ul class="dropdown-menu">
-                        <li class="{!! activate(['']) !!}">
-                            <a href="#">{!! trans('ahk.health') !!}</a>
-                        </li>
-                        <li class="{!! activate(['']) !!}">
-                            <a href="#">{!! trans('ahk.logistics') !!}</a>
-                        </li>
-                        <li class="{!! activate(['']) !!}">
-                            <a href="#">{!! trans('ahk.energy') !!}</a>
-                        </li>
-                    </ul>
+                <li class="{!! activate(['home_path']) !!}">
+                    <a href="{!! route('home_path') !!}" > {!! trans('ahk.home') !!} </a>
                 </li>
                 <!-- End Home -->
 
@@ -76,20 +65,20 @@
                 <li class="dropdown {!! activate(['health.events', 'health.news']) !!}">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> {!! trans('ahk.industries') !!} </a>
                     <ul class="dropdown-menu">
-                        <li class="{!! activate(['health.news']) !!}">
-                            <a href="{!! route('health.news') !!}">{!! trans('ahk.news') !!}</a>
-                        </li>
                         <li class="{!! activate(['health.info']) !!}">
-                            <a href="{!! route('health.info') !!}">{!! trans('ahk.info') !!}</a>
+                            <a href="{!! route('health.info') !!}">{!! trans('ahk.health') !!}</a>
                         </li>
                         <li>
-                            <a href="#">{!! trans('ahk.events') !!}</a>
+                            <a href="#">{!! trans('ahk.logistics') !!}</a>
                         </li>
                         <li>
-                            <a href="#">{!! trans('ahk.links') !!}</a>
+                            <a href="#">{!! trans('ahk.energy') !!}</a>
                         </li>
                         <li>
-                            <a href="#">{!! trans('ahk.downloads') !!}</a>
+                            <a href="#">{!! trans('ahk.trade') !!}</a>
+                        </li>
+                        <li>
+                            <a href="#">{!! trans('ahk.law') !!}</a>
                         </li>
                     </ul>
                 </li>
