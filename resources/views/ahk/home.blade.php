@@ -46,19 +46,32 @@
 
                         <div class="container content-sm">
                             <div class="row">
-                                <div class="col-md-4 content-boxes-v6 md">
-                                    <i class="rounded-x icon-link"></i>
-                                    <h1 class="title-v3-md text-uppercase margin-bottom-10"></h1>
-                                    Industry Name
+                                <div class="col-md-1 content-boxes-v6 md">
                                 </div>
-                                <div class="col-md-4 content-boxes-v6 md-margin-bottom-50">
-                                    <i class="rounded-x icon-paper-plane"></i>
+                                <div class="col-md-2 content-boxes-v6 md">
+                                    <i class="rounded-x fa fa-heartbeat"></i>
                                     <h1 class="title-v3-md text-uppercase margin-bottom-10"></h1>
-                                    Industry Name
+                                    Health
                                 </div>
-                                <div class="col-md-4 content-boxes-v6">
-                                    <i class="rounded-x icon-refresh"></i>
-                                    Industry Name
+                                <div class="col-md-2 content-boxes-v6 md-margin-bottom-50">
+                                    <i class="rounded-x fa fa-database"></i>
+                                    <h1 class="title-v3-md text-uppercase margin-bottom-10"></h1>
+                                    Logistics
+                                </div>
+                                <div class="col-md-2 content-boxes-v6">
+                                    <i class="rounded-x fa fa-sun-o"></i>
+                                    <h1 class="title-v3-md text-uppercase margin-bottom-10"></h1>
+                                    Energy
+                                </div>
+                                <div class="col-md-2 content-boxes-v6">
+                                    <i class="rounded-x fa fa-bar-chart"></i>
+                                    <h1 class="title-v3-md text-uppercase margin-bottom-10"></h1>
+                                    Trade
+                                </div>
+                                <div class="col-md-2 content-boxes-v6">
+                                    <i class="rounded-x fa fa-university"></i>
+                                    <h1 class="title-v3-md text-uppercase margin-bottom-10"></h1>
+                                    Law
                                 </div>
                             </div><!--/row-->
                         </div>
