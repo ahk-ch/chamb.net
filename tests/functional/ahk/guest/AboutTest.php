@@ -7,9 +7,10 @@
 use tests\TestCase;
 
 /**
- * Class HomeControllerTest
+ * Class HomeTest
  */
-class AboutControllerTest extends TestCase {
+class AboutTest extends TestCase
+{
 
 	/**
 	 * A basic functional test example.

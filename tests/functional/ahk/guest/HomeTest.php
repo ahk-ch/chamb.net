@@ -7,9 +7,9 @@
 use tests\TestCase;
 
 /**
- * Class HomeControllerTest
+ * Class HomeTest
  */
-class HomeControllerTest extends TestCase
+class HomeTest extends TestCase
 {
 
 	/**
@@ -21,8 +21,6 @@ class HomeControllerTest extends TestCase
 			->seePageIs(route('home_path'))
 			->see(trans('ahk.welcome'))
 			->see('Chamb.Net')
-			->see(trans('ahk.we_promote_and_support_bilateral_business_between_greece_and_germany'))
-			->see(trans('ahk.news'))
-			->see(trans('ahk.community'));
+			->see(trans('ahk.we_promote_and_support_bilateral_business_between_greece_and_germany'));
 	}
 }

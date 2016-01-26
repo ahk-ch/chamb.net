@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <!--[if IE 8]>
-<html lang="{!! $locale !!}" class="ie8"> <![endif]-->
+<html lang="{!! Lang::getLocale() !!}" class="ie8"> <![endif]-->
 <!--[if IE 9]>
-<html lang="{!! $locale !!}" class="ie9"> <![endif]-->
+<html lang="{!! Lang::getLocale() !!}" class="ie9"> <![endif]-->
 <!-- [if !IE] -->
-<html lang="{!! $locale !!}">
+<html lang="{!! Lang::getLocale() !!}">
 <!-- [endif] -->
 <head>
     <title> @yield('title')</title>
@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{!! url('favicon.ico') !!}">
+    <link rel="shortcut icon" href="{!! url('img/health/favicon.ico') !!}">
     <!-- Web Fonts -->
     <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
     <!-- CSS Global Compulsory -->

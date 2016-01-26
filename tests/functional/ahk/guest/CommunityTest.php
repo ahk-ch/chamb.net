@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 
 /**
- * Class HomeControllerTest
+ * Class HomeTest
  */
 class CommunityTest extends TestCase
 {
@@ -38,7 +38,5 @@ class CommunityTest extends TestCase
 			->see('<img alt="Company Logo" src="' . $industries->get(1)->logo)
 			->see($companies->get(0)->name)
 			->see($companies->get(1)->name);
-
-
 	}
 }

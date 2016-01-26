@@ -16,6 +16,7 @@ class ComposerServiceProvider extends ServiceProvider {
 		view()->composer('ahk._partials.header', 'App\Http\ViewComposers\AHK\HeaderComposer');
 		view()->composer('ahk._partials.header_industries', 'App\Http\ViewComposers\AHK\HeaderComposer');
 		view()->composer('ahk._partials.footer', 'App\Http\ViewComposers\AHK\FooterComposer');
+		view()->composer('ahk.layouts.master', 'App\Http\ViewComposers\AHK\MasterComposer');
 
 		################# Cms ###############
 		view()->composer('cms._partials.header', 'App\Http\ViewComposers\Cms\HeaderComposer');

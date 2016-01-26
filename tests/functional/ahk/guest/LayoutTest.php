@@ -8,9 +8,9 @@ use App\AHK\Helpers\Helpers;
 use tests\TestCase;
 
 /**
- * Class HomeControllerTest
+ * Class HomeTest
  */
-class LayoutControllerTest extends TestCase
+class LayoutTest extends TestCase
 {
 
 	public function test_it_reads_header()
@@ -20,7 +20,6 @@ class LayoutControllerTest extends TestCase
 			->see(trans('ahk.login'))
 			->see(trans('ahk.home'))
 			->see(trans('ahk.health'))
-			->see(trans('ahk.working_groups'))
 			->see(trans('ahk.community'))
 			->see(trans('ahk.about'));
 	}

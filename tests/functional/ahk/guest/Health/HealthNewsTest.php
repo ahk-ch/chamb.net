@@ -8,9 +8,10 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 
 /**
- * Class HomeControllerTest
+ * Class HomeTest
  */
-class HealthNewsControllerTest extends TestCase {
+class HealthNewsTest extends TestCase
+{
 
 	use DatabaseMigrations;
 

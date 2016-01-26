@@ -7,9 +7,9 @@
 use tests\TestCase;
 
 /**
- * Class HomeControllerTest
+ * Class HomeTest
  */
-class AuthenticationControllerTest extends TestCase
+class AuthenticationTest extends TestCase
 {
 	/** @test */
 	public function it_reads_sign_in_page()
@@ -26,9 +26,16 @@ class AuthenticationControllerTest extends TestCase
 	}
 
 	/** @test */
-	public function it_signs_in()
+	public function it_registers_company_representative_account()
 	{
-
-
+		$this->visit(route('home_path'))
+			->seePageIs(route('home_path'))
+			->click(trans('ahk.login'))
+			->seePageIs(route('home_path'))
+			->click(trans('ahk.register'))
+			->type('dummy@email.com', 'email')
+			->type('some-password', 'password')
+			->check('accept-terms')
+			->press(trans('ahk.create_account'));
 	}
 }
