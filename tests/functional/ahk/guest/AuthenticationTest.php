@@ -12,17 +12,29 @@ use tests\TestCase;
 class AuthenticationTest extends TestCase
 {
 	/** @test */
-	public function it_reads_sign_in_page()
+	public function it_access_sign_in_page()
 	{
 		$this->visit(route('home_path'))
-			->seePageIs(route('home_path'))
-			->see('<label class="image-replace cd-email" for="sign_in_email">E-mail</label>')
-			->see('<input class="full-width has-padding has-border " placeholder="E-mail" name="email" type="email">')
-			->see('<label class="image-replace cd-password" for="signin-password">' . trans('ahk.password') . '</label>')
-			->see('<input class="full-width has-padding has-border " placeholder="' . trans('ahk.password') . '" name="password" type="text">')
-			->see(trans('ahk.hide'))
-			->see(trans('ahk.remember_me'))
-			->see(trans('ahk.login'));
+			->click(trans('ahk.login'))
+			->seePageIs(route('auth.login'));
+
+		$this->visit(route('auth.login'))
+			->seePageIs(route('auth.login'));
+	}
+
+	/** @test */
+	public function it_reads_sign_in_page()
+	{
+		$this->visit(route('auth.login'))
+			->see('<title> ' . trans('ahk.login') . ' | Chamb.Net</title>')
+			->see(trans('ahk.login_to_your_account'))
+			->see('<i class="fa fa-user"></i>')
+			->see('<input type="text" placeholder="' . trans('ahk.username') . '" class="form-control">')
+			->see('<i class="fa fa-lock"></i>')
+			->see('<input type="password" placeholder="' . trans('ahk.password') . '" class="form-control">')
+			->see('<label><input type="checkbox"> ' . trans('ahk.remember_me') . '</label>')
+			->see('<button class="btn-u pull-right" type="submit">' . trans('ahk.login') . '</button>')
+			->see('<h4>' . trans('ahk.forgot_your_password') . '</h4>');
 	}
 
 	/** @test */

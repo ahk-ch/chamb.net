@@ -18,15 +18,18 @@ Route::get('working_groups', ['as' => 'working_groups', 'uses' => 'AHK\WorkingGr
 
 Route::get('terms_of_use', ['as' => 'terms_of_use_path', 'uses' => 'AHK\HomeController@termsOfUse']);
 
-# Registration
-Route::post('users/store', ['as' => 'users.store', 'uses' => 'AHK\UsersController@store']);
-
 # Authentication
 Route::group(['prefix' => 'auth'], function ()
 {
-	Route::post('login', ['as' => 'sessions.store', 'uses' => 'AHK\SessionsController@store']);
-	Route::delete('logout', ['as' => 'sessions.destroy', 'uses' => 'AHK\SessionsController@destroy']);
+	# Login
+	Route::get('login', ['as' => 'auth.login', 'uses' => 'AHK\AuthenticationController@getLogin']);
+	Route::post('login', ['as' => 'auth.login', 'uses' => 'AHK\AuthenticationController@postLogin']);
+	Route::delete('logout', ['as' => 'auth.destroy', 'uses' => 'AHK\AuthenticationController@destroy']);
+	# Registration
+	Route::get('register', ['as' => 'auth.register', 'uses' => 'AHK\AuthenticationController@getRegistration']);
+	Route::post('register', ['as' => 'auth.register', 'uses' => 'AHK\AuthenticationController@postRegistration']);
 });
+
 
 ################ chamb.net/cms ####################
 

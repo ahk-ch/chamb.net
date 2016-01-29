@@ -4,8 +4,10 @@
 @endsection
 @section('css-page-style')
 @endsection
+@section('header_links')
+    @include('ahk._partials.header_default_links')
+@endsection
 @section('content')
-    @include('ahk._partials.header_industries')
 
 @endsection
 @section('js-implementing-plugins')

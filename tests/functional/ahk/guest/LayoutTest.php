@@ -18,6 +18,7 @@ class LayoutTest extends TestCase
 		$this->visit(route('home_path'))
 			->see('Languages')
 			->see(trans('ahk.login'))
+			->see(trans('ahk.register'))
 			->see(trans('ahk.home'))
 			->see(trans('ahk.health'))
 			->see(trans('ahk.community'))

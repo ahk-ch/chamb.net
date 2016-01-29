@@ -37,6 +37,7 @@ return [
 	'law'                                                                  => 'Law',
 	'links'                                                                => 'Links',
 	'login'                                                                => 'Login',
+	'login_to_your_account'                                                => 'Login to your account',
 	'logistics'                                                            => 'Logistics',
 	'logout'                                                               => 'Logout',
 	'lost_password_prompt_message'                                         => 'Lost your password? Please enter your email address. You will receive a link to create a new password.',

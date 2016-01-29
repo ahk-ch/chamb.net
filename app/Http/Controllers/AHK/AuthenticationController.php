@@ -8,13 +8,27 @@ use App\Http\Requests\StoreSessionRequest;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
-class SessionsController extends BaseController {
+/**
+ * Login, Logout, and register a company representative account.
+ * Class AuthenticationController
+ * @package App\Http\Controllers\AHK
+ */
+class AuthenticationController extends BaseController
+{
 
+	/**
+	 * AuthenticationController constructor.
+	 */
 	public function __construct()
 	{
 		parent::__construct();
 
 		$this->middleware('guest', ['except' => 'destroy']);
+	}
+
+	public function getLogin()
+	{
+		return view('ahk.login');
 	}
 
 	/**

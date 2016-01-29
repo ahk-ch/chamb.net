@@ -25,15 +25,19 @@
                 </li>
                 <li class="topbar-devider"></li>
                 @if( ! Auth::check())
-                    <li class="cd-log_reg">
-                        <a class="cd-signin" href="javascript:void(0);">{!! trans('ahk.login') !!}</a>
+                    <li>
+                        <a href="{!! route('auth.login') !!}">{!!  trans('ahk.login')  !!} </a>
+                    </li>
+                    <li class="topbar-devider"></li>
+                    <li>
+                        <a href="#">{!! trans('ahk.register') !!} </a>
                     </li>
                 @else
                     <li class="hoverSelector">
                         <i class="fa fa-user"></i> <a>{!! $user->username !!}</a>
                         <ul class="languages hoverSelectorBlock">
                             <li>
-                                {!! Form::open(['route' => 'sessions.destroy', 'role' => 'form', 'method' => 'DELETE']) !!}
+                                {!! Form::open(['route' => 'auth.destroy', 'role' => 'form', 'method' => 'DELETE']) !!}
                                 <button type="submit" class="btn btn-link">{!! trans('ahk.logout') !!}</button>
                                 {!! Form::close() !!}
                             </li>
@@ -55,42 +59,10 @@
     <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
         <div class="container">
             <ul class="nav navbar-nav">
-                <!-- Home -->
-                <li class="{!! activate(['home_path']) !!}">
-                    <a href="{!! route('home_path') !!}" > {!! trans('ahk.home') !!} </a>
-                </li>
-                <!-- End Home -->
 
-                <!-- Pages -->
-                <li class="dropdown {!! activate(['health.events', 'health.news']) !!}">
-                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> {!! trans('ahk.industries') !!} </a>
-                    <ul class="dropdown-menu">
-                        <li class="{!! activate(['health.info']) !!}">
-                            <a href="{!! route('health.info') !!}">{!! trans('ahk.health') !!}</a>
-                        </li>
-                        <li>
-                            <a href="#">{!! trans('ahk.logistics') !!}</a>
-                        </li>
-                        <li>
-                            <a href="#">{!! trans('ahk.energy') !!}</a>
-                        </li>
-                        <li>
-                            <a href="#">{!! trans('ahk.trade') !!}</a>
-                        </li>
-                        <li>
-                            <a href="#">{!! trans('ahk.law') !!}</a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- End Pages -->
+                @yield('header_links')
 
-                <!-- About -->
-                <li class="{!! activate(['about_path']) !!}">
-                    <a href="{!! route('about_path') !!}"> {!! trans('ahk.about') !!} </a>
-                </li>
-                <!-- End About -->
-
-                <!-- Search Block -->
+                        <!-- Search Block -->
                 <li>
                     <i class="search fa fa-search search-btn"></i>
                     <div class="search-open">
@@ -108,3 +80,4 @@
     </div><!--/navbar-collapse-->
 </div>
 <!--=== End Header ===-->
+

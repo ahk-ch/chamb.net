@@ -37,6 +37,7 @@ return [
 	'law'                                                                  => 'Recht',
 	'links'                                                                => 'Links',
 	'login'                                                                => 'Einloggen',
+	'login_to_your_account'                                                => 'Melde dich in deinem Konto an.',
 	'logistics'                                                            => 'Logistik',
 	'logout'                                                               => 'Abmelden',
 	'lost_password_prompt_message'                                         => 'Passwort vergessen? Geben Sie bitte Ihre Email-Adresse ein. Sie erhalten einen Link, um ein neues Passwort zu erhalten.',

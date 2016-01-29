@@ -7,7 +7,7 @@
 
         <div id="cd-login"> <!-- log in form -->
 
-            {!! Form::open(['route' => 'sessions.store', 'role' => 'form', 'class' => 'cd-form']) !!}
+            {!! Form::open(['route' => 'auth.login', 'role' => 'form', 'class' => 'cd-form']) !!}
 
             <p class="fieldset">
                 <label class="image-replace cd-email" for="sign_in_email">E-mail</label>
@@ -41,7 +41,7 @@
 
         <div id="cd-signup"> <!-- sign up form -->
 
-            {!! Form::open(['route' => 'users.store', 'role' => 'form', 'class' => 'cd-form']) !!}
+            {!! Form::open(['route' => 'auth.register', 'role' => 'form', 'class' => 'cd-form']) !!}
 
             <p class="social-login">
                 <span class="social-login-facebook"><a href="#"><i class="fa fa-facebook"></i> Facebook</a></span>
