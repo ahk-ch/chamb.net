@@ -14,7 +14,7 @@
             <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
                 <form class="reg-page">
                     <div class="reg-header">
-                        <h2>{!! trans('ahk.sign_in_to_your_account') !!}</h2>
+                        <h2>{!! trans('ahk.sign_in') !!}</h2>
                     </div>
 
                     <div class="input-group margin-bottom-20">

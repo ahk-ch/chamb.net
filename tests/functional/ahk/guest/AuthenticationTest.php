@@ -27,7 +27,7 @@ class AuthenticationTest extends TestCase
 	{
 		$this->visit(route('auth.sign_in'))
 			->see('<title> ' . trans('ahk.sign_in') . ' | Chamb.Net</title>')
-			->see(trans('ahk.sign_in_to_your_account'))
+			->see('<h2>' . trans('ahk.sign_in') . '</h2>')
 			->see('<i class="fa fa-user"></i>')
 			->see('<input type="text" placeholder="' . trans('ahk.username') . '" class="form-control">')
 			->see('<i class="fa fa-lock"></i>')

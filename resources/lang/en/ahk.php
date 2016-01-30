@@ -15,7 +15,7 @@ return [
 	*/
 
 	'about'                                                                => 'About Us',
-	'back_to_sign_in'                                                        => 'Back to sign_in',
+	'back_to_sign_in'                                                      => 'Back to sign_in',
 	'close'                                                                => 'Close',
 	'community'                                                            => 'Community',
 	'companies'                                                            => 'Companies',
@@ -36,9 +36,9 @@ return [
 	'info'                                                                 => 'Info',
 	'law'                                                                  => 'Law',
 	'links'                                                                => 'Links',
-	'sign_in'                                                                => 'Login',
+	'sign_in'                                                              => 'Sign In',
 	'logistics'                                                            => 'Logistics',
-	'logout'                                                               => 'Logout',
+	'sign_out'                                                             => 'Sign Out',
 	'lost_password_prompt_message'                                         => 'Lost your password? Please enter your email address. You will receive a link to create a new password.',
 	'or_register_your_new_account_on'                                      => 'Or register your new account on',
 	'or_use_your_account'                                                  => 'Or user your account.',
