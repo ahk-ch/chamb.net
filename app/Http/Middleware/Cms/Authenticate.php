@@ -26,7 +26,7 @@ class Authenticate
 				return response('Unauthorized.', 401);
 			} else
 			{
-				Flash::error(trans('cms.you_need_to_login_first'));
+				Flash::error(trans('cms.you_need_to_sign_in_first'));
 
 				return redirect()->guest(route('cms.sessions.create'));
 			}

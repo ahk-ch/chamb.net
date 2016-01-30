@@ -50,6 +50,6 @@ return [
 	'unpublished'                      => 'Unveröffentlicht',
 	'users'                            => 'Benutzer',
 	'you_have_successfully_logged_out' => 'Sie haben erfolgreich abzumelden.',
-	'you_need_to_login_first'          => 'Sie müssen sich erst anmelden.',
+	'you_need_to_sign_in_first'          => 'Sie müssen sich erst anmelden.',
 ];
 

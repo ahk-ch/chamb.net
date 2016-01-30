@@ -26,7 +26,7 @@
     <link href='{!! url("assets/plugins/animate.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/plugins/line-icons/line-icons.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/plugins/font-awesome/css/font-awesome.min.css") !!}' rel='stylesheet' type='text/css'/>
-    <link href='{!! url("assets/plugins/login-signup-modal-window/css/style.css") !!}' rel='stylesheet' type='text/css'/>
+    <link href='{!! url("assets/plugins/sign_in-signup-modal-window/css/style.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("vendor/pnotify/src/pnotify.core.css") !!}' rel='stylesheet' type='text/css'/>
     @yield('css-implementing-plugins')
     @yield('css-page-style')
@@ -54,7 +54,7 @@
 <script type="text/javascript" src="{!! url('assets/plugins/jquery.parallax.js') !!}"></script>
 <script type="text/javascript" src="{!! url('assets/plugins/parallax-slider/js/modernizr.js') !!}"></script>
 <script type="text/javascript" src="{!! url('assets/plugins/parallax-slider/js/modernizr.js') !!}"></script>
-<script type="text/javascript" src="{!! url('assets/js/login-signup.js') !!}"></script>
+<script type="text/javascript" src="{!! url('assets/js/sign_in-signup.js') !!}"></script>
 <script type="text/javascript" src='{!! url("vendor/pnotify/src/pnotify.core.min.js") !!}'></script>
 <script type="text/javascript" src='{!! url("vendor/pnotify/src/pnotify.confirm.min.js") !!}'></script>
 @yield('js-implementing-plugins')

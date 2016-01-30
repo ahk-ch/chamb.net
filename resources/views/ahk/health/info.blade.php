@@ -8,8 +8,10 @@
 @section('css-page-style')
     <link href='{!! url("assets/css/pages/page_search.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
+@section('header_links')
+    @include('ahk._partials.header_industries_links')
+@endsection
 @section('content')
-    @include('ahk._partials.header_industries')
     <div class="container content-sm">
         <div class="text-center margin-bottom-50">
             <h2 class="title-v2 title-center">{!! trans('ahk_health_info.chambers_services_title') !!}</h2>

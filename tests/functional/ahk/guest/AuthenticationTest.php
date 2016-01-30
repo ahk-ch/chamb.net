@@ -15,39 +15,50 @@ class AuthenticationTest extends TestCase
 	public function it_access_sign_in_page()
 	{
 		$this->visit(route('home_path'))
-			->click(trans('ahk.login'))
-			->seePageIs(route('auth.login'));
+			->click(trans('ahk.sign_in'))
+			->seePageIs(route('auth.sign_in'));
 
-		$this->visit(route('auth.login'))
-			->seePageIs(route('auth.login'));
+		$this->visit(route('auth.sign_in'))
+			->seePageIs(route('auth.sign_in'));
 	}
 
 	/** @test */
 	public function it_reads_sign_in_page()
 	{
-		$this->visit(route('auth.login'))
-			->see('<title> ' . trans('ahk.login') . ' | Chamb.Net</title>')
-			->see(trans('ahk.login_to_your_account'))
+		$this->visit(route('auth.sign_in'))
+			->see('<title> ' . trans('ahk.sign_in') . ' | Chamb.Net</title>')
+			->see(trans('ahk.sign_in_to_your_account'))
 			->see('<i class="fa fa-user"></i>')
 			->see('<input type="text" placeholder="' . trans('ahk.username') . '" class="form-control">')
 			->see('<i class="fa fa-lock"></i>')
 			->see('<input type="password" placeholder="' . trans('ahk.password') . '" class="form-control">')
 			->see('<label><input type="checkbox"> ' . trans('ahk.remember_me') . '</label>')
-			->see('<button class="btn-u pull-right" type="submit">' . trans('ahk.login') . '</button>')
+			->see('<button class="btn-u pull-right" type="submit">' . trans('ahk.sign_in') . '</button>')
 			->see('<h4>' . trans('ahk.forgot_your_password') . '</h4>');
 	}
 
-	/** @test */
-	public function it_registers_company_representative_account()
-	{
-		$this->visit(route('home_path'))
-			->seePageIs(route('home_path'))
-			->click(trans('ahk.login'))
-			->seePageIs(route('home_path'))
-			->click(trans('ahk.register'))
-			->type('dummy@email.com', 'email')
-			->type('some-password', 'password')
-			->check('accept-terms')
-			->press(trans('ahk.create_account'));
-	}
+//	/** @test */
+//	public function it_access_registration_in_page()
+//	{
+//		$this->visit(route('home_path'))
+//			->click(trans('ahk.register'))
+//			->seePageIs(route('auth.register'));
+//
+//		$this->visit(route('auth.sign_in'))
+//			->seePageIs(route('auth.login'));
+//	}
+
+//	/** @test */
+//	public function it_registers_company_representative_account()
+//	{
+//		$this->visit(route('home_path'))
+//			->seePageIs(route('home_path'))
+//			->click(trans('ahk.login'))
+//			->seePageIs(route('home_path'))
+//			->click(trans('ahk.register'))
+//			->type('dummy@email.com', 'email')
+//			->type('some-password', 'password')
+//			->check('accept-terms')
+//			->press(trans('ahk.create_account'));
+//	}
 }

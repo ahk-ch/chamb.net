@@ -6,8 +6,10 @@
 @section('css-page-style')
     <link href='{!! url("assets/css/pages/page_job.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
+@section('header_links')
+    @include('ahk._partials.header_industries_links')
+@endsection
 @section('content')
-    @include('ahk._partials.header_industries')
     <div class="container ">
         <div class="col-sm-5">
         </div>

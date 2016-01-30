@@ -26,7 +26,7 @@ class Authenticate
 				return response('Unauthorized.', 401);
 			} else
 			{
-				Flash::error(trans('ahk_messages.you_need_to_login'));
+				Flash::error(trans('ahk_messages.you_need_to_sign_in'));
 
 				return redirect()->guest(route('home_path'));
 			}

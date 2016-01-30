@@ -17,7 +17,7 @@ return [
 	'health_news' => 'Health News',
 	'companies'   => 'Companies',
 	'about'       => 'About',
-	'login'       => 'Login',
+	'sign_in'       => 'Login',
 	'register'    => 'Register',
 	'dashboard'   => 'Dashboard',
 ];

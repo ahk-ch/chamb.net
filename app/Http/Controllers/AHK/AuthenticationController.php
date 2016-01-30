@@ -28,7 +28,7 @@ class AuthenticationController extends BaseController
 
 	public function getLogin()
 	{
-		return view('ahk.login');
+		return view('ahk.sign_in');
 	}
 
 	/**

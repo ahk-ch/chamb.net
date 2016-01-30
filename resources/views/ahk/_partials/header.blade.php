@@ -26,7 +26,7 @@
                 <li class="topbar-devider"></li>
                 @if( ! Auth::check())
                     <li>
-                        <a href="{!! route('auth.login') !!}">{!!  trans('ahk.login')  !!} </a>
+                        <a href="{!! route('auth.sign_in') !!}">{!!  trans('ahk.sign_in')  !!} </a>
                     </li>
                     <li class="topbar-devider"></li>
                     <li>

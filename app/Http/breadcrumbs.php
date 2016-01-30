@@ -32,10 +32,10 @@ Breadcrumbs::register('about_path', function ($breadcrumbs)
 	$breadcrumbs->push(trans('breadcrumbs.about'), route('home_path'));
 });
 
-Breadcrumbs::register('auth.login', function ($breadcrumbs)
+Breadcrumbs::register('auth.sign_in', function ($breadcrumbs)
 {
 	$breadcrumbs->parent('home_path');
-	$breadcrumbs->push(trans('breadcrumbs.login'), route('auth.login'));
+	$breadcrumbs->push(trans('breadcrumbs.sign_in'), route('auth.sign_in'));
 });
 
 Breadcrumbs::register('auth.register', function ($breadcrumbs)

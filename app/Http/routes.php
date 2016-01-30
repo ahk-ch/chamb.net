@@ -22,8 +22,8 @@ Route::get('terms_of_use', ['as' => 'terms_of_use_path', 'uses' => 'AHK\HomeCont
 Route::group(['prefix' => 'auth'], function ()
 {
 	# Login
-	Route::get('login', ['as' => 'auth.login', 'uses' => 'AHK\AuthenticationController@getLogin']);
-	Route::post('login', ['as' => 'auth.login', 'uses' => 'AHK\AuthenticationController@postLogin']);
+	Route::get('sign_in', ['as' => 'auth.sign_in', 'uses' => 'AHK\AuthenticationController@getLogin']);
+	Route::post('sign_in', ['as' => 'auth.sign_in', 'uses' => 'AHK\AuthenticationController@postLogin']);
 	Route::delete('logout', ['as' => 'auth.destroy', 'uses' => 'AHK\AuthenticationController@destroy']);
 	# Registration
 	Route::get('register', ['as' => 'auth.register', 'uses' => 'AHK\AuthenticationController@getRegistration']);
@@ -61,8 +61,8 @@ Route::group(['prefix' => 'cms'], function ()
 	Route::get('users', ['as' => 'cms.users', 'uses' => 'Cms\DashboardController@dashboard']);
 
 	# Authentication
-	Route::get('auth/login', ['as' => 'cms.sessions.create', 'uses' => 'Cms\SessionsController@create']);
-	Route::post('auth/login', ['as' => 'cms.sessions.store', 'uses' => 'Cms\SessionsController@store']);
+	Route::get('auth/sign_in', ['as' => 'cms.sessions.create', 'uses' => 'Cms\SessionsController@create']);
+	Route::post('auth/sign_in', ['as' => 'cms.sessions.store', 'uses' => 'Cms\SessionsController@store']);
 	Route::delete('auth/logout', ['as' => 'cms.sessions.destroy', 'uses' => 'Cms\SessionsController@destroy']);
 	Route::get('lang/{lang}', ['as' => 'cms.set_language', 'uses' => 'Cms\SettingsController@setLocale']);
 });

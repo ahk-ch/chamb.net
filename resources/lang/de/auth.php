@@ -14,6 +14,6 @@ return [
 	*/
 
 	'failed'   => 'Diese Anmeldedaten stimmen leider nicht mit registrierten Daten überein.',
-	'throttle' => 'Zu viele Login-Versuche. Versuchen Sie es bitte in :seconds Sekunden erneut.',
+	'throttle' => 'Zu viele sign_in-Versuche. Versuchen Sie es bitte in :seconds Sekunden erneut.',
 
 ];

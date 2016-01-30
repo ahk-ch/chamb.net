@@ -4,10 +4,10 @@
     <link href='{!! url("assets/plugins/revolution-slider/rs-plugin/css/settings.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
 @section('css-page-style')@endsection
+@section('header_links')
+    @include('ahk._partials.header_default_links')
+@endsection
 @section('content')
-
-    @include('ahk._partials.header')
-
     <div class="tp-banner-container">
         <div class="tp-banner">
             <ul>

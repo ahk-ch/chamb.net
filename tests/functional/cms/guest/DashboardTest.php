@@ -16,6 +16,6 @@ class DashboardTest extends TestCase
 	{
 		$this->visit(route('cms.dashboard'))
 			->seePageIs(route('cms.sessions.create'))
-			->see(trans('cms.you_need_to_login_first'));
+			->see(trans('cms.you_need_to_sign_in_first'));
 	}
 }

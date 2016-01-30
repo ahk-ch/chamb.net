@@ -1,5 +1,5 @@
 @extends('ahk.layouts.master')
-@section('title', trans('ahk.login'))
+@section('title', trans('ahk.sign_in'))
 @section('css-implementing-plugins')
 @endsection
 @section('css-page-style')
@@ -14,7 +14,7 @@
             <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
                 <form class="reg-page">
                     <div class="reg-header">
-                        <h2>{!! trans('ahk.login_to_your_account') !!}</h2>
+                        <h2>{!! trans('ahk.sign_in_to_your_account') !!}</h2>
                     </div>
 
                     <div class="input-group margin-bottom-20">
@@ -31,7 +31,7 @@
                             <label><input type="checkbox"> {!! trans('ahk.remember_me') !!}</label>
                         </div>
                         <div class="col-md-6">
-                            <button class="btn-u pull-right" type="submit">{!! trans('ahk.login') !!}</button>
+                            <button class="btn-u pull-right" type="submit">{!! trans('ahk.sign_in') !!}</button>
                         </div>
                     </div>
 

@@ -21,6 +21,6 @@ class AboutTest extends TestCase
 	{
 		$this->visit(route('about_path'))
 			->seePageIs(route('about_path'))
-			->see("<title> " . trans('ahk.about') . "</title>");
+			->see("<title> " . trans('ahk.about') . " | Chamb.Net</title>");
 	}
 }

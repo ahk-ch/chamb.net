@@ -15,7 +15,7 @@ return [
 	*/
 
 	'about'                                                                => 'About Us',
-	'back_to_login'                                                        => 'Back to login',
+	'back_to_sign_in'                                                        => 'Back to sign_in',
 	'close'                                                                => 'Close',
 	'community'                                                            => 'Community',
 	'companies'                                                            => 'Companies',
@@ -36,8 +36,7 @@ return [
 	'info'                                                                 => 'Info',
 	'law'                                                                  => 'Law',
 	'links'                                                                => 'Links',
-	'login'                                                                => 'Login',
-	'login_to_your_account'                                                => 'Login to your account',
+	'sign_in'                                                                => 'Login',
 	'logistics'                                                            => 'Logistics',
 	'logout'                                                               => 'Logout',
 	'lost_password_prompt_message'                                         => 'Lost your password? Please enter your email address. You will receive a link to create a new password.',

@@ -1,13 +1,13 @@
 <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
     <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
         <ul class="cd-switcher">
-            <li><a href="javascript:void(0);">{!! trans('ahk.login') !!}</a></li>
+            <li><a href="javascript:void(0);">{!! trans('ahk.sign_in') !!}</a></li>
             <li><a href="javascript:void(0);">{!! trans('ahk.register') !!}</a></li>
         </ul>
 
-        <div id="cd-login"> <!-- log in form -->
+        <div id="cd-sign_in"> <!-- log in form -->
 
-            {!! Form::open(['route' => 'auth.login', 'role' => 'form', 'class' => 'cd-form']) !!}
+            {!! Form::open(['route' => 'auth.sign_in', 'role' => 'form', 'class' => 'cd-form']) !!}
 
             <p class="fieldset">
                 <label class="image-replace cd-email" for="sign_in_email">E-mail</label>
@@ -30,23 +30,23 @@
             </p>
 
             <p class="fieldset">
-                <input class="full-width" type="submit" value="{!! trans('ahk.login') !!}">
+                <input class="full-width" type="submit" value="{!! trans('ahk.sign_in') !!}">
             </p>
             {!! Form::close() !!}
 
             <p class="cd-form-bottom-message">
                 <a href="javascript:void(0);">{!! trans('ahk.forgot_your_password') !!}</a></p>
             <!-- <a href="javascript:void(0);" class="cd-close-form">Close</a> -->
-        </div> <!-- cd-login -->
+        </div> <!-- cd-sign_in -->
 
         <div id="cd-signup"> <!-- sign up form -->
 
             {!! Form::open(['route' => 'auth.register', 'role' => 'form', 'class' => 'cd-form']) !!}
 
-            <p class="social-login">
-                <span class="social-login-facebook"><a href="#"><i class="fa fa-facebook"></i> Facebook</a></span>
-                <span class="social-login-google"><a href="#"><i class="fa fa-google"></i> Google</a></span>
-                <span class="social-login-twitter"><a href="#"><i class="fa fa-twitter"></i> Twitter</a></span>
+            <p class="social-sign_in">
+                <span class="social-sign_in-facebook"><a href="#"><i class="fa fa-facebook"></i> Facebook</a></span>
+                <span class="social-sign_in-google"><a href="#"><i class="fa fa-google"></i> Google</a></span>
+                <span class="social-sign_in-twitter"><a href="#"><i class="fa fa-twitter"></i> Twitter</a></span>
             </p>
 
             <div class="lined-text"><span>{!! trans('ahk.or_register_your_new_account_on') !!} AHK</span>
@@ -102,7 +102,7 @@
                 </p>
             </form>
 
-            <p class="cd-form-bottom-message"><a href="javascript:void(0);">{!! trans('ahk.back_to_login') !!}</a></p>
+            <p class="cd-form-bottom-message"><a href="javascript:void(0);">{!! trans('ahk.back_to_sign_in') !!}</a></p>
         </div> <!-- cd-reset-password -->
         <a href="javascript:void(0);" class="cd-close-form">{!! trans('ahk.close') !!}</a>
     </div> <!-- cd-user-modal-container -->

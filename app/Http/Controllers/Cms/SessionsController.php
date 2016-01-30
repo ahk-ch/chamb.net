@@ -24,7 +24,7 @@ class SessionsController extends Controller
 	 */
 	public function create()
 	{
-		return view('cms.login');
+		return view('cms.sign_in');
 	}
 
 	/**

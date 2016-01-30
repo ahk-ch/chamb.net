@@ -7,9 +7,10 @@
 @section('css-implementing-plugins')
     <link href='{!! url("assets/css/pages/page_about.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
+@section('header_links')
+    @include('ahk._partials.header_default_links')
+@endsection
 @section('content')
-
-    @include('ahk._partials.header_industries')
     <div class="container content"><!--=== Content Part ===-->
         <div class="title-box-v2">
             <h2>{!! trans('ahk_about.about_the_hellenic_german_chambers_of') !!}

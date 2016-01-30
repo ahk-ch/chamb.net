@@ -20,5 +20,5 @@ return [
 	'unable_to_store_user'      => 'Δεν είνε δυνατόν να αποθηκεύσουμε τον χρήστη.',
 	'user_created'              => 'Ο χρήστης δημιουργήθηκε.',
 	'validation_error_occurred' => 'Σφάλμα επικύρωσης.',
-	'you_need_to_login'         => 'Θα πρέπει να συνδεθείτε πρώτα!',
+	'you_need_to_sign_in'         => 'Θα πρέπει να συνδεθείτε πρώτα!',
 ];

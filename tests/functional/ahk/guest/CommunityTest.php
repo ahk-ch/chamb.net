@@ -28,7 +28,7 @@ class CommunityTest extends TestCase
 
 		$this->visit(route('companies_path'))
 			->seePageIs(route('companies_path'))
-			->see("<title> " . trans('ahk.community') . "</title>")
+			->see("<title> " . trans('ahk.community') . " | Chamb.Net</title>")
 			->see(trans('ahk.discover_the_community'))
 			->see($industries->get(0)->name)
 			->see($industries->get(1)->name)

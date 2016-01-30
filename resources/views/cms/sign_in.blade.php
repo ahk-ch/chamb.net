@@ -23,15 +23,15 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-    <div class="login-logo">
+<body class="hold-transition sign_in-page">
+<div class="sign_in-box">
+    <div class="sign_in-logo">
         <a href="#"><b>Admin</b>AHK</a>
     </div>
 
-    <!-- /.login-logo -->
-    <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+    <!-- /.sign_in-logo -->
+    <div class="sign_in-box-body">
+        <p class="sign_in-box-msg">Sign in to start your session</p>
 
         {!! Form::open(['route' => 'cms.sessions.store', 'method' => 'POST']) !!}
 
@@ -63,10 +63,10 @@
         </div>
         {!! Form::close() !!}
     </div>
-    <!-- /.login-box-body -->
+    <!-- /.sign_in-box-body -->
 
 </div>
-<!-- /.login-box -->
+<!-- /.sign_in-box -->
 
 <script src="{!! url('vendor/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js') !!}"></script>
 <script src="{!! url('vendor/AdminLTE/bootstrap/js/bootstrap.min.js') !!}"></script>

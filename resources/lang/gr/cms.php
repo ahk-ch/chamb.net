@@ -50,6 +50,6 @@ return [
 	'unpublished'                      => 'Αδημοσίευτα',
 	'users'                            => 'Χρήστες',
 	'you_have_successfully_logged_out' => 'Έχετε αποσυνδεθείτε επιτυχώς.',
-	'you_need_to_login_first'          => 'Θα πρέπει να συνδεθείτε πρώτα.',
+	'you_need_to_sign_in_first'          => 'Θα πρέπει να συνδεθείτε πρώτα.',
 ];
 

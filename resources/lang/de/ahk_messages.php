@@ -20,6 +20,6 @@ return [
 	'unable_to_store_user'      => 'Ynavle Blinde Auxerre.',
 	'user_created'              => 'Benutzer erstellt.',
 	'validation_error_occurred' => 'Validation Fehler aufgetreten.',
-	'you_need_to_login'         => 'Sie müssen sich erst einloggen!',
+	'you_need_to_sign_in'         => 'Sie müssen sich erst einloggen!',
 
 ];
