@@ -19,6 +19,7 @@ return [
 	'close'                                                                => 'Close',
 	'community'                                                            => 'Community',
 	'companies'                                                            => 'Companies',
+	'confirm_password'                                                     => 'Confirm Password',
 	'create_account'                                                       => 'Create account',
 	'discover_the_community'                                               => 'Discover the community',
 	'downloads'                                                            => 'Downloads',

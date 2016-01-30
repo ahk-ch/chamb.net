@@ -37,28 +37,32 @@ class AuthenticationTest extends TestCase
 			->see('<h4>' . trans('ahk.forgot_your_password') . '</h4>');
 	}
 
-//	/** @test */
-//	public function it_access_registration_in_page()
-//	{
-//		$this->visit(route('home_path'))
-//			->click(trans('ahk.register'))
-//			->seePageIs(route('auth.register'));
-//
-//		$this->visit(route('auth.sign_in'))
-//			->seePageIs(route('auth.login'));
-//	}
+	/** @test */
+	public function it_access_registration_in_page()
+	{
+		$this->visit(route('home_path'))
+			->click(trans('ahk.register'))
+			->seePageIs(route('auth.register'));
 
-//	/** @test */
-//	public function it_registers_company_representative_account()
-//	{
-//		$this->visit(route('home_path'))
-//			->seePageIs(route('home_path'))
-//			->click(trans('ahk.login'))
-//			->seePageIs(route('home_path'))
-//			->click(trans('ahk.register'))
-//			->type('dummy@email.com', 'email')
-//			->type('some-password', 'password')
-//			->check('accept-terms')
-//			->press(trans('ahk.create_account'));
-//	}
+		$this->visit(route('auth.register'))
+			->seePageIs(route('auth.register'));
+	}
+
+	/** @test */
+	public function it_reads_register_page_view()
+	{
+		$this->visit(route('auth.register'))
+			->see('<title> ' . trans('ahk.register') . ' | Chamb.Net</title>')
+			->see('<h2>' . trans('ahk.register') . '</h2>')
+			->see('<a href="' . route('auth.sign_in') . '" class="color-green">' . trans('ahk.sign_in') . '</a>')
+			->see('<i class="fa fa-envelope"></i>')
+			->see('<input type="email" placeholder="Email" class="form-control">')
+			->see('<i class="fa fa-key"></i>')
+			->see('<i class="fa fa-lock"></i>')
+			->see('<input type="password" placeholder="' . trans('ahk.password') . '" class="form-control">')
+			->see('<input type="password" placeholder="' . trans('ahk.confirm_password') . '" class="form-control">')
+			->see(trans('ahk.i_agree_to_the'))
+			->see(route('terms_of_use_path'))
+			->see('<button class="btn-u" type="submit">' . trans('ahk.register') . '</button>');
+	}
 }

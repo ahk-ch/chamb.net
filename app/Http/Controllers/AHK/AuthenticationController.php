@@ -26,9 +26,20 @@ class AuthenticationController extends BaseController
 		$this->middleware('guest', ['except' => 'destroy']);
 	}
 
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
 	public function getLogin()
 	{
-		return view('ahk.sign_in');
+		return view('ahk.auth.sign_in');
+	}
+
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function getRegistration()
+	{
+		return view('ahk.auth.register');
 	}
 
 	/**
