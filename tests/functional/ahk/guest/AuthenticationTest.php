@@ -4,6 +4,10 @@
  * @author Rizart Dokollari
  * @since 12/10/2015
  */
+use App\AHK\Repositories\User\DbUserRepository;
+use App\AHK\User;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Hash;
 use tests\TestCase;
 
 /**
@@ -11,6 +15,18 @@ use tests\TestCase;
  */
 class AuthenticationTest extends TestCase
 {
+	use DatabaseMigrations;
+
+	protected $dbUserRepository;
+
+	public function setUp()
+	{
+		parent::setUp();
+
+		$this->dbUserRepository = new DbUserRepository();
+	}
+
+
 	/** @test */
 	public function it_access_sign_in_page()
 	{
@@ -38,31 +54,13 @@ class AuthenticationTest extends TestCase
 	}
 
 	/** @test */
-	public function it_access_registration_in_page()
+	public function it_signs_in()
 	{
-		$this->visit(route('home_path'))
-			->click(trans('ahk.register'))
-			->seePageIs(route('auth.register'));
+		$user = factory(User::class)
+			->create(['email' => 'email@email.com', 'password' => Hash::make('some-password')]);
+		$this->dbUserRepository->assignCompanyRepresentativeRole($user);
 
-		$this->visit(route('auth.register'))
-			->seePageIs(route('auth.register'));
+		$this->visit(route('auth.sign_in'));
 	}
 
-	/** @test */
-	public function it_reads_register_page_view()
-	{
-		$this->visit(route('auth.register'))
-			->see('<title> ' . trans('ahk.register') . ' | Chamb.Net</title>')
-			->see('<h2>' . trans('ahk.register') . '</h2>')
-			->see('<a href="' . route('auth.sign_in') . '" class="color-green">' . trans('ahk.sign_in') . '</a>')
-			->see('<i class="fa fa-envelope"></i>')
-			->see('<input type="email" placeholder="Email" class="form-control">')
-			->see('<i class="fa fa-key"></i>')
-			->see('<i class="fa fa-lock"></i>')
-			->see('<input type="password" placeholder="' . trans('ahk.password') . '" class="form-control">')
-			->see('<input type="password" placeholder="' . trans('ahk.confirm_password') . '" class="form-control">')
-			->see(trans('ahk.i_agree_to_the'))
-			->see(route('terms_of_use_path'))
-			->see('<button class="btn-u" type="submit">' . trans('ahk.register') . '</button>');
-	}
 }

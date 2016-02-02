@@ -28,6 +28,7 @@ $factory->define(User::class, function (Faker\Generator $faker)
 	];
 });
 
+
 $factory->define(App\AHK\Industry::class, function (Faker\Generator $faker)
 {
 	return [

@@ -35,4 +35,12 @@ class User extends Model implements AuthenticatableContract,
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+	 */
+	public function roles()
+	{
+		return $this->belongsToMany('App\AHK\Role')->withTimestamps();
+	}
 }
