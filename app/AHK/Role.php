@@ -10,17 +10,21 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Role extends Model
 {
+	const COMPANY_REPRESENTATIVE_ROLE = 'CompanyRepresentative';
+
 	/**
+	 * The attributes that are mass assignable.
 	 *
+	 * @var array
 	 */
-	const COMPANY_REPRESENTATIVE = 'CompanyRepresentative';
+	protected $fillable = ['name'];
 
 
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
 	 */
-	public function roles()
+	public function users()
 	{
-		return $this->belongsToMany('App\AHK\Role')->withTimestamps();
+		return $this->belongsToMany('App\AHK\User')->withTimestamps();
 	}
 }

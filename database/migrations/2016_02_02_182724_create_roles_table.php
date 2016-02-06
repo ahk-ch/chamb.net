@@ -24,7 +24,7 @@ class CreateRolesTable extends Migration
 			$table->timestamps();
 		});
 
-		Role::create(['name' => Role::COMPANY_REPRESENTATIVE]);
+		Role::create(['name' => Role::COMPANY_REPRESENTATIVE_ROLE]);
 	}
 
 	/**
