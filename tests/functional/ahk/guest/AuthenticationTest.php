@@ -17,16 +17,6 @@ class AuthenticationTest extends TestCase
 {
 	use DatabaseMigrations;
 
-	protected $dbUserRepository;
-
-	public function setUp()
-	{
-		parent::setUp();
-
-		$this->dbUserRepository = new DbUserRepository();
-	}
-
-
 	/** @test */
 	public function it_access_sign_in_page()
 	{
@@ -44,23 +34,31 @@ class AuthenticationTest extends TestCase
 		$this->visit(route('auth.sign_in'))
 			->see('<title> ' . trans('ahk.sign_in') . ' | Chamb.Net</title>')
 			->see('<h2>' . trans('ahk.sign_in') . '</h2>')
-			->see('<i class="fa fa-user"></i>')
-			->see('<input type="text" placeholder="' . trans('ahk.username') . '" class="form-control">')
+			->see('<i class="fa fa-envelope"></i>')
+			->see('<input class="form-control" placeholder="Email" required="required" name="email" type="email">')
 			->see('<i class="fa fa-lock"></i>')
-			->see('<input type="password" placeholder="' . trans('ahk.password') . '" class="form-control">')
-			->see('<label><input type="checkbox"> ' . trans('ahk.remember_me') . '</label>')
-			->see('<button class="btn-u pull-right" type="submit">' . trans('ahk.sign_in') . '</button>')
+			->see('<input class="form-control" placeholder="' . trans("ahk.password") . '" required="required" name="password" type="password" value="">')
+			->see('<input name="remember_me" type="checkbox" value="1"> ' . trans('ahk.remember_me'))
+			->see('<input class="btn-u pull-right" id="sign-in" name="sign-in" type="submit" value="Sign In">')
 			->see('<h4>' . trans('ahk.forgot_your_password') . '</h4>');
 	}
 
 	/** @test */
 	public function it_signs_in()
 	{
+		$dbUserRepository = new DbUserRepository();
+
 		$user = factory(User::class)
 			->create(['email' => 'email@email.com', 'password' => Hash::make('some-password')]);
-		$this->dbUserRepository->assignCompanyRepresentativeRole($user);
 
-		$this->visit(route('auth.sign_in'));
+		$dbUserRepository->assignCompanyRepresentativeRole($user);
+
+		$this->visit(route('auth.sign_in'))
+			->type($user->email, 'email')
+			->type('some-password', 'password')
+			->press("Sign In")
+			->seePageIs(route('home_path'));
+//			->see(trans('ahk_messages.successful_sign_in'));
 	}
 
 }

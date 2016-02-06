@@ -30,7 +30,7 @@
                     </li>
                     <li class="topbar-devider"></li>
                     <li>
-                        <a href="#">{!! trans('ahk.register') !!} </a>
+                        <a href="{!! route('auth.register') !!}">{!! trans('ahk.register') !!} </a>
                     </li>
                 @else
                     <li class="hoverSelector">

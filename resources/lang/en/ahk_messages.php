@@ -16,10 +16,11 @@ return [
 	*/
 
 	'credentials_mismatch'      => 'Those credentials do not match our database.',
-	'successful_logout'         => 'You have successfully signed out!',
+	'successful_sign_in'        => 'You have successfully signed in!',
+	'successful_sign_out'       => 'You have successfully signed out!',
 	'unable_to_store_user'      => 'Unable to store user.',
 	'user_created'              => 'User created!',
 	'validation_error_occurred' => 'Validation errors occurred.',
-	'you_need_to_sign_in'         => 'You need to sign_in first.',
+	'you_need_to_sign_in'       => 'You need to sign_in first.',
 
 ];

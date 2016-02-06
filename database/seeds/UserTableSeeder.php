@@ -21,8 +21,13 @@ class UserTableSeeder extends Seeder {
 	public function run()
 	{
 		factory(User::class)->create([
-			'username'     => env('ADMIN_USERNAME'),
+			'email'     => env('ADMIN_EMAIL'),
 			'password' => Hash::make(env('ADMIN_PASSWORD')),
+		]);
+
+		factory(User::class)->create([
+			'email'     => env('COMPANY_REPRESENTATIVE_EMAIL'),
+			'password' => Hash::make(env('COMPANY_REPRESENTATIVE_PASSWORD')),
 		]);
 	}
 }
