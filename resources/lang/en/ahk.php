@@ -7,10 +7,10 @@ return [
 
 	/*
 	|--------------------------------------------------------------------------
-	| AHK Language Lines
+	| Ahk Language Lines
 	|--------------------------------------------------------------------------
 	|
-	| The following language lines are used during AHK rendering.
+	| The following language lines are used during Ahk rendering.
 	|
 	*/
 
@@ -19,7 +19,6 @@ return [
 	'close'                                                                => 'Close',
 	'community'                                                            => 'Community',
 	'companies'                                                            => 'Companies',
-	'confirm_password'                                                     => 'Confirm Password',
 	'create_account'                                                       => 'Create account',
 	'discover_the_community'                                               => 'Discover the community',
 	'downloads'                                                            => 'Downloads',
@@ -44,6 +43,7 @@ return [
 	'or_register_your_new_account_on'                                      => 'Or register your new account on',
 	'or_use_your_account'                                                  => 'Or user your account.',
 	'password'                                                             => 'Password',
+	'password_confirmation'                                                => 'Confirm Password',
 	'register'                                                             => 'Register',
 	'remember_me'                                                          => 'Remember me',
 	'news'                                                                 => 'News',

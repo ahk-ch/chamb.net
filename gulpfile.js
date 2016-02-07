@@ -25,7 +25,7 @@ elixir(function (mix) {
 
 	// Versioning
 	mix.version([
-		// AHK
+		// Ahk
 		// CSS
 		ahkProductionStylesDir + 'app.min.css',
 		// JS

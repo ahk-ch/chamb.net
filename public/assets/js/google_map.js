@@ -16,7 +16,7 @@ var ContactPage = function () {
 				var marker = map.addMarker({
 					lat: 37.983333,
 					lng: 23.755962,
-					title: 'AHK'
+					title: 'Ahk'
 				});
 			});
 		},

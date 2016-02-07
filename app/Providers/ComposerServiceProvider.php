@@ -12,11 +12,11 @@ class ComposerServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		# AHK
-		view()->composer('ahk._partials.header', 'App\Http\ViewComposers\AHK\HeaderComposer');
-		view()->composer('ahk._partials.header_industries', 'App\Http\ViewComposers\AHK\HeaderComposer');
-		view()->composer('ahk._partials.footer', 'App\Http\ViewComposers\AHK\FooterComposer');
-		view()->composer('ahk.layouts.master', 'App\Http\ViewComposers\AHK\MasterComposer');
+		# Ahk
+		view()->composer('ahk._partials.header', 'App\Http\ViewComposers\Ahk\HeaderComposer');
+		view()->composer('ahk._partials.header_industries', 'App\Http\ViewComposers\Ahk\HeaderComposer');
+		view()->composer('ahk._partials.footer', 'App\Http\ViewComposers\Ahk\FooterComposer');
+		view()->composer('ahk.layouts.master', 'App\Http\ViewComposers\Ahk\MasterComposer');
 
 		################# Cms ###############
 		view()->composer('cms._partials.header', 'App\Http\ViewComposers\Cms\HeaderComposer');

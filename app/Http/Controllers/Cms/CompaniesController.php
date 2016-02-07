@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Cms;
 
-use App\AHK\Repositories\Company\CompanyRepository;
+use App\Ahk\Repositories\Company\CompanyRepository;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 

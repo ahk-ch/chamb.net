@@ -7,7 +7,7 @@ return [
 
 	/*
 	|--------------------------------------------------------------------------
-	| Notifications Language Lines for AHK
+	| Notifications Language Lines for Ahk
 	|--------------------------------------------------------------------------
 	|
 	| The following language lines are used to notify users. E.g. whether
@@ -15,11 +15,12 @@ return [
 	|
 	*/
 
-	'credentials_mismatch'      => 'Αυτά τα διαπιστευτήρια δεν ταιριάζουν με τη βάση δεδομένων μας.',
-	'successful_sign_in'        => 'Έχετε συνδεθεί με επιτυχία!',
-	'successful_sign_out'       => 'Έχετε αποσυνδεθεί με επιτυχία!',
-	'unable_to_store_user'      => 'Δεν είνε δυνατόν να αποθηκεύσουμε τον χρήστη.',
-	'user_created'              => 'Ο χρήστης δημιουργήθηκε.',
-	'validation_error_occurred' => 'Σφάλμα επικύρωσης.',
-	'you_need_to_sign_in'       => 'Θα πρέπει να συνδεθείτε πρώτα!',
+	'credentials_mismatch'                       => 'Αυτά τα διαπιστευτήρια δεν ταιριάζουν με τη βάση δεδομένων μας.',
+	'check_your_email_and_complete_registration' => 'Παρακαλώ ελέγξτε το email σας, για να ολοκληρώσετε την εγγραφή σας.',
+	'successful_sign_in'                         => 'Έχετε συνδεθεί με επιτυχία!',
+	'successful_sign_out'                        => 'Έχετε αποσυνδεθεί με επιτυχία!',
+	'unable_to_store_user'                       => 'Δεν είνε δυνατόν να αποθηκεύσουμε τον χρήστη.',
+	'user_created'                               => 'Ο χρήστης δημιουργήθηκε.',
+	'validation_error_occurred'                  => 'Σφάλμα επικύρωσης.',
+	'you_need_to_sign_in'                        => 'Θα πρέπει να συνδεθείτε πρώτα!',
 ];

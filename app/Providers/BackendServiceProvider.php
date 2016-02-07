@@ -2,16 +2,16 @@
 
 namespace App\Providers;
 
-use App\AHK\Repositories\Article\ArticleRepository;
-use App\AHK\Repositories\Article\DbArticleRepository;
-use App\AHK\Repositories\Company\CompanyRepository;
-use App\AHK\Repositories\Company\DbCompanyRepository;
-use App\AHK\Repositories\Industry\DbIndustryRepository;
-use App\AHK\Repositories\Industry\IndustryRepository;
-use App\AHK\Repositories\Tag\DbTagRepository;
-use App\AHK\Repositories\Tag\TagRepository;
-use App\AHK\Repositories\User\DbUserRepository;
-use App\AHK\Repositories\User\UserRepository;
+use App\Ahk\Repositories\Article\ArticleRepository;
+use App\Ahk\Repositories\Article\DbArticleRepository;
+use App\Ahk\Repositories\Company\CompanyRepository;
+use App\Ahk\Repositories\Company\DbCompanyRepository;
+use App\Ahk\Repositories\Industry\DbIndustryRepository;
+use App\Ahk\Repositories\Industry\IndustryRepository;
+use App\Ahk\Repositories\Tag\DbTagRepository;
+use App\Ahk\Repositories\Tag\TagRepository;
+use App\Ahk\Repositories\User\DbUserRepository;
+use App\Ahk\Repositories\User\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
 class BackendServiceProvider extends ServiceProvider {

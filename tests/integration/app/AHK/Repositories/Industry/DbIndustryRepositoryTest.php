@@ -16,7 +16,7 @@ use tests\TestCase;
 
 /**
  * Class DbCompanyRepositoryTest
- * @package tests\integration\app\AHK\Repositories\Company
+ * @package tests\integration\app\Ahk\Repositories\Company
  */
 class DbIndustryRepositoryTest extends TestCase
 {

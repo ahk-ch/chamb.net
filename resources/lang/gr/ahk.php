@@ -7,10 +7,10 @@ return [
 
 	/*
 	|--------------------------------------------------------------------------
-	| AHK Language Lines
+	| Ahk Language Lines
 	|--------------------------------------------------------------------------
 	|
-	| The following language lines are used during AHK rendering. For some terms
+	| The following language lines are used during Ahk rendering. For some terms
 	| the accents have been omitted on purpose.
 	|
 	*/
@@ -20,7 +20,6 @@ return [
 	'close'                                                                => 'Κλείσιμο',
 	'community'                                                            => 'Κοινοτητα',
 	'companies'                                                            => 'Εταιρειες',
-	'confirm_password'                                                     => 'Επιβεβαιώστε τον κωδικό πρόσβασης.',
 	'create_account'                                                       => 'Δημιουργια λογαριασμου',
 	'discover_the_community'                                               => 'Ανακαλυψτε την κοιντητα',
 	'downloads'                                                            => 'Λήψεις',
@@ -46,6 +45,7 @@ return [
 	'or_register_your_new_account_on'                                      => 'Ή εγγραφείτε το νέο λογαριασμό σας στο',
 	'or_use_your_account'                                                  => 'Ή χρησιμοποιήστε το λογαριασμό σας',
 	'password'                                                             => 'Κωδικός',
+	'confirm_password'                                                     => 'Επιβεβαίωση κωδικού πρόσβασης',
 	'register'                                                             => 'Καταγραφη',
 	'remember_me'                                                          => 'Να με θυμάσαι',
 	'search'                                                               => 'Αναζήτηση',

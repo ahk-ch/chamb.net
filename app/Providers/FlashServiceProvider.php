@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\AHK\Notifications\FlashNotifier;
+use App\Ahk\Notifications\FlashNotifier;
 use Illuminate\Support\ServiceProvider;
 
 class FlashServiceProvider extends ServiceProvider {

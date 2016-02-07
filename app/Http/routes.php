@@ -2,32 +2,32 @@
 ################ chamb.net ####################
 
 # Pages
-Route::get('/', ['as' => 'home_path', 'uses' => 'AHK\HomeController@home']);
-Route::get('about', ['as' => 'about_path', 'uses' => 'AHK\HomeController@about']);
-Route::get('community', ['as' => 'companies_path', 'uses' => 'AHK\CompaniesController@index']);
-Route::get('lang/{lang}', ['as' => 'set_language', 'uses' => 'AHK\SettingsController@setLocale']);
+Route::get('/', ['as' => 'home_path', 'uses' => 'Ahk\HomeController@home']);
+Route::get('about', ['as' => 'about_path', 'uses' => 'Ahk\HomeController@about']);
+Route::get('community', ['as' => 'companies_path', 'uses' => 'Ahk\CompaniesController@index']);
+Route::get('lang/{lang}', ['as' => 'set_language', 'uses' => 'Ahk\SettingsController@setLocale']);
 
 Route::group(['prefix' => 'health'], function ()
 {
-	Route::get('info', ['as' => 'health.info', 'uses' => 'AHK\HealthController@info']);
-	Route::get('news', ['as' => 'health.news', 'uses' => 'AHK\HealthController@news']);
+	Route::get('info', ['as' => 'health.info', 'uses' => 'Ahk\HealthController@info']);
+	Route::get('news', ['as' => 'health.news', 'uses' => 'Ahk\HealthController@news']);
 });
 
 # Working Groups
-Route::get('working_groups', ['as' => 'working_groups', 'uses' => 'AHK\WorkingGroupsController@index']);
+Route::get('working_groups', ['as' => 'working_groups', 'uses' => 'Ahk\WorkingGroupsController@index']);
 
-Route::get('terms_of_use', ['as' => 'terms_of_use_path', 'uses' => 'AHK\HomeController@termsOfUse']);
+Route::get('terms_of_use', ['as' => 'terms_of_use_path', 'uses' => 'Ahk\HomeController@termsOfUse']);
 
 # Authentication
 Route::group(['prefix' => 'auth'], function ()
 {
 	# Login
-	Route::get('sign_in', ['as' => 'auth.sign_in', 'uses' => 'AHK\AuthenticationController@getLogin']);
-	Route::post('sign_in', ['as' => 'auth.sign_in', 'uses' => 'AHK\AuthenticationController@postLogin']);
-	Route::delete('logout', ['as' => 'auth.destroy', 'uses' => 'AHK\AuthenticationController@destroy']);
+	Route::get('sign_in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@getLogin']);
+	Route::post('sign_in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@postLogin']);
+	Route::delete('logout', ['as' => 'auth.destroy', 'uses' => 'Ahk\Auth\AuthenticationController@destroy']);
 	# Registration
-	Route::get('register', ['as' => 'auth.register', 'uses' => 'AHK\AuthenticationController@getRegistration']);
-	Route::post('register', ['as' => 'auth.register', 'uses' => 'AHK\AuthenticationController@postRegistration']);
+	Route::get('register', ['as' => 'auth.register', 'uses' => 'Ahk\Auth\RegistrationController@getRegistration']);
+	Route::post('register', ['as' => 'auth.register', 'uses' => 'Ahk\Auth\RegistrationController@postRegistration']);
 });
 
 

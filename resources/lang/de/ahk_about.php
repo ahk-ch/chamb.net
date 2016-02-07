@@ -7,7 +7,7 @@ return [
 
 	/*
 	|--------------------------------------------------------------------------
-	| Notifications Language Lines for AHK
+	| Notifications Language Lines for Ahk
 	|--------------------------------------------------------------------------
 	|
 	| The following language lines are used to render contents of about

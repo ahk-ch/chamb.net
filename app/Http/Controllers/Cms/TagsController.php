@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Cms;
 
-use App\AHK\Notifications\Flash;
-use App\AHK\Repositories\Tag\TagRepository;
-use App\AHK\Tag;
+use App\Ahk\Notifications\Flash;
+use App\Ahk\Repositories\Tag\TagRepository;
+use App\Ahk\Tag;
 use App\Http\Requests;
 use App\Http\Requests\Cms\StoreTagRequest;
 use App\Http\Requests\Cms\UpdateTagRequest;

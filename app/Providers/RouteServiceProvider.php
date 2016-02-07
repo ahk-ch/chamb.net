@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\AHK\Article;
+use App\Ahk\Article;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
 

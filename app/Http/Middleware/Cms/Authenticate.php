@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware\Cms;
 
-use App\AHK\Notifications\Flash;
+use App\Ahk\Notifications\Flash;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 

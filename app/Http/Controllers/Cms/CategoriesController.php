@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Cms;
 
-use App\AHK\Category;
-use App\AHK\Notifications\Flash;
-use App\AHK\Repositories\Category\IndustryRepository;
+use App\Ahk\Category;
+use App\Ahk\Notifications\Flash;
+use App\Ahk\Repositories\Category\IndustryRepository;
 use App\Http\Requests;
 use App\Http\Requests\Cms\StoreCategoryRequest;
 use App\Http\Requests\Cms\UpdateCategoryRequest;

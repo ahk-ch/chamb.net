@@ -26,7 +26,7 @@ class RegistrationTest extends TestCase
 	public function it_reads_register_page_view()
 	{
 		$this->visit(route('auth.register'))
-			->see('<title> ' . trans('ahk.register') . ' | Chamb.Net</title>')
+			->see('<title> ' . trans('ahk.register') . ' &middot; Chamb.Net</title>')
 			->see('<h2>' . trans('ahk.register') . '</h2>')
 			->see('<a href="' . route('auth.sign_in') . '" class="color-green">' . trans('ahk.sign_in') . '</a>')
 			->see('<i class="fa fa-envelope"></i>')
@@ -37,6 +37,18 @@ class RegistrationTest extends TestCase
 			->see('<input type="password" placeholder="' . trans('ahk.confirm_password') . '" class="form-control">')
 			->see(trans('ahk.i_agree_to_the'))
 			->see(route('terms_of_use_path'))
-			->see('<button class="btn-u" type="submit">' . trans('ahk.register') . '</button>');
+			->see('<button class="btn-u" type="submit">' . trans('ahk.register') . '</button>')
+			->see('<a href="' . route('auth.sign_in') . '" class="color-green">' . trans('ahk.sign_in') . '</a>');
+	}
+
+	/** @test */
+	public function it_registers_company_representative_account()
+	{
+		$this->visit(route('auth.register'))
+			->type('text@email.com', 'email')
+			->type('some-password', 'password')
+			->press(trans('ahk.register'))
+			->seePageIs(route('auth.sign_in'))
+			->see(trans('ahk_messages.check_your_email_and_complete_registration'));
 	}
 }

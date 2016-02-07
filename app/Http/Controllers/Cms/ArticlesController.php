@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Cms;
 
-use App\AHK\Article;
-use App\AHK\Notifications\Flash;
-use App\AHK\Repositories\Article\ArticleRepository;
-use App\AHK\Repositories\Category\IndustryRepository;
-use App\AHK\Repositories\Tag\TagRepository;
+use App\Ahk\Article;
+use App\Ahk\Notifications\Flash;
+use App\Ahk\Repositories\Article\ArticleRepository;
+use App\Ahk\Repositories\Category\IndustryRepository;
+use App\Ahk\Repositories\Tag\TagRepository;
 use App\Http\Requests;
 use App\Http\Requests\Cms\StoreArticleRequest;
 use App\Http\Requests\Cms\UpdateArticleRequest;

@@ -6,7 +6,7 @@ namespace App\Http\ViewComposers\Cms;
  * @author  Rizart Dokollari <r.dokollari@gmail.com>
  * @since   24/11/2015
  */
-use App\AHK\Helpers\Helpers;
+use App\Ahk\Helpers\Helpers;
 use Illuminate\Contracts\View\View;
 
 
