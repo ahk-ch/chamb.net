@@ -9,6 +9,7 @@ namespace App\Http\Controllers\AHK;
  * @since   23/11/2015
  */
 
+use App\AHK\Notifications\Flash;
 use App\Http\Requests;
 
 class HomeController extends BaseController {

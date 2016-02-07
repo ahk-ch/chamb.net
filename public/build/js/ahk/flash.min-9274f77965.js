@@ -24,6 +24,8 @@ $(function () {
 	}).get();
 
 
+	console.log(notifications);
+
 	for (var index in notifications) {
 		new pNotifyMessage(jQuery.parseJSON(notifications[index]));
 	}

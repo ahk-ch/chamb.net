@@ -57,8 +57,8 @@ class AuthenticationTest extends TestCase
 			->type($user->email, 'email')
 			->type('some-password', 'password')
 			->press("Sign In")
-			->seePageIs(route('home_path'));
-//			->see(trans('ahk_messages.successful_sign_in'));
+			->seePageIs(route('home_path'))
+			->see(trans('ahk_messages.successful_sign_in'));
 	}
 
 }

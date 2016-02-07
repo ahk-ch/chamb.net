@@ -33,7 +33,7 @@
 
                     <div class="row">
                         <div class="col-lg-6 checkbox">
-                            <label> <input type="checkbox"> I read
+                            <label> <input type="checkbox"> {!! trans('ahk.i_agree_to_the') !!}
                                 <a href="{!! route('terms_of_use_path') !!}">Terms of Use</a></label>
                         </div>
                         <div class="col-lg-6 text-right">

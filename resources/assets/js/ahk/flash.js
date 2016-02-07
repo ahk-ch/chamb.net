@@ -19,12 +19,9 @@ function pNotifyMessage(notification) {
 $(function () {
 	PNotify.prototype.options.styling = "fontawesome";
 
-	var notifications = $('input[name=notifications]').map(function () {
-		return $(this).val();
-	}).get();
-
+	var notifications = jQuery.parseJSON($('input[name=notifications]').val());
 
 	for (var index in notifications) {
-		new pNotifyMessage(jQuery.parseJSON(notifications[index]));
+		new pNotifyMessage(notifications[index]);
 	}
 });

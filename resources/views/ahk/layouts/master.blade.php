@@ -42,8 +42,6 @@
 
     @include('ahk._partials.footer')
 
-    @include('ahk._partials.auth')
-
 </div><!--/wrapper-->
 
 <!-- JS Global Compulsory -->
@@ -55,12 +53,10 @@
 <script type="text/javascript" src="{!! url('assets/plugins/smoothScroll.js') !!}"></script>
 <script type="text/javascript" src="{!! url('assets/plugins/jquery.parallax.js') !!}"></script>
 <script type="text/javascript" src="{!! url('assets/plugins/parallax-slider/js/modernizr.js') !!}"></script>
-<script type="text/javascript" src="{!! url('assets/plugins/parallax-slider/js/modernizr.js') !!}"></script>
-<script type="text/javascript" src="{!! url('assets/js/login-signup.js') !!}"></script>
 <script type="text/javascript" src='{!! url("vendor/pnotify/src/pnotify.core.min.js") !!}'></script>
 <script type="text/javascript" src='{!! url("vendor/pnotify/src/pnotify.confirm.min.js") !!}'></script>
 @yield('js-implementing-plugins')
-<script type="text/javascript" src="{!! elixir('js/ahk/flash.min.js') !!}"></script>
+@include('ahk._partials.flash')
 <script type="text/javascript" src="{!! url('assets/js/app.js') !!}"></script>
 <script type="text/javascript" src="{!! elixir('js/ahk/master.min.js') !!}"></script>
 @yield('js-page-level')
