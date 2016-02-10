@@ -38,9 +38,14 @@ class DbUserRepositoryTest extends TestCase
 
 		$user = factory(User::class)->make(['password' => 'pass']);
 
-		$this->dontSeeInDatabase('users', ['email' => $user->email, 'password' => Hash::make('pass')]);
+		$this->dontSeeInDatabase('users', [
+			'email'      => $user->email,
+			'name'       => $user->name,
+			'avatar_url' => $user->avatar_url,
+			'password'   => $user->password,
+		]);
 
-		$this->assertNotFalse($userRepository->store([
+		$this->assertNotFalse($user = $userRepository->store([
 			'email'      => $user->email,
 			'name'       => $user->name,
 			'avatar_url' => $user->avatar_url,
@@ -51,6 +56,7 @@ class DbUserRepositoryTest extends TestCase
 			'email'      => $user->email,
 			'name'       => $user->name,
 			'avatar_url' => $user->avatar_url,
+			'password'   => $user->password,
 		]);
 	}
 }
