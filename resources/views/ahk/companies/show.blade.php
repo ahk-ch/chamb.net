@@ -127,8 +127,8 @@
                         <div class="col-sm-6 sm-margin-bottom-30">
                             <div class="panel panel-profile">
                                 <div class="panel-heading overflow-h">
-                                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i> Social Contacts <small>(option 1)</small></h2>
-                                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i> {!! trans('ahk.what_are_we_looking_for') !!}</h2>
+                                    <a href="#"></a>
                                 </div>
                                 <div class="panel-body">
                                     <ul class="list-unstyled social-contacts-v2">
@@ -147,8 +147,8 @@
                         <div class="col-sm-6 sm-margin-bottom-30">
                             <div class="panel panel-profile">
                                 <div class="panel-heading overflow-h">
-                                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-lightbulb-o"></i> Skills</h2>
-                                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-lightbulb-o"></i> {!! trans('ahk.what_we_can_offer') !!}</h2>
+                                    <a href="#"></a>
                                 </div>
                                 <div class="panel-body">
                                     <small>HTML/CSS</small>
@@ -189,8 +189,8 @@
                     <!--Timeline-->
                     <div class="panel panel-profile">
                         <div class="panel-heading overflow-h">
-                            <h2 class="panel-title heading-sm pull-left"><i class="fa fa-briefcase"></i> Experience</h2>
-                            <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                            <h2 class="panel-title heading-sm pull-left"><i class="fa fa-briefcase"></i> {!! trans('ahk.contact_information') !!}</h2>
+                            <a href="#"></a>
                         </div>
                         <div class="panel-body margin-bottom-40">
                             <ul class="timeline-v2 timeline-me">

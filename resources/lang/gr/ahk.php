@@ -21,6 +21,7 @@ return [
 	'close'                                                                => 'Κλείσιμο',
 	'community'                                                            => 'Κοινοτητα',
 	'companies'                                                            => 'Εταιρειες', // do not add tonos
+	'contact_information'                                                  => 'Στοιχεία επικοινωνίας',
 	'country'                                                              => 'Χώρα',
 	'create_account'                                                       => 'Δημιουργια λογαριασμου',
 	'discover_the_community'                                               => 'Ανακαλυψτε την κοιντητα',
@@ -62,6 +63,8 @@ return [
 	'trade'                                                                => 'Εμπόριο',
 	'username'                                                             => 'Ψευδώνυμο',
 	'verify_email'                                                         => 'Επαλήθευση Email',
+	'what_are_we_looking_for'                                              => 'Τι ψάχνουμε',
+	'what_we_can_offer'                                                    => 'Τι μπορούμε να προσφέρουμε',
 	'we_just_need_you_to_confirm_email'                                    => 'Απλά χρειάζεστε να επαληθεύσετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας.',
 	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Υποστήριξη, Ανάπτυξη και Αναβάθμιση<br/> στον κλάδο της υγείας και<br/> της επιχείρησής σας',
 	'welcome'                                                              => 'Καλώς ορίσατε!',

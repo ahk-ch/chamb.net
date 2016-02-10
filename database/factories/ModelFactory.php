@@ -93,7 +93,7 @@ $factory->define(Company::class, function (Faker\Generator $faker)
 
 	return array_merge($company->toArray(), [
 		'industry_id' => factory(Industry::class)->create()->id,
-		'company_id'  => factory(Country::class)->create()->id,
+		'country_id'  => factory(Country::class)->create()->id,
 	]);
 });
 
