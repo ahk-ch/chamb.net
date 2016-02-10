@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Ahk;
 
+use App\Ahk\Notifications\Flash;
 use App\Http\Requests\Request;
 
 class ConfirmEmailRequest extends Request
@@ -26,5 +27,17 @@ class ConfirmEmailRequest extends Request
 		return [
 			'token' => 'required|exists:users,token',
 		];
+	}
+
+	public function getRedirectUrl()
+	{
+		return route('auth.sign_in');
+	}
+
+	public function response(array $messages)
+	{
+		Flash::error(trans('ahk_messages.validation_error_occurred'));
+
+		return parent::response($messages);
 	}
 }

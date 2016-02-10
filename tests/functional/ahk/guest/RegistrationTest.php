@@ -49,7 +49,7 @@ class RegistrationTest extends TestCase
 	public function it_registers_company_representative_account()
 	{
 		$this->visit(route('auth.register'))
-			->type('name@domain.com', 'email')
+			->type('r.dokollari@gmail.com', 'email')
 			->type('some-password', 'password')
 			->type('some-password', 'password_confirmation')
 			->check('agree_to_terms')
@@ -65,6 +65,6 @@ class RegistrationTest extends TestCase
 
 		$this->visit(route('auth.register.confirm', ['token' => $user->token]))
 			->seePageIs(route('home_path'))
-			->see(trans('ahk.successful_sign_up'));
+			->see(trans('ahk_messages.successful_sign_up'));
 	}
 }
