@@ -21,11 +21,10 @@ Route::get('terms_of_use', ['as' => 'terms_of_use_path', 'uses' => 'Ahk\HomeCont
 # Authentication
 Route::group(['prefix' => 'auth'], function ()
 {
-	# Login
 	Route::get('sign_in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@getLogin']);
 	Route::post('sign_in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@postLogin']);
+	Route::get('reset', ['as' => 'auth.reset', 'uses' => 'Ahk\Auth\AuthenticationController@getReset']);
 	Route::delete('logout', ['as' => 'auth.destroy', 'uses' => 'Ahk\Auth\AuthenticationController@destroy']);
-	# Registration
 	Route::get('register', ['as' => 'auth.register', 'uses' => 'Ahk\Auth\RegistrationController@getRegistration']);
 	Route::post('register', ['as' => 'auth.register', 'uses' => 'Ahk\Auth\RegistrationController@postRegistration']);
 });

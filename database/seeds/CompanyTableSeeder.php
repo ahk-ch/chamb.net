@@ -7,8 +7,8 @@
 namespace database\seeds;
 
 
-use App\AHK\Company;
-use App\AHK\Repositories\Industry\DbIndustryRepository;
+use App\Ahk\Company;
+use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 

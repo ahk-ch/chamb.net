@@ -225,7 +225,7 @@ return [
 		/*
 		 * Internal aliases
 		 */
-		'Flash'       => \App\AHK\Notifications\Flash::class,
+		'Flash'       => \App\Ahk\Notifications\Flash::class,
 		'HTMLMin'     => GrahamCampbell\HTMLMin\Facades\HTMLMin::class,
 	],
 

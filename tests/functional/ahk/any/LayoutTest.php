@@ -4,7 +4,7 @@
  * @author Rizart Dokollari
  * @since 12/10/2015
  */
-use App\AHK\Helpers\Helpers;
+use App\Ahk\Helpers\Helpers;
 use tests\TestCase;
 
 /**

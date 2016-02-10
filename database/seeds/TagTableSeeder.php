@@ -7,7 +7,7 @@
 namespace database\seeds;
 
 
-use App\AHK\Tag;
+use App\Ahk\Tag;
 use Illuminate\Database\Seeder;
 
 class TagTableSeeder extends Seeder {

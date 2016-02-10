@@ -4,6 +4,7 @@
  * @author Rizart Dokollari
  * @since 2/2/2016
  */
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 
 /**
@@ -11,6 +12,8 @@ use tests\TestCase;
  */
 class RegistrationTest extends TestCase
 {
+	use DatabaseMigrations;
+
 	/** @test */
 	public function it_access_registration_in_page()
 	{
@@ -30,11 +33,11 @@ class RegistrationTest extends TestCase
 			->see('<h2>' . trans('ahk.register') . '</h2>')
 			->see('<a href="' . route('auth.sign_in') . '" class="color-green">' . trans('ahk.sign_in') . '</a>')
 			->see('<i class="fa fa-envelope"></i>')
-			->see('<input type="email" placeholder="Email" class="form-control">')
+			->see('<input class="form-control" placeholder="Email" required="required" name="email" type="email">')
 			->see('<i class="fa fa-key"></i>')
 			->see('<i class="fa fa-lock"></i>')
-			->see('<input type="password" placeholder="' . trans('ahk.password') . '" class="form-control">')
-			->see('<input type="password" placeholder="' . trans('ahk.confirm_password') . '" class="form-control">')
+			->see('<input class="form-control" placeholder="' . trans('ahk.password') . '" required="required" name="password" type="password" value="">')
+			->see('<input class="form-control" placeholder="' . trans('ahk.password_confirmation') . '" required="required" name="password_confirmation" type="password" value="">')
 			->see(trans('ahk.i_agree_to_the'))
 			->see(route('terms_of_use_path'))
 			->see('<button class="btn-u" type="submit">' . trans('ahk.register') . '</button>')

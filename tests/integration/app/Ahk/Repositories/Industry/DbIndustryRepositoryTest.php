@@ -5,12 +5,12 @@
  * @since   17/12/2015
  */
 
-namespace tests\integration\app\AHK\Repositories\Company;
+namespace tests\integration\app\Ahk\Repositories\Company;
 
-use App\AHK\Company;
-use App\AHK\Industry;
-use App\AHK\Repositories\Company\DbCompanyRepository;
-use App\AHK\Repositories\Industry\DbIndustryRepository;
+use App\Ahk\Company;
+use App\Ahk\Industry;
+use App\Ahk\Repositories\Company\DbCompanyRepository;
+use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 

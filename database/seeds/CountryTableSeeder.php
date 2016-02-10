@@ -7,10 +7,10 @@
 namespace database\seeds;
 
 
-use App\AHK\Article;
-use App\AHK\Country;
-use App\AHK\Repositories\Article\DbArticleRepository;
-use App\AHK\Repositories\Tag\DbTagRepository;
+use App\Ahk\Article;
+use App\Ahk\Country;
+use App\Ahk\Repositories\Article\DbArticleRepository;
+use App\Ahk\Repositories\Tag\DbTagRepository;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 

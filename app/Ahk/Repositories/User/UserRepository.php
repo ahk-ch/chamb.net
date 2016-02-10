@@ -9,17 +9,17 @@ namespace App\Ahk\Repositories\User;
 
 use App\Ahk\Role;
 use App\Ahk\User;
-use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\Ahk\StoreUserRequest;
 
 interface UserRepository
 {
 
 	/**
 	 * Store a user on the storage
-	 * @param StoreUserRequest $storeUserRequest
+	 * @param array $data
 	 * @return User|false
 	 */
-	public function store(StoreUserRequest $storeUserRequest);
+	public function store(array $data);
 
 	/**
 	 * Assign company representative role to the given user

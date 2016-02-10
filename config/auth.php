@@ -67,7 +67,7 @@ return [
 	'providers' => [
 		'users' => [
 			'driver' => 'eloquent',
-			'model' => App\AHK\User::class,
+			'model' => App\Ahk\User::class,
 		],
 
 		// 'users' => [

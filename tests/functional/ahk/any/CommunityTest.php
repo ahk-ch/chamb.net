@@ -4,8 +4,8 @@
  * @author Rizart Dokollari
  * @since 12/10/2015
  */
-use App\AHK\Company;
-use App\AHK\Industry;
+use App\Ahk\Company;
+use App\Ahk\Industry;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 
