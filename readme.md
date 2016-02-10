@@ -17,7 +17,7 @@ If using homestead and errors occur when using nmp: See http://stackoverflow.com
 - [Git][git_path] | Git is a widely used version control system for software development.
 
 ## Testing
-- Create database with name: chamb_net. This is the database the phpunit will try to use.
+- Create database with name: chamb_testing. This is the database the phpunit will try to use.
 
 ### Add credentials
 - Create environment variables using the .env.example. 
