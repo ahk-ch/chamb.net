@@ -7,7 +7,7 @@
 namespace database\seeds;
 
 
-use App\AHK\Industry;
+use App\Ahk\Industry;
 use Illuminate\Database\Seeder;
 
 class ArticleIndustryTableSeeder extends Seeder

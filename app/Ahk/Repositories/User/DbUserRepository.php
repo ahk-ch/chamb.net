@@ -10,21 +10,21 @@ namespace App\Ahk\Repositories\User;
 use App\Ahk\Repositories\DbRepository;
 use App\Ahk\Role;
 use App\Ahk\User;
-use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\Ahk\StoreUserRequest;
 use Illuminate\Support\Facades\Hash;
 
 class DbUserRepository extends DbRepository implements UserRepository {
 
 	/**
 	 * Store a user on the storage
-	 * @param StoreUserRequest $request
+	 * @param array $data
 	 * @return User|false
 	 */
-	public function store(StoreUserRequest $request)
+	public function store(array $data)
 	{
-		$user = new User($request->only('username', 'password', 'email'));
+		$user = new User(array_only($data, ['name', 'email', 'avatar_url']));
 
-		$user->password = Hash::make($request->get('password'));
+		$user->fill(['password' => Hash::make($data['password'])]);
 
 		return $user->save() ? $user : false;
 	}

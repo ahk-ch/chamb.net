@@ -7,7 +7,7 @@
 namespace database\seeds;
 
 
-use App\AHK\User;
+use App\Ahk\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminAHK | Log in</title>
+    <title>AdminAhk | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -26,7 +26,7 @@
 <body class="hold-transition sign_in-page">
 <div class="sign_in-box">
     <div class="sign_in-logo">
-        <a href="#"><b>Admin</b>AHK</a>
+        <a href="#"><b>Admin</b>Ahk</a>
     </div>
 
     <!-- /.sign_in-logo -->

@@ -6,7 +6,7 @@ use App\Ahk\Notifications\Flash;
 use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RegisterUserRequest extends Request
+class StoreUserRequest extends Request
 {
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -28,7 +28,7 @@ class RegisterUserRequest extends Request
 		return [
 			'email'          => 'required|email|max:255|unique:users,email',
 			'password'       => 'required|confirmed|min:6',
-			'agree_to_terms' => 'required|boolean',
+			'agree_to_terms' => 'required',
 		];
 	}
 

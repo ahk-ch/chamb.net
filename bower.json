@@ -1,5 +1,5 @@
 {
-	"name": "AHK",
+	"name": "Ahk",
 	"dependencies": {
 		"AdminLTE": "admin-lte#~2.3.2",
 		"pnotify": "~2.1.0"

@@ -4,8 +4,8 @@
  * @author Rizart Dokollari
  * @since 12/10/2015
  */
-use App\AHK\Repositories\User\DbUserRepository;
-use App\AHK\User;
+use App\Ahk\Repositories\User\DbUserRepository;
+use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Hash;
 use tests\TestCase;

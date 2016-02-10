@@ -11,10 +11,10 @@
 |
 */
 
-use App\AHK\Article;
-use App\AHK\Company;
-use App\AHK\Industry;
-use App\AHK\User;
+use App\Ahk\Article;
+use App\Ahk\Company;
+use App\Ahk\Industry;
+use App\Ahk\User;
 
 $factory->define(User::class, function (Faker\Generator $faker)
 {
@@ -28,7 +28,7 @@ $factory->define(User::class, function (Faker\Generator $faker)
 });
 
 
-$factory->define(App\AHK\Industry::class, function (Faker\Generator $faker)
+$factory->define(App\Ahk\Industry::class, function (Faker\Generator $faker)
 {
 	return [
 		'name'      => $faker->unique()->word,
@@ -36,7 +36,7 @@ $factory->define(App\AHK\Industry::class, function (Faker\Generator $faker)
 	];
 });
 
-$factory->define(App\AHK\Tag::class, function (Faker\Generator $faker)
+$factory->define(App\Ahk\Tag::class, function (Faker\Generator $faker)
 {
 	return [
 		'name'      => $faker->unique()->word,
@@ -53,7 +53,7 @@ $factory->define(Article::class, function (Faker\Generator $faker)
 		'industry_id' => factory(Industry::class)->create()->id,
 	]);
 });
-$factory->defineAs(App\AHK\Article::class, 'without_industry', function (Faker\Generator $faker) use ($factory)
+$factory->defineAs(App\Ahk\Article::class, 'without_industry', function (Faker\Generator $faker) use ($factory)
 {
 	$article = factory(Article::class, 'without_relations')->make();
 
@@ -62,7 +62,7 @@ $factory->defineAs(App\AHK\Article::class, 'without_industry', function (Faker\G
 	]);
 });
 
-$factory->defineAs(App\AHK\Article::class, 'without_relations', function (Faker\Generator $faker) use ($factory)
+$factory->defineAs(App\Ahk\Article::class, 'without_relations', function (Faker\Generator $faker) use ($factory)
 {
 	$content = "<p><img src='$faker->imageUrl'></p>";
 	$content .= "<p><strong>" . $faker->sentence() . "</strong></p>";
@@ -114,14 +114,14 @@ $factory->defineAs(Company::class, 'without_relations', function (Faker\Generato
 	];
 });
 
-$factory->define(App\AHK\Country::class, function (Faker\Generator $faker)
+$factory->define(App\Ahk\Country::class, function (Faker\Generator $faker)
 {
 	return [
 		'name' => $faker->unique()->name,
 	];
 });
 
-$factory->define(App\AHK\Industry::class, function (Faker\Generator $faker)
+$factory->define(App\Ahk\Industry::class, function (Faker\Generator $faker)
 {
 	return [
 		'name' => $faker->unique()->name,

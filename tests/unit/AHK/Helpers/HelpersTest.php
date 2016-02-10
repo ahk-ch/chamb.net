@@ -4,9 +4,9 @@
  * @since   11/12/2015
  */
 
-namespace tests\unit\AHK\Helpers;
+namespace tests\unit\Ahk\Helpers;
 
-use App\AHK\Helpers\Helpers;
+use App\Ahk\Helpers\Helpers;
 use tests\TestCase;
 
 class HelpersTest extends TestCase {
