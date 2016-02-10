@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Ahk;
 
+use App\Ahk\Company;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Company\CompanyRepository;
 use App\Ahk\Repositories\Industry\IndustryRepository;
@@ -65,12 +66,12 @@ class CompaniesController extends Controller
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int $id
+	 * @param Company $company
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show($id)
+	public function show(Company $company)
 	{
-		//
+		return view('ahk.companies.show', compact('company'));
 	}
 
 	/**

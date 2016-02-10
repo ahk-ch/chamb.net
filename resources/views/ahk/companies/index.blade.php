@@ -79,7 +79,7 @@
                             <div class="easy-block-v1-badge rgba-default">{{ $company->industry->name }}</div>
                         </a>
 
-                        <a href="#company">
+                        <a href="{!! route('companies.show', ['slug' => $company->slug]) !!}">
                             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="item active">
@@ -105,7 +105,6 @@
         </div>
     </div>
     <!--=== End Job Team ===-->
-
 
 @endsection
 @section('js-implementing-plugins')

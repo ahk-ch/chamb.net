@@ -8,15 +8,17 @@ namespace database\seeds;
 
 
 use App\Ahk\Company;
+use App\Ahk\Repositories\Country\DbCountryRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class CompanyTableSeeder extends Seeder
 {
 	private $popularCompanies =
 		[
-			['name' => 'ARAMCCO in Germany', 'logo' => 'https://i.ytimg.com/vi/ISYnd8dais8/maxresdefault.jpg', 'country' => 'Germany', 'description' => 'The company Aramcco in Germany is a reliable partner in the procurement of medical professionals for German hospitals or clinics and nursing homes'],
+			['name' => 'ARAMCCO in Germany', 'logo' => 'https://i.ytimg.com/vi/ISYnd8dais8/maxresdefault.jpg', 'country' => 'Germany', 'description' => 'The company Aramcco in Germany is a reliable partner in the procurement of medical professionals for German hospitals or clinics and nursing homes.'],
 			['name' => 'EviMed', 'logo' => 'http://proadax.pl/wp-content/uploads/2015/01/evimed3.jpg', 'country' => 'Germany', 'description' => 'A German information service provider in the field of health care. The company offers software for the management of medical patient data. The software provided by evimed supports and automates processes of patient recruitment and feasibility studies as well as monitoring and documentation of clinical trials.'],
 			['name' => 'Celesio', 'logo' => 'http://www.celesio.com/image/204/intro/630/420/5b8341fe687e5790baf05b53576947bd/Lx/img---konernzentrale--innenansicht-.jpg', 'country' => 'Germany', 'description' => 'The public limited company Celesio AG situated in Stuttgart is a German healthcare and pharmaceutical company. With 38,000 employees, Celesio operates in 14 countries around the world and generated revenue of more than 22,000 million euros in 2014. The corporation is part of the American McKesson Corporation who has a 76% stake in the company.'],
 			['name' => 'Fresenius Medical Care', 'logo' => 'http://www.massdevice.com/wp-content/uploads/files/logos/freseniusmedicalcarelogolarge3x2.jpg', 'country' => 'Germany', 'description' => 'Fresenius Medical Care is a German company specializing in the production of medical supplies, primarily to facilitate or aid renal dialysis. It is 31%-owned by the health care company Fresenius. The company was formed in 1996 from the merger of Fresenius Worldwide Dialysis, then a division of Fresenius, and American company National Medical Care.'],
@@ -37,14 +39,19 @@ class CompanyTableSeeder extends Seeder
 	public function run()
 	{
 		$industries = (new DbIndustryRepository())->all()->get()->toArray();
+		$countries = (new DbCountryRepository())->all()->toArray();
 		$faker = Factory::create();
 
 		foreach ($this->popularCompanies as $company)
 		{
-			factory(Company::class, 'without_industry')
+			factory(Company::class, 'without_relations')
 				->create([
-					'name'        => $company['name'], 'description' => $company['description'], 'logo' => $company['logo'],
+					'name'        => $company['name'],
+					'slug'        => Str::slug($company['name']),
+					'description' => $company['description'],
+					'logo'        => $company['logo'],
 					'industry_id' => $faker->randomElement($industries)['id'],
+					'country_id'  => $faker->randomElement($countries)['id'],
 				]);
 		}
 	}

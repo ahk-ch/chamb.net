@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Ahk\Article;
+use App\Ahk\Company;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
 
@@ -24,10 +24,10 @@ class RouteServiceProvider extends ServiceProvider {
 	 */
 	public function boot(Router $router)
 	{
-//		$router->bind('articles', function ($id)
-//		{
-//			return Article::with('author', 'category', 'tags')->where('id', $id)->first();
-//		});
+		$router->bind('companies', function ($slug)
+		{
+			return Company::where('slug', $slug)->first();
+		});
 
 		parent::boot($router);
 	}

@@ -26,8 +26,8 @@ class CommunityTest extends TestCase
 		$industries = factory(Industry::class, 2)->create();
 		$companies = factory(Company::class, 2)->create();
 
-		$this->visit(route('companies_path'))
-			->seePageIs(route('companies_path'))
+		$this->visit(route('companies.index'))
+			->seePageIs(route('companies.index'))
 			->see("<title> " . trans('ahk.community') . " &middot; Chamb.Net</title>")
 			->see(trans('ahk.discover_the_community'))
 			->see($industries->get(0)->name)

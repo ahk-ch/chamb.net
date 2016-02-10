@@ -4,7 +4,8 @@
 # Pages
 Route::get('/', ['as' => 'home_path', 'uses' => 'Ahk\HomeController@home']);
 Route::get('about', ['as' => 'about_path', 'uses' => 'Ahk\HomeController@about']);
-Route::get('community', ['as' => 'companies_path', 'uses' => 'Ahk\CompaniesController@index']);
+//Route::get('community', ['as' => 'companies.index', 'uses' => 'Ahk\CompaniesController@index']);
+Route::resource('companies', 'Ahk\CompaniesController', ['only' => ['index', 'show']]);
 Route::get('lang/{lang}', ['as' => 'set_language', 'uses' => 'Ahk\SettingsController@setLocale']);
 
 Route::group(['prefix' => 'health'], function ()

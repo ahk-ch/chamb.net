@@ -4,7 +4,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
 
-class AddIndustryToCompaniesTable extends Migration
+class AddCountryToCompanyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class AddIndustryToCompaniesTable extends Migration
     public function up()
     {
         Schema::table('companies', function (Blueprint $table) {
-            $table->integer('industry_id')->unsigned()->index();
-            $table->foreign('industry_id')->references('id')->on('industries')->onDelete('restrict')->onUpdate('cascade');
+            $table->integer('country_id')->unsigned()->index();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('restrict')->onUpdate('cascade');
         });
     }
 
@@ -28,9 +28,9 @@ class AddIndustryToCompaniesTable extends Migration
     {
         Schema::table('companies', function (Blueprint $table)
         {
-            $table->dropForeign('companies_industry_id_foreign');
-            $table->dropIndex('companies_industry_id_index');
-            $table->removeColumn('industry_id');
+            $table->dropForeign('companies_country_id_foreign');
+            $table->dropIndex('companies_country_id_index');
+            $table->removeColumn('country_id');
         });
     }
 }

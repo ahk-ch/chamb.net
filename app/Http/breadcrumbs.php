@@ -20,7 +20,7 @@ Breadcrumbs::register('health.news', function ($breadcrumbs)
 	$breadcrumbs->push(trans('breadcrumbs.health_news'), route('health.news'));
 });
 
-Breadcrumbs::register('companies_path', function ($breadcrumbs)
+Breadcrumbs::register('companies.index', function ($breadcrumbs)
 {
 	$breadcrumbs->parent('home_path');
 	$breadcrumbs->push(trans('breadcrumbs.companies'), route('health.news'));

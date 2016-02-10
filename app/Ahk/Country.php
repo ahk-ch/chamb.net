@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
-	protected $fillable = ['name', 'logo', 'name_of_contact_partner'];
+	protected $fillable = ['name'];
 
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany

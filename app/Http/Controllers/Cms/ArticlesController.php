@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Cms;
 use App\Ahk\Article;
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\Article\ArticleRepository;
-use App\Ahk\Repositories\Category\IndustryRepository;
+use App\Ahk\Repositories\Industry\IndustryRepository;
 use App\Ahk\Repositories\Tag\TagRepository;
 use App\Http\Requests;
 use App\Http\Requests\Cms\StoreArticleRequest;

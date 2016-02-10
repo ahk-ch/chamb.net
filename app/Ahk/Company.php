@@ -12,12 +12,19 @@ class Company extends Model
 {
 	protected $fillable = ['name', 'logo', 'name_of_contact_partner'];
 
-
 	/**
-	 * Get the firm that owns this event.
+	 * Get the industry of this company.
 	 */
 	public function industry()
 	{
 		return $this->belongsTo('App\Ahk\Industry');
+	}
+
+	/**
+	 * Get the country of this company.
+	 */
+	public function country()
+	{
+		return $this->belongsTo('App\Ahk\Country');
 	}
 }

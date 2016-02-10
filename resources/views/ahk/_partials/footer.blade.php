@@ -28,7 +28,7 @@
                     <div class="headline"><h2>Useful Links</h2></div>
                     <ul class="list-unstyled link-list">
                         <li><a href="{!! route('about_path') !!}">About us</a><i class="fa fa-angle-right"></i></li>
-                        <li><a href="{!! route('companies_path') !!}">Community</a><i class="fa fa-angle-right"></i>
+                        <li><a href="{!! route('companies.index') !!}">Community</a><i class="fa fa-angle-right"></i>
                         </li>
                     </ul>
                 </div><!--/col-md-3-->

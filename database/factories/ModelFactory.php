@@ -13,16 +13,17 @@
 
 use App\Ahk\Article;
 use App\Ahk\Company;
+use App\Ahk\Country;
 use App\Ahk\Industry;
 use App\Ahk\User;
 
 $factory->define(User::class, function (Faker\Generator $faker)
 {
 	return [
-		'name'           => "$faker->firstName $faker->lastName",
-		'email'          => $faker->unique()->email,
-		'avatar_url'     => $faker->imageUrl(),
-		'password'       => bcrypt(str_random(10)),
+		'name'       => "$faker->firstName $faker->lastName",
+		'email'      => $faker->unique()->email,
+		'avatar_url' => $faker->imageUrl(),
+		'password'   => bcrypt(str_random(10)),
 	];
 });
 
@@ -92,6 +93,7 @@ $factory->define(Company::class, function (Faker\Generator $faker)
 
 	return array_merge($company->toArray(), [
 		'industry_id' => factory(Industry::class)->create()->id,
+		'company_id'  => factory(Country::class)->create()->id,
 	]);
 });
 
@@ -105,10 +107,13 @@ $factory->defineAs(Company::class, 'without_industry', function (Faker\Generator
 
 $factory->defineAs(Company::class, 'without_relations', function (Faker\Generator $faker) use ($factory)
 {
+	$name = $faker->unique()->name;
 	return [
-		'name'                    => $faker->unique()->name,
+		'name'                    => $name ,
+		'slug'                    => \Illuminate\Support\Str::slug($name),
 		'logo'                    => $faker->imageUrl(),
 		'description'             => $faker->paragraph,
+		'business_leader'         => $faker->name,
 		'name_of_contact_partner' => $faker->name,
 	];
 });

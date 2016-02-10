@@ -12,7 +12,7 @@
 @endsection
 @section('js-implementing-plugins')
 @endsection
-@section('js-inline')
-@endsection
 @section('js-page-level')
+@endsection
+@section('js-inline')
 @endsection
