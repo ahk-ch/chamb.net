@@ -52,4 +52,11 @@ interface UserRepository
 	 * @return User|false
 	 */
 	public function hasRole(User $user, $roleName);
+
+	/**
+	 * Enable user account
+	 * @param $token
+	 * @return User|false
+	 */
+	public function confirmEmail($token);
 }

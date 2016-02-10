@@ -27,6 +27,7 @@ Route::group(['prefix' => 'auth'], function ()
 	Route::delete('logout', ['as' => 'auth.destroy', 'uses' => 'Ahk\Auth\AuthenticationController@destroy']);
 	Route::get('register', ['as' => 'auth.register', 'uses' => 'Ahk\Auth\RegistrationController@getRegistration']);
 	Route::post('register', ['as' => 'auth.register', 'uses' => 'Ahk\Auth\RegistrationController@postRegistration']);
+	Route::get('register/confirm', ['as' => 'auth.register.confirm', 'uses' => 'Ahk\Auth\RegistrationController@confirmEmail']);
 });
 
 

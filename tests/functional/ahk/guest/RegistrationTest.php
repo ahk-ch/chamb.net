@@ -4,6 +4,7 @@
  * @author Rizart Dokollari
  * @since 2/2/2016
  */
+use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 
@@ -48,10 +49,22 @@ class RegistrationTest extends TestCase
 	public function it_registers_company_representative_account()
 	{
 		$this->visit(route('auth.register'))
-			->type('text@email.com', 'email')
+			->type('name@domain.com', 'email')
 			->type('some-password', 'password')
+			->type('some-password', 'password_confirmation')
+			->check('agree_to_terms')
 			->press(trans('ahk.register'))
 			->seePageIs(route('auth.sign_in'))
 			->see(trans('ahk_messages.check_your_email_and_complete_registration'));
+	}
+
+	/** @test */
+	public function it_verifies_company_representative_account()
+	{
+		$user = factory(User::class)->create();
+
+		$this->visit(route('auth.register.confirm', ['token' => $user->token]))
+			->seePageIs(route('home_path'))
+			->see(trans('ahk.successful_sign_up'));
 	}
 }

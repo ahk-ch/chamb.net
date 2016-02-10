@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Ahk\Auth;
 
+use App\Ahk\Notifications\AppMailer;
 use App\Ahk\Notifications\Flash;
-use App\Ahk\Notifications\Mailer;
 use App\Ahk\Repositories\User\UserRepository;
 use App\Http\Controllers\Ahk\BaseController;
 use App\Http\Requests;
@@ -19,16 +19,18 @@ class RegistrationController extends BaseController
 	 * @var UserRepository
 	 */
 	protected $userRepository;
-	/**
-	 * @var Mailer
-	 */
 	private $mailer;
+	/**
+	 * @var AppMailer
+	 */
+	private $appMailer;
 
 	/**
 	 * @param UserRepository $userRepository
-	 * @param Mailer $mailer
+	 * @param AppMailer $appMailer
+	 * @internal param AppMailer $mailer
 	 */
-	public function __construct(UserRepository $userRepository, Mailer $mailer)
+	public function __construct(UserRepository $userRepository, AppMailer $appMailer)
 	{
 		parent::__construct();
 
@@ -36,7 +38,7 @@ class RegistrationController extends BaseController
 
 		$this->userRepository = $userRepository;
 
-		$this->mailer = $mailer;
+		$this->appMailer = $appMailer;
 	}
 
 	/**
@@ -62,11 +64,23 @@ class RegistrationController extends BaseController
 			return redirect()->back();
 		}
 
+
 		Flash::success(trans('ahk_messages.user_created'));
 
-		if ( ! $this->mailer->sendEmailConfirmation($userIsStored) ) return redirect()->back();
+		if ( ! $this->appMailer->sendEmailConfirmation($userIsStored) ) return redirect()->back();
 
 		Flash::success(trans('ahk_messages.check_your_email_and_complete_registration'));
+
+		return redirect()->route('auth.sign_in');
+	}
+
+	public function confirmEmail(Requests\Ahk\ConfirmEmailRequest $request)
+	{
+		$user = $this->userRepository->confirmEmail($request->only('token'));
+
+		// TODO: sign in
+
+		Flash::success(trans('ahk.successful_sign_up'));
 
 		return redirect()->route('home_path');
 	}

@@ -12,7 +12,8 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 
 class User extends Model implements AuthenticatableContract,
 	AuthorizableContract,
-	CanResetPasswordContract {
+	CanResetPasswordContract
+{
 	use Authenticatable, Authorizable, CanResetPassword;
 
 	/**
@@ -35,6 +36,21 @@ class User extends Model implements AuthenticatableContract,
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
+
+	/**
+	 * Boot the model.
+	 *
+	 * @return void
+	 */
+	public static function boot()
+	{
+		parent::boot();
+
+		static::creating(function ($user)
+		{
+			$user->token = str_random(30);
+		});
+	}
 
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

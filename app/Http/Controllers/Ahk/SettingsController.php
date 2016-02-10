@@ -8,16 +8,17 @@ namespace App\Http\Controllers\Ahk;
  */
 
 use App\Http\Requests;
+use App\Http\Requests\Ahk\SetLanguageRequest;
 
 class SettingsController extends BaseController {
 
 	/**
 	 * Change the language of the app.
 	 *
-	 * @param Requests\SetLanguageRequest $request
+	 * @param SetLanguageRequest $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function setLocale(Requests\SetLanguageRequest $request)
+	public function setLocale(SetLanguageRequest $request)
 	{
 		session(['locale' => $request->get('lang')]);
 

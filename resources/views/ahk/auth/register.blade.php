@@ -12,6 +12,7 @@
     <div class="container content">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+
                 {!! Form::open(['route' => 'auth.register', 'class' => 'reg-page']) !!}
 
                 <div class="reg-header">

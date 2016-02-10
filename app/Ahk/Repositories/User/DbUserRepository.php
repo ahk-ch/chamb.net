@@ -10,10 +10,10 @@ namespace App\Ahk\Repositories\User;
 use App\Ahk\Repositories\DbRepository;
 use App\Ahk\Role;
 use App\Ahk\User;
-use App\Http\Requests\Ahk\StoreUserRequest;
 use Illuminate\Support\Facades\Hash;
 
-class DbUserRepository extends DbRepository implements UserRepository {
+class DbUserRepository extends DbRepository implements UserRepository
+{
 
 	/**
 	 * Store a user on the storage
@@ -30,6 +30,18 @@ class DbUserRepository extends DbRepository implements UserRepository {
 	}
 
 	/**
+	 * Assign company representative role to the given user
+	 * @param User $user
+	 * @return User|bool
+	 */
+	public function assignCompanyRepresentativeRole(User $user)
+	{
+		$role = Role::where("name", Role::COMPANY_REPRESENTATIVE_ROLE)->firstOrFail();
+
+		return $this->assignRole($user, $role);
+	}
+
+	/**
 	 * Assign a role to the given user
 	 * @param User $user
 	 * @param Role $role
@@ -40,18 +52,6 @@ class DbUserRepository extends DbRepository implements UserRepository {
 		$user->roles()->attach($role);
 
 		return $user->save() ? $user : false;
-	}
-
-	/**
-	 * Assign company representative role to the given user
-	 * @param User $user
-	 * @return User|bool
-	 */
-	public function assignCompanyRepresentativeRole(User $user)
-	{
-		$role = Role::where("name", Role::COMPANY_REPRESENTATIVE_ROLE)->firstOrFail();
-
-		return $this->assignRole($user, $role);
 	}
 
 	/**
@@ -74,9 +74,25 @@ class DbUserRepository extends DbRepository implements UserRepository {
 	{
 		foreach ($user->roles()->get() as $role)
 		{
-			if ( $role->name === $roleName) return true;
+			if ( $role->name === $roleName ) return true;
 		}
 
 		return false;
+	}
+
+	/**
+	 * Enable user account
+	 * @param $token
+	 * @return mixed
+	 */
+	public function confirmEmail($token)
+	{
+		$user = User::whereToken($token)->firstOrFail();
+
+		$user->verified = true;
+
+		$user->token = null;
+
+		return $user->save() ? $user : false;;
 	}
 }

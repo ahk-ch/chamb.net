@@ -19,6 +19,7 @@ return [
 	'check_your_email_and_complete_registration' => 'Παρακαλώ ελέγξτε το email σας, για να ολοκληρώσετε την εγγραφή σας.',
 	'successful_sign_in'                         => 'Έχετε συνδεθεί με επιτυχία!',
 	'successful_sign_out'                        => 'Έχετε αποσυνδεθεί με επιτυχία!',
+	'successful_sign_up'                         => 'Έχετε ολοκληρώσει την εγγραφή.',
 	'unable_to_send_verification_email'          => 'Δεν είναι δυνατή η αποστολή μηνυμάτων ηλεκτρονικού ταχυδρομείου επαλήθευσης.',
 	'unable_to_store_user'                       => 'Δεν είνε δυνατόν να αποθηκεύσουμε τον χρήστη.',
 	'unknown_error_occurred'                     => 'Παρουσιάστηκε άγνωστο σφάλμα.',

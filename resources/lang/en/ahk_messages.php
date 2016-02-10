@@ -19,6 +19,7 @@ return [
 	'check_your_email_and_complete_registration' => 'Please check your email, to complete your registration.',
 	'successful_sign_in'                         => 'You have successfully signed in!',
 	'successful_sign_out'                        => 'You have successfully signed out!',
+	'successful_sign_up'                         => 'You have completed signing up.',
 	'unable_to_send_verification_email'          => 'Unable to send verification email.',
 	'unable_to_store_user'                       => 'Unable to store user.',
 	'unknown_error_occurred'                     => 'Unknown error occurred.',
