@@ -80,7 +80,7 @@ class RegistrationController extends BaseController
 
 		// TODO: sign in
 
-		Flash::success(trans('ahk.successful_sign_up'));
+		Flash::success(trans('ahk_messages.successful_sign_up'));
 
 		return redirect()->route('home_path');
 	}
