@@ -25,5 +25,5 @@ return [
 	'membership_content'                    => 'Werden Sie Teil unserer deutsch-griechischen Gemeinschaft von über 850 Unternehmen und lernen Sie herausragende und erfolgreiche Betriebe und Entscheider kennen. Erweitern Sie Ihr ganz persönliches Netzwerk langfristig und profitieren Sie von Vorträgen, Seminaren und Networking-Events. Als Mitglied erhalten Sie außerdem Vergünstigungen auf zahlreiche Services.',
 	'networking'                            => 'Networking',
 	'networking_content'                    => 'Treffen Sie Experten und Entscheidungsträger aus zahlreichen Sektoren der deutsch-griechischen Geschäftswelt. Nutzen Sie unser Netzwerk und wachsen Sie persönlich und mit Ihrem Unternehmen.',
-	'working_groups'                        => 'Arbeitsgruppen',
+	'work_groups'                        => 'Arbeitsgruppen',
 ];

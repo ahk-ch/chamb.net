@@ -39,8 +39,8 @@
 <!-- End Pages -->
 
 <!-- Companies -->
-<li class="{!! activate(['working_groups']) !!}">
-    <a href="{!! route('working_groups') !!}"> {!! trans('ahk.working_groups') !!} </a>
+<li class="{!! activate(['work_groups']) !!}">
+    <a href="{!! route('work_groups') !!}"> {!! trans('ahk.work_groups') !!} </a>
 </li>
 <!-- End Companies -->
 

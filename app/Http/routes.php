@@ -15,15 +15,15 @@ Route::group(['prefix' => 'health'], function ()
 });
 
 # Working Groups
-Route::get('working_groups', ['as' => 'working_groups', 'uses' => 'Ahk\WorkingGroupsController@index']);
+Route::get('work-groups', ['as' => 'work_groups', 'uses' => 'Ahk\WorkingGroupsController@index']);
 
-Route::get('terms_of_use', ['as' => 'terms_of_use_path', 'uses' => 'Ahk\HomeController@termsOfUse']);
+Route::get('terms-of-use', ['as' => 'terms_of_use_path', 'uses' => 'Ahk\HomeController@termsOfUse']);
 
 # Authentication
 Route::group(['prefix' => 'auth'], function ()
 {
-	Route::get('sign_in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@getLogin']);
-	Route::post('sign_in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@postLogin']);
+	Route::get('sign-in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@getLogin']);
+	Route::post('sign-in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@postLogin']);
 	Route::get('reset', ['as' => 'auth.reset', 'uses' => 'Ahk\Auth\AuthenticationController@getReset']);
 	Route::delete('logout', ['as' => 'auth.destroy', 'uses' => 'Ahk\Auth\AuthenticationController@destroy']);
 	Route::get('register', ['as' => 'auth.register', 'uses' => 'Ahk\Auth\RegistrationController@getRegistration']);
@@ -62,8 +62,8 @@ Route::group(['prefix' => 'cms'], function ()
 	Route::get('users', ['as' => 'cms.users', 'uses' => 'Cms\DashboardController@dashboard']);
 
 	# Authentication
-	Route::get('auth/sign_in', ['as' => 'cms.sessions.create', 'uses' => 'Cms\SessionsController@create']);
-	Route::post('auth/sign_in', ['as' => 'cms.sessions.store', 'uses' => 'Cms\SessionsController@store']);
+	Route::get('auth/sign-in', ['as' => 'cms.sessions.create', 'uses' => 'Cms\SessionsController@create']);
+	Route::post('auth/sign-in', ['as' => 'cms.sessions.store', 'uses' => 'Cms\SessionsController@store']);
 	Route::delete('auth/logout', ['as' => 'cms.sessions.destroy', 'uses' => 'Cms\SessionsController@destroy']);
 	Route::get('lang/{lang}', ['as' => 'cms.set_language', 'uses' => 'Cms\SettingsController@setLocale']);
 });

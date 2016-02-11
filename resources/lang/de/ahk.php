@@ -68,5 +68,5 @@ return [
 	'verify_email'                                                         => 'E-Mail bestätigen',
 	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Unterstützung, Entwicklung und Upgrade</br>der Gesundheitswirtschaft und<br/>Ihr Unternehmen',
 	'welcome'                                                              => 'Willkommen!',
-	'working_groups'                                                       => 'Arbeitsgruppen',
+	'work_groups'                                                       => 'Arbeitsgruppen',
 ];

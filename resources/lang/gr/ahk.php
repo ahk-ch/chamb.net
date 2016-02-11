@@ -68,5 +68,5 @@ return [
 	'we_just_need_you_to_confirm_email'                                    => 'Απλά χρειάζεστε να επαληθεύσετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας.',
 	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Υποστήριξη, Ανάπτυξη και Αναβάθμιση<br/> στον κλάδο της υγείας και<br/> της επιχείρησής σας',
 	'welcome'                                                              => 'Καλώς ορίσατε!',
-	'working_groups'                                                       => 'Ομάδες Εργασίας',
+	'work_groups'                                                       => 'Ομάδες Εργασίας',
 ];

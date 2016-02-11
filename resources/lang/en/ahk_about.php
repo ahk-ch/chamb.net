@@ -25,6 +25,6 @@ return [
 	'membership_content'                    => 'Be part of our Greek-German community of over 850 members and meet many distinguished companies, firms and executives. Create and expand your individual professional network and benefit from lectures, seminars and networking receptions hosted by industry and government leaders. In addition, you enjoy discounts on many selected services.',
 	'networking'                            => 'Networking',
 	'networking_content'                    => 'Getting to know the right people matters! We therefore support you connecting with decision makers and professionals from various industries of the Hellenic-German business community. Use our network, grow your corporate brand and increase your business success!',
-	'working_groups'                        => 'Working Groups',
-	'working_groups_content'                => 'Working Groups',
+	'work_groups'                        => 'Working Groups',
+	'work_groups_content'                => 'Working Groups',
 ];

@@ -16,6 +16,6 @@ class WorkingGroupsController extends Controller
 	 */
 	public function index()
 	{
-		return view('ahk.blank');
+		return view('ahk.health.work-groups');
 	}
 }
