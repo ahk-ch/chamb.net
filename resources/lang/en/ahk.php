@@ -53,6 +53,7 @@ return [
 	'profile'                                                              => 'Profile',
 	'register'                                                             => 'Register',
 	'remember_me'                                                          => 'Remember me',
+	'map'                                                                  => 'Map',
 	'news'                                                                 => 'News',
 	'notifications'                                                        => 'Notifications',
 	'search'                                                               => 'Search',
@@ -67,5 +68,5 @@ return [
 	'we_just_need_you_to_confirm_email'                                    => 'We just need you to confirm your email address.',
 	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Support, Develop and Upgrade</br>the Health Industry and<br/>your Business',
 	'welcome'                                                              => 'Welcome!',
-	'work_groups'                                                       => 'Work-Groups',
+	'work_groups'                                                          => 'Work-Groups',
 ];
