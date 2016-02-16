@@ -172,6 +172,44 @@
 
                     <hr>
 
+
+                    <div class="row">
+                        <!--Social Contacts v2-->
+                        <div class="col-sm-4">
+                            <div class="panel panel-profile">
+                                <div class="panel-heading overflow-h">
+                                    <h2 class="panel-title heading-sm pull-left">
+                                        <i class="fa fa-lightbulb-o"></i> {!! trans('ahk.contact_information') !!}</h2>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-unstyled who margin-bottom-30">
+                                        <li><a href="#"><i class="fa fa-home"></i>5B Streat, City 50987 New Town US</a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-envelope"></i>info@example.com</a></li>
+                                        <li><a href="#"><i class="fa fa-phone"></i>1(222) 5x86 x97x</a></li>
+                                        <li><a href="#"><i class="fa fa-globe"></i>http://www.example.com</a></li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Social Contacts v2-->
+
+                        <div class="col-sm-8">
+                            <div class="panel panel-profile">
+                                <div class="panel-heading overflow-h">
+                                    <h2 class="panel-title heading-sm pull-left">
+                                        <i class="fa fa-map-marker"></i> {!! trans('ahk.map') !!}</h2>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="map" class="map map-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--/end row-->
+
+                    <hr/>
+
                     <!--Timeline-->
                     <div class="panel panel-profile">
                         <div class="panel-heading overflow-h">
