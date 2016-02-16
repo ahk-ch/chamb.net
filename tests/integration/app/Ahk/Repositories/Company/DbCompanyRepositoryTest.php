@@ -25,24 +25,16 @@ class DbCompanyRepositoryTest extends TestCase
 	 */
 	protected $dbCompanyRepository;
 
-	/**
-	 *
-	 */
-	public function setUp()
-	{
-		parent::setUp();
-
-		$this->dbCompanyRepository = new DbCompanyRepository();
-	}
-
 	/** @test */
 	public function it_returns_companies()
 	{
-		$this->assertSame(0, $this->dbCompanyRepository->paginate()->count());
+		$dbCompanyRepository = new DbCompanyRepository();
+
+		$this->assertSame(0, $dbCompanyRepository->paginate()->count());
 
 		$actualCompanies = factory(Company::class, 2)->create();
 
-		$expectedCompanies = $this->dbCompanyRepository->paginate(2);
+		$expectedCompanies = $dbCompanyRepository->paginate(2);
 
 		$this->assertSame(2, $expectedCompanies->count());
 

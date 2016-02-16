@@ -4,6 +4,7 @@ use database\seeds\ArticleIndustryTableSeeder;
 use database\seeds\ArticleTableSeeder;
 use database\seeds\CountryTableSeeder;
 use database\seeds\IndustryTableSeeder;
+use database\seeds\ServiceTableSeeder;
 use database\seeds\TagTableSeeder;
 use database\seeds\CompanyTableSeeder;
 use database\seeds\UserTableSeeder;
@@ -21,6 +22,8 @@ class DatabaseSeeder extends Seeder {
 		Model::unguard();
 
 		$this->call(UserTableSeeder::class);
+
+		$this->call(ServiceTableSeeder::class);
 
 		$this->call(TagTableSeeder::class);
 

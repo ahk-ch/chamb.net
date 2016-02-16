@@ -26,8 +26,11 @@ class AddIndustriesToArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            //
+        Schema::table('articles', function (Blueprint $table)
+        {
+            $table->dropForeign('articles_industry_id_foreign');
+            $table->dropIndex('articles_industry_id_index');
+            $table->removeColumn('industry_id');
         });
     }
 }

@@ -10,6 +10,8 @@ namespace database\seeds;
 use App\Ahk\Company;
 use App\Ahk\Repositories\Country\DbCountryRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
+use App\Ahk\Repositories\Service\DbServiceRepository;
+use App\Ahk\RequiresService;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -40,11 +42,12 @@ class CompanyTableSeeder extends Seeder
 	{
 		$industries = (new DbIndustryRepository())->all()->get()->toArray();
 		$countries = (new DbCountryRepository())->all()->toArray();
+		$services = (new DbServiceRepository())->all()->toArray();
 		$faker = Factory::create();
 
 		foreach ($this->popularCompanies as $company)
 		{
-			factory(Company::class, 'without_relations')
+			$company = factory(Company::class, 'without_relations')
 				->create([
 					'name'        => $company['name'],
 					'slug'        => Str::slug($company['name']),
@@ -53,6 +56,20 @@ class CompanyTableSeeder extends Seeder
 					'industry_id' => $faker->randomElement($industries)['id'],
 					'country_id'  => $faker->randomElement($countries)['id'],
 				]);
+
+			$company->services()->attach([
+				$faker->randomElement($services)['id'] => ['offers' => true],
+				$faker->randomElement($services)['id'] => ['offers' => true],
+				$faker->randomElement($services)['id'] => ['offers' => true],
+				$faker->randomElement($services)['id'] => ['offers' => true],
+			]);
+
+			$company->services()->attach([
+				$faker->randomElement($services)['id'] => ['requires' => true],
+				$faker->randomElement($services)['id'] => ['requires' => true],
+				$faker->randomElement($services)['id'] => ['requires' => true],
+				$faker->randomElement($services)['id'] => ['requires' => true],
+			]);
 		}
 	}
 }

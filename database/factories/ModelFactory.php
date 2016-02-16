@@ -15,6 +15,9 @@ use App\Ahk\Article;
 use App\Ahk\Company;
 use App\Ahk\Country;
 use App\Ahk\Industry;
+use App\Ahk\OffersService;
+use App\Ahk\RequiresService;
+use App\Ahk\Service;
 use App\Ahk\User;
 
 $factory->define(User::class, function (Faker\Generator $faker)
@@ -92,8 +95,9 @@ $factory->define(Company::class, function (Faker\Generator $faker)
 	$company = factory(Company::class, 'without_relations')->make();
 
 	return array_merge($company->toArray(), [
-		'industry_id' => factory(Industry::class)->create()->id,
-		'country_id'  => factory(Country::class)->create()->id,
+		'industry_id'          => factory(Industry::class)->create()->id,
+		'country_id'           => factory(Country::class)->create()->id,
+		'requires_services_id' => factory(RequiresService::class)->create()->id,
 	]);
 });
 
@@ -108,8 +112,9 @@ $factory->defineAs(Company::class, 'without_industry', function (Faker\Generator
 $factory->defineAs(Company::class, 'without_relations', function (Faker\Generator $faker) use ($factory)
 {
 	$name = $faker->unique()->name;
+
 	return [
-		'name'                    => $name ,
+		'name'                    => $name,
 		'slug'                    => \Illuminate\Support\Str::slug($name),
 		'logo'                    => $faker->imageUrl(),
 		'description'             => $faker->paragraph,
@@ -125,7 +130,14 @@ $factory->define(App\Ahk\Country::class, function (Faker\Generator $faker)
 	];
 });
 
-$factory->define(App\Ahk\Industry::class, function (Faker\Generator $faker)
+$factory->define(Industry::class, function (Faker\Generator $faker)
+{
+	return [
+		'name' => $faker->unique()->name,
+	];
+});
+
+$factory->define(Service::class, function (Faker\Generator $faker)
 {
 	return [
 		'name' => $faker->unique()->name,
