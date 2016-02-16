@@ -20,6 +20,7 @@ elixir(function (mix) {
 	mix.scripts(ahkDevDir + 'health/info.js', ahkProductionScriptsDir + 'health/info.min.js');
 	mix.scripts(ahkDevDir + 'health/news.js', ahkProductionScriptsDir + 'health/news.min.js');
 	mix.scripts(ahkDevDir + 'companies/index.js', ahkProductionScriptsDir + 'companies/index.min.js');
+	mix.scripts(ahkDevDir + 'companies/show.js', ahkProductionScriptsDir + 'companies/show.min.js');
 	mix.scripts(ahkDevDir + 'about.js', ahkProductionScriptsDir + 'about.min.js');
 	mix.scripts(ahkDevDir + 'flash.js', ahkProductionScriptsDir + 'flash.min.js');
 
