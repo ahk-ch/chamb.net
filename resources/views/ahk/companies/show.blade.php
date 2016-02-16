@@ -338,7 +338,7 @@
     <script type="text/javascript" src='{!! url("assets/plugins/circles-master/circles.js") !!}'></script>
     <script type="text/javascript" src='{!! url("assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js") !!}'></script>
     <script type="text/javascript" src='{!! url("assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js") !!}'></script>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" src='{!! url("assets/plugins/gmap/gmap.js") !!}'></script>
 @endsection
 @section('js-page-level')
