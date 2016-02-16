@@ -59,4 +59,21 @@ interface UserRepository
 	 * @return User|false
 	 */
 	public function confirmEmail($token);
+
+	/**
+	 * Sign User
+	 *
+	 * @param array $data
+	 * @param bool $rememberMe
+	 * @param bool $login
+	 * @return User|false
+	 */
+	public function attemptToSignIn(array $data, $rememberMe = false, $login = false);
+
+	/**
+	 * Find user by email
+	 * @param $email
+	 * @return User|null
+	 */
+	public function findByEmail($email);
 }

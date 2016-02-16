@@ -155,6 +155,7 @@
                                         <i class="fa fa-lightbulb-o"></i> {!! trans('ahk.what_we_can_offer') !!}</h2>
                                 </div>
                                 <div id="scrollbar" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
+
                                     @foreach($company->offersServices as $key => $service)
                                         <div class="profile-post {!! $service->color !!}">
                                             <span class="profile-post-numb">{!! sprintf("%02d", $key + 1) !!}</span>

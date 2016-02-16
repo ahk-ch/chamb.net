@@ -10,6 +10,7 @@ namespace App\Ahk\Repositories\User;
 use App\Ahk\Repositories\DbRepository;
 use App\Ahk\Role;
 use App\Ahk\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class DbUserRepository extends DbRepository implements UserRepository
@@ -94,5 +95,32 @@ class DbUserRepository extends DbRepository implements UserRepository
 		$user->token = null;
 
 		return $user->save() ? $user : false;;
+	}
+
+	/**
+	 * @param array $data
+	 * @param bool $rememberMe
+	 * @param bool $login
+	 * @return User|false
+	 */
+	public function attemptToSignIn(array $data, $rememberMe = false, $login = false)
+	{
+		if ( Auth::attempt(array_only($data, ['email', 'password']) + ['verified' => true],
+			$rememberMe, $login) )
+		{
+//			$user = $this-
+		}
+
+		return false;
+	}
+
+	/**
+	 * Find user by email
+	 * @param $email
+	 * @return User|null
+	 */
+	public function findByEmail($email)
+	{
+		return User::where('email', $email)->first();
 	}
 }
