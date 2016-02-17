@@ -20,6 +20,7 @@ return [
 	'successful_sign_out'                        => 'Sie haben sich erfolgreich abgemeldet!',
 	'successful_sign_in'                         => 'Sie haben sich erfolgreich angemeldet!',
 	'successful_sign_up'                         => 'Sie haben die Anmeldung abgeschlossen.',
+	'please_validate_your_email_first'           => 'Bitte bestätigen Sie Ihre E-Mail zuerst.',
 	'unable_to_send_verification_email'          => 'Überprüfung kann nicht E-Mail senden.',
 	'unable_to_store_user'                       => 'Ynavle Blinde Auxerre.',
 	'unknown_error_occurred'                     => 'Unbekannter Fehler aufgetreten.',

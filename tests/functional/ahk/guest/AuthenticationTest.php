@@ -49,14 +49,14 @@ class AuthenticationTest extends TestCase
 		$dbUserRepository = new DbUserRepository();
 
 		$user = factory(User::class)
-			->create(['email' => 'email@email.com', 'password' => Hash::make('some-password')]);
+			->create(['email' => 'email@email.com', 'password' => Hash::make('some-password'), 'verified' => 1]);
 
 		$dbUserRepository->assignCompanyRepresentativeRole($user);
 
 		$this->visit(route('auth.sign_in'))
 			->type($user->email, 'email')
 			->type('some-password', 'password')
-			->press("Sign In")
+			->press(trans('ahk.sign_in'))
 			->seePageIs(route('home_path'))
 			->see(trans('ahk_messages.successful_sign_in'));
 	}

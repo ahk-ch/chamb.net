@@ -20,6 +20,7 @@ return [
 	'successful_sign_in'                         => 'Έχετε συνδεθεί με επιτυχία!',
 	'successful_sign_out'                        => 'Έχετε αποσυνδεθεί με επιτυχία!',
 	'successful_sign_up'                         => 'Έχετε ολοκληρώσει την εγγραφή.',
+	'please_validate_your_email_first'           => 'Παρακαλείστε να επικυρώσετε το πρώτο e-mail σας.',
 	'unable_to_send_verification_email'          => 'Δεν είναι δυνατή η αποστολή μηνυμάτων ηλεκτρονικού ταχυδρομείου επαλήθευσης.',
 	'unable_to_store_user'                       => 'Δεν είνε δυνατόν να αποθηκεύσουμε τον χρήστη.',
 	'unknown_error_occurred'                     => 'Παρουσιάστηκε άγνωστο σφάλμα.',

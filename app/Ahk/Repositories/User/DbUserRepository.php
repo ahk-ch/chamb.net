@@ -7,6 +7,7 @@
 namespace App\Ahk\Repositories\User;
 
 
+use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\DbRepository;
 use App\Ahk\Role;
 use App\Ahk\User;
@@ -79,7 +80,7 @@ class DbUserRepository extends DbRepository implements UserRepository
 	 */
 	public function attemptToSignIn(array $data, $rememberMe = false, $login = false)
 	{
-		if ( Auth::attempt(array_only($data, ['email', 'password']) + ['verified' => 1]) )
+		if ( Auth::attempt(array_only($data, ['email', 'password']) + ['verified' => 1], $rememberMe, $login) )
 		{
 			$user = $this->findByEmail($data['email']);
 
@@ -90,6 +91,8 @@ class DbUserRepository extends DbRepository implements UserRepository
 				return $user;
 			}
 		}
+
+		Flash::error(trans('ahk_messages.please_validate_your_email_first'));
 
 		return false;
 	}

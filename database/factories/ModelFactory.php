@@ -15,8 +15,6 @@ use App\Ahk\Article;
 use App\Ahk\Company;
 use App\Ahk\Country;
 use App\Ahk\Industry;
-use App\Ahk\OffersService;
-use App\Ahk\RequiresService;
 use App\Ahk\Service;
 use App\Ahk\User;
 
@@ -98,7 +96,6 @@ $factory->define(Company::class, function (Faker\Generator $faker)
 	return array_merge($company->toArray(), [
 		'industry_id'          => factory(Industry::class)->create()->id,
 		'country_id'           => factory(Country::class)->create()->id,
-		'requires_services_id' => factory(RequiresService::class)->create()->id,
 	]);
 });
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Ahk\Auth;
 
 use App\Ahk\Notifications\Flash;
+use App\Ahk\Repositories\User\UserRepository;
 use App\Http\Controllers\Ahk\BaseController;
 use App\Http\Requests;
 use Illuminate\Http\Response;
@@ -16,13 +17,21 @@ use Illuminate\Support\Facades\Auth;
 class AuthenticationController extends BaseController
 {
 	/**
-	 * AuthenticationController constructor.
+	 * @var UserRepository
 	 */
-	public function __construct()
+	private $userRepository;
+
+	/**
+	 * AuthenticationController constructor.
+	 * @param UserRepository $userRepository
+	 */
+	public function __construct(UserRepository $userRepository)
 	{
 		parent::__construct();
 
 		$this->middleware('guest', ['except' => 'destroy']);
+
+		$this->userRepository = $userRepository;
 	}
 
 	/**
@@ -39,14 +48,16 @@ class AuthenticationController extends BaseController
 	 */
 	public function postLogin(Requests\Ahk\SignInRequest $request)
 	{
-		if ( $user = Auth::attempt($request->only('email', 'password'), $request->has('remember_me')) )
+		if ( $this->userRepository->attemptToSignIn(
+			$request->only('email', 'password'), $request->has('remember_me'))
+		)
 		{
 			Flash::success(trans('ahk_messages.successful_sign_in'));
 
 			return redirect()->intended(route('home_path'));
 		}
 
-		Flash::error('Those credentials do not match our data set.');
+		Flash::error(trans('ahk_messages.validation_error_occurred'));
 
 		return redirect()->back();
 	}

@@ -20,6 +20,7 @@ return [
 	'successful_sign_in'                         => 'You have successfully signed in!',
 	'successful_sign_out'                        => 'You have successfully signed out!',
 	'successful_sign_up'                         => 'You have completed signing up.',
+	'please_validate_your_email_first'           => 'Please validate your email first.',
 	'unable_to_send_verification_email'          => 'Unable to send verification email.',
 	'unable_to_store_user'                       => 'Unable to store user.',
 	'unknown_error_occurred'                     => 'Unknown error occurred.',
