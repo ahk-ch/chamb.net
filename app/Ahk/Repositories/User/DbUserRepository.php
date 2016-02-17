@@ -90,6 +90,10 @@ class DbUserRepository extends DbRepository implements UserRepository
 
 				return $user;
 			}
+
+			Flash::error(trans('ahk_messages.you_do_not_have_the_necessary_privileges'));
+
+			return false;
 		}
 
 		Flash::error(trans('ahk_messages.please_validate_your_email_first'));
@@ -131,5 +135,17 @@ class DbUserRepository extends DbRepository implements UserRepository
 		}
 
 		return false;
+	}
+
+	/**
+	 * Store a user on the storage
+	 * @param array $data
+	 * @return User|false
+	 */
+	public function storeCompanyRepresentativeAccount(array $data)
+	{
+		$user = $this->store($data);
+
+		return $this->assignCompanyRepresentativeRole($user);
 	}
 }

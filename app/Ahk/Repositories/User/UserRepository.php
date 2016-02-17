@@ -22,6 +22,13 @@ interface UserRepository
 	public function store(array $data);
 
 	/**
+	 * Store a user on the storage
+	 * @param array $data
+	 * @return User|false
+	 */
+	public function storeCompanyRepresentativeAccount(array $data);
+
+	/**
 	 * Assign company representative role to the given user
 	 * @param User $user
 	 * @return User|bool

@@ -62,6 +62,30 @@ class DbUserRepositoryTest extends TestCase
 	}
 
 	/** @test */
+	public function it_stores_company_representative_user()
+	{
+		$userRepository = new DbUserRepository();
+
+		$user = factory(User::class)->make(['password' => 'pass']);
+
+		$this->assertNotFalse($user = $userRepository->storeCompanyRepresentativeAccount([
+			'email'      => $user->email,
+			'name'       => $user->name,
+			'avatar_url' => $user->avatar_url,
+			'password'   => 'pass',
+		]));
+
+		$this->seeInDatabase('users', [
+			'email'      => $user->email,
+			'name'       => $user->name,
+			'avatar_url' => $user->avatar_url,
+			'password'   => $user->password,
+		]);
+
+		$this->assertTrue($userRepository->hasCompanyRepresentativeRole($user));
+	}
+
+	/** @test */
 	public function it_signs_in_company_representative_user()
 	{
 		$hashedPassword = Hash::make('some-password');

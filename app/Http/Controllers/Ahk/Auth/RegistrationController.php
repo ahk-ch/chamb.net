@@ -19,6 +19,7 @@ class RegistrationController extends BaseController
 	 * @var UserRepository
 	 */
 	protected $userRepository;
+
 	private $mailer;
 	/**
 	 * @var AppMailer

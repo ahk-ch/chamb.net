@@ -27,4 +27,5 @@ return [
 	'user_created'                               => 'Ο χρήστης δημιουργήθηκε.',
 	'validation_error_occurred'                  => 'Σφάλμα επικύρωσης.',
 	'you_need_to_sign_in'                        => 'Θα πρέπει να συνδεθείτε πρώτα!',
+	'you_do_not_have_the_necessary_privileges'   => 'Δεν έχετε τα απαραίτητα δικαιώματα.',
 ];
