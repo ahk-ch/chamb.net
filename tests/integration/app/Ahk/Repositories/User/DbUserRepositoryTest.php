@@ -11,6 +11,7 @@ use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use tests\TestCase;
 
 class DbUserRepositoryTest extends TestCase
@@ -63,26 +64,27 @@ class DbUserRepositoryTest extends TestCase
 	/** @test */
 	public function it_signs_in_company_representative_user()
 	{
-		$dbUserRepository = new DbUserRepository();
+		$hashedPassword = Hash::make('some-password');
 
-		$user = factory(User::class)->create(['password' => 'some-password']);
+		$dbUserRepository = new DbUserRepository();
+		$user = factory(User::class)->create(['password' => $hashedPassword]);
 
 		# User has not a company representative role; system should deny access
-
-		$dbUserRepository->assignCompanyRepresentativeRole($user);
-
-		# User is not verified; system should deny signing in.
 		$this->assertFalse(
 			$dbUserRepository->attemptToSignIn(['email' => $user->email, 'password' => 'some-password']));
-
 		$this->assertFalse(Auth::check($user));
 
-		$user = factory(User::class)->create(['password' => 'some-password', 'verified' => true]);
-
+		# User is not verified; system should deny signing in.
 		$dbUserRepository->assignCompanyRepresentativeRole($user);
+		$this->assertFalse(
+			$dbUserRepository->attemptToSignIn(['email' => $user->email, 'password' => 'some-password']));
+		$this->assertFalse(Auth::check($user));
 
-		$dbUserRepository->attemptToSignIn(['email' => $user->email, 'password' => 'some-password']);
-
+		# System should allow user to sign in
+		$user = factory(User::class)->create(['password' => $hashedPassword, 'verified' => 1]);
+		$dbUserRepository->assignCompanyRepresentativeRole($user);
+		$this->assertNotFalse(
+			$user = $dbUserRepository->attemptToSignIn(['email' => $user->email, 'password' => 'some-password']));
 		$this->assertTrue(Auth::check($user));
 	}
 

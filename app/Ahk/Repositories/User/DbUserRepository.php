@@ -56,32 +56,6 @@ class DbUserRepository extends DbRepository implements UserRepository
 	}
 
 	/**
-	 * Check whether the given user has role of company representative
-	 * @param User $user
-	 * @return bool
-	 */
-	public function hasCompanyRepresentativeRole(User $user)
-	{
-		return $this->hasRole($user, Role::COMPANY_REPRESENTATIVE_ROLE);
-	}
-
-	/**
-	 * Check whether the given user has role of company representative
-	 * @param User $user
-	 * @param $roleName
-	 * @return bool
-	 */
-	public function hasRole(User $user, $roleName)
-	{
-		foreach ($user->roles()->get() as $role)
-		{
-			if ( $role->name === $roleName ) return true;
-		}
-
-		return false;
-	}
-
-	/**
 	 * Enable user account
 	 * @param $token
 	 * @return mixed
@@ -105,10 +79,16 @@ class DbUserRepository extends DbRepository implements UserRepository
 	 */
 	public function attemptToSignIn(array $data, $rememberMe = false, $login = false)
 	{
-		if ( Auth::attempt(array_only($data, ['email', 'password']) + ['verified' => true],
-			$rememberMe, $login) )
+		if ( Auth::attempt(array_only($data, ['email', 'password']) + ['verified' => 1]) )
 		{
-//			$user = $this-
+			$user = $this->findByEmail($data['email']);
+
+			if ( $this->hasCompanyRepresentativeRole($user) )
+			{
+				Auth::login($user);
+
+				return $user;
+			}
 		}
 
 		return false;
@@ -122,5 +102,31 @@ class DbUserRepository extends DbRepository implements UserRepository
 	public function findByEmail($email)
 	{
 		return User::where('email', $email)->first();
+	}
+
+	/**
+	 * Check whether the given user has role of company representative
+	 * @param User $user
+	 * @return bool
+	 */
+	public function hasCompanyRepresentativeRole(User $user)
+	{
+		return $this->hasRole($user, Role::COMPANY_REPRESENTATIVE_ROLE);
+	}
+
+	/**
+	 * Check whether the given user has role of company representative
+	 * @param User $user
+	 * @param $roleName
+	 * @return bool
+	 */
+	public function hasRole(User $user, $roleName)
+	{
+		foreach ($user->roles()->get() as $role)
+		{
+			if ( $role->name === $roleName ) return true;
+		}
+
+		return false;
 	}
 }
