@@ -58,7 +58,7 @@ class RegistrationController extends BaseController
 	 */
 	public function postRegistration(Requests\Ahk\StoreUserRequest $request)
 	{
-		if ( ! $userIsStored = $this->userRepository->store($request->only('email', 'password')) )
+		if ( ! $userIsStored = $this->userRepository->storeCompanyRepresentativeAccount($request->only('email', 'password')) )
 		{
 			Flash::error(trans('ahk_messages.unable_to_store_user'));
 
