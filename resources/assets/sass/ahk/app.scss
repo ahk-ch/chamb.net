@@ -18,3 +18,31 @@ $primaryColour: black;
 .header .dropdown-menu {
   border-top: solid 2px $primaryColour;
 }
+
+a:hover {
+  color: $primaryColour;
+}
+
+.headline h2, .headline h3, .headline h4 {
+  border-bottom: 2px solid $primaryColour;
+}
+
+.content-boxes-v6:hover i {
+  background: $primaryColour;
+}
+
+a {
+  color: $primaryColour;
+}
+
+.content-boxes-v4 i {
+  color: $primaryColour;
+}
+
+.color-green {
+  color: $primaryColour;
+}
+
+.rgba-default {
+  background-color: $primaryColour;
+}

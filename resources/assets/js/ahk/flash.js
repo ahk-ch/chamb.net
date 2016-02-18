@@ -2,6 +2,8 @@
  * @author Rizart Dokollari
  * @since 20/12/2015
  */
+var stackTopLeft = {"dir1": "down", "dir2": "right", "push": "top"};
+
 function pNotifyMessage(notification) {
 	new PNotify({
 		title: notification.level === 'error' ? 'Error.' : 'Info.',
@@ -12,7 +14,7 @@ function pNotifyMessage(notification) {
 		hide: 'true',
 		shadow: 'true',
 		delay: 3000,
-		mouse_reset: true
+		addclass: "stack-topleft"
 	});
 }
 

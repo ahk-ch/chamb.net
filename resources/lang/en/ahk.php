@@ -15,6 +15,7 @@ return [
 	*/
 
 	'about'                                                                => 'About Us',
+	'action'                                                               => 'Action',
 	'back_to_sign_in'                                                      => 'Back to sign in',
 	'business_leader'                                                      => 'Business Leader',
 	'close'                                                                => 'Close',
@@ -23,6 +24,7 @@ return [
 	'contact_information'                                                  => 'Contact Information',
 	'country'                                                              => 'Country',
 	'create_account'                                                       => 'Create account',
+	'description'                                                          => 'Description',
 	'discover_the_community'                                               => 'Discover the community',
 	'downloads'                                                            => 'Downloads',
 	'energy'                                                               => 'Energy',
@@ -54,6 +56,8 @@ return [
 	'register'                                                             => 'Register',
 	'remember_me'                                                          => 'Remember me',
 	'map'                                                                  => 'Map',
+	'my_companies'                                                         => 'My Companies',
+	'name'                                                                 => 'Name',
 	'news'                                                                 => 'News',
 	'notifications'                                                        => 'Notifications',
 	'search'                                                               => 'Search',

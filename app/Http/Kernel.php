@@ -2,9 +2,13 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\RedirectIfAuthenticated;
+use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
-class Kernel extends HttpKernel {
+class Kernel extends HttpKernel
+{
 	/**
 	 * The application's global HTTP middleware stack.
 	 *
@@ -25,10 +29,10 @@ class Kernel extends HttpKernel {
 	 * @var array
 	 */
 	protected $routeMiddleware = [
-		'auth'        => \App\Http\Middleware\Authenticate::class,
-		'cms.auth'  => \App\Http\Middleware\Cms\Authenticate::class,
-		'auth.basic'  => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-		'guest'       => \App\Http\Middleware\RedirectIfAuthenticated::class,
-		'cms.guest' => \App\Http\Middleware\Cms\RedirectIfAuthenticated::class,
+		'auth'       => Authenticate::class,
+		'cms.auth'   => Authenticate::class,
+		'auth.basic' => AuthenticateWithBasicAuth::class,
+		'guest'      => RedirectIfAuthenticated::class,
+		'cms.guest'  => RedirectIfAuthenticated::class,
 	];
 }

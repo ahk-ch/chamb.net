@@ -34,13 +34,21 @@
                     </li>
                 @else
                     <li class="hoverSelector">
-                        <i class="fa fa-user"></i> <a>{!! $user->username !!}</a>
+                        <i class="fa fa-user"></i> <a>{!! $user->email !!}</a>
                         <ul class="languages hoverSelectorBlock">
+                            <li><a href="{!! route('my.companies.index') !!}"><i class="fa fa-building"></i> {!! trans('ahk.my_companies') !!}</a></li>
                             <li>
                                 {!! Form::open(['route' => 'auth.destroy', 'role' => 'form', 'method' => 'DELETE']) !!}
-                                <button type="submit" class="btn btn-link">{!! trans('ahk.logout') !!}</button>
+                                <button type="submit" class="btn btn-default btn-sm btn-block">{!! trans('ahk.sign_out') !!}</button>
                                 {!! Form::close() !!}
                             </li>
+                        </ul>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#"><i class="fa fa-arrows-alt"></i> Fullscreen</a></li>
+                            <li><a href="#"><i class="fa fa-unlink"></i> Some Links</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i> Main Links</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><i class="fa fa-cloud-download"></i> Download All</a></li>
                         </ul>
                     </li>
                 @endif

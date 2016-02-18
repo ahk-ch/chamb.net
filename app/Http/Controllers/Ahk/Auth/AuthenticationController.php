@@ -71,7 +71,7 @@ class AuthenticationController extends BaseController
 	{
 		Auth::logout();
 
-		Flash::success(trans('ahk_messages.successful_logout'));
+		Flash::success(trans('ahk_messages.successful_sign_out'));
 
 		return redirect()->route('home_path');
 	}

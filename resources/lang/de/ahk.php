@@ -15,6 +15,7 @@ return [
 	*/
 
 	'about'                                                                => 'Über uns',
+	'action'                                                               => 'Aktion',
 	'back_to_sign_in'                                                      => 'Zurück zum sign_in.',
 	'business_leader'                                                      => 'Business Leader',
 	'close'                                                                => 'Nah dran',
@@ -23,6 +24,7 @@ return [
 	'contact_information'                                                  => 'Kontakt Informationen',
 	'country'                                                              => 'Land',
 	'create_account'                                                       => 'Benutzerkonto erstellen',
+	'description'                                                          => 'Beschreibung',
 	'discover_the_community'                                               => 'Entdecken Sie die Community',
 	'downloads'                                                            => 'Downloads',
 	'energy'                                                               => 'Energie',
@@ -44,6 +46,7 @@ return [
 	'logistics'                                                            => 'Logistik',
 	'logout'                                                               => 'Abmelden',
 	'lost_password_prompt_message'                                         => 'Passwort vergessen? Geben Sie bitte Ihre Email-Adresse ein. Sie erhalten einen Link, um ein neues Passwort zu erhalten.',
+	'name'                                                                 => 'Name',
 	'news'                                                                 => 'Nachrichten',
 	'notifications'                                                        => 'Benachrichtigungen',
 	'or_use_your_account'                                                  => 'Oder verwenden Sie Ihr Konto',
@@ -53,6 +56,7 @@ return [
 	'pictures'                                                             => 'Bilder',
 	'profile'                                                              => 'Profil',
 	'map'                                                                  => 'Karte',
+	'my_companies'                                                         => 'Mein Unternehmen',
 	'register'                                                             => 'Neu registrieren',
 	'remember_me'                                                          => 'Erinnere dich an mich',
 	'search'                                                               => 'Suche',

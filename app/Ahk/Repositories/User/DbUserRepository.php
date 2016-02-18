@@ -18,45 +18,6 @@ class DbUserRepository extends DbRepository implements UserRepository
 {
 
 	/**
-	 * Store a user on the storage
-	 * @param array $data
-	 * @return User|false
-	 */
-	public function store(array $data)
-	{
-		$user = new User(array_only($data, ['name', 'email', 'avatar_url']));
-
-		$user->fill(['password' => Hash::make($data['password'])]);
-
-		return $user->save() ? $user : false;
-	}
-
-	/**
-	 * Assign company representative role to the given user
-	 * @param User $user
-	 * @return User|bool
-	 */
-	public function assignCompanyRepresentativeRole(User $user)
-	{
-		$role = Role::where("name", Role::COMPANY_REPRESENTATIVE_ROLE)->firstOrFail();
-
-		return $this->assignRole($user, $role);
-	}
-
-	/**
-	 * Assign a role to the given user
-	 * @param User $user
-	 * @param Role $role
-	 * @return User|false
-	 */
-	public function assignRole(User $user, Role $role)
-	{
-		$user->roles()->attach($role);
-
-		return $user->save() ? $user : false;
-	}
-
-	/**
 	 * Enable user account
 	 * @param $token
 	 * @return mixed
@@ -80,25 +41,32 @@ class DbUserRepository extends DbRepository implements UserRepository
 	 */
 	public function attemptToSignIn(array $data, $rememberMe = false, $login = false)
 	{
-		if ( Auth::attempt(array_only($data, ['email', 'password']) + ['verified' => 1], $rememberMe, $login) )
+		if ( ! Auth::validate(array_only($data, ['email', 'password'])) )
 		{
-			$user = $this->findByEmail($data['email']);
+			Flash::error(trans('ahk_messages.credentials_mismatch'));
 
-			if ( $this->hasCompanyRepresentativeRole($user) )
-			{
-				Auth::login($user);
+			return false;
+		}
 
-				return $user;
-			}
+		$user = $this->findByEmail($data['email']);
 
+		if ( ! $user->verified )
+		{
+			Flash::error(trans('ahk_messages.please_validate_your_email_first'));
+
+			return false;
+		}
+
+		if ( ! $this->hasCompanyRepresentativeRole($user))
+		{
 			Flash::error(trans('ahk_messages.you_do_not_have_the_necessary_privileges'));
 
 			return false;
 		}
 
-		Flash::error(trans('ahk_messages.please_validate_your_email_first'));
+		Auth::login($user);
 
-		return false;
+		return $user;
 	}
 
 	/**
@@ -147,5 +115,44 @@ class DbUserRepository extends DbRepository implements UserRepository
 		$user = $this->store($data);
 
 		return $this->assignCompanyRepresentativeRole($user);
+	}
+
+	/**
+	 * Store a user on the storage
+	 * @param array $data
+	 * @return User|false
+	 */
+	public function store(array $data)
+	{
+		$user = new User(array_only($data, ['name', 'email', 'avatar_url']));
+
+		$user->fill(['password' => Hash::make($data['password'])]);
+
+		return $user->save() ? $user : false;
+	}
+
+	/**
+	 * Assign company representative role to the given user
+	 * @param User $user
+	 * @return User|bool
+	 */
+	public function assignCompanyRepresentativeRole(User $user)
+	{
+		$role = Role::where("name", Role::COMPANY_REPRESENTATIVE_ROLE)->firstOrFail();
+
+		return $this->assignRole($user, $role);
+	}
+
+	/**
+	 * Assign a role to the given user
+	 * @param User $user
+	 * @param Role $role
+	 * @return User|false
+	 */
+	public function assignRole(User $user, Role $role)
+	{
+		$user->roles()->attach($role);
+
+		return $user->save() ? $user : false;
 	}
 }

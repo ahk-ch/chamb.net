@@ -4,15 +4,22 @@
 # Pages
 Route::get('/', ['as' => 'home_path', 'uses' => 'Ahk\HomeController@home']);
 Route::get('about', ['as' => 'about_path', 'uses' => 'Ahk\HomeController@about']);
-//Route::get('community', ['as' => 'companies.index', 'uses' => 'Ahk\CompaniesController@index']);
+//Route::get('', ['as' => 'companies.users', 'uses' => 'Ahk\HomeController@termsOfUse']);
 Route::resource('companies', 'Ahk\CompaniesController', ['only' => ['index', 'show']]);
 Route::get('lang/{lang}', ['as' => 'set_language', 'uses' => 'Ahk\SettingsController@setLocale']);
+
+Route::group(['prefix' => 'my'], function ()
+{
+	Route::resource('companies', 'Ahk\User\CompaniesController', ['only' => ['index']]);
+	Route::get('profile', ['as' => 'my.profile', 'uses' => 'Ahk\HealthController@news']);
+});
 
 Route::group(['prefix' => 'health'], function ()
 {
 	Route::get('info', ['as' => 'health.info', 'uses' => 'Ahk\HealthController@info']);
 	Route::get('news', ['as' => 'health.news', 'uses' => 'Ahk\HealthController@news']);
 });
+
 
 # Working Groups
 Route::get('work-groups', ['as' => 'work_groups', 'uses' => 'Ahk\WorkingGroupsController@index']);

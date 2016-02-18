@@ -14,5 +14,3 @@
 @endsection
 @section('js-page-level')
 @endsection
-@section('js-inline')
-@endsection
