@@ -38,7 +38,7 @@ class Authenticate
 			{
 				Flash::error(trans('ahk_messages.you_need_to_sign_in'));
 
-				return redirect()->guest(route('home_path'));
+				return redirect()->guest(route('auth.sign_in'));
 			}
 		}
 
