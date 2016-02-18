@@ -58,6 +58,8 @@ return [
 	'profile'                                                              => 'Profil',
 	'map'                                                                  => 'Karte',
 	'my_companies'                                                         => 'Mein Unternehmen',
+	'read_less'                                                            => 'Lese weniger',
+	'read_more'                                                            => 'Weiterlesen',
 	'register'                                                             => 'Neu registrieren',
 	'remember_me'                                                          => 'Erinnere dich an mich',
 	'search'                                                               => 'Suche',

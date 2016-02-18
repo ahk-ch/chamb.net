@@ -1,0 +1,1 @@
+jQuery(document).ready(function(){var e=$("input[name=readMoreText]").val(),a=$("input[name=readLessText]").val();$(".read-more-js").readmore({collapsedHeight:25,moreLink:'<div  class="text-center"><a href="#">'+e+"</a></div>",lessLink:'<div  class="text-center"><a href="#">'+a+"</a></div>"})});

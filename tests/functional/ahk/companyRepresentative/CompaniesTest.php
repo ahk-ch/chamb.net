@@ -18,7 +18,7 @@ class CompaniesTest extends TestCase
 	use DatabaseMigrations;
 
 	/** @test */
-	public function it_views_owned_companies_index()
+	public function it_reads_owned_companies_index()
 	{
 		$dbUserRepository = new DbUserRepository();
 		$companyRepresentativeUser = factory(User::class)->create();
@@ -34,5 +34,42 @@ class CompaniesTest extends TestCase
 			->see($companies->get(0)->descrption)
 			->see($companies->get(1)->name)
 			->see($companies->get(1)->descrption);
+	}
+
+	/** @test */
+	public function it_access_company_edit_page()
+	{
+		$dbUserRepository = new DbUserRepository();
+		$companyRepresentativeUser = factory(User::class)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeUser);
+		$company = factory(Company::class)->create(['user_id' => $companyRepresentativeUser->id]);
+
+		$this->actingAs($companyRepresentativeUser)
+			->visit(route('my.companies.edit', ['slug' => $company->slug]))
+			->seePageIs(route('my.companies.edit', ['slug' => $company->slug]));
+
+		$this->actingAs($companyRepresentativeUser)
+			->visit(route('my.companies.index'))
+			->click("#edit-company-btn-$company->slug")
+			->seePageIs(route('my.companies.edit', ['slug' => $company->slug]));
+
+	}
+
+	/** @test */
+	public function it_reads_company_edit_view()
+	{
+		$dbUserRepository = new DbUserRepository();
+		$companyRepresentativeUser = factory(User::class)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeUser);
+		$company = factory(Company::class)->create(['user_id' => $companyRepresentativeUser->id]);
+
+		$this->actingAs($companyRepresentativeUser)
+			->visit(route('my.companies.index'))
+			->dontSee($companyValidator->name)
+			->dontSee($companyValidator->description)
+			->see($company->get(0)->name)
+			->see($company->get(0)->descrption)
+			->see($company->get(1)->name)
+			->see($company->get(1)->descrption);
 	}
 }

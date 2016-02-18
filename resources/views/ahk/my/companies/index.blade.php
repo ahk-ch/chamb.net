@@ -11,7 +11,7 @@
     <div class="container content profile">
         <div class="row">
             <div class="col-md-3 md-margin-bottom-40">
-                @include('ahk.user._partials.left_sidebar')
+                @include('ahk.my._partials.left_sidebar')
             </div>
             <!--End Left Sidebar-->
             <div class="col-md-9">
@@ -24,31 +24,33 @@
                         <table class="table">
                             <thead>
                             <tr>
+                                <th>{!! trans('ahk.action') !!}</th>
                                 <th>{!! trans('ahk.name') !!}</th>
                                 <th>{!! trans('ahk.description') !!}</th>
-                                <th>{!! trans('ahk.action') !!}</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td></td>
-                                <td></td>
                                 <td>
-                                    <button class="btn btn-default btn-xs"><i class="fa fa-plus"></i> New Company
+                                    <button class="btn btn-default btn-sm btn-block">
+                                        <i class="fa fa-plus"></i> New Company
                                     </button>
                                 </td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             @foreach($companies as $company)
                                 <tr>
-                                    <td>{!! $company->name !!}</td>
-                                    <td class="read-more-js">
-                                            {!! $company->description !!}
-                                    <td>
-                                        <a href="{!! route('my.companies.edit', ['id' => $company->id]) !!}"
-                                                class="btn btn-default btn-xs">
+                                    <td class="col-md-2">
+                                        <a id="edit-company-btn-{!! $company->slug !!}"
+                                                href="{!! route('my.companies.edit', ['slug' => $company->slug]) !!}"
+                                                class="btn btn-default btn-sm btn-block">
                                             <i class="fa fa-edit"></i> {!! trans('ahk.edit') !!}
                                         </a>
                                     </td>
+                                    <td class="col-md-3">{!! $company->name !!}</td>
+                                    <td class="col-md-7 read-more-js">
+                                    {!! $company->description !!}
                                 </tr>
                             @endforeach
                             </tbody>
@@ -64,13 +66,5 @@
     <script src="{!! url('vendor/Readmore.js/readmore.min.js') !!}"></script>
 @endsection
 @section('js-page-level')
-    <script>
-        jQuery(document).ready(function () {
-            $('.read-more-js').readmore({
-                collapsedHeight: 25,
-                moreLink: '<div  class="text-center"><a href="#">Read more</a></div>',
-                lessLink: '<div  class="text-center"><a href="#">Close</a></div>'
-            });
-        });
-    </script>
+    @include('ahk.my._partials.read_more')
 @endsection

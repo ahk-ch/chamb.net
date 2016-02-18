@@ -41,7 +41,7 @@ class CompaniesController extends BaseController
 	{
 		$companies = $this->companyRepository->getByUser(Auth::user())->get();
 
-		return view('ahk.user.companies.index', compact('companies'));
+		return view('ahk.my.companies.index', compact('companies'));
 	}
 
 	/**

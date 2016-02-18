@@ -23,8 +23,9 @@ elixir(function (mix) {
 	mix.scripts(ahkDevDir + 'companies/show.js', ahkProductionScriptsDir + 'companies/show.min.js');
 	mix.scripts(ahkDevDir + 'about.js', ahkProductionScriptsDir + 'about.min.js');
 	mix.scripts(ahkDevDir + 'flash.js', ahkProductionScriptsDir + 'flash.min.js');
+	mix.scripts(ahkDevDir + 'my/companies/index.js', ahkProductionScriptsDir + 'my/companies/index.min.js');
 
-	// Versioning
+	// Versions
 	mix.version([
 		// Ahk
 		// CSS
@@ -36,7 +37,8 @@ elixir(function (mix) {
 		ahkProductionScriptsDir + 'about.min.js',
 		ahkProductionScriptsDir + 'health/info.min.js',
 		ahkProductionScriptsDir + 'health/news.min.js',
-		ahkProductionScriptsDir + 'companies/index.min.js'
+		ahkProductionScriptsDir + 'companies/index.min.js',
+		ahkProductionScriptsDir + 'my/companies/index.min.js'
 	]);
 
 	mix.browserSync({

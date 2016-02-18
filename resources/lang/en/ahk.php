@@ -58,6 +58,8 @@ return [
 	'remember_me'                                                          => 'Remember me',
 	'map'                                                                  => 'Map',
 	'my_companies'                                                         => 'My Companies',
+	'read_less'                                                            => 'Read Less',
+	'read_more'                                                            => 'Read More',
 	'name'                                                                 => 'Name',
 	'news'                                                                 => 'News',
 	'notifications'                                                        => 'Notifications',
