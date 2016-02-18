@@ -20,6 +20,11 @@ class DashboardTest extends TestCase
 	{
 		$administrator = factory(User::class)->create();
 
+
+		$this->markTestIncomplete(
+			'This test has not been implemented yet.'
+		);
+
 		$this->actingAs($administrator)
 			->visit(route('cms.dashboard'))
 			->seePageIs(route('cms.dashboard'))

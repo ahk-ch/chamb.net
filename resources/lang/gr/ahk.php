@@ -28,6 +28,7 @@ return [
 	'description'                                                          => 'Περιγραφή',
 	'discover_the_community'                                               => 'Ανακαλυψτε την κοιντητα',
 	'downloads'                                                            => 'Λήψεις',
+	'edit'                                                                 => 'Επεξεργασία',
 	'energy'                                                               => 'Ενέργεια',
 	'error'                                                                => 'Σφάλμα',
 	'events'                                                               => 'Εκδηλώσεις',

@@ -22,6 +22,12 @@ class CompaniesTest extends TestCase
 		$administrator = factory(User::class)->create();
 		$companies = factory(Company::class, 2)->create();
 
+		// TODO: see https://github.com/ahk-ch/chamb.net/issues/10
+
+		$this->markTestIncomplete(
+			'This test has not been implemented yet.'
+		);
+
 		$this->actingAs($administrator)
 			->visit(route('cms.companies.index'))
 			->seePageIs(route('cms.companies.index'))

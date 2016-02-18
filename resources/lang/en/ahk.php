@@ -27,6 +27,7 @@ return [
 	'description'                                                          => 'Description',
 	'discover_the_community'                                               => 'Discover the community',
 	'downloads'                                                            => 'Downloads',
+	'edit'                                                                 => 'Edit',
 	'energy'                                                               => 'Energy',
 	'error'                                                                => 'Error',
 	'events'                                                               => 'Events',

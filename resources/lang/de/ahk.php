@@ -27,6 +27,7 @@ return [
 	'description'                                                          => 'Beschreibung',
 	'discover_the_community'                                               => 'Entdecken Sie die Community',
 	'downloads'                                                            => 'Downloads',
+	'edit'                                                                 => 'Bearbeiten',
 	'energy'                                                               => 'Energie',
 	'error'                                                                => 'Fehler',
 	'events'                                                               => 'Ereignisse',

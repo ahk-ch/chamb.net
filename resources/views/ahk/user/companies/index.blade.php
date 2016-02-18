@@ -33,13 +33,24 @@
                             <tr>
                                 <td></td>
                                 <td></td>
-                                <td><button class="btn btn-default btn-xs"><i class="fa fa-plus"></i> New Company</button></td>
+                                <td>
+                                    <button class="btn btn-default btn-xs"><i class="fa fa-plus"></i> New Company
+                                    </button>
+                                </td>
                             </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>htmlstream</td>
-                                <td><button class="btn btn-default btn-xs"><i class="fa fa-edit"></i> Edit</button></td>
-                            </tr>
+                            @foreach($companies as $company)
+                                <tr>
+                                    <td>{!! $company->name !!}</td>
+                                    <td class="read-more-js">
+                                            {!! $company->description !!}
+                                    <td>
+                                        <a href="{!! route('my.companies.edit', ['id' => $company->id]) !!}"
+                                                class="btn btn-default btn-xs">
+                                            <i class="fa fa-edit"></i> {!! trans('ahk.edit') !!}
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -50,6 +61,16 @@
     </div>
 @endsection
 @section('js-implementing-plugins')
+    <script src="{!! url('vendor/Readmore.js/readmore.min.js') !!}"></script>
 @endsection
 @section('js-page-level')
+    <script>
+        jQuery(document).ready(function () {
+            $('.read-more-js').readmore({
+                collapsedHeight: 25,
+                moreLink: '<div  class="text-center"><a href="#">Read more</a></div>',
+                lessLink: '<div  class="text-center"><a href="#">Close</a></div>'
+            });
+        });
+    </script>
 @endsection
