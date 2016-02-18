@@ -56,7 +56,7 @@ class CompaniesTest extends TestCase
 	}
 
 	/** @test */
-	public function it_reads_company_edit_view()
+	public function it_reads_company_edit_view_elements()
 	{
 		$dbUserRepository = new DbUserRepository();
 		$companyRepresentativeUser = factory(User::class)->create();
@@ -64,12 +64,16 @@ class CompaniesTest extends TestCase
 		$company = factory(Company::class)->create(['user_id' => $companyRepresentativeUser->id]);
 
 		$this->actingAs($companyRepresentativeUser)
-			->visit(route('my.companies.index'))
-			->dontSee($companyValidator->name)
-			->dontSee($companyValidator->description)
-			->see($company->get(0)->name)
-			->see($company->get(0)->descrption)
-			->see($company->get(1)->name)
-			->see($company->get(1)->descrption);
+			->visit(route('my.companies.edit', ['slug' => $company->slug]))
+			->see($company->name)
+			->see($company->logo)
+			->see($company->focus)
+			->see($company->description)
+			->see($company->business_leader)
+			->see($company->address)
+			->see($company->email)
+			->see($company->phone_number);
+
+
 	}
 }

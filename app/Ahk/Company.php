@@ -10,7 +10,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Company extends Model
 {
-	protected $fillable = ['name', 'logo', 'name_of_contact_partner', 'slug'];
+	protected $fillable = ['name', 'logo', 'description', 'focus', 'business_leader', 'slug', 'address', 'email',
+		'phone_number'];
 
 	/**
 	 * Get the industry of this company.

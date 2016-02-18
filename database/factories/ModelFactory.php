@@ -113,12 +113,16 @@ $factory->defineAs(Company::class, 'without_relations', function (Faker\Generato
 	$name = $faker->unique()->name;
 
 	return [
+		'slug' => \Illuminate\Support\Str::slug($name),
+
 		'name'                    => $name,
-		'slug'                    => \Illuminate\Support\Str::slug($name),
 		'logo'                    => $faker->imageUrl(),
+		'focus'                   => $faker->words(50, true),
 		'description'             => $faker->paragraph,
 		'business_leader'         => $faker->name,
-		'name_of_contact_partner' => $faker->name,
+		'address'                 => $faker->address,
+		'email'                   => $faker->email,
+		'phone_number'            => $faker->phoneNumber,
 	];
 });
 

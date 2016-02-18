@@ -19,9 +19,12 @@ class CreateCompaniesTable extends Migration
 			$table->string('name')->unique();
 			$table->string('slug')->unique();
 			$table->string('logo');
-			$table->longText('description');
+			$table->text('description');
+			$table->text('focus');
 			$table->string('business_leader');
-			$table->string('name_of_contact_partner');
+			$table->string('address');
+			$table->string('email');
+			$table->string('phone_number');
 			$table->timestamps();
 
 			$table->integer('user_id')->unsigned()->index();

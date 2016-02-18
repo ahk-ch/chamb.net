@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Ahk\User;
 
+use App\Ahk\Company;
 use App\Ahk\Repositories\Company\CompanyRepository;
 use App\Ahk\Repositories\User\UserRepository;
 use App\Http\Controllers\Ahk\BaseController;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -66,25 +68,14 @@ class CompaniesController extends BaseController
 	}
 
 	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param  int $id
+	 * @param Company $company
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit($id)
+	public function edit(Company $company)
 	{
-		//
+		return view('ahk.my.companies.edit', compact('company'));
 	}
 
 	/**
