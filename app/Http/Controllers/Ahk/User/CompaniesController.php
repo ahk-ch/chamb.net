@@ -2,17 +2,36 @@
 
 namespace App\Http\Controllers\Ahk\User;
 
+use App\Ahk\Repositories\Company\CompanyRepository;
+use App\Ahk\Repositories\User\UserRepository;
 use App\Http\Controllers\Ahk\BaseController;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class CompaniesController
+ * @package App\Http\Controllers\Ahk\User
+ */
 class CompaniesController extends BaseController
 {
-	public function __construct()
+	/**
+	 * @var CompanyRepository
+	 */
+	private $companyRepository;
+
+	/**
+	 * CompaniesController constructor.
+	 * @param CompanyRepository $companyRepository
+	 */
+	public function __construct(CompanyRepository $companyRepository)
 	{
 		parent::__construct();
 
 		$this->middleware('auth');
+
+		$this->companyRepository = $companyRepository;
 	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -20,7 +39,9 @@ class CompaniesController extends BaseController
 	 */
 	public function index()
 	{
-		return view('ahk.user.companies.index');
+		$companies = $this->companyRepository->getByUser(Auth::user());
+
+		return view('ahk.user.companies.index', compact('companies'));
 	}
 
 	/**

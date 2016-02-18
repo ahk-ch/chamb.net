@@ -21,6 +21,14 @@ class Company extends Model
 	}
 
 	/**
+	 * Get the representative user of this company.
+	 */
+	public function user()
+	{
+		return $this->belongsTo('App\Ahk\User');
+	}
+
+	/**
 	 * Get the country of this company.
 	 */
 	public function country()

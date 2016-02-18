@@ -9,6 +9,8 @@ namespace tests\integration\app\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
+use App\Ahk\Repositories\User\DbUserRepository;
+use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 
@@ -26,7 +28,7 @@ class DbCompanyRepositoryTest extends TestCase
 	protected $dbCompanyRepository;
 
 	/** @test */
-	public function it_returns_companies()
+	public function it_paginates_companies()
 	{
 		$dbCompanyRepository = new DbCompanyRepository();
 
@@ -41,6 +43,31 @@ class DbCompanyRepositoryTest extends TestCase
 		$this->assertSame(
 			array_only($expectedCompanies->toArray(), $expectedCompanies[0]->getFillable()),
 			array_only($actualCompanies->toArray(), $expectedCompanies[0]->getFillable())
+		);
+	}
+
+	/** @test */
+	public function it_returns_companies_by_user()
+	{
+		$dbCompanyRepository = new DbCompanyRepository();
+		$dbUserRepository = new DbUserRepository();
+		$companyRepresentativeUser = factory(User::class)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeUser);
+		factory(Company::class)->create();  # Company validator
+
+		$this->assertCount(0, $dbCompanyRepository->getByUser($companyRepresentativeUser)->get());
+
+		$expectedCompanies = factory(Company::class, 2)->create(['user_id' => $companyRepresentativeUser->id]);
+
+		$actualCompanies = $dbCompanyRepository->getByUser($companyRepresentativeUser)->get();
+
+		$this->assertCount(2, $actualCompanies);
+
+		$keys = $expectedCompanies[0]->getFillable();
+
+		$this->assertSame(
+			array_only($expectedCompanies->toArray(), $keys),
+			array_only($actualCompanies->toArray(), $keys)
 		);
 	}
 }

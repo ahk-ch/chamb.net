@@ -7,6 +7,8 @@
 
 namespace App\Ahk\Repositories\Company;
 
+use App\Ahk\User;
+
 interface CompanyRepository
 {
 
@@ -16,4 +18,11 @@ interface CompanyRepository
 	 * @return mixed
 	 */
 	public function paginate($items = 10);
+
+	/**
+	 * Return all companies owned by given user, ready to be paginated
+	 * @param User $user
+	 * @return mixed
+	 */
+	public function getByUser(User $user);
 }

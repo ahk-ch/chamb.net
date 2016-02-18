@@ -57,7 +57,7 @@ class DbUserRepository extends DbRepository implements UserRepository
 			return false;
 		}
 
-		if ( ! $this->hasCompanyRepresentativeRole($user))
+		if ( ! $this->hasCompanyRepresentativeRole($user) )
 		{
 			Flash::error(trans('ahk_messages.you_do_not_have_the_necessary_privileges'));
 
@@ -154,5 +154,17 @@ class DbUserRepository extends DbRepository implements UserRepository
 		$user->roles()->attach($role);
 
 		return $user->save() ? $user : false;
+	}
+
+	/**
+	 * Get all users that have role of company representatiave
+	 * @return mixed
+	 */
+	public function getWithCompanyRepresentativeRole()
+	{
+		return User::whereHas('roles', function ($query)
+		{
+			$query->where('roles.name', Role::COMPANY_REPRESENTATIVE_ROLE);
+		})->get();
 	}
 }

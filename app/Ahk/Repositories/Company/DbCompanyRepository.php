@@ -9,6 +9,7 @@ namespace App\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
 use App\Ahk\Repositories\DbRepository;
+use App\Ahk\User;
 
 class DbCompanyRepository extends DbRepository implements CompanyRepository
 {
@@ -21,5 +22,15 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	public function paginate($items = 10)
 	{
 		return Company::paginate($items);
+	}
+
+	/**
+	 * Return all companies owned by given user, ready to be paginated
+	 * @param User $user
+	 * @return mixed
+	 */
+	public function getByUser(User $user)
+	{
+		return Company::where('user_id', $user->id);
 	}
 }

@@ -10,6 +10,10 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 
+/**
+ * Class User
+ * @package App\Ahk
+ */
 class User extends Model implements AuthenticatableContract,
 	AuthorizableContract,
 	CanResetPasswordContract
@@ -58,5 +62,13 @@ class User extends Model implements AuthenticatableContract,
 	public function roles()
 	{
 		return $this->belongsToMany('App\Ahk\Role')->withTimestamps();
+	}
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function companies()
+	{
+		return $this->hasMany('App\Ahk\Company');
 	}
 }

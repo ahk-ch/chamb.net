@@ -11,6 +11,7 @@ use App\Ahk\Company;
 use App\Ahk\Repositories\Country\DbCountryRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\Repositories\Service\DbServiceRepository;
+use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\RequiresService;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
@@ -43,6 +44,7 @@ class CompanyTableSeeder extends Seeder
 		$industries = (new DbIndustryRepository())->all()->get()->toArray();
 		$countries = (new DbCountryRepository())->all()->toArray();
 		$services = (new DbServiceRepository())->all()->toArray();
+		$companyRepresentativeUsers = (new DbUserRepository())->getWithCompanyRepresentativeRole()->toArray();
 		$faker = Factory::create();
 
 		foreach ($this->popularCompanies as $company)
@@ -55,6 +57,7 @@ class CompanyTableSeeder extends Seeder
 					'logo'        => $company['logo'],
 					'industry_id' => $faker->randomElement($industries)['id'],
 					'country_id'  => $faker->randomElement($countries)['id'],
+					'user_id'     => $faker->randomElement($companyRepresentativeUsers)['id'],
 				]);
 
 			$company->services()->attach([

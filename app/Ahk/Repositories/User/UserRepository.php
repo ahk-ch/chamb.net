@@ -83,4 +83,11 @@ interface UserRepository
 	 * @return User|null
 	 */
 	public function findByEmail($email);
+
+	/**
+	 * Get all users that have role of company representatiave
+	 * @return mixed
+	 */
+	public function getWithCompanyRepresentativeRole();
+
 }

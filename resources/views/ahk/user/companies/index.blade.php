@@ -31,9 +31,14 @@
                             </thead>
                             <tbody>
                             <tr>
+                                <td></td>
+                                <td></td>
+                                <td><button class="btn btn-default btn-xs"><i class="fa fa-plus"></i> New Company</button></td>
+                            </tr>
+                            <tr>
                                 <td>4</td>
                                 <td>htmlstream</td>
-                                <td><button class="btn btn-success btn-xs"><i class="fa fa-check"></i> Submit</button></td>
+                                <td><button class="btn btn-default btn-xs"><i class="fa fa-edit"></i> Edit</button></td>
                             </tr>
                             </tbody>
                         </table>

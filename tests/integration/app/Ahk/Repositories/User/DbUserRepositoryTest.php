@@ -137,4 +137,22 @@ class DbUserRepositoryTest extends TestCase
 			array_only($user->toArray(), $user->getFillable()),
 			array_only($dbUserRepository->findByEmail($user->email)->toArray(), $user->getFillable()));
 	}
+
+	/** @test */
+	public function it_returns_company_representative_users()
+	{
+		$dbUserRepository = new DbUserRepository();
+
+		factory(User::class, 2)->create(); # Use to validate it does not return these.
+		$actualCompanyRepresentativeUsers = factory(User::class, 2)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($actualCompanyRepresentativeUsers->get(0));
+		$dbUserRepository->assignCompanyRepresentativeRole($actualCompanyRepresentativeUsers->get(1));
+
+		$expectedUsers = $dbUserRepository->getWithCompanyRepresentativeRole();
+		$keys = $actualCompanyRepresentativeUsers->get(0)->getFillable();
+
+		$this->assertSame(
+			array_only($expectedUsers->toArray(), $keys),
+			array_only($actualCompanyRepresentativeUsers->toArray(), $keys));
+	}
 }

@@ -23,6 +23,9 @@ class CreateCompaniesTable extends Migration
 			$table->string('business_leader');
 			$table->string('name_of_contact_partner');
 			$table->timestamps();
+
+			$table->integer('user_id')->unsigned()->index();
+			$table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('cascade');
 		});
 	}
 
@@ -33,6 +36,13 @@ class CreateCompaniesTable extends Migration
 	 */
 	public function down()
 	{
+		Schema::table('companies', function (Blueprint $table)
+		{
+			$table->dropForeign('companies_user_id_foreign');
+			$table->dropIndex('companies_user_id_index');
+			$table->removeColumn('user_id');
+		});
+
 		Schema::drop('companies');
 	}
 }

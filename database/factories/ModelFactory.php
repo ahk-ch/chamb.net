@@ -94,8 +94,9 @@ $factory->define(Company::class, function (Faker\Generator $faker)
 	$company = factory(Company::class, 'without_relations')->make();
 
 	return array_merge($company->toArray(), [
-		'industry_id'          => factory(Industry::class)->create()->id,
-		'country_id'           => factory(Country::class)->create()->id,
+		'industry_id' => factory(Industry::class)->create()->id,
+		'country_id'  => factory(Country::class)->create()->id,
+		'user_id'     => factory(User::class)->create()->id,
 	]);
 });
 
