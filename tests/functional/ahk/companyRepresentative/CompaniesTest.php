@@ -73,7 +73,5 @@ class CompaniesTest extends TestCase
 			->see($company->address)
 			->see($company->email)
 			->see($company->phone_number);
-
-
 	}
 }
