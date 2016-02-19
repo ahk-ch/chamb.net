@@ -28,6 +28,7 @@
     <link href='{!! url("assets/plugins/font-awesome/css/font-awesome.min.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("assets/plugins/login-signup-modal-window/css/style.css") !!}' rel='stylesheet' type='text/css'/>
     <link href='{!! url("vendor/pnotify/src/pnotify.core.css") !!}' rel='stylesheet' type='text/css'/>
+
     @yield('css-implementing-plugins')
     @yield('css-page-style')
     <link href='{!! elixir("css/ahk/app.min.css") !!}' rel='stylesheet' type='text/css'/>

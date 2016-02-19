@@ -158,15 +158,15 @@ class DbUserRepositoryTest extends TestCase
 	}
 
 	/** @test */
-	public function it_verifies_company_slug_is_owned_by_user()
+	public function it_verifies_company_is_owned_by_user()
 	{
 		$dbUserRepository = new DbUserRepository();
 		$user = factory(User::class)->create();
 		$company = factory(Company::class)->create(['user_id' => $user->id]);
 		$companyValidator = factory(Company::class)->create();
 
-		$this->assertFalse($dbUserRepository->hasCompanyBySlug($user, $companyValidator->slug));
+		$this->assertFalse($dbUserRepository->hasCompany($user, $companyValidator));
 
-		$this->assertTrue($dbUserRepository->hasCompanyBySlug($user, $company->slug));
+		$this->assertTrue($dbUserRepository->hasCompany($user, $company));
 	}
 }

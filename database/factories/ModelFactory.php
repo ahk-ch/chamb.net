@@ -117,7 +117,7 @@ $factory->defineAs(Company::class, 'without_relations', function (Faker\Generato
 
 		'name'            => $name,
 		'logo'            => $faker->imageUrl(),
-		'focus'           => $faker->words(50, true),
+		'focus'           => $faker->words(10, true),
 		'description'     => $faker->paragraph,
 		'business_leader' => $faker->name,
 		'address'         => $faker->address,

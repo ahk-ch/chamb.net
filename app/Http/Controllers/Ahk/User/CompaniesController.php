@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Ahk\User;
 
 use App\Ahk\Company;
+use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\Company\CompanyRepository;
 use App\Ahk\Repositories\User\UserRepository;
 use App\Http\Controllers\Ahk\BaseController;
@@ -21,18 +22,24 @@ class CompaniesController extends BaseController
 	 * @var CompanyRepository
 	 */
 	private $companyRepository;
+	/**
+	 * @var UserRepository
+	 */
+	private $userRepository;
 
 	/**
 	 * CompaniesController constructor.
 	 * @param CompanyRepository $companyRepository
+	 * @param UserRepository $userRepository
 	 */
-	public function __construct(CompanyRepository $companyRepository)
+	public function __construct(CompanyRepository $companyRepository, UserRepository $userRepository)
 	{
 		parent::__construct();
 
 		$this->middleware('auth');
 
 		$this->companyRepository = $companyRepository;
+		$this->userRepository = $userRepository;
 	}
 
 	/**
@@ -82,13 +89,22 @@ class CompaniesController extends BaseController
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request $request
-	 * @param  int $id
+	 * @param UpdateCompanyRequest $request
+	 * @param Company $company
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(UpdateCompanyRequest $request, $id)
+	public function update(UpdateCompanyRequest $request, Company $company)
 	{
-		//
+		$user = Auth::user();
+		
+		if ( ! $this->userRepository->hasCompany($user, $company) )
+		{
+			Flash::error(trans('ahk_messages.company_successfully_updated'));
+
+			return back()->withInput();
+		}
+
+		return "update company";
 	}
 
 	/**

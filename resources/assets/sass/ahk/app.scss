@@ -1,48 +1,53 @@
-$primaryColour: black;
+$primaryColor: black;
+$successColor: #6fb679;
+$backgroundSuccessColor: #f0fff0;
+$backgroundErrorColor: #ff0033;
+$errorColor: #ff0033;
 
 .header .navbar-nav {
 
   > .active > a {
-    color: $primaryColour;
+    color: $primaryColor;
   }
 
   > li > a:hover, > .active > a {
-    border-bottom: solid 2px $primaryColour;
+    border-bottom: solid 2px $primaryColor;
   }
 
   > li:hover > a {
-    color: $primaryColour;
+    color: $primaryColor;
   }
 }
 
 .header .dropdown-menu {
-  border-top: solid 2px $primaryColour;
+  border-top: solid 2px $primaryColor;
 }
 
 a:hover {
-  color: $primaryColour;
+  color: $primaryColor;
 }
 
 .headline h2, .headline h3, .headline h4 {
-  border-bottom: 2px solid $primaryColour;
+  border-bottom: 2px solid $primaryColor;
 }
 
 .content-boxes-v6:hover i {
-  background: $primaryColour;
+  background: $primaryColor;
 }
 
 a {
-  color: $primaryColour;
+  color: $primaryColor;
 }
 
 .content-boxes-v4 i {
-  color: $primaryColour;
+  color: $primaryColor;
 }
 
 .color-green {
-  color: $primaryColour;
+  color: $primaryColor;
 }
 
 .rgba-default {
-  background-color: $primaryColour;
+  background-color: $primaryColor;
 }
+

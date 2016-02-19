@@ -26,69 +26,78 @@
                         {!! Form::model($company, ['method' => 'PUT', 'route' => ['my.companies.update', $company->slug],
                          'role' => 'form', 'class' => 'margin-bottom-40']) !!}
 
-                        {!! Form::hidden('slug', $company->slug) !!}
+                        {!! Form::hidden('id', $company->id) !!}
 
                         <div class="row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6 @if($errors->first('nameInputField')) alert alert-danger fade in @endif">
                                 <label for="nameInputField"> <i class="fa fa-edit"></i> {!! trans('ahk.name') !!}
                                 </label>
                                 {!! Form::text('nameInputField', $company->name, ['class' => 'form-control',
-                                'placeholder' => trans('ahk.enter_email'), 'required' => 'required', ]) !!}
+                                'placeholder' => trans('ahk.enter_name'), 'required' => 'required', ]) !!}
+                                {!! $errors->first('nameInputField', ':message') !!}
                             </div>
 
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6 @if($errors->first('businessLeaderInputField')) alert alert-danger fade in @endif">
                                 <label for="businessLeaderInputField">
                                     <i class="fa fa-edit"></i> {!! trans('ahk.business_leader') !!}
                                 </label>
                                 {!! Form::input('text', 'businessLeaderInputField', $company->business_leader, ['class' => 'form-control',
                                 'placeholder' => trans('ahk.enter_business_leader'), 'required' => 'required', ]) !!}
+                                {!! $errors->first('businessLeaderInputField', ':message') !!}
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6 @if($errors->first('addressInputField')) alert alert-danger fade in @endif">
                                 <label for="addressInputField">
                                     <i class="fa fa-location-arrow"></i> {!! trans('ahk.address') !!}
                                 </label>
                                 {!! Form::input('text', 'addressInputField', $company->address, ['class' => 'form-control',
                                 'placeholder' => trans('ahk.address'), 'required' => 'required', ]) !!}
+                                {!! $errors->first('addressInputField', ':message') !!}
                             </div>
 
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6 @if($errors->first('emailInputField')) alert alert-danger fade in @endif">
                                 <label for="emailInputField"> <i class="fa fa-envelope"></i> Email </label>
                                 {!! Form::email('emailInputField', $company->email, ['class' => 'form-control',
                                 'placeholder' => trans('ahk.enter_email'), 'required' => 'required', ]) !!}
+                                {!! $errors->first('emailInputField', ':message') !!}
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="phoneNumberInputField"> <i class="fa fa-phone"></i> {!! trans('ahk.phone_number') !!} </label>
+                            <div class="form-group col-md-6 @if($errors->first('phoneNumberInputField')) alert alert-danger fade in @endif">
+                                <label for="phoneNumberInputField">
+                                    <i class="fa fa-phone"></i> {!! trans('ahk.phone_number') !!} </label>
                                 {!! Form::input('text', 'phoneNumberInputField', $company->phone_number,
                                 ['class' => 'form-control', 'placeholder' => trans('ahk.enter_phone_number'),
                                  'required' => 'required', ]) !!}
+                                {!! $errors->first('phoneNumberInputField', ':message') !!}
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6 @if($errors->first('focusInputField')) alert alert-danger fade in @endif">
                                 <label for="focusInputField"> <i class="fa fa-edit"></i> {!! trans('ahk.focus') !!}
                                 </label>
                                 {!! Form::textarea('focusInputField', $company->focus, ['class' => 'form-control',
                                 'placeholder' => trans('ahk.enter_focus'), 'required' => 'required', ]) !!}
+                                {!! $errors->first('focusInputField', ':message') !!}
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6 @if($errors->first('description')) alert alert-danger fade in @endif">
                                 <label for="descriptionInputField">
                                     <i class="fa fa-edit"></i> {!! trans('ahk.description') !!}
                                 </label>
                                 {!! Form::textarea('descriptionInputField', $company->description, ['class' => 'form-control',
                                 'placeholder' => trans('ahk.enter_description'), 'required' => 'required', ]) !!}
+                                {!! $errors->first('descriptionInputField', ':message') !!}
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row @if($errors->first('logoInputField')) alert alert-danger fade in @endif">
                             <div class="form-group col-md-6">
-                                <label for="logoInputField"> <i class="fa fa-image"></i> {!! trans('ahk.current_logo') !!}
+                                <label for="logoInputField">
+                                    <i class="fa fa-image"></i> {!! trans('ahk.current_logo') !!}
                                 </label>
                                 <img alt="Logo" id="logoInputField" class="img-responsive" src="{!! $company->logo !!}">
                             </div>
@@ -96,8 +105,7 @@
                             <div class="form-group col-md-6">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label>
-                                            <i class="fa fa-picture-o"></i> {!! trans('ahk.new_logo') !!}
+                                        <label> <i class="fa fa-picture-o"></i> {!! trans('ahk.new_logo') !!}
                                         </label>
                                     </div>
                                 </div>
@@ -112,9 +120,10 @@
                                         <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                                     </div>
                                 </div>
+                                {!! $errors->first('logoInputField', ':message') !!}
                             </div>
-
                         </div>
+
                         <hr>
 
                         <div class="form-group">

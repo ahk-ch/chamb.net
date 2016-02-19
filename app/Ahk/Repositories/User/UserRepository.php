@@ -7,6 +7,7 @@
 namespace App\Ahk\Repositories\User;
 
 
+use App\Ahk\Company;
 use App\Ahk\Role;
 use App\Ahk\User;
 
@@ -95,11 +96,11 @@ interface UserRepository
 
 
 	/**
-	 * Verify a company is owned by a user, given the company slug
+	 * Verify a company is owned by a user
 	 *
 	 * @param User $user
-	 * @param $slug
+	 * @param Company $company
 	 * @return mixed
 	 */
-	public function hasCompanyBySlug(User $user, $slug);
+	public function hasCompany(User $user, Company $company);
 }
