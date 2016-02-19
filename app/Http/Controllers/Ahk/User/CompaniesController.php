@@ -96,7 +96,8 @@ class CompaniesController extends BaseController
 	public function update(UpdateCompanyRequest $request, Company $company)
 	{
 		$user = Auth::user();
-		
+		$formData = $request->only((new Company())->getFillable());
+
 		if ( ! $this->userRepository->hasCompany($user, $company) )
 		{
 			Flash::error(trans('ahk_messages.company_successfully_updated'));
@@ -104,7 +105,14 @@ class CompaniesController extends BaseController
 			return back()->withInput();
 		}
 
-		return "update company";
+		if ( ! $this->companyRepository->update($company, $formData) )
+		{
+			Flash::error(trans('ahk_messages.unknown_error_occurred'));
+
+			return back()->withInput();
+		}
+
+		return route('my.companies.edit', ['slug' => $company->slug]);
 	}
 
 	/**

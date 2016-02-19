@@ -7,6 +7,7 @@
 
 namespace App\Ahk\Repositories\Company;
 
+use App\Ahk\Company;
 use App\Ahk\User;
 
 interface CompanyRepository
@@ -25,4 +26,13 @@ interface CompanyRepository
 	 * @return mixed
 	 */
 	public function getByUser(User $user);
+
+	/**
+	 * Update company
+	 * 
+	 * @param Company $company
+	 * @param $data
+	 * @return Company|false
+	 */
+	public function update(Company $company, array $data);
 }

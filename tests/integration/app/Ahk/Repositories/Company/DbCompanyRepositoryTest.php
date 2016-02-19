@@ -70,4 +70,29 @@ class DbCompanyRepositoryTest extends TestCase
 			array_only($actualCompanies->toArray(), $keys)
 		);
 	}
+
+	/** @test */
+	public function it_updates_company_by_user()
+	{
+		$dbCompanyRepository = new DbCompanyRepository();
+		$dbUserRepository = new DbUserRepository();
+		$user = factory(User::class)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($user);
+		$company = factory(Company::class)->create(['user_id' => $user->id]);
+		$newCompanyData = factory(Company::class)->make();
+
+		$keys = $newCompanyData->getFillable();
+
+		$this->assertNotSame(
+			array_only($newCompanyData->toArray(), $keys),
+			array_only($company->toArray(), $keys)
+		);
+
+		$dbCompanyRepository->update($company, array_only($newCompanyData->toArray(), $keys));
+
+		$this->assertSame(
+			array_only($newCompanyData->toArray(), $keys),
+			array_only($newCompanyData->toArray(), $keys)
+		);
+	}
 }

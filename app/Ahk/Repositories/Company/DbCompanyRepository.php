@@ -33,4 +33,16 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	{
 		return Company::where('user_id', $user->id);
 	}
+
+	/**
+	 * Update company
+	 *
+	 * @param Company $company
+	 * @param $data
+	 * @return Company|false
+	 */
+	public function update(Company $company, array $data)
+	{
+		return $company->fill($data)->save() ? $company : false;
+	}
 }
