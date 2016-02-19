@@ -112,11 +112,9 @@ class CompaniesController extends BaseController
 			return back()->withInput();
 		}
 
-		if ( $request->hasFile('logo')
-			&& ! $this->companyRepository->updateLogo($company, $request->file('logo')->getRealpath())
-		)
+		if ( $request->file('logo') !== null )
 		{
-			Flash::error(trans('ahk_messages.unable_to_update_logo'));
+			$this->companyRepository->updateLogo($company, $request->file('logo')->getRealpath());
 		}
 
 		Flash::success(trans('ahk_messages.company_successfully_updated'));

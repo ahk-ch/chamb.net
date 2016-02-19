@@ -8,6 +8,7 @@
 namespace App\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
+use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\DbRepository;
 use App\Ahk\Storage\CompaniesStorage;
 use App\Ahk\User;
@@ -90,6 +91,13 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 
 		$company->logo = $logoLocation;
 
-		return $company->save() ? $company : false;
+		if ( ! $company->save() )
+		{
+			Flash::error(trans('ahk_messages.unable_to_update_logo'));
+			
+			return  false;
+		}
+		
+		return $company;
 	}
 }
