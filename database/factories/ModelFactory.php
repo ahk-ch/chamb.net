@@ -115,14 +115,14 @@ $factory->defineAs(Company::class, 'without_relations', function (Faker\Generato
 	return [
 		'slug' => \Illuminate\Support\Str::slug($name),
 
-		'name'                    => $name,
-		'logo'                    => $faker->imageUrl(),
-		'focus'                   => $faker->words(50, true),
-		'description'             => $faker->paragraph,
-		'business_leader'         => $faker->name,
-		'address'                 => $faker->address,
-		'email'                   => $faker->email,
-		'phone_number'            => $faker->phoneNumber,
+		'name'            => $name,
+		'logo'            => $faker->imageUrl(),
+		'focus'           => $faker->words(50, true),
+		'description'     => $faker->paragraph,
+		'business_leader' => $faker->name,
+		'address'         => $faker->address,
+		'email'           => $faker->email,
+		'phone_number'    => $faker->phoneNumber,
 	];
 });
 

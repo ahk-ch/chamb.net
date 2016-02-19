@@ -4,6 +4,7 @@ namespace App\Http\Requests\Ahk;
 
 use App\Ahk\Repositories\User\UserRepository;
 use App\Http\Requests\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateCompanyRequest extends Request
 {
@@ -15,7 +16,7 @@ class UpdateCompanyRequest extends Request
 	 */
 	public function authorize(UserRepository $userRepository)
 	{
-		return $userRepository->hasCompanyBySlug($this->get('slug'));
+		return true;
 	}
 
 	/**
@@ -28,5 +29,6 @@ class UpdateCompanyRequest extends Request
 		return [
 			//
 		];
+		return $userRepository->hasCompanyBySlug(Auth::user(), $this->get('slug'));
 	}
 }

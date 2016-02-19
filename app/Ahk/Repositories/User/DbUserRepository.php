@@ -167,4 +167,16 @@ class DbUserRepository extends DbRepository implements UserRepository
 			$query->where('roles.name', Role::COMPANY_REPRESENTATIVE_ROLE);
 		})->get();
 	}
+
+	/**
+	 * Verify a company is owned by a user, given the company slug
+	 *
+	 * @param User $user
+	 * @param $slug
+	 * @return mixed
+	 */
+	public function hasCompanyBySlug(User $user, $slug)
+	{
+		return ! $user->companies()->where('slug', $slug)->get()->isEmpty();
+	}
 }

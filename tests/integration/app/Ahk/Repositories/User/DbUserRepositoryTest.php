@@ -7,6 +7,7 @@
 
 namespace tests\integration\app\Ahk\Repositories\User;
 
+use App\Ahk\Company;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -154,5 +155,18 @@ class DbUserRepositoryTest extends TestCase
 		$this->assertSame(
 			array_only($expectedUsers->toArray(), $keys),
 			array_only($actualCompanyRepresentativeUsers->toArray(), $keys));
+	}
+
+	/** @test */
+	public function it_verifies_company_slug_is_owned_by_user()
+	{
+		$dbUserRepository = new DbUserRepository();
+		$user = factory(User::class)->create();
+		$company = factory(Company::class)->create(['user_id' => $user->id]);
+		$companyValidator = factory(Company::class)->create();
+
+		$this->assertFalse($dbUserRepository->hasCompanyBySlug($user, $companyValidator->slug));
+
+		$this->assertTrue($dbUserRepository->hasCompanyBySlug($user, $company->slug));
 	}
 }

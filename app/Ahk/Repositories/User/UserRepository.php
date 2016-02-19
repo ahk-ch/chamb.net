@@ -9,8 +9,11 @@ namespace App\Ahk\Repositories\User;
 
 use App\Ahk\Role;
 use App\Ahk\User;
-use App\Http\Requests\Ahk\StoreUserRequest;
 
+/**
+ * Interface UserRepository
+ * @package App\Ahk\Repositories\User
+ */
 interface UserRepository
 {
 
@@ -90,4 +93,13 @@ interface UserRepository
 	 */
 	public function getWithCompanyRepresentativeRole();
 
+
+	/**
+	 * Verify a company is owned by a user, given the company slug
+	 *
+	 * @param User $user
+	 * @param $slug
+	 * @return mixed
+	 */
+	public function hasCompanyBySlug(User $user, $slug);
 }
