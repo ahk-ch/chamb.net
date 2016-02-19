@@ -66,12 +66,43 @@ class CompaniesTest extends TestCase
 		$this->actingAs($companyRepresentativeUser)
 			->visit(route('my.companies.edit', ['slug' => $company->slug]))
 			->see($company->name)
-			->see($company->logo)
-			->see($company->focus)
-			->see($company->description)
 			->see($company->business_leader)
 			->see($company->address)
 			->see($company->email)
-			->see($company->phone_number);
+			->see($company->phone_number)
+			->see($company->focus)
+			->see($company->description)
+			->see($company->logo);
+	}
+
+	/** @test */
+	public function it_updates_company_data()
+	{
+		$dbUserRepository = new DbUserRepository();
+		$companyRepresentativeUser = factory(User::class)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeUser);
+		$company = factory(Company::class)->create(['user_id' => $companyRepresentativeUser->id]);
+		$expectedCompany = factory(Company::class)->make(['user_id' => $companyRepresentativeUser->id]);
+
+		$this->actingAs($companyRepresentativeUser)
+			->visit(route('my.companies.edit', ['slug' => $company->slug]))
+			->type($expectedCompany->name, 'nameInputField')
+			->type($expectedCompany->business_leader, 'businessLeaderInputField')
+			->type($expectedCompany->address, 'addressInputField')
+			->type($expectedCompany->email, 'emailInputField')
+			->type($expectedCompany->phone_number, 'phoneNumberInputField')
+			->type($expectedCompany->focus, 'focusInputField')
+			->type($expectedCompany->description, 'descriptionInputField')
+			->attach(storage_path() . '/tests/dummy_logo.png', 'logoInputField')
+			->seePageIs(route('my.companies.edit', ['slug' => $company->slug]))
+			->see(trans('ahk_messages.company_successfully_updated'))
+			->see($expectedCompany->name)
+			->see($expectedCompany->business_leader)
+			->see($expectedCompany->address)
+			->see($expectedCompany->email)
+			->see($expectedCompany->phone_number)
+			->see($expectedCompany->focus)
+			->see($expectedCompany->description)
+			->see($expectedCompany->logo);
 	}
 }

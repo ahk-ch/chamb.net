@@ -7,6 +7,7 @@ use App\Ahk\Repositories\Company\CompanyRepository;
 use App\Ahk\Repositories\User\UserRepository;
 use App\Http\Controllers\Ahk\BaseController;
 use App\Http\Requests;
+use App\Http\Requests\Ahk\UpdateCompanyRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -85,7 +86,7 @@ class CompaniesController extends BaseController
 	 * @param  int $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id)
+	public function update(UpdateCompanyRequest $request, $id)
 	{
 		//
 	}

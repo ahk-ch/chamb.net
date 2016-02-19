@@ -22,14 +22,17 @@
                         <h3 class="panel-title"><i class="fa fa-tasks"></i> {!! trans('ahk.edit') !!}</h3>
                     </div>
                     <div class="panel-body">
+
                         {!! Form::model($company, ['method' => 'PUT', 'route' => ['my.companies.update', $company->slug],
                          'role' => 'form', 'class' => 'margin-bottom-40']) !!}
+
                         {!! Form::hidden('slug', $company->slug) !!}
+
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="nameInputEmail"> <i class="fa fa-edit"></i> {!! trans('ahk.name') !!}
+                                <label for="nameInputField"> <i class="fa fa-edit"></i> {!! trans('ahk.name') !!}
                                 </label>
-                                {!! Form::text('nameInputEmail', $company->name, ['class' => 'form-control',
+                                {!! Form::text('nameInputField', $company->name, ['class' => 'form-control',
                                 'placeholder' => trans('ahk.enter_email'), 'required' => 'required', ]) !!}
                             </div>
 
@@ -93,7 +96,7 @@
                             <div class="form-group col-md-6">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="logoInputField">
+                                        <label>
                                             <i class="fa fa-picture-o"></i> {!! trans('ahk.new_logo') !!}
                                         </label>
                                     </div>
@@ -105,7 +108,7 @@
                                     <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                     <div>
                                 <span class="btn btn-default btn-file"><span class="fileinput-new">Select new image</span>
-                                    <span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                                    <span class="fileinput-exists">Change</span><input type="file" name="logoInputField"></span>
                                         <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                                     </div>
                                 </div>
