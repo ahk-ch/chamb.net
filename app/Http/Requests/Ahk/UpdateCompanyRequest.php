@@ -31,7 +31,7 @@ class UpdateCompanyRequest extends Request
 			'phone_number'    => 'max:255',
 			'focus'           => 'max:100',
 			'description'     => 'max:700',
-			'logo'            => '', // TODO: https://github.com/ahk-ch/chamb.net/issues/13
+			'logo'            => 'image',
 		];
 	}
 }

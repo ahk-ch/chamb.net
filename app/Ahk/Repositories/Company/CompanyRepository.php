@@ -50,9 +50,9 @@ interface CompanyRepository
 	 * Update company logo
 	 *
 	 * @param Company $company
-	 * @param $newLogoPath
+	 * @param $tempLogoPath
 	 * @param null $storageLocation
 	 * @return Company|false
 	 */
-	public function updateLogo(Company $company, $newLogoPath, $storageLocation = null);
+	public function updateLogo(Company $company, $tempLogoPath, $storageLocation = null);
 }

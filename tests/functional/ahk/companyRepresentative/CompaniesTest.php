@@ -17,6 +17,7 @@ class CompaniesTest extends TestCase
 {
 	use DatabaseMigrations;
 
+
 	/** @test */
 	public function it_reads_owned_companies_index()
 	{
@@ -72,7 +73,7 @@ class CompaniesTest extends TestCase
 			->see($company->phone_number)
 			->see($company->focus)
 			->see($company->description)
-			->see($company->logo);
+			->see(route('ahk.img', ['imgName' => $company->logo]));
 	}
 
 	/** @test */
@@ -93,10 +94,11 @@ class CompaniesTest extends TestCase
 			->type($expectedCompany->phone_number, 'phone_number')
 			->type($expectedCompany->focus, 'focus')
 			->type($expectedCompany->description, 'description')
-			->attach(storage_path('tests/dummy_logo.png'), 'logo')
+			->attach(storage_path('app/testing/dummy_logo.png'), 'logo')
 			->press(trans('ahk.update'))
-			->seePageIs(route('my.companies.edit', ['slug' => $company->slug]))
+			->seePageIs(route('my.companies.edit', ['slug' => $expectedCompany->slug]))
 			->see(trans('ahk_messages.company_successfully_updated'))
+			->dontSee($company->name)
 			->see($expectedCompany->name)
 			->see($expectedCompany->business_leader)
 			->see($expectedCompany->address)
@@ -104,6 +106,6 @@ class CompaniesTest extends TestCase
 			->see($expectedCompany->phone_number)
 			->see($expectedCompany->focus)
 			->see($expectedCompany->description)
-			->see($expectedCompany->logo);
+			->see(route('ahk.img', ['imgName' => $expectedCompany->logo]));
 	}
 }

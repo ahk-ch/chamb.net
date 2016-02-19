@@ -12,7 +12,7 @@ class Company extends Model
 {
 	protected $fillable = [
 		'name', 'logo', 'description', 'focus', 'business_leader', 'address', 'email',
-		'phone_number',
+		'phone_number', 'slug'
 	];
 
 	/**

@@ -107,18 +107,19 @@ class DbCompanyRepositoryTest extends TestCase
 		$dbUserRepository->assignCompanyRepresentativeRole($user);
 		$company = factory(Company::class)->create(['user_id' => $user->id]);
 
-		$companyStorageDirectory = "tests" . DIRECTORY_SEPARATOR . CompaniesStorage::getAhkStorageDirectoryByCompanyId($company->id);
+		$tempLogoLocation = 'storage/app/testing/dummy_logo.png';
 
-		$newLogoUrl = "{$companyStorageDirectory}logo.png";
+		Storage::delete($company->logo);
 
-		$this->assertFalse(Storage::exists($newLogoUrl));
+		$this->assertFalse(Storage::exists($company->logo));
 
-		$dbCompanyRepository->updateLogo($company, 'tests/logo.png', $companyStorageDirectory);
+		$company->logo = null;
+		$company->save();
 
-		$this->assertTrue(Storage::exists($newLogoUrl));
+		$this->assertNull($company->logo);
 
-		$this->assertEquals($newLogoUrl, $company->logo);
+		$dbCompanyRepository->updateLogo($company, $tempLogoLocation);
 
-		Storage::deleteDirectory('tests');
+		$this->assertTrue(Storage::exists($company->logo));
 	}
 }

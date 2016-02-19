@@ -24,7 +24,8 @@
                     <div class="panel-body">
 
                         {!! Form::model($company, ['method' => 'PUT', 'route' => ['my.companies.update', $company->slug],
-                         'role' => 'form', 'class' => 'margin-bottom-40']) !!}
+                         'role' => 'form', 'class' => 'margin-bottom-40', 'files' => 'true']) !!}
+
 
                         {!! Form::hidden('id', $company->id) !!}
 
@@ -49,8 +50,7 @@
 
                         <div class="row">
                             <div class="form-group col-md-6 @if($errors->first('address')) alert alert-danger fade in @endif">
-                                <label for="address">
-                                    <i class="fa fa-location-arrow"></i> {!! trans('ahk.address') !!}
+                                <label for="address"> <i class="fa fa-location-arrow"></i> {!! trans('ahk.address') !!}
                                 </label>
                                 {!! Form::input('text', 'address', $company->address, ['class' => 'form-control',
                                 'placeholder' => trans('ahk.address'), 'required' => 'required', ]) !!}
@@ -67,8 +67,8 @@
 
                         <div class="row">
                             <div class="form-group col-md-6 @if($errors->first('phone_number')) alert alert-danger fade in @endif">
-                                <label for="phone_number">
-                                    <i class="fa fa-phone"></i> {!! trans('ahk.phone_number') !!} </label>
+                                <label for="phone_number"> <i class="fa fa-phone"></i> {!! trans('ahk.phone_number') !!}
+                                </label>
                                 {!! Form::input('text', 'phone_number', $company->phone_number,
                                 ['class' => 'form-control', 'placeholder' => trans('ahk.enter_phone_number'),
                                  'required' => 'required', ]) !!}
@@ -85,8 +85,7 @@
                                 {!! $errors->first('focus', ':message') !!}
                             </div>
                             <div class="form-group col-md-6 @if($errors->first('description')) alert alert-danger fade in @endif">
-                                <label for="description">
-                                    <i class="fa fa-edit"></i> {!! trans('ahk.description') !!}
+                                <label for="description"> <i class="fa fa-edit"></i> {!! trans('ahk.description') !!}
                                 </label>
                                 {!! Form::textarea('description', $company->description, ['class' => 'form-control',
                                 'placeholder' => trans('ahk.enter_description'), 'required' => 'required', ]) !!}
@@ -96,22 +95,16 @@
 
                         <div class="row @if($errors->first('logo')) alert alert-danger fade in @endif">
                             <div class="form-group col-md-6">
-                                <label for="logo">
-                                    <i class="fa fa-image"></i> {!! trans('ahk.current_logo') !!}
-                                </label>
-                                <img alt="Logo" class="img-responsive" src="{!! $company->logo !!}">
-                            </div>
-
-                            <div class="form-group col-md-6">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label> <i class="fa fa-picture-o"></i> {!! trans('ahk.new_logo') !!}
+                                        <label for="logo"> <i class="fa fa-image"></i> {!! trans('ahk.logo') !!}
                                         </label>
                                     </div>
                                 </div>
+
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                        <img data-src="holder.js/200x150" alt="Holder" src="">
+                                        <img alt="Holder" src="{!! route('ahk.img', ['imgName' => $company->logo]) !!}">
                                     </div>
                                     <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                     <div>

@@ -16,7 +16,9 @@ use App\Ahk\Company;
 use App\Ahk\Country;
 use App\Ahk\Industry;
 use App\Ahk\Service;
+use App\Ahk\Storage\CompaniesStorage;
 use App\Ahk\User;
+use Illuminate\Support\Facades\Storage;
 
 $factory->define(User::class, function (Faker\Generator $faker)
 {
@@ -111,12 +113,20 @@ $factory->defineAs(Company::class, 'without_industry', function (Faker\Generator
 $factory->defineAs(Company::class, 'without_relations', function (Faker\Generator $faker) use ($factory)
 {
 	$name = $faker->unique()->name;
+	$slug = \Illuminate\Support\Str::slug($name);
+
+	$storageLocation = CompaniesStorage::getAhkStorageDirectoryByCompanySlug($slug);
+	Storage::makeDirectory($storageLocation);
+	$logoLocation = $storageLocation . "logo.png";
+	Storage::put(
+		$logoLocation,
+		file_get_contents(storage_path('app/testing/dummy_logo.png'))
+	);
 
 	return [
-		'slug' => \Illuminate\Support\Str::slug($name),
-
+		'slug'            => $slug,
 		'name'            => $name,
-		'logo'            => $faker->imageUrl(),
+		'logo'            => $logoLocation,
 		'focus'           => $faker->words(10, true),
 		'description'     => $faker->paragraph,
 		'business_leader' => $faker->name,

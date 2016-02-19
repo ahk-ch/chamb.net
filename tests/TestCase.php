@@ -1,6 +1,7 @@
 <?php namespace tests;
 
 use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Support\Facades\Storage;
 
 class TestCase extends \Illuminate\Foundation\Testing\TestCase
 {
@@ -23,5 +24,15 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase
 		$app->make(Kernel::class)->bootstrap();
 
 		return $app;
+	}
+
+	public function tearDown()
+	{
+		parent::tearDown();
+
+		$this->refreshApplication();
+//
+		Storage::deleteDirectory('testing/ahk');
+		Storage::deleteDirectory('testing/cms');
 	}
 }

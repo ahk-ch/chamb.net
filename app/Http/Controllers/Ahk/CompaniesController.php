@@ -6,9 +6,11 @@ use App\Ahk\Company;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Company\CompanyRepository;
 use App\Ahk\Repositories\Industry\IndustryRepository;
+use App\Ahk\Storage\CompaniesStorage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CompaniesController extends Controller
 {

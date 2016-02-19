@@ -11,7 +11,9 @@ use App\Ahk\Company;
 use App\Ahk\Repositories\DbRepository;
 use App\Ahk\Storage\CompaniesStorage;
 use App\Ahk\User;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class DbCompanyRepository extends DbRepository implements CompanyRepository
 {
@@ -47,8 +49,6 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	{
 		$company = $this->updatePrimaryData($company, $data);
 
-		$company = $this->updateLogo($company, $data['logo']);
-
 		return $company;
 	}
 
@@ -61,6 +61,8 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	 */
 	public function updatePrimaryData(Company $company, array $data)
 	{
+		$data['slug'] = Str::slug($data['name']);
+
 		return $company->fill($data)->save() ? $company : false;
 	}
 
@@ -68,18 +70,23 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	 * Update company logo
 	 *
 	 * @param Company $company
-	 * @param $newLogoPath
+	 * @param $tempLogoPath
 	 * @param null $storageLocation
 	 * @return Company|false
 	 */
-	public function updateLogo(Company $company, $newLogoPath, $storageLocation = null)
+	public function updateLogo(Company $company, $tempLogoPath, $storageLocation = null)
 	{
-		$storageLocation === null ?
-			CompaniesStorage::getAhkStorageDirectoryByCompanyId($company->id) : $storageLocation;
-		
+		$storageLocation = $storageLocation === null ?
+			CompaniesStorage::getAhkStorageDirectoryByCompanySlug($company->slug)
+			: $storageLocation;
+
 		$logoLocation = $storageLocation . "logo.png";
 
-		Storage::put($logoLocation, Storage::get($newLogoPath));
+		if ( ! File::exists($storageLocation) ) Storage::makeDirectory($storageLocation);
+
+		if ( Storage::exists($logoLocation) ) Storage::delete($logoLocation);
+
+		Storage::put($logoLocation, file_get_contents($tempLogoPath));
 
 		$company->logo = $logoLocation;
 
