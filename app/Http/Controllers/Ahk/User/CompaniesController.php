@@ -105,14 +105,16 @@ class CompaniesController extends BaseController
 			return back()->withInput();
 		}
 
-		if ( ! $this->companyRepository->update($company, $formData) )
+		if ( ! $company = $this->companyRepository->update($company, $formData) )
 		{
 			Flash::error(trans('ahk_messages.unknown_error_occurred'));
 
 			return back()->withInput();
 		}
 
-		return route('my.companies.edit', ['slug' => $company->slug]);
+		Flash::success(trans('ahk_messages.company_successfully_updated'));
+
+		return redirect()->route('my.companies.edit', ['slug' => $company->slug]);
 	}
 
 	/**

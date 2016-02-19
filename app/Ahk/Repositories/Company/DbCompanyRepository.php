@@ -9,7 +9,9 @@ namespace App\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
 use App\Ahk\Repositories\DbRepository;
+use App\Ahk\Storage\CompaniesStorage;
 use App\Ahk\User;
+use Illuminate\Support\Facades\Storage;
 
 class DbCompanyRepository extends DbRepository implements CompanyRepository
 {
@@ -43,6 +45,44 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	 */
 	public function update(Company $company, array $data)
 	{
+		$company = $this->updatePrimaryData($company, $data);
+
+		$company = $this->updateLogo($company, $data['logo']);
+
+		return $company;
+	}
+
+	/**
+	 * Update company primary data
+	 *
+	 * @param Company $company
+	 * @param $data
+	 * @return Company|false
+	 */
+	public function updatePrimaryData(Company $company, array $data)
+	{
 		return $company->fill($data)->save() ? $company : false;
+	}
+
+	/**
+	 * Update company logo
+	 *
+	 * @param Company $company
+	 * @param $newLogoPath
+	 * @param null $storageLocation
+	 * @return Company|false
+	 */
+	public function updateLogo(Company $company, $newLogoPath, $storageLocation = null)
+	{
+		$storageLocation === null ?
+			CompaniesStorage::getAhkStorageDirectoryByCompanyId($company->id) : $storageLocation;
+		
+		$logoLocation = $storageLocation . "logo.png";
+
+		Storage::put($logoLocation, Storage::get($newLogoPath));
+
+		$company->logo = $logoLocation;
+
+		return $company->save() ? $company : false;
 	}
 }

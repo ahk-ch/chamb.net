@@ -10,8 +10,10 @@ namespace tests\integration\app\Ahk\Repositories\Company;
 use App\Ahk\Company;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
+use App\Ahk\Storage\CompaniesStorage;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Storage;
 use tests\TestCase;
 
 /**
@@ -94,5 +96,29 @@ class DbCompanyRepositoryTest extends TestCase
 			array_only($newCompanyData->toArray(), $keys),
 			array_only($newCompanyData->toArray(), $keys)
 		);
+	}
+
+	/** @test */
+	public function it_updates_company_logo()
+	{
+		$dbCompanyRepository = new DbCompanyRepository();
+		$dbUserRepository = new DbUserRepository();
+		$user = factory(User::class)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($user);
+		$company = factory(Company::class)->create(['user_id' => $user->id]);
+
+		$companyStorageDirectory = "tests" . DIRECTORY_SEPARATOR . CompaniesStorage::getAhkStorageDirectoryByCompanyId($company->id);
+
+		$newLogoUrl = "{$companyStorageDirectory}logo.png";
+
+		$this->assertFalse(Storage::exists($newLogoUrl));
+
+		$dbCompanyRepository->updateLogo($company, 'tests/logo.png', $companyStorageDirectory);
+
+		$this->assertTrue(Storage::exists($newLogoUrl));
+
+		$this->assertEquals($newLogoUrl, $company->logo);
+
+		Storage::deleteDirectory('tests');
 	}
 }

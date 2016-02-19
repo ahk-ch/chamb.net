@@ -9,6 +9,7 @@ namespace App\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
 use App\Ahk\User;
+use Symfony\Component\HttpFoundation\Tests\File\FakeFile;
 
 interface CompanyRepository
 {
@@ -35,4 +36,23 @@ interface CompanyRepository
 	 * @return Company|false
 	 */
 	public function update(Company $company, array $data);
+
+	/**
+	 * Update company primary data
+	 *
+	 * @param Company $company
+	 * @param $data
+	 * @return Company|false
+	 */
+	public function updatePrimaryData(Company $company, array $data);
+
+	/**
+	 * Update company logo
+	 *
+	 * @param Company $company
+	 * @param $newLogoPath
+	 * @param null $storageLocation
+	 * @return Company|false
+	 */
+	public function updateLogo(Company $company, $newLogoPath, $storageLocation = null);
 }
