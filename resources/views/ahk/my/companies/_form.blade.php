@@ -12,7 +12,7 @@
         </label>
         {!! Form::select('industry_id', $industries, $company->industry ? $company->industry->id : null, ['class' => 'form-control select2',
         'required' => 'required', ]) !!}
-        {!! $errors->first('name', ':message') !!}
+        {!! $errors->first('industry_id', ':message') !!}
     </div>
 </div>
 
@@ -24,6 +24,15 @@
         'placeholder' => trans('ahk.enter_business_leader'), 'required' => 'required', ]) !!}
         {!! $errors->first('business_leader', ':message') !!}
     </div>
+    <div class="form-group col-md-6 @if($errors->first('country_id')) alert alert-danger fade in @endif">
+        <label for="name"> <i class="fa fa-edit"></i> {!! trans('ahk.country') !!}
+        </label>
+        {!! Form::select('country_id', $countries, $company->country ? $company->country->id : null, ['class' => 'form-control select2',
+        'required' => 'required', ]) !!}
+        {!! $errors->first('country', ':message') !!}
+    </div>
+</div>
+<div class="row">
     <div class="form-group col-md-6 @if($errors->first('phone_number')) alert alert-danger fade in @endif">
         <label for="phone_number"> <i class="fa fa-phone"></i> {!! trans('ahk.phone_number') !!}
         </label>

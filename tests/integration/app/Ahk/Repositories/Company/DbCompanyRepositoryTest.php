@@ -8,6 +8,7 @@
 namespace tests\integration\app\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
+use App\Ahk\Country;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
@@ -174,5 +175,19 @@ class DbCompanyRepositoryTest extends TestCase
 
 		$this->assertSame($company->industry->id, $expectedIndustry->id);
 
+	}
+	
+	/** @test */
+	public function it_updates_company_country_by_country_id()
+	{
+		$dbCompanyRepository = new DbCompanyRepository();
+		$company = factory(Company::class)->create();
+		$expectedCountry = factory(Country::class)->create();
+
+		$this->assertNotSame($company->country->id, $expectedCountry->id);
+
+		$company = $dbCompanyRepository->updateCountryByCountryId($company, $expectedCountry->id);
+
+		$this->assertSame($company->country->id, $expectedCountry->id);
 	}
 }

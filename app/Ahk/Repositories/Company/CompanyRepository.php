@@ -82,4 +82,13 @@ interface CompanyRepository
 	 * @return Company|false
 	 */
 	public function updateIndustryByIndustryId(Company $company, $industryId);
+
+	/**
+	 * Update the country of a company
+	 *
+	 * @param Company $company
+	 * @param $countryId
+	 * @return Company|false
+	 */
+	public function updateCountryByCountryId(Company $company, $countryId);
 }

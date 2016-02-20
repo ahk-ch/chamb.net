@@ -8,6 +8,7 @@
 namespace App\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
+use App\Ahk\Country;
 use App\Ahk\Industry;
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\DbRepository;
@@ -156,5 +157,21 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 		$company->user()->associate($user);
 
 		return $company;
+	}
+
+	/**
+	 * Update the country of a company
+	 *
+	 * @param Company $company
+	 * @param $countryId
+	 * @return Company|false
+	 */
+	public function updateCountryByCountryId(Company $company, $countryId)
+	{
+		$country = Country::find($countryId);
+
+		$company->country()->associate($country);
+
+		return $company->save() ? $company : false;
 	}
 }

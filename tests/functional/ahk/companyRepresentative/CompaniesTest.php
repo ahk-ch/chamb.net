@@ -144,6 +144,8 @@ class CompaniesTest extends TestCase
 			->visit(route('my.companies.create'))
 			->see(trans('ahk.enter_name'))
 			->see(trans('ahk.enter_business_leader'))
+			->see(trans('ahk.industry'))
+			->see(trans('ahk.country'))
 			->see(trans('ahk.address'))
 			->see(trans('ahk.enter_email'))
 			->see(trans('ahk.phone_number'))
