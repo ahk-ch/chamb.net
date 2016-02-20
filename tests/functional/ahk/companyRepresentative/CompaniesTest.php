@@ -8,10 +8,12 @@
 namespace tests\functional\ahk\companyRepresentative;
 
 use App\Ahk\Company;
+use App\Ahk\Country;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Str;
 use tests\TestCase;
 
 class CompaniesTest extends TestCase
@@ -64,12 +66,19 @@ class CompaniesTest extends TestCase
 		$companyRepresentativeUser = factory(User::class)->create();
 		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeUser);
 		$company = factory(Company::class)->create(['user_id' => $companyRepresentativeUser->id]);
+		$industries = factory(Industry::class, 2)->create();
+		$countries = factory(Country::class, 2)->create();
 
 		$this->actingAs($companyRepresentativeUser)
 			->visit(route('my.companies.edit', ['slug' => $company->slug]))
 			->see($company->name)
 			->see($company->business_leader)
 			->seeIsSelected('industry_id', $company->industry->id)
+			->see($industries->get(0)->id)->see($industries->get(0)->name)
+			->see($industries->get(1)->id)->see($industries->get(1)->name)
+			->seeIsSelected('country_id', $company->country->id)
+			->see($countries->get(0)->id)->see($countries->get(0)->name)
+			->see($countries->get(1)->id)->see($countries->get(1)->name)
 			->see($company->address)
 			->see($company->email)
 			->see($company->phone_number)
@@ -85,14 +94,22 @@ class CompaniesTest extends TestCase
 		$dbUserRepository = new DbUserRepository();
 		$companyRepresentativeUser = factory(User::class)->create();
 		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeUser);
+
 		$company = factory(Company::class)->create(['user_id' => $companyRepresentativeUser->id]);
 		$expectedCompany = factory(Company::class)->make(['user_id' => $companyRepresentativeUser->id]);
+		$expectedSlug = Str::slug($expectedCompany->name);
+		
+		factory(Industry::class, 2)->create();
+		factory(Country::class, 2)->create();
+
 		$expectedIndustry = factory(Industry::class)->create();
+		$expectedCountry = factory(Country::class)->create();
 
 		$this->actingAs($companyRepresentativeUser)
 			->visit(route('my.companies.edit', ['slug' => $company->slug]))
 			->type($expectedCompany->name, 'name')
 			->select($expectedIndustry->id, 'industry_id')
+			->select($expectedCountry->id, 'country_id')
 			->type($expectedCompany->business_leader, 'business_leader')
 			->type($expectedCompany->address, 'address')
 			->type($expectedCompany->email, 'email')
@@ -101,11 +118,12 @@ class CompaniesTest extends TestCase
 			->type($expectedCompany->description, 'description')
 			->attach(storage_path('app/testing/dummy_logo.png'), 'logo')
 			->press(trans('ahk.update'))
-			->seePageIs(route('my.companies.edit', ['slug' => $expectedCompany->slug]))
+			->seePageIs(route('my.companies.edit', ['slug' => $expectedSlug]))
 			->see(trans('ahk_messages.company_successfully_updated'))
 			->dontSee($company->name)
 			->see($expectedCompany->name)
 			->seeIsSelected('industry_id', $expectedIndustry->id)
+			->seeIsSelected('country_id', $expectedCountry->id)
 			->see($expectedCompany->business_leader)
 			->see($expectedCompany->address)
 			->see($expectedCompany->email)
@@ -139,13 +157,19 @@ class CompaniesTest extends TestCase
 		$dbUserRepository = new DbUserRepository();
 		$companyRepresentativeUser = factory(User::class)->create();
 		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeUser);
+		$industries = factory(Industry::class, 2)->create();
+		$countries = factory(Country::class, 2)->create();
 
 		$this->actingAs($companyRepresentativeUser)
 			->visit(route('my.companies.create'))
 			->see(trans('ahk.enter_name'))
 			->see(trans('ahk.enter_business_leader'))
 			->see(trans('ahk.industry'))
+			->see($industries->get(0)->id)->see($industries->get(0)->name)
+			->see($industries->get(1)->id)->see($industries->get(1)->name)
 			->see(trans('ahk.country'))
+			->see($countries->get(0)->id)->see($countries->get(0)->name)
+			->see($countries->get(1)->id)->see($countries->get(1)->name)
 			->see(trans('ahk.address'))
 			->see(trans('ahk.enter_email'))
 			->see(trans('ahk.phone_number'))
@@ -160,14 +184,21 @@ class CompaniesTest extends TestCase
 		$dbUserRepository = new DbUserRepository();
 		$companyRepresentativeUser = factory(User::class)->create();
 		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeUser);
+
+		factory(Industry::class, 2)->create();
+		factory(Country::class, 2)->create();
+
 		$expectedCompany = factory(Company::class)->make(['user_id' => $companyRepresentativeUser->id]);
-		factory(Industry::class, 2)->create(); # validation purposes
+		$expectedSlug = Str::slug($expectedCompany->name);
 		$expectedIndustry = factory(Industry::class)->create();
+		$expectedCountry = factory(Country::class)->create();
+
 
 		$this->actingAs($companyRepresentativeUser)
 			->visit(route('my.companies.create'))
 			->type($expectedCompany->name, 'name')
 			->select($expectedIndustry->id, 'industry_id')
+			->select($expectedCountry->id, 'country_id')
 			->type($expectedCompany->business_leader, 'business_leader')
 			->type($expectedCompany->address, 'address')
 			->type($expectedCompany->email, 'email')
@@ -176,10 +207,11 @@ class CompaniesTest extends TestCase
 			->type($expectedCompany->description, 'description')
 			->attach(storage_path('app/testing/dummy_logo.png'), 'logo')
 			->press(trans('ahk.create'))
-			->seePageIs(route('my.companies.edit', ['slug' => $expectedCompany->slug]))
+			->seePageIs(route('my.companies.edit', ['slug' => $expectedSlug]))
 			->see(trans('ahk_messages.company_successfully_stored'))
 			->see($expectedCompany->name)
 			->seeIsSelected('industry_id', $expectedIndustry->id)
+			->seeIsSelected('country_id', $expectedCountry->id)
 			->see($expectedCompany->business_leader)
 			->see($expectedCompany->address)
 			->see($expectedCompany->email)

@@ -23,8 +23,5 @@ class CountryTableSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		factory(Country::class)->create(['name' => 'Greece']);
-
-		factory(Country::class)->create(['name' => 'Germany']);
 	}
 }

@@ -26,7 +26,7 @@ class StoreCompanyRequest extends Request
         return [
             'name'            => 'required|max:255|unique:companies,name',
             'industry_id'     => 'required|exists:industries,id',
-            'company_id'      => 'required|exists:companies,id',
+            'country_id'      => 'required|exists:countries,id',
             'business_leader' => 'required|max:255|unique:companies,business_leader',
             'address'         => 'max:255',
             'email'           => 'email|max:255',

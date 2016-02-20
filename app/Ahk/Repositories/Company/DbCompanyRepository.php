@@ -54,6 +54,8 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 
 		$company = $this->updateIndustryByIndustryId($company, $data['industry_id']);
 
+		$company = $this->updateCountryByCountryId($company, $data['country_id']);
+
 		return $company->save() ? $company : false;
 	}
 
@@ -138,11 +140,7 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 
 		$this->assignRepresentativeUser($company, $user);
 
-		$this->updatePrimaryData($company, $data);
-
-		$this->updateIndustryByIndustryId($company, $data['industry_id']);
-
-		return $company->save() ? $company : false;
+		return $this->update($company, $data);
 	}
 
 	/**

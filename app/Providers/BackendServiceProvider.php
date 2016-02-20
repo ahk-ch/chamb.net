@@ -6,6 +6,8 @@ use App\Ahk\Repositories\Article\ArticleRepository;
 use App\Ahk\Repositories\Article\DbArticleRepository;
 use App\Ahk\Repositories\Company\CompanyRepository;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
+use App\Ahk\Repositories\Country\CountryRepository;
+use App\Ahk\Repositories\Country\DbCountryRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\Repositories\Industry\IndustryRepository;
 use App\Ahk\Repositories\Tag\DbTagRepository;
@@ -34,6 +36,7 @@ class BackendServiceProvider extends ServiceProvider {
 	{
 		$this->app->bind(UserRepository::class, DbUserRepository::class);
 		$this->app->bind(IndustryRepository::class, DbIndustryRepository::class);
+		$this->app->bind(CountryRepository::class, DbCountryRepository::class);
 		$this->app->bind(TagRepository::class, DbTagRepository::class);
 		$this->app->bind(ArticleRepository::class, DbArticleRepository::class);
 		$this->app->bind(CompanyRepository::class, DbCompanyRepository::class);

@@ -6,6 +6,7 @@ use App\Ahk\Company;
 use App\Ahk\Industry;
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\Company\CompanyRepository;
+use App\Ahk\Repositories\Country\CountryRepository;
 use App\Ahk\Repositories\Industry\IndustryRepository;
 use App\Ahk\Repositories\User\UserRepository;
 use App\Http\Controllers\Ahk\BaseController;
@@ -31,15 +32,20 @@ class CompaniesController extends BaseController
 	 * @var IndustryRepository
 	 */
 	private $industryRepository;
+	/**
+	 * @var CountryRepository
+	 */
+	private $countryRepository;
 
 	/**
 	 * CompaniesController constructor.
 	 * @param CompanyRepository $companyRepository
 	 * @param UserRepository $userRepository
 	 * @param IndustryRepository $industryRepository
+	 * @param CountryRepository $countryRepository
 	 */
 	public function __construct(CompanyRepository $companyRepository, UserRepository $userRepository,
-	                            IndustryRepository $industryRepository)
+	                            IndustryRepository $industryRepository, CountryRepository $countryRepository)
 	{
 		parent::__construct();
 
@@ -48,6 +54,7 @@ class CompaniesController extends BaseController
 		$this->companyRepository = $companyRepository;
 		$this->userRepository = $userRepository;
 		$this->industryRepository = $industryRepository;
+		$this->countryRepository = $countryRepository;
 	}
 
 	/**
@@ -75,7 +82,9 @@ class CompaniesController extends BaseController
 
 		$industries = $this->industryRepository->all()->pluck('name', 'id');
 
-		return view('ahk.my.companies.create', compact('company', 'industries'));
+		$countries = $this->countryRepository->all()->pluck('name', 'id');
+
+		return view('ahk.my.companies.create', compact('company', 'industries', 'countries'));
 	}
 
 	/**
@@ -89,11 +98,8 @@ class CompaniesController extends BaseController
 	public function store(Requests\Ahk\StoreCompanyRequest $request)
 	{
 		$user = Auth::user();
-		$formData = $request->only([
-			'name', 'description', 'focus', 'business_leader', 'address', 'email',
-			'phone_number', 'industry_id']);
 
-		if ( ! $company = $this->companyRepository->store($user, $formData) )
+		if ( ! $company = $this->companyRepository->store($user, $request->all()) )
 		{
 			Flash::error(trans('ahk_messages.unknown_error_occurred'));
 
@@ -120,7 +126,9 @@ class CompaniesController extends BaseController
 	{
 		$industries = $this->industryRepository->all()->pluck('name', 'id');
 
-		return view('ahk.my.companies.edit', compact('company', 'industries'));
+		$countries = $this->countryRepository->all()->pluck('name', 'id');
+
+		return view('ahk.my.companies.edit', compact('company', 'industries', 'countries'));
 	}
 
 	/**
@@ -133,9 +141,6 @@ class CompaniesController extends BaseController
 	public function update(UpdateCompanyRequest $request, Company $company)
 	{
 		$user = Auth::user();
-		$formData = $request->only([
-			'name', 'description', 'focus', 'business_leader', 'address', 'email',
-			'phone_number', 'slug', 'industry_id']);
 
 		if ( ! $this->userRepository->hasCompany($user, $company) )
 		{
@@ -144,7 +149,7 @@ class CompaniesController extends BaseController
 			return back()->withInput();
 		}
 
-		if ( ! $company = $this->companyRepository->update($company, $formData) )
+		if ( ! $company = $this->companyRepository->update($company, $request->all()) )
 		{
 			Flash::error(trans('ahk_messages.unknown_error_occurred'));
 

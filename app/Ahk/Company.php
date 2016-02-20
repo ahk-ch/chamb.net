@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
 	protected $fillable = [
-		'name', 'description', 'focus', 'business_leader', 'address', 'email', 'phone_number', 'slug'
+		'name', 'slug', 'description', 'focus', 'business_leader', 'address', 'email', 'phone_number',
 	];
 
 	/**

@@ -29,7 +29,7 @@
         </label>
         {!! Form::select('country_id', $countries, $company->country ? $company->country->id : null, ['class' => 'form-control select2',
         'required' => 'required', ]) !!}
-        {!! $errors->first('country', ':message') !!}
+        {!! $errors->first('country_id', ':message') !!}
     </div>
 </div>
 <div class="row">
