@@ -53,6 +53,7 @@
         'placeholder' => trans('ahk.enter_focus'), 'required' => 'required', ]) !!}
         {!! $errors->first('focus', ':message') !!}
     </div>
+
     <div class="form-group col-md-6 @if($errors->first('description')) alert alert-danger fade in @endif">
         <label for="description"> <i class="fa fa-edit"></i> {!! trans('ahk.description') !!}
         </label>
@@ -73,7 +74,7 @@
 
         <div class="fileinput fileinput-new" data-provides="fileinput">
             <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                <img alt="Holder" src="{!! route('ahk.img', ['imgName' => $company->logo]) !!}">
+                <img alt="{!! trans('ahk.logo') !!}" src="{!! $company->logo ? route('ahk.img', ['imgName' => $company->logo]) : "" !!}">
             </div>
             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
             <div>

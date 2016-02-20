@@ -15,6 +15,8 @@ return [
 	|
 	*/
 
+	'company_successfully_stored'                => 'Unternehmen wird gespeichert.',
+	'company_successfully_updated'               => 'Unternehmen wird aktualisiert.',
 	'credentials_mismatch'                       => 'Diese Anmeldeinformationen nicht übereinstimmen unserer Datenbank.',
 	'check_your_email_and_complete_registration' => 'Bitte überprüfen Sie Ihre E-Mail, um die Registrierung abzuschließen.',
 	'successful_sign_out'                        => 'Sie haben sich erfolgreich abgemeldet!',

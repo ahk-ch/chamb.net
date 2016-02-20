@@ -15,6 +15,8 @@ return [
 	|
 	*/
 
+	'company_successfully_stored'                => 'Η εταιρεία έχει αποθηκευτεί.',
+	'company_successfully_updated'               => 'Η εταιρεία έχει ενημερωθεί.',
 	'credentials_mismatch'                       => 'Αυτά τα διαπιστευτήρια δεν ταιριάζουν με τη βάση δεδομένων μας.',
 	'check_your_email_and_complete_registration' => 'Παρακαλώ ελέγξτε το email σας, για να ολοκληρώσετε την εγγραφή σας.',
 	'successful_sign_in'                         => 'Έχετε συνδεθεί με επιτυχία!',

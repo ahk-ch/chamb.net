@@ -15,6 +15,8 @@ return [
 	|
 	*/
 
+	'company_successfully_stored'                => 'Company is stored.',
+	'company_successfully_updated'               => 'Company is updated.',
 	'credentials_mismatch'                       => 'Those credentials do not match our database.',
 	'check_your_email_and_complete_registration' => 'Please check your email, to complete your registration.',
 	'successful_sign_in'                         => 'You have successfully signed in!',
