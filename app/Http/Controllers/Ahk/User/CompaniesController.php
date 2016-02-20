@@ -91,7 +91,7 @@ class CompaniesController extends BaseController
 			$this->companyRepository->updateLogo($company, $request->file('logo')->getRealpath());
 		}
 
-		Flash::success(trans('ahk_messages.company_successfully_store'));
+		Flash::success(trans('ahk_messages.company_successfully_stored'));
 
 		return redirect()->route('my.companies.edit', ['slug' => $company->slug]);
 	}
