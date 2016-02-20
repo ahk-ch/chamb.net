@@ -4,13 +4,12 @@
 # Pages
 Route::get('/', ['as' => 'home_path', 'uses' => 'Ahk\HomeController@home']);
 Route::get('about', ['as' => 'about_path', 'uses' => 'Ahk\HomeController@about']);
-//Route::get('', ['as' => 'companies.users', 'uses' => 'Ahk\HomeController@termsOfUse']);
 Route::resource('companies', 'Ahk\CompaniesController', ['only' => ['index', 'show']]);
 Route::get('lang/{lang}', ['as' => 'set_language', 'uses' => 'Ahk\SettingsController@setLocale']);
 
 Route::group(['prefix' => 'my'], function ()
 {
-	Route::resource('companies', 'Ahk\User\CompaniesController', ['only' => ['index', 'edit', 'update']]);
+	Route::resource('companies', 'Ahk\User\CompaniesController', ['only' => ['index', 'create', 'edit', 'update']]);
 	Route::get('profile', ['as' => 'my.profile', 'uses' => 'Ahk\HealthController@news']);
 });
 

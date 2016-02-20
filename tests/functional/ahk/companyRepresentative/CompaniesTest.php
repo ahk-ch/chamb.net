@@ -77,7 +77,7 @@ class CompaniesTest extends TestCase
 	}
 
 	/** @test */
-	public function it_updates_company_data()
+	public function it_updates_company()
 	{
 		$dbUserRepository = new DbUserRepository();
 		$companyRepresentativeUser = factory(User::class)->create();
@@ -87,6 +87,57 @@ class CompaniesTest extends TestCase
 
 		$this->actingAs($companyRepresentativeUser)
 			->visit(route('my.companies.edit', ['slug' => $company->slug]))
+			->type($expectedCompany->name, 'name')
+			->type($expectedCompany->business_leader, 'business_leader')
+			->type($expectedCompany->address, 'address')
+			->type($expectedCompany->email, 'email')
+			->type($expectedCompany->phone_number, 'phone_number')
+			->type($expectedCompany->focus, 'focus')
+			->type($expectedCompany->description, 'description')
+			->attach(storage_path('app/testing/dummy_logo.png'), 'logo')
+			->press(trans('ahk.update'))
+			->seePageIs(route('my.companies.edit', ['slug' => $expectedCompany->slug]))
+			->see(trans('ahk_messages.company_successfully_updated'))
+			->dontSee($company->name)
+			->see($expectedCompany->name)
+			->see($expectedCompany->business_leader)
+			->see($expectedCompany->address)
+			->see($expectedCompany->email)
+			->see($expectedCompany->phone_number)
+			->see($expectedCompany->focus)
+			->see($expectedCompany->description)
+			->see(route('ahk.img', ['imgName' => $expectedCompany->logo]));
+	}
+
+	/** @test */
+	public function it_access_company_create_page()
+	{
+		$dbUserRepository = new DbUserRepository();
+		$companyRepresentativeUser = factory(User::class)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeUser);
+
+		$this->actingAs($companyRepresentativeUser)
+			->visit(route('my.companies.create'))
+			->seePageIs(route('my.companies.create'));
+
+		$this->actingAs($companyRepresentativeUser)
+			->visit(route('my.companies.index'))
+			->click("#create-company-btn")
+			->seePageIs(route('my.companies.create'));
+
+	}
+
+	/** @test */
+	public function it_creates_company()
+	{
+		$dbUserRepository = new DbUserRepository();
+		$companyRepresentativeUser = factory(User::class)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeUser);
+		$company = factory(Company::class)->create(['user_id' => $companyRepresentativeUser->id]);
+		$expectedCompany = factory(Company::class)->make(['user_id' => $companyRepresentativeUser->id]);
+
+		$this->actingAs($companyRepresentativeUser)
+			->visit(route('my.companies.create'))
 			->type($expectedCompany->name, 'name')
 			->type($expectedCompany->business_leader, 'business_leader')
 			->type($expectedCompany->address, 'address')

@@ -32,9 +32,10 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    <button class="btn btn-default btn-sm btn-block">
-                                        <i class="fa fa-plus"></i> New Company
-                                    </button>
+                                    <a id="create-company-btn" href="{!! route('my.companies.create') !!}"
+                                            class="btn btn-default btn-sm btn-block">
+                                        <i class="fa fa-plus"></i> {!! trans('ahk.create') !!}
+                                    </a>
                                 </td>
                                 <td></td>
                                 <td></td>
