@@ -64,7 +64,9 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	{
 		$data['slug'] = Str::slug($data['name']);
 
-		return $company->fill($data)->save() ? $company : false;
+		$company->fill($data);
+
+		return $company;
 	}
 
 	/**
@@ -112,9 +114,11 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	{
 		$company = new Company();
 
-		$company = $this->updatePrimaryData($company, $data);
+		$this->assignRepresentativeUser($company, $user);
 
+		$this->updatePrimaryData($company, $data);
 
+		return $company->save() ? $company : false;
 	}
 
 	/**
@@ -126,8 +130,10 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	 */
 	public function assignRepresentativeUser(Company $company, User $user)
 	{
+		$company->user()->dissociate();
+
 		$company->user()->associate($user);
 		
-		return $company->save() ? $company : false;
+		return $company;
 	}
 }

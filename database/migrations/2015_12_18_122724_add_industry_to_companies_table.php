@@ -14,7 +14,7 @@ class AddIndustryToCompaniesTable extends Migration
     public function up()
     {
         Schema::table('companies', function (Blueprint $table) {
-            $table->integer('industry_id')->unsigned()->index();
+            $table->integer('industry_id')->unsigned()->index()->nullable();
             $table->foreign('industry_id')->references('id')->on('industries')->onDelete('restrict')->onUpdate('cascade');
         });
     }
