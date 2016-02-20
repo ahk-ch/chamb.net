@@ -8,6 +8,7 @@
 namespace App\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
+use App\Ahk\Industry;
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\DbRepository;
 use App\Ahk\Storage\CompaniesStorage;
@@ -130,10 +131,22 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	 */
 	public function assignRepresentativeUser(Company $company, User $user)
 	{
-		$company->user()->dissociate();
-
 		$company->user()->associate($user);
-		
+
+		return $company;
+	}
+
+	/**
+	 * Update the industry of a company
+	 *
+	 * @param Company $company
+	 * @param Industry $industry
+	 * @return Company|false
+	 */
+	public function updateIndustry(Company $company, Industry $industry)
+	{
+		$company->industry()->associate($industry);
+
 		return $company;
 	}
 }

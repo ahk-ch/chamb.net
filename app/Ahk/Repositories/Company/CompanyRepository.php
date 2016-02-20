@@ -8,6 +8,7 @@
 namespace App\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
+use App\Ahk\Industry;
 use App\Ahk\User;
 
 interface CompanyRepository
@@ -72,4 +73,13 @@ interface CompanyRepository
 	 * @return Company|false
 	 */
 	public function assignRepresentativeUser(Company $company, User $user);
+
+	/**
+	 * Update the industry of a company
+	 *
+	 * @param Company $company
+	 * @param Industry $industry
+	 * @return Company|false
+	 */
+	public function updateIndustry(Company $company, Industry $industry);
 }

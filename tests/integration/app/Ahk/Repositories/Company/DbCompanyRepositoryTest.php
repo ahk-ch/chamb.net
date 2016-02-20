@@ -8,6 +8,7 @@
 namespace tests\integration\app\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
+use App\Ahk\Industry;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
@@ -155,5 +156,20 @@ class DbCompanyRepositoryTest extends TestCase
 		$dbCompanyRepository->assignRepresentativeUser($company, $user);
 
 		$this->assertSame($company->user->id, $user->id);
+	}
+
+	/** @test */
+	public function it_updates_company_industry()
+	{
+		$dbCompanyRepository = new DbCompanyRepository();
+		$company = factory(Company::class)->create();
+		$expectedIndustry = factory(Industry::class)->create();
+
+		$this->assertNotSame($company->industry->id, $expectedIndustry->id);
+
+		$dbCompanyRepository->updateIndustry($company, $expectedIndustry);
+
+		$this->assertSame($company->industry->id, $expectedIndustry->id);
+
 	}
 }
