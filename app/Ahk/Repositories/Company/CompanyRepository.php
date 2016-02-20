@@ -78,8 +78,8 @@ interface CompanyRepository
 	 * Update the industry of a company
 	 *
 	 * @param Company $company
-	 * @param Industry $industry
+	 * @param $industryId
 	 * @return Company|false
 	 */
-	public function updateIndustry(Company $company, Industry $industry);
+	public function updateIndustryByIndustryId(Company $company, $industryId);
 }

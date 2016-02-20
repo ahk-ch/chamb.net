@@ -25,6 +25,7 @@ class UpdateCompanyRequest extends Request
 	{
 		return [
 			'name'            => 'required|max:255|unique:companies,name,' . $this->get('id'),
+			'industry_id'     => 'required|exists:industries,id',
 			'business_leader' => 'required|max:255|unique:companies,business_leader,' . $this->get('id'),
 			'address'         => 'max:255',
 			'email'           => 'email|max:255,' . $this->get('id'),

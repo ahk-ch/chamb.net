@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Ahk\User;
 
 use App\Ahk\Company;
+use App\Ahk\Industry;
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\Company\CompanyRepository;
+use App\Ahk\Repositories\Industry\IndustryRepository;
 use App\Ahk\Repositories\User\UserRepository;
 use App\Http\Controllers\Ahk\BaseController;
 use App\Http\Requests;
 use App\Http\Requests\Ahk\UpdateCompanyRequest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -26,13 +27,19 @@ class CompaniesController extends BaseController
 	 * @var UserRepository
 	 */
 	private $userRepository;
+	/**
+	 * @var IndustryRepository
+	 */
+	private $industryRepository;
 
 	/**
 	 * CompaniesController constructor.
 	 * @param CompanyRepository $companyRepository
 	 * @param UserRepository $userRepository
+	 * @param IndustryRepository $industryRepository
 	 */
-	public function __construct(CompanyRepository $companyRepository, UserRepository $userRepository)
+	public function __construct(CompanyRepository $companyRepository, UserRepository $userRepository,
+	                            IndustryRepository $industryRepository)
 	{
 		parent::__construct();
 
@@ -40,6 +47,7 @@ class CompaniesController extends BaseController
 
 		$this->companyRepository = $companyRepository;
 		$this->userRepository = $userRepository;
+		$this->industryRepository = $industryRepository;
 	}
 
 	/**
@@ -63,7 +71,11 @@ class CompaniesController extends BaseController
 	{
 		$company = new Company;
 
-		return view('ahk.my.companies.create', compact('company'));
+		$company->industry = new Industry();
+
+		$industries = $this->industryRepository->all()->pluck('name', 'id');
+
+		return view('ahk.my.companies.create', compact('company', 'industries'));
 	}
 
 	/**
@@ -77,7 +89,9 @@ class CompaniesController extends BaseController
 	public function store(Requests\Ahk\StoreCompanyRequest $request)
 	{
 		$user = Auth::user();
-		$formData = $request->only((new Company())->getFillable());
+		$formData = $request->only([
+			'name', 'description', 'focus', 'business_leader', 'address', 'email',
+			'phone_number', 'industry_id']);
 
 		if ( ! $company = $this->companyRepository->store($user, $formData) )
 		{
@@ -104,7 +118,9 @@ class CompaniesController extends BaseController
 	 */
 	public function edit(Company $company)
 	{
-		return view('ahk.my.companies.edit', compact('company'));
+		$industries = $this->industryRepository->all()->pluck('name', 'id');
+
+		return view('ahk.my.companies.edit', compact('company', 'industries'));
 	}
 
 	/**
@@ -117,7 +133,9 @@ class CompaniesController extends BaseController
 	public function update(UpdateCompanyRequest $request, Company $company)
 	{
 		$user = Auth::user();
-		$formData = $request->only((new Company())->getFillable());
+		$formData = $request->only([
+			'name', 'description', 'focus', 'business_leader', 'address', 'email',
+			'phone_number', 'slug', 'industry_id']);
 
 		if ( ! $this->userRepository->hasCompany($user, $company) )
 		{

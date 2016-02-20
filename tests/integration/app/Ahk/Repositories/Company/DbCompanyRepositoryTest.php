@@ -82,20 +82,23 @@ class DbCompanyRepositoryTest extends TestCase
 		$dbUserRepository->assignCompanyRepresentativeRole($user);
 		$company = factory(Company::class)->create(['user_id' => $user->id]);
 		$newCompanyData = factory(Company::class)->make();
+		$expectedIndustry = factory(Industry::class)->create();
 
 		$keys = $newCompanyData->getFillable();
+		$expectedCompanyData = array_only($newCompanyData->toArray(), $keys);
+		$currentCompanyData = array_only($company->toArray(), $keys);
 
-		$this->assertNotSame(
-			array_only($newCompanyData->toArray(), $keys),
-			array_only($company->toArray(), $keys)
-		);
+		$this->assertNotSame($expectedCompanyData, $currentCompanyData);
 
-		$dbCompanyRepository->update($company, array_only($newCompanyData->toArray(), $keys));
+		$this->assertNotSame($expectedIndustry->id, $company->industry->id);
 
-		$this->assertSame(
-			array_only($newCompanyData->toArray(), $keys),
-			array_only($newCompanyData->toArray(), $keys)
-		);
+		$company = $dbCompanyRepository->update($company, $expectedCompanyData + ['industry_id' => $expectedIndustry->id]);
+
+		$currentCompanyData = array_only($company->toArray(), $keys);
+
+		$this->assertSame($expectedCompanyData, $currentCompanyData);
+
+		$this->assertSame($expectedIndustry->id, $company->industry->id);
 	}
 
 	/** @test */
@@ -159,7 +162,7 @@ class DbCompanyRepositoryTest extends TestCase
 	}
 
 	/** @test */
-	public function it_updates_company_industry()
+	public function it_updates_company_industry_by_industry_id()
 	{
 		$dbCompanyRepository = new DbCompanyRepository();
 		$company = factory(Company::class)->create();
@@ -167,7 +170,7 @@ class DbCompanyRepositoryTest extends TestCase
 
 		$this->assertNotSame($company->industry->id, $expectedIndustry->id);
 
-		$dbCompanyRepository->updateIndustry($company, $expectedIndustry);
+		$company = $dbCompanyRepository->updateIndustryByIndustryId($company, $expectedIndustry->id);
 
 		$this->assertSame($company->industry->id, $expectedIndustry->id);
 

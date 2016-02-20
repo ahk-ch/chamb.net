@@ -11,8 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
 	protected $fillable = [
-		'name', 'description', 'focus', 'business_leader', 'address', 'email',
-		'phone_number', 'slug'
+		'name', 'description', 'focus', 'business_leader', 'address', 'email', 'phone_number', 'slug'
 	];
 
 	/**
@@ -67,4 +66,5 @@ class Company extends Model
 		return $this->belongsToMany('App\Ahk\Service')
 			->withTimestamps();
 	}
+
 }

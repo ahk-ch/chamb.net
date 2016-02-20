@@ -2,6 +2,7 @@
 @section('title', trans('ahk.create'))
 @section('css-implementing-plugins')
     <link href='{!! url("vendor/jasny-bootstrap/dist/css/jasny-bootstrap.min.css") !!}' rel='stylesheet' type='text/css'/>
+    <link href='{!! url("vendor/select2/dist/css/select2.min.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
 @section('css-page-style')
 @endsection
@@ -42,6 +43,12 @@
 @section('js-implementing-plugins')
     <script src="{!! url('vendor/jasny-bootstrap/dist/js/jasny-bootstrap.min.js') !!}"></script>
     <script src="{!! url('vendor/holderjs/holder.min.js') !!}"></script>
+    <script src="{!! url('vendor/select2/dist/js/select2.min.js') !!}"></script>
 @endsection
 @section('js-page-level')
+    <script>
+        jQuery(document).ready(function () {
+            $(".select2").select2();
+        });
+    </script>
 @endsection

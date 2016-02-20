@@ -51,7 +51,9 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	{
 		$company = $this->updatePrimaryData($company, $data);
 
-		return $company;
+		$company = $this->updateIndustryByIndustryId($company, $data['industry_id']);
+
+		return $company->save() ? $company : false;
 	}
 
 	/**
@@ -65,9 +67,27 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	{
 		$data['slug'] = Str::slug($data['name']);
 
-		$company->fill($data);
+		$company->fill(array_only($data,
+			['name', 'description', 'focus', 'business_leader', 'address', 'email', 'phone_number', 'slug']
+		));
 
 		return $company;
+	}
+
+	/**
+	 * Update the industry of a company
+	 *
+	 * @param Company $company
+	 * @param Industry $industryId
+	 * @return Company|false
+	 */
+	public function updateIndustryByIndustryId(Company $company, $industryId)
+	{
+		$industry = Industry::find($industryId);
+
+		$company->industry()->associate($industry);
+
+		return $company->save() ? $company : false;
 	}
 
 	/**
@@ -119,6 +139,8 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 
 		$this->updatePrimaryData($company, $data);
 
+		$this->updateIndustryByIndustryId($company, $data['industry_id']);
+
 		return $company->save() ? $company : false;
 	}
 
@@ -132,20 +154,6 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	public function assignRepresentativeUser(Company $company, User $user)
 	{
 		$company->user()->associate($user);
-
-		return $company;
-	}
-
-	/**
-	 * Update the industry of a company
-	 *
-	 * @param Company $company
-	 * @param Industry $industry
-	 * @return Company|false
-	 */
-	public function updateIndustry(Company $company, Industry $industry)
-	{
-		$company->industry()->associate($industry);
 
 		return $company;
 	}

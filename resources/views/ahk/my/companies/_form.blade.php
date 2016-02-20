@@ -7,13 +7,30 @@
         {!! $errors->first('name', ':message') !!}
     </div>
 
+    <div class="form-group col-md-6 @if($errors->first('industry_id')) alert alert-danger fade in @endif">
+        <label for="name"> <i class="fa fa-edit"></i> {!! trans('ahk.industry') !!}
+        </label>
+        {!! Form::select('industry_id', $industries, $company->industry ? $company->industry->id : null, ['class' => 'form-control select2',
+        'required' => 'required', ]) !!}
+        {!! $errors->first('name', ':message') !!}
+    </div>
+</div>
+
+<div class="row">
     <div class="form-group col-md-6 @if($errors->first('business_leader')) alert alert-danger fade in @endif">
-        <label for="business_leader">
-            <i class="fa fa-edit"></i> {!! trans('ahk.business_leader') !!}
+        <label for="business_leader"> <i class="fa fa-edit"></i> {!! trans('ahk.business_leader') !!}
         </label>
         {!! Form::input('text', 'business_leader', $company->business_leader, ['class' => 'form-control',
         'placeholder' => trans('ahk.enter_business_leader'), 'required' => 'required', ]) !!}
         {!! $errors->first('business_leader', ':message') !!}
+    </div>
+    <div class="form-group col-md-6 @if($errors->first('phone_number')) alert alert-danger fade in @endif">
+        <label for="phone_number"> <i class="fa fa-phone"></i> {!! trans('ahk.phone_number') !!}
+        </label>
+        {!! Form::input('text', 'phone_number', $company->phone_number,
+        ['class' => 'form-control', 'placeholder' => trans('ahk.enter_phone_number'),
+         'required' => 'required', ]) !!}
+        {!! $errors->first('phone_number', ':message') !!}
     </div>
 </div>
 
@@ -31,17 +48,6 @@
         {!! Form::email('email', $company->email, ['class' => 'form-control',
         'placeholder' => trans('ahk.enter_email'), 'required' => 'required', ]) !!}
         {!! $errors->first('email', ':message') !!}
-    </div>
-</div>
-
-<div class="row">
-    <div class="form-group col-md-6 @if($errors->first('phone_number')) alert alert-danger fade in @endif">
-        <label for="phone_number"> <i class="fa fa-phone"></i> {!! trans('ahk.phone_number') !!}
-        </label>
-        {!! Form::input('text', 'phone_number', $company->phone_number,
-        ['class' => 'form-control', 'placeholder' => trans('ahk.enter_phone_number'),
-         'required' => 'required', ]) !!}
-        {!! $errors->first('phone_number', ':message') !!}
     </div>
 </div>
 
