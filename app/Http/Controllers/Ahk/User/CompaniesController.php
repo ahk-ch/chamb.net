@@ -62,19 +62,38 @@ class CompaniesController extends BaseController
 	public function create()
 	{
 		$company = new Company;
-		
+
 		return view('ahk.my.companies.create', compact('company'));
 	}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request $request
+	 * @param Requests\Ahk\StoreCompanyRequest $request
 	 * @return \Illuminate\Http\Response
+	 * @internal param Requests\Ahk\StoreCompanyRequest $storeCompanyRequest
+	 * @internal param Request $request
 	 */
-	public function store(Request $request)
+	public function store(Requests\Ahk\StoreCompanyRequest $request)
 	{
-		//
+		$user = Auth::user();
+		$formData = $request->only((new Company())->getFillable());
+
+		if ( ! $company = $this->companyRepository->store($user, $formData) )
+		{
+			Flash::error(trans('ahk_messages.unknown_error_occurred'));
+
+			return back()->withInput();
+		}
+
+		if ( $request->file('logo') !== null )
+		{
+			$this->companyRepository->updateLogo($company, $request->file('logo')->getRealpath());
+		}
+
+		Flash::success(trans('ahk_messages.company_successfully_store'));
+
+		return redirect()->route('my.companies.edit', ['slug' => $company->slug]);
 	}
 
 	/**

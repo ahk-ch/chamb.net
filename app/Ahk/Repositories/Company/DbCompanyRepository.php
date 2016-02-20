@@ -94,10 +94,40 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 		if ( ! $company->save() )
 		{
 			Flash::error(trans('ahk_messages.unable_to_update_logo'));
-			
-			return  false;
+
+			return false;
 		}
-		
+
 		return $company;
+	}
+
+	/**
+	 * Store company
+	 *
+	 * @param User $user
+	 * @param array $data
+	 * @return Company|false
+	 */
+	public function store(User $user, array $data)
+	{
+		$company = new Company();
+
+		$company = $this->updatePrimaryData($company, $data);
+
+
+	}
+
+	/**
+	 * Assign company representative user
+	 *
+	 * @param Company $company
+	 * @param User $user
+	 * @return Company|false
+	 */
+	public function assignRepresentativeUser(Company $company, User $user)
+	{
+		$company->user()->associate($user);
+		
+		return $company->save() ? $company : false;
 	}
 }

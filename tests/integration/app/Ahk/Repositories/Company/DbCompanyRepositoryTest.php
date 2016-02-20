@@ -10,7 +10,6 @@ namespace tests\integration\app\Ahk\Repositories\Company;
 use App\Ahk\Company;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
-use App\Ahk\Storage\CompaniesStorage;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Storage;
@@ -121,5 +120,40 @@ class DbCompanyRepositoryTest extends TestCase
 		$dbCompanyRepository->updateLogo($company, $tempLogoLocation);
 
 		$this->assertTrue(Storage::exists($company->logo));
+	}
+
+	/** @test */
+	public function it_creates_company()
+	{
+		$dbCompanyRepository = new DbCompanyRepository();
+		$dbUserRepository = new DbUserRepository();
+		$user = factory(User::class)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($user);
+		$newCompanyData = factory(Company::class)->make();
+
+		$keys = $newCompanyData->getFillable();
+		$expectedCompanyData = array_only($newCompanyData->toArray(), $keys);
+
+		$this->dontSeeInDatabase('companies', $expectedCompanyData);
+
+		$dbCompanyRepository->store($user, $expectedCompanyData);
+
+		$this->seeInDatabase('companies', $expectedCompanyData);
+	}
+
+	/** @test */
+	public function it_assigns_representative_user()
+	{
+		$dbCompanyRepository = new DbCompanyRepository();
+		$dbUserRepository = new DbUserRepository();
+		$user = factory(User::class)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($user);
+		$company = factory(Company::class)->create();
+
+		$this->assertNotSame($company->user->id, $user->id);
+
+		$dbCompanyRepository->assignRepresentativeUser($company, $user);
+
+		$this->assertSame($company->user->id, $user->id);
 	}
 }
