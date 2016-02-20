@@ -33,7 +33,7 @@ class UpdateCompanyRequest extends Request
 			'phone_number'    => 'max:255',
 			'focus'           => 'max:100',
 			'description'     => 'max:700',
-			'logo'            => 'image',
+			'logo_path'       => 'image',
 		];
 	}
 }

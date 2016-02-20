@@ -48,6 +48,7 @@ return [
 	'hide'                                                                 => 'Hide',
 	'home'                                                                 => 'Home',
 	'i_agree_to_the'                                                       => 'I agree to the',
+	'industry'                                                             => 'Industry',
 	'industries'                                                           => 'Industries',
 	'info'                                                                 => 'Info',
 	'language_skills'                                                      => 'Language Skills',

@@ -14,14 +14,22 @@
 use App\Ahk\Article;
 use App\Ahk\Company;
 use App\Ahk\Country;
+use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Service;
-use App\Ahk\Storage\CompaniesStorage;
+use App\Ahk\Storage\FilesStorage;
 use App\Ahk\User;
 use Illuminate\Support\Facades\Storage;
 
 $factory->define(User::class, function (Faker\Generator $faker)
 {
+//	Storage::makeDirectory($storageLocation);
+//	$avatarLocation = $storageLocation . "logo.png";
+//	Storage::put(
+//		$avatarLocation,
+//		file_get_contents(storage_path('app/testing/dummy_logo.png'))
+//	);
+
 	return [
 		'name'       => "$faker->firstName $faker->lastName",
 		'email'      => $faker->unique()->email,
@@ -114,19 +122,12 @@ $factory->defineAs(Company::class, 'without_relations', function (Faker\Generato
 {
 	$name = $faker->unique()->name;
 	$slug = \Illuminate\Support\Str::slug($name);
-
-	$storageLocation = CompaniesStorage::getAhkStorageDirectoryByCompanySlug($slug);
-	Storage::makeDirectory($storageLocation);
-	$logoLocation = $storageLocation . "logo.png";
-	Storage::put(
-		$logoLocation,
-		file_get_contents(storage_path('app/testing/dummy_logo.png'))
-	);
+	$file = factory(File::class)->create();
 
 	return [
 		'slug'            => $slug,
 		'name'            => $name,
-		'logo'            => $logoLocation,
+		'logo_path'       => $file->path,
 		'focus'           => $faker->words(10, true),
 		'description'     => $faker->paragraph,
 		'business_leader' => $faker->name,
@@ -154,5 +155,22 @@ $factory->define(Service::class, function (Faker\Generator $faker)
 {
 	return [
 		'name' => $faker->unique()->name,
+	];
+});
+
+$factory->define(File::class, function (Faker\Generator $faker)
+{
+	$name = $faker->unique()->name;
+	$slug = \Illuminate\Support\Str::slug($name);
+	$storageLocation = FilesStorage::getFilesPath();
+	Storage::makeDirectory($storageLocation);
+	$fileLocation = $storageLocation . $slug . ".png" ;
+	Storage::put($fileLocation, file_get_contents(storage_path('app/testing/dummy_logo.png')));
+
+	return [
+		'name'        => $name,
+		'slug'        => $slug,
+		'description' => $faker->paragraph(),
+		'path'        => $fileLocation,
 	];
 });

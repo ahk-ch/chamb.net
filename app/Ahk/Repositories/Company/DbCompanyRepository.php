@@ -12,7 +12,7 @@ use App\Ahk\Country;
 use App\Ahk\Industry;
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\DbRepository;
-use App\Ahk\Storage\CompaniesStorage;
+use App\Ahk\Storage\FilesStorage;
 use App\Ahk\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -39,6 +39,69 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	public function getByUser(User $user)
 	{
 		return Company::where('user_id', $user->id);
+	}
+
+	/**
+	 * Update company logo
+	 *
+	 * @param Company $company
+	 * @param $clientOriginalName
+	 * @param $realPath
+	 * @param null $storageLocation
+	 * @return Company|false
+	 */
+	public function updateLogo(Company $company, $clientOriginalName, $realPath, $storageLocation = null)
+	{
+		$storageLocation = $storageLocation === null ? FilesStorage::getFilesPath() : $storageLocation;
+
+		$logoLocation = $storageLocation . $clientOriginalName;
+
+		if ( ! File::exists($storageLocation) ) Storage::makeDirectory($storageLocation);
+
+		if ( Storage::exists($logoLocation) ) Storage::delete($logoLocation);
+
+		Storage::put($logoLocation, file_get_contents($realPath));
+
+		$company->logo = $logoLocation;
+
+		if ( ! $company->save() )
+		{
+			Flash::error(trans('ahk_messages.unable_to_update_logo'));
+
+			return false;
+		}
+
+		return $company;
+	}
+
+	/**
+	 * Store company
+	 *
+	 * @param User $user
+	 * @param array $data
+	 * @return Company|false
+	 */
+	public function store(User $user, array $data)
+	{
+		$company = new Company();
+
+		$this->assignRepresentativeUser($company, $user);
+
+		return $this->update($company, $data);
+	}
+
+	/**
+	 * Assign company representative user
+	 *
+	 * @param Company $company
+	 * @param User $user
+	 * @return Company|false
+	 */
+	public function assignRepresentativeUser(Company $company, User $user)
+	{
+		$company->user()->associate($user);
+
+		return $company;
 	}
 
 	/**
@@ -91,70 +154,6 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 		$company->industry()->associate($industry);
 
 		return $company->save() ? $company : false;
-	}
-
-	/**
-	 * Update company logo
-	 *
-	 * @param Company $company
-	 * @param $tempLogoPath
-	 * @param null $storageLocation
-	 * @return Company|false
-	 */
-	public function updateLogo(Company $company, $tempLogoPath, $storageLocation = null)
-	{
-		$storageLocation = $storageLocation === null ?
-			CompaniesStorage::getAhkStorageDirectoryByCompanySlug($company->slug)
-			: $storageLocation;
-
-		$logoLocation = $storageLocation . "logo.png";
-
-		if ( ! File::exists($storageLocation) ) Storage::makeDirectory($storageLocation);
-
-		if ( Storage::exists($logoLocation) ) Storage::delete($logoLocation);
-
-		Storage::put($logoLocation, file_get_contents($tempLogoPath));
-
-		$company->logo = $logoLocation;
-
-		if ( ! $company->save() )
-		{
-			Flash::error(trans('ahk_messages.unable_to_update_logo'));
-
-			return false;
-		}
-
-		return $company;
-	}
-
-	/**
-	 * Store company
-	 *
-	 * @param User $user
-	 * @param array $data
-	 * @return Company|false
-	 */
-	public function store(User $user, array $data)
-	{
-		$company = new Company();
-
-		$this->assignRepresentativeUser($company, $user);
-
-		return $this->update($company, $data);
-	}
-
-	/**
-	 * Assign company representative user
-	 *
-	 * @param Company $company
-	 * @param User $user
-	 * @return Company|false
-	 */
-	public function assignRepresentativeUser(Company $company, User $user)
-	{
-		$company->user()->associate($user);
-
-		return $company;
 	}
 
 	/**

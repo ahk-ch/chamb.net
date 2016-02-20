@@ -151,7 +151,8 @@ return [
 		 */
 		DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
-
+		GrahamCampbell\HTMLMin\HTMLMinServiceProvider::class,
+		Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
 
 		/*
 		 * Internal Service Providers
@@ -159,13 +160,6 @@ return [
 		\App\Providers\ComposerServiceProvider::class,
 		\App\Providers\BackendServiceProvider::class,
 		\App\Providers\FlashServiceProvider::class,
-
-		/*
-		 * External SEervice Providers
-		 */
-		GrahamCampbell\HTMLMin\HTMLMinServiceProvider::class,
-
-
 	],
 
 	/*

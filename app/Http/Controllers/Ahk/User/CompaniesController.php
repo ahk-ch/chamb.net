@@ -106,9 +106,9 @@ class CompaniesController extends BaseController
 			return back()->withInput();
 		}
 
-		if ( $request->file('logo') !== null )
+		if ( ($file = $request->file('logo_path')) !== null )
 		{
-			$this->companyRepository->updateLogo($company, $request->file('logo')->getRealpath());
+			$this->companyRepository->updateLogo($company, $file->getClientOriginalName(), $file->getRealpath());
 		}
 
 		Flash::success(trans('ahk_messages.company_successfully_stored'));
@@ -156,9 +156,9 @@ class CompaniesController extends BaseController
 			return back()->withInput();
 		}
 
-		if ( $request->file('logo') !== null )
+		if ( ($file = $request->file('logo_path')) !== null )
 		{
-			$this->companyRepository->updateLogo($company, $request->file('logo')->getRealpath());
+			$this->companyRepository->updateLogo($company, $file->getClientOriginalName(), $file->getRealPath());
 		}
 
 		Flash::success(trans('ahk_messages.company_successfully_updated'));

@@ -18,7 +18,7 @@ class CreateCompaniesTable extends Migration
 			$table->increments('id');
 			$table->string('name')->unique();
 			$table->string('slug')->unique();
-			$table->string('logo');
+			$table->string('logo_path');
 			$table->text('description');
 			$table->text('focus');
 			$table->string('business_leader');

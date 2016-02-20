@@ -14,7 +14,8 @@
 		"laravelcollective/html": "5.2.*",
 		"fzaninotto/faker": "~1.4",
 		"graham-campbell/htmlmin": "^4.2",
-		"guzzlehttp/guzzle": "~5.3|~6.0"
+		"guzzlehttp/guzzle": "~5.3|~6.0",
+		"cviebrock/eloquent-sluggable": "^3.1"
 	},
 	"require-dev": {
 		"mockery/mockery": "0.9.*",

@@ -19,8 +19,10 @@ Route::group(['prefix' => 'health'], function ()
 	Route::get('news', ['as' => 'health.news', 'uses' => 'Ahk\HealthController@news']);
 });
 
-Route::get('ahk/img', ['as' => 'ahk.img', 'uses' => 'Ahk\ImagesController@img']);
-
+Route::group(['prefix' => 'files'], function ()
+{
+	Route::get('render', ['as' => 'files.render', 'uses' => 'FilesController@render']);
+});
 
 # Working Groups
 Route::get('work-groups', ['as' => 'work_groups', 'uses' => 'Ahk\WorkingGroupsController@index']);

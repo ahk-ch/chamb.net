@@ -48,6 +48,7 @@ return [
 	'hide'                                                                 => 'Verstecken',
 	'home'                                                                 => 'Home',
 	'i_agree_to_the'                                                       => 'Ich stimme dem zu',
+	'industry'                                                             => 'Industrie',
 	'industries'                                                           => 'Branchen',
 	'info'                                                                 => 'Info',
 	'language_skills'                                                      => 'Sprachkenntnisse',

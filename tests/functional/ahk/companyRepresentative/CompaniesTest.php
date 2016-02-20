@@ -85,7 +85,7 @@ class CompaniesTest extends TestCase
 			->see($company->industry->name)
 			->see($company->focus)
 			->see($company->description)
-			->see(route('ahk.img', ['imgName' => $company->logo]));
+			->see(route('files.render', ['path' => $company->logo_path]));
 	}
 
 	/** @test */
@@ -116,7 +116,7 @@ class CompaniesTest extends TestCase
 			->type($expectedCompany->phone_number, 'phone_number')
 			->type($expectedCompany->focus, 'focus')
 			->type($expectedCompany->description, 'description')
-			->attach(storage_path('app/testing/dummy_logo.png'), 'logo')
+			->attach(storage_path('app/testing/dummy_logo.png'), 'logo_path')
 			->press(trans('ahk.update'))
 			->seePageIs(route('my.companies.edit', ['slug' => $expectedSlug]))
 			->see(trans('ahk_messages.company_successfully_updated'))
@@ -130,7 +130,7 @@ class CompaniesTest extends TestCase
 			->see($expectedCompany->phone_number)
 			->see($expectedCompany->focus)
 			->see($expectedCompany->description)
-			->see(route('ahk.img', ['imgName' => $expectedCompany->logo]));
+			->see(route('files.render', ['path' => $expectedCompany->logo_path]));
 	}
 
 	/** @test */
@@ -205,7 +205,7 @@ class CompaniesTest extends TestCase
 			->type($expectedCompany->phone_number, 'phone_number')
 			->type($expectedCompany->focus, 'focus')
 			->type($expectedCompany->description, 'description')
-			->attach(storage_path('app/testing/dummy_logo.png'), 'logo')
+			->attach(storage_path('app/testing/dummy_logo.png'), 'logo_path')
 			->press(trans('ahk.create'))
 			->seePageIs(route('my.companies.edit', ['slug' => $expectedSlug]))
 			->see(trans('ahk_messages.company_successfully_stored'))
@@ -218,6 +218,6 @@ class CompaniesTest extends TestCase
 			->see($expectedCompany->phone_number)
 			->see($expectedCompany->focus)
 			->see($expectedCompany->description)
-			->see(route('ahk.img', ['imgName' => $expectedCompany->logo]));
+			->see(route('files.render', ['path' => $expectedCompany->logo_path]));
 	}
 }

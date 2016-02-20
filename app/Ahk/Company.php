@@ -2,16 +2,25 @@
 
 namespace App\Ahk;
 
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Company
  * @package App\Ahk
  */
-class Company extends Model
+class Company extends Model implements SluggableInterface
 {
+	use SluggableTrait;
+
 	protected $fillable = [
-		'name', 'slug', 'description', 'focus', 'business_leader', 'address', 'email', 'phone_number',
+		'name', 'description', 'focus', 'business_leader', 'address', 'email', 'phone_number', 'logo_path'
+	];
+
+	protected $sluggable = [
+		'build_from' => 'name',
+		'save_to'    => 'slug',
 	];
 
 	/**
