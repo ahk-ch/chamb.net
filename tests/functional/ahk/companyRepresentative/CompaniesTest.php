@@ -128,12 +128,30 @@ class CompaniesTest extends TestCase
 	}
 
 	/** @test */
+	public function it_reads_company_create_view_elements()
+	{
+		$dbUserRepository = new DbUserRepository();
+		$companyRepresentativeUser = factory(User::class)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeUser);
+
+		$this->actingAs($companyRepresentativeUser)
+			->visit(route('my.companies.create'))
+			->see(trans('ahk.enter_name'))
+			->see(trans('ahk.enter_business_leader'))
+			->see(trans('ahk.address'))
+			->see(trans('ahk.enter_email'))
+			->see(trans('ahk.phone_number'))
+			->see(trans('ahk.enter_focus'))
+			->see(trans('ahk.enter_description'))
+			->see(trans('ahk.logo'));
+	}
+
+	/** @test */
 	public function it_creates_company()
 	{
 		$dbUserRepository = new DbUserRepository();
 		$companyRepresentativeUser = factory(User::class)->create();
 		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeUser);
-		$company = factory(Company::class)->create(['user_id' => $companyRepresentativeUser->id]);
 		$expectedCompany = factory(Company::class)->make(['user_id' => $companyRepresentativeUser->id]);
 
 		$this->actingAs($companyRepresentativeUser)

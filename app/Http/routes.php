@@ -9,7 +9,7 @@ Route::get('lang/{lang}', ['as' => 'set_language', 'uses' => 'Ahk\SettingsContro
 
 Route::group(['prefix' => 'my'], function ()
 {
-	Route::resource('companies', 'Ahk\User\CompaniesController', ['only' => ['index', 'create', 'edit', 'update']]);
+	Route::resource('companies', 'Ahk\User\CompaniesController', ['except' => ['destroy']]);
 	Route::get('profile', ['as' => 'my.profile', 'uses' => 'Ahk\HealthController@news']);
 });
 

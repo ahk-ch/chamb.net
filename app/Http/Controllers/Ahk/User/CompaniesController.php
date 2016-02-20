@@ -61,7 +61,9 @@ class CompaniesController extends BaseController
 	 */
 	public function create()
 	{
-		//
+		$company = new Company;
+		
+		return view('ahk.my.companies.create', compact('company'));
 	}
 
 	/**

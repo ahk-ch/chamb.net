@@ -1,5 +1,5 @@
 @extends('ahk.layouts.master')
-@section('title', trans('ahk.edit'))
+@section('title', trans('ahk.create'))
 @section('css-implementing-plugins')
     <link href='{!! url("vendor/jasny-bootstrap/dist/css/jasny-bootstrap.min.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
@@ -22,16 +22,13 @@
                     </div>
                     <div class="panel-body">
 
-                        {!! Form::model($company, ['method' => 'PUT', 'route' => ['my.companies.update', $company->slug],
+                        {!! Form::model($company, ['route' => ['my.companies.store', $company->slug],
                          'role' => 'form', 'class' => 'margin-bottom-40', 'files' => 'true']) !!}
-
-
-                        {!! Form::hidden('id', $company->id) !!}
 
                         @include('ahk.my.companies._form')
 
                         <div class="form-group">
-                            {!! Form::button(trans('ahk.update'), ['class' => 'btn-u btn-u-default', 'type' => 'submit']) !!}
+                            {!! Form::button(trans('ahk.create'), ['class' => 'btn-u btn-u-default', 'type' => 'submit']) !!}
                         </div>
 
                         {!! Form::close() !!}
