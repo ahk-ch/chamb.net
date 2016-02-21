@@ -84,6 +84,7 @@ class DbCompanyRepositoryTest extends TestCase
 		$company = factory(Company::class)->create(['user_id' => $user->id]);
 		$newCompanyData = factory(Company::class)->make();
 		$expectedIndustry = factory(Industry::class)->create();
+		$expectedCountry = factory(Country::class)->create();
 
 		$keys = $newCompanyData->getFillable();
 		$expectedCompanyData = array_only($newCompanyData->toArray(), $keys);
@@ -93,7 +94,8 @@ class DbCompanyRepositoryTest extends TestCase
 
 		$this->assertNotSame($expectedIndustry->id, $company->industry->id);
 
-		$company = $dbCompanyRepository->update($company, $expectedCompanyData + ['industry_id' => $expectedIndustry->id]);
+		$company = $dbCompanyRepository->update($company, $expectedCompanyData +
+			['industry_id' => $expectedIndustry->id, 'country_id' => $expectedCountry->id]);
 
 		$currentCompanyData = array_only($company->toArray(), $keys);
 
@@ -135,15 +137,20 @@ class DbCompanyRepositoryTest extends TestCase
 		$user = factory(User::class)->create();
 		$dbUserRepository->assignCompanyRepresentativeRole($user);
 		$newCompanyData = factory(Company::class)->make();
+		$expectedIndustry = factory(Industry::class)->create();
+		$expectedCountry = factory(Country::class)->create();
 
-		$keys = $newCompanyData->getFillable();
-		$expectedCompanyData = array_only($newCompanyData->toArray(), $keys);
+		$expectedPrimaryCompanyData = array_only($newCompanyData->toArray(), $newCompanyData->getFillable());
+		$expectedAllCompanyData = array_add($expectedPrimaryCompanyData, 'industry_id', $expectedIndustry->id);
+		$expectedAllCompanyData = array_add($expectedAllCompanyData, 'country_id', $expectedCountry->id);
 
-		$this->dontSeeInDatabase('companies', $expectedCompanyData);
+		$this->dontSeeInDatabase('companies',
+			$expectedPrimaryCompanyData + ['industry_id' => $expectedIndustry->id, 'country_id' => $expectedCountry->id]);
 
-		$dbCompanyRepository->store($user, $expectedCompanyData);
+		$dbCompanyRepository->store($user, $expectedAllCompanyData);
 
-		$this->seeInDatabase('companies', $expectedCompanyData);
+		$this->seeInDatabase('companies',
+			$expectedPrimaryCompanyData + ['industry_id' => $expectedIndustry->id, 'country_id' => $expectedCountry->id]);
 	}
 
 	/** @test */
@@ -176,7 +183,7 @@ class DbCompanyRepositoryTest extends TestCase
 		$this->assertSame($company->industry->id, $expectedIndustry->id);
 
 	}
-	
+
 	/** @test */
 	public function it_updates_company_country_by_country_id()
 	{
