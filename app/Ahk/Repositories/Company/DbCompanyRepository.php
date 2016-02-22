@@ -14,7 +14,7 @@ use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\DbRepository;
 use App\Ahk\Storage\FilesStorage;
 use App\Ahk\User;
-use Illuminate\Support\Facades\File;
+use App\Ahk\File as AhkFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -115,9 +115,11 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	{
 		$company = $this->updatePrimaryData($company, $data);
 
-		$company = $this->updateIndustryByIndustryId($company, $data['industry_id']);
+		$company = $this->assignIndustryById($company, $data['industry_id']);
 
-		$company = $this->updateCountryByCountryId($company, $data['country_id']);
+		$company = $this->assignCountryById($company, $data['country_id']);
+		
+		$company = $this->assignLogoById($company,  $data['logo_id']);
 
 		return $company->save() ? $company : false;
 	}
@@ -147,7 +149,7 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	 * @param Industry $industryId
 	 * @return Company|false
 	 */
-	public function updateIndustryByIndustryId(Company $company, $industryId)
+	public function assignIndustryById(Company $company, $industryId)
 	{
 		$industry = Industry::find($industryId);
 
@@ -163,11 +165,27 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	 * @param $countryId
 	 * @return Company|false
 	 */
-	public function updateCountryByCountryId(Company $company, $countryId)
+	public function assignCountryById(Company $company, $countryId)
 	{
 		$country = Country::find($countryId);
 
 		$company->country()->associate($country);
+
+		return $company->save() ? $company : false;
+	}
+
+	/**
+	 * Update the logo of a company
+	 *
+	 * @param Company $company
+	 * @param $logoId
+	 * @return Company|false
+	 */
+	public function assignLogoById(Company $company, $logoId)
+	{
+		$logo = AhkFile::find($logoId);
+
+		$company->logo()->associate($logo);
 
 		return $company->save() ? $company : false;
 	}

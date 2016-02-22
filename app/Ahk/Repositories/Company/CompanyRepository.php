@@ -82,7 +82,7 @@ interface CompanyRepository
 	 * @param $industryId
 	 * @return Company|false
 	 */
-	public function updateIndustryByIndustryId(Company $company, $industryId);
+	public function assignIndustryById(Company $company, $industryId);
 
 	/**
 	 * Update the country of a company
@@ -91,5 +91,14 @@ interface CompanyRepository
 	 * @param $countryId
 	 * @return Company|false
 	 */
-	public function updateCountryByCountryId(Company $company, $countryId);
+	public function assignCountryById(Company $company, $countryId);
+
+	/**
+	 * Update the logo of a company
+	 *
+	 * @param Company $company
+	 * @param $logoId
+	 * @return Company|false
+	 */
+	public function assignLogoById(Company $company, $logoId);
 }

@@ -46,6 +46,14 @@ class Company extends Model implements SluggableInterface
 	{
 		return $this->belongsTo('App\Ahk\Country');
 	}
+	
+	/**
+	 * Get the country of this company.
+	 */
+	public function logo()
+	{
+		return $this->belongsTo('App\Ahk\File');
+	}
 
 	/**
 	 * Get the services this company requires

@@ -9,6 +9,7 @@ namespace tests\integration\app\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
 use App\Ahk\Country;
+use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
@@ -85,23 +86,29 @@ class DbCompanyRepositoryTest extends TestCase
 		$newCompanyData = factory(Company::class)->make();
 		$expectedIndustry = factory(Industry::class)->create();
 		$expectedCountry = factory(Country::class)->create();
+		$expectedFile = factory(File::class, 'with_primary_data')->create();
 
 		$keys = $newCompanyData->getFillable();
 		$expectedCompanyData = array_only($newCompanyData->toArray(), $keys);
 		$currentCompanyData = array_only($company->toArray(), $keys);
 
 		$this->assertNotSame($expectedCompanyData, $currentCompanyData);
-
 		$this->assertNotSame($expectedIndustry->id, $company->industry->id);
+		$this->assertNotSame($expectedCountry->id, $company->country->id);
+		$this->assertNotSame($expectedFile->id, $company->logo->id);
 
-		$company = $dbCompanyRepository->update($company, $expectedCompanyData +
-			['industry_id' => $expectedIndustry->id, 'country_id' => $expectedCountry->id]);
+		$company = $dbCompanyRepository->update($company, $expectedCompanyData + [
+				'industry_id' => $expectedIndustry->id,
+				'country_id'  => $expectedCountry->id,
+				'file_id'     => $expectedFile->id,
+			]);
 
 		$currentCompanyData = array_only($company->toArray(), $keys);
 
 		$this->assertSame($expectedCompanyData, $currentCompanyData);
-
 		$this->assertSame($expectedIndustry->id, $company->industry->id);
+		$this->assertSame($expectedCountry->id, $company->country->id);
+		$this->assertSame($expectedFile->id, $company->logo->id);
 	}
 
 	/** @test */
@@ -154,7 +161,7 @@ class DbCompanyRepositoryTest extends TestCase
 	}
 
 	/** @test */
-	public function it_assigns_representative_user()
+	public function it_assigns_user()
 	{
 		$dbCompanyRepository = new DbCompanyRepository();
 		$dbUserRepository = new DbUserRepository();
@@ -170,7 +177,7 @@ class DbCompanyRepositoryTest extends TestCase
 	}
 
 	/** @test */
-	public function it_updates_company_industry_by_industry_id()
+	public function it_assigns_industry_by_id()
 	{
 		$dbCompanyRepository = new DbCompanyRepository();
 		$company = factory(Company::class)->create();
@@ -178,14 +185,14 @@ class DbCompanyRepositoryTest extends TestCase
 
 		$this->assertNotSame($company->industry->id, $expectedIndustry->id);
 
-		$company = $dbCompanyRepository->updateIndustryByIndustryId($company, $expectedIndustry->id);
+		$company = $dbCompanyRepository->assignIndustryById($company, $expectedIndustry->id);
 
 		$this->assertSame($company->industry->id, $expectedIndustry->id);
 
 	}
 
 	/** @test */
-	public function it_updates_company_country_by_country_id()
+	public function it_assigns_country_by_id()
 	{
 		$dbCompanyRepository = new DbCompanyRepository();
 		$company = factory(Company::class)->create();
@@ -193,8 +200,23 @@ class DbCompanyRepositoryTest extends TestCase
 
 		$this->assertNotSame($company->country->id, $expectedCountry->id);
 
-		$company = $dbCompanyRepository->updateCountryByCountryId($company, $expectedCountry->id);
+		$company = $dbCompanyRepository->assignCountryById($company, $expectedCountry->id);
 
 		$this->assertSame($company->country->id, $expectedCountry->id);
 	}
+
+	/** @test */
+	public function it_assigns_logo_by_id()
+	{
+		$dbCompanyRepository = new DbCompanyRepository();
+		$company = factory(Company::class)->create();
+		$expectedFile = factory(File::class)->create();
+
+		$this->assertNotSame($company->logo->id, $expectedFile->id);
+
+		$company = $dbCompanyRepository->assignLogoById($company, $expectedFile->id);
+
+		$this->assertSame($company->logo->id, $expectedFile->id);
+	}
+
 }

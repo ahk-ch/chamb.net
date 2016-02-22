@@ -78,7 +78,7 @@
     </div>
 </div>
 
-<div class="row @if($errors->first('logo')) alert alert-danger fade in @endif">
+<div class="row @if($errors->first('logo_path')) alert alert-danger fade in @endif">
     <div class="form-group col-md-6">
         <div class="row">
             <div class="col-md-12">
@@ -100,7 +100,7 @@
             </div>
         </div>
     </div>
-    {!! $errors->first('logo', ':message') !!}
+    {!! $errors->first('logo_path', ':message') !!}
 </div>
 
 <hr>

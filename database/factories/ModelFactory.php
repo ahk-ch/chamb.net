@@ -65,6 +65,7 @@ $factory->define(Article::class, function (Faker\Generator $faker)
 		'industry_id' => factory(Industry::class)->create()->id,
 	]);
 });
+
 $factory->defineAs(App\Ahk\Article::class, 'without_industry', function (Faker\Generator $faker) use ($factory)
 {
 	$article = factory(Article::class, 'without_relations')->make();
@@ -127,7 +128,7 @@ $factory->defineAs(Company::class, 'without_relations', function (Faker\Generato
 	return [
 		'slug'            => $slug,
 		'name'            => $name,
-		'logo_path'       => $file->path,
+		'logo_id'         => $file->id,
 		'focus'           => $faker->words(10, true),
 		'description'     => $faker->paragraph,
 		'business_leader' => $faker->name,
@@ -160,16 +161,24 @@ $factory->define(Service::class, function (Faker\Generator $faker)
 
 $factory->define(File::class, function (Faker\Generator $faker)
 {
+	$fileWithPrimaryData = factory(File::class, 'with_primary_data')->make();
+
+	Storage::put($fileWithPrimaryData->path,
+		file_get_contents(storage_path('app/testing/dummy_logo.png')));
+
+
+	return array_merge($fileWithPrimaryData->toArray(), []);
+});
+
+$factory->defineAs(File::class, 'with_primary_data', function (Faker\Generator $faker) use ($factory)
+{
 	$name = $faker->unique()->name;
 	$slug = \Illuminate\Support\Str::slug($name);
 	$storageLocation = FilesStorage::getFilesPath();
-	Storage::makeDirectory($storageLocation);
-	$fileLocation = $storageLocation . $slug . ".png" ;
-	Storage::put($fileLocation, file_get_contents(storage_path('app/testing/dummy_logo.png')));
+	$fileLocation = $storageLocation . $slug . ".png";
 
 	return [
 		'name'        => $name,
-		'slug'        => $slug,
 		'description' => $faker->paragraph(),
 		'path'        => $fileLocation,
 	];
