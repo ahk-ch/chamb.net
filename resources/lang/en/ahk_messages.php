@@ -30,5 +30,6 @@ return [
 	'validation_error_occurred'                  => 'Validation errors occurred.',
 	'you_need_to_sign_in'                        => 'You need to sign in first.',
 	'you_do_not_have_the_necessary_privileges'   => 'You do not have the necessary privileges.',
+	'your_password_reset_link'                   => 'Your Password Reset Link',
 
 ];

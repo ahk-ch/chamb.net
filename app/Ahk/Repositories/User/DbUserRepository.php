@@ -180,4 +180,16 @@ class DbUserRepository extends DbRepository implements UserRepository
 	{
 		return ! $user->companies()->where('id', $company->id)->get()->isEmpty();
 	}
+
+	/**
+	 * Verify a company is owned by a user
+	 *
+	 * @param User $user
+	 * @return User
+	 */
+	public function generateRecoveryToken(User $user)
+	{
+		return $user->fill(['recovery_token' => str_random()])->save()
+			? $user : false;
+	}
 }

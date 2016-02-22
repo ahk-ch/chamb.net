@@ -30,5 +30,6 @@ return [
 	'validation_error_occurred'                  => 'Validation Fehler aufgetreten.',
 	'you_need_to_sign_in'                        => 'Sie müssen sich erst einloggen!',
 	'you_do_not_have_the_necessary_privileges'   => 'Sie haben nicht die erforderlichen Berechtigungen verfügen.',
+	'your_password_reset_link'                   => 'Ihr Password Reset-Link.',
 
 ];

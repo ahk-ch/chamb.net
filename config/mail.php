@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['noreploy@chamb.net' => null, 'name' => 'Chamb.Net Web Service'],
 
     /*
     |--------------------------------------------------------------------------

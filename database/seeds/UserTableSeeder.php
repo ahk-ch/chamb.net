@@ -12,7 +12,8 @@ use App\Ahk\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-class UserTableSeeder extends Seeder {
+class UserTableSeeder extends Seeder
+{
 
 	/**
 	 * Run the database seeds.
@@ -24,10 +25,11 @@ class UserTableSeeder extends Seeder {
 		$dbUserRepository = new DbUserRepository();
 
 		factory(User::class)->create([
-			'email'     => env('ADMIN_EMAIL'),
+			'email'    => env('ADMIN_EMAIL'),
 			'password' => Hash::make(env('ADMIN_PASSWORD')),
-			'verified' => 1
+			'verified' => 1,
 		]);
+
 
 		$companyRepresentative = factory(User::class)->create([
 			'email'     => env('COMPANY_REPRESENTATIVE_EMAIL'),

@@ -18,6 +18,13 @@ class User extends Model implements AuthenticatableContract,
 	AuthorizableContract,
 	CanResetPasswordContract
 {
+	const EMAIL = 'email';
+	const NAME = 'name';
+	const PASSWORD = 'password';
+	const AVATAR_URL = 'avatar_url';
+	const VERIFIED = 'verified';
+	const RECOVERY_TOKEN = 'recovery_token';
+	
 	use Authenticatable, Authorizable, CanResetPassword;
 
 	/**
@@ -32,14 +39,15 @@ class User extends Model implements AuthenticatableContract,
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'email', 'password', 'avatar_url', 'verified'];
+	protected $fillable = [self::NAME, self::EMAIL, self::PASSWORD, self::AVATAR_URL, self::VERIFIED,
+		self::RECOVERY_TOKEN];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = ['password', 'remember_token'];
+	protected $hidden = [self::PASSWORD, 'remember_token'];
 
 	/**
 	 * Boot the model.

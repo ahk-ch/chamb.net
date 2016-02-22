@@ -10,7 +10,9 @@
 @endsection
 @section('content')
     <div class="container content">
+
         <div class="row">
+
             <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 
                 {!! Form::open(['route' => 'auth.sign_in', 'class' => 'reg-page']) !!}
@@ -49,14 +51,14 @@
 
                 <hr>
 
-                <h4>{!! trans('ahk.forgot_your_password') !!}</h4>
+                <h4><a href="{!! route('auth.recover.get') !!}">{!! trans('ahk.forgot_your_password') !!}</a></h4>
 
                 {!! Form::close() !!}
 
             </div>
         </div><!--/row-->
-
     </div>
+
 @endsection
 @section('js-implementing-plugins')
 @endsection

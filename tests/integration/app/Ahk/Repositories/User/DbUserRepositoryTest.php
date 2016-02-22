@@ -169,4 +169,18 @@ class DbUserRepositoryTest extends TestCase
 
 		$this->assertTrue($dbUserRepository->hasCompany($user, $company));
 	}
+
+	/** @test */
+	public function it_generates_recovery_token()
+	{
+		$dbUserRepository = new DbUserRepository();
+		$user = factory(User::class)->create();
+		$oldToken = $user->recovery_token;
+
+		$user = $dbUserRepository->generateRecoveryToken($user);
+
+		$this->assertNotEquals($user->token, $oldToken);
+
+		$this->assertNotNull($user->token);
+	}
 }

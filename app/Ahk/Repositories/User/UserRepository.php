@@ -94,7 +94,6 @@ interface UserRepository
 	 */
 	public function getWithCompanyRepresentativeRole();
 
-
 	/**
 	 * Verify a company is owned by a user
 	 *
@@ -103,4 +102,12 @@ interface UserRepository
 	 * @return mixed
 	 */
 	public function hasCompany(User $user, Company $company);
+
+	/**
+	 * Verify a company is owned by a user
+	 *
+	 * @param User $user
+	 * @return User
+	 */
+	public function generateRecoveryToken(User $user);
 }

@@ -4,6 +4,7 @@
  * @author Rizart Dokollari
  * @since 2/2/2016
  */
+use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
@@ -66,5 +67,35 @@ class RegistrationTest extends TestCase
 		$this->visit(route('auth.register.confirm', ['token' => $user->token]))
 			->seePageIs(route('home_path'))
 			->see(trans('ahk_messages.successful_sign_up'));
+	}
+
+	/** @test */
+	public function it_recovers_an_account()
+	{
+		$dbUserRepository = new DbUserRepository();
+
+		$companyRepresentativeAccount = factory(User::class)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeAccount);
+
+		$this->visit(route('auth.sign_in'))
+			->click(trans('ahk.forgot_your_password'))
+			->seePageIs(route('auth.recover.get'))
+			->see('<title> ' . trans('ahk.reset_password') . ' &middot; Chamb.Net</title>')
+			->type($companyRepresentativeAccount->email, 'email')
+			->press(trans('ahk.send_password_reset_link'))
+			->see(trans('ahk_messages.check_your_email_to_recover_account'));
+
+		$companyRepresentativeAccount = factory(User::class)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeAccount);
+		$recoverToken = $dbUserRepository->generateRecoverToken($companyRepresentativeAccount);
+
+		$this->visit(route('auth.recover.link', ['id' => $companyRepresentativeAccount->id, 'token' => $recoverToken]))
+			->seePageIs(route('auth.recover.new_password'))
+			->see('<title> ' . trans('ahk.new_password') . ' &middot; Chamb.Net</title>')
+			->type('new-password', 'password')
+			->type('new-password', 'password_confirm')
+			->press(trans('ahk.update'))
+			->seePageIs(route('auth.sign_in'))
+			->see(trans('ahk_messages.your_password_is_updated'));
 	}
 }

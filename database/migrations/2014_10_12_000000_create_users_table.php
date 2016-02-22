@@ -1,5 +1,6 @@
 <?php
 
+use App\Ahk\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -22,6 +23,7 @@ class CreateUsersTable extends Migration
 			$table->string('password', 60);
 			$table->boolean('verified')->default(false);
 			$table->string('token')->nullable();
+			$table->string(User::RECOVERY_TOKEN)->nullable();
 			$table->rememberToken();
 			$table->timestamps();
 		});

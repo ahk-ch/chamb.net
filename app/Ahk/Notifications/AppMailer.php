@@ -45,4 +45,16 @@ class AppMailer
 				->to($this->to);
 		});
 	}
+
+	public function sendRecoveryEmail($user)
+	{
+		$this->to = $user->email;
+		$this->view = "ahk.emails.confirm";
+		$this->data = compact('user');
+		$this->subject = 'Email Verification';
+
+		$this->deliver();
+
+		return true;
+	}
 }

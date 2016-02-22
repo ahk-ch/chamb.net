@@ -6,6 +6,7 @@ use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\User\UserRepository;
 use App\Http\Controllers\Ahk\BaseController;
 use App\Http\Requests;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Auth;
  */
 class AuthenticationController extends BaseController
 {
+	use ThrottlesLogins;
+
 	/**
 	 * @var UserRepository
 	 */
