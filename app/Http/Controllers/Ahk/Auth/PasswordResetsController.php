@@ -106,13 +106,12 @@ class PasswordResetsController extends BaseController
 
 		if ( ! $user )
 		{
-			Flash::error('ahk_messages.unknown_error_occurred');
-
-			return redirect()->route('auth.sign_in');
+			Flash::error(trans('ahk_messages.unknown_error_occurred'));
+		} else
+		{
+			Flash::success(trans('ahk_messages.you_updated_your_accounts_password'));
 		}
-		
-		Flash::success('ahk_messages.you_updated_your_accounts_password');
 
-		return view('auth.sign_in');
+		return redirect()->route('auth.sign_in');
 	}
 }
