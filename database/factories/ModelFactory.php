@@ -23,19 +23,13 @@ use Illuminate\Support\Facades\Storage;
 
 $factory->define(User::class, function (Faker\Generator $faker)
 {
-//	Storage::makeDirectory($storageLocation);
-//	$avatarLocation = $storageLocation . "logo.png";
-//	Storage::put(
-//		$avatarLocation,
-//		file_get_contents(storage_path('app/testing/dummy_logo.png'))
-//	);
-
 	return [
-		'name'       => "$faker->firstName $faker->lastName",
-		'email'      => $faker->unique()->email,
-		'avatar_url' => $faker->imageUrl(),
-		'password'   => bcrypt(str_random(10)),
-		'verified'   => 0,
+		'name'               => "$faker->firstName $faker->lastName",
+		'email'              => $faker->unique()->email,
+		'avatar_url'         => $faker->imageUrl(),
+		'password'           => bcrypt(str_random(10)),
+		'verified'           => 0,
+		User::RECOVERY_TOKEN => str_random(),
 	];
 });
 

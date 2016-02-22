@@ -183,4 +183,21 @@ class DbUserRepositoryTest extends TestCase
 
 		$this->assertNotNull($user->token);
 	}
+
+	/** @test */
+	public function it_finds_user_by_slug_and_recovery_token()
+	{
+		$dbUserRepository = new DbUserRepository();
+		$user = factory(User::class)->create();
+		$keys = $user->getFillable();
+		$expectedData = array_only($user->toArray(), $keys);
+
+
+		$this->assertNotNull(
+			$actualUser = $dbUserRepository->findBySlugAndRecoveryToken($user->slug, $user->recovery_token));
+
+		$actualData = array_only($actualUser->toArray(), $keys);
+
+		$this->assertEquals($expectedData, $actualData);
+	}
 }

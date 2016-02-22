@@ -67,7 +67,7 @@ class PasswordResetsController extends BaseController
 		$user = $this->userRepository->findByEmail($request->get('email'));
 
 		$user = $this->userRepository->generateRecoveryToken($user);
-		
+
 		$this->mailer->sendRecoveryEmail($user);
 
 		Flash::success(trans('ahk_messages.check_your_email_to_recover_account'));
@@ -75,4 +75,17 @@ class PasswordResetsController extends BaseController
 		return redirect()->back();
 	}
 
+	public function reset($slug, $recoveryToken)
+	{
+		$user = $this->userRepository->findBySlugAndRecoveryToken($slug, $recoveryToken);
+
+		if ( ! $user )
+		{
+			Flash::error('ahk_messages.validation_error_occurred');
+
+			return redirect()->route('auth.sign_in');
+		}
+
+		return view('ahk.auth.passwords.reset');
+	}
 }

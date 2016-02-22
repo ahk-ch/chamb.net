@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
 			$table->string('password', 60);
 			$table->boolean('verified')->default(false);
 			$table->string('token')->nullable();
+			$table->string(User::SLUG)->unique();
 			$table->string(User::RECOVERY_TOKEN)->nullable();
 			$table->rememberToken();
 			$table->timestamps();

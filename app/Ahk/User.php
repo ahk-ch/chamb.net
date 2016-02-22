@@ -2,6 +2,8 @@
 
 namespace App\Ahk;
 
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
@@ -16,16 +18,44 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
  */
 class User extends Model implements AuthenticatableContract,
 	AuthorizableContract,
-	CanResetPasswordContract
+	CanResetPasswordContract,
+	SluggableInterface
 {
+	const SLUG = 'slug';
+	/**
+	 *
+	 */
 	const EMAIL = 'email';
+	/**
+	 *
+	 */
 	const NAME = 'name';
+	/**
+	 *
+	 */
 	const PASSWORD = 'password';
+	/**
+	 *
+	 */
 	const AVATAR_URL = 'avatar_url';
+	/**
+	 *
+	 */
 	const VERIFIED = 'verified';
+	/**
+	 *
+	 */
 	const RECOVERY_TOKEN = 'recovery_token';
-	
-	use Authenticatable, Authorizable, CanResetPassword;
+
+	use Authenticatable, Authorizable, CanResetPassword, SluggableTrait;
+
+	/**
+	 * @var array
+	 */
+	protected $sluggable = [
+		'build_from' => self::EMAIL,
+		'save_to'    => self::SLUG,
+	];
 
 	/**
 	 * The database table used by the model.
@@ -40,7 +70,7 @@ class User extends Model implements AuthenticatableContract,
 	 * @var array
 	 */
 	protected $fillable = [self::NAME, self::EMAIL, self::PASSWORD, self::AVATAR_URL, self::VERIFIED,
-		self::RECOVERY_TOKEN];
+		self::RECOVERY_TOKEN, self::SLUG];
 
 	/**
 	 * The attributes excluded from the model's JSON form.

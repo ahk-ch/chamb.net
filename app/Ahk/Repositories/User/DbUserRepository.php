@@ -192,4 +192,16 @@ class DbUserRepository extends DbRepository implements UserRepository
 		return $user->fill(['recovery_token' => str_random()])->save()
 			? $user : false;
 	}
+
+	/**
+	 * Find user by slug and recovery token
+	 *
+	 * @param $slug
+	 * @param $recoveryToken
+	 * @return User
+	 */
+	public function findBySlugAndRecoveryToken($slug, $recoveryToken)
+	{
+		return User::where(User::SLUG, $slug)->where(User::RECOVERY_TOKEN, $recoveryToken)->first();
+	}
 }

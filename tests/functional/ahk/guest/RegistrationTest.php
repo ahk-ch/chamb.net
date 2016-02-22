@@ -74,22 +74,22 @@ class RegistrationTest extends TestCase
 	{
 		$dbUserRepository = new DbUserRepository();
 
-		$companyRepresentativeAccount = factory(User::class)->create();
-		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeAccount);
+		$user = factory(User::class)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($user);
 
 		$this->visit(route('auth.sign_in'))
 			->click(trans('ahk.forgot_your_password'))
 			->seePageIs(route('auth.recover.get'))
 			->see('<title> ' . trans('ahk.reset_password') . ' &middot; Chamb.Net</title>')
-			->type($companyRepresentativeAccount->email, 'email')
+			->type($user->email, 'email')
 			->press(trans('ahk.send_password_reset_link'))
 			->see(trans('ahk_messages.check_your_email_to_recover_account'));
 
-		$companyRepresentativeAccount = factory(User::class)->create();
-		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeAccount);
-		$recoverToken = $dbUserRepository->generateRecoverToken($companyRepresentativeAccount);
+		$user = factory(User::class)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($user);
+		$dbUserRepository->generateRecoveryToken($user);
 
-		$this->visit(route('auth.recover.link', ['id' => $companyRepresentativeAccount->id, 'token' => $recoverToken]))
+		$this->visit(route('auth.recover.reset', ['slug' => $user->slug, 'token' => $user->recovery_token]))
 			->seePageIs(route('auth.recover.new_password'))
 			->see('<title> ' . trans('ahk.new_password') . ' &middot; Chamb.Net</title>')
 			->type('new-password', 'password')

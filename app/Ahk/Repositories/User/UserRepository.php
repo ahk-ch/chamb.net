@@ -110,4 +110,13 @@ interface UserRepository
 	 * @return User
 	 */
 	public function generateRecoveryToken(User $user);
+
+	/**
+	 * Find user by slug and recovery token
+	 *
+	 * @param $slug
+	 * @param $recoveryToken
+	 * @return User
+	 */
+	public function findBySlugAndRecoveryToken($slug, $recoveryToken);
 }

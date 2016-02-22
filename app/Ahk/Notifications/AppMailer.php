@@ -29,7 +29,7 @@ class AppMailer
 		$this->to = $user->email;
 		$this->view = "ahk.emails.confirm";
 		$this->data = compact('user');
-		$this->subject = 'Email Verification';
+		$this->subject = trans('ahk.verify_email');
 
 		$this->deliver();
 
@@ -49,9 +49,12 @@ class AppMailer
 	public function sendRecoveryEmail($user)
 	{
 		$this->to = $user->email;
-		$this->view = "ahk.emails.confirm";
+
+		$this->view = "ahk.emails.reset_password";
+
 		$this->data = compact('user');
-		$this->subject = 'Email Verification';
+
+		$this->subject = trans('ahk.reset_password');
 
 		$this->deliver();
 
