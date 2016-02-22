@@ -31,8 +31,11 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase
 		parent::tearDown();
 
 		$this->refreshApplication();
-//
+
 		Storage::deleteDirectory('testing/ahk');
+
 		Storage::deleteDirectory('testing/cms');
+		
+		Storage::deleteDirectory('testing/img');
 	}
 }

@@ -14,12 +14,13 @@ class File extends Model implements SluggableInterface
 	const DESCRIPTION = 'description';
 	const PATH = 'path';
 	const SLUG = 'slug';
-	const TEMPORARY_PATH = 'file_path'; 
+	const TEMPORARY_PATH = 'file_path';
+	const CLIENT_ORIGINAL_NAME = 'client_original_name';
 
-	protected $fillable = [self::NAME, self::DESCRIPTION, self::PATH, self::SLUG];
+	protected $fillable = [self::NAME, self::DESCRIPTION, self::PATH, self::SLUG, self::CLIENT_ORIGINAL_NAME];
 
 	protected $sluggable = [
-		'build_from' => self::NAME,
+		'build_from' => self::CLIENT_ORIGINAL_NAME,
 		'save_to'    => self::SLUG,
 	];
 }

@@ -122,12 +122,8 @@ $factory->defineAs(Company::class, 'without_industry', function (Faker\Generator
 
 $factory->defineAs(Company::class, 'without_relations', function (Faker\Generator $faker) use ($factory)
 {
-	$name = $faker->unique()->name;
-	$slug = \Illuminate\Support\Str::slug($name);
-
 	return [
-		'slug'            => $slug,
-		'name'            => $name,
+		'name'            => $faker->unique()->name,
 		'focus'           => $faker->words(10, true),
 		'description'     => $faker->paragraph,
 		'business_leader' => $faker->name,
@@ -161,24 +157,27 @@ $factory->define(Service::class, function (Faker\Generator $faker)
 $factory->define(File::class, function (Faker\Generator $faker)
 {
 	$fileWithPrimaryData = factory(File::class, 'with_primary_data')->make();
+	$storageLocation = FilesStorage::getFilesDirectory();
+	$clientOriginalName = "dummy_logo.png";
+	$tempFilePath = file_get_contents(storage_path("app/testing/$clientOriginalName"));
+	$fileLocation = $storageLocation . $clientOriginalName;
 
-	Storage::put($fileWithPrimaryData->path,
-		file_get_contents(storage_path('app/testing/dummy_logo.png')));
+	Storage::put($fileLocation, $tempFilePath);
 
-
-	return array_merge($fileWithPrimaryData->toArray(), []);
+	return array_merge($fileWithPrimaryData->toArray(), [
+		'path'                 => $fileLocation,
+		'client_original_name' => $clientOriginalName,
+	]);
 });
 
 $factory->defineAs(File::class, 'with_primary_data', function (Faker\Generator $faker) use ($factory)
 {
 	$name = $faker->unique()->name;
-	$slug = \Illuminate\Support\Str::slug($name);
-	$storageLocation = FilesStorage::getFilesDirectory();
-	$fileLocation = $storageLocation . $slug . ".png";
+	$clientOriginalName = "dummy_logo.png";
 
 	return [
-		'name'        => $name,
-		'description' => $faker->paragraph(),
-		'path'        => $fileLocation,
+		'name'                 => $name,
+		'description'          => $faker->paragraph(),
+		'client_original_name' => $clientOriginalName,
 	];
 });

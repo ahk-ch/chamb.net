@@ -6,6 +6,7 @@
  */
 
 namespace App\Ahk\Repositories\File;
+use App\Ahk\File;
 
 /**
  * Interface FileRepository
@@ -18,6 +19,13 @@ interface FileRepository
 	 * @return mixed
 	 */
 	public function store($data);
+
+	/**
+	 * @param File $file
+	 * @param $data
+	 * @return File|false
+	 */
+	public function update(File $file, $data);
 
 //	/**
 //	 * Update company logo

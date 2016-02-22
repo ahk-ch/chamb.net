@@ -25,15 +25,16 @@ class Company extends Model implements SluggableInterface
 	const EMAIL = 'email';
 	const PHONE_NUMBER = 'phone_number';
 	const LOGO_PATH = 'logo_path';
+	const SLUG = 'slug';
 
 	protected $fillable = [
 		self::NAME, self::DESCRIPTION, self::FOCUS, self::BUSINESS_LEADER, self::ADDRESS, self::EMAIL,
-		self::PHONE_NUMBER, self::LOGO_PATH,
+		self::PHONE_NUMBER, self::SLUG
 	];
 
 	protected $sluggable = [
 		'build_from' => self::NAME,
-		'save_to'    => 'slug',
+		'save_to'    => self::SLUG,
 	];
 
 	/**

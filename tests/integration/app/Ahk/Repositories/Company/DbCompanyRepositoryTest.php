@@ -15,7 +15,6 @@ use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Support\Facades\Storage;
 use tests\TestCase;
 
 /**
@@ -89,6 +88,9 @@ class DbCompanyRepositoryTest extends TestCase
 		$expectedFile = factory(File::class, 'with_primary_data')->create();
 
 		$keys = $newCompanyData->getFillable();
+
+		if ( false !== ($key = array_search(Company::SLUG, $keys)) ) unset($keys[ $key ]);
+
 		$expectedCompanyData = array_only($newCompanyData->toArray(), $keys);
 		$currentCompanyData = array_only($company->toArray(), $keys);
 
@@ -100,40 +102,14 @@ class DbCompanyRepositoryTest extends TestCase
 		$company = $dbCompanyRepository->update($company, $expectedCompanyData + [
 				'industry_id' => $expectedIndustry->id,
 				'country_id'  => $expectedCountry->id,
-				'file_id'     => $expectedFile->id,
-			]);
+				'logo_id'     => $expectedFile->id,]);
 
 		$currentCompanyData = array_only($company->toArray(), $keys);
 
-		$this->assertSame($expectedCompanyData, $currentCompanyData);
+		$this->assertSame(array_only($expectedCompanyData, $keys), array_only($currentCompanyData, $keys));
+
 		$this->assertSame($expectedIndustry->id, $company->industry->id);
 		$this->assertSame($expectedCountry->id, $company->country->id);
-		$this->assertSame($expectedFile->id, $company->logo->id);
-	}
-
-	/** @test */
-	public function it_updates_company_logo()
-	{
-		$dbCompanyRepository = new DbCompanyRepository();
-		$dbUserRepository = new DbUserRepository();
-		$user = factory(User::class)->create();
-		$dbUserRepository->assignCompanyRepresentativeRole($user);
-		$company = factory(Company::class)->create(['user_id' => $user->id]);
-
-		$tempLogoLocation = 'storage/app/testing/dummy_logo.png';
-
-		Storage::delete($company->logo);
-
-		$this->assertFalse(Storage::exists($company->logo));
-
-		$company->logo = null;
-		$company->save();
-
-		$this->assertNull($company->logo);
-
-		$dbCompanyRepository->updateLogo($company, $tempLogoLocation);
-
-		$this->assertTrue(Storage::exists($company->logo));
 	}
 
 	/** @test */
@@ -143,21 +119,23 @@ class DbCompanyRepositoryTest extends TestCase
 		$dbUserRepository = new DbUserRepository();
 		$user = factory(User::class)->create();
 		$dbUserRepository->assignCompanyRepresentativeRole($user);
-		$newCompanyData = factory(Company::class)->make();
+		$newCompanyData = factory(Company::class, 'without_relations')->make();
 		$expectedIndustry = factory(Industry::class)->create();
 		$expectedCountry = factory(Country::class)->create();
+		$expectedLogo = factory(File::class)->create();
 
-		$expectedPrimaryCompanyData = array_only($newCompanyData->toArray(), $newCompanyData->getFillable());
-		$expectedAllCompanyData = array_add($expectedPrimaryCompanyData, 'industry_id', $expectedIndustry->id);
-		$expectedAllCompanyData = array_add($expectedAllCompanyData, 'country_id', $expectedCountry->id);
+		$expectedPrimaryData = array_only($newCompanyData->toArray(), $newCompanyData->getFillable());
+		$expectedData = array_add($expectedPrimaryData, 'industry_id', $expectedIndustry->id);
+		$expectedData = array_add($expectedData, 'country_id', $expectedCountry->id);
+		$expectedData = array_add($expectedData, 'logo_id', $expectedLogo->id);
 
 		$this->dontSeeInDatabase('companies',
-			$expectedPrimaryCompanyData + ['industry_id' => $expectedIndustry->id, 'country_id' => $expectedCountry->id]);
+			$expectedPrimaryData + ['industry_id' => $expectedIndustry->id, 'country_id' => $expectedCountry->id]);
 
-		$dbCompanyRepository->store($user, $expectedAllCompanyData);
+		$dbCompanyRepository->store($user, $expectedData);
 
 		$this->seeInDatabase('companies',
-			$expectedPrimaryCompanyData + ['industry_id' => $expectedIndustry->id, 'country_id' => $expectedCountry->id]);
+			$expectedPrimaryData + ['industry_id' => $expectedIndustry->id, 'country_id' => $expectedCountry->id]);
 	}
 
 	/** @test */

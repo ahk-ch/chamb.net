@@ -47,9 +47,11 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	 */
 	public function store(User $user, array $data)
 	{
-		$company = new Company();
+		$company = new Company($data);
 
 		$this->assignRepresentativeUser($company, $user);
+
+		if ( array_has($data, Company::LOGO_ID) ) $this->assignLogoById($company, $data[ Company::LOGO_ID ]);
 
 		return $this->update($company, $data);
 	}
@@ -69,6 +71,22 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	}
 
 	/**
+	 * Update the logo of a company
+	 *
+	 * @param Company $company
+	 * @param $logoId
+	 * @return Company|false
+	 */
+	public function assignLogoById(Company $company, $logoId)
+	{
+		$logo = AhkFile::find($logoId);
+
+		$company->logo()->associate($logo);
+
+		return $company->save() ? $company : false;
+	}
+
+	/**
 	 * Update company
 	 *
 	 * @param Company $company
@@ -82,8 +100,6 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 		$company = $this->assignIndustryById($company, $data[ Company::INDUSTRY_ID ]);
 
 		$company = $this->assignCountryById($company, $data[ Company::COUNTRY_ID ]);
-
-		$company = $this->assignLogoById($company, $data[ Company::LOGO_ID ]);
 
 		return $company->save() ? $company : false;
 	}
@@ -133,22 +149,6 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 		$country = Country::find($countryId);
 
 		$company->country()->associate($country);
-
-		return $company->save() ? $company : false;
-	}
-
-	/**
-	 * Update the logo of a company
-	 *
-	 * @param Company $company
-	 * @param $logoId
-	 * @return Company|false
-	 */
-	public function assignLogoById(Company $company, $logoId)
-	{
-		$logo = AhkFile::find($logoId);
-
-		$company->logo()->associate($logo);
 
 		return $company->save() ? $company : false;
 	}

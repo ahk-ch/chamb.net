@@ -33,7 +33,7 @@ class StoreCompanyRequest extends Request
 			'phone_number'    => 'max:255',
 			'focus'           => 'max:100',
 			'description'     => 'max:700',
-			'logo_path'       => 'image',
+			'logo_path'       => 'required|image',
 		];
 	}
 }

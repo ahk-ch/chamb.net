@@ -106,6 +106,7 @@ class CompaniesTest extends TestCase
 
 		$expectedIndustry = factory(Industry::class)->create();
 		$expectedCountry = factory(Country::class)->create();
+		$expectedLogoPath = FilesStorage::getFilesDirectory() . 'dummy_logo.png';
 
 		$this->actingAs($companyRepresentativeUser)
 			->visit(route('my.companies.edit', ['slug' => $company->slug]))
@@ -132,7 +133,7 @@ class CompaniesTest extends TestCase
 			->see($expectedCompany->phone_number)
 			->see($expectedCompany->focus)
 			->see($expectedCompany->description)
-			->see(route('files.render', ['path' => $expectedCompany->logo_path]));
+			->see(route('files.render', ['path' => $expectedLogoPath]));
 	}
 
 	/** @test */

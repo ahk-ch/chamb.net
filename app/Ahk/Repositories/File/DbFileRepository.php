@@ -20,13 +20,26 @@ class DbFileRepository extends DbRepository implements FileRepository
 	 */
 	public function store($data)
 	{
-		$file = new File(array_only($data, [File::NAME, File::DESCRIPTION]));
+		return $this->update(new File, $data);
+	}
 
-		$file->fill([File::PATH => FilesStorage::getFilesDirectory() . $data[ File::NAME ]]);
+	/**
+	 * @param File $file
+	 * @param $data
+	 * @return File|false
+	 */
+	public function update(File $file, $data)
+	{
+		if ( ! is_null($file->path) ) $currentFilePath = $file->path;
+
+		$file->fill(array_merge($data,
+			[File::PATH => FilesStorage::getFilesDirectory() . $data[ File::CLIENT_ORIGINAL_NAME ]]));
 
 		$fileIsStored = Storage::put($file->path, file_get_contents($data[ File::TEMPORARY_PATH ]));
 
 		if ( ! $fileIsStored || ! $file->save() ) return false;
+
+		if ( isset($currentFilePath) ) Storage::delete($currentFilePath);
 
 		return $file;
 	}

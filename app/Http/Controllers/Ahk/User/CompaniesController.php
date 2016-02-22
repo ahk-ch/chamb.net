@@ -107,25 +107,23 @@ class CompaniesController extends BaseController
 	public function store(Requests\Ahk\StoreCompanyRequest $request)
 	{
 		$user = Auth::user();
-		$companyData = $request->all();
+		$requestData = $request->all();
+		$file = $request->file('logo_path');
 
-		if ( ($file = $request->file('logo_path')) !== null )
+		$file = $this->fileRepository->store([
+			File::CLIENT_ORIGINAL_NAME => $file->getClientOriginalName(),
+			File::TEMPORARY_PATH       => $file->getRealPath(),]);
+
+		if ( ! $file )
 		{
-			$file = $this->fileRepository->store([
-				File::NAME           => $file->getClientOriginalName(),
-				File::TEMPORARY_PATH => $file->getRealPath(),]);
+			Flash::error(trans('ahk_messages.unknown_error_occurred'));
 
-			if ( ! $file )
-			{
-				Flash::error(trans('ahk_messages.unknown_error_occurred'));
-
-				return redirect()->back();
-			}
-
-			$companyData[ Company::LOGO_ID ] = $file->id;
+			return redirect()->back();
 		}
 
-		if ( ! $company = $this->companyRepository->store($user, $companyData) )
+		$requestData[ Company::LOGO_ID ] = $file->id;
+
+		if ( ! $company = $this->companyRepository->store($user, $requestData) )
 		{
 			Flash::error(trans('ahk_messages.unknown_error_occurred'));
 
@@ -170,16 +168,17 @@ class CompaniesController extends BaseController
 			return back()->withInput();
 		}
 
-		if ( ! $company = $this->companyRepository->update($company, $request->all()) )
+		$file = $request->file('logo_path');
+
+		$file = $this->fileRepository->update($company->logo, [
+			File::CLIENT_ORIGINAL_NAME => $file->getClientOriginalName(),
+			File::TEMPORARY_PATH       => $file->getRealPath(),]);
+
+		if ( ! $file || ! $company = $this->companyRepository->update($company, $request->all()) )
 		{
 			Flash::error(trans('ahk_messages.unknown_error_occurred'));
 
-			return back()->withInput();
-		}
-
-		if ( ($file = $request->file('logo_path')) !== null )
-		{
-			$this->companyRepository->updateLogo($company, $file->getClientOriginalName(), $file->getRealPath());
+			return redirect()->back();
 		}
 
 		Flash::success(trans('ahk_messages.company_successfully_updated'));
