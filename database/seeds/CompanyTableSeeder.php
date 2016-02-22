@@ -8,6 +8,7 @@ namespace database\seeds;
 
 
 use App\Ahk\Company;
+use App\Ahk\File;
 use App\Ahk\Repositories\Country\DbCountryRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\Repositories\Service\DbServiceRepository;
@@ -21,7 +22,7 @@ class CompanyTableSeeder extends Seeder
 {
 	private $popularCompanies =
 		[
-			['name' => 'ARAMCCO in Germany',  'country' => 'Germany', 'description' => 'The company Aramcco in Germany is a reliable partner in the procurement of medical professionals for German hospitals or clinics and nursing homes.'],
+			['name' => 'ARAMCCO in Germany', 'country' => 'Germany', 'description' => 'The company Aramcco in Germany is a reliable partner in the procurement of medical professionals for German hospitals or clinics and nursing homes.'],
 			['name' => 'EviMed', 'country' => 'Germany', 'description' => 'A German information service provider in the field of health care. The company offers software for the management of medical patient data. The software provided by evimed supports and automates processes of patient recruitment and feasibility studies as well as monitoring and documentation of clinical trials.'],
 			['name' => 'Celesio', 'country' => 'Germany', 'description' => 'The public limited company Celesio AG situated in Stuttgart is a German healthcare and pharmaceutical company. With 38,000 employees, Celesio operates in 14 countries around the world and generated revenue of more than 22,000 million euros in 2014. The corporation is part of the American McKesson Corporation who has a 76% stake in the company.'],
 			['name' => 'Fresenius Medical Care', 'country' => 'Germany', 'description' => 'Fresenius Medical Care is a German company specializing in the production of medical supplies, primarily to facilitate or aid renal dialysis. It is 31%-owned by the health care company Fresenius. The company was formed in 1996 from the merger of Fresenius Worldwide Dialysis, then a division of Fresenius, and American company National Medical Care.'],
@@ -57,6 +58,7 @@ class CompanyTableSeeder extends Seeder
 					'industry_id' => $faker->randomElement($industries)['id'],
 					'country_id'  => $faker->randomElement($countries)['id'],
 					'user_id'     => $faker->randomElement($companyRepresentativeUsers)['id'],
+					'logo_id'     => factory(File::class)->create()->id,
 				]);
 
 			$company->services()->attach([

@@ -37,6 +37,5 @@ class DbFileRepositoryTest extends TestCase
 		$this->seeInDatabase('files', $expectedFileData);
 
 		$this->assertTrue(Storage::exists($expectedFile->path));
-
 	}
 }

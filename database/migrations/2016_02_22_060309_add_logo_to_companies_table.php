@@ -15,7 +15,7 @@ class AddLogoToCompaniesTable extends Migration
 	{
 		Schema::table('companies', function (Blueprint $table)
 		{
-			$table->integer('logo_id')->unsigned()->index();
+			$table->integer('logo_id')->unsigned()->index()->nullable();
 			$table->foreign('logo_id')->references('id')->on('files')->onDelete('restrict')->onUpdate('cascade');
 		});
 	}

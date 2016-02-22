@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Ahk\User;
 
 use App\Ahk\Company;
+use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\Company\CompanyRepository;
 use App\Ahk\Repositories\Country\CountryRepository;
+use App\Ahk\Repositories\File\FileRepository;
 use App\Ahk\Repositories\Industry\IndustryRepository;
 use App\Ahk\Repositories\User\UserRepository;
 use App\Http\Controllers\Ahk\BaseController;
@@ -36,6 +38,10 @@ class CompaniesController extends BaseController
 	 * @var CountryRepository
 	 */
 	private $countryRepository;
+	/**
+	 * @var FileRepository
+	 */
+	private $fileRepository;
 
 	/**
 	 * CompaniesController constructor.
@@ -43,9 +49,11 @@ class CompaniesController extends BaseController
 	 * @param UserRepository $userRepository
 	 * @param IndustryRepository $industryRepository
 	 * @param CountryRepository $countryRepository
+	 * @param FileRepository $fileRepository
 	 */
 	public function __construct(CompanyRepository $companyRepository, UserRepository $userRepository,
-	                            IndustryRepository $industryRepository, CountryRepository $countryRepository)
+	                            IndustryRepository $industryRepository, CountryRepository $countryRepository,
+	                            FileRepository $fileRepository)
 	{
 		parent::__construct();
 
@@ -55,6 +63,7 @@ class CompaniesController extends BaseController
 		$this->userRepository = $userRepository;
 		$this->industryRepository = $industryRepository;
 		$this->countryRepository = $countryRepository;
+		$this->fileRepository = $fileRepository;
 	}
 
 	/**
@@ -98,17 +107,29 @@ class CompaniesController extends BaseController
 	public function store(Requests\Ahk\StoreCompanyRequest $request)
 	{
 		$user = Auth::user();
+		$companyData = $request->all();
 
-		if ( ! $company = $this->companyRepository->store($user, $request->all()) )
+		if ( ($file = $request->file('logo_path')) !== null )
+		{
+			$file = $this->fileRepository->store([
+				File::NAME           => $file->getClientOriginalName(),
+				File::TEMPORARY_PATH => $file->getRealPath(),]);
+
+			if ( ! $file )
+			{
+				Flash::error(trans('ahk_messages.unknown_error_occurred'));
+
+				return redirect()->back();
+			}
+
+			$companyData[ Company::LOGO_ID ] = $file->id;
+		}
+
+		if ( ! $company = $this->companyRepository->store($user, $companyData) )
 		{
 			Flash::error(trans('ahk_messages.unknown_error_occurred'));
 
 			return back()->withInput();
-		}
-
-		if ( ($file = $request->file('logo_path')) !== null )
-		{
-			$this->companyRepository->updateLogo($company, $file->getClientOriginalName(), $file->getRealpath());
 		}
 
 		Flash::success(trans('ahk_messages.company_successfully_stored'));

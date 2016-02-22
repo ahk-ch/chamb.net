@@ -9,14 +9,10 @@ namespace App\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
 use App\Ahk\Country;
-use App\Ahk\Industry;
-use App\Ahk\Notifications\Flash;
-use App\Ahk\Repositories\DbRepository;
-use App\Ahk\Storage\FilesStorage;
-use App\Ahk\User;
 use App\Ahk\File as AhkFile;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
+use App\Ahk\Industry;
+use App\Ahk\Repositories\DbRepository;
+use App\Ahk\User;
 
 class DbCompanyRepository extends DbRepository implements CompanyRepository
 {
@@ -41,38 +37,6 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 		return Company::where('user_id', $user->id);
 	}
 
-	/**
-	 * Update company logo
-	 *
-	 * @param Company $company
-	 * @param $clientOriginalName
-	 * @param $realPath
-	 * @param null $storageLocation
-	 * @return Company|false
-	 */
-	public function updateLogo(Company $company, $clientOriginalName, $realPath, $storageLocation = null)
-	{
-		$storageLocation = $storageLocation === null ? FilesStorage::getFilesPath() : $storageLocation;
-
-		$logoLocation = $storageLocation . $clientOriginalName;
-
-		if ( ! File::exists($storageLocation) ) Storage::makeDirectory($storageLocation);
-
-		if ( Storage::exists($logoLocation) ) Storage::delete($logoLocation);
-
-		Storage::put($logoLocation, file_get_contents($realPath));
-
-		$company->logo = $logoLocation;
-
-		if ( ! $company->save() )
-		{
-			Flash::error(trans('ahk_messages.unable_to_update_logo'));
-
-			return false;
-		}
-
-		return $company;
-	}
 
 	/**
 	 * Store company
@@ -115,11 +79,11 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	{
 		$company = $this->updatePrimaryData($company, $data);
 
-		$company = $this->assignIndustryById($company, $data['industry_id']);
+		$company = $this->assignIndustryById($company, $data[ Company::INDUSTRY_ID ]);
 
-		$company = $this->assignCountryById($company, $data['country_id']);
-		
-		$company = $this->assignLogoById($company,  $data['logo_id']);
+		$company = $this->assignCountryById($company, $data[ Company::COUNTRY_ID ]);
+
+		$company = $this->assignLogoById($company, $data[ Company::LOGO_ID ]);
 
 		return $company->save() ? $company : false;
 	}
@@ -133,11 +97,10 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	 */
 	public function updatePrimaryData(Company $company, array $data)
 	{
-		$data['slug'] = Str::slug($data['name']);
-
-		$company->fill(array_only($data,
-			['name', 'description', 'focus', 'business_leader', 'address', 'email', 'phone_number', 'slug']
-		));
+		$company->fill(array_only($data, [
+			Company::NAME, Company::DESCRIPTION, Company::FOCUS, Company::BUSINESS_LEADER, Company::ADDRESS,
+			Company::EMAIL, Company::PHONE_NUMBER,
+		]));
 
 		return $company;
 	}

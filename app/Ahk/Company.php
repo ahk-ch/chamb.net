@@ -14,12 +14,25 @@ class Company extends Model implements SluggableInterface
 {
 	use SluggableTrait;
 
+	const NAME = 'name';
+	const LOGO_ID = 'logo_id';
+	const COUNTRY_ID = 'country_id';
+	const INDUSTRY_ID = 'industry_id';
+	const DESCRIPTION = 'description';
+	const FOCUS = 'focus';
+	const BUSINESS_LEADER = 'business_leader';
+	const ADDRESS = 'address';
+	const EMAIL = 'email';
+	const PHONE_NUMBER = 'phone_number';
+	const LOGO_PATH = 'logo_path';
+
 	protected $fillable = [
-		'name', 'description', 'focus', 'business_leader', 'address', 'email', 'phone_number', 'logo_path'
+		self::NAME, self::DESCRIPTION, self::FOCUS, self::BUSINESS_LEADER, self::ADDRESS, self::EMAIL,
+		self::PHONE_NUMBER, self::LOGO_PATH,
 	];
 
 	protected $sluggable = [
-		'build_from' => 'name',
+		'build_from' => self::NAME,
 		'save_to'    => 'slug',
 	];
 
@@ -46,13 +59,13 @@ class Company extends Model implements SluggableInterface
 	{
 		return $this->belongsTo('App\Ahk\Country');
 	}
-	
+
 	/**
 	 * Get the country of this company.
 	 */
 	public function logo()
 	{
-		return $this->belongsTo('App\Ahk\File');
+		return $this->belongsTo('App\Ahk\File', 'logo_id');
 	}
 
 	/**

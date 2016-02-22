@@ -108,6 +108,7 @@ $factory->define(Company::class, function (Faker\Generator $faker)
 		'industry_id' => factory(Industry::class)->create()->id,
 		'country_id'  => factory(Country::class)->create()->id,
 		'user_id'     => factory(User::class)->create()->id,
+		'logo_id'     => factory(File::class)->create()->id,
 	]);
 });
 
@@ -123,12 +124,10 @@ $factory->defineAs(Company::class, 'without_relations', function (Faker\Generato
 {
 	$name = $faker->unique()->name;
 	$slug = \Illuminate\Support\Str::slug($name);
-	$file = factory(File::class)->create();
 
 	return [
 		'slug'            => $slug,
 		'name'            => $name,
-		'logo_id'         => $file->id,
 		'focus'           => $faker->words(10, true),
 		'description'     => $faker->paragraph,
 		'business_leader' => $faker->name,
@@ -174,7 +173,7 @@ $factory->defineAs(File::class, 'with_primary_data', function (Faker\Generator $
 {
 	$name = $faker->unique()->name;
 	$slug = \Illuminate\Support\Str::slug($name);
-	$storageLocation = FilesStorage::getFilesPath();
+	$storageLocation = FilesStorage::getFilesDirectory();
 	$fileLocation = $storageLocation . $slug . ".png";
 
 	return [

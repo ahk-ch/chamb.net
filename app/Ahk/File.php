@@ -10,11 +10,17 @@ class File extends Model implements SluggableInterface
 {
 	use SluggableTrait;
 
-	protected $fillable = ['name', 'description', 'path', 'slug'];
+	const NAME = 'name';
+	const DESCRIPTION = 'description';
+	const PATH = 'path';
+	const SLUG = 'slug';
+	const TEMPORARY_PATH = 'file_path'; 
+
+	protected $fillable = [self::NAME, self::DESCRIPTION, self::PATH, self::SLUG];
 
 	protected $sluggable = [
-		'build_from' => 'name',
-		'save_to'    => 'slug',
+		'build_from' => self::NAME,
+		'save_to'    => self::SLUG,
 	];
 }
 

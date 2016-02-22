@@ -18,4 +18,16 @@ interface FileRepository
 	 * @return mixed
 	 */
 	public function store($data);
+
+//	/**
+//	 * Update company logo
+//	 *
+//	 * @param Company $company
+//	 * @param $clientOriginalName
+//	 * @param $realPath
+//	 * @param null $storageLocation
+//	 * @return Company|false
+//	 */
+//	public function updateLogo(Company $company, $clientOriginalName, $realPath, $storageLocation = null);
+
 }

@@ -45,18 +45,7 @@ interface CompanyRepository
 	 * @return Company|false
 	 */
 	public function updatePrimaryData(Company $company, array $data);
-
-	/**
-	 * Update company logo
-	 *
-	 * @param Company $company
-	 * @param $clientOriginalName
-	 * @param $realPath
-	 * @param null $storageLocation
-	 * @return Company|false
-	 */
-	public function updateLogo(Company $company, $clientOriginalName, $realPath, $storageLocation = null);
-
+	
 	/**
 	 * Store company
 	 *

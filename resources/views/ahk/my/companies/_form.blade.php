@@ -89,8 +89,8 @@
 
         <div class="fileinput fileinput-new" data-provides="fileinput">
             <div class="fileinput-new thumbnail img-responsive">
-                <img alt="{!! trans('ahk.logo') !!}" src="{!! $company->logo_path ? route('files.render',
-                ['path' => $company->logo_path]) : "" !!}">
+                <img alt="{!! trans('ahk.logo') !!}" src="{!! $company->logo ? route('files.render',
+                ['path' => $company->logo->path]) : "" !!}">
             </div>
             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
             <div>

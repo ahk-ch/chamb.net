@@ -9,8 +9,10 @@ namespace tests\functional\ahk\companyRepresentative;
 
 use App\Ahk\Company;
 use App\Ahk\Country;
+use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\User\DbUserRepository;
+use App\Ahk\Storage\FilesStorage;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Str;
@@ -98,7 +100,7 @@ class CompaniesTest extends TestCase
 		$company = factory(Company::class)->create(['user_id' => $companyRepresentativeUser->id]);
 		$expectedCompany = factory(Company::class)->make(['user_id' => $companyRepresentativeUser->id]);
 		$expectedSlug = Str::slug($expectedCompany->name);
-		
+
 		factory(Industry::class, 2)->create();
 		factory(Country::class, 2)->create();
 
@@ -188,10 +190,11 @@ class CompaniesTest extends TestCase
 		factory(Industry::class, 2)->create();
 		factory(Country::class, 2)->create();
 
-		$expectedCompany = factory(Company::class)->make(['user_id' => $companyRepresentativeUser->id]);
+		$expectedCompany = factory(Company::class, 'without_relations')->make(['user_id' => $companyRepresentativeUser->id]);
 		$expectedSlug = Str::slug($expectedCompany->name);
 		$expectedIndustry = factory(Industry::class)->create();
 		$expectedCountry = factory(Country::class)->create();
+		$expectedLogoPath = FilesStorage::getFilesDirectory() . 'dummy_logo.png';
 
 
 		$this->actingAs($companyRepresentativeUser)
@@ -218,6 +221,6 @@ class CompaniesTest extends TestCase
 			->see($expectedCompany->phone_number)
 			->see($expectedCompany->focus)
 			->see($expectedCompany->description)
-			->see(route('files.render', ['path' => $expectedCompany->logo_path]));
+			->see(route('files.render', ['path' => $expectedLogoPath]));
 	}
 }
