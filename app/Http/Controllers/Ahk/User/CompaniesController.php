@@ -163,7 +163,7 @@ class CompaniesController extends BaseController
 
 		if ( ! $this->userRepository->hasCompany($user, $company) )
 		{
-			Flash::error(trans('ahk_messages.company_successfully_updated'));
+			Flash::error(trans('ahk_messages.you_do_not_have_the_necessary_privileges'));
 
 			return back()->withInput();
 		}
