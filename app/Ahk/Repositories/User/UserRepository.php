@@ -119,4 +119,12 @@ interface UserRepository
 	 * @return User
 	 */
 	public function findBySlugAndRecoveryToken($slug, $recoveryToken);
+
+	/**
+	 * Update password of a user
+	 * @param User $user
+	 * @param $password
+	 * @return User|false
+	 */
+	public function updatePassword(User $user, $password);
 }

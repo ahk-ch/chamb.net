@@ -192,12 +192,26 @@ class DbUserRepositoryTest extends TestCase
 		$keys = $user->getFillable();
 		$expectedData = array_only($user->toArray(), $keys);
 
-
 		$this->assertNotNull(
 			$actualUser = $dbUserRepository->findBySlugAndRecoveryToken($user->slug, $user->recovery_token));
 
 		$actualData = array_only($actualUser->toArray(), $keys);
 
 		$this->assertEquals($expectedData, $actualData);
+	}
+
+	/** @test */
+	public function it_updates_password()
+	{
+		$dbUserRepository = new DbUserRepository();
+		$oldPassword = 'old-password';
+		$newPassword = 'new-password';
+		$user = factory(User::class)->create(['password' => Hash::make($oldPassword)]);
+
+		$user = $dbUserRepository->updatePassword($user, $newPassword);
+
+		$this->assertNotTrue(Hash::check($oldPassword, $user->password));
+
+		$this->assertTrue(Hash::check($newPassword, $user->password));
 	}
 }

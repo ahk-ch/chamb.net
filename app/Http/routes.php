@@ -44,7 +44,8 @@ Route::group(['prefix' => 'auth'], function ()
 	{
 		Route::get('/', ['as' => 'auth.recover.get', 'uses' => 'Ahk\Auth\PasswordResetsController@getEmail']);
 		Route::post('/', ['as' => 'auth.recover.post', 'uses' => 'Ahk\Auth\PasswordResetsController@postEmail']);
-		Route::get('/reset/{slug}/{token}', ['as' => 'auth.recover.reset', 'uses' => 'Ahk\Auth\PasswordResetsController@reset']);
+		Route::get('/reset/{slug}/{recovery_token}', ['as' => 'auth.recover.reset', 'uses' => 'Ahk\Auth\PasswordResetsController@getReset']);
+		Route::post('/reset/{slug}/{recovery_token}', ['as' => 'auth.recover.reset', 'uses' => 'Ahk\Auth\PasswordResetsController@postReset']);
 	});
 });
 

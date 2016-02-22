@@ -1,70 +1,49 @@
 @extends('ahk.layouts.master')
+@section('title', trans('ahk.reset_password'))
+@section('css-page-style')
+    <link href='{!! url("assets/css/pages/page_log_reg_v1.css") !!}' rel='stylesheet' type='text/css'/>
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
 
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
-                        {!! csrf_field() !!}
+                {!! Form::open(['route' => ['auth.recover.reset', $slug, $recovery_token ], 'class' => 'form-horizontal reg-page', 'role' => 'form']) !!}
 
-                        <input type="hidden" name="token" value="{{ $token }}">
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ $email or old('email') }}">
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Confirm Password</label>
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password_confirmation">
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-refresh"></i>Reset Password
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="reg-header">
+                    <h2>{!! trans('ahk.reset_password') !!}</h2>
                 </div>
+
+                <input type="hidden" name="slug" value="{{ $slug }}">
+                <input type="hidden" name="verify_token" value="{{ $recovery_token }}">
+
+
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    {!! Form::password('password', ['class' => 'form-control',
+                        'placeholder' => trans('ahk.password'), 'required' => 'required']) !!}
+                </div>
+                {!! $errors->first('password', '<div class="alert alert-danger fade in">:message</div>') !!}
+
+
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    {!! Form::password('password_confirmation', ['class' => 'form-control',
+                        'placeholder' => trans('ahk.password_confirmation'), 'required' => 'required']) !!}
+                </div>
+                {!! $errors->first('password_confirmation', '<div class="alert alert-danger fade in">:message</div>') !!}
+
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-4">
+                        <button type="submit" class="btn-u btn btn-primary btn-block">
+                            <i class="fa fa-btn fa-refresh"></i> {!! trans('ahk.reset_password') !!}
+                        </button>
+                    </div>
+                </div>
+
+                {!! Form::close() !!}
             </div>
         </div>
     </div>
-</div>
 @endsection

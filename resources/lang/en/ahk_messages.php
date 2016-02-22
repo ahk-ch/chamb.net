@@ -19,6 +19,7 @@ return [
 	'company_successfully_updated'               => 'Company is updated.',
 	'credentials_mismatch'                       => 'Those credentials do not match our database.',
 	'check_your_email_and_complete_registration' => 'Please check your email, to complete your registration.',
+	'check_your_email_to_recover_account'        => 'Please check your email, to recover your account.',
 	'successful_sign_in'                         => 'You have successfully signed in!',
 	'successful_sign_out'                        => 'You have successfully signed out!',
 	'successful_sign_up'                         => 'You have completed signing up.',
@@ -28,8 +29,9 @@ return [
 	'unknown_error_occurred'                     => 'Unknown error occurred.',
 	'user_created'                               => 'User created!',
 	'validation_error_occurred'                  => 'Validation errors occurred.',
-	'you_need_to_sign_in'                        => 'You need to sign in first.',
 	'you_do_not_have_the_necessary_privileges'   => 'You do not have the necessary privileges.',
+	'you_need_to_sign_in'                        => 'You need to sign in first.',
+	'you_updated_your_accounts_password'         => 'You updated your account\'s password.',
 	'your_password_reset_link'                   => 'Your Password Reset Link',
 
 ];

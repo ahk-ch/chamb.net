@@ -89,13 +89,13 @@ class RegistrationTest extends TestCase
 		$dbUserRepository->assignCompanyRepresentativeRole($user);
 		$dbUserRepository->generateRecoveryToken($user);
 
-		$this->visit(route('auth.recover.reset', ['slug' => $user->slug, 'token' => $user->recovery_token]))
-			->seePageIs(route('auth.recover.new_password'))
-			->see('<title> ' . trans('ahk.new_password') . ' &middot; Chamb.Net</title>')
+		$this->visit(route('auth.recover.reset', ['slug' => $user->slug, 'recovery_token' => $user->recovery_token]))
+			->seePageIs(route('auth.recover.reset', ['slug' => $user->slug, 'recovery_token' => $user->recovery_token]))
+			->see('<title> ' . trans('ahk.reset_password') . ' &middot; Chamb.Net</title>')
 			->type('new-password', 'password')
-			->type('new-password', 'password_confirm')
-			->press(trans('ahk.update'))
+			->type('new-password', 'password_confirmation')
+			->press(trans('ahk.reset_password'))
 			->seePageIs(route('auth.sign_in'))
-			->see(trans('ahk_messages.your_password_is_updated'));
+			->see(trans('ahk_messages.you_updated_your_accounts_password'));
 	}
 }

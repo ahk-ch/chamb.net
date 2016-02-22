@@ -189,8 +189,7 @@ class DbUserRepository extends DbRepository implements UserRepository
 	 */
 	public function generateRecoveryToken(User $user)
 	{
-		return $user->fill(['recovery_token' => str_random()])->save()
-			? $user : false;
+		return $user->fill(['recovery_token' => str_random(32)])->save() ? $user : false;
 	}
 
 	/**
@@ -203,5 +202,16 @@ class DbUserRepository extends DbRepository implements UserRepository
 	public function findBySlugAndRecoveryToken($slug, $recoveryToken)
 	{
 		return User::where(User::SLUG, $slug)->where(User::RECOVERY_TOKEN, $recoveryToken)->first();
+	}
+
+	/**
+	 * Update password of a user
+	 * @param User $user
+	 * @param $password
+	 * @return User|false
+	 */
+	public function updatePassword(User $user, $password)
+	{
+		return $user->fill(['password' => Hash::make($password)])->save() ? $user : false;
 	}
 }

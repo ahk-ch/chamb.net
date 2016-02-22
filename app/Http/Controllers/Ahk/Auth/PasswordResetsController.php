@@ -10,8 +10,10 @@ namespace app\Http\Controllers\Ahk\Auth;
 use App\Ahk\Notifications\AppMailer;
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\User\UserRepository;
+use App\Ahk\User;
 use App\Http\Controllers\Ahk\BaseController;
 use App\Http\Requests\Ahk\PostRecoverAccountRequest;
+use App\Http\Requests\Ahk\ResetPasswordRequest;
 
 /**
  * Class PasswordResetsController
@@ -75,9 +77,9 @@ class PasswordResetsController extends BaseController
 		return redirect()->back();
 	}
 
-	public function reset($slug, $recoveryToken)
+	public function getReset($slug, $recovery_token)
 	{
-		$user = $this->userRepository->findBySlugAndRecoveryToken($slug, $recoveryToken);
+		$user = $this->userRepository->findBySlugAndRecoveryToken($slug, $recovery_token);
 
 		if ( ! $user )
 		{
@@ -86,6 +88,31 @@ class PasswordResetsController extends BaseController
 			return redirect()->route('auth.sign_in');
 		}
 
-		return view('ahk.auth.passwords.reset');
+		return view('ahk.auth.passwords.reset', compact('slug', 'recovery_token'));
+	}
+
+	public function postReset($slug, $recovery_token, ResetPasswordRequest $request)
+	{
+		$user = $this->userRepository->findBySlugAndRecoveryToken($slug, $recovery_token);
+
+		if ( ! $user )
+		{
+			Flash::error('ahk_messages.validation_error_occurred');
+
+			return redirect()->back();
+		}
+
+		$user = $this->userRepository->updatePassword($user, $request->get(User::PASSWORD));
+
+		if ( ! $user )
+		{
+			Flash::error('ahk_messages.unknown_error_occurred');
+
+			return redirect()->route('auth.sign_in');
+		}
+		
+		Flash::success('ahk_messages.you_updated_your_accounts_password');
+
+		return view('auth.sign_in');
 	}
 }
