@@ -85,7 +85,7 @@ class DbCompanyRepositoryTest extends TestCase
 		$newCompanyData = factory(Company::class)->make();
 		$expectedIndustry = factory(Industry::class)->create();
 		$expectedCountry = factory(Country::class)->create();
-		$expectedFile = factory(File::class, 'with_primary_data')->create();
+		$expectedFile = factory(File::class, 'without_storage')->create();
 
 		$keys = $newCompanyData->getFillable();
 

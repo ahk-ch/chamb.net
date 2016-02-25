@@ -16,7 +16,7 @@ class AddAvatarToUsersTable extends Migration
 		Schema::table('users', function (Blueprint $table)
 		{
 			$table->integer('avatar_id')->unsigned()->index()->nullable();
-			$table->foreign('avatar_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('cascade');
+			$table->foreign('avatar_id')->references('id')->on('files')->onDelete('restrict')->onUpdate('cascade');
 		});
 	}
 

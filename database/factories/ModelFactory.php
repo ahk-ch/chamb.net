@@ -23,10 +23,17 @@ use Illuminate\Support\Facades\Storage;
 
 $factory->define(User::class, function (Faker\Generator $faker)
 {
+	$user = factory(User::class, 'with_primary_data')->make();
+
+	return array_merge($user->toArray(),
+		['avatar_id' => factory(File::class)->create()->id,]);
+});
+
+$factory->defineAs(App\Ahk\User::class, 'with_primary_data', function (Faker\Generator $faker) use ($factory)
+{
 	return [
 		'name'               => "$faker->firstName $faker->lastName",
 		'email'              => $faker->unique()->email,
-		'avatar_id'          => factory(File::class)->create()->id,
 		'password'           => bcrypt(str_random(10)),
 		'verified'           => 0,
 		User::RECOVERY_TOKEN => str_random(),
@@ -150,7 +157,7 @@ $factory->define(Service::class, function (Faker\Generator $faker)
 
 $factory->define(File::class, function (Faker\Generator $faker)
 {
-	$fileWithPrimaryData = factory(File::class, 'with_primary_data')->make();
+	$fileWithPrimaryData = factory(File::class, 'without_storage')->make();
 	$storageLocation = FilesStorage::getFilesDirectory();
 	$clientOriginalName = "dummy_logo.png";
 	$tempFilePath = file_get_contents(storage_path("app/testing/$clientOriginalName"));
@@ -164,13 +171,16 @@ $factory->define(File::class, function (Faker\Generator $faker)
 	]);
 });
 
-$factory->defineAs(File::class, 'with_primary_data', function (Faker\Generator $faker) use ($factory)
+$factory->defineAs(File::class, 'without_storage', function (Faker\Generator $faker) use ($factory)
 {
 	$name = $faker->unique()->name;
-	$clientOriginalName = "dummy_logo.png";
+	$clientOriginalName = "{$faker->name}.{$faker->fileExtension}";
+	$storageLocation = FilesStorage::getFilesDirectory();
+	$fileLocation = $storageLocation . $clientOriginalName;
 
 	return [
 		'name'                 => $name,
+		'path'                 => $fileLocation,
 		'description'          => $faker->paragraph(),
 		'client_original_name' => $clientOriginalName,
 	];

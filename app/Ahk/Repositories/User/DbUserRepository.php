@@ -127,7 +127,7 @@ class DbUserRepository extends DbRepository implements UserRepository
 	{
 		$user = new User(array_only($data, ['name', 'email', 'avatar_url']));
 
-		$user->fill(['password' => Hash::make($data['password'])]);
+		$user->password = Hash::make($data['password']);
 
 		return $user->save() ? $user : false;
 	}

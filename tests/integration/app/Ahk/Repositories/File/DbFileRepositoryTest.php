@@ -21,11 +21,11 @@ class DbFileRepositoryTest extends TestCase
 	/** @test */
 	public function it_creates_new_file()
 	{
-
 		$dbFileRepository = new DbFileRepository();
-		$expectedFile = factory(File::class, 'with_primary_data')->make();
 		$expectedFileName = 'dummy_logo.png';
 		$expectedFilePath = FilesStorage::getFilesDirectory() . $expectedFileName;
+		$expectedFile = factory(File::class, 'without_storage')
+			->make(['path' => $expectedFilePath, 'client_original_name' => $expectedFileName]);
 
 		$requestData = array_only($expectedFile->toArray(), $expectedFile->getFillable());
 
@@ -43,7 +43,6 @@ class DbFileRepositoryTest extends TestCase
 
 		$this->seeInDatabase('files', $requestData + [
 				File::PATH => $expectedFilePath,
-				File::SLUG => 'dummy-logo-png',
 			]);
 
 		$this->assertTrue(Storage::exists($expectedFilePath));
@@ -53,9 +52,10 @@ class DbFileRepositoryTest extends TestCase
 	public function it_updates_a_file()
 	{
 		$dbFileRepository = new DbFileRepository();
-		$expectedFile = factory(File::class, 'with_primary_data')->make();;
 		$expectedClientOriginalName = 'dummy_logo3.png';
 		$expectedFilePath = FilesStorage::getFilesDirectory() . $expectedClientOriginalName;
+		$expectedFile = factory(File::class, 'without_storage')->make(
+			['path' => $expectedFilePath, 'client_original_name' => $expectedClientOriginalName]		);;
 		$expectedTemporaryPath = storage_path('app/testing/dummy_logo.png');
 
 		$requestData[ File::NAME ] = $expectedFile->name;

@@ -8,6 +8,7 @@
 namespace tests\integration\app\Ahk\Repositories\User;
 
 use App\Ahk\Company;
+use App\Ahk\File;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -38,28 +39,17 @@ class DbUserRepositoryTest extends TestCase
 	{
 		$userRepository = new DbUserRepository();
 
-		$user = factory(User::class)->make(['password' => 'pass']);
+		$expectedUserData = array_only(factory(User::class, 'with_primary_data')->make()->toArray(),
+			['name', 'email']);
 
-		$this->dontSeeInDatabase('users', [
-			'email'      => $user->email,
-			'name'       => $user->name,
-			'avatar_url' => $user->avatar_url,
-			'password'   => $user->password,
-		]);
+		$this->dontSeeInDatabase('users', $expectedUserData);
 
-		$this->assertNotFalse($user = $userRepository->store([
-			'email'      => $user->email,
-			'name'       => $user->name,
-			'avatar_url' => $user->avatar_url,
-			'password'   => 'pass',
-		]));
+		$this->assertNotFalse($user = $userRepository
+			->store(array_merge($expectedUserData, ['password' => 'pass'])));
 
-		$this->seeInDatabase('users', [
-			'email'      => $user->email,
-			'name'       => $user->name,
-			'avatar_url' => $user->avatar_url,
-			'password'   => $user->password,
-		]);
+		$this->seeInDatabase('users', $expectedUserData);
+
+		$this->assertTrue(Hash::check('pass', $user->password));
 	}
 
 	/** @test */
@@ -70,18 +60,17 @@ class DbUserRepositoryTest extends TestCase
 		$user = factory(User::class)->make(['password' => 'pass']);
 
 		$this->assertNotFalse($user = $userRepository->storeCompanyRepresentativeAccount([
-			'email'      => $user->email,
-			'name'       => $user->name,
-			'avatar_url' => $user->avatar_url,
-			'password'   => 'pass',
+			'email'     => $user->email,
+			'name'      => $user->name,
+			'password'  => 'pass',
 		]));
 
 		$this->seeInDatabase('users', [
-			'email'      => $user->email,
-			'name'       => $user->name,
-			'avatar_url' => $user->avatar_url,
-			'password'   => $user->password,
+			'email'     => $user->email,
+			'name'      => $user->name,
 		]);
+
+		$this->assertTrue(Hash::check('pass', $user->password));
 
 		$this->assertTrue($userRepository->hasCompanyRepresentativeRole($user));
 	}
