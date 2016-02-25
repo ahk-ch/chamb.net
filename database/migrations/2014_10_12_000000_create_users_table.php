@@ -19,7 +19,6 @@ class CreateUsersTable extends Migration
 			$table->increments('id');
 			$table->string('name')->nullable();
 			$table->string('email')->unique();
-			$table->string('avatar_url')->nullable();
 			$table->string('password', 60);
 			$table->boolean('verified')->default(false);
 			$table->string('token')->nullable();

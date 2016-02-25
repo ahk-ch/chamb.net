@@ -134,9 +134,11 @@ class DbUserRepositoryTest extends TestCase
 
 		$user = factory(User::class)->create();
 
-		$this->assertSame(
-			array_only($user->toArray(), $user->getFillable()),
-			array_only($dbUserRepository->findByEmail($user->email)->toArray(), $user->getFillable()));
+		$keys = $user->getFillable();
+
+		$this->assertEquals(
+			array_only($user->toArray(), $keys),
+			array_only($dbUserRepository->findByEmail($user->email)->toArray(), $keys));
 	}
 
 	/** @test */

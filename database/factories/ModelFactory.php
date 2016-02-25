@@ -26,7 +26,7 @@ $factory->define(User::class, function (Faker\Generator $faker)
 	return [
 		'name'               => "$faker->firstName $faker->lastName",
 		'email'              => $faker->unique()->email,
-		'avatar_url'         => $faker->imageUrl(),
+		'avatar_id'          => factory(File::class)->create()->id,
 		'password'           => bcrypt(str_random(10)),
 		'verified'           => 0,
 		User::RECOVERY_TOKEN => str_random(),

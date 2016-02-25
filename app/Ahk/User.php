@@ -109,4 +109,12 @@ class User extends Model implements AuthenticatableContract,
 	{
 		return $this->hasMany('App\Ahk\Company');
 	}
+
+	/**
+	 * Get avatar of the user
+	 */
+	public function avatar()
+	{
+		return $this->belongsTo('App\Ahk\File');
+	}
 }

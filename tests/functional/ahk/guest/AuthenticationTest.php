@@ -40,7 +40,7 @@ class AuthenticationTest extends TestCase
 			->see('<input class="form-control" placeholder="' . trans("ahk.password") . '" required="required" name="password" type="password" value="">')
 			->see('<input name="remember_me" type="checkbox" value="1"> ' . trans('ahk.remember_me'))
 			->see('<input class="btn-u pull-right" id="sign-in" name="sign-in" type="submit" value="Sign In">')
-			->see('<h4>' . trans('ahk.forgot_your_password') . '</h4>');
+			->see('<a href="' . route('auth.recover.get') . '">' . trans('ahk.forgot_your_password') . '</a>');
 	}
 
 	/** @test */
