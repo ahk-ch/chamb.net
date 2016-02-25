@@ -16,7 +16,7 @@ class HomeTest extends TestCase
 	{
 		$this->visit(route('home_path'))
 			->seePageIs(route('home_path'))
-			->see(trans('ahk.home') . ' &middot; Chamb.Net')
+			->see(trans('ahk.home') . ' · Chamb.Net')
 			->see(trans('ahk.we_promote_and_support_bilateral_business_between_greece_and_germany'));
 	}
 }

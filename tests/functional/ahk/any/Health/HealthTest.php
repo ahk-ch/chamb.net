@@ -21,6 +21,6 @@ class HealthTest extends TestCase
 	{
 		$this->visit(route('health.info'))
 			->seePageIs(route('health.info'))
-			->see("<title> " . trans('ahk.info') . " &middot; Chamb.Net</title>");
+			->see("<title> " . trans('ahk.info') . " · Chamb.Net</title>");
 	}
 }

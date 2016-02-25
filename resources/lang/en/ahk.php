@@ -90,7 +90,7 @@ return [
 	'what_are_we_looking_for'                                              => 'What are we looking for',
 	'what_we_can_offer'                                                    => 'What we can offer',
 	'we_just_need_you_to_confirm_email'                                    => 'We just need you to confirm your email address.',
-	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Support, Develop and Upgrade</br>the Health Industry and<br/>your Business',
+	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Support, Develop and Upgrade the Health Industry and your Business',
 	'welcome'                                                              => 'Welcome!',
 	'work_groups'                                                          => 'Work-Groups',
 ];

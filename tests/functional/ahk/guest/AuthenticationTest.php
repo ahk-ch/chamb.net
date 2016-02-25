@@ -32,7 +32,7 @@ class AuthenticationTest extends TestCase
 	public function it_reads_sign_in_page()
 	{
 		$this->visit(route('auth.sign_in'))
-			->see('<title> ' . trans('ahk.sign_in') . ' &middot; Chamb.Net</title>')
+			->see('<title> ' . trans('ahk.sign_in') . ' · Chamb.Net</title>')
 			->see('<h2>' . trans('ahk.sign_in') . '</h2>')
 			->see('<i class="fa fa-envelope"></i>')
 			->see('<input class="form-control" placeholder="Email" required="required" name="email" type="email">')

@@ -31,7 +31,7 @@ class RegistrationTest extends TestCase
 	public function it_reads_register_page_view()
 	{
 		$this->visit(route('auth.register'))
-			->see('<title> ' . trans('ahk.register') . ' &middot; Chamb.Net</title>')
+			->see('<title> ' . trans('ahk.register') . ' · Chamb.Net</title>')
 			->see('<h2>' . trans('ahk.register') . '</h2>')
 			->see('<a href="' . route('auth.sign_in') . '" class="color-green">' . trans('ahk.sign_in') . '</a>')
 			->see('<i class="fa fa-envelope"></i>')
@@ -80,7 +80,7 @@ class RegistrationTest extends TestCase
 		$this->visit(route('auth.sign_in'))
 			->click(trans('ahk.forgot_your_password'))
 			->seePageIs(route('auth.recover.get'))
-			->see('<title> ' . trans('ahk.reset_password') . ' &middot; Chamb.Net</title>')
+			->see('<title> ' . trans('ahk.reset_password') . ' · Chamb.Net</title>')
 			->type($user->email, 'email')
 			->press(trans('ahk.send_password_reset_link'))
 			->see(trans('ahk_messages.check_your_email_to_recover_account'));
@@ -91,7 +91,7 @@ class RegistrationTest extends TestCase
 
 		$this->visit(route('auth.recover.reset', ['slug' => $user->slug, 'recovery_token' => $user->recovery_token]))
 			->seePageIs(route('auth.recover.reset', ['slug' => $user->slug, 'recovery_token' => $user->recovery_token]))
-			->see('<title> ' . trans('ahk.reset_password') . ' &middot; Chamb.Net</title>')
+			->see('<title> ' . trans('ahk.reset_password') . ' · Chamb.Net</title>')
 			->type('new-password', 'password')
 			->type('new-password', 'password_confirmation')
 			->press(trans('ahk.reset_password'))
