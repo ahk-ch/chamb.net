@@ -26,4 +26,7 @@
         <env name="QUEUE_DRIVER" value="sync"/>
         <env name="DB_DATABASE" value="chamb_testing"/>
     </php>
+    <logging>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+    </logging>
 </phpunit>

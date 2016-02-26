@@ -6,6 +6,12 @@ php:
   - 7.0
   - hhvm
 
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: 7.0
+    - php: hhvm
+
 before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction
@@ -15,10 +21,10 @@ before_script:
   - npm install -g bower
   - bower install
 
-matrix:
-  fast_finish: true
-  allow_failures:
-    - php: 7.0
-    - php: hhvm
-
-script: vendor/bin/phpunit
+before_install:
+  - composer require satooshi/php-coveralls
+  - composer install
+after_script:  php vendor/bin/coveralls -v
+coverage_clover: tests/logs/clover.xml
+json_path: tests/logs/coveralls-upload.json
+service_name: travis-ci
