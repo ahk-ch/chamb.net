@@ -22,8 +22,9 @@ before_script:
   - bower install
 
 before_install:
+  - composer self-update
+  - composer install --prefer-source --no-interaction
   - composer require satooshi/php-coveralls
-  - composer install
 after_script:  php vendor/bin/coveralls -v
 coverage_clover: tests/logs/clover.xml
 json_path: tests/logs/coveralls-upload.json
