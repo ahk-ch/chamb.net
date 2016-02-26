@@ -1,5 +1,7 @@
 ## chamb.net
 
+[![Build Status](https://travis-ci.org/ahk-ch/chamb.net.svg?branch=master)](https://travis-ci.org/ahk-ch/chamb.net)
+
 
 ## Deployment
 If using homestead and errors occur when using nmp: See http://stackoverflow.com/a/16151707/2790481
