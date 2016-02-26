@@ -83,7 +83,7 @@
                             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="item active">
-                                        <img alt="Company Logo" src="{!! $company->logo !!}" style="max-height: 150px">
+                                        <img alt="Company Logo" src="{!! $company->logo->path !!}" style="max-height: 150px">
                                     </div>
                                 </div>
                             </div>

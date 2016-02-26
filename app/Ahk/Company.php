@@ -66,7 +66,7 @@ class Company extends Model implements SluggableInterface
 	 */
 	public function logo()
 	{
-		return $this->belongsTo('App\Ahk\File', 'logo_id');
+		return $this->belongsTo('App\Ahk\File');
 	}
 
 	/**
