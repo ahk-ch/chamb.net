@@ -1,6 +1,6 @@
 ## chamb.net 
-
-[logo]: http://i1341.photobucket.com/albums/o752/rdokollari/16003106_zps4kbvxlru.png
+![Chamb Logo](http://i1341.photobucket.com/albums/o752/rdokollari/16003106_zps4kbvxlru.png "Chamb.Net Logo")  
+[![Build Status](https://travis-ci.org/ahk-ch/chamb.net.svg?branch=master)](https://travis-ci.org/ahk-ch/chamb.net) [![Coverage Status](https://coveralls.io/repos/github/ahk-ch/chamb.net/badge.svg?branch=master)](https://coveralls.io/github/ahk-ch/chamb.net?branch=master)
 
 
 [![Build Status](https://travis-ci.org/ahk-ch/chamb.net.svg?branch=master)](https://travis-ci.org/ahk-ch/chamb.net)
