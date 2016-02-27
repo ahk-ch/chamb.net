@@ -10,6 +10,7 @@ namespace tests\integration\app\Ahk\Repositories\Article;
 use App\Ahk\Article;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Article\DbArticleRepository;
+use App\Ahk\Tag;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
@@ -25,7 +26,7 @@ class DbArticleRepositoryTest extends TestCase
 		$articles = factory(Article::class, 2)->create();
 		$keys = $articles->get(0)->getFillable();
 
-		$this->assertEquals(
+		$this->assertSame(
 			array_only($articles->toArray(), $keys),
 			array_only($dbArticleRepository->all()->get()->toArray(), $keys));
 	}
@@ -45,7 +46,7 @@ class DbArticleRepositoryTest extends TestCase
 		$actualArticle = $dbArticleRepository->store($actualAuthor, $expectedData, $actualIndustry);
 
 		$this->seeInDatabase('articles', $expectedData);
-		$this->assertEquals($actualIndustry->id, $actualArticle->industry->id);
+		$this->assertSame($actualIndustry->id, $actualArticle->industry->id);
 	}
 
 	/** @test */
@@ -61,14 +62,14 @@ class DbArticleRepositoryTest extends TestCase
 
 		$this->seeInDatabase('articles', $currentData);
 		$this->notSeeInDatabase('articles', $expectedData);
-		$this->assertNotEquals($expectedIndustry->id, $currentArticle->industry->id);
+		$this->assertNotSame($expectedIndustry->id, $currentArticle->industry->id);
 
 		$actualArticle = $dbArticleRepository
 			->updateById($currentArticle->id, $expectedData, $expectedIndustry);
 
 		$this->seeInDatabase('articles', $expectedData);
 		$this->notSeeInDatabase('articles', $currentData);
-		$this->assertEquals($expectedIndustry->id, $actualArticle->industry->id);
+		$this->assertSame($expectedIndustry->id, $actualArticle->industry->id);
 	}
 
 	/** @test */
@@ -80,6 +81,31 @@ class DbArticleRepositoryTest extends TestCase
 		$expectedData = array_only($currentArticle->toArray(), $keys);
 		$actualData = array_only($dbArticleRepository->getById($currentArticle->id)->toArray(), $keys);
 
-		$this->assertEquals($expectedData, $actualData);
+		$this->assertSame($expectedData, $actualData);
+	}
+
+	/** @test */
+	public function it_update_tags_by_id()
+	{
+		$dbArticleRepository = new DbArticleRepository();
+		$article = factory(Article::class)->create();
+		$expectedTags = factory(Tag::class, 2)->create();
+		$newTagIds = [$expectedTags->get(0)->id, $expectedTags->get(1)->id];
+
+		$this->assertCount(0, $article->tags()->get());
+
+		$article = $dbArticleRepository->updateTagsById($article->id, $newTagIds);
+
+		$actualTags = $article->tags()->get();
+
+		$this->assertCount(2, $actualTags);
+
+		$this->assertSame(
+			$expectedTags->get(0)->name,
+			$actualTags->get(0)->name);
+
+		$this->assertSame(
+			$expectedTags->get(1)->name,
+			$actualTags->get(1)->name);
 	}
 }
