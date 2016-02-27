@@ -7,9 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Role
  * @package App\Ahk
+ * @codeCoverageIgnore
  */
 class Role extends Model
 {
+	/**
+	 *
+	 */
 	const COMPANY_REPRESENTATIVE_ROLE = 'CompanyRepresentative';
 
 	/**

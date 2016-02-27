@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Article
  * @package App\Ahk
+ * @codeCoverageIgnore
  */
 class Article extends Model
 {

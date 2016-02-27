@@ -9,6 +9,10 @@ namespace tests\unit\Ahk\Helpers;
 use App\Ahk\Helpers\Helpers;
 use tests\TestCase;
 
+/**
+ * Class HelpersTest
+ * @package tests\unit\Ahk\Helpers
+ */
 class HelpersTest extends TestCase {
 
 	/**

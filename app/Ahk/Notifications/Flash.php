@@ -8,8 +8,16 @@ namespace App\Ahk\Notifications;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * Class Flash
+ * @package App\Ahk\Notifications
+ * @codeCoverageIgnore
+ */
 class Flash extends Facade {
 
+	/**
+	 * @return string
+	 */
 	protected static function getFacadeAccessor()
 	{
 		return 'flash';

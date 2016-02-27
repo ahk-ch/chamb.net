@@ -13,10 +13,7 @@ matrix:
     - php: hhvm
 
 before_script:
-  - composer self-update
-  - composer install --prefer-source --no-interaction
   - mysql -e 'CREATE DATABASE IF NOT EXISTS chamb_testing;'
-  - php artisan migrate -n
   - php artisan migrate -n
   - npm install -g bower
   - bower install
@@ -25,7 +22,7 @@ before_install:
   - composer self-update
   - composer install --prefer-source --no-interaction
   - composer require satooshi/php-coveralls
-after_script:  php vendor/bin/coveralls -v
-coverage_clover: tests/logs/clover.xml
-json_path: tests/logs/coveralls-upload.json
-service_name: travis-ci
+
+script: phpunit tests/ --coverage-clover build/logs/clover.xml
+
+after_script: php vendor/bin/coveralls -v

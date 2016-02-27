@@ -9,7 +9,12 @@ namespace App\Ahk\Notifications;
 
 use Illuminate\Session\Store;
 
+/**
+ * Class FlashNotifier
+ * @package App\Ahk\Notifications
+ */
 class FlashNotifier {
+	
 	/**
 	 * @var Store
 	 */
@@ -24,11 +29,18 @@ class FlashNotifier {
 		$this->session = $session;
 	}
 
+	/**
+	 * @param $message
+	 */
 	public function success($message)
 	{
 		$this->message($message, 'success');
 	}
 
+	/**
+	 * @param $message
+	 * @param string $level
+	 */
 	public function message($message, $level = 'info')
 	{
 		$notification = new \stdClass;
@@ -44,11 +56,17 @@ class FlashNotifier {
 		$this->session->flash('flash_notifications', $notifications);
 	}
 
+	/**
+	 * @param $message
+	 */
 	public function error($message)
 	{
 		$this->message($message, 'error');
 	}
 
+	/**
+	 * @param $message
+	 */
 	public function warning($message)
 	{
 		$this->message($message, 'notice');

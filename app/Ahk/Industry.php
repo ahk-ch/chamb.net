@@ -4,8 +4,16 @@ namespace App\Ahk;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Industry
+ * @package App\Ahk
+ * @codeCoverageIgnore
+ */
 class Industry extends Model
 {
+	/**
+	 * @var array
+	 */
 	protected $fillable = ['name'];
 
 	/**

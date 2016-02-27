@@ -15,12 +15,16 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 /**
  * Class User
  * @package App\Ahk
+ * @codeCoverageIgnore
  */
 class User extends Model implements AuthenticatableContract,
 	AuthorizableContract,
 	CanResetPasswordContract,
 	SluggableInterface
 {
+	/**
+	 *
+	 */
 	const SLUG = 'slug';
 	/**
 	 *

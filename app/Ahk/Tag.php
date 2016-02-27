@@ -4,6 +4,11 @@ namespace App\Ahk;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Tag
+ * @package App\Ahk
+ * @codeCoverageIgnore
+ */
 class Tag extends Model {
 
 	/**
@@ -13,6 +18,9 @@ class Tag extends Model {
 	 */
 	protected $fillable = ['name'];
 
+	/**
+	 * @param User $user
+	 */
 	public function assignAuthor(User $user)
 	{
 		$this->author()->associate($user);

@@ -9,29 +9,72 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Company
  * @package App\Ahk
+ * @codeCoverageIgnore
  */
 class Company extends Model implements SluggableInterface
 {
 	use SluggableTrait;
 
+	/**
+	 *
+	 */
 	const NAME = 'name';
+	/**
+	 *
+	 */
 	const LOGO_ID = 'logo_id';
+	/**
+	 *
+	 */
 	const COUNTRY_ID = 'country_id';
+	/**
+	 *
+	 */
 	const INDUSTRY_ID = 'industry_id';
+	/**
+	 *
+	 */
 	const DESCRIPTION = 'description';
+	/**
+	 *
+	 */
 	const FOCUS = 'focus';
+	/**
+	 *
+	 */
 	const BUSINESS_LEADER = 'business_leader';
+	/**
+	 *
+	 */
 	const ADDRESS = 'address';
+	/**
+	 *
+	 */
 	const EMAIL = 'email';
+	/**
+	 *
+	 */
 	const PHONE_NUMBER = 'phone_number';
+	/**
+	 *
+	 */
 	const LOGO_PATH = 'logo_path';
+	/**
+	 *
+	 */
 	const SLUG = 'slug';
 
+	/**
+	 * @var array
+	 */
 	protected $fillable = [
 		self::NAME, self::DESCRIPTION, self::FOCUS, self::BUSINESS_LEADER, self::ADDRESS, self::EMAIL,
 		self::PHONE_NUMBER, self::SLUG
 	];
 
+	/**
+	 * @var array
+	 */
 	protected $sluggable = [
 		'build_from' => self::NAME,
 		'save_to'    => self::SLUG,
