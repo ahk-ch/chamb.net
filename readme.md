@@ -1,15 +1,15 @@
-## chamb.net
-
-[![Build Status](https://travis-ci.org/ahk-ch/chamb.net.svg?branch=master)](https://travis-ci.org/ahk-ch/chamb.net)
-[![Coverage Status](https://coveralls.io/repos/github/ahk-ch/chamb.net/badge.svg?branch=master)](https://coveralls.io/github/ahk-ch/chamb.net?branch=master)
+![Chamb Logo](http://i1341.photobucket.com/albums/o752/rdokollari/16003106_zps4kbvxlru.png "Chamb.Net Logo")  
+[![Build Status](https://travis-ci.org/ahk-ch/chamb.net.svg?branch=master)](https://travis-ci.org/ahk-ch/chamb.net) [![Coverage Status](https://coveralls.io/repos/github/ahk-ch/chamb.net/badge.svg?branch=master)](https://coveralls.io/github/ahk-ch/chamb.net?branch=master)
 
 ## Deployment
-If using homestead and errors occur when using nmp: See http://stackoverflow.com/a/16151707/2790481
 
 - Clone the repo to your web server.
 - [Generate Laravel key][laravel_recipes_generate_key]
 - Use composer to install back-end packages.
-- Use bower to install front-end packages.
+- Use bower to install front-end packages. 
+    - You'll need to separately get a [Unify Template][unify_website_url] copy as it requires a license. Put the assets folder into /bower_components/Unify directory. If 
+    - Or if you wish to contribute send us message with a ssh key as a deployment key. This will give your bower access to the private Unify package.
+- Run command `gulp --production` to minimize and copy all css & js to public directory.
 - Run tests using phpunit
 - Run migrations 
 
@@ -55,3 +55,4 @@ If using homestead and errors occur when using nmp: See http://stackoverflow.com
 [sass_guide_path]: http://sass-lang.com/guide
 [GrahamCampbell_Laravel_HTMLMin_path]: https://github.com/GrahamCampbell/Laravel-HTMLMin
 [laravel_recipes_generate_key]: http://laravel-recipes.com/recipes/283/generating-a-new-application-key
+[unify_website_url]: https://wrapbootstrap.com/theme/unify-responsive-website-template-WB0412697

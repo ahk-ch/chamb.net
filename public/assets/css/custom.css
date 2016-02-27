@@ -1,9 +1,0 @@
-/* Add here all your css styles (customizations) */
-.header .topbar ul.languages li button {
-    color: #555;
-    display: block;
-    font-size: 10px;
-    padding: 2px 12px;
-    margin-bottom: 1px;
-    text-transform: uppercase;
-}

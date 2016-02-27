@@ -23,6 +23,6 @@ before_install:
   - composer install --prefer-source --no-interaction
   - composer require satooshi/php-coveralls
 
-script: phpunit tests/ --coverage-clover build/logs/clover.xml
+script: phpunit tests/ --coverage-clover tests/build/logs/clover.xml
 
 after_script: php vendor/bin/coveralls -v
