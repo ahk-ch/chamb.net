@@ -31,4 +31,12 @@ class Industry extends Model
 	{
 		return $this->belongsTo('App\Ahk\User');
 	}
+	
+	/**
+	 * @param User $user
+	 */
+	public function assignAuthor(User $user)
+	{
+		$this->author()->associate($user);
+	}
 }

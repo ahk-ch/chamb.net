@@ -140,13 +140,6 @@ $factory->define(App\Ahk\Country::class, function (Faker\Generator $faker)
 	];
 });
 
-$factory->define(Industry::class, function (Faker\Generator $faker)
-{
-	return [
-		'name' => $faker->unique()->name,
-	];
-});
-
 $factory->define(Service::class, function (Faker\Generator $faker)
 {
 	return [

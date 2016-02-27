@@ -19,6 +19,9 @@ class CreateIndustriesTable extends Migration
 			$table->increments('id');
 			$table->string('name')->unique();
 			$table->timestamps();
+
+			$table->integer('author_id')->unsigned()->index();
+			$table->foreign('author_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('cascade');
 		});
 	}
 
@@ -29,6 +32,13 @@ class CreateIndustriesTable extends Migration
 	 */
 	public function down()
 	{
-		DbTruncator::truncateByTable('industries');
+		Schema::table('industries', function (Blueprint $table)
+		{
+			$table->dropForeign('industries_author_id_foreign');
+			$table->dropIndex('industries_author_id_index');
+			$table->removeColumn('author_id');
+		});
+
+		Schema::drop('industries');
 	}
 }
