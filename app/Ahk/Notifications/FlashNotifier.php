@@ -63,12 +63,4 @@ class FlashNotifier {
 	{
 		$this->message($message, 'error');
 	}
-
-	/**
-	 * @param $message
-	 */
-	public function warning($message)
-	{
-		$this->message($message, 'notice');
-	}
 }

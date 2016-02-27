@@ -61,4 +61,49 @@ class AuthenticationTest extends TestCase
 			->see(trans('ahk_messages.successful_sign_in'));
 	}
 
+	/** @test */
+	public function it_shows_credentials_mismatch_error()
+	{
+		$dbUserRepository = new DbUserRepository();
+		$user = factory(User::class)
+			->create(['email' => 'email@email.com', 'password' => Hash::make('some-password'), 'verified' => 1]);
+		$dbUserRepository->assignCompanyRepresentativeRole($user);
+
+		$this->visit(route('auth.sign_in'))
+			->type($user->email, 'email')
+			->type('wrong-password', 'password')
+			->press(trans('ahk.sign_in'))
+			->seePageIs(route('auth.sign_in'))
+			->see(trans('ahk_messages.credentials_mismatch'));
+	}
+
+	/** @test */
+	public function it_shows_invalidated_account_error()
+	{
+		$dbUserRepository = new DbUserRepository();
+		$user = factory(User::class)
+			->create(['email'    => 'email@email.com', 'password' => Hash::make('some-password'), 'verified' => 0]);
+		$dbUserRepository->assignCompanyRepresentativeRole($user);
+
+		$this->visit(route('auth.sign_in'))
+			->type($user->email, 'email')
+			->type('some-password', 'password')
+			->press(trans('ahk.sign_in'))
+			->seePageIs(route('auth.sign_in'))
+			->see(trans('ahk_messages.please_validate_your_email_first'));
+	}
+
+	/** @test */
+	public function it_shows_missing_privileges_error()
+	{
+		$user = factory(User::class)
+			->create(['email'    => 'email@email.com', 'password' => Hash::make('some-password'), 'verified' => 1]);
+
+		$this->visit(route('auth.sign_in'))
+			->type($user->email, 'email')
+			->type('some-password', 'password')
+			->press(trans('ahk.sign_in'))
+			->seePageIs(route('auth.sign_in'))
+			->see(trans('ahk_messages.you_do_not_have_the_necessary_privileges'));
+	}
 }
