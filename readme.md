@@ -1,4 +1,7 @@
-## chamb.net
+## chamb.net 
+
+[logo]: http://i1341.photobucket.com/albums/o752/rdokollari/16003106_zps4kbvxlru.png
+
 
 [![Build Status](https://travis-ci.org/ahk-ch/chamb.net.svg?branch=master)](https://travis-ci.org/ahk-ch/chamb.net)
 [![Coverage Status](https://coveralls.io/repos/github/ahk-ch/chamb.net/badge.svg?branch=master)](https://coveralls.io/github/ahk-ch/chamb.net?branch=master)
@@ -49,7 +52,6 @@ If using homestead and errors occur when using nmp: See http://stackoverflow.com
 [bower_path]: http://bower.io
 [composer_path]: https://getcomposer.org/
 [git_path]: https://git-scm.com/
-[fzaninotto_Faker_path]: https://github.com/fzaninotto/Faker
 [fzaninotto_Faker_path]: https://github.com/fzaninotto/Faker
 [laravel_elixir_path]: http://laravel.com/docs/5.1/elixir
 [sass_guide_path]: http://sass-lang.com/guide
