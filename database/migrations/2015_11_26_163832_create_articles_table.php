@@ -20,7 +20,6 @@ class CreateArticlesTable extends Migration
 			$table->string('title');
 			$table->boolean('publish')->nullable()->default(false);
 			$table->string('source')->nullable();
-			$table->string('img_url');
 			$table->mediumText('description');
 			$table->longText('content');
 			$table->timestamps();

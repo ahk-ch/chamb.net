@@ -49,7 +49,6 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 	 * @param array $fillable
 	 * @param Industry $industry
 	 * @return mixed
-	 * @internal param $id
 	 */
 	public function updateById($articleId, array $fillable, Industry $industry)
 	{

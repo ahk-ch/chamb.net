@@ -45,8 +45,30 @@ class DbArticleRepositoryTest extends TestCase
 		$actualArticle = $dbArticleRepository->store($actualAuthor, $expectedData, $actualIndustry);
 
 		$this->seeInDatabase('articles', $expectedData);
-
 		$this->assertEquals($actualIndustry->id, $actualArticle->industry->id);
-		$this->assertEquals($actualAuthor->id, $actualArticle->author->id);
+	}
+	
+	/** @test */
+	public function it_updates_article_by_id()
+	{
+		$dbArticleRepository = new DbArticleRepository();
+		$actualAuthor = factory(User::class)->create();
+		$expectedIndustry = factory(Industry::class)->create();
+		$currentArticle = factory(Article::class)->create();
+		$expectedArticle = factory(Article::class)->make();
+		$keys = $currentArticle->getFillable();
+		$currentData = array_only($currentArticle->toArray(), $keys);
+		$expectedData = array_only($expectedArticle->toArray(), $keys);
+
+		$this->seeInDatabase('articles', $currentData);
+		$this->notSeeInDatabase('articles', $expectedData);
+		$this->assertNotEquals($expectedIndustry->id, $currentArticle->industry->id);
+
+		$actualArticle = $dbArticleRepository
+			->updateById($currentArticle->id, $expectedData, $expectedIndustry);
+
+		$this->seeInDatabase('articles', $expectedData);
+		$this->notSeeInDatabase('articles', $currentData);
+		$this->assertEquals($expectedIndustry->id, $actualArticle->industry->id);
 	}
 }

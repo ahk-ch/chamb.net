@@ -17,7 +17,7 @@ class Article extends Model
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['title', 'publish', 'source', 'description', 'content', 'img_url'];
+	protected $fillable = ['title', 'publish', 'source', 'description', 'content'];
 
 	/**
 	 * The tags this article belongs to.

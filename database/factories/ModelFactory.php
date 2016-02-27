@@ -93,7 +93,6 @@ $factory->defineAs(App\Ahk\Article::class, 'without_relations', function (Faker\
 		'title'       => $faker->sentence,
 		'publish'     => $faker->boolean,
 		'source'      => $faker->url,
-		'img_url'     => $faker->imageUrl(),
 		'description' => $faker->paragraph,
 		'content'     => $content,
 	];
