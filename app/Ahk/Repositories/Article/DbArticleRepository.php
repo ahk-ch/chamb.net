@@ -64,6 +64,7 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 	/**
 	 * Get an article given its id
 	 * @param $id
+	 * @return Article|\Illuminate\Database\Eloquent\Model|null|static
 	 */
 	public function getById($id)
 	{

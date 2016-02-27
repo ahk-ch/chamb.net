@@ -81,7 +81,7 @@ class DbArticleRepositoryTest extends TestCase
 		$expectedData = array_only($currentArticle->toArray(), $keys);
 		$actualData = array_only($dbArticleRepository->getById($currentArticle->id)->toArray(), $keys);
 
-		$this->assertSame($expectedData, $actualData);
+		$this->assertEquals($expectedData, $actualData);
 	}
 
 	/** @test */
@@ -107,5 +107,53 @@ class DbArticleRepositoryTest extends TestCase
 		$this->assertSame(
 			$expectedTags->get(1)->name,
 			$actualTags->get(1)->name);
+	}
+
+	/** @test */
+	public function it_returns_published_articles()
+	{
+		$dbArticleRepository = new DbArticleRepository();
+		$actualPublishedArticles = factory(Article::class, 2)->create(['publish' => 1]);
+		$actualUnPublishedArticles = factory(Article::class, 2)->create(['publish' => 0]);
+		$expectedPublishedArticles = $dbArticleRepository->published()->get();
+		$keys = $actualPublishedArticles->get(0)->getFillable();
+
+		$this->assertNotSame(
+			array_only($expectedPublishedArticles->get(0)->toArray(), $keys),
+			array_only($actualUnPublishedArticles->get(0)->toArray(), $keys));
+		$this->assertNotSame(
+			array_only($expectedPublishedArticles->get(1)->toArray(), $keys),
+			array_only($actualUnPublishedArticles->get(1)->toArray(), $keys));
+
+		$this->assertNotSame(
+			array_only($expectedPublishedArticles->get(0)->toArray(), $keys),
+			array_only($actualUnPublishedArticles->get(0)->toArray(), $keys));
+		$this->assertNotSame(
+			array_only($expectedPublishedArticles->get(1)->toArray(), $keys),
+			array_only($actualUnPublishedArticles->get(1)->toArray(), $keys));
+	}
+
+	/** @test */
+	public function it_returns_unpublished_articles()
+	{
+		$dbArticleRepository = new DbArticleRepository();
+		$actualPublishedArticles = factory(Article::class, 2)->create(['publish' => 1]);
+		$actualUnPublishedArticles = factory(Article::class, 2)->create(['publish' => 0]);
+		$expectedPublishedArticles = $dbArticleRepository->unpublished()->get();
+		$keys = $actualPublishedArticles->get(0)->getFillable();
+
+		$this->assertNotSame(
+			array_only($expectedPublishedArticles->get(0)->toArray(), $keys),
+			array_only($actualPublishedArticles->get(0)->toArray(), $keys));
+		$this->assertNotSame(
+			array_only($expectedPublishedArticles->get(1)->toArray(), $keys),
+			array_only($actualPublishedArticles->get(1)->toArray(), $keys));
+
+		$this->assertNotSame(
+			array_only($expectedPublishedArticles->get(0)->toArray(), $keys),
+			array_only($actualPublishedArticles->get(0)->toArray(), $keys));
+		$this->assertNotSame(
+			array_only($expectedPublishedArticles->get(1)->toArray(), $keys),
+			array_only($actualPublishedArticles->get(1)->toArray(), $keys));
 	}
 }
