@@ -3,7 +3,7 @@
 
 # Pages
 Route::get('/', ['as' => 'home_path', 'uses' => 'Ahk\HomeController@home']);
-Route::get('about', ['as' => 'about_path', 'uses' => 'Ahk\HomeController@about']);
+Route::get('about-us', ['as' => 'about_path', 'uses' => 'Ahk\HomeController@about']);
 Route::resource('companies', 'Ahk\CompaniesController', ['only' => ['index', 'show']]);
 Route::get('lang/{lang}', ['as' => 'set_language', 'uses' => 'Ahk\SettingsController@setLocale']);
 

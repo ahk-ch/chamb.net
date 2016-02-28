@@ -91,7 +91,7 @@ return [
 	'what_we_can_offer'                                                    => 'Was bieten wir',
 	'we_just_need_you_to_confirm_email'                                    => 'Wir brauchen Sie nur Ihre E-Mail-Adresse bestätigen zu.',
 	'verify_email'                                                         => 'E-Mail bestätigen',
-	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Unterstützung, Entwicklung und Upgrade</br>der Gesundheitswirtschaft und<br/>Ihr Unternehmen',
+	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Unterstützung, Entwicklung und Upgrade der Gesundheitswirtschaft und Ihr Unternehmen',
 	'welcome'                                                              => 'Willkommen!',
 	'work_groups'                                                          => 'Arbeitsgruppen',
 ];

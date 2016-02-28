@@ -1,16 +1,13 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.about'))
-@section('css-implementing-plugins')
-    <link href='{!! url("assets/plugins/parallax-slider/css/parallax-slider.css") !!}' rel='stylesheet' type='text/css'/>
-    <link href='{!! url("assets/plugins/owl-carousel/owl-carousel/owl.carousel.css") !!}' rel='stylesheet' type='text/css'/>
-@endsection
-@section('css-implementing-plugins')
-    <link href='{!! url("assets/css/pages/page_about.css") !!}' rel='stylesheet' type='text/css'/>
+@section('css')
+    <link href='{!! elixir("css/about.min.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
 @section('header_links')
     @include('ahk._partials.header_default_links')
 @endsection
 @section('content')
+    <div class="margin"
     <div class="container content"><!--=== Content Part ===-->
         <div class="title-box-v2">
             <h2>{!! trans('ahk_about.about_the_hellenic_german_chambers_of') !!}
@@ -22,7 +19,7 @@
         <div class="shadow-wrapper margin-bottom-50">
             <div class="carousel slide carousel-v1 box-shadow shadow-effect-2" id="myCarousel">
 
-                <img class="img-responsive" src="{!! url('img/about_us/photo_pool_3.jpg') !!}" alt="Company Photo 3">
+                <img class="img-responsive" src="{!! route('files.render', ['path' => 'img/about/photo_pool_3.jpg']) !!}" alt="Company Photo 3">
 
             </div>
         </div>
@@ -95,19 +92,10 @@
                     <div class="margin-bottom-20"></div>
                 </div>
                 <div class="col-md-6">
-                    <img class="img-responsive" src="{!! url('img/about_us/about_our_company.jpg') !!}" alt="">
+                    <img class="img-responsive" src="{!! route('files.render', ['path' => 'img/about/about_our_company.jpg']) !!}" alt="Company Photo 4">
                 </div>
             </div>
         </div><!--/container-->
     </div>
     <!--=== End Parallax About Block ===-->
-@endsection
-@section('js-implementing-plugins')
-    <script type="text/javascript" src="{!! url('assets/plugins/owl-carousel/owl-carousel/owl.carousel.js') !!}"></script>
-@endsection
-@section('js-inline')
-@endsection
-@section('js-page-level')
-    <script type="text/javascript" src="{!! url('assets/js/plugins/owl-carousel.js') !!}"></script>
-    <script type="text/javascript" src="{!! elixir('js/ahk/about.min.js') !!}"></script>
 @endsection

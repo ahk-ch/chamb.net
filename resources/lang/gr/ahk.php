@@ -90,7 +90,7 @@ return [
 	'what_are_we_looking_for'                                              => 'Τι ψάχνουμε',
 	'what_we_can_offer'                                                    => 'Τι μπορούμε να προσφέρουμε',
 	'we_just_need_you_to_confirm_email'                                    => 'Απλά χρειάζεστε να επαληθεύσετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας.',
-	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Υποστήριξη, Ανάπτυξη και Αναβάθμιση<br/> στον κλάδο της υγείας και<br/> της επιχείρησής σας',
+	'we_promote_and_support_bilateral_business_between_greece_and_germany' => 'Υποστήριξη, Ανάπτυξη και Αναβάθμιση στον κλάδο της υγείας και της επιχείρησής σας',
 	'welcome'                                                              => 'Καλώς ορίσατε!',
 	'work_groups'                                                          => 'Ομάδες Εργασίας',
 ];
