@@ -4,6 +4,6 @@
  */
 jQuery(document).ready(function () {
 	// App.initCounter();
-	App.initParallaxBg();
-	RevolutionSlider.initRSfullScreenOffset();
+	// App.initParallaxBg();
+	// RevolutionSlider.initRSfullScreenOffset();
 });

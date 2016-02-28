@@ -63,6 +63,7 @@
         <!-- End Toggle -->
     </div><!--/end container-->
 
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
         <div class="container">
@@ -70,7 +71,6 @@
 
                 @yield('header_links')
 
-                        <!-- Search Block -->
                 <li>
                     <i class="search fa fa-search search-btn"></i>
                     <div class="search-open">
