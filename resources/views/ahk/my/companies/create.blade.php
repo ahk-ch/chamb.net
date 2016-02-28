@@ -1,10 +1,7 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.create'))
-@section('css-implementing-plugins')
-    <link href='{!! url("vendor/jasny-bootstrap/dist/css/jasny-bootstrap.min.css") !!}' rel='stylesheet' type='text/css'/>
-    <link href='{!! url("vendor/select2/dist/css/select2.min.css") !!}' rel='stylesheet' type='text/css'/>
-@endsection
-@section('css-page-style')
+@section('css')
+    <link href='{!! elixir("css/my/companies/create-and-edit.min.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
 @section('header_links')
     @include('ahk._partials.header_default_links')
@@ -40,15 +37,6 @@
         </div>
     </div>
 @endsection
-@section('js-implementing-plugins')
-    <script src="{!! url('vendor/jasny-bootstrap/dist/js/jasny-bootstrap.min.js') !!}"></script>
-    <script src="{!! url('vendor/holderjs/holder.min.js') !!}"></script>
-    <script src="{!! url('vendor/select2/dist/js/select2.min.js') !!}"></script>
-@endsection
-@section('js-page-level')
-    <script>
-        jQuery(document).ready(function () {
-            $(".select2").select2();
-        });
-    </script>
+@section('js')
+    <script src="{!! elixir('js/my/companies/create-and-edit.min.js') !!}"></script>
 @endsection

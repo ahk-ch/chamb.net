@@ -1,15 +1,12 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.community'))
-@section('css-implementing-plugins')
-    <link href='{!! url("assets/plugins/image-hover/css/img-hover.css") !!}' rel='stylesheet' type='text/css'/>
-@endsection
-@section('css-page-style')
-    <link href='{!! url("assets/css/pages/page_job.css") !!}' rel='stylesheet' type='text/css'/>
-@endsection
-@section('inline-styles')
+@section('css')
+    <link href='{!! elixir("css/companies.min.css") !!}' rel='stylesheet' type='text/css'/>
     <style>
         .job-img {
-            background: url("{!! url('img/community/background.jpg') !!}") 100% 50% no-repeat;
+            background: url("{!! route('files.render', ['path' => 'img/community/background.jpg']) !!}") no-repeat;
+            background-size: cover;
+            background-position: center center;
         }
     </style>
 @endsection
@@ -83,7 +80,8 @@
                             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="item active">
-                                        <img alt="Company Logo" src="{!! $company->logo->path !!}" style="max-height: 150px">
+                                        <img alt="Company Logo" src="{!! route('files.render',
+                                         ['path' => $company->logo->path ]) !!}" style="max-height: 150px">
                                     </div>
                                 </div>
                             </div>
@@ -99,20 +97,11 @@
                 </div>
                 <!-- End Easy Block -->
                 @endforeach
-
             </div>
-
         </div>
     </div>
-    <!--=== End Job Team ===-->
-
 @endsection
-@section('js-implementing-plugins')
-@endsection
-@section('js-inline')
-    <script type="text/javascript" src="{!! url('assets/plugins/image-hover/js/touch.js') !!}"></script>
-@endsection
-@section('js-page-level')
-    <script type="text/javascript" src="{!! elixir('js/ahk/companies/index.min.js') !!}"></script>
+@section('js')
+    <script type="text/javascript" src="{!! elixir('js/companies/index.min.js') !!}"></script>
 @endsection
 

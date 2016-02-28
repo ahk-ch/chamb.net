@@ -16,7 +16,7 @@
     <link href='{!! elixir("css/master.min.css") !!}' rel='stylesheet' type='text/css'/>
     @yield('css')
 </head>
-<body class="header-fixed">
+<body class="header-fixed header-fixed-space-default">
 
 <div class="wrapper">
 

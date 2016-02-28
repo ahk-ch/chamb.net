@@ -1,9 +1,7 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.sign_in'))
-@section('css-implementing-plugins')
-@endsection
-@section('css-page-style')
-    <link href='{!! url("assets/css/pages/page_log_reg_v1.css") !!}' rel='stylesheet' type='text/css'/>
+@section('css')
+    <link href='{!! elixir("css/sign_in.min.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
 @section('header_links')
     @include('ahk._partials.header_default_links')
@@ -58,11 +56,4 @@
             </div>
         </div><!--/row-->
     </div>
-
-@endsection
-@section('js-implementing-plugins')
-@endsection
-@section('js-inline')
-@endsection
-@section('js-page-level')
 @endsection

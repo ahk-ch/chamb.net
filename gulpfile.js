@@ -7,14 +7,16 @@ elixir(function (mix) {
 	// Plugins
 	mix.copy('bower_components/pnotify/src', 'resources/assets/css/vendor/pnotify');
 	mix.copy('bower_components/pnotify/src', 'resources/assets/js/vendor/pnotify');
+	mix.copy('bower_components/Readmore.js/', 'resources/assets/js/vendor/Readmore.js/');
+	mix.copy('bower_components/jasny-bootstrap/dist/css', 'resources/assets/css/vendor/jasny-bootstrap/');
+	mix.copy('bower_components/jasny-bootstrap/dist/js', 'resources/assets/js/vendor/jasny-bootstrap/');
+	mix.copy('bower_components/select2/dist/css', 'resources/assets/css/vendor/select2/');
+	mix.copy('bower_components/select2/dist/js', 'resources/assets/js/vendor/select2/');
 
 	// mix.copy('bower_components/UnifyV1.9.1/', 'public');
 
 	// Unify
 	mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/css/vendor/UnifyV1.9.1/');
-	// mix.copy('bower_components/UnifyV1.9.1/plugin/', 'resources/assets/css/vendor/UnifyV1.9.1/plugin/');
-	// mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/js/vendor/UnifyV1.9.1/');
-	// mix.copy('bower_components/UnifyV1.9.1/plugin', 'resources/assets/js/vendor/UnifyV1.9.1/plugin');
 
 	// Font Imports
 	mix.copy('bower_components/UnifyV1.9.1/plugins/bootstrap/fonts', 'public/build/css/fonts');
@@ -45,8 +47,18 @@ elixir(function (mix) {
 		.styles([
 			'vendor/UnifyV1.9.1/css/pages/page_about.css'
 		], 'public/css/about.min.css')
+		.styles([
+			'vendor/UnifyV1.9.1/plugins/image-hover/css/img-hover.css',
+			'vendor/UnifyV1.9.1/css/pages/page_job.css',
+		], 'public/css/companies.min.css')
+		.styles([
+			'vendor/UnifyV1.9.1/css/pages/page_log_reg_v1.css',
+		], 'public/css/sign_in.min.css')
+		.styles([
+			'vendor/jasny-bootstrap/jasny-bootstrap.min.css',
+			'resources/assets/css/vendor/select2/select2.min.css'
+		], 'public/css/my/companies/create-and-edit.min.css')
 		.sass('home.scss');
-
 
 	mix.scripts([
 			'vendor/UnifyV1.9.1/plugins/jquery/jquery.min.js',
@@ -59,6 +71,7 @@ elixir(function (mix) {
 			'vendor/UnifyV1.9.1/js/app.js',
 			'vendor/UnifyV1.9.1/plugins/back-to-top.js',
 			'vendor/UnifyV1.9.1/js/plugins/style-switcher.js',
+			'vendor/UnifyV1.9.1/plugins/modernizr.js',
 			'ahk/master.js',
 		], 'public/js/master.min.js')
 		.scripts([
@@ -68,16 +81,41 @@ elixir(function (mix) {
 		], 'public/js/lt-ie9.min.js')
 		.scripts([
 			'ahk/home.js'
-		], 'public/js/home.min.js');
+		], 'public/js/home.min.js')
+		.scripts([
+			'ahk/flash.js'
+		], 'public/js/flash.min.js')
+		.scripts([
+			'ahk/companies/index.js',
+			'vendor/UnifyV1.9.1/plugins/image-hover/js/touch.js'
+		], 'public/js/companies/index.min.js')
+		.scripts([
+			'vendor/Readmore.js/readmore.min.js',
+			'ahk/my/companies/index.js'
+		], 'public/js/my/companies/index.min.js')
+		.scripts([
+			'vendor/jasny-bootstrap/jasny-bootstrap.min.js',
+			'vendor/select2/select2.min.js',
+			'ahk/my/companies/create.js'
+		], 'public/js/my/companies/create-and-edit.min.js');
+
+
+
 
 	mix.version([
 		'public/css/master.min.css',
 		'public/css/home.css',
 		'css/about.min.css',
+		'public/css/companies.min.css',
+		'public/css/sign_in.min.css',
+		'public/css/my/companies/create-and-edit.min.css',
 
 		'public/js/master.min.js',
 		'public/js/lt-ie9.min.js',
 		'public/js/home.min.js',
+		'public/js/companies/index.min.js',
+		'public/js/flash.min.js',
+		'public/js/my/companies/create-and-edit.min.js',
 	]);
 
 	mix.browserSync({

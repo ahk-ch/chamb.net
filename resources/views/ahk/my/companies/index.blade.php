@@ -1,9 +1,5 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.my_companies'))
-@section('css-implementing-plugins')
-@endsection
-@section('css-page-style')
-@endsection
 @section('header_links')
     @include('ahk._partials.header_default_links')
 @endsection
@@ -63,9 +59,8 @@
         </div>
     </div>
 @endsection
-@section('js-implementing-plugins')
-    <script src="{!! url('vendor/Readmore.js/readmore.min.js') !!}"></script>
-@endsection
-@section('js-page-level')
-    @include('ahk.my._partials.read_more')
+@section('js')
+    {!! Form::input('hidden', 'readMoreText', trans('ahk.read_more')) !!}
+    {!! Form::input('hidden', 'readLessText', trans('ahk.read_less')) !!}
+    <script type="text/javascript" src="{!! elixir('js/my/companies/index.min.js') !!}"></script>
 @endsection

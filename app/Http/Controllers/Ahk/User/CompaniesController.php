@@ -170,11 +170,14 @@ class CompaniesController extends BaseController
 
 		$file = $request->file('logo_path');
 
-		$file = $this->fileRepository->update($company->logo, [
-			File::CLIENT_ORIGINAL_NAME => $file->getClientOriginalName(),
-			File::TEMPORARY_PATH       => $file->getRealPath(),]);
+		if ( null !== $file )
+		{
+			$this->fileRepository->update($company->logo, [
+				File::CLIENT_ORIGINAL_NAME => $file->getClientOriginalName(),
+				File::TEMPORARY_PATH       => $file->getRealPath(),]);
+		}
 
-		if ( ! $file || ! $company = $this->companyRepository->update($company, $request->all()) )
+		if ( ! $company = $this->companyRepository->update($company, $request->all()) )
 		{
 			Flash::error(trans('ahk_messages.unknown_error_occurred'));
 

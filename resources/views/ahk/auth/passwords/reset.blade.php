@@ -1,9 +1,8 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.reset_password'))
-@section('css-page-style')
-    <link href='{!! url("assets/css/pages/page_log_reg_v1.css") !!}' rel='stylesheet' type='text/css'/>
+@section('css')
+    <link href='{!! elixir("css/sign_in.min.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
-
 @section('content')
     <div class="container content">
         <div class="row">
@@ -17,7 +16,6 @@
 
                 <input type="hidden" name="slug" value="{{ $slug }}">
                 <input type="hidden" name="verify_token" value="{{ $recovery_token }}">
-
 
                 <div class="input-group margin-bottom-20">
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>

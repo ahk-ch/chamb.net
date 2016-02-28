@@ -1,12 +1,12 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.info'))
 @section('css-implementing-plugins')
-    <link href='{!! url("assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css") !!}' rel='stylesheet' type='text/css'/>
-    <link href='{!! url("assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css") !!}' rel='stylesheet' type='text/css'/>
-    <link href='{!! url("assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css") !!}' rel='stylesheet' type='text/css'/>
+    {{--<link href='{!! url("assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css") !!}' rel='stylesheet' type='text/css'/>--}}
+    {{--<link href='{!! url("assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css") !!}' rel='stylesheet' type='text/css'/>--}}
+    {{--<link href='{!! url("assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css") !!}' rel='stylesheet' type='text/css'/>--}}
 @endsection
 @section('css-page-style')
-    <link href='{!! url("assets/css/pages/page_search.css") !!}' rel='stylesheet' type='text/css'/>
+    {{--<link href='{!! url("assets/css/pages/page_search.css") !!}' rel='stylesheet' type='text/css'/>--}}
 @endsection
 @section('header_links')
     @include('ahk._partials.header_industries_links')
@@ -122,7 +122,7 @@
                     <a href="#" class="cbp-caption cbp-singlePageInline"
                             data-title="WhereTO App<br>by Tiberiu Neamu">
                         <div class="cbp-caption-defaultWrap">
-                            <img src="{!! url('assets/img/portfolio/21.jpg') !!}" alt="">
+                            <img src="{!! url('img/portfolio/21.jpg') !!}" alt="">
                         </div>
                         <div class="cbp-caption-activeWrap">
                             <div class="cbp-l-caption-alignLeft">
@@ -138,7 +138,7 @@
                     <a href="#" class="cbp-caption cbp-singlePageInline"
                             data-title="iDevices<br>by Tiberiu Neamu">
                         <div class="cbp-caption-defaultWrap">
-                            <img src="{!! url('assets/img/portfolio/22.jpg') !!}" alt="">
+                            <img src="{!! url('img/portfolio/22.jpg') !!}" alt="">
                         </div>
                         <div class="cbp-caption-activeWrap">
                             <div class="cbp-l-caption-alignLeft">
@@ -154,7 +154,7 @@
                     <a href="#" class="cbp-caption cbp-singlePageInline"
                             data-title="Seemple* Music for iPad<br>by Tiberiu Neamu">
                         <div class="cbp-caption-defaultWrap">
-                            <img src="{!! url('assets/img/portfolio/24.jpg') !!}" alt="">
+                            <img src="{!! url('img/portfolio/24.jpg') !!}" alt="">
                         </div>
                         <div class="cbp-caption-activeWrap">
                             <div class="cbp-l-caption-alignLeft">
@@ -170,7 +170,7 @@
                     <a href="#" class="cbp-caption cbp-singlePageInline"
                             data-title="Remind~Me Widget<br>by Tiberiu Neamu">
                         <div class="cbp-caption-defaultWrap">
-                            <img src="{!! url('assets/img/portfolio/23.jpg') !!}" alt="">
+                            <img src="{!! url('img/portfolio/23.jpg') !!}" alt="">
                         </div>
                         <div class="cbp-caption-activeWrap">
                             <div class="cbp-l-caption-alignLeft">
@@ -186,15 +186,10 @@
         </div>
     </div>
     <!--=== End Cube Portfolio ===-->
-
 @endsection
-@section('js-implementing-plugins')
-@endsection
-@section('js-inline')
-    <script type="text/javascript" src="{!! url('assets/plugins/counter/waypoints.min.js') !!}"></script>
-    <script type="text/javascript" src="{!! url('assets/plugins/counter/jquery.counterup.min.js') !!}"></script>
-    <script type="text/javascript" src="{!! url('assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js') !!}"></script>
-@endsection
-@section('js-page-level')
-    <script type="text/javascript" src="{!! elixir('js/ahk/health/info.min.js') !!}"></script>
+@section('js')
+    {{--<script type="text/javascript" src="{!! url('assets/plugins/counter/waypoints.min.js') !!}"></script>--}}
+    {{--<script type="text/javascript" src="{!! url('assets/plugins/counter/jquery.counterup.min.js') !!}"></script>--}}
+    {{--<script type="text/javascript" src="{!! url('assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js') !!}"></script>--}}
+    {{--<script type="text/javascript" src="{!! elixir('js/ahk/health/info.min.js') !!}"></script>--}}
 @endsection
