@@ -3,7 +3,7 @@
         <!-- Logo -->
         <a class="logo" href="{!! route('home_path') !!}">
             {{--<img src="{!! url('assets/img/logo1-default.png') !!}" alt="Logo"> </a>--}}
-            <img src="{!! url('img/logo.png') !!}" alt="Logo"> </a>
+            <img src="{!! route('files.render', ['path' => 'img/home/logo.png']) !!}" alt="Logo"> </a>
         <!-- End Logo -->
 
         <!-- Topbar -->

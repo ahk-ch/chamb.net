@@ -4,7 +4,7 @@
             <div class="row">
                 <!-- About -->
                 <div class="col-md-3 md-margin-bottom-40">
-                    <a href="{!! route('home_path') !!}"><img id="logo-footer" class="footer-logo" src="{!! url('img/logo.png') !!}" alt="chamb.net logo"></a>
+                    <a href="{!! route('home_path') !!}"><img id="logo-footer" class="footer-logo" src="{!! route('files.render', ['path' => 'img/home/logo.png']) !!}" alt="chamb.net logo"></a>
                     <p>{!! trans('ahk.footer_about') !!} </p>
                 </div><!--/col-md-3-->
                 <!-- End About -->

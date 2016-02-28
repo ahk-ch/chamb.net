@@ -1,7 +1,7 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.home'))
 @section('css-implementing-plugins')
-    <link href='{!! url("assets/plugins/revolution-slider/rs-plugin/css/settings.css") !!}' rel='stylesheet' type='text/css'/>
+    <link href='{!! url("vendor/Unify/plugins/revolution-slider/rs-plugin/css/settings.css") !!}' rel='stylesheet' type='text/css'/>
 @endsection
 @section('css-page-style')@endsection
 @section('header_links')
@@ -14,7 +14,7 @@
                 <!-- SLIDE -->
                 <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Home Company Slide">
                     <!-- MAIN IMAGE -->
-                    <img src="{!! url('img/home/background.jpg') !!}" alt="chamb.net Home Company Background Image" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                    <img src="{!! route('files.render', ['path' => 'img/home/background.jpg']) !!}" alt="chamb.net Home Company Background Image" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 
                     <!-- LAYER -->
                     <div class="tp-caption re-title-v1 sft start"
@@ -103,13 +103,13 @@
 
 @endsection
 @section('js-implementing-plugins')
-    <script type="text/javascript" src="{!! url('assets/plugins/counter/jquery.counterup.min.js') !!}"></script>
-    <script type="text/javascript" src="{!! url('assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js') !!}"></script>
-    <script type="text/javascript" src="{!! url('assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! url('vendor/Unify/plugins/counter/waypoints.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! url('vendor/Unify/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! url('vendor/Unify/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js') !!}"></script>
 @endsection
 @section('js-inline')
 @endsection
 @section('js-page-level')
-    <script type="text/javascript" src="{!! url('assets/js/plugins/revolution-slider.js') !!}"></script>
+    <script type="text/javascript" src="{!! url('vendor/Unify/js/plugins/revolution-slider.js') !!}"></script>
     <script type="text/javascript" src="{!! elixir('js/ahk/home.min.js') !!}"></script>
 @endsection
