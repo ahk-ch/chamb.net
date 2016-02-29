@@ -16,7 +16,7 @@ matrix:
     - php: hhvm
 
 before_script:
-  - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - echo -e "Host bitbucket.org\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - echo -e "ssh-rsa $SSH_PUBLIC_KEY" > ~/.ssh/id_rsa.pub
   - echo -e "-----BEGIN RSA PRIVATE KEY-----\n$SSH_PRIVATE_KEY\n-----END RSA PRIVATE KEY-----" > ~/.ssh/id_rsa
   - chmod 600 ~/.ssh/id_rsa*
