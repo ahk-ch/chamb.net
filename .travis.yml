@@ -1,5 +1,8 @@
 language: php
 
+addons:
+  ssh_known_hosts: bitbucket.org
+
 php:
   - 5.5.9
   - 5.6
@@ -13,11 +16,17 @@ matrix:
     - php: hhvm
 
 before_script:
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - echo -e "-----BEGIN RSA PRIVATE KEY-----\n$SSH_PRIVATE_KEY\n-----END RSA PRIVATE KEY-----" > ~/.ssh/id_rsa
+  - chmod 600 ~/.ssh/id_rsa*
+  - eval `ssh-agent -s`
+  - ssh-add ~/.ssh/id_rsa
   - mysql -e 'CREATE DATABASE IF NOT EXISTS chamb_testing;'
   - php artisan migrate -n
   - npm install -g bower
   - npm install -g gulp
   - bower install -s
+  - echo -e "Host bitbucket.org\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 
 before_install:
   - composer self-update
