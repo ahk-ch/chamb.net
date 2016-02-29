@@ -17,13 +17,13 @@ matrix:
 
 before_script:
   - echo -e "Host bitbucket.org\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-  - echo -e "ssh-rsa $SSH_PUBLIC_KEY" > ~/.ssh/id_rsa.pub
-  - echo -e "-----BEGIN RSA PRIVATE KEY-----\n$SSH_PRIVATE_KEY\n-----END RSA PRIVATE KEY-----" > ~/.ssh/id_rsa
-  - cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+  - echo -e "ssh-rsa $SSH_PUBLIC_KEY" > ~/.ssh/id_rsa_travis.pub
+  - echo -e "-----BEGIN RSA PRIVATE KEY-----\n$SSH_PRIVATE_KEY\n-----END RSA PRIVATE KEY-----" > ~/.ssh/id_rsa_travis
+  - cat ~/.ssh/id_rsa_travis.pub >> ~/.ssh/authorized_keys
   - ln -s ~/.ssh/authorized_keys ~/.ssh/authorized_keys2
   - chmod 600 ~/.ssh/*
   - eval `ssh-agent -s`
-  - ssh-add
+  - ssh-add ~/.ssh/id_rsa_travis.pub
   - mysql -e 'CREATE DATABASE IF NOT EXISTS chamb_testing;'
   - php artisan migrate -n
   - npm install -g bower
