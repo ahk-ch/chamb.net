@@ -8,6 +8,7 @@
 namespace tests\integration\app\Ahk\Repositories\Article;
 
 use App\Ahk\Article;
+use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Article\DbArticleRepository;
 use App\Ahk\Tag;
@@ -35,18 +36,28 @@ class DbArticleRepositoryTest extends TestCase
 	public function it_stores_an_article()
 	{
 		$dbArticleRepository = new DbArticleRepository();
-		$actualAuthor = factory(User::class)->create();
-		$actualIndustry = factory(Industry::class)->create();
+		$expectedAuthor = factory(User::class)->create();
+		$expectedIndustry = factory(Industry::class)->create();
+		$expectedFile = factory(File::class)->create();
 		$expectedArticle = factory(Article::class)->make();
 		$keys = $expectedArticle->getFillable();
 		$expectedData = array_only($expectedArticle->toArray(), $keys);
 
 		$this->notSeeInDatabase('articles', $expectedData);
 
-		$actualArticle = $dbArticleRepository->store($actualAuthor, $expectedData, $actualIndustry);
+		$actualArticle = $dbArticleRepository->store(array_merge($expectedData, [
+			'author_id'      => $expectedAuthor->id,
+			'thumbnail_id' => $expectedFile->id,
+			'industry_id'  => $expectedIndustry->id,
+		]));
 
 		$this->seeInDatabase('articles', $expectedData);
-		$this->assertSame($actualIndustry->id, $actualArticle->industry->id);
+
+		$this->assertSame($expectedIndustry->id, $actualArticle->industry->id);
+
+		$this->assertSame($expectedFile->id, $actualArticle->thumbnail->id);
+
+		$this->assertSame($expectedAuthor->id, $actualArticle->author->id);
 	}
 
 	/** @test */

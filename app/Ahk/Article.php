@@ -54,10 +54,26 @@ class Article extends Model
 	}
 
 	/**
+	 * @param File $thumbnail
+	 */
+	public function assignThumbnail(File $thumbnail)
+	{
+		$this->thumbnail()->associate($thumbnail);
+	}
+
+	/**
 	 * Get the industry this article belongs to.
 	 */
 	public function industry()
 	{
 		return $this->belongsTo('App\Ahk\Industry');
+	}
+
+	/**
+	 * Get the industry this article belongs to.
+	 */
+	public function thumbnail()
+	{
+		return $this->belongsTo('App\Ahk\File');
 	}
 }

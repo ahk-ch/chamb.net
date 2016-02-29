@@ -21,13 +21,12 @@ interface ArticleRepository {
 	public function all();
 
 	/**
-	 * Store an article on the storage
-	 * @param User $author
+	 * Store an article on the storage. 
+	 * @param array $fillable Validated array parameters: author_id, industry_id, thumbnail_id
 	 * @param array $fillable
-	 * @param Industry $industry
 	 * @return Article|false
 	 */
-	public function store(User $author, array $fillable, Industry $industry);
+	public function store(array $fillable);
 
 	/**
 	 * Update an article given by its id.

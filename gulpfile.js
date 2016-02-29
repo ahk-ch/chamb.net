@@ -58,6 +58,9 @@ elixir(function (mix) {
 			'vendor/jasny-bootstrap/jasny-bootstrap.min.css',
 			'resources/assets/css/vendor/select2/select2.min.css'
 		], 'public/css/my/companies/create-and-edit.min.css')
+		.styles([
+			'vendor/UnifyV1.9.1/css/pages/page_job.css',
+		], 'public/css/health/news.min.css')
 		.sass('home.scss');
 
 	mix.scripts([
@@ -85,9 +88,13 @@ elixir(function (mix) {
 		.scripts([
 			'ahk/flash.js'
 		], 'public/js/flash.min.js')
+		// .scripts([
+		// 	'UnifyV1.9.1/css/pages/page_job.css',
+		// ], 'public/js/health/news.min.js')
 		.scripts([
 			'ahk/companies/index.js',
-			'vendor/UnifyV1.9.1/plugins/image-hover/js/touch.js'
+			'vendor/UnifyV1.9.1/plugins/image-hover/js/touch.js',
+			'vendor/Readmore.js/readmore.min.js',
 		], 'public/js/companies/index.min.js')
 		.scripts([
 			'vendor/Readmore.js/readmore.min.js',
@@ -99,9 +106,6 @@ elixir(function (mix) {
 			'ahk/my/companies/create.js'
 		], 'public/js/my/companies/create-and-edit.min.js');
 
-
-
-
 	mix.version([
 		'public/css/master.min.css',
 		'public/css/home.css',
@@ -109,12 +113,14 @@ elixir(function (mix) {
 		'public/css/companies.min.css',
 		'public/css/sign_in.min.css',
 		'public/css/my/companies/create-and-edit.min.css',
-
+		'public/css/health/news.min.css',
+	
 		'public/js/master.min.js',
 		'public/js/lt-ie9.min.js',
 		'public/js/home.min.js',
 		'public/js/companies/index.min.js',
 		'public/js/flash.min.js',
+		'public/js/my/companies/index.min.js',
 		'public/js/my/companies/create-and-edit.min.js',
 	]);
 

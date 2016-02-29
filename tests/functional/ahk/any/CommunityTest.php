@@ -32,9 +32,11 @@ class CommunityTest extends TestCase
 			->see(trans('ahk.discover_the_community'))
 			->see($industries->get(0)->name)
 			->see($industries->get(1)->name)
-			->see($companies->get(0)->name)->see($companies->get(0)->logo->path)
+			->see($companies->get(0)->name)
+			->see(route('files.render', ['path' => $companies->get(0)->logo->path ]))
 			->see($companies->get(0)->industry->name)
-			->see($companies->get(1)->name)->see($companies->get(1)->logo->path)
+			->see($companies->get(1)->name)
+			->see(route('files.render', ['path' => $companies->get(1)->logo->path ]))
 			->see($companies->get(1)->industry->name);
 	}
 }

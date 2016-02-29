@@ -88,8 +88,8 @@
                             <div class="overflow-h">
                                 <h3>{{ $company->name }}</h3>
                             </div>
-                            <ul class="list-unstyled">
-                                <li>{{ \Illuminate\Support\Str::limit($company->description, 120) }}</li>
+                            <ul class="list-unstyled read-more-js">
+                                <li>{{  $company->description }}</li>
                             </ul>
                         </a>
 
@@ -102,6 +102,8 @@
     </div>
 @endsection
 @section('js')
+    {!! Form::input('hidden', 'readMoreText', trans('ahk.read_more')) !!}
+    {!! Form::input('hidden', 'readLessText', trans('ahk.read_less')) !!}
     <script type="text/javascript" src="{!! elixir('js/companies/index.min.js') !!}"></script>
 @endsection
 

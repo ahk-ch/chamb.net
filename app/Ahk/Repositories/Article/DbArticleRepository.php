@@ -8,6 +8,7 @@ namespace App\Ahk\Repositories\Article;
 
 
 use App\Ahk\Article;
+use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\DbRepository;
 use App\Ahk\User;
@@ -26,19 +27,19 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 	}
 
 	/**
-	 * Store an article on the storage
-	 * @param User $author
-	 * @param array $fillable
-	 * @param Industry $industry
+	 * Store an article on the storage. 
+	 * @param array $fillable Validated array parameters: author_id, industry_id, thumbnail_id
 	 * @return Article|false
 	 */
-	public function store(User $author, array $fillable, Industry $industry)
+	public function store(array $fillable)
 	{
 		$article = new Article($fillable);
 
-		$article->assignAuthor($author);
+		$article->assignAuthor(User::find($fillable['author_id']));
 
-		$article->assignIndustry($industry);
+		$article->assignIndustry(Industry::find($fillable['industry_id']));
+		
+		$article->assignThumbnail(File::find($fillable['thumbnail_id']));
 
 		return $article->save() ? $article : false;
 	}

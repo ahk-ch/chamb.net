@@ -11,6 +11,7 @@ use App\Ahk\Repositories\Country\CountryRepository;
 use App\Ahk\Repositories\File\FileRepository;
 use App\Ahk\Repositories\Industry\IndustryRepository;
 use App\Ahk\Repositories\User\UserRepository;
+use App\Ahk\User;
 use App\Http\Controllers\Ahk\BaseController;
 use App\Http\Requests;
 use App\Http\Requests\Ahk\UpdateCompanyRequest;
@@ -86,8 +87,9 @@ class CompaniesController extends BaseController
 	public function create()
 	{
 		$company = new Company;
-
-		$company->industry = new Industry();
+		$company->industry = new Industry;
+		$company->author = new User;
+		$company->logo = new File;
 
 		$industries = $this->industryRepository->all()->pluck('name', 'id');
 

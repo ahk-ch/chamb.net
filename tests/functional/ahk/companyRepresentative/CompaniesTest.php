@@ -151,7 +151,6 @@ class CompaniesTest extends TestCase
 			->visit(route('my.companies.index'))
 			->click("#create-company-btn")
 			->seePageIs(route('my.companies.create'));
-
 	}
 
 	/** @test */

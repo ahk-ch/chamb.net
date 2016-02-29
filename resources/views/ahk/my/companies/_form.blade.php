@@ -89,13 +89,13 @@
 
         <div class="fileinput fileinput-new" data-provides="fileinput">
             <div class="fileinput-new thumbnail img-responsive">
-                <img alt="{!! trans('ahk.logo') !!}" src="{!! $company->logo ? route('files.render',
+                <img alt="{!! trans('ahk.logo') !!}" src="{!! $company->logo->path ? route('files.render',
                 ['path' => $company->logo->path]) : "" !!}">
             </div>
             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
             <div>
                                 <span class="btn btn-default btn-file"><span class="fileinput-new">Select new image</span>
-                                    <span class="fileinput-exists">Change</span><input type="file" name="logo_path" value="{!! route('files.render', ['path' => $company->logo->path]) !!}"></span>
+                                    <span class="fileinput-exists">Change</span><input type="file" name="logo_path"></span>
                 <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
             </div>
         </div>

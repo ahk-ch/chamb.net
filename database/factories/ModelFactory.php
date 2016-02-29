@@ -44,7 +44,7 @@ $factory->defineAs(App\Ahk\User::class, 'with_primary_data', function (Faker\Gen
 $factory->define(App\Ahk\Industry::class, function (Faker\Generator $faker)
 {
 	return [
-		'name'      => $faker->unique()->word,
+		'name'      => $faker->unique()->uuid,
 		'author_id' => factory(User::class)->create()->id,
 	];
 });
@@ -64,6 +64,7 @@ $factory->define(Article::class, function (Faker\Generator $faker)
 	return array_merge($article->toArray(), [
 		'author_id'   => factory(User::class)->create()->id,
 		'industry_id' => factory(Industry::class)->create()->id,
+		'thumbnail_id' => factory(File::class)->create()->id,
 	]);
 });
 
@@ -151,8 +152,8 @@ $factory->define(File::class, function (Faker\Generator $faker)
 {
 	$fileWithPrimaryData = factory(File::class, 'without_storage')->make();
 	$storageLocation = FilesStorage::getFilesDirectory();
-	$clientOriginalName = "dummy_logo.png";
-	$tempFilePath = file_get_contents(storage_path("app/testing/$clientOriginalName"));
+	$clientOriginalName = $faker->name . $faker->fileExtension;
+	$tempFilePath = file_get_contents(storage_path("app/testing/dummy_logo.png"));
 	$fileLocation = $storageLocation . $clientOriginalName;
 
 	Storage::put($fileLocation, $tempFilePath);
