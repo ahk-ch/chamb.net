@@ -19,9 +19,10 @@ before_script:
   - echo -e "Host bitbucket.org\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - echo -e "ssh-rsa $SSH_PUBLIC_KEY" > ~/.ssh/id_rsa.pub
   - echo -e "-----BEGIN RSA PRIVATE KEY-----\n$SSH_PRIVATE_KEY\n-----END RSA PRIVATE KEY-----" > ~/.ssh/id_rsa
-  - chmod 600 ~/.ssh/id_rsa*
+  - chmod 600 ~/.ssh/id_rsa
+  - chmod 600 ~/.ssh/id_rsa.pub
   - eval `ssh-agent -s`
-  - ssh-add ~/.ssh/id_rsa
+  - ssh-add ~/.ssh/id_rsa &>/dev/null
   - mysql -e 'CREATE DATABASE IF NOT EXISTS chamb_testing;'
   - php artisan migrate -n
   - npm install -g bower
