@@ -1,6 +1,6 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.community'))
-@yield('inline-css')
+@section('inline-css')
     <style>
         .job-img {
             background: url("{!! route('files.render', ['path' => 'img/community/background.jpg']) !!}") no-repeat;
