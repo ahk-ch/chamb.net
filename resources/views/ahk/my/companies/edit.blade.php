@@ -1,8 +1,5 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.edit'))
-@section('css')
-    <link href='{!! elixir("css/my/companies/create-and-edit.min.css") !!}' rel='stylesheet' type='text/css'/>
-@endsection
 @section('header_links')
     @include('ahk._partials.header_default_links')
 @endsection
@@ -39,6 +36,9 @@
             </div>
         </div>
     </div>
+@endsection
+@section('optimize-css-delivery')
+    {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/my/companies/create-and-edit.min.css")) !!}
 @endsection
 @section('js')
     <script src="{!! elixir('js/my/companies/create-and-edit.min.js') !!}"></script>

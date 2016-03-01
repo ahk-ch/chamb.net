@@ -16,8 +16,8 @@ elixir(function (mix) {
 	// mix.copy('bower_components/UnifyV1.9.1/', 'public');
 
 	// Unify
-	mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/css/vendor/UnifyV1.9.1/');
-	mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/js/vendor/UnifyV1.9.1/');
+	// mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/css/vendor/UnifyV1.9.1/');
+	// mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/js/vendor/UnifyV1.9.1/');
 
 	// Font Imports
 	mix.copy('bower_components/UnifyV1.9.1/plugins/bootstrap/fonts', 'public/build/css/fonts');
@@ -100,7 +100,11 @@ elixir(function (mix) {
 			'vendor/jasny-bootstrap/jasny-bootstrap.min.js',
 			'vendor/select2/select2.min.js',
 			'ahk/my/companies/create.js'
-		], 'public/js/my/companies/create-and-edit.min.js');
+		], 'public/js/my/companies/create-and-edit.min.js')
+		.scripts([
+			'ahk/loadStyleSheets.js'
+		], 'public/js/loadStyleSheets.min.js');
+
 
 	mix.version([
 		'public/css/master.min.css',
@@ -120,7 +124,7 @@ elixir(function (mix) {
 		'public/js/my/companies/create-and-edit.min.js',
 	]);
 
-	mix.browserSync({
-		proxy: 'chamb.io'
-	});
+	// mix.browserSync({
+	// 	proxy: 'chamb.io'
+	// });
 });

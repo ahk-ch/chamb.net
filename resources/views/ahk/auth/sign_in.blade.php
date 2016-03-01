@@ -1,8 +1,5 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.sign_in'))
-@section('css')
-    <link href='{!! elixir("css/sign_in.min.css") !!}' rel='stylesheet' type='text/css'/>
-@endsection
 @section('header_links')
     @include('ahk._partials.header_default_links')
 @endsection
@@ -56,4 +53,7 @@
             </div>
         </div><!--/row-->
     </div>
+@endsection
+@section('optimize-css-delivery')
+    {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/sign_in.min.css")) !!}
 @endsection

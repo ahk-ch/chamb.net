@@ -50,7 +50,7 @@ class RegistrationTest extends TestCase
 	public function it_registers_company_representative_account()
 	{
 		$this->visit(route('auth.register'))
-			->type('r.dokollari@gmail.com', 'email')
+			->type('r.dokollari@email.com', 'email')
 			->type('some-password', 'password')
 			->type('some-password', 'password_confirmation')
 			->check('agree_to_terms')

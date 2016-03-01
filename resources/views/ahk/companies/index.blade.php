@@ -1,7 +1,6 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.community'))
 @section('css')
-    <link href='{!! elixir("css/companies.min.css") !!}' rel='stylesheet' type='text/css'/>
     <style>
         .job-img {
             background: url("{!! route('files.render', ['path' => 'img/community/background.jpg']) !!}") no-repeat;
@@ -100,6 +99,9 @@
             </div>
         </div>
     </div>
+@endsection
+@section('optimize-css-delivery')
+    {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/companies.min.css")) !!}
 @endsection
 @section('js')
     {!! Form::input('hidden', 'readMoreText', trans('ahk.read_more')) !!}

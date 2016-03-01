@@ -1,7 +1,7 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.home'))
 @section('css')
-    <link href='{!! elixir("css/home.css") !!}' rel='stylesheet' type='text/css'/>
+    {{--<link href='{!! elixir("css/home.css") !!}' rel='stylesheet' type='text/css'/>--}}
 @endsection
 @section('header_links')
     @include('ahk._partials.header_default_links')
@@ -20,7 +20,8 @@
                 </a>
 
                 <a href="#">
-                    <div class="col-md-2 col-sm-6 content-boxes-v6 md-margin-bottom-50"><i class="rounded-x fa fa-database"></i>
+                    <div class="col-md-2 col-sm-6 content-boxes-v6 md-margin-bottom-50">
+                        <i class="rounded-x fa fa-database"></i>
                         <p class="title-v3-md margin-bottom-10"> Logistics</p>
                     </div>
                 </a>
@@ -38,7 +39,8 @@
                 </a>
 
                 <a href="#">
-                    <div class="col-md-2 col-md-push-0 col-sm-push-3 col-sm-6 content-boxes-v6"><i class="rounded-x fa fa-university"></i>
+                    <div class="col-md-2 col-md-push-0 col-sm-push-3 col-sm-6 content-boxes-v6">
+                        <i class="rounded-x fa fa-university"></i>
                         <p class="title-v3-md margin-bottom-10"> Law</p>
                     </div>
                 </a>
@@ -47,6 +49,9 @@
         </div>
     </div>
 @endsection
-@section('js')
+@section('optimize-css-delivery')
+        loadStyleSheet('{!! elixir("css/home.css") !!}');
+@endsection
+@section('js-assets')
     <script type="text/javascript" src="{!! elixir('js/home.min.js') !!}"></script>
 @endsection

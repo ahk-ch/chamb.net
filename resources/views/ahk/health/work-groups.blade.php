@@ -20,9 +20,3 @@
         </div><!--/end container-->
     </div>
 @endsection
-@section('js-implementing-plugins')
-@endsection
-@section('js-page-level')
-@endsection
-@section('js-inline')
-@endsection
