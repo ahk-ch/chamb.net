@@ -46,6 +46,7 @@ $factory->define(App\Ahk\Industry::class, function (Faker\Generator $faker)
 	return [
 		'name'      => $faker->unique()->uuid,
 		'author_id' => factory(User::class)->create()->id,
+		'author_id' => factory(User::class)->create()->id,
 	];
 });
 
@@ -74,6 +75,7 @@ $factory->defineAs(App\Ahk\Article::class, 'without_industry', function (Faker\G
 
 	return array_merge($article->toArray(), [
 		'author_id' => factory(User::class)->create()->id,
+		'thumbnail_id' => factory(File::class)->create()->id,
 	]);
 });
 
