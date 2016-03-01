@@ -4,7 +4,12 @@ Homestead.yaml
 Homestead.json
 .env
 
-/bower_components
+/.rbenv
+/bower_components/*
+# Travis.org hass some issues with pulling unify through private repo. Track it for now
+!/bower_components/UnifyV1.9.1
+
+# All public assets are generated through Gulp
 /public/*
 !/public/.htaccess
 !/public/index.php

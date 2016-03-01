@@ -17,6 +17,7 @@ elixir(function (mix) {
 
 	// Unify
 	mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/css/vendor/UnifyV1.9.1/');
+	mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/js/vendor/UnifyV1.9.1/');
 
 	// Font Imports
 	mix.copy('bower_components/UnifyV1.9.1/plugins/bootstrap/fonts', 'public/build/css/fonts');
@@ -25,11 +26,6 @@ elixir(function (mix) {
 	// Stylesheets Imports
 	mix.styles('vendor/UnifyV1.9.1/css/app.css', 'public/build/css/app.css');
 	mix.styles('vendor/UnifyV1.9.1/css/blocks.css', 'public/build/css/blocks.css');
-	// Assets Import
-	// mix.copy('resources/assets/css/vendor/UnifyV1.9.1/plugins/revolution-slider/rs-plugin/assets/', 'public/build/assets/');
-	// Images Import
-	mix.copy('bower_components/UnifyV1.9.1/img', 'public/build/img/');
-	mix.copy('bower_components/UnifyV1.9.1/img', 'public/img/');
 
 	mix
 		.styles([
