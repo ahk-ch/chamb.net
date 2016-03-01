@@ -36,11 +36,11 @@ elixir(function (mix) {
 			'vendor/UnifyV1.9.1/css/app.css',
 			'vendor/UnifyV1.9.1/css/blocks.css',
 			'vendor/UnifyV1.9.1/css/style.css',
+		], 'public/css/above-the-fold-content.min.css')
+		.styles([
 			'vendor/UnifyV1.9.1/css/headers/header-default.css',
 			'vendor/UnifyV1.9.1/css/theme-colors/dark-blue.css',
 			'vendor/UnifyV1.9.1/css/theme-skins/dark.css',
-		], 'public/css/above-the-fold-content.min.css')
-		.styles([
 			'vendor/UnifyV1.9.1/plugins/animate.css',
 			'vendor/UnifyV1.9.1/css/footers/footer-v2.css',
 			'vendor/UnifyV1.9.1/plugins/line-icons/line-icons.css',

@@ -34,6 +34,6 @@ install:
 script:
   - composer install --prefer-source --no-interaction
   - gulp
-  - phpunit tests/ --coverage-clover tests/build/logs/clover.xml
+  - phpunit tests/ --coverage-clover build/logs/clover.xml
 
 after_script: php vendor/bin/coveralls -v
