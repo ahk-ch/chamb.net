@@ -20,7 +20,7 @@ before_script:
   - php artisan migrate -n
   - npm install -g bower
   - npm install --global gulp
-  - npm install
+  - npm install -g
   - bower install -s
 
 before_install:
@@ -30,7 +30,7 @@ before_install:
 
 script:
   - composer install --prefer-source --no-interaction
-  - phpunit tests/ --coverage-clover tests/build/logs/clover.xml
   - gulp
+  - phpunit tests/ --coverage-clover tests/build/logs/clover.xml
 
 after_script: php vendor/bin/coveralls -v
