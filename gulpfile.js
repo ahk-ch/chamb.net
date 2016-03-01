@@ -35,13 +35,15 @@ elixir(function (mix) {
 			'vendor/UnifyV1.9.1/plugins/bootstrap/css/bootstrap.min.css',
 			'vendor/UnifyV1.9.1/css/style.css',
 			'vendor/UnifyV1.9.1/css/headers/header-default.css',
-			'vendor/UnifyV1.9.1/css/footers/footer-v2.css',
-			'vendor/UnifyV1.9.1/plugins/animate.css',
-			'vendor/UnifyV1.9.1/plugins/line-icons/line-icons.css',
-			'vendor/UnifyV1.9.1/plugins/font-awesome/css/font-awesome.min.css',
 			'vendor/UnifyV1.9.1/css/theme-colors/dark-blue.css',
 			'vendor/UnifyV1.9.1/css/theme-skins/dark.css',
-			'vendor/pnotify/pnotify.core.min.css'
+		], 'public/css/above-the-fold-content.min.css')
+		.styles([
+			'vendor/UnifyV1.9.1/plugins/animate.css',
+			'vendor/UnifyV1.9.1/css/footers/footer-v2.css',
+			'vendor/UnifyV1.9.1/plugins/line-icons/line-icons.css',
+			'vendor/UnifyV1.9.1/plugins/font-awesome/css/font-awesome.min.css',
+			'vendor/pnotify/pnotify.core.min.css',
 		], 'public/css/master.min.css')
 		.styles([
 			'vendor/UnifyV1.9.1/css/pages/page_about.css'
@@ -114,7 +116,8 @@ elixir(function (mix) {
 		'public/css/sign_in.min.css',
 		'public/css/my/companies/create-and-edit.min.css',
 		'public/css/health/news.min.css',
-	
+		'public/css/above-the-fold-content.min.css',
+
 		'public/js/master.min.js',
 		'public/js/lt-ie9.min.js',
 		'public/js/home.min.js',
