@@ -20,7 +20,7 @@ before_script:
   - php artisan migrate -n
   - npm install -g bower
   - npm install --global gulp
-  - npm install -g
+  - npm install
   - bower install -s
 
 before_install:
