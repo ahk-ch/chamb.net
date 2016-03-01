@@ -30,7 +30,6 @@
 </div>
 
 <!-- Optimize css delivery -->
-{!! Form::input('hidden', 'styleSheetUrls[]', 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin') !!}
 {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/master.min.css")) !!}
 <!-- Flash Data -->
 {!! Form::input('hidden', 'notifications', json_encode(Session::get('flash_notifications'))) !!}
