@@ -16,7 +16,7 @@ elixir(function (mix) {
 	// mix.copy('bower_components/UnifyV1.9.1/', 'public');
 
 	// Unify
-	// mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/css/vendor/UnifyV1.9.1/');
+	mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/css/vendor/UnifyV1.9.1/');
 	// mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/js/vendor/UnifyV1.9.1/');
 
 	// Font Imports
@@ -26,6 +26,9 @@ elixir(function (mix) {
 	// Stylesheets Imports
 	mix.styles('vendor/UnifyV1.9.1/css/app.css', 'public/build/css/app.css');
 	mix.styles('vendor/UnifyV1.9.1/css/blocks.css', 'public/build/css/blocks.css');
+
+	mix
+		.sass('home.scss');
 
 	mix
 		.styles([
@@ -56,8 +59,7 @@ elixir(function (mix) {
 		], 'public/css/my/companies/create-and-edit.min.css')
 		.styles([
 			'vendor/UnifyV1.9.1/css/pages/page_job.css',
-		], 'public/css/health/news.min.css')
-		.sass('home.scss');
+		], 'public/css/health/news.min.css');
 
 	mix.scripts([
 			'vendor/UnifyV1.9.1/plugins/jquery/jquery.min.js',
@@ -72,6 +74,7 @@ elixir(function (mix) {
 			'vendor/UnifyV1.9.1/js/plugins/style-switcher.js',
 			'vendor/UnifyV1.9.1/plugins/modernizr.js',
 			'ahk/master.js',
+			'ahk/flash.js'
 		], 'public/js/master.min.js')
 		.scripts([
 			'vendor/UnifyV1.9.1/plugins/respond.js',
@@ -81,9 +84,6 @@ elixir(function (mix) {
 		.scripts([
 			'ahk/home.js'
 		], 'public/js/home.min.js')
-		.scripts([
-			'ahk/flash.js'
-		], 'public/js/flash.min.js')
 		// .scripts([
 		// 	'UnifyV1.9.1/css/pages/page_job.css',
 		// ], 'public/js/health/news.min.js')

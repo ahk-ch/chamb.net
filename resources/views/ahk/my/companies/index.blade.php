@@ -59,8 +59,10 @@
         </div>
     </div>
 @endsection
-@section('js')
+@section('hidden-inputs')
     {!! Form::input('hidden', 'readMoreText', trans('ahk.read_more')) !!}
     {!! Form::input('hidden', 'readLessText', trans('ahk.read_less')) !!}
+@endsection
+@section('js-files')
     <script type="text/javascript" src="{!! elixir('js/my/companies/index.min.js') !!}"></script>
 @endsection

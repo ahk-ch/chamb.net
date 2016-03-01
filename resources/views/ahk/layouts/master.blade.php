@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="{!! route('files.render', ['path' => 'img/home/favicon.ico']) !!}">
-    @yield('css')
+    @yield('inline-css')
 </head>
 <body class="header-fixed header-fixed-space-default">
 
@@ -29,15 +29,15 @@
 <!-- Optimize css delivery -->
 {!! Form::input('hidden', 'styleSheetUrls[]', 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin') !!}
 {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/master.min.css")) !!}
+<!-- Flash Data -->
+{!! Form::input('hidden', 'notifications', json_encode(Session::get('flash_notifications'))) !!}
+<!-- Page Data -->
+@yield('hidden-inputs')
 
 @yield('optimize-css-delivery')
-
 <script type="text/javascript" src="{!! url('js/loadStyleSheets.min.js') !!}"></script>
-
 <script type="text/javascript" src="{!! elixir('js/master.min.js') !!}"></script>
-@yield('js')
-@include('ahk._partials.flash')
-
+@yield('js-files')
 <!--[if lt IE 9]>
 <script src="{!! elixir('js/lt-ie9.min.js') !!}"></script><![endif]-->
 </body>

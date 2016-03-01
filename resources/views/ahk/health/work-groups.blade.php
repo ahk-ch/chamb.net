@@ -2,7 +2,7 @@
 @section('title', trans('ahk.work_groups'))
 @section('css-implementing-plugins')
 @endsection
-@section('css-page-style')
+@section('inline-css')
     <style>
         .breadcrumbs-v3.img-v1 {
             background: url('{!! url('img/work_group/bg.jpg') !!}') no-repeat center center;

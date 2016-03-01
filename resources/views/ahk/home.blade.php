@@ -1,8 +1,5 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.home'))
-@section('css')
-    {{--<link href='{!! elixir("css/home.css") !!}' rel='stylesheet' type='text/css'/>--}}
-@endsection
 @section('header_links')
     @include('ahk._partials.header_default_links')
 @endsection
@@ -50,8 +47,8 @@
     </div>
 @endsection
 @section('optimize-css-delivery')
-        loadStyleSheet('{!! elixir("css/home.css") !!}');
+        {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/home.css")) !!}
 @endsection
-@section('js-assets')
+@section('js-files')
     <script type="text/javascript" src="{!! elixir('js/home.min.js') !!}"></script>
 @endsection
