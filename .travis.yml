@@ -19,7 +19,8 @@ before_script:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS chamb_testing;'
   - php artisan migrate -n
   - npm install -g bower
-  - npm install -g gulp
+  - npm install --global gulp
+  - npm install
   - bower install -s
 
 before_install:
@@ -28,6 +29,7 @@ before_install:
   - composer require satooshi/php-coveralls
 
 script:
+  - composer install --prefer-source --no-interaction
   - phpunit tests/ --coverage-clover tests/build/logs/clover.xml
   - gulp
 
