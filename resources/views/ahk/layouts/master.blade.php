@@ -12,7 +12,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="{!! route('files.render', ['path' => 'img/home/favicon.ico']) !!}">
-    <link href='{!! elixir("css/above-the-fold-content.min.css") !!}' rel='stylesheet' type='text/css'/>
+    <style type="text/css">
+        {!! file_get_contents(url(elixir("css/above-the-fold-content.min.css"))) !!}}
+    </style>
     @yield('inline-css')
 </head>
 <body class="header-fixed header-fixed-space-default">

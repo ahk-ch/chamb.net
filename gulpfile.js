@@ -17,7 +17,7 @@ elixir(function (mix) {
 
 	// Unify
 	mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/css/vendor/UnifyV1.9.1/');
-	// mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/js/vendor/UnifyV1.9.1/');
+	mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/js/vendor/UnifyV1.9.1/');
 
 	// Font Imports
 	mix.copy('bower_components/UnifyV1.9.1/plugins/bootstrap/fonts', 'public/build/css/fonts');
@@ -33,6 +33,8 @@ elixir(function (mix) {
 	mix
 		.styles([
 			'vendor/UnifyV1.9.1/plugins/bootstrap/css/bootstrap.min.css',
+			'vendor/UnifyV1.9.1/css/app.css',
+			'vendor/UnifyV1.9.1/css/blocks.css',
 			'vendor/UnifyV1.9.1/css/style.css',
 			'vendor/UnifyV1.9.1/css/headers/header-default.css',
 			'vendor/UnifyV1.9.1/css/theme-colors/dark-blue.css',
