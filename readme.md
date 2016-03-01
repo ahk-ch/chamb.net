@@ -50,7 +50,6 @@
 [composer_path]: https://getcomposer.org/
 [git_path]: https://git-scm.com/
 [fzaninotto_Faker_path]: https://github.com/fzaninotto/Faker
-[fzaninotto_Faker_path]: https://github.com/fzaninotto/Faker
 [laravel_elixir_path]: http://laravel.com/docs/5.1/elixir
 [sass_guide_path]: http://sass-lang.com/guide
 [GrahamCampbell_Laravel_HTMLMin_path]: https://github.com/GrahamCampbell/Laravel-HTMLMin
