@@ -1,5 +1,2 @@
-*
-!testing
-!.gitignore
-!img/
-!img/*
+local
+production
