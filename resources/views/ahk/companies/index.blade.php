@@ -2,10 +2,14 @@
 @section('title', trans('ahk.community'))
 @section('inline-css')
     <style>
+        {!! File::get(public_path(elixir("css/companies.min.css"))) !!}}
+    </style>
+    <style>
         .job-img {
-            background: url("{!! route('files.render', ['path' => 'img/community/background.jpg']) !!}") no-repeat;
+            overflow: hidden;
+            min-height: 300px;
+            background: url("{!! route('files.render', ['path' => 'img/community/background.jpg']) !!}")  center center no-repeat;
             background-size: cover;
-            background-position: center center;
         }
     </style>
 @endsection
@@ -53,7 +57,6 @@
             @endforeach
         </div>
         <!-- End Job Content -->
-
     </div>
     <!--=== End Content Part ===-->
 
@@ -105,7 +108,7 @@
     {!! Form::input('hidden', 'readLessText', trans('ahk.read_less')) !!}
 @endsection
 @section('optimize-css-delivery')
-    {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/companies.min.css")) !!}
+    {{--{!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/companies.min.css")) !!}--}}
 @endsection
 @section('js-files')
     <script type="text/javascript" src="{!! elixir('js/companies/index.min.js') !!}"></script>

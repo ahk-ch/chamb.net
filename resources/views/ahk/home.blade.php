@@ -3,8 +3,17 @@
 @section('header_links')
     @include('ahk._partials.header_default_links')
 @endsection
+@section('inline-css')
+    <style type="text/css">
+        .interactive-slider-v2.img-v4 {
+            background: url({!! route('files.render', ['path' => 'img/home/background.jpg']) !!}) no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+    </style>
+@endsection
 @section('content')
-    <div class="interactive-slider-v2 img-v4" id="home-first-section">
+    <div class="interactive-slider-v2 img-v4">
         <div class="container">
             <h1>Chamb.Net</h1>
             <p>{!! trans('ahk.we_promote_and_support_bilateral_business_between_greece_and_germany') !!}</p>
@@ -45,9 +54,6 @@
             </div>
         </div>
     </div>
-@endsection
-@section('optimize-css-delivery')
-        {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/home.css")) !!}
 @endsection
 @section('js-files')
     <script type="text/javascript" src="{!! elixir('js/home.min.js') !!}"></script>

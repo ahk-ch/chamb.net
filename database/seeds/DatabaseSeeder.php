@@ -25,13 +25,13 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call(ServiceTableSeeder::class);
 
-		$this->call(TagTableSeeder::class);
+//		$this->call(TagTableSeeder::class);
 
 		$this->call(IndustryTableSeeder::class);
 
-		$this->call(ArticleTableSeeder::class);
+//		$this->call(ArticleTableSeeder::class);
 
-		$this->call(CountryTableSeeder::class);
+//		$this->call(CountryTableSeeder::class);
 
 		$this->call(CompanyTableSeeder::class);
 

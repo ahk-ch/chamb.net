@@ -46,7 +46,6 @@ $factory->define(App\Ahk\Industry::class, function (Faker\Generator $faker)
 	return [
 		'name'      => $faker->unique()->uuid,
 		'author_id' => factory(User::class)->create()->id,
-		'author_id' => factory(User::class)->create()->id,
 	];
 });
 

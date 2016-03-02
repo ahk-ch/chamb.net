@@ -48,8 +48,6 @@ class CompanyTableSeeder extends Seeder
 		$companyRepresentativeUsers = (new DbUserRepository())->getWithCompanyRepresentativeRole()->toArray();
 		$faker = Factory::create();
 
-		factory(Company::class)->create();
-
 		foreach ($this->popularCompanies as $company)
 		{
 			$company = factory(Company::class, 'without_relations')

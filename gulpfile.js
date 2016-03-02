@@ -16,8 +16,10 @@ elixir(function (mix) {
 	// mix.copy('bower_components/UnifyV1.9.1/', 'public');
 
 	// Unify
-	mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/css/vendor/UnifyV1.9.1/');
-	mix.copy('bower_components/UnifyV1.9.1/', 'resources/assets/js/vendor/UnifyV1.9.1/');
+	mix.copy('bower_components/UnifyV1.9.1/css', 'resources/assets/css/vendor/UnifyV1.9.1/css');
+	mix.copy('bower_components/UnifyV1.9.1/plugins', 'resources/assets/css/vendor/UnifyV1.9.1/plugins');
+	mix.copy('bower_components/UnifyV1.9.1/js', 'resources/assets/js/vendor/UnifyV1.9.1/js');
+	mix.copy('bower_components/UnifyV1.9.1/plugins', 'resources/assets/js/vendor/UnifyV1.9.1/plugins');
 
 	// Font Imports
 	mix.copy('bower_components/UnifyV1.9.1/plugins/bootstrap/fonts', 'public/build/css/fonts');
@@ -28,21 +30,18 @@ elixir(function (mix) {
 	mix.styles('vendor/UnifyV1.9.1/css/blocks.css', 'public/build/css/blocks.css');
 
 	mix
-		.sass('home.scss');
-
-	mix
 		.styles([
 			'vendor/UnifyV1.9.1/plugins/bootstrap/css/bootstrap.min.css',
 			'vendor/UnifyV1.9.1/css/app.css',
 			'vendor/UnifyV1.9.1/css/blocks.css',
 			'vendor/UnifyV1.9.1/css/style.css',
-		], 'public/css/above-the-fold-content.min.css')
-		.styles([
 			'vendor/UnifyV1.9.1/css/headers/header-default.css',
+			'vendor/UnifyV1.9.1/css/footers/footer-v2.css',
 			'vendor/UnifyV1.9.1/css/theme-colors/dark-blue.css',
 			'vendor/UnifyV1.9.1/css/theme-skins/dark.css',
+		], 'public/css/above-the-fold-content.min.css')
+		.styles([
 			'vendor/UnifyV1.9.1/plugins/animate.css',
-			'vendor/UnifyV1.9.1/css/footers/footer-v2.css',
 			'vendor/UnifyV1.9.1/plugins/line-icons/line-icons.css',
 			'vendor/UnifyV1.9.1/plugins/font-awesome/css/font-awesome.min.css',
 			'vendor/pnotify/pnotify.core.min.css',
@@ -112,7 +111,6 @@ elixir(function (mix) {
 
 	mix.version([
 		'public/css/master.min.css',
-		'public/css/home.css',
 		'css/about.min.css',
 		'public/css/companies.min.css',
 		'public/css/sign_in.min.css',
@@ -128,7 +126,7 @@ elixir(function (mix) {
 		'public/js/my/companies/create-and-edit.min.js',
 	]);
 
-	// mix.browserSync({
-	// 	proxy: 'chamb.io'
-	// });
+	mix.browserSync({
+		proxy: 'chamb.io'
+	});
 });
