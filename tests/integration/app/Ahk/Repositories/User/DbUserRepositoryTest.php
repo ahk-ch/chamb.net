@@ -177,6 +177,23 @@ class DbUserRepositoryTest extends TestCase
 	}
 
 	/** @test */
+	public function it_returns_author_users()
+	{
+		$dbUserRepository = new DbUserRepository();
+		factory(User::class, 2)->create(); # Use to validate it does not return these.
+		$actualAuthorUsers = factory(User::class, 2)->create();
+		$dbUserRepository->assignAuthorRole($actualAuthorUsers->get(0));
+		$dbUserRepository->assignAuthorRole($actualAuthorUsers->get(1));
+
+		$expectedUsers = $dbUserRepository->getWithAuthorRole();
+		$keys = $actualAuthorUsers->get(0)->getFillable();
+
+		$this->assertSame(
+			array_only($expectedUsers->toArray(), $keys),
+			array_only($actualAuthorUsers->toArray(), $keys));
+	}
+
+	/** @test */
 	public function it_verifies_company_is_owned_by_user()
 	{
 		$dbUserRepository = new DbUserRepository();

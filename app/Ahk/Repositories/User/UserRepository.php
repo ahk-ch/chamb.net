@@ -106,6 +106,12 @@ interface UserRepository
 	 * @return mixed
 	 */
 	public function getWithCompanyRepresentativeRole();
+	
+	/**
+	 * Get all users that have role of author
+	 * @return mixed
+	 */
+	public function getWithAuthorRole();
 
 	/**
 	 * Verify a company is owned by a user

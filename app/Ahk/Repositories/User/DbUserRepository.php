@@ -236,4 +236,16 @@ class DbUserRepository extends DbRepository implements UserRepository
 
 		return $this->assignRole($user, $role);
 	}
+
+	/**
+	 * Get all users that have role of author
+	 * @return mixed
+	 */
+	public function getWithAuthorRole()
+	{
+		return User::whereHas('roles', function ($query)
+		{
+			$query->where('roles.name', Role::AUTHOR_ROLE);
+		})->get();
+	}
 }

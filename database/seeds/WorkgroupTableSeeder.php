@@ -29,6 +29,7 @@ class WorkgroupTableSeeder extends Seeder
 	public function run()
 	{
 		$industries = (new DbIndustryRepository())->all()->get()->toArray();
+		$authors = (new DbIndustryRepository())->getAuthors()->get()->toArray();
 		$workgroups = factory(Workgroup::class)->create();
 		$faker = Factory::create();
 
