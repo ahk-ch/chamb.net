@@ -191,5 +191,6 @@ $factory->define(Workgroup::class, function (Faker\Generator $faker)
 		'description' => $faker->paragraph(),
 		'start_date'  => $startDate,
 		'end_date'    => $endDate,
+		'creator_id'  => factory(User::class)->create()->id,
 	];
 });

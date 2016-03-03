@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIndustriesWorkgroupsTable extends Migration
+class CreateIndustryWorkgroupTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -13,7 +13,7 @@ class CreateIndustriesWorkgroupsTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('industries_workgroups', function (Blueprint $table)
+		Schema::create('industry_workgroup', function (Blueprint $table)
 		{
 			$table->increments('id');
 			$table->timestamps();
@@ -31,17 +31,17 @@ class CreateIndustriesWorkgroupsTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::table('industries_workgroups', function (Blueprint $table)
+		Schema::table('industry_workgroup', function (Blueprint $table)
 		{
-			$table->dropForeign('industries_workgroups_industry_id_foreign');
-			$table->dropIndex('industries_workgroups_industry_id_index');
+			$table->dropForeign('industry_workgroup_industry_id_foreign');
+			$table->dropIndex('industry_workgroup_industry_id_index');
 			$table->removeColumn('industry_id');
 			
-			$table->dropForeign('industries_workgroups_workgroup_id_foreign');
-			$table->dropIndex('industries_workgroups_workgroup_id_index');
+			$table->dropForeign('industry_workgroup_workgroup_id_foreign');
+			$table->dropIndex('industry_workgroup_workgroup_id_index');
 			$table->removeColumn('workgroup_id');
 		});
 
-		Schema::drop('industries_workgroups');
+		Schema::drop('industry_workgroup');
 	}
 }

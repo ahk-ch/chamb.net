@@ -22,21 +22,23 @@ class UserTableSeeder extends Seeder
 	 */
 	public function run()
 	{
-		$dbUserRepository = new DbUserRepository();
-
 		factory(User::class)->create([
 			'email'    => env('ADMIN_EMAIL'),
 			'password' => Hash::make(env('ADMIN_PASSWORD')),
 			'verified' => 1,
 		]);
 
-
 		$companyRepresentative = factory(User::class)->create([
 			'email'     => env('COMPANY_REPRESENTATIVE_EMAIL'),
 			'password' => Hash::make(env('COMPANY_REPRESENTATIVE_PASSWORD')),
 			'verified' => 1
 		]);
+		
+		$users = factory(User::class, 2)->create();
 
+		$dbUserRepository = new DbUserRepository();
 		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentative);
+		$dbUserRepository->assignAuthorRole($users->get(0));
+		$dbUserRepository->assignAuthorRole($users->get(1));
 	}
 }
