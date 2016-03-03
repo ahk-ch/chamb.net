@@ -33,7 +33,7 @@
 			"App\\": "app/"
 		},
 		"files": [
-			"app/helpers.php"
+			"app/Ahk/Utilities/helpers.php"
 		]
 	},
 	"autoload-dev": {

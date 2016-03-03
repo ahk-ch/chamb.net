@@ -19,6 +19,7 @@ use App\Ahk\Industry;
 use App\Ahk\Service;
 use App\Ahk\Storage\FilesStorage;
 use App\Ahk\User;
+use App\Ahk\Workgroup;
 use Illuminate\Support\Facades\Storage;
 
 $factory->define(User::class, function (Faker\Generator $faker)
@@ -62,8 +63,8 @@ $factory->define(Article::class, function (Faker\Generator $faker)
 	$article = factory(Article::class, 'without_relations')->make();
 
 	return array_merge($article->toArray(), [
-		'author_id'   => factory(User::class)->create()->id,
-		'industry_id' => factory(Industry::class)->create()->id,
+		'author_id'    => factory(User::class)->create()->id,
+		'industry_id'  => factory(Industry::class)->create()->id,
 		'thumbnail_id' => factory(File::class)->create()->id,
 	]);
 });
@@ -73,7 +74,7 @@ $factory->defineAs(App\Ahk\Article::class, 'without_industry', function (Faker\G
 	$article = factory(Article::class, 'without_relations')->make();
 
 	return array_merge($article->toArray(), [
-		'author_id' => factory(User::class)->create()->id,
+		'author_id'    => factory(User::class)->create()->id,
 		'thumbnail_id' => factory(File::class)->create()->id,
 	]);
 });
@@ -177,5 +178,18 @@ $factory->defineAs(File::class, 'without_storage', function (Faker\Generator $fa
 		'path'                 => $fileLocation,
 		'description'          => $faker->paragraph(),
 		'client_original_name' => $clientOriginalName,
+	];
+});
+
+$factory->define(Workgroup::class, function (Faker\Generator $faker)
+{
+	$startDate = $faker->dateTimeBetween();
+	$endDate = $faker->dateTimeBetween($startDate);
+
+	return [
+		'name'        => $faker->unique()->name,
+		'description' => $faker->paragraph(),
+		'start_date'  => $startDate,
+		'end_date'    => $endDate,
 	];
 });
