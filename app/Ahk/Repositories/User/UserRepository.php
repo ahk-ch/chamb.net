@@ -39,6 +39,12 @@ interface UserRepository
 	 */
 	public function assignCompanyRepresentativeRole(User $user);
 
+	/**
+	 * Assign author role to the given user
+	 * @param User $user
+	 * @return User|bool
+	 */
+	public function assignAuthorRole(User $user);
 
 	/**
 	 * Assign a role to the given user
@@ -54,6 +60,13 @@ interface UserRepository
 	 * @return bool
 	 */
 	public function hasCompanyRepresentativeRole(User $user);
+
+	/**
+	 * Check whether the given user has role of author
+	 * @param User $user
+	 * @return bool
+	 */
+	public function hasAuthorRole(User $user);
 
 
 	/**

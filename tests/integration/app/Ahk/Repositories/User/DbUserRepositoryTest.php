@@ -35,6 +35,20 @@ class DbUserRepositoryTest extends TestCase
 	}
 
 	/** @test */
+	public function it_assigns_author_role()
+	{
+		$dbUserRepository = new DbUserRepository();
+
+		$user = factory(User::class)->create();
+
+		$this->assertFalse($dbUserRepository->hasAuthorRole($user));
+
+		$this->assertNotFalse($user = $dbUserRepository->assignAuthorRole($user));
+
+		$this->assertTrue($dbUserRepository->hasAuthorRole($user));
+	}
+
+	/** @test */
 	public function it_stores_user()
 	{
 		$userRepository = new DbUserRepository();
@@ -112,6 +126,20 @@ class DbUserRepositoryTest extends TestCase
 		$this->assertFalse($dbUserRepository->hasCompanyRepresentativeRole($user));
 
 		$dbUserRepository->assignCompanyRepresentativeRole($user);
+
+		$this->assertTrue($dbUserRepository->hasCompanyRepresentativeRole($user));
+	}
+
+	/** @test */
+	public function it_checks_author_user_role()
+	{
+		$dbUserRepository = new DbUserRepository();
+
+		$user = factory(User::class)->create();
+
+		$this->assertFalse($dbUserRepository->hasAuthorRole($user));
+
+		$dbUserRepository->assign($user);
 
 		$this->assertTrue($dbUserRepository->hasCompanyRepresentativeRole($user));
 	}

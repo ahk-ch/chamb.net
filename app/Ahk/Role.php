@@ -14,7 +14,12 @@ class Role extends Model
 	/**
 	 *
 	 */
-	const COMPANY_REPRESENTATIVE_ROLE = 'CompanyRepresentative';
+	const COMPANY_REPRESENTATIVE_ROLE = 'CompanyRepresentativeRole';
+
+	/**
+	 *
+	 */
+	const AUTHOR_ROLE = 'AuthorRole';
 
 	/**
 	 * The attributes that are mass assignable.

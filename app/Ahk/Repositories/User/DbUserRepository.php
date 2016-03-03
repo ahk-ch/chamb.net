@@ -214,4 +214,26 @@ class DbUserRepository extends DbRepository implements UserRepository
 	{
 		return $user->fill(['password' => Hash::make($password)])->save() ? $user : false;
 	}
+
+	/**
+	 * Check whether the given user has role of author
+	 * @param User $user
+	 * @return bool
+	 */
+	public function hasAuthorRole(User $user)
+	{
+		return $this->hasRole($user, Role::AUTHOR_ROLE);
+	}
+
+	/**
+	 * Assign author role to the given user
+	 * @param User $user
+	 * @return User|bool
+	 */
+	public function assignAuthorRole(User $user)
+	{
+		$role = Role::where("name", Role::AUTHOR_ROLE)->firstOrFail();
+
+		return $this->assignRole($user, $role);
+	}
 }
