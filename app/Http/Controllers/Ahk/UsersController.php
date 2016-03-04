@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Ahk;
 
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\User\UserRepository;
-use App\Http\Controllers\Ahk\BaseController;
-use App\Http\Requests;
-use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\Ahk\StoreUserRequest;
 
 class UsersController extends BaseController {
 	/**
@@ -35,7 +33,7 @@ class UsersController extends BaseController {
 	 */
 	public function store(StoreUserRequest $request)
 	{
-		$userStored = $this->userRepository->store($request);
+		$userStored = $this->userRepository->store($request->all());
 
 		if ( ! $userStored )
 		{

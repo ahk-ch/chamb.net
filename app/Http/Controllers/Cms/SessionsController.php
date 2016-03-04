@@ -35,7 +35,7 @@ class SessionsController extends Controller
 	 */
 	public function store(StoreSessionRequest $request)
 	{
-		if ( $user = Auth::attempt($request->only('username', 'password'), $request->has('remember')) )
+		if ( Auth::attempt($request->only('username', 'password'), $request->has('remember')) )
 		{
 			Flash::success('Welcome!');
 

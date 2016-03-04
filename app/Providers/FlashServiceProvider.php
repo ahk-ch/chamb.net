@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Ahk\Notifications\FlashNotifier;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
 class FlashServiceProvider extends ServiceProvider {
@@ -23,7 +24,7 @@ class FlashServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app->singleton('flash', function ($app)
+		$this->app->singleton('flash', function (Application $app)
 		{
 			return $app->make(FlashNotifier::class);
 		});

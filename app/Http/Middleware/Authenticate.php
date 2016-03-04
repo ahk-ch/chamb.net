@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\User\UserRepository;
 use Closure;
+use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class Authenticate
@@ -24,10 +26,10 @@ class Authenticate
 	 *
 	 * @param  \Illuminate\Http\Request $request
 	 * @param  \Closure $next
-	 * @param null $guard
+	 * @param Guard|null $guard
 	 * @return mixed
 	 */
-	public function handle($request, Closure $next, $guard = null)
+	public function handle(Request $request, Closure $next, Guard $guard = null)
 	{
 		if ( Auth::guard($guard)->guest() )
 		{

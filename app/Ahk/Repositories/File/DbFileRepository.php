@@ -43,37 +43,4 @@ class DbFileRepository extends DbRepository implements FileRepository
 
 		return $file;
 	}
-
-//	/**
-//	 * Update company logo
-//	 *
-//	 * @param Company $company
-//	 * @param $clientOriginalName
-//	 * @param $realPath
-//	 * @param null $storageLocation
-//	 * @return Company|false
-//	 */
-//	public function updateLogo(Company $company, $clientOriginalName, $realPath, $storageLocation = null)
-//	{
-//		$storageLocation = $storageLocation === null ? FilesStorage::getFilesDirectory() : $storageLocation;
-//
-//		$logoLocation = $storageLocation . $clientOriginalName;
-//
-//		if ( ! File::exists($storageLocation) ) Storage::makeDirectory($storageLocation);
-//
-//		if ( Storage::exists($logoLocation) ) Storage::delete($logoLocation);
-//
-//		Storage::put($logoLocation, file_get_contents($realPath));
-//
-//		$company->logo = $logoLocation;
-//
-//		if ( ! $company->save() )
-//		{
-//			Flash::error(trans('ahk_messages.unable_to_update_logo'));
-//
-//			return false;
-//		}
-//
-//		return $company;
-//	}
 }

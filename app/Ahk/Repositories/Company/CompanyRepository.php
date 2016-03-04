@@ -8,86 +8,85 @@
 namespace App\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
-use App\Ahk\Industry;
 use App\Ahk\User;
 
 interface CompanyRepository
 {
 
-	/**
-	 * Paginate through all companies
-	 * @param int $items
-	 * @return mixed
-	 */
-	public function paginate($items = 10);
+    /**
+     * Paginate through all companies
+     * @param int $items
+     * @return mixed
+     */
+    public function paginate($items = 10);
 
-	/**
-	 * Return all companies owned by given user, ready to be paginated
-	 * @param User $user
-	 * @return mixed
-	 */
-	public function getByUser(User $user);
+    /**
+     * Return all companies owned by given user, ready to be paginated
+     * @param User $user
+     * @return mixed
+     */
+    public function getByUser(User $user);
 
-	/**
-	 * Update company
-	 *
-	 * @param Company $company
-	 * @param $data
-	 * @return Company|false
-	 */
-	public function update(Company $company, array $data);
+    /**
+     * Update company
+     *
+     * @param Company $company
+     * @param $data
+     * @return Company|false
+     */
+    public function update(Company $company, array $data);
 
-	/**
-	 * Update company primary data
-	 *
-	 * @param Company $company
-	 * @param $data
-	 * @return Company|false
-	 */
-	public function updatePrimaryData(Company $company, array $data);
-	
-	/**
-	 * Store company
-	 *
-	 * @param User $user
-	 * @param array $data
-	 * @return Company|false
-	 */
-	public function store(User $user, array $data);
+    /**
+     * Update company primary data
+     *
+     * @param Company $company
+     * @param $data
+     * @return Company|false
+     */
+    public function updatePrimaryData(Company $company, array $data);
 
-	/**
-	 * Assign company representative user
-	 *
-	 * @param Company $company
-	 * @param User $user
-	 * @return Company|false
-	 */
-	public function assignRepresentativeUser(Company $company, User $user);
+    /**
+     * Store company
+     *
+     * @param User $user
+     * @param array $data
+     * @return Company|false
+     */
+    public function store(User $user, array $data);
 
-	/**
-	 * Update the industry of a company
-	 *
-	 * @param Company $company
-	 * @param $industryId
-	 * @return Company|false
-	 */
-	public function assignIndustryById(Company $company, $industryId);
+    /**
+     * Assign company representative user
+     *
+     * @param Company $company
+     * @param User $user
+     * @return Company|false
+     */
+    public function assignRepresentativeUser(Company $company, User $user);
 
-	/**
-	 * Update the country of a company
-	 *
-	 * @param Company $company
-	 * @param $countryId
-	 * @return Company|false
-	 */
-	public function assignCountryById(Company $company, $countryId);
+    /**
+     * Update the industry of a company
+     *
+     * @param Company $company
+     * @param $industryId
+     * @return Company|false
+     */
+    public function assignIndustryById(Company $company, $industryId);
 
-	/**
-	 * Update the logo of a company
-	 *
-	 * @param Company $company
-	 * @param $logoId
-	 * @return Company|false
-	 */
-	public function assignLogoById(Company $company, $logoId);
+    /**
+     * Update the country of a company
+     *
+     * @param Company $company
+     * @param $countryId
+     * @return Company|false
+     */
+    public function assignCountryById(Company $company, $countryId);
+
+    /**
+     * Update the logo of a company
+     *
+     * @param Company $company
+     * @param $logoId
+     * @return Company|false
+     */
+    public function assignLogoById(Company $company, $logoId);
 }

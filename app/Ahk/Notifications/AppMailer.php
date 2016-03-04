@@ -7,7 +7,9 @@
 
 namespace App\Ahk\Notifications;
 
+use App\Ahk\User;
 use Illuminate\Mail\Mailer;
+use Illuminate\Mail\Message;
 
 class AppMailer
 {
@@ -24,7 +26,7 @@ class AppMailer
 		$this->mailer = $mailer;
 	}
 
-	public function sendEmailConfirmation($user)
+	public function sendEmailConfirmation(User $user)
 	{
 		$this->to = $user->email;
 		$this->view = "ahk.emails.confirm";
@@ -38,7 +40,7 @@ class AppMailer
 
 	private function deliver()
 	{
-		$this->mailer->send($this->view, $this->data, function ($message)
+		$this->mailer->send($this->view, $this->data, function ( Message $message)
 		{
 			$message->from($this->fromEmail, $this->fromName)
 				->subject($this->subject)
@@ -46,7 +48,7 @@ class AppMailer
 		});
 	}
 
-	public function sendRecoveryEmail($user)
+	public function sendRecoveryEmail(User $user)
 	{
 		$this->to = $user->email;
 

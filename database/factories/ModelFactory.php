@@ -30,7 +30,7 @@ $factory->define(User::class, function (Faker\Generator $faker)
 		['avatar_id' => factory(File::class)->create()->id,]);
 });
 
-$factory->defineAs(App\Ahk\User::class, 'with_primary_data', function (Faker\Generator $faker) use ($factory)
+$factory->defineAs(App\Ahk\User::class, 'with_primary_data', function (Faker\Generator $faker)
 {
 	return [
 		'name'               => "$faker->firstName $faker->lastName",
@@ -69,7 +69,7 @@ $factory->define(Article::class, function (Faker\Generator $faker)
 	]);
 });
 
-$factory->defineAs(App\Ahk\Article::class, 'without_industry', function (Faker\Generator $faker) use ($factory)
+$factory->defineAs(App\Ahk\Article::class, 'without_industry', function (Faker\Generator $faker)
 {
 	$article = factory(Article::class, 'without_relations')->make();
 
@@ -79,7 +79,7 @@ $factory->defineAs(App\Ahk\Article::class, 'without_industry', function (Faker\G
 	]);
 });
 
-$factory->defineAs(App\Ahk\Article::class, 'without_relations', function (Faker\Generator $faker) use ($factory)
+$factory->defineAs(App\Ahk\Article::class, 'without_relations', function (Faker\Generator $faker)
 {
 	$content = "<p><img src='$faker->imageUrl'></p>";
 	$content .= "<p><strong>" . $faker->sentence() . "</strong></p>";
@@ -115,7 +115,7 @@ $factory->define(Company::class, function (Faker\Generator $faker)
 	]);
 });
 
-$factory->defineAs(Company::class, 'without_industry', function (Faker\Generator $faker) use ($factory)
+$factory->defineAs(Company::class, 'without_industry', function (Faker\Generator $faker)
 {
 	$company = factory(Company::class, 'without_relations')->make();
 
@@ -123,7 +123,7 @@ $factory->defineAs(Company::class, 'without_industry', function (Faker\Generator
 	]);
 });
 
-$factory->defineAs(Company::class, 'without_relations', function (Faker\Generator $faker) use ($factory)
+$factory->defineAs(Company::class, 'without_relations', function (Faker\Generator $faker)
 {
 	return [
 		'name'            => $faker->unique()->name,
@@ -166,7 +166,7 @@ $factory->define(File::class, function (Faker\Generator $faker)
 	]);
 });
 
-$factory->defineAs(File::class, 'without_storage', function (Faker\Generator $faker) use ($factory)
+$factory->defineAs(File::class, 'without_storage', function (Faker\Generator $faker)
 {
 	$name = $faker->unique()->name;
 	$clientOriginalName = "{$faker->name}.{$faker->fileExtension}";

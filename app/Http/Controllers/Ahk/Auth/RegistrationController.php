@@ -20,7 +20,6 @@ class RegistrationController extends BaseController
 	 */
 	protected $userRepository;
 
-	private $mailer;
 	/**
 	 * @var AppMailer
 	 */
@@ -78,7 +77,7 @@ class RegistrationController extends BaseController
 
 	public function confirmEmail(Requests\Ahk\ConfirmEmailRequest $request)
 	{
-		$user = $this->userRepository->confirmEmail($request->only('token'));
+		 $this->userRepository->confirmEmail($request->only('token'));
 
 		Flash::success(trans('ahk_messages.successful_sign_up'));
 

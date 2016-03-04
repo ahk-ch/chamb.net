@@ -12,6 +12,7 @@ use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\DbRepository;
 use App\Ahk\Role;
 use App\Ahk\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -163,7 +164,7 @@ class DbUserRepository extends DbRepository implements UserRepository
 	 */
 	public function getWithCompanyRepresentativeRole()
 	{
-		return User::whereHas('roles', function ($query)
+		return User::whereHas('roles', function (Builder $query)
 		{
 			$query->where('roles.name', Role::COMPANY_REPRESENTATIVE_ROLE);
 		})->get();
@@ -243,7 +244,7 @@ class DbUserRepository extends DbRepository implements UserRepository
 	 */
 	public function getWithAuthorRole()
 	{
-		return User::whereHas('roles', function ($query)
+		return User::whereHas('roles', function (Builder $query)
 		{
 			$query->where('roles.name', Role::AUTHOR_ROLE);
 		})->get();
