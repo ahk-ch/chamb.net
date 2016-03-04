@@ -18,3 +18,4 @@ class WorkingGroupsController extends Controller
         return view('ahk.health.work-groups');
     }
 }
+

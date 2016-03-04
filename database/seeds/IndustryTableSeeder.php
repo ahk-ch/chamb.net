@@ -13,19 +13,20 @@ use Illuminate\Database\Seeder;
 class IndustryTableSeeder extends Seeder
 {
 
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
-		factory(Industry::class)->create(['name' => 'Pharmaceutical']);
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        factory(Industry::class)->create(['name' => 'Pharmaceutical']);
 
-		factory(Industry::class)->create(['name' => 'Medical technology and products']);
+        factory(Industry::class)->create(['name' => 'Medical technology and products']);
 
-		factory(Industry::class)->create(['name' => 'Healthcare']);
+        factory(Industry::class)->create(['name' => 'Healthcare']);
 
-		factory(Industry::class)->create(['name' => 'Health tourism']);
-	}
+        factory(Industry::class)->create(['name' => 'Health tourism']);
+    }
 }
+

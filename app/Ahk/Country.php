@@ -11,16 +11,17 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Country extends Model
 {
-	/**
-	 * @var array
-	 */
-	protected $fillable = ['name'];
+    /**
+     * @var array
+     */
+    protected $fillable = ['name'];
 
-	/**
-	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
-	 */
-	public function companies()
-	{
-		return $this->hasMany('App\Ahk\Country');
-	}
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function companies()
+    {
+        return $this->hasMany('App\Ahk\Country');
+    }
 }
+

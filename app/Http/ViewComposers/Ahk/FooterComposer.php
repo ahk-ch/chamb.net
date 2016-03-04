@@ -10,16 +10,18 @@ use App\Ahk\Helpers\Helpers;
 use Illuminate\Contracts\View\View;
 
 
-class FooterComposer {
+class FooterComposer
+{
 
-	/**
-	 * Bind data to the view.
-	 *
-	 * @param  View $view
-	 * @return void
-	 */
-	public function compose(View $view)
-	{
-		$view->with('copyrightDate', Helpers::autoCopyright("2015"));
-	}
+    /**
+     * Bind data to the view.
+     *
+     * @param  View $view
+     * @return void
+     */
+    public function compose(View $view)
+    {
+        $view->with('copyrightDate', Helpers::autoCopyright("2015"));
+    }
 }
+

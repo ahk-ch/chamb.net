@@ -11,18 +11,20 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 
-class HeaderComposer {
+class HeaderComposer
+{
 
-	/**
-	 * Bind data to the view.
-	 *
-	 * @param  View $view
-	 * @return void
-	 */
-	public function compose(View $view)
-	{
-		$view->with('user', Auth::user());
+    /**
+     * Bind data to the view.
+     *
+     * @param  View $view
+     * @return void
+     */
+    public function compose(View $view)
+    {
+        $view->with('user', Auth::user());
 
-		$view->with('locale', App::getLocale());
-	}
+        $view->with('locale', App::getLocale());
+    }
 }
+

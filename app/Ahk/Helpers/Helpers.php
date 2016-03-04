@@ -7,20 +7,21 @@
 namespace App\Ahk\Helpers;
 
 
-class Helpers {
+class Helpers
+{
 
-	/**
-	 * @param $year
-	 * @return bool|string
-	 */
-	public static function autoCopyright($year = "auto")
-	{
-		if ( strcmp($year, "auto") === 0 ) return date('Y');
+    /**
+     * @param $year
+     * @return bool|string
+     */
+    public static function autoCopyright($year = "auto")
+    {
+        if (strcmp($year, "auto") === 0) return date('Y');
 
-		if ( intval($year) == date('Y') ) return $year;
+        if (intval($year) == date('Y')) return $year;
 
-		if ( intval($year) < date('Y') ) return "{$year} - " . date('Y');
+        if (intval($year) < date('Y')) return "{$year} - " . date('Y');
 
-		return date('Y');
-	}
+        return date('Y');
+    }
 }

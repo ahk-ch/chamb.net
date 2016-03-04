@@ -10,16 +10,18 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\App;
 
 
-class RightSideBarComposer {
+class RightSideBarComposer
+{
 
-	/**
-	 * Bind data to the view.
-	 *
-	 * @param  View $view
-	 * @return void
-	 */
-	public function compose(View $view)
-	{
-		$view->with('locale', App::getLocale());
-	}
+    /**
+     * Bind data to the view.
+     *
+     * @param  View $view
+     * @return void
+     */
+    public function compose(View $view)
+    {
+        $view->with('locale', App::getLocale());
+    }
 }
+

@@ -19,3 +19,4 @@ class BaseController extends Controller
         $this->middleware('cms.auth');
     }
 }
+

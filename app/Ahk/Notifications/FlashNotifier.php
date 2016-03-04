@@ -13,54 +13,55 @@ use Illuminate\Session\Store;
  * Class FlashNotifier
  * @package App\Ahk\Notifications
  */
-class FlashNotifier {
-	
-	/**
-	 * @var Store
-	 */
-	private $session;
+class FlashNotifier
+{
 
-	/**
-	 * FlashNotifier constructor.
-	 * @param Store $session
-	 */
-	public function __construct(Store $session)
-	{
-		$this->session = $session;
-	}
+    /**
+     * @var Store
+     */
+    private $session;
 
-	/**
-	 * @param $message
-	 */
-	public function success($message)
-	{
-		$this->message($message, 'success');
-	}
+    /**
+     * FlashNotifier constructor.
+     * @param Store $session
+     */
+    public function __construct(Store $session)
+    {
+        $this->session = $session;
+    }
 
-	/**
-	 * @param $message
-	 * @param string $level
-	 */
-	public function message($message, $level = 'info')
-	{
-		$notification = new \stdClass;
+    /**
+     * @param $message
+     */
+    public function success($message)
+    {
+        $this->message($message, 'success');
+    }
 
-		$notification->message = $message;
+    /**
+     * @param $message
+     * @param string $level
+     */
+    public function message($message, $level = 'info')
+    {
+        $notification = new \stdClass;
 
-		$notification->level = $level;
+        $notification->message = $message;
 
-		$notifications = $this->session->get('flash_notifications', []);
+        $notification->level = $level;
 
-		array_push($notifications, $notification);
+        $notifications = $this->session->get('flash_notifications', []);
 
-		$this->session->flash('flash_notifications', $notifications);
-	}
+        array_push($notifications, $notification);
 
-	/**
-	 * @param $message
-	 */
-	public function error($message)
-	{
-		$this->message($message, 'error');
-	}
+        $this->session->flash('flash_notifications', $notifications);
+    }
+
+    /**
+     * @param $message
+     */
+    public function error($message)
+    {
+        $this->message($message, 'error');
+    }
 }

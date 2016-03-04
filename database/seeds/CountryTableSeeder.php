@@ -7,21 +7,18 @@
 namespace database\seeds;
 
 
-use App\Ahk\Article;
-use App\Ahk\Country;
-use App\Ahk\Repositories\Article\DbArticleRepository;
-use App\Ahk\Repositories\Tag\DbTagRepository;
-use Faker\Factory;
 use Illuminate\Database\Seeder;
 
-class CountryTableSeeder extends Seeder {
+class CountryTableSeeder extends Seeder
+{
 
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
-	}
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+    }
 }
+

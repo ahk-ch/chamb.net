@@ -16,3 +16,4 @@ class BaseController extends Controller
         !session('locale') ?: App::setLocale(session('locale'));
     }
 }
+

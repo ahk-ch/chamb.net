@@ -15,33 +15,33 @@ use Illuminate\Database\Seeder;
 
 class WorkgroupTableSeeder extends Seeder
 {
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
-		$industries = (new DbIndustryRepository())->all()->get()->toArray();
-		$authors = (new DbUserRepository())->getWithAuthorRole()->toArray();
-		$workgroups = factory(Workgroup::class, 2)->create();
-		$faker = Factory::create();
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $industries = (new DbIndustryRepository())->all()->get()->toArray();
+        $authors = (new DbUserRepository())->getWithAuthorRole()->toArray();
+        $workgroups = factory(Workgroup::class, 2)->create();
+        $faker = Factory::create();
 
-		foreach ($workgroups as $workgroup)
-		{
-			$workgroup->industries()->attach([
-				$faker->randomElement($industries)['id'],
-				$faker->randomElement($industries)['id'],
-				$faker->randomElement($industries)['id'],
-				$faker->randomElement($industries)['id'],
-			]);
+        foreach ($workgroups as $workgroup) {
+            $workgroup->industries()->attach([
+                $faker->randomElement($industries)['id'],
+                $faker->randomElement($industries)['id'],
+                $faker->randomElement($industries)['id'],
+                $faker->randomElement($industries)['id'],
+            ]);
 
-			$workgroup->authors()->attach([
-				$faker->randomElement($authors)['id'],
-				$faker->randomElement($authors)['id'],
-				$faker->randomElement($authors)['id'],
-				$faker->randomElement($authors)['id'],
-			]);
-		}
-	}
+            $workgroup->authors()->attach([
+                $faker->randomElement($authors)['id'],
+                $faker->randomElement($authors)['id'],
+                $faker->randomElement($authors)['id'],
+                $faker->randomElement($authors)['id'],
+            ]);
+        }
+    }
 }
+

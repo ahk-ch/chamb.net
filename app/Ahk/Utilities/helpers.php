@@ -11,5 +11,6 @@
  */
 function activate($routes = [], $active = 'active')
 {
-	return call_user_func_array('Route::is', $routes) ? $active : '';
+    return call_user_func_array('Route::is', $routes) ? $active : '';
 }
+

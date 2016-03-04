@@ -11,29 +11,27 @@ use Illuminate\Support\Facades\Auth;
 class Authenticate
 {
 
-	/**
-	 * Handle an incoming request.
-	 *
-	 * @param  \Illuminate\Http\Request $request
-	 * @param  \Closure $next
-	 * @param Guard $guard
-	 * @return mixed
-	 */
-	public function handle(Request $request, Closure $next, Guard $guard = null)
-	{
-		if ( Auth::guard($guard)->guest() )
-		{
-			if ( $request->ajax() )
-			{
-				return response('Unauthorized.', 401);
-			} else
-			{
-				Flash::error(trans('cms.you_need_to_sign_in_first'));
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure $next
+     * @param Guard $guard
+     * @return mixed
+     */
+    public function handle(Request $request, Closure $next, Guard $guard = null)
+    {
+        if (Auth::guard($guard)->guest()) {
+            if ($request->ajax()) {
+                return response('Unauthorized.', 401);
+            } else {
+                Flash::error(trans('cms.you_need_to_sign_in_first'));
 
-				return redirect()->guest(route('cms.sessions.create'));
-			}
-		}
+                return redirect()->guest(route('cms.sessions.create'));
+            }
+        }
 
-		return $next($request);
-	}
+        return $next($request);
+    }
 }
+

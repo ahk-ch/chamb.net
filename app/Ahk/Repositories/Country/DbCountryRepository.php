@@ -14,12 +14,12 @@ use Illuminate\Database\Eloquent\Collection;
 class DbCountryRepository extends DbRepository implements CountryRepository
 {
 
-	/**
-	 * Get all industry
-	 * @return Collection
-	 */
-	public function all()
-	{
-		return Country::all();
-	}
+    /**
+     * Get all industry
+     * @return Collection
+     */
+    public function all()
+    {
+        return Country::all();
+    }
 }

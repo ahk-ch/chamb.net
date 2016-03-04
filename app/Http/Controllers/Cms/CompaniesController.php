@@ -95,3 +95,4 @@ class CompaniesController extends BaseController
         //
     }
 }
+

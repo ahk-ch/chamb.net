@@ -13,12 +13,13 @@ namespace App\Ahk\Storage;
  */
 class FilesStorage
 {
-	/**
-	 * @return string
-	 */
-	public static function getFilesDirectory()
-	{
-		return env('APP_ENV') . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR;
-	}
+    /**
+     * @return string
+     */
+    public static function getFilesDirectory()
+    {
+        return env('APP_ENV') . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR;
+    }
 
 }
+

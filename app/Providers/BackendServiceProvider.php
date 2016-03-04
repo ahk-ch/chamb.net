@@ -18,30 +18,32 @@ use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\Repositories\User\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
-class BackendServiceProvider extends ServiceProvider {
-	/**
-	 * Bootstrap the application services.
-	 *
-	 * @return void
-	 */
-	public function boot()
-	{
-		//
-	}
+class BackendServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap the application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+    }
 
-	/**
-	 * Register the application services.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
-		$this->app->bind(UserRepository::class, DbUserRepository::class);
-		$this->app->bind(IndustryRepository::class, DbIndustryRepository::class);
-		$this->app->bind(CountryRepository::class, DbCountryRepository::class);
-		$this->app->bind(FileRepository::class, DbFileRepository::class);
-		$this->app->bind(TagRepository::class, DbTagRepository::class);
-		$this->app->bind(ArticleRepository::class, DbArticleRepository::class);
-		$this->app->bind(CompanyRepository::class, DbCompanyRepository::class);
-	}
+    /**
+     * Register the application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->app->bind(UserRepository::class, DbUserRepository::class);
+        $this->app->bind(IndustryRepository::class, DbIndustryRepository::class);
+        $this->app->bind(CountryRepository::class, DbCountryRepository::class);
+        $this->app->bind(FileRepository::class, DbFileRepository::class);
+        $this->app->bind(TagRepository::class, DbTagRepository::class);
+        $this->app->bind(ArticleRepository::class, DbArticleRepository::class);
+        $this->app->bind(CompanyRepository::class, DbCompanyRepository::class);
+    }
 }
+

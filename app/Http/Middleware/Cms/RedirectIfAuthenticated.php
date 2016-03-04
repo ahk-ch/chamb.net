@@ -9,18 +9,19 @@ use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
-	/**
-	 * Handle an incoming request.
-	 *
-	 * @param  \Illuminate\Http\Request $request
-	 * @param  \Closure $next
-	 * @param Guard $guard
-	 * @return mixed
-	 */
-	public function handle(Request $request, Closure $next, Guard $guard = null)
-	{
-		if ( Auth::guard($guard)->check() ) return redirect(route('cms.dashboard'));
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure $next
+     * @param Guard $guard
+     * @return mixed
+     */
+    public function handle(Request $request, Closure $next, Guard $guard = null)
+    {
+        if (Auth::guard($guard)->check()) return redirect(route('cms.dashboard'));
 
-		return $next($request);
-	}
+        return $next($request);
+    }
 }
+

@@ -110,3 +110,4 @@ class CategoriesController extends BaseController
         return redirect()->route('cms.articles.categories.edit', $categorySaved);
     }
 }
+

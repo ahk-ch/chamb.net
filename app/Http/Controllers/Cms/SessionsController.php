@@ -12,52 +12,52 @@ use Illuminate\Support\Facades\Auth;
 class SessionsController extends Controller
 {
 
-	public function __construct()
-	{
-		$this->middleware('cms.guest', ['except' => 'destroy']);
-	}
+    public function __construct()
+    {
+        $this->middleware('cms.guest', ['except' => 'destroy']);
+    }
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function create()
-	{
-		return view('cms.sign_in');
-	}
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('cms.sign_in');
+    }
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @param StoreSessionRequest $request
-	 * @return Response
-	 */
-	public function store(StoreSessionRequest $request)
-	{
-		if ( Auth::attempt($request->only('username', 'password'), $request->has('remember')) )
-		{
-			Flash::success('Welcome!');
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param StoreSessionRequest $request
+     * @return Response
+     */
+    public function store(StoreSessionRequest $request)
+    {
+        if (Auth::attempt($request->only('username', 'password'), $request->has('remember'))) {
+            Flash::success('Welcome!');
 
-			return redirect()->intended(route('cms.dashboard'));
-		}
+            return redirect()->intended(route('cms.dashboard'));
+        }
 
-		Flash::error('Those credentials do not match our data set.');
+        Flash::error('Those credentials do not match our data set.');
 
-		return redirect()->back();
-	}
+        return redirect()->back();
+    }
 
-	/**
-	 * Remove the specified session from storage.
-	 *
-	 * @return Response
-	 */
-	public function destroy()
-	{
-		Auth::logout();
+    /**
+     * Remove the specified session from storage.
+     *
+     * @return Response
+     */
+    public function destroy()
+    {
+        Auth::logout();
 
-		Flash::success('You have successfully signed out!');
+        Flash::success('You have successfully signed out!');
 
-		return redirect()->route('cms.sessions.create');
-	}
+        return redirect()->route('cms.sessions.create');
+    }
 }
+

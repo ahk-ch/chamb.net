@@ -19,3 +19,4 @@ abstract class Job
 
     use Queueable;
 }
+

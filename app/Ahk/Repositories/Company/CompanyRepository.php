@@ -90,3 +90,4 @@ interface CompanyRepository
      */
     public function assignLogoById(Company $company, $logoId);
 }
+

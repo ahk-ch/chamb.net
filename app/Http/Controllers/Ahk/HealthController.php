@@ -53,3 +53,4 @@ class HealthController extends BaseController
         return view('ahk.health.news', compact('articles'));
     }
 }
+

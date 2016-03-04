@@ -11,10 +11,10 @@ use Illuminate\Support\Collection;
 
 interface ServiceRepository
 {
-	/**
-	 * Get all services
-	 * @return Collection
-	 */
-	public function all();
+    /**
+     * Get all services
+     * @return Collection
+     */
+    public function all();
 
 }

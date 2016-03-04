@@ -13,13 +13,14 @@ use Illuminate\Support\Facades\Facade;
  * @package App\Ahk\Notifications
  * @codeCoverageIgnore
  */
-class Flash extends Facade {
+class Flash extends Facade
+{
 
-	/**
-	 * @return string
-	 */
-	protected static function getFacadeAccessor()
-	{
-		return 'flash';
-	}
+    /**
+     * @return string
+     */
+    protected static function getFacadeAccessor()
+    {
+        return 'flash';
+    }
 }

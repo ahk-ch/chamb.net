@@ -14,12 +14,12 @@ use Illuminate\Support\Collection;
 class DbServiceRepository extends DbRepository implements ServiceRepository
 {
 
-	/**
-	 * Get all services
-	 * @return Collection
-	 */
-	public function all()
-	{
-		return Service::all();
-	}
+    /**
+     * Get all services
+     * @return Collection
+     */
+    public function all()
+    {
+        return Service::all();
+    }
 }

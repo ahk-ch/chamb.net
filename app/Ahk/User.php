@@ -18,107 +18,107 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
  * @codeCoverageIgnore
  */
 class User extends Model implements AuthenticatableContract,
-	AuthorizableContract,
-	CanResetPasswordContract,
-	SluggableInterface
+    AuthorizableContract,
+    CanResetPasswordContract,
+    SluggableInterface
 {
-	/**
-	 *
-	 */
-	const SLUG = 'slug';
-	/**
-	 *
-	 */
-	const EMAIL = 'email';
-	/**
-	 *
-	 */
-	const NAME = 'name';
-	/**
-	 *
-	 */
-	const PASSWORD = 'password';
-	/**
-	 *
-	 */
-	const AVATAR_URL = 'avatar_url';
-	/**
-	 *
-	 */
-	const VERIFIED = 'verified';
-	/**
-	 *
-	 */
-	const RECOVERY_TOKEN = 'recovery_token';
+    /**
+     *
+     */
+    const SLUG = 'slug';
+    /**
+     *
+     */
+    const EMAIL = 'email';
+    /**
+     *
+     */
+    const NAME = 'name';
+    /**
+     *
+     */
+    const PASSWORD = 'password';
+    /**
+     *
+     */
+    const AVATAR_URL = 'avatar_url';
+    /**
+     *
+     */
+    const VERIFIED = 'verified';
+    /**
+     *
+     */
+    const RECOVERY_TOKEN = 'recovery_token';
 
-	use Authenticatable, Authorizable, CanResetPassword, SluggableTrait;
+    use Authenticatable, Authorizable, CanResetPassword, SluggableTrait;
 
-	/**
-	 * @var array
-	 */
-	protected $sluggable = [
-		'build_from' => self::EMAIL,
-		'save_to'    => self::SLUG,
-	];
+    /**
+     * @var array
+     */
+    protected $sluggable = [
+        'build_from' => self::EMAIL,
+        'save_to' => self::SLUG,
+    ];
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'users';
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
 
-	/**
-	 * The attributes that are mass assignable.
-	 *
-	 * @var array
-	 */
-	protected $fillable = [self::NAME, self::EMAIL, self::PASSWORD,
-		self::AVATAR_URL, self::VERIFIED, self::RECOVERY_TOKEN, self::SLUG];
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [self::NAME, self::EMAIL, self::PASSWORD,
+        self::AVATAR_URL, self::VERIFIED, self::RECOVERY_TOKEN, self::SLUG];
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = [self::PASSWORD, 'remember_token'];
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = [self::PASSWORD, 'remember_token'];
 
-	/**
-	 * Boot the model.
-	 *
-	 * @return void
-	 */
-	public static function boot()
-	{
-		parent::boot();
+    /**
+     * Boot the model.
+     *
+     * @return void
+     */
+    public static function boot()
+    {
+        parent::boot();
 
-		static::creating(function ($user)
-		{
-			$user->token = str_random(30);
-		});
-	}
+        static::creating(function ($user) {
+            $user->token = str_random(30);
+        });
+    }
 
-	/**
-	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-	 */
-	public function roles()
-	{
-		return $this->belongsToMany('App\Ahk\Role')->withTimestamps();
-	}
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('App\Ahk\Role')->withTimestamps();
+    }
 
-	/**
-	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
-	 */
-	public function companies()
-	{
-		return $this->hasMany('App\Ahk\Company');
-	}
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function companies()
+    {
+        return $this->hasMany('App\Ahk\Company');
+    }
 
-	/**
-	 * Get avatar of the user
-	 */
-	public function avatar()
-	{
-		return $this->belongsTo('App\Ahk\File');
-	}
+    /**
+     * Get avatar of the user
+     */
+    public function avatar()
+    {
+        return $this->belongsTo('App\Ahk\File');
+    }
 }
+

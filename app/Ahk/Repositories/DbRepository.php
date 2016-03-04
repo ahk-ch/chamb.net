@@ -7,6 +7,8 @@
 namespace App\Ahk\Repositories;
 
 
-abstract class DbRepository {
+abstract class DbRepository
+{
 
 }
+

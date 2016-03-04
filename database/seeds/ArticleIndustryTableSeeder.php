@@ -7,18 +7,18 @@
 namespace database\seeds;
 
 
-use App\Ahk\Industry;
 use Illuminate\Database\Seeder;
 
 class ArticleIndustryTableSeeder extends Seeder
 {
 
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
-	}
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+    }
 }
+
