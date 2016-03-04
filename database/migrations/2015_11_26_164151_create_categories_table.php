@@ -31,6 +31,13 @@ class CreateCategoriesTable extends Migration {
 	 */
 	public function down()
 	{
-		DbTruncator::truncateByTable('categories');
+		Schema::table('categories', function (Blueprint $table)
+		{
+			$table->dropForeign('categories_author_id_foreign');
+			$table->dropIndex('categories_author_id_index');
+			$table->removeColumn('author_id');
+		});
+		
+		Schema::drop('categories');
 	}
 }
