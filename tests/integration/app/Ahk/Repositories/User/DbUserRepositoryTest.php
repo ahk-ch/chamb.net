@@ -139,9 +139,9 @@ class DbUserRepositoryTest extends TestCase
 
 		$this->assertFalse($dbUserRepository->hasAuthorRole($user));
 
-		$dbUserRepository->assign($user);
+		$dbUserRepository->assignAuthorRole($user);
 
-		$this->assertTrue($dbUserRepository->hasCompanyRepresentativeRole($user));
+		$this->assertTrue($dbUserRepository->hasAuthorRole($user));
 	}
 
 	/** @test */
