@@ -80,8 +80,6 @@ class RegistrationController extends BaseController
 	{
 		$user = $this->userRepository->confirmEmail($request->only('token'));
 
-		// TODO: sign in
-
 		Flash::success(trans('ahk_messages.successful_sign_up'));
 
 		return redirect()->route('home_path');
