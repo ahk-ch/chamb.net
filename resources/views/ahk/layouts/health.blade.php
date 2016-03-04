@@ -68,3 +68,4 @@
 <script src="{!! url('assets/plugins/placeholder-IE-fixes.js') !!}"></script><![endif]-->
 </body>
 </html>
+

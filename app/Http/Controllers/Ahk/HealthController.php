@@ -10,7 +10,6 @@ namespace App\Http\Controllers\Ahk;
  */
 
 use App\Ahk\Repositories\Article\ArticleRepository;
-use App\Http\Requests;
 
 class HealthController extends BaseController
 {

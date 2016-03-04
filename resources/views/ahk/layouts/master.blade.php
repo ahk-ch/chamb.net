@@ -44,3 +44,4 @@
 <script src="{!! elixir('js/lt-ie9.min.js') !!}"></script><![endif]-->
 </body>
 </html>
+

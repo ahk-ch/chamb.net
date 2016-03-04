@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Ahk;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
-use Illuminate\Support\Facades\App;
+
 
 class BaseController extends Controller
 {

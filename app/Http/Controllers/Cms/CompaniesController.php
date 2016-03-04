@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Ahk\Repositories\Company\CompanyRepository;
-use App\Http\Requests;
 use Illuminate\Http\Request;
 
 class CompaniesController extends BaseController

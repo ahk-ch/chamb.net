@@ -60,3 +60,5 @@
 @yield('inline-scripts')
 </body>
 </html>
+
+

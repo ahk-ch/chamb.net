@@ -7,7 +7,6 @@ namespace app\Http\ViewComposers\Cms;
  * @since   24/11/2015
  */
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Cms;
 
-use App\Http\Requests;
-
 class UsersController extends BaseController
 {
     /**

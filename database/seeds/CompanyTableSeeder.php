@@ -13,7 +13,6 @@ use App\Ahk\Repositories\Country\DbCountryRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\Repositories\Service\DbServiceRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
-use App\Ahk\RequiresService;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 

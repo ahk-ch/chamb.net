@@ -9,8 +9,6 @@ namespace App\Http\Controllers\Ahk;
  * @since   23/11/2015
  */
 
-use App\Http\Requests;
-
 class HomeController extends BaseController
 {
 

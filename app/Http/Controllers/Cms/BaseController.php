@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use Illuminate\Support\Facades\App;
 
 class BaseController extends Controller

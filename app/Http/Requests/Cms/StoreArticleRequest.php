@@ -36,4 +36,3 @@ class StoreArticleRequest extends Request
         ];
     }
 }
-j
