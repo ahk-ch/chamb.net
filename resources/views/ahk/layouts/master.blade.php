@@ -19,7 +19,7 @@
 </head>
 <body class="header-fixed header-fixed-space-default">
 
-<div class="wrapper">
+<div class="wrapper @myGreatTag()">
 
     @include('ahk._partials.header')
 

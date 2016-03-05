@@ -1,14 +1,14 @@
 <!-- Home -->
-<li class="{!! activate(['home_path']) !!}">
+<li class="{!! $utilities->activate(['home_path']) !!}">
     <a href="{!! route('home_path') !!}"> {!! trans('ahk.home') !!} </a>
 </li>
 <!-- End Home -->
 
 <!-- Pages -->
-<li class="dropdown {!! activate(['health.events', 'health.news']) !!}">
+<li class="dropdown {!! $utilities->activate(['health.events', 'health.news']) !!}">
     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> {!! trans('ahk.industries') !!} </a>
     <ul class="dropdown-menu">
-        <li class="{!! activate(['health.info']) !!}">
+        <li class="{!! $utilities->activate(['health.info']) !!}">
             <a href="{!! route('health.info') !!}">{!! trans('ahk.health') !!}</a>
         </li>
         <li>
@@ -28,7 +28,7 @@
 <!-- End Pages -->
 
 <!-- About -->
-<li class="{!! activate(['about_path']) !!}">
+<li class="{!! $utilities->activate(['about_path']) !!}">
     <a href="{!! route('about_path') !!}"> {!! trans('ahk.about') !!} </a>
 </li>
 <!-- End About -->

@@ -7,7 +7,7 @@
 
 namespace tests\functional\cms\administrator;
 
-use App\Ahk\Helpers\Helpers;
+use App\Ahk\Helpers\Utilities;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
@@ -71,7 +71,7 @@ class LayoutTest extends TestCase
 
 		$this->actingAs($administrator)
 			->visit(route('cms.dashboard'))
-			->see('<strong>Copyright &copy; ' . Helpers::autoCopyright('2015'))
+			->see('<strong>Copyright &copy; ' . Utilities::autoCopyright('2015'))
 			->see('<a href="' . route('home_path') . '">Chamb.Net</a>.</strong> ' . trans('cms.all_rights_reserved'))
 			->see('<img src="' . $administrator->avatar_url . '" class="user-image" alt="User Image">')
 			->see('<span class="hidden-xs">' . $administrator->name or $administrator->username . '</span> </a>')

@@ -3,10 +3,10 @@
         src="{!! route('files.render', ['path' => $user->avatar->path]) !!}" alt="">
 
 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-    <li class="list-group-item {!! activate(['my.profile']) !!}">
+    <li class="list-group-item {!$utilities->activate(['my.profile']) !!}">
         <a href="{!! route('my.profile') !!}"><i class="fa fa-user"></i> {!! trans('ahk.profile') !!}</a>
     </li>
-    <li class="list-group-item {!! activate(['my.companies.index', 'my.companies.edit', 'my.companies.create']) !!}">
+    <li class="list-group-item {!$utilities->activate(['my.companies.index', 'my.companies.edit', 'my.companies.create']) !!}">
         <a href="{!! route('my.companies.index') !!}"><i class="fa fa-building"></i> {!! trans('ahk.my_companies') !!}
         </a>
     </li>

@@ -1,14 +1,14 @@
 <!-- Home -->
-<li class="dropdown {!! activate(['home_path']) !!}">
+<li class="dropdown {!! $utilities->activate(['home_path']) !!}">
     <a href="{!! route('home_path') !!}" class="dropdown-toggle disabled" data-toggle="dropdown"> {!! trans('ahk.home') !!} </a>
     <ul class="dropdown-menu">
-        <li class="{!! activate(['']) !!}">
+        <li class="{!! $utilities->activate(['']) !!}">
             <a href="#">{!! trans('ahk.health') !!}</a>
         </li>
-        <li class="{!! activate(['']) !!}">
+        <li class="{!! $utilities->activate(['']) !!}">
             <a href="#">{!! trans('ahk.logistics') !!}</a>
         </li>
-        <li class="{!! activate(['']) !!}">
+        <li class="{!! $utilities->activate(['']) !!}">
             <a href="#">{!! trans('ahk.energy') !!}</a>
         </li>
     </ul>
@@ -16,13 +16,13 @@
 <!-- End Home -->
 
 <!-- Pages -->
-<li class="dropdown {!! activate(['health.events', 'health.news']) !!}">
+<li class="dropdown {!! $utilities->activate(['health.events', 'health.news']) !!}">
     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> {!! trans('ahk.health') !!} </a>
     <ul class="dropdown-menu">
-        <li class="{!! activate(['health.news']) !!}">
+        <li class="{!! $utilities->activate(['health.news']) !!}">
             <a href="{!! route('health.news') !!}">{!! trans('ahk.news') !!}</a>
         </li>
-        <li class="{!! activate(['health.info']) !!}">
+        <li class="{!! $utilities->activate(['health.info']) !!}">
             <a href="{!! route('health.info') !!}">{!! trans('ahk.info') !!}</a>
         </li>
         <li>
@@ -39,19 +39,19 @@
 <!-- End Pages -->
 
 <!-- Companies -->
-<li class="{!! activate(['work_groups']) !!}">
+<li class="{!! $utilities->activate(['work_groups']) !!}">
     <a href="{!! route('work_groups') !!}"> {!! trans('ahk.work_groups') !!} </a>
 </li>
 <!-- End Companies -->
 
 <!-- Companies -->
-<li class="{!! activate(['companies.index']) !!}">
+<li class="{!! $utilities->activate(['companies.index']) !!}">
     <a href="{!! route('companies.index') !!}"> {!! trans('ahk.community') !!} </a>
 </li>
 <!-- End Companies -->
 
 <!-- About -->
-<li class="{!! activate(['about_path']) !!}">
+<li class="{!! $utilities->activate(['about_path']) !!}">
     <a href="{!! route('about_path') !!}"> {!! trans('ahk.about') !!} </a>
 </li>
 <!-- End About -->

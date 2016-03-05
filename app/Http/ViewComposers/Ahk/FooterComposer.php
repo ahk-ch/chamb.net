@@ -6,22 +6,24 @@ namespace App\Http\ViewComposers\Ahk;
  * @author  Rizart Dokollari <r.dokollari@gmail.com>
  * @since   24/11/2015
  */
-use App\Ahk\Helpers\Helpers;
+use App\Ahk\Helpers\Utilities;
 use Illuminate\Contracts\View\View;
 
 
 class FooterComposer
 {
 
-    /**
-     * Bind data to the view.
-     *
-     * @param  View $view
-     * @return void
-     */
-    public function compose(View $view)
-    {
-        $view->with('copyrightDate', Helpers::autoCopyright("2015"));
-    }
+	/**
+	 * Bind data to the view.
+	 *
+	 * @param  View $view
+	 * @return void
+	 */
+	public function compose(View $view)
+	{
+		$utilities = new Utilities();
+
+		$view->with('copyrightDate', $utilities->autoCopyright("2015"));
+	}
 }
 
