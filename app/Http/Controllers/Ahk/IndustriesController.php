@@ -75,7 +75,7 @@ class IndustriesController extends Controller
 	{
 		$companies = $this->industryRepository->getCompanies($industry);
 
-		return view('ahk.industries.work_groups', compact('industry', 'companies'));
+		return view('ahk.industries.companies.index', compact('industry', 'companies'));
 	}
 }
 

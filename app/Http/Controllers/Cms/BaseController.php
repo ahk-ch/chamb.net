@@ -3,17 +3,16 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\App;
 
 class BaseController extends Controller
 {
 
-    /**
-     * BaseController constructor.
-     */
-    public function __construct()
-    {
-        $this->middleware('cms.auth');
-    }
+	/**
+	 * BaseController constructor.
+	 */
+	public function __construct()
+	{
+		$this->middleware('cms.auth');
+	}
 }
 

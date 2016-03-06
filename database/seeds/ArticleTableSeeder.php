@@ -25,7 +25,7 @@ class ArticleTableSeeder extends Seeder
         $dbIndustryRepository = new DbIndustryRepository();
         $faker = Factory::create();
 
-        $industries = $dbIndustryRepository->all()->get()->toArray();
+        $industries = $dbIndustryRepository->all()->toArray();
 
         foreach (range(0, 13) as $index) {
             factory(Article::class, 'without_industry')->create(['industry_id' => $faker->randomElement($industries)['id']]);

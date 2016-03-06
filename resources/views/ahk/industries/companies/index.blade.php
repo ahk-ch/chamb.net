@@ -2,13 +2,19 @@
 @section('title', trans('ahk.community'))
 @section('inline-css')
     <style>
-        {!! File::get(public_path(elixir("css/companies.min.css"))) !!}}
+        {!! File::get(public_path(elixir("css/companies.min.css"))) !!}
+
+
+
+
+
+        }
     </style>
     <style>
         .job-img {
             overflow: hidden;
             min-height: 300px;
-            background: url("{!! route('files.render', ['path' => 'img/community/background.jpg']) !!}")  center center no-repeat;
+            background: url("{!! route('files.render', ['path' => 'img/community/background.jpg']) !!}") center center no-repeat;
             background-size: cover;
         }
     </style>
@@ -45,61 +51,42 @@
     </div>
     <!--=== End Job Img ===-->
 
-    <!--=== Content Part ===-->
-    <div class="container content">
-        <!-- Job Content -->
-        <div class="headline"><h2>Industries</h2></div>
-        <div class="row job-content">
-            @foreach($industries as $industry)
-                <div class="col-md-3 col-sm-3 md-margin-bottom-40">
-                    <h3 class="heading-md"><strong><a href="#">{{ $industry->name }}</a></strong></h3>
-                </div>
-            @endforeach
-        </div>
-        <!-- End Job Content -->
-    </div>
-    <!--=== End Content Part ===-->
-
-    <!--=== Job Team ===-->
     <div class="parallax-team parallaxBg">
         <div class="container content">
-            <div class="title-box-v2">
-                <h2>Popular <span class="color-green">Companies</span></h2>
-                <p>The most viewed companies.</p>
-            </div>
 
-            <div class="row high-rated margin-bottom-20">
+            @foreach($companies->chunk(4) as $chunkCompanies)
 
-                @foreach($companies as $company)
-                        <!-- Easy Block -->
-                <div class="col-md-3 col-sm-6 md-margin-bottom-40">
-                    <div class="easy-block-v1">
-                        <a href="#industry">
-                            <div class="easy-block-v1-badge rgba-default">{{ $company->industry->name }}</div>
-                        </a>
+                <div class="row high-rated margin-bottom-20">
 
-                        <a href="{!! route('companies.show', ['slug' => $company->slug]) !!}">
-                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="item active">
-                                        <img alt="Company Logo" src="{!! route('files.render',
+                    @foreach($chunkCompanies as $company)
+
+                        <div class="col-md-3 col-sm-3 col-xs-12 md-margin-bottom-40">
+
+                            <div class="easy-block-v1">
+
+                                <a href="{!! route('industries.companies.show', ['industry_slug' => $industry->slug,
+                            'company_slug' => $company->slug]) !!}">
+                                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="item active">
+                                                <img alt="Company Logo" src="{!! route('files.render',
                                          ['path' => $company->logo->path ]) !!}" style="max-height: 150px">
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="overflow-h">
-                                <h3>{{ $company->name }}</h3>
-                            </div>
-                            <ul class="list-unstyled read-more-js">
-                                <li>{{  $company->description }}</li>
-                            </ul>
-                        </a>
+                                    <div class="overflow-h">
+                                        <h3>{{ $company->name }}</h3>
+                                    </div>
+                                    <ul class="list-unstyled read-more-js">
+                                        <li>{{  $company->description }}</li>
+                                    </ul>
+                                </a>
 
-                    </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-                <!-- End Easy Block -->
-                @endforeach
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection

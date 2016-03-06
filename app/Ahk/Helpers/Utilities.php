@@ -5,8 +5,6 @@
  */
 
 namespace App\Ahk\Helpers;
-use HieuLe\Active\Active;
-use Illuminate\Routing\Route;
 
 
 /**
@@ -37,7 +35,7 @@ class Utilities
 	 * @param string $inactiveClass
 	 * @return string
 	 */
-	public function activate(array $routes, $activeClass = 'active', $inactiveClass ='')
+	public function activate(array $routes, $activeClass = 'active', $inactiveClass = '')
 	{
 		return active_class(app('active')->checkRoute($routes), $activeClass, $inactiveClass);
 	}

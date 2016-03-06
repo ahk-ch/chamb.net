@@ -7,26 +7,27 @@
 namespace database\seeds;
 
 
-use App\Ahk\Industry;
+use App\Ahk\Company;
+use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use Illuminate\Database\Seeder;
 
 class IndustryTableSeeder extends Seeder
 {
 
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        factory(Industry::class)->create(['name' => 'Pharmaceutical']);
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+		$dbIndustryRepository = new DbIndustryRepository();
 
-        factory(Industry::class)->create(['name' => 'Medical technology and products']);
+		$industries = $dbIndustryRepository->all();
 
-        factory(Industry::class)->create(['name' => 'Healthcare']);
-
-        factory(Industry::class)->create(['name' => 'Health tourism']);
-    }
+		foreach ($industries as $industry) {
+			factory(Company::class, 'without_industry', 30)->create(['industry_id' => $industry->id]);
+		}
+	}
 }
 
