@@ -62,7 +62,7 @@ class IndustriesController extends Controller
 	 */
 	public function workGroups(Industry $industry)
 	{
-//		$companies = $this->industryRepository->get($industry);
+		$companies = $this->industryRepository->getCompanies($industry);
 
 		return view('ahk.industries.work_groups', compact('industry', 'companies'));
 	}

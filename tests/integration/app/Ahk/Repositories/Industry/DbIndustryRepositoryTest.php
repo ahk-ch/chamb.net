@@ -111,15 +111,28 @@ class DbIndustryRepositoryTest extends TestCase
 	{
 		$dbIndustryRepository = new DbIndustryRepository();
 		$industry = factory(Industry::class)->create();
-		$workGroups = factory(Workgroup::class, 2)->create();
-		$companies = factory(Company::class, 2)->create(['industry_id' => $industry->id]);
-		$actualCompanies = $dbIndustryRepository->getCompanies($industry);
-		$keys = $companies->get(0)->getFillable();
+		$expectedWorkGroups = factory(Workgroup::class, 2)->create();
+		$keys = $expectedWorkGroups->get(0)->getFillable();
+
+		$actualWorkGroups = $dbIndustryRepository->getWorkGroups($industry);
+
+		$this->assertCount(0, $actualWorkGroups);
+
+		$this->assertNotFalse(
+			$dbIndustryRepository->assignWorkGroupsById($industry,
+				[$expectedWorkGroups->get(0)->id, $expectedWorkGroups->get(1)->id]));
+
+		$actualWorkGroups = $dbIndustryRepository->getWorkGroups($industry);
+
+		$this->assertCount(2, $actualWorkGroups);
 
 		$this->assertSame(
-			array_only($companies->toArray(), $keys),
-			array_only($actualCompanies->toArray(), $keys)
-		);
+			array_only($expectedWorkGroups->get(0)->toArray(), $keys),
+			array_only($actualWorkGroups->get(0)->toArray(), $keys));
+
+		$this->assertSame(
+			array_only($expectedWorkGroups->get(1)->toArray(), $keys),
+			array_only($actualWorkGroups->get(1)->toArray(), $keys));
 	}
 
 	/** @test */
@@ -143,7 +156,8 @@ class DbIndustryRepositoryTest extends TestCase
 		$this->assertSame(
 			array_only($workGroups->get(1)->toArray(), $workGroups->get(0)->getFillable()),
 			array_only($actualWorkgroups->get(1)->toArray(), $workGroups->get(0)->getFillable()));
-
 	}
+
+
 }
 

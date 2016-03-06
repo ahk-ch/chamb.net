@@ -6,12 +6,10 @@
 
 namespace App\Ahk\Repositories\Industry;
 
-
 use App\Ahk\Company;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\DbRepository;
 use App\Ahk\User;
-use App\Ahk\Workgroup;
 use Illuminate\Database\Eloquent\Collection;
 
 class DbIndustryRepository extends DbRepository implements IndustryRepository
@@ -91,8 +89,18 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 	public function assignWorkGroupsById(Industry $industry, array $workgroupIds)
 	{
 		$industry->workgroups()->sync($workgroupIds);
-		
+
 		return $industry->save() ? $industry : false;
+	}
+
+	/**
+	 * Get workgroups of an industry
+	 * @param Industry $industry
+	 * @return Collection
+	 */
+	public function getWorkGroups(Industry $industry)
+	{
+		return $industry->workgroups()->get();
 	}
 }
 

@@ -6,57 +6,62 @@
 
 namespace App\Ahk\Repositories\Industry;
 
-
 use App\Ahk\Industry;
 use App\Ahk\User;
-use App\Ahk\Workgroup;
 use Illuminate\Database\Eloquent\Collection;
 
 interface IndustryRepository
 {
 
-    /**
-     * Get all industries
-     * @return Collection
-     */
-    public function all();
+	/**
+	 * Get all industries
+	 * @return Collection
+	 */
+	public function all();
 
-    /**
-     * Get companies of an industry
-     * @param Industry $industry
-     * @return Collection
-     */
-    public function getCompanies(Industry $industry);
+	/**
+	 * Get companies of an industry
+	 * @param Industry $industry
+	 * @return Collection
+	 */
+	public function getCompanies(Industry $industry);
 
-    /**
-     * Store an industry on the storage
-     * @param User $author
-     * @param array $fillable
-     * @return Industry|false
-     */
-    public function store(User $author, array $fillable);
+	/**
+	 * Store an industry on the storage
+	 * @param User $author
+	 * @param array $fillable
+	 * @return Industry|false
+	 */
+	public function store(User $author, array $fillable);
 
-    /**
-     * Get a industry given its id.
-     * @param $id
-     * @return Industry
-     */
-    public function getById($id);
+	/**
+	 * Get a industry given its id.
+	 * @param $id
+	 * @return Industry
+	 */
+	public function getById($id);
 
-    /**
-     * Update a industry given its id.
-     * @param $id
-     * @param array $fillable
-     * @return mixed
-     */
-    public function updateById($id, array $fillable);
+	/**
+	 * Update a industry given its id.
+	 * @param $id
+	 * @param array $fillable
+	 * @return mixed
+	 */
+	public function updateById($id, array $fillable);
 
-    /**
-     * Assign workgroups to an industry
-     *
-     * @param Industry $industry
-     * @param array $workgroupIds
-     * @return mixed
-     */
-    public function assignWorkGroupsById(Industry $industry, array $workgroupIds);
+	/**
+	 * Assign workgroups to an industry
+	 *
+	 * @param Industry $industry
+	 * @param array $workgroupIds
+	 * @return mixed
+	 */
+	public function assignWorkGroupsById(Industry $industry, array $workgroupIds);
+
+	/**
+	 * Get workgroups of an industry
+	 * @param Industry $industry
+	 * @return Collection
+	 */
+	public function getWorkGroups(Industry $industry);
 }
