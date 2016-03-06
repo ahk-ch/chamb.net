@@ -19,6 +19,12 @@ Route::group(['prefix' => 'health'], function ()
 	Route::get('news', ['as' => 'health.news', 'uses' => 'Ahk\HealthController@news']);
 });
 
+Route::group(['prefix' => 'industries/{slug}'], function ()
+{
+	Route::get('info', ['as' => 'industries.info', 'uses' => 'Ahk\IndustriesController@info']);
+	Route::get('news', ['as' => 'industries.news', 'uses' => 'Ahk\IndustriesController@news']);
+});
+
 Route::group(['prefix' => 'files'], function ()
 {
 	Route::get('render', ['as' => 'files.render', 'uses' => 'FilesController@render']);

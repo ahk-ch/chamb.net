@@ -19,37 +19,18 @@
             <p>{!! trans('ahk.we_promote_and_support_bilateral_business_between_greece_and_germany') !!}</p>
             <div class="row">
                 <div class="col-md-1 content-boxes-v6 md"></div>
-                <a href="{!! route('health.info') !!}">
-                    <div class="col-md-2 col-sm-6 content-boxes-v6 md"><i class="rounded-x fa fa-heartbeat"></i>
-                        <p class="title-v3-md margin-bottom-10"> Health</p>
-                    </div>
-                </a>
 
-                <a href="#">
-                    <div class="col-md-2 col-sm-6 content-boxes-v6 md-margin-bottom-50">
-                        <i class="rounded-x fa fa-database"></i>
-                        <p class="title-v3-md margin-bottom-10"> Logistics</p>
-                    </div>
-                </a>
+                @foreach($industries as $industry)
 
-                <a href="#">
-                    <div class="col-md-2 col-sm-6 content-boxes-v6"><i class="rounded-x fa fa-sun-o"></i>
-                        <p class="title-v3-md margin-bottom-10"> Energy</p>
-                    </div>
-                </a>
+                    <a href="{!! route('industries.info', ['slug' => $industry->slug]) !!}">
+                        <div class="col-md-2 col-sm-6 content-boxes-v6 md">
+                            <i class="rounded-x {!! $industry->fontawesome !!}"></i>
+                            <p class="title-v3-md margin-bottom-10"> {!! $industry->name !!}</p>
+                        </div>
+                    </a>
 
-                <a href="#">
-                    <div class="col-md-2 col-sm-6 content-boxes-v6"><i class="rounded-x fa fa-bar-chart"></i>
-                        <p class="title-v3-md margin-bottom-10"> Trade</p>
-                    </div>
-                </a>
+                @endforeach
 
-                <a href="#">
-                    <div class="col-md-2 col-md-push-0 col-sm-push-3 col-sm-6 content-boxes-v6">
-                        <i class="rounded-x fa fa-university"></i>
-                        <p class="title-v3-md margin-bottom-10"> Law</p>
-                    </div>
-                </a>
                 <div class="col-md-1 content-boxes-v6 md"></div>
             </div>
         </div>

@@ -23,6 +23,7 @@ Homestead.json
 ## Directory-based project format:
 # https://help.github.com/articles/ignoring-files/
 # Add you to your global .gitignore: .idea/
+# Or any other folders your idea might produce
 
 ## File-based project format:
 *.ipr

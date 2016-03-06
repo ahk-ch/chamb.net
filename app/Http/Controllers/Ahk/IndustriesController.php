@@ -2,16 +2,10 @@
 
 namespace App\Http\Controllers\Ahk;
 
-/**
- * Health controller.
- *
- * @author  Rizart Dokollari <r.dokollari@gmail.com>
- * @since   23/11/2015
- */
-
 use App\Ahk\Repositories\Article\ArticleRepository;
+use App\Http\Requests;
 
-class HealthController extends BaseController
+class IndustriesController extends BaseController
 {
 	/**
 	 * @var ArticleRepository
@@ -52,4 +46,3 @@ class HealthController extends BaseController
 		return view('ahk.health.news', compact('articles'));
 	}
 }
-

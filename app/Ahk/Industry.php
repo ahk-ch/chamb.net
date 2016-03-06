@@ -2,6 +2,8 @@
 
 namespace App\Ahk;
 
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -9,35 +11,58 @@ use Illuminate\Database\Eloquent\Model;
  * @package App\Ahk
  * @codeCoverageIgnore
  */
-class Industry extends Model
+class Industry extends Model implements SluggableInterface
 {
-    /**
-     * @var array
-     */
-    protected $fillable = ['name'];
+	use SluggableTrait;
+	
+	/**
+	 *
+	 */
+	const SLUG = 'slug';
+	/**
+	 *
+	 */
+	const NAME = 'name';
+	/**
+	 *
+	 */
+	const FONTAWESOME = 'fontawesome';
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function countries()
-    {
-        return $this->hasMany('App\Ahk\Company');
-    }
+	/**
+	 * @var array
+	 */
+	protected $fillable = [self::FONTAWESOME, self::NAME, self::SLUG];
 
-    /**
-     * @param User $user
-     */
-    public function assignAuthor(User $user)
-    {
-        $this->author()->associate($user);
-    }
+	/**
+	 * @var array
+	 */
+	protected $sluggable = [
+		'build_from' => self::NAME,
+		'save_to' => self::SLUG,
+	];
 
-    /**
-     * Get the user this article was created from.
-     */
-    public function author()
-    {
-        return $this->belongsTo('App\Ahk\User');
-    }
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function countries()
+	{
+		return $this->hasMany('App\Ahk\Company');
+	}
+
+	/**
+	 * @param User $user
+	 */
+	public function assignAuthor(User $user)
+	{
+		$this->author()->associate($user);
+	}
+
+	/**
+	 * Get the user this article was created from.
+	 */
+	public function author()
+	{
+		return $this->belongsTo('App\Ahk\User');
+	}
 }
 
