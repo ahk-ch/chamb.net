@@ -56,8 +56,6 @@ class CompaniesController extends Controller
 	                            IndustryRepository $industryRepository, CountryRepository $countryRepository,
 	                            FileRepository $fileRepository)
 	{
-		parent::__construct();
-
 		$this->middleware('auth');
 
 		$this->companyRepository = $companyRepository;

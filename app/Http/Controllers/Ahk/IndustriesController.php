@@ -51,7 +51,7 @@ class IndustriesController extends Controller
 	 */
 	public function news(Industry $industry)
 	{
-		$articles = $this->articleRepository->publishedByIndustry()->paginate(6);
+		$articles = $this->articleRepository->paginatePublishedByIndustry($industry);
 
 		return view('ahk.industries.news', compact('articles', 'industry'));
 	}

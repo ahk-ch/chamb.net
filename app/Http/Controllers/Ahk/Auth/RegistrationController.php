@@ -32,8 +32,6 @@ class RegistrationController extends Controller
 	 */
 	public function __construct(UserRepository $userRepository, AppMailer $appMailer)
 	{
-		parent::__construct();
-
 		$this->middleware('guest');
 
 		$this->userRepository = $userRepository;

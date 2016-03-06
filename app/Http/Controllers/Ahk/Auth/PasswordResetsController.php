@@ -51,8 +51,6 @@ class PasswordResetsController extends Controller
 	 */
 	public function __construct(UserRepository $userRepository, AppMailer $mailer)
 	{
-		parent::__construct();
-
 		$this->middleware('guest');
 
 		$this->userRepository = $userRepository;

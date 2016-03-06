@@ -21,7 +21,7 @@ class NewsTest extends TestCase
 	 *
 	 * @return void
 	 */
-	public function test_it_reads_contents()
+	public function test_it_reads_news_contents()
 	{
 		$industry = factory(Industry::class)->create();
 		$articles = factory(Article::class, 2)->create(['publish' => true, 'industry_id' => $industry->id]);

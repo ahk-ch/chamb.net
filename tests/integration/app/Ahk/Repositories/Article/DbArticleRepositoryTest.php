@@ -145,14 +145,14 @@ class DbArticleRepositoryTest extends TestCase
 	}
 
 	/** @test */
-	public function it_returns_published_articles_by_industry()
+	public function it_paginates_published_articles_by_industry()
 	{
 		$dbArticleRepository = new DbArticleRepository();
 		$industry = factory(Industry::class)->create();
 		$expectedArticles = factory(Article::class, 2)
 			->create(['publish' => 1, 'industry_id' => $industry->id]);
 		factory(Article::class, 2)->create(['publish' => 0]);
-		$actualArticles = $dbArticleRepository->publishedByIndustry($industry);
+		$actualArticles = $dbArticleRepository->paginatePublishedByIndustry($industry);
 		$keys = $expectedArticles->get(0)->getFillable();
 
 		$this->assertCount(2, $actualArticles);

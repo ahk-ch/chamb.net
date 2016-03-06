@@ -107,13 +107,19 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 	}
 
 	/**
-	 * Return published articles of an industry
+	 * Paginate published articles of an industry
 	 * @param Industry $industry
+	 * @param int $perPage
+	 * @param array $columns
+	 * @param string $pageName
+	 * @param null $page
 	 * @return mixed
 	 */
-	public function publishedByIndustry(Industry $industry)
+	public function paginatePublishedByIndustry(Industry $industry, $perPage = 10, $columns = ['*'], $pageName = 'page', $page = null)
 	{
 		return Article::where('industry_id', $industry->id)
-			->with('author', 'industry', 'tags')->where('publish', true)->get();
+			->where('publish', true)
+			->with('author', 'industry', 'tags')
+			->paginate($perPage, $columns, $pageName, $page);
 	}
 }

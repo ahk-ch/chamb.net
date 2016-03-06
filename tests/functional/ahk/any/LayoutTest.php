@@ -23,7 +23,6 @@ class LayoutTest extends TestCase
 			->see(trans('ahk.register'))
 			->see(trans('ahk.home'))
 			->see(trans('ahk.health'))
-			->see(trans('ahk.community'))
 			->see(trans('ahk.about'));
 	}
 

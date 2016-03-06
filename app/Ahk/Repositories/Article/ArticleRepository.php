@@ -48,7 +48,7 @@ interface ArticleRepository
 	 * @param Industry $industry
 	 * @return mixed
 	 */
-	public function publishedByIndustry(Industry $industry);
+	public function paginatePublishedByIndustry(Industry $industry);
 
 	/**
 	 * Return unpublished articles
