@@ -191,7 +191,6 @@ class CompaniesTest extends TestCase
 		factory(Country::class, 2)->create();
 
 		$expectedCompany = factory(Company::class, 'without_relations')->make(['user_id' => $companyRepresentativeUser->id]);
-		$expectedSlug = Str::slug($expectedCompany->name);
 		$expectedIndustry = factory(Industry::class)->create();
 		$expectedCountry = factory(Country::class)->create();
 		$expectedLogoPath = FilesStorage::getFilesDirectory() . 'dummy_logo.png';
@@ -210,7 +209,6 @@ class CompaniesTest extends TestCase
 			->type($expectedCompany->description, 'description')
 			->attach(storage_path('app/testing/dummy_logo.png'), 'logo_path')
 			->press(trans('ahk.create'))
-			->seePageIs(route('my.companies.edit', ['slug' => $expectedSlug]))
 			->see(trans('ahk_messages.company_successfully_stored'))
 			->see($expectedCompany->name)
 			->seeIsSelected('industry_id', $expectedIndustry->id)

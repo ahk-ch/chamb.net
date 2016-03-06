@@ -31,7 +31,7 @@ class HomeController extends BaseController
 	 */
 	public function home()
 	{
-		$industries = $this->industryRepository->all()->get();
+		$industries = $this->industryRepository->all();
 
 		return view('ahk.home', compact('industries'));
 	}

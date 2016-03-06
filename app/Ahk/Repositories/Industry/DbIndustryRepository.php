@@ -21,7 +21,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
      */
     public function all()
     {
-        return Industry::with('author');
+        return Industry::with('author')->get();
     }
 
     /**

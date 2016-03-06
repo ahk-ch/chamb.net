@@ -23,31 +23,18 @@ class DbIndustryRepositoryTest extends TestCase
 {
 	use DatabaseMigrations;
 
-	/**
-	 * @var
-	 */
-	protected $dbIndustryRepository;
-
-	/**
-	 *
-	 */
-	public function setUp()
-	{
-		parent::setUp();
-
-		$this->dbIndustryRepository = new DbIndustryRepository();
-	}
-
 	/** @test */
 	public function it_returns_all_industries()
 	{
-		$this->assertSame(0, $this->dbIndustryRepository->all()->get()->count());
+		$dbIndustryRepository = new DbIndustryRepository();
+
+		$initTotalIndustries =$dbIndustryRepository->all()->count();
 
 		$actualCompanies = factory(Industry::class, 2)->create();
 
-		$expectedIndustries = $this->dbIndustryRepository->all()->get();
+		$expectedIndustries = $dbIndustryRepository->all();
 
-		$this->assertSame(2, $expectedIndustries->count());
+		$this->assertSame($initTotalIndustries + 2, $expectedIndustries->count());
 
 		$this->assertSame(
 			array_only($expectedIndustries->toArray(), $expectedIndustries[0]->getFillable()),

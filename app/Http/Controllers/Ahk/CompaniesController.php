@@ -35,7 +35,7 @@ class CompaniesController extends Controller
     {
         $companies = $this->companyRepository->paginate(4);
 
-        $industries = $this->industryRepository->all()->get();
+        $industries = $this->industryRepository->all();
 
         return view('ahk.companies.index', compact('companies', 'industries'));
     }

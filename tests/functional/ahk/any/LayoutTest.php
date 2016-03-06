@@ -5,6 +5,7 @@
  * @since 12/10/2015
  */
 use App\Ahk\Helpers\Utilities;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 
 /**
@@ -12,6 +13,7 @@ use tests\TestCase;
  */
 class LayoutTest extends TestCase
 {
+	use DatabaseMigrations;
 
 	public function test_it_reads_header()
 	{
