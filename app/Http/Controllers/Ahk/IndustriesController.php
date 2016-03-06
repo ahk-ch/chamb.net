@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Ahk;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Article\ArticleRepository;
 use App\Ahk\Repositories\Industry\IndustryRepository;
+use App\Ahk\Workgroup;
 use App\Http\Controllers\Controller;
 
 class IndustriesController extends Controller
@@ -55,16 +56,28 @@ class IndustriesController extends Controller
 	}
 
 	/**
-	 * Display a listing of the news resource.
+	 * Display a listing of the work-groups resource.
 	 *
 	 * @param Industry $industry
 	 * @return \Illuminate\Http\Response
 	 */
 	public function workGroups(Industry $industry)
 	{
-		$companies = $this->industryRepository->getCompanies($industry);
+		$workGroups = $this->industryRepository->getWorkGroups($industry)->paginate(10);
+		
+		return view('ahk.industries.work_groups.index', compact('industry', 'workGroups'));
+	}
 
-		return view('ahk.industries.work_groups', compact('industry', 'companies'));
+	/**
+	 * Show info about a work-group
+	 *
+	 * @param Industry $industry
+	 * @param Workgroup $workGroup
+	 * @return \Illuminate\Http\Response
+	 */
+	public function workGroupShow(Industry $industry, Workgroup $workGroup)
+	{
+		return view('ahk.industries.work_groups.show', compact('industry', 'workGroup'));
 	}
 
 	/**

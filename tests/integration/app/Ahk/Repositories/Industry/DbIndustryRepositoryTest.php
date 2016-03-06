@@ -158,6 +158,34 @@ class DbIndustryRepositoryTest extends TestCase
 			array_only($actualWorkgroups->get(1)->toArray(), $workGroups->get(0)->getFillable()));
 	}
 
+	/** @test */
+	public function it_paginates_work_groups_of_an_industry()
+	{
+		$dbIndustryRepository = new DbIndustryRepository();
+		$industry = factory(Industry::class)->create();
+		$expectedWorkGroups = factory(Workgroup::class, 11)->create();
+		$keys = $expectedWorkGroups->get(0)->getFillable();
+
+		$actualWorkGroups = $dbIndustryRepository->paginateWorkGroups($industry);
+
+		$this->assertCount(0, $actualWorkGroups);
+
+		$this->assertNotFalse(
+			$dbIndustryRepository->assignWorkGroupsById($industry,
+				$expectedWorkGroups->lists('id')->toArray()));
+
+		$actualWorkGroups = $dbIndustryRepository->paginateWorkGroups($industry);
+
+		$this->assertCount(10, $actualWorkGroups);
+
+		$this->assertSame(
+			array_only($expectedWorkGroups->get(0)->toArray(), $keys),
+			array_only($actualWorkGroups->get(0)->toArray(), $keys));
+
+		$this->assertSame(
+			array_only($expectedWorkGroups->get(1)->toArray(), $keys),
+			array_only($actualWorkGroups->get(1)->toArray(), $keys));
+	}
 
 }
 

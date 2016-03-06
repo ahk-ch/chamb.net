@@ -13,13 +13,13 @@ class CreateWorkgroupsTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('workgroups', function (Blueprint $table)
-		{
+		Schema::create('workgroups', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('name')->unique();
 			$table->text('description');
 			$table->date('start_date')->nullable();
 			$table->date('end_date')->nullable();
+			$table->string('slug')->unique();
 			$table->timestamps();
 
 			$table->integer('creator_id')->unsigned()->index();
@@ -34,13 +34,12 @@ class CreateWorkgroupsTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::table('workgroups', function (Blueprint $table)
-		{
+		Schema::table('workgroups', function (Blueprint $table) {
 			$table->dropForeign('workgroups_creator_id_foreign');
 			$table->dropIndex('workgroups_creator_id_index');
 			$table->removeColumn('creator_id');
 		});
-		
+
 		Schema::drop('workgroups');
 	}
 }

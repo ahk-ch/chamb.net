@@ -9,8 +9,8 @@
 namespace functional\ahk\any\Industry;
 
 
-use App\Ahk\Company;
 use App\Ahk\Industry;
+use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\Workgroup;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
@@ -22,30 +22,29 @@ class WorkGroupTest extends TestCase
 	/** @test */
 	public function it_view_work_groups_index()
 	{
-		// i have two workgroups for an industry
+		$dbIndustryRepository = new DbIndustryRepository();
 		$industry = factory(Industry::class)->create();
-		$workGroups = factory(Workgroup::class, 13)->create();
-		$workGroupIds = array_only($workGroups->toArray(), 'id');
-		$industry->workgroups()->sync($workGroupIds);
+		$workGroups = factory(Workgroup::class, 11)->create();
+		$workGroupIds = $workGroups->lists('id')->toArray();
+		$dbIndustryRepository->assignWorkGroupsById($industry, $workGroupIds);
 
-		// I visit an industry workgroup list
 		$this
 			->visit(route('industries.work_groups', ['industry_slug' => $industry->slug]))
 			->seePageIs(route('industries.work_groups', ['industry_slug' => $industry->slug]))
 			->see("<title> Work-groups - Health · Chamb.Net</title>")
 			->see("<h2>Search Work-groups</h2>")
-			->see('<span class="results-number">2 results</span>')
-			// i see first workgroup title
-			->see(route('industries.work_groups.show',
-				['industry_slug' => $industry->slug, 'work_group' => $workGroups->get(0)->slug]))
-			// i see first workgroup description
-			->see($workGroups->get(0)->description)
-			// i see second workgroup title
-			->see(route('industries.work_groups.show',
-				['industry_slug' => $industry->slug, 'work_group' => $workGroups->get(1)->slug]))
-			// i see second workgroup description
-			->see($workGroups->get(1)->description);
-
+			->see('<span class="results-number">11 result(s)</span>')
+			->seeLink($workGroups->get(0)->name,
+				route('industries.work_groups.show',
+					['industry_slug'   => $industry->slug,
+					 'work_group_slug' => $workGroups->get(0)->slug]))
+			->see($workGroups->get(1)->description)
+			->seeLink($workGroups->get(1)->name,
+				route('industries.work_groups.show',
+					['industry_slug'   => $industry->slug,
+					 'work_group_slug' => $workGroups->get(1)->slug]));
+		
+		// do not see 11th element
 
 		// i see pagination
 	}

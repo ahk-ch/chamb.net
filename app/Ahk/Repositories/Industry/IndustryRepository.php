@@ -64,4 +64,15 @@ interface IndustryRepository
 	 * @return Collection
 	 */
 	public function getWorkGroups(Industry $industry);
+
+	/**
+	 * Paginate workgroups of an industry
+	 * @param Industry $industry
+	 * @param null $perPage
+	 * @param array $columns
+	 * @param string $pageName
+	 * @param null $page
+	 * @return Collection
+	 */
+	public function paginateWorkGroups(Industry $industry, $perPage = null, $columns = ['*'], $pageName = 'page', $page = null);
 }

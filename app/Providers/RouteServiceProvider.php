@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Ahk\Company;
 use App\Ahk\Industry;
+use App\Ahk\Workgroup;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
 
@@ -33,6 +34,7 @@ class RouteServiceProvider extends ServiceProvider
 		parent::boot($router);
 
 		$router->model('industry_slug', Industry::class);
+		$router->model('work_group_slug', Workgroup::class);
 	}
 
 	/**

@@ -102,5 +102,19 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 	{
 		return $industry->workgroups()->get();
 	}
+
+	/**
+	 * Paginate workgroups of an industry
+	 * @param Industry $industry
+	 * @param int $perPage
+	 * @param array $columns
+	 * @param string $pageName
+	 * @param null $page
+	 * @return Collection
+	 */
+	public function paginateWorkGroups(Industry $industry, $perPage = 10, $columns = ['*'], $pageName = 'page', $page = null)
+	{
+		return $industry->workgroups()->paginate($perPage, $columns, $pageName, $page);
+	}
 }
 
