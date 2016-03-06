@@ -21,6 +21,13 @@ interface IndustryRepository
     public function all();
 
     /**
+     * Get companies of an industry
+     * @param Industry $industry
+     * @return Collection
+     */
+    public function getCompanies(Industry $industry);
+
+    /**
      * Store an industry on the storage
      * @param User $author
      * @param array $fillable

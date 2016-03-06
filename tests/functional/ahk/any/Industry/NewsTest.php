@@ -1,4 +1,4 @@
-<?php namespace tests\functional\ahk\any\Health;
+<?php namespace tests\functional\ahk\any\Industry;
 
 /**
  * @author Rizart Dokollari
@@ -11,7 +11,7 @@ use tests\TestCase;
 /**
  * Class HomeTest
  */
-class HealthNewsTest extends TestCase
+class NewsTest extends TestCase
 {
 	use DatabaseMigrations;
 

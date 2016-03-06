@@ -14,8 +14,8 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         # Ahk
-        view()->composer('ahk._partials.header', 'App\Http\ViewComposers\Ahk\HeaderComposer');
-        view()->composer('ahk._partials.header_industries', 'App\Http\ViewComposers\Ahk\HeaderComposer');
+        view()->composer('ahk._partials.header_industries_links', 'App\Http\ViewComposers\Ahk\HeaderComposer');
+        view()->composer('ahk._partials.header_default_links', 'App\Http\ViewComposers\Ahk\HeaderComposer');
         view()->composer('ahk._partials.footer', 'App\Http\ViewComposers\Ahk\FooterComposer');
         view()->composer('ahk.layouts.master', 'App\Http\ViewComposers\Ahk\MasterComposer');
         # Ahk - User

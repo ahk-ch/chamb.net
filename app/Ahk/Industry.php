@@ -42,6 +42,16 @@ class Industry extends Model implements SluggableInterface
 	];
 
 	/**
+	 * Get the route key for the model.
+	 *
+	 * @return string
+	 */
+	public function getRouteKeyName()
+	{
+		return self::SLUG;
+	}
+
+	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
 	public function countries()

@@ -5,6 +5,8 @@
  */
 
 namespace App\Ahk\Helpers;
+use HieuLe\Active\Active;
+use Illuminate\Routing\Route;
 
 
 /**
@@ -14,28 +16,29 @@ namespace App\Ahk\Helpers;
 class Utilities
 {
 
-    /**
-     * @param $year
-     * @return bool|string
-     */
-    public function autoCopyright($year = "auto")
-    {
-        if (strcmp($year, "auto") === 0) return date('Y');
+	/**
+	 * @param $year
+	 * @return bool|string
+	 */
+	public function autoCopyright($year = "auto")
+	{
+		if (strcmp($year, "auto") === 0) return date('Y');
 
-        if (intval($year) == date('Y')) return $year;
+		if (intval($year) == date('Y')) return $year;
 
-        if (intval($year) < date('Y')) return "{$year} - " . date('Y');
+		if (intval($year) < date('Y')) return "{$year} - " . date('Y');
 
-        return date('Y');
-    }
+		return date('Y');
+	}
 
 	/**
-     * @param array $routes
-     * @param string $active
-     * @return string
-     */
-    public function activate(array $routes, $active = 'active')
-    {
-        return call_user_func_array('Route::is', $routes) ? $active : '';
-    }
+	 * @param array $routes
+	 * @param string $activeClass
+	 * @param string $inactiveClass
+	 * @return string
+	 */
+	public function activate(array $routes, $activeClass = 'active', $inactiveClass ='')
+	{
+		return active_class(app('active')->checkRoute($routes), $activeClass, $inactiveClass);
+	}
 }

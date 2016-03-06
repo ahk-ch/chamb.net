@@ -7,6 +7,10 @@
 namespace tests\unit\Ahk\Helpers;
 
 use App\Ahk\Helpers\Utilities;
+use App\Ahk\Industry;
+use App\Ahk\Repositories\Industry\DbIndustryRepository;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Routing\Route;
 use tests\TestCase;
 
 /**
@@ -15,10 +19,9 @@ use tests\TestCase;
  */
 class UtilitiesTest extends TestCase
 {
+	use DatabaseMigrations;
 
-	/**
-	 * @test
-	 */
+	/** @test */
 	public function it_returns_correct_copyright_dates()
 	{
 		$utilities = new Utilities();

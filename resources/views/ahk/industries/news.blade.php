@@ -18,7 +18,7 @@
             </ul>
         </div>
         @for($i = 0; $i < $articles->count(); $i++)
-            @include('ahk.health._partials.news_full_width', ['index' => $i, 'article' => $articles->get($i)])
+            @include('ahk.industries._partials.news_full_width', ['index' => $i, 'article' => $articles->get($i)])
         @endfor
     </div>
 

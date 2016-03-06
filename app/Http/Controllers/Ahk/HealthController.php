@@ -10,8 +10,9 @@ namespace App\Http\Controllers\Ahk;
  */
 
 use App\Ahk\Repositories\Article\ArticleRepository;
+use App\Http\Controllers\Controller;
 
-class HealthController extends BaseController
+class HealthController extends Controller
 {
 	/**
 	 * @var ArticleRepository
@@ -25,8 +26,6 @@ class HealthController extends BaseController
 	 */
 	public function __construct(ArticleRepository $articleRepository)
 	{
-		parent::__construct();
-
 		$this->articleRepository = $articleRepository;
 	}
 

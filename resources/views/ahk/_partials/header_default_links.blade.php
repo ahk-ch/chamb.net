@@ -8,21 +8,13 @@
 <li class="dropdown {!! $utilities->activate(['health.events', 'health.news']) !!}">
     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> {!! trans('ahk.industries') !!} </a>
     <ul class="dropdown-menu">
-        <li class="{!! $utilities->activate(['health.info']) !!}">
-            <a href="{!! route('health.info') !!}">{!! trans('ahk.health') !!}</a>
-        </li>
-        <li>
-            <a href="#">{!! trans('ahk.logistics') !!}</a>
-        </li>
-        <li>
-            <a href="#">{!! trans('ahk.energy') !!}</a>
-        </li>
-        <li>
-            <a href="#">{!! trans('ahk.trade') !!}</a>
-        </li>
-        <li>
-            <a href="#">{!! trans('ahk.law') !!}</a>
-        </li>
+
+        @foreach($industries as $industry)
+            <li class="{!! $utilities->activate(['industries.info' => ['industry_slug' => $industry->slug]]) !!}">
+                <a href="{!! route('industries.info', ['industry_slug' => $industry->slug]) !!}">{!! $industry->name !!}</a>
+            </li>
+        @endforeach
+
     </ul>
 </li>
 <!-- End Pages -->

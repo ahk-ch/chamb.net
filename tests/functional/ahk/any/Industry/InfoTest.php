@@ -1,4 +1,4 @@
-<?php namespace tests\functional\any\guest\Health;
+<?php namespace tests\functional\any\guest\Industry;
 
 /**
  * @author Rizart Dokollari
@@ -9,7 +9,7 @@ use tests\TestCase;
 /**
  * Class HomeTest
  */
-class HealthTest extends TestCase
+class InfoTest extends TestCase
 {
 
 	/**

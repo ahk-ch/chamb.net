@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Ahk;
+
 use App\Ahk\Repositories\Industry\IndustryRepository;
+use App\Http\Controllers\Controller;
 
 /**
  * Home controller.
@@ -9,8 +11,7 @@ use App\Ahk\Repositories\Industry\IndustryRepository;
  * @author  Rizart Dokollari <r.dokollari@gmail.com>
  * @since   23/11/2015
  */
-
-class HomeController extends BaseController
+class HomeController extends Controller
 {
 	/**
 	 * @var IndustryRepository
@@ -19,8 +20,6 @@ class HomeController extends BaseController
 
 	public function __construct(IndustryRepository $industryRepository)
 	{
-		parent::__construct();
-
 		$this->industryRepository = $industryRepository;
 	}
 

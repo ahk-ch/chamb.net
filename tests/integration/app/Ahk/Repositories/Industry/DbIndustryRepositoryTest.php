@@ -9,7 +9,6 @@ namespace tests\integration\app\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
 use App\Ahk\Industry;
-use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -28,7 +27,7 @@ class DbIndustryRepositoryTest extends TestCase
 	{
 		$dbIndustryRepository = new DbIndustryRepository();
 
-		$initTotalIndustries =$dbIndustryRepository->all()->count();
+		$initTotalIndustries = $dbIndustryRepository->all()->count();
 
 		$actualCompanies = factory(Industry::class, 2)->create();
 
@@ -89,5 +88,20 @@ class DbIndustryRepositoryTest extends TestCase
 		$actualData = array_only($dbIndustryRepository->getById($currentIndustry->id)->toArray(), $keys);
 
 		$this->assertEquals($expectedData, $actualData);
+	}
+
+	/** @test */
+	public function it_returns_companies_of_an_industry()
+	{
+		$dbIndustryRepository = new DbIndustryRepository();
+		$industry = factory(Industry::class)->create();
+		$companies = factory(Company::class, 2)->create(['industry_id' => $industry->id]);
+		$actualCompanies = $dbIndustryRepository->getCompanies($industry);
+		$keys = $companies->get(0)->getFillable();
+
+		$this->assertSame(
+			array_only($companies->toArray(), $keys),
+			array_only($actualCompanies->toArray(), $keys)
+		);
 	}
 }

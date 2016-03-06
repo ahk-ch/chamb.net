@@ -13,8 +13,6 @@ class BaseController extends Controller
      */
     public function __construct()
     {
-        !session('locale') ?: App::setLocale(session('locale'));
-
         $this->middleware('cms.auth');
     }
 }

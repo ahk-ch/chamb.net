@@ -152,6 +152,8 @@ return [
 		Collective\Html\HtmlServiceProvider::class,
 		GrahamCampbell\HTMLMin\HTMLMinServiceProvider::class,
 		Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+		HieuLe\Active\ActiveServiceProvider::class,
+
 
 		/*
 		 * Internal Service Providers
@@ -214,6 +216,8 @@ return [
 		'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
 		'Form'        => Collective\Html\FormFacade::class,
 		'Html'        => Collective\Html\HtmlFacade::class,
+		'Active'      => HieuLe\Active\Facades\Active::class,
+
 
 		/*
 		 * Internal aliases

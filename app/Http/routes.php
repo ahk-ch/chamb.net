@@ -4,7 +4,6 @@
 # Pages
 Route::get('/', ['as' => 'home_path', 'uses' => 'Ahk\HomeController@home']);
 Route::get('about-us', ['as' => 'about_path', 'uses' => 'Ahk\HomeController@about']);
-Route::resource('companies', 'Ahk\CompaniesController', ['only' => ['index', 'show']]);
 Route::get('lang/{lang}', ['as' => 'set_language', 'uses' => 'Ahk\SettingsController@setLocale']);
 
 Route::group(['prefix' => 'my'], function ()
@@ -13,16 +12,16 @@ Route::group(['prefix' => 'my'], function ()
 	Route::get('profile', ['as' => 'my.profile', 'uses' => 'Ahk\HealthController@news']);
 });
 
-Route::group(['prefix' => 'health'], function ()
-{
-	Route::get('info', ['as' => 'health.info', 'uses' => 'Ahk\HealthController@info']);
-	Route::get('news', ['as' => 'health.news', 'uses' => 'Ahk\HealthController@news']);
-});
-
-Route::group(['prefix' => 'industries/{slug}'], function ()
+Route::group(['prefix' => 'industries/{industry_slug}'], function ()
 {
 	Route::get('info', ['as' => 'industries.info', 'uses' => 'Ahk\IndustriesController@info']);
 	Route::get('news', ['as' => 'industries.news', 'uses' => 'Ahk\IndustriesController@news']);
+	Route::get('work-groups', ['as' => 'industries.work_groups', 'uses' => 'Ahk\IndustriesController@workGroups']);
+	Route::get('events', ['as' => 'industries.events', 'uses' => 'Ahk\WorkingGroupsController@index']);
+	Route::get('links', ['as' => 'industries.links', 'uses' => 'Ahk\WorkingGroupsController@index']);
+	Route::get('downloads', ['as' => 'industries.downloads', 'uses' => 'Ahk\IndustriesController@index']);
+	Route::get('companies', ['as' => 'industries.companies', 'uses' => 'Ahk\IndustriesController@companies']);
+//	Route::resource('companies', 'Ahk\CompaniesController', ['only' => ['index', 'show']]);
 });
 
 Route::group(['prefix' => 'files'], function ()
@@ -31,7 +30,6 @@ Route::group(['prefix' => 'files'], function ()
 });
 
 # Working Groups
-Route::get('work-groups', ['as' => 'work_groups', 'uses' => 'Ahk\WorkingGroupsController@index']);
 
 Route::get('terms-of-use', ['as' => 'terms_of_use_path', 'uses' => 'Ahk\HomeController@termsOfUse']);
 

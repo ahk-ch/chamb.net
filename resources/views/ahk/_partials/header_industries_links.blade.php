@@ -1,57 +1,42 @@
-<!-- Home -->
-<li class="dropdown {!! $utilities->activate(['home_path']) !!}">
-    <a href="{!! route('home_path') !!}" class="dropdown-toggle disabled" data-toggle="dropdown"> {!! trans('ahk.home') !!} </a>
-    <ul class="dropdown-menu">
-        <li class="{!! $utilities->activate(['']) !!}">
-            <a href="#">{!! trans('ahk.health') !!}</a>
-        </li>
-        <li class="{!! $utilities->activate(['']) !!}">
-            <a href="#">{!! trans('ahk.logistics') !!}</a>
-        </li>
-        <li class="{!! $utilities->activate(['']) !!}">
-            <a href="#">{!! trans('ahk.energy') !!}</a>
-        </li>
-    </ul>
+<li>
+    <a href="{!! route('home_path') !!}"> {!! trans('ahk.home') !!} </a>
 </li>
-<!-- End Home -->
 
 <!-- Pages -->
-<li class="dropdown {!! $utilities->activate(['health.events', 'health.news']) !!}">
+<li class="dropdown {!! $utilities->activate(['industries.info', 'industries.events', 'industries.news']) !!}">
     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> {!! trans('ahk.health') !!} </a>
     <ul class="dropdown-menu">
-        <li class="{!! $utilities->activate(['health.news']) !!}">
-            <a href="{!! route('health.news') !!}">{!! trans('ahk.news') !!}</a>
+        <li class="{!! $utilities->activate(['industries.info']) !!}">
+            <a href="{!! route('industries.info', ['industry_slug' => $industry->slug]) !!}">
+                {!! trans('ahk.info') !!}</a>
         </li>
-        <li class="{!! $utilities->activate(['health.info']) !!}">
-            <a href="{!! route('health.info') !!}">{!! trans('ahk.info') !!}</a>
+        <li class="{!! $utilities->activate(['industries.news']) !!}">
+            <a href="{!! route('industries.news', ['industry_slug' => $industry->slug]) !!}">
+                {!! trans('ahk.news') !!}</a>
         </li>
-        <li>
-            <a href="#">{!! trans('ahk.events') !!}</a>
+        <li class="{!! $utilities->activate(['industries.events']) !!}">
+            <a href="{!! route('industries.events', ['industry_slug' => $industry->slug]) !!}">
+                {!! trans('ahk.events') !!}</a>
         </li>
-        <li>
-            <a href="#">{!! trans('ahk.links') !!}</a>
+        <li class="{!! $utilities->activate(['industries.links']) !!}">
+            <a href="{!! route('industries.links', ['industry_slug' => $industry->slug]) !!}">
+                {!! trans('ahk.links') !!}</a>
         </li>
-        <li>
-            <a href="#">{!! trans('ahk.downloads') !!}</a>
+        <li class="{!! $utilities->activate(['industries.downloads']) !!}">
+            <a href="{!! route('industries.downloads', ['industry_slug' => $industry->slug]) !!}">
+                {!! trans('ahk.downloads') !!}</a>
         </li>
     </ul>
 </li>
-<!-- End Pages -->
+
+
+<li class="{!! $utilities->activate(['industries.work_groups']) !!}">
+    <a href="{!! route('industries.work_groups', ['industry_slug' => $industry->slug]) !!}">
+        {!! trans('ahk.work_groups') !!} </a>
+</li>
 
 <!-- Companies -->
-<li class="{!! $utilities->activate(['work_groups']) !!}">
-    <a href="{!! route('work_groups') !!}"> {!! trans('ahk.work_groups') !!} </a>
+<li class="{!! $utilities->activate(['industries.companies']) !!}">
+    <a href="{!! route('industries.companies', ['industry_slug' => $industry->slug]) !!}"> {!! trans('ahk.community') !!} </a>
 </li>
 <!-- End Companies -->
-
-<!-- Companies -->
-<li class="{!! $utilities->activate(['companies.index']) !!}">
-    <a href="{!! route('companies.index') !!}"> {!! trans('ahk.community') !!} </a>
-</li>
-<!-- End Companies -->
-
-<!-- About -->
-<li class="{!! $utilities->activate(['about_path']) !!}">
-    <a href="{!! route('about_path') !!}"> {!! trans('ahk.about') !!} </a>
-</li>
-<!-- End About -->

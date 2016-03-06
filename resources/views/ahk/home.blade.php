@@ -22,7 +22,7 @@
 
                 @foreach($industries as $industry)
 
-                    <a href="{!! route('industries.info', ['slug' => $industry->slug]) !!}">
+                    <a href="{!! route('industries.info', ['industry_slug' => $industry->slug]) !!}">
                         <div class="col-md-2 col-sm-6 content-boxes-v6 md">
                             <i class="rounded-x {!! $industry->fontawesome !!}"></i>
                             <p class="title-v3-md margin-bottom-10"> {!! $industry->name !!}</p>

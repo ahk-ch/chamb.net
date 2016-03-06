@@ -1,4 +1,4 @@
-<?php namespace tests\functional\ahk\any;
+<?php namespace tests\functional\ahk\any\Industry;
 
 /**
  * @author Rizart Dokollari

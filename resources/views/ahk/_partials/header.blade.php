@@ -69,18 +69,6 @@
 
                 @yield('header_links')
 
-                <li>
-                    <i class="search fa fa-search search-btn"></i>
-                    <div class="search-open">
-                        <div class="input-group animated fadeInDown">
-                            <input type="text" class="form-control" placeholder="{!! trans('ahk.search') !!}">
-                                <span class="input-group-btn">
-                                    <button class="btn-u" type="button">{!! trans('ahk.go') !!}</button>
-                                </span>
-                        </div>
-                    </div>
-                </li>
-                <!-- End Search Block -->
             </ul>
         </div><!--/end container-->
     </div><!--/navbar-collapse-->
