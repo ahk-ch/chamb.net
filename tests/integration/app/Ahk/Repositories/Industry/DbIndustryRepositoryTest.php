@@ -11,6 +11,7 @@ use App\Ahk\Company;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\User;
+use App\Ahk\Workgroup;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 
@@ -104,4 +105,45 @@ class DbIndustryRepositoryTest extends TestCase
 			array_only($actualCompanies->toArray(), $keys)
 		);
 	}
+
+	/** @test */
+	public function it_returns_work_groups_of_an_industry()
+	{
+		$dbIndustryRepository = new DbIndustryRepository();
+		$industry = factory(Industry::class)->create();
+		$workGroups = factory(Workgroup::class, 2)->create();
+		$companies = factory(Company::class, 2)->create(['industry_id' => $industry->id]);
+		$actualCompanies = $dbIndustryRepository->getCompanies($industry);
+		$keys = $companies->get(0)->getFillable();
+
+		$this->assertSame(
+			array_only($companies->toArray(), $keys),
+			array_only($actualCompanies->toArray(), $keys)
+		);
+	}
+
+	/** @test */
+	public function it_assigns_work_groups_to_an_industry()
+	{
+		$industry = factory(Industry::class)->create();
+		$workGroups = factory(Workgroup::class, 2)->create();
+
+		$this->assertSame(0, $industry->workgroups()->count());
+
+		$dbIndustryRepository = new DbIndustryRepository();
+		$dbIndustryRepository->assignWorkGroupsById($industry, [$workGroups->get(0)->id, $workGroups->get(1)->id,]);
+		$actualWorkgroups = $industry->workgroups;
+
+		$this->assertNotSame(0, $actualWorkgroups->count());
+
+		$this->assertSame(
+			array_only($workGroups->get(0)->toArray(), $workGroups->get(0)->getFillable()),
+			array_only($actualWorkgroups->get(0)->toArray(), $workGroups->get(0)->getFillable()));
+
+		$this->assertSame(
+			array_only($workGroups->get(1)->toArray(), $workGroups->get(0)->getFillable()),
+			array_only($actualWorkgroups->get(1)->toArray(), $workGroups->get(0)->getFillable()));
+
+	}
 }
+

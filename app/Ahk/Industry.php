@@ -74,5 +74,13 @@ class Industry extends Model implements SluggableInterface
 	{
 		return $this->belongsTo('App\Ahk\User');
 	}
+	
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+	 */
+	public function workgroups()
+	{
+		return $this->belongsToMany('App\Ahk\Workgroup')->withTimestamps();
+	}
 }
 

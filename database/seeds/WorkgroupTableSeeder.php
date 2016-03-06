@@ -24,7 +24,7 @@ class WorkgroupTableSeeder extends Seeder
     {
         $industries = (new DbIndustryRepository())->all()->toArray();
         $authors = (new DbUserRepository())->getWithAuthorRole()->toArray();
-        $workgroups = factory(Workgroup::class, 2)->create();
+        $workgroups = factory(Workgroup::class, 13)->create();
         $faker = Factory::create();
 
         foreach ($workgroups as $workgroup) {

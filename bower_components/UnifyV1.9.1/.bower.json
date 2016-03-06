@@ -1,13 +1,13 @@
 {
   "name": "UnifyV1.9.1",
-  "version": "1.0.6",
-  "_release": "1.0.6",
+  "version": "1.0.7",
+  "_release": "1.0.7",
   "_resolution": {
     "type": "version",
-    "tag": "v1.0.6",
-    "commit": "0ad5919be040581ab0538f2ed7733d902e29d10d"
+    "tag": "v1.0.7",
+    "commit": "48f8ed87d85d02f0ce18547306e53437046ccb8f"
   },
   "_source": "git@bitbucket.org:dev-welp/bower-unify-responsive-website-template.git",
-  "_target": "v1.0.6",
+  "_target": "v1.0.7",
   "_originalSource": "git@bitbucket.org:dev-welp/bower-unify-responsive-website-template.git"
 }

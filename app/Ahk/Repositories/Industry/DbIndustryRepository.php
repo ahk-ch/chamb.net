@@ -11,6 +11,7 @@ use App\Ahk\Company;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\DbRepository;
 use App\Ahk\User;
+use App\Ahk\Workgroup;
 use Illuminate\Database\Eloquent\Collection;
 
 class DbIndustryRepository extends DbRepository implements IndustryRepository
@@ -73,11 +74,25 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 	public function getCompanies(Industry $industry)
 	{
 		return $this->getCompaniesById($industry->id);
-    }
+	}
 
 	private function getCompaniesById($id)
 	{
 		return Company::where('industry_id', $id)->get();
+	}
+
+	/**
+	 * Assign workgroups to an industry
+	 *
+	 * @param Industry $industry
+	 * @param array $workgroupIds
+	 * @return mixed
+	 */
+	public function assignWorkGroupsById(Industry $industry, array $workgroupIds)
+	{
+		$industry->workgroups()->sync($workgroupIds);
+		
+		return $industry->save() ? $industry : false;
 	}
 }
 

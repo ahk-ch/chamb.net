@@ -9,6 +9,7 @@ namespace App\Ahk\Repositories\Industry;
 
 use App\Ahk\Industry;
 use App\Ahk\User;
+use App\Ahk\Workgroup;
 use Illuminate\Database\Eloquent\Collection;
 
 interface IndustryRepository
@@ -43,10 +44,19 @@ interface IndustryRepository
     public function getById($id);
 
     /**
-     * Update a industry given it id.
+     * Update a industry given its id.
      * @param $id
      * @param array $fillable
      * @return mixed
      */
     public function updateById($id, array $fillable);
+
+    /**
+     * Assign workgroups to an industry
+     *
+     * @param Industry $industry
+     * @param array $workgroupIds
+     * @return mixed
+     */
+    public function assignWorkGroupsById(Industry $industry, array $workgroupIds);
 }
