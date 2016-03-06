@@ -25,7 +25,7 @@
     <!--=== Search Results ===-->
     <div class="container s-results margin-bottom-50">
 
-        <span class="results-number">{!! $workGroups->count() !!} result(s)</span>
+        <span class="results-number">{!! $workGroups->total() !!} result(s)</span>
 
         @foreach($workGroups as $workGroup)
             <a href="{!! route('industries.work_groups.show',
@@ -45,16 +45,6 @@
         <div class="margin-bottom-30"></div>
 
         <div class="text-left">
-            <ul class="pagination">
-                <li><a href="#">«</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">...</a></li>
-                <li><a href="#">157</a></li>
-                <li><a href="#">158</a></li>
-                <li><a href="#">»</a></li>
-            </ul>
 
             {!! $workGroups->links() !!}
 

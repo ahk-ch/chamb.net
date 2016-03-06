@@ -30,9 +30,9 @@
 </li>
 
 
-<li class="{!! $utilities->activate(['industries.work_groups']) !!}">
-    <a href="{!! route('industries.work_groups', ['industry_slug' => $industry->slug]) !!}">
-        {!! trans('ahk.work_groups') !!} </a>
+<li class="{!! $utilities->activate(['industries.work_groups.index']) !!}">
+    <a href="{!! route('industries.work_groups.index', ['industry_slug' => $industry->slug]) !!}">
+        {!! trans('ahk.work_groups.index') !!} </a>
 </li>
 
 <!-- Companies -->

@@ -24,7 +24,7 @@
                         <a href="#"><i class="fa fa-user"></i> {!! trans('ahk.profile') !!}</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#"><i class="fa fa-users"></i> {!! trans('ahk.work_groups') !!}</a>
+                        <a href="#"><i class="fa fa-users"></i> {!! trans('ahk.work_groups.index') !!}</a>
                     </li>
                     <li class="list-group-item">
                         <a href="#"><i class="fa fa-file-image-o"></i> {!! trans('ahk.pictures') !!}

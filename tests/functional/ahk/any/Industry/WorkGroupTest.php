@@ -29,8 +29,8 @@ class WorkGroupTest extends TestCase
 		$dbIndustryRepository->assignWorkGroupsById($industry, $workGroupIds);
 
 		$this
-			->visit(route('industries.work_groups', ['industry_slug' => $industry->slug]))
-			->seePageIs(route('industries.work_groups', ['industry_slug' => $industry->slug]))
+			->visit(route('industries.work_groups.index', ['industry_slug' => $industry->slug]))
+			->seePageIs(route('industries.work_groups.index', ['industry_slug' => $industry->slug]))
 			->see("<title> Work-groups - Health · Chamb.Net</title>")
 			->see("<h2>Search Work-groups</h2>")
 			->see('<span class="results-number">11 result(s)</span>')
@@ -42,11 +42,11 @@ class WorkGroupTest extends TestCase
 			->seeLink($workGroups->get(1)->name,
 				route('industries.work_groups.show',
 					['industry_slug'   => $industry->slug,
-					 'work_group_slug' => $workGroups->get(1)->slug]));
-		
-		// do not see 11th element
+					 'work_group_slug' => $workGroups->get(1)->slug]))
+			->seeLink(2,
+				route('industries.work_groups.index',
+					['industry_slug' => $industry->slug, 'page' => 2]));
 
-		// i see pagination
 	}
 
 }
