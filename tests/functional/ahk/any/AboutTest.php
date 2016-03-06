@@ -4,6 +4,7 @@
  * @author Rizart Dokollari
  * @since 12/10/2015
  */
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 
 /**
@@ -11,6 +12,7 @@ use tests\TestCase;
  */
 class AboutTest extends TestCase
 {
+	use DatabaseMigrations;
 
 	/**
 	 * A basic functional test example.

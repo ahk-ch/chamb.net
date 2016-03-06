@@ -10,18 +10,6 @@ Breadcrumbs::register('home_path', function (Generator $breadcrumbs)
 	$breadcrumbs->push(trans('breadcrumbs.home'), route('home_path'));
 });
 
-Breadcrumbs::register('health.info', function (Generator $breadcrumbs)
-{
-	$breadcrumbs->parent('home_path');
-	$breadcrumbs->push(trans('breadcrumbs.health_info'), route('health.info'));
-});
-
-Breadcrumbs::register('health.news', function (Generator $breadcrumbs)
-{
-	$breadcrumbs->parent('home_path');
-	$breadcrumbs->push(trans('breadcrumbs.health_news'), route('health.news'));
-});
-
 Breadcrumbs::register('companies.index', function (Generator $breadcrumbs)
 {
 	$breadcrumbs->parent('home_path');

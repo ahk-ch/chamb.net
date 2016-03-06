@@ -21,7 +21,7 @@ Route::group(['prefix' => 'industries/{industry_slug}'], function ()
 	Route::get('events', ['as' => 'industries.events', 'uses' => 'Ahk\WorkingGroupsController@index']);
 	Route::get('links', ['as' => 'industries.links', 'uses' => 'Ahk\WorkingGroupsController@index']);
 	Route::get('downloads', ['as' => 'industries.downloads', 'uses' => 'Ahk\IndustriesController@index']);
-	Route::get('companies', ['as' => 'industries.companies', 'uses' => 'Ahk\IndustriesController@companies']);
+	Route::get('companies', ['as' => 'industries.companies.index', 'uses' => 'Ahk\IndustriesController@companies']);
 	Route::get('companies/{company_slug}', ['as' => 'industries.companies.show', 'uses' => 'Ahk\IndustriesController@companyShow']);
 });
 

@@ -17,92 +17,103 @@ use Illuminate\Database\Eloquent\Collection;
 class DbArticleRepository extends DbRepository implements ArticleRepository
 {
 
-    /**
-     * Get all articles
-     * @return Collection
-     */
-    public function all()
-    {
-        return Article::with('author', 'industry', 'tags');
-    }
+	/**
+	 * Get all articles
+	 * @return Collection
+	 */
+	public function all()
+	{
+		return Article::with('author', 'industry', 'tags');
+	}
 
-    /**
-     * Store an article on the storage.
-     * @param array $fillable Validated array parameters: author_id, industry_id, thumbnail_id
-     * @return Article|false
-     */
-    public function store(array $fillable)
-    {
-        $article = new Article($fillable);
+	/**
+	 * Store an article on the storage.
+	 * @param array $fillable Validated array parameters: author_id, industry_id, thumbnail_id
+	 * @return Article|false
+	 */
+	public function store(array $fillable)
+	{
+		$article = new Article($fillable);
 
-        $article->assignAuthor(User::find($fillable['author_id']));
+		$article->assignAuthor(User::find($fillable['author_id']));
 
-        $article->assignIndustry(Industry::find($fillable['industry_id']));
+		$article->assignIndustry(Industry::find($fillable['industry_id']));
 
-        $article->assignThumbnail(File::find($fillable['thumbnail_id']));
+		$article->assignThumbnail(File::find($fillable['thumbnail_id']));
 
-        return $article->save() ? $article : false;
-    }
+		return $article->save() ? $article : false;
+	}
 
-    /**
-     * Update an article given it id.
-     * @param $articleId
-     * @param array $fillable
-     * @param Industry $industry
-     * @return mixed
-     */
-    public function updateById($articleId, array $fillable, Industry $industry)
-    {
-        $article = $this->getById($articleId);
+	/**
+	 * Update an article given it id.
+	 * @param $articleId
+	 * @param array $fillable
+	 * @param Industry $industry
+	 * @return mixed
+	 */
+	public function updateById($articleId, array $fillable, Industry $industry)
+	{
+		$article = $this->getById($articleId);
 
-        $article->fill($fillable);
+		$article->fill($fillable);
 
-        $article->assignIndustry($industry);
+		$article->assignIndustry($industry);
 
-        return $article->save() ? $article : false;
-    }
+		return $article->save() ? $article : false;
+	}
 
-    /**
-     * Get an article given its id
-     * @param $id
-     * @return Article|\Illuminate\Database\Eloquent\Model|null|static
-     */
-    public function getById($id)
-    {
-        return Article::with('author', 'industry', 'tags')
-            ->where('articles.id', $id)->first();
-    }
+	/**
+	 * Get an article given its id
+	 * @param $id
+	 * @return Article|\Illuminate\Database\Eloquent\Model|null|static
+	 */
+	public function getById($id)
+	{
+		return Article::with('author', 'industry', 'tags')
+			->where('articles.id', $id)->first();
+	}
 
-    /**
-     * Update the tags of an article
-     * @param $id Article id
-     * @param array $tagIds
-     * @return Article|false
-     */
-    public function updateTagsById($id, array $tagIds)
-    {
-        $article = $this->getById($id);
+	/**
+	 * Update the tags of an article
+	 * @param $id Article id
+	 * @param array $tagIds
+	 * @return Article|false
+	 */
+	public function updateTagsById($id, array $tagIds)
+	{
+		$article = $this->getById($id);
 
-        $article->tags()->sync($tagIds);
+		$article->tags()->sync($tagIds);
 
-        return $article->save() ? $article : false;
-    }
+		return $article->save() ? $article : false;
+	}
 
-    /**
-     * Return published articles
-     * @return mixed
-     */
-    public function published()
-    {
-        return Article::with('author', 'industry', 'tags')->where('publish', true);
-    }
+	/**
+	 * Return published articles
+	 * @return mixed
+	 */
+	public function published()
+	{
+		return Article::with('author', 'industry', 'tags')->where('publish', true);
+	}
 
-    /**
-     * Return unpublished articles
-     * @return mixed
-     */
-    public function unpublished()
-    {
-        return Article::with('author', 'industry', 'tags')->where('publish', false);
-    }
+	/**
+	 * Return unpublished articles
+	 * @return mixed
+	 */
+	public function unpublished()
+	{
+		return Article::with('author', 'industry', 'tags')->where('publish', false);
+	}
+
+	/**
+	 * Return published articles of an industry
+	 * @param Industry $industry
+	 * @return mixed
+	 */
+	public function publishedByIndustry(Industry $industry)
+	{
+		return Article::where('industry_id', $industry->id)
+			->with('author', 'industry', 'tags')->where('publish', true)->get();
+	}
 }

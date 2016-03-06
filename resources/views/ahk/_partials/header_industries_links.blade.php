@@ -36,7 +36,7 @@
 </li>
 
 <!-- Companies -->
-<li class="{!! $utilities->activate(['industries.companies']) !!}">
-    <a href="{!! route('industries.companies', ['industry_slug' => $industry->slug]) !!}"> {!! trans('ahk.community') !!} </a>
+<li class="{!! $utilities->activate(['industries.companies.index']) !!}">
+    <a href="{!! route('industries.companies.index', ['industry_slug' => $industry->slug]) !!}"> {!! trans('ahk.community') !!} </a>
 </li>
 <!-- End Companies -->

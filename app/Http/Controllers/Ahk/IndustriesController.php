@@ -46,13 +46,14 @@ class IndustriesController extends Controller
 	/**
 	 * Display a listing of the news resource.
 	 *
+	 * @param Industry $industry
 	 * @return \Illuminate\Http\Response
 	 */
-	public function news()
+	public function news(Industry $industry)
 	{
-		$articles = $this->articleRepository->published()->paginate(6);
+		$articles = $this->articleRepository->publishedByIndustry()->paginate(6);
 
-		return view('ahk.health.news', compact('articles'));
+		return view('ahk.industries.news', compact('articles', 'industry'));
 	}
 
 	/**

@@ -1,9 +1,11 @@
-<?php namespace tests\functional\any\guest\Industry;
+<?php namespace tests\functional\ahk\any\Industry;
 
 /**
  * @author Rizart Dokollari
  * @since 12/10/2015
  */
+use App\Ahk\Industry;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 
 /**
@@ -11,6 +13,7 @@ use tests\TestCase;
  */
 class InfoTest extends TestCase
 {
+	use DatabaseMigrations;
 
 	/**
 	 * A basic functional test example.
@@ -19,8 +22,10 @@ class InfoTest extends TestCase
 	 */
 	public function test_it_reads_contents()
 	{
-		$this->visit(route('health.info'))
-			->seePageIs(route('health.info'))
+		$industry = factory(Industry::class)->create();
+		
+		$this->visit(route('industries.info', ['industry_slug' => $industry->slug]))
+			->seePageIs(route('industries.info', ['industry_slug' => $industry->slug]))
 			->see("<title> " . trans('ahk.info') . " · Chamb.Net</title>");
 	}
 }

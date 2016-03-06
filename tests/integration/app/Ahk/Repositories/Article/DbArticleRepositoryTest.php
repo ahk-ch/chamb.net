@@ -145,6 +145,28 @@ class DbArticleRepositoryTest extends TestCase
 	}
 
 	/** @test */
+	public function it_returns_published_articles_by_industry()
+	{
+		$dbArticleRepository = new DbArticleRepository();
+		$industry = factory(Industry::class)->create();
+		$expectedArticles = factory(Article::class, 2)
+			->create(['publish' => 1, 'industry_id' => $industry->id]);
+		factory(Article::class, 2)->create(['publish' => 0]);
+		$actualArticles = $dbArticleRepository->publishedByIndustry($industry);
+		$keys = $expectedArticles->get(0)->getFillable();
+
+		$this->assertCount(2, $actualArticles);
+
+		$this->assertNotSame(
+			array_only($expectedArticles->get(0)->toArray(), $keys),
+			array_only($actualArticles->get(1)->toArray(), $keys));
+
+		$this->assertNotSame(
+			array_only($expectedArticles->get(1)->toArray(), $keys),
+			array_only($actualArticles->get(0)->toArray(), $keys));
+	}
+
+	/** @test */
 	public function it_returns_unpublished_articles()
 	{
 		$dbArticleRepository = new DbArticleRepository();
