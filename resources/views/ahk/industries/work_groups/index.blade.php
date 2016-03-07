@@ -3,6 +3,9 @@
 @section('css-implementing-plugins')
 @endsection
 @section('inline-css')
+    <style>
+        {!! File::get(public_path(elixir("css/industries/work-groups.min.css"))) !!}}
+    </style>
 @endsection
 @section('header_links')
     @include('ahk._partials.header_industries_links')
@@ -11,13 +14,7 @@
     <div class="search-block-v2">
         <div class="container">
             <div class="col-md-6 col-md-offset-3">
-                <h2>Search Work-groups</h2>
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search ...">
-						<span class="input-group-btn">
-							<button class="btn-u" type="button"><i class="fa fa-search"></i></button>
-						</span>
-                </div>
+                <h2>All Work-groups</h2>
             </div>
         </div>
     </div><!--/container-->
@@ -51,5 +48,4 @@
         </div>
     </div><!--/container-->
 
-    {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/industries/work-groups.min.css")) !!}
 @endsection

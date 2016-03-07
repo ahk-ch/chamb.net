@@ -32,7 +32,7 @@ class WorkGroupTest extends TestCase
 			->visit(route('industries.work_groups.index', ['industry_slug' => $industry->slug]))
 			->seePageIs(route('industries.work_groups.index', ['industry_slug' => $industry->slug]))
 			->see("<title> Work-groups - Health · Chamb.Net</title>")
-			->see("<h2>Search Work-groups</h2>")
+			->see("<h2>All Work-groups</h2>")
 			->see('<span class="results-number">11 result(s)</span>')
 			->seeLink($workGroups->get(0)->name,
 				route('industries.work_groups.show',

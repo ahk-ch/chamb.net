@@ -133,6 +133,6 @@ elixir(function (mix) {
     ]);
 
     mix.browserSync({
-        proxy: 'chamb.io'
+        proxy: 'chamb.app'
     });
 });
