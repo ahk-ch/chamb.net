@@ -28,6 +28,7 @@ Route::group(['prefix' => 'industries/{industry_slug}'], function ()
 Route::group(['prefix' => 'files'], function ()
 {
 	Route::get('render', ['as' => 'files.render', 'uses' => 'FilesController@render']);
+	Route::get('download', ['as' => 'files.download', 'uses' => 'FilesController@download']);
 });
 
 # Working Groups

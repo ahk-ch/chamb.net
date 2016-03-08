@@ -148,7 +148,7 @@ $factory->define(Service::class, function (Faker\Generator $faker) {
 $factory->define(File::class, function (Faker\Generator $faker) {
 	$fileWithPrimaryData = factory(File::class, 'without_storage')->make();
 	$storageLocation = FilesStorage::getFilesDirectory();
-	$clientOriginalName = $faker->name . $faker->fileExtension;
+	$clientOriginalName = "{$faker->name}.{$faker->fileExtension}";
 	$tempFilePath = file_get_contents(storage_path("app/testing/dummy_logo.png"));
 	$fileLocation = $storageLocation . $clientOriginalName;
 

@@ -63,7 +63,7 @@ class WorkGroupTest extends TestCase
 		$industry = factory(Industry::class)->create();
 		$workGroup = factory(Workgroup::class)->create();
 		$dbIndustryRepository->assignWorkGroupsById($industry, [$workGroup->id]);
-		$articles = factory(Article::class, 2)->create(['industry_id' => $industry->id, 'publish' => true]);
+		$articles = factory(Article::class, 3)->create(['industry_id' => $industry->id, 'publish' => true]);
 		$articleChecker = factory(Article::class)->create();
 
 		$company = factory(Company::class)->create(['industry_id' => $industry->id]);
@@ -83,12 +83,15 @@ class WorkGroupTest extends TestCase
 			->see('<h2 class="title-v2 title-center">POPULAR NEWS</h2>')
 			->see($articles->get(0)->title)
 			->see($articles->get(1)->title)
-//			->see($articles->get(2)->title)
+			->see($articles->get(2)->title)
 			->dontSee($articleChecker->title)
 			->see('<h2 class="title-v2 title-center">PROTOCOLS</h2>')
 			->see($files->get(0)->name)
 			->see($files->get(0)->description)
+			->see(route('files.download', ['path' => $files->get(0)->path]))
 			->see($files->get(1)->name)
-			->see($files->get(1)->description);
+			->see($files->get(1)->description)
+			->see(route('files.download', ['path' => $files->get(1)->path]));
+
 	}
 }

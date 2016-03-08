@@ -27,7 +27,9 @@ class ArticleTableSeeder extends Seeder
 
 		foreach ($industries as $industry)
 		{
-			factory(Article::class, 3, 'without_industry')->create(['industry_id' => $industry->id]);
+			factory(Article::class, 'without_industry')->create(['industry_id' => $industry->id, 'publish' => 1]);
+			factory(Article::class, 'without_industry')->create(['industry_id' => $industry->id, 'publish' => 1]);
+			factory(Article::class, 'without_industry')->create(['industry_id' => $industry->id, 'publish' => 1]);
         }
 	}
 }

@@ -78,10 +78,9 @@
         </div>
     </div>
 
-    <div class="container content-sm">
+    <div class="container content-sm" id="protocols">
         <div class="text-center margin-bottom-50">
             <h2 class="title-v2 title-center">PROTOCOLS</h2>
-            <p class="space-lg-hor">Call to action (download pdf?)</p>
         </div>
         <!--Basic Table-->
         <div class="panel panel-green margin-bottom-40">
@@ -97,7 +96,10 @@
                     <tr>
                         <td>{{ $file->name }}</td>
                         <td>{{ $file->description }}</td>
-                        <td>Download link</td>
+                        <td><a href="{!! route('files.download', ['path' => $file->path]) !!}"
+                               class="btn btn-info btn-xs">
+                                <i class="fa fa-download"></i> Download</a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
