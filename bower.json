@@ -8,7 +8,6 @@
 		"holderjs": "~2.9.1",
 		"select2": "~4.0.1",
 		"respond": "~1.4.2",
-		"html5shiv": "~3.7.3",
-	   "UnifyV1.9.1": "git@bitbucket.org:dev-welp/bower-unify-responsive-website-template.git#v1.0.9"
+		"html5shiv": "~3.7.3"
 	}
 }

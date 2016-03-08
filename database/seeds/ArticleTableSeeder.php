@@ -15,21 +15,20 @@ use Illuminate\Database\Seeder;
 class ArticleTableSeeder extends Seeder
 {
 
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        $dbIndustryRepository = new DbIndustryRepository();
-        $faker = Factory::create();
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+		$dbIndustryRepository = new DbIndustryRepository();
+		$industries = $dbIndustryRepository->all();
 
-        $industries = $dbIndustryRepository->all()->toArray();
-
-        foreach (range(0, 13) as $index) {
-            factory(Article::class, 'without_industry')->create(['industry_id' => $faker->randomElement($industries)['id']]);
+		foreach ($industries as $industry)
+		{
+			factory(Article::class, 3, 'without_industry')->create(['industry_id' => $industry->id]);
         }
-    }
+	}
 }
 

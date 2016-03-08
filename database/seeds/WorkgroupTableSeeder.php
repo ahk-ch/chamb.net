@@ -23,12 +23,11 @@ class WorkgroupTableSeeder extends Seeder
 		$dbIndustryRepository = new DbIndustryRepository();
 		$industries = (new DbIndustryRepository())->all();
 
-		foreach ($industries as $industry) {
+		foreach ($industries as $industry)
+		{
+			$workGroups = factory(Workgroup::class, 11)->create();
 
-			$workgroups = factory(Workgroup::class, 13)->create();
-
-			$workGroupIds = $workgroups->lists('id')->toArray();
-
+			$workGroupIds = $workGroups->lists('id')->toArray();
 			$dbIndustryRepository->assignWorkGroupsById($industry, $workGroupIds);
 		}
 	}
