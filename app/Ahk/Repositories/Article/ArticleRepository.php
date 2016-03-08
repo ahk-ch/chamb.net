@@ -77,4 +77,12 @@ interface ArticleRepository
 	 * @return mixed
 	 */
 	public function mostViewed($max = 10);
+
+	/**
+	 * Get most viewed articles
+	 * @param $industry
+	 * @param int $max
+	 * @return mixed
+	 */
+	public function mostViewedByIndustry($industry, $max = 10);
 }

@@ -78,7 +78,7 @@ class IndustriesController extends Controller
 	 */
 	public function showWorkGroup(Industry $industry, Workgroup $workGroup)
 	{
-		$articles = $this->articleRepository->mostViewed(3)->get();
+		$articles = $this->articleRepository->mostViewedByIndustry($industry, 3)->get();
 
 		return view('ahk.industries.work_groups.show', compact('industry', 'workGroup', 'articles'));
 	}

@@ -8,8 +8,6 @@
 namespace App\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
-use App\Ahk\File;
-use App\Ahk\Industry;
 use App\Ahk\User;
 use Illuminate\Database\Eloquent\Collection;
 

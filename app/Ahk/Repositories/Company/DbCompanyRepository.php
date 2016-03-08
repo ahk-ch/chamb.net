@@ -9,13 +9,11 @@ namespace App\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
 use App\Ahk\Country;
-use App\Ahk\File;
 use App\Ahk\File as AhkFile;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\DbRepository;
 use App\Ahk\User;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Query\Builder;
 
 class DbCompanyRepository extends DbRepository implements CompanyRepository
 {

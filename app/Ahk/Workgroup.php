@@ -6,6 +6,11 @@ use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Workgroup
+ * @package App\Ahk
+ * @codeCoverageIgnore
+ */
 class Workgroup extends Model implements SluggableInterface
 {
 	use SluggableTrait;

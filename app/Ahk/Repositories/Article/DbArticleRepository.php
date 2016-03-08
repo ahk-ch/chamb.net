@@ -89,15 +89,6 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 	}
 
 	/**
-	 * Return published articles
-	 * @return mixed
-	 */
-	public function published()
-	{
-		return Article::with('author', 'industry', 'tags')->where('publish', true);
-	}
-
-	/**
 	 * Return unpublished articles
 	 * @return mixed
 	 */
@@ -131,5 +122,28 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 	public function mostViewed($max = 10)
 	{
 		return $this->published()->orderBy('view_count', 'desc')->take($max);
+	}
+
+	/**
+	 * Return published articles
+	 * @return mixed
+	 */
+	public function published()
+	{
+		return Article::with('author', 'industry', 'tags')->where('publish', true);
+	}
+
+	/**
+	 * Get most viewed articles
+	 * @param $industry
+	 * @param int $max
+	 * @return mixed
+	 */
+	public function mostViewedByIndustry($industry, $max = 10)
+	{
+		return $this->published()
+			->where('industry_id', $industry->id)
+			->orderBy('view_count', 'desc')
+			->take($max);
 	}
 }
