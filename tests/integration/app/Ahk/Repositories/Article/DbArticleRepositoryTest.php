@@ -33,6 +33,39 @@ class DbArticleRepositoryTest extends TestCase
 	}
 
 	/** @test */
+	public function it_returns_most_viewed_articles()
+	{
+		$dbArticleRepository = new DbArticleRepository();
+		$article1 = factory(Article::class)->create(['view_count'  => 1, 'publish' => 1]);
+		$article2 = factory(Article::class)->create(['view_count'  => 5, 'publish' => 1]);
+		$article3 = factory(Article::class)->create(['view_count'  => 10, 'publish' => 1]);
+		$keys = $article1->getFillable();
+
+		$mostViewedArticles = $dbArticleRepository->mostViewed()->get();
+		$this->assertCount(3, $mostViewedArticles);
+
+		$mostViewedArticles = $dbArticleRepository->mostViewed(1)->get();
+		$this->assertCount(1, $mostViewedArticles);
+		$this->assertSame(
+			array_only($article3->toArray(), $keys),
+			array_only($mostViewedArticles->get(0)->toArray(), $keys));
+
+		$mostViewedArticles = $dbArticleRepository->mostViewed(2)->get();
+		$this->assertCount(2, $mostViewedArticles);
+		$this->assertSame(
+			array_only($article2->toArray(), $keys),
+			array_only($mostViewedArticles->get(1)->toArray(), $keys));
+		$this->assertSame(
+			array_only($article3->toArray(), $keys),
+			array_only($mostViewedArticles->get(0)->toArray(), $keys));
+
+		// It return only 10 articles
+		factory(Article::class, 10)->create(['publish' => 1]);
+		$mostViewedArticles = $dbArticleRepository->mostViewed()->get();
+		$this->assertCount(10, $mostViewedArticles);
+	}
+
+	/** @test */
 	public function it_stores_an_article()
 	{
 		$dbArticleRepository = new DbArticleRepository();

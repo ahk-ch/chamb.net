@@ -22,6 +22,7 @@ class CreateArticlesTable extends Migration
 			$table->string('source')->nullable();
 			$table->mediumText('description');
 			$table->longText('content');
+			$table->integer('view_count')->default(0);
 			$table->timestamps();
 
 			$table->integer('author_id')->unsigned()->index();

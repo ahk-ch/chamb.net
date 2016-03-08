@@ -70,4 +70,11 @@ interface ArticleRepository
 	 * @return mixed
 	 */
 	public function updateTagsById($id, array $tagIds);
+
+	/**
+	 * Get most viewed articles
+	 * @param int $max
+	 * @return mixed
+	 */
+	public function mostViewed($max = 10);
 }

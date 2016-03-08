@@ -122,4 +122,14 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 			->with('author', 'industry', 'tags')
 			->paginate($perPage, $columns, $pageName, $page);
 	}
+
+	/**
+	 * Get most viewed articles
+	 * @param int $max
+	 * @return mixed
+	 */
+	public function mostViewed($max = 10)
+	{
+		return $this->published()->orderBy('view_count', 'desc')->take($max);
+	}
 }

@@ -92,6 +92,7 @@ $factory->defineAs(App\Ahk\Article::class, 'without_relations', function (Faker\
 		'source'      => $faker->url,
 		'description' => $faker->paragraph,
 		'content'     => $content,
+		'view_count'  => $faker->numberBetween(),
 	];
 
 });

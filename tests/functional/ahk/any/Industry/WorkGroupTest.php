@@ -9,7 +9,9 @@
 namespace functional\ahk\any\Industry;
 
 
+use App\Ahk\Article;
 use App\Ahk\Industry;
+use App\Ahk\Repositories\Article\DbArticleRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\Workgroup;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -46,7 +48,29 @@ class WorkGroupTest extends TestCase
 			->seeLink(2,
 				route('industries.work_groups.index',
 					['industry_slug' => $industry->slug, 'page' => 2]));
-
 	}
 
+	/** @test */
+	public function it_view_work_groups_show()
+	{
+		$dbIndustryRepository = new DbIndustryRepository();
+		$dbArticleRepository = new DbArticleRepository();
+
+		$industry = factory(Industry::class)->create();
+		$workGroup = factory(Workgroup::class)->create();
+		$dbIndustryRepository->assignWorkGroupsById($industry, [$workGroup->id]);
+		factory(Article::class, 4)->create();
+
+		$this
+			->visit(route('industries.work_groups.show',
+				['industry_slug' => $industry->slug, 'work_group_slug' => $workGroup->slug]))
+			->seePageIs(route('industries.work_groups.show',
+				['industry_slug' => $industry->slug, 'work_group_slug' => $workGroup->slug]))
+			->see("<title> $workGroup->name - $industry->name · Chamb.Net</title>")
+			->see("<span>Protocols</span>")
+			->see("<span>Ideas</span>")
+			->see("<span>Decisions</span>")
+			->see("<span>Events</span>")
+			->see('<h2 class="title-v2 title-center">POPULAR NEWS</h2>');
+	}
 }
