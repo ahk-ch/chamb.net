@@ -27,12 +27,9 @@ class RouteServiceProvider extends ServiceProvider
 	 */
 	public function boot(Router $router)
 	{
-		$router->bind('companies', function ($slug) {
-			return Company::where('slug', $slug)->first();
-		});
-
 		parent::boot($router);
 
+		$router->model('company_slug', Company::class);
 		$router->model('industry_slug', Industry::class);
 		$router->model('work_group_slug', Workgroup::class);
 	}

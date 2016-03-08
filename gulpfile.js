@@ -55,6 +55,13 @@ elixir(function (mix) {
             'vendor/UnifyV1.9.1/css/pages/page_job.css',
         ], 'public/css/companies.min.css')
         .styles([
+            'vendor/UnifyV1.9.1/plugins/scrollbar/css/jquery.mCustomScrollbar.css',
+            'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/css/sky-forms.css',
+            'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css',
+            'vendor/UnifyV1.9.1/css/pages/profile.css',
+            'vendor/UnifyV1.9.1/css/pages/shortcode_timeline2.css',
+        ], 'public/css/industries/companies/show.min.css')
+        .styles([
             'vendor/UnifyV1.9.1/css/pages/page_log_reg_v1.css',
         ], 'public/css/sign_in.min.css')
         .styles([
@@ -101,6 +108,18 @@ elixir(function (mix) {
             'vendor/Readmore.js/readmore.min.js',
         ], 'public/js/companies/index.min.js')
         .scripts([
+            'ahk/companies/show.js',
+            'vendor/UnifyV1.9.1/plugins/circles-master/circles.js',
+            'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js',
+            'vendor/UnifyV1.9.1/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js',
+            'vendor/UnifyV1.9.1/plugins/gmap/gmap.js',
+            'vendor/UnifyV1.9.1/js/plugins/datepicker.js',
+            'vendor/UnifyV1.9.1/js/plugins/circles-master.js',
+            'vendor/UnifyV1.9.1/js/forms/login.js',
+            'vendor/UnifyV1.9.1/js/forms/contact.js',
+            'vendor/UnifyV1.9.1/js/pages/page_contacts.js',
+        ], 'public/js/industries/companies/show.min.js')
+        .scripts([
             'vendor/Readmore.js/readmore.min.js',
             'ahk/my/companies/index.js'
         ], 'public/js/my/companies/index.min.js')
@@ -123,6 +142,7 @@ elixir(function (mix) {
         'public/css/health/news.min.css',
         'public/css/above-the-fold-content.min.css',
         'public/css/industries/work-groups.min.css',
+        'public/css/industries/companies/show.min.css',
 
         'public/js/master.min.js',
         'public/js/lt-ie9.min.js',
@@ -130,6 +150,7 @@ elixir(function (mix) {
         'public/js/companies/index.min.js',
         'public/js/my/companies/index.min.js',
         'public/js/my/companies/create-and-edit.min.js',
+        'public/js/industries/companies/show.min.js'
     ]);
 
     mix.browserSync({

@@ -32,6 +32,7 @@
         {!! $errors->first('country_id', ':message') !!}
     </div>
 </div>
+
 <div class="row">
     <div class="form-group col-md-6 @if($errors->first('phone_number')) alert alert-danger fade in @endif">
         <label for="phone_number"> <i class="fa fa-phone"></i> {!! trans('ahk.phone_number') !!}
@@ -89,7 +90,7 @@
 
         <div class="fileinput fileinput-new" data-provides="fileinput">
             <div class="fileinput-new thumbnail img-responsive">
-                <img alt="{!! trans('ahk.logo') !!}" src="{!! $company->logo->path ? route('files.render',
+                <img alt="{!! trans('ahk.logo') !!}" src="{!! $company->logo ? route('files.render',
                 ['path' => $company->logo->path]) : "" !!}">
             </div>
             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>

@@ -3,12 +3,6 @@
 @section('inline-css')
     <style>
         {!! File::get(public_path(elixir("css/companies.min.css"))) !!}
-
-
-
-
-
-        }
     </style>
     <style>
         .job-img {

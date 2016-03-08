@@ -9,6 +9,7 @@ namespace database\seeds;
 
 use App\Ahk\Company;
 use App\Ahk\File;
+use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\Country\DbCountryRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\Repositories\Service\DbServiceRepository;
@@ -40,6 +41,7 @@ class CompanyTableSeeder extends Seeder
 	 */
 	public function run()
 	{
+		$dbCompanyRepository = new DbCompanyRepository();
 		$industries = (new DbIndustryRepository())->all()->toArray();
 		$countries = (new DbCountryRepository())->all()->toArray();
 		$services = (new DbServiceRepository())->all()->toArray();
@@ -47,6 +49,7 @@ class CompanyTableSeeder extends Seeder
 		$faker = Factory::create();
 
 		foreach ($this->popularCompanies as $company) {
+
 			$company = factory(Company::class, 'without_relations')
 				->create([
 					'name'        => $company['name'],
@@ -56,6 +59,10 @@ class CompanyTableSeeder extends Seeder
 					'user_id'     => $faker->randomElement($companyRepresentativeUsers)['id'],
 					'logo_id'     => factory(File::class)->create()->id,
 				]);
+
+			$files = factory(File::class, 2)->create();
+
+			$dbCompanyRepository->assignFiles($company, $files);
 
 			$company->services()->attach([
 				$faker->randomElement($services)['id'] => ['offers' => true],

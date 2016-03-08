@@ -40,6 +40,6 @@
 @section('optimize-css-delivery')
     {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/my/companies/create-and-edit.min.css")) !!}
 @endsection
-@section('js')
+@section('js-files')
     <script src="{!! elixir('js/my/companies/create-and-edit.min.js') !!}"></script>
 @endsection

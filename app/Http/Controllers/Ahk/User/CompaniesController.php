@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Ahk\User;
 
 use App\Ahk\Company;
+use App\Ahk\Country;
 use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Notifications\Flash;
@@ -86,6 +87,7 @@ class CompaniesController extends Controller
 	{
 		$company = new Company;
 		$company->industry = new Industry;
+		$company->country = new Country;
 		$company->author = new User;
 		$company->logo = new File;
 

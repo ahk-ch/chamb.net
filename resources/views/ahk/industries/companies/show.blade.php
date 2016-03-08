@@ -1,13 +1,6 @@
 @extends('ahk.layouts.master')
-@section('title', 'Welcome')
-@section('css-implementing-plugins')
-    <link href='{!! url("assets/plugins/scrollbar/css/jquery.mCustomScrollbar.css") !!}' rel='stylesheet' type='text/css'/>
-    <link href='{!! url("assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css") !!}' rel='stylesheet' type='text/css'/>
-    <link href='{!! url("assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css") !!}' rel='stylesheet' type='text/css'/>
-@endsection
-@section('css-page-style')
-    <link href='{!! url("assets/css/pages/profile.css") !!}' rel='stylesheet' type='text/css'/>
-    <link href='{!! url("assets/css/pages/shortcode_timeline2.css") !!}' rel='stylesheet' type='text/css'/>
+@section('title', "{$company->name} - {$industry->name}")
+@section('inline-css')
 @endsection
 @section('header_links')
     @include('ahk._partials.header_default_links')
@@ -17,7 +10,8 @@
         <div class="row">
             <!--Left Sidebar-->
             <div class="col-md-3 md-margin-bottom-40">
-                <img class="img-responsive profile-img margin-bottom-20" src="{{ $company->logo }}" alt="">
+                <img class="img-responsive profile-img margin-bottom-20"
+                     src="{!! route('files.render', ['path' => $company->logo->path]) !!}" alt="">
 
                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
                     <li class="list-group-item active">
@@ -39,17 +33,20 @@
                 </div>
                 <h3 class="heading-xs">English <span class="pull-right">100%</span></h3>
                 <div class="progress progress-u progress-xxs">
-                    <div style="width: 100%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
+                    <div style="width: 100%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar"
+                         class="progress-bar progress-bar-u">
                     </div>
                 </div>
                 <h3 class="heading-xs">German <span class="pull-right">100%</span></h3>
                 <div class="progress progress-u progress-xxs">
-                    <div style="width: 100%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-blue">
+                    <div style="width: 100%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar"
+                         class="progress-bar progress-bar-blue">
                     </div>
                 </div>
                 <h3 class="heading-xs">Greek <span class="pull-right">100%</span></h3>
                 <div class="progress progress-u progress-xxs margin-bottom-40">
-                    <div style="width: 100%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="64" role="progressbar" class="progress-bar progress-bar-dark">
+                    <div style="width: 100%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="64" role="progressbar"
+                         class="progress-bar progress-bar-dark">
                     </div>
                 </div>
 
@@ -91,7 +88,8 @@
                         </div>
                     </li>
                 </ul>
-                <button type="button" class="btn-u btn-u-default btn-u-sm btn-block">{!! trans('ahk.load_more') !!}</button>
+                <button type="button"
+                        class="btn-u btn-u-default btn-u-sm btn-block">{!! trans('ahk.load_more') !!}</button>
                 <!--End Notification-->
 
                 <div class="margin-bottom-50"></div>
@@ -110,12 +108,15 @@
                     <div class="profile-bio">
                         <div class="row">
                             <div class="col-md-5">
-                                <img class="img-responsive md-margin-bottom-10" src="{!! $company->logo !!}" alt="">
+                                <img class="img-responsive md-margin-bottom-10"
+                                     src="{!! route('files.render', ['path' => $company->logo->path]) !!}" alt="">
                             </div>
                             <div class="col-md-7">
                                 <h2>{!! $company->name !!}</h2>
-                                <span><strong>{!! trans('ahk.country') !!}:</strong> {{ $company->country->name }}</span>
-                                <span><strong>{!! trans('ahk.business_leader') !!}:</strong> {{ $company->business_leader }}</span>
+                                <span><strong>{!! trans('ahk.country') . ":"!!}
+                                    </strong> {{ $company->country->name }}</span>
+                                <span><strong>{!! trans('ahk.business_leader') . ":"!!}
+                                    </strong> {{ $company->business_leader }}</span>
                                 <hr>
                                 <p>{{ $company->description }}</p>
                             </div>
@@ -132,16 +133,17 @@
                                     <h2 class="panel-title heading-sm pull-left">
                                         <i class="fa fa-pencil"></i> {!! trans('ahk.what_are_we_looking_for') !!}</h2>
                                 </div>
-                                <div id="scrollbar" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
+                                <div id="scrollbar" class="panel-body no-padding mCustomScrollbar"
+                                     data-mcs-theme="minimal-dark">
 
                                     @foreach($company->requiresServices as $key => $service)
-                                    <div class="profile-post {!! $service->color !!}">
-                                        <span class="profile-post-numb">{!! sprintf("%02d", $key + 1) !!}</span>
-                                        <div class="profile-post-in">
-                                            <h3 class="heading-xs"><a href="#">{!! $service->name !!}</a></h3>
-                                            <p>Optional description of this service</p>
+                                        <div class="profile-post {!! $service->color !!}">
+                                            <span class="profile-post-numb">{!! sprintf("%02d", $key + 1) !!}</span>
+                                            <div class="profile-post-in">
+                                                <h3 class="heading-xs"><a href="#">{!! $service->name !!}</a></h3>
+                                                <p>Optional description of this service</p>
+                                            </div>
                                         </div>
-                                    </div>
                                     @endforeach
 
                                 </div>
@@ -154,7 +156,8 @@
                                     <h2 class="panel-title heading-sm pull-left">
                                         <i class="fa fa-lightbulb-o"></i> {!! trans('ahk.what_we_can_offer') !!}</h2>
                                 </div>
-                                <div id="scrollbar" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
+                                <div id="scrollbar" class="panel-body no-padding mCustomScrollbar"
+                                     data-mcs-theme="minimal-dark">
 
                                     @foreach($company->offersServices as $key => $service)
                                         <div class="profile-post {!! $service->color !!}">
@@ -225,7 +228,9 @@
                                     <i class="cbp_tmicon rounded-x hidden-xs"></i>
                                     <div class="cbp_tmlabel">
                                         <h2>Harvard University</h2>
-                                        <p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Peasprouts wattle seed rutabaga okra yarrow cress avocado grape.</p>
+                                        <p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean
+                                            cucumber watercress. Peasprouts wattle seed rutabaga okra yarrow cress
+                                            avocado grape.</p>
                                     </div>
                                 </li>
                                 <li>
@@ -235,7 +240,8 @@
                                     <i class="cbp_tmicon rounded-x hidden-xs"></i>
                                     <div class="cbp_tmlabel">
                                         <h2>Imperial College London</h2>
-                                        <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce.</p>
+                                        <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper
+                                            water spinach kombu courgette lettuce.</p>
                                     </div>
                                 </li>
                                 <li>
@@ -245,7 +251,9 @@
                                     <i class="cbp_tmicon rounded-x hidden-xs"></i>
                                     <div class="cbp_tmlabel">
                                         <h2>Chicago High School</h2>
-                                        <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot.</p>
+                                        <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper
+                                            water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote
+                                            radicchio shallot.</p>
                                     </div>
                                 </li>
                             </ul>
@@ -259,22 +267,10 @@
         </div>
     </div>
 @endsection
-@section('js-implementing-plugins')
-    <script type="text/javascript" src='{!! url("assets/plugins/circles-master/circles.js") !!}'></script>
-    <script type="text/javascript" src='{!! url("assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js") !!}'></script>
-    <script type="text/javascript" src='{!! url("assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js") !!}'></script>
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
-    <script type="text/javascript" src='{!! url("assets/plugins/gmap/gmap.js") !!}'></script>
+@section('optimize-css-delivery')
+    {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/industries/companies/show.min.css")) !!}
 @endsection
-@section('js-page-level')
-    <script type="text/javascript" src='{!! url("assets/js/plugins/datepicker.js") !!}'></script>
-    <script type="text/javascript" src='{!! url("assets/js/plugins/circles-master.js") !!}'></script>
-    <script type="text/javascript" src='{!! url("assets/js/forms/login.js") !!}'></script>
-    <script type="text/javascript" src='{!! url("assets/js/forms/contact.js") !!}'></script>
-    <script type="text/javascript" src='{!! url("assets/js/pages/page_contacts.js") !!}'></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function () {
-            ContactPage.initMap();
-        });
-    </script>
+@section('js-files')
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="{!! elixir('js/industries/companies/show.min.js') !!}"></script>
 @endsection

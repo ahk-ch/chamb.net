@@ -17,12 +17,8 @@ class CommunityTest extends TestCase
 {
 	use DatabaseMigrations;
 
-	/**
-	 * A basic functional test example.
-	 *
-	 * @return void
-	 */
-	public function test_it_reads_contents()
+	/** @test */
+	public function test_it_reads_companies_index()
 	{
 		$industry = factory(Industry::class)->create();
 		$companies = factory(Company::class, 2)->create(['industry_id' => $industry->id]);
@@ -35,5 +31,17 @@ class CommunityTest extends TestCase
 			->see(route('files.render', ['path' => $companies->get(0)->logo->path ]))
 			->see($companies->get(1)->name)
 			->see(route('files.render', ['path' => $companies->get(1)->logo->path ]));
+	}
+
+	/** @test */
+	public function test_it_reads_companies_show()
+	{
+		$industry = factory(Industry::class)->create();
+		$company = factory(Company::class)->create(['industry_id' => $industry->id]);
+
+		$this->visit(route('industries.companies.show', ['industry_slug' => $industry->slug, 'company_slug' => $company->slug]))
+			->seePageIs(route('industries.companies.show', ['industry_slug' => $industry->slug, 'company_slug' => $company->slug]))
+			->see("<title> {$company->name} - {$industry->name} · Chamb.Net</title>")
+			->see(route('files.render', ['path' => $company->logo->path]));
 	}
 }

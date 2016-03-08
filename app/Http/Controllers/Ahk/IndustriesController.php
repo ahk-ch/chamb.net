@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Ahk;
 
+use App\Ahk\Company;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Article\ArticleRepository;
 use App\Ahk\Repositories\Industry\IndustryRepository;
@@ -89,11 +90,23 @@ class IndustriesController extends Controller
 	 * @param Industry $industry
 	 * @return \Illuminate\Http\Response
 	 */
-	public function companies(Industry $industry)
+	public function indexCompanies(Industry $industry)
 	{
 		$companies = $this->industryRepository->getCompanies($industry);
 
 		return view('ahk.industries.companies.index', compact('industry', 'companies'));
+	}
+
+	/**
+	 * Display a listing of the news resource.
+	 *
+	 * @param Industry $industry
+	 * @param Company $company
+	 * @return \Illuminate\Http\Response
+	 */
+	public function showCompanies(Industry $industry, Company $company)
+	{
+		return view('ahk.industries.companies.show', compact('industry', 'company'));
 	}
 }
 

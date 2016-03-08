@@ -18,7 +18,6 @@ class FilesController extends Controller
 		$path = $request->get('path');
 
 		return Storage::get($path);
-//		return response()->file($path);
 	}
 
 	/**

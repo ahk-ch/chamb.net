@@ -81,6 +81,16 @@ class Company extends Model implements SluggableInterface
 	];
 
 	/**
+	 * Get the route key for the model.
+	 *
+	 * @return string
+	 */
+	public function getRouteKeyName()
+	{
+		return self::SLUG;
+	}
+
+	/**
 	 * Get the industry of this company.
 	 */
 	public function industry()
