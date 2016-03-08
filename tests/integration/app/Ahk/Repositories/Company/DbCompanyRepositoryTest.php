@@ -89,7 +89,7 @@ class DbCompanyRepositoryTest extends TestCase
 
 		$keys = $newCompanyData->getFillable();
 
-		if ( false !== ($key = array_search(Company::SLUG, $keys)) ) unset($keys[ $key ]);
+		if (false !== ($key = array_search(Company::SLUG, $keys))) unset($keys[ $key ]);
 
 		$expectedCompanyData = array_only($newCompanyData->toArray(), $keys);
 		$currentCompanyData = array_only($company->toArray(), $keys);
@@ -184,17 +184,40 @@ class DbCompanyRepositoryTest extends TestCase
 	}
 
 	/** @test */
-	public function it_assigns_logo_by_id()
+	public function it_assigns_logo_by_id_to_company()
 	{
 		$dbCompanyRepository = new DbCompanyRepository();
 		$company = factory(Company::class)->create();
 		$expectedFile = factory(File::class)->create();
 
-		$this->assertNotSame($company->logo->id, $expectedFile->id);
+		$this->assertNotSame($company->logo->name, $expectedFile->name);
 
 		$company = $dbCompanyRepository->assignLogoById($company, $expectedFile->id);
 
-		$this->assertSame($company->logo->id, $expectedFile->id);
+		$this->assertSame($company->logo->name, $expectedFile->name);
 	}
 
+	/** @test */
+	public function it_assigns_file_to_company()
+	{
+		$dbCompanyRepository = new DbCompanyRepository();
+		$company = factory(Company::class)->create();
+		$expectedFile = factory(File::class)->create();
+
+		$this->assertCount(0, $company->files);
+		$company = $dbCompanyRepository->assignFiles($company, [$expectedFile]);
+		$this->assertCount(1, $company->files()->get());
+		$this->assertSame(
+			$company->files()->get()->get(0)->name,
+			$expectedFile->name);
+
+		$expectedFile = factory(File::class)->create();
+		$expectedFile1 = factory(File::class)->create();
+
+		$company = $dbCompanyRepository->assignFiles($company, [$expectedFile, $expectedFile1]);
+		$this->assertCount(3, $company->files()->get());
+		$this->assertSame(
+			$company->files()->get()->get(2)->name,
+			$expectedFile1->name);
+	}
 }

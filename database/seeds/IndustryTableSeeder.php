@@ -26,7 +26,7 @@ class IndustryTableSeeder extends Seeder
 		$industries = $dbIndustryRepository->all();
 
 		foreach ($industries as $industry) {
-			factory(Company::class, 'without_industry', 30)->create(['industry_id' => $industry->id]);
+			factory(Company::class, 'without_industry', 11)->create(['industry_id' => $industry->id]);
 		}
 	}
 }

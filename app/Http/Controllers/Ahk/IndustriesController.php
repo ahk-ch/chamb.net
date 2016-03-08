@@ -62,7 +62,7 @@ class IndustriesController extends Controller
 	 * @param Industry $industry
 	 * @return \Illuminate\Http\Response
 	 */
-	public function workGroups(Industry $industry)
+	public function indexWorkGroup(Industry $industry)
 	{
 		$workGroups = $this->industryRepository->paginateWorkGroups($industry);
 		
@@ -76,9 +76,11 @@ class IndustriesController extends Controller
 	 * @param Workgroup $workGroup
 	 * @return \Illuminate\Http\Response
 	 */
-	public function workGroupShow(Industry $industry, Workgroup $workGroup)
+	public function showWorkGroup(Industry $industry, Workgroup $workGroup)
 	{
-		return view('ahk.industries.work_groups.show', compact('industry', 'workGroup'));
+		$articles = $this->articleRepository->mostViewed(3)->get();
+
+		return view('ahk.industries.work_groups.show', compact('industry', 'workGroup', 'articles'));
 	}
 
 	/**

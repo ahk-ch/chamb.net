@@ -16,8 +16,8 @@ Route::group(['prefix' => 'industries/{industry_slug}'], function ()
 {
 	Route::get('info', ['as' => 'industries.info', 'uses' => 'Ahk\IndustriesController@info']);
 	Route::get('news', ['as' => 'industries.news', 'uses' => 'Ahk\IndustriesController@news']);
-	Route::get('work-groups', ['as' => 'industries.work_groups.index', 'uses' => 'Ahk\IndustriesController@workGroups']);
-	Route::get('work-groups/{work_group_slug}', ['as' => 'industries.work_groups.show', 'uses' => 'Ahk\IndustriesController@workGroupShow']);
+	Route::get('work-groups', ['as' => 'industries.work_groups.index', 'uses' => 'Ahk\IndustriesController@indexWorkGroup']);
+	Route::get('work-groups/{work_group_slug}', ['as' => 'industries.work_groups.show', 'uses' => 'Ahk\IndustriesController@showWorkGroup']);
 	Route::get('events', ['as' => 'industries.events', 'uses' => 'Ahk\WorkingGroupsController@index']);
 	Route::get('links', ['as' => 'industries.links', 'uses' => 'Ahk\WorkingGroupsController@index']);
 	Route::get('downloads', ['as' => 'industries.downloads', 'uses' => 'Ahk\IndustriesController@index']);

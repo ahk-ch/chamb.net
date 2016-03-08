@@ -152,4 +152,18 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 
         return $company->save() ? $company : false;
     }
+
+    /**
+     * Add files to company
+     *
+     * @param Company $company
+     * @param array $files
+     * @return Company|false
+     */
+    public function assignFiles(Company $company, array $files)
+    {
+        $company->files()->saveMany($files);
+
+        return $company->save() ? $company : false;
+    }
 }

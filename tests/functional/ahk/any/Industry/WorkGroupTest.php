@@ -10,6 +10,8 @@ namespace functional\ahk\any\Industry;
 
 
 use App\Ahk\Article;
+use App\Ahk\Company;
+use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Article\DbArticleRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
@@ -51,7 +53,7 @@ class WorkGroupTest extends TestCase
 	}
 
 	/** @test */
-	public function it_view_work_groups_show()
+	public function it_reads_work_groups_show()
 	{
 		$dbIndustryRepository = new DbIndustryRepository();
 		$dbArticleRepository = new DbArticleRepository();
@@ -59,7 +61,12 @@ class WorkGroupTest extends TestCase
 		$industry = factory(Industry::class)->create();
 		$workGroup = factory(Workgroup::class)->create();
 		$dbIndustryRepository->assignWorkGroupsById($industry, [$workGroup->id]);
-		factory(Article::class, 4)->create();
+		$articles = factory(Article::class, 4)->create(['industry_id' => $industry->id, 'publish' => 1]);
+		$articleChecker = factory(Article::class)->create();
+
+		$company = factory(Company::class)->create(['industry_id' => $industry->id]);
+		$file = factory(File::class)->create();
+		$file->
 
 		$this
 			->visit(route('industries.work_groups.show',
@@ -71,6 +78,12 @@ class WorkGroupTest extends TestCase
 			->see("<span>Ideas</span>")
 			->see("<span>Decisions</span>")
 			->see("<span>Events</span>")
-			->see('<h2 class="title-v2 title-center">POPULAR NEWS</h2>');
+			->see('<h2 class="title-v2 title-center">POPULAR NEWS</h2>')
+			->see($articles->get(0)->title)
+			->see($articles->get(1)->title)
+			->see($articles->get(2)->title)
+			->dontSee($articles->get(3)->title)
+			->dontSee($articleChecker->title)
+			->see('<h2 class="title-v2 title-center">PROTOCOLS</h2>');
 	}
 }

@@ -1,6 +1,9 @@
 @extends('ahk.layouts.master')
-@section('title', 'Workgroup')
+@section('title', "{$workGroup->name} - {$industry->name}")
 @section('inline-css')
+    <style>
+        {!! File::get(public_path(elixir("css/industries/work-groups.min.css"))) !!}
+    </style>
     <style type="text/css">
         .service-block-v5 {
             background: url('/build/img/breadcrumbs/img3.jpg') no-repeat;
@@ -19,7 +22,7 @@
                 <a href="#protocols">
                     <div class="col-md-3 service-inner equal-height-column">
                         <i class="icon-custom icon-md rounded-x icon-bg-u icon-diamond"></i>
-                        <span>Protocols>
+                        <span>Protocols</span>
                     </div>
                 </a>
 
@@ -54,42 +57,24 @@
         </div>
 
         <div class="row news-v2">
-            <div class="col-md-4 md-margin-bottom-30">
-                <div class="news-v2-badge">
-                    <img class="img-responsive" src="assets/img/main/img12.jpg" alt="">
-                    <p>
-                        <span>26</span>
-                        <small>Feb</small>
-                    </p>
+            @foreach($articles as $article)
+                <div class="col-md-4 md-margin-bottom-30">
+                    <a href="#">
+                        <div class="news-v2-badge">
+                            <img class="img-responsive"
+                                 src="{!! route('files.render', ['path' => $article->thumbnail->path]) !!}"
+                                 alt="{{ $article->title }} Logo">
+                            <p>
+                                <span>{!! $article->created_at->format('d') !!}</span>
+                                <small>{!! $article->created_at->format('M') !!}</small>
+                            </p>
+                        </div>
+                        <div class="news-v2-desc bg-color-light">
+                            <h3>{{ $article->title }}</h3>
+                        </div>
+                    </a>
                 </div>
-                <div class="news-v2-desc bg-color-light">
-                    <h3><a href="#">Corrupti Quos Dolores</a></h3>
-                </div>
-            </div>
-            <div class="col-md-4 md-margin-bottom-30">
-                <div class="news-v2-badge">
-                    <img class="img-responsive" src="assets/img/main/img3.jpg" alt="">
-                    <p>
-                        <span>24</span>
-                        <small>Feb</small>
-                    </p>
-                </div>
-                <div class="news-v2-desc bg-color-light">
-                    <h3><a href="#">Blanditi Praesium Voluptum</a></h3>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="news-v2-badge">
-                    <img class="img-responsive" src="assets/img/main/img16.jpg" alt="">
-                    <p>
-                        <span>21</span>
-                        <small>Feb</small>
-                    </p>
-                </div>
-                <div class="news-v2-desc bg-color-light">
-                    <h3><a href="#">Key Digital Services</a></h3>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 
