@@ -75,6 +75,28 @@ class DbCompanyRepositoryTest extends TestCase
 	}
 
 	/** @test */
+	public function it_returns_files_of_companies_by_industry()
+	{
+		$dbCompanyRepository = new DbCompanyRepository();
+
+		$industry = factory(Industry::class)->create();
+		$companies = factory(Company::class, 2)->create(['industry_id' => $industry->id]);
+		$files0 = factory(File::class, 2)->create();
+		$files1 = factory(File::class, 2)->create();
+
+		$files = $industry->files()->get();
+
+		$this->assertCount(0, $files);
+
+		$this->assertNotFalse($dbCompanyRepository->assignFiles($companies->get(0), $files0));
+		$this->assertNotFalse($dbCompanyRepository->assignFiles($companies->get(1), $files1));
+
+		$files = $industry->files()->get();
+
+		$this->assertCount(4, $files);
+	}
+
+	/** @test */
 	public function it_updates_company_by_user()
 	{
 		$dbCompanyRepository = new DbCompanyRepository();

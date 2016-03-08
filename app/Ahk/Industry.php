@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 class Industry extends Model implements SluggableInterface
 {
 	use SluggableTrait;
-	
+
 	/**
 	 *
 	 */
@@ -38,7 +38,7 @@ class Industry extends Model implements SluggableInterface
 	 */
 	protected $sluggable = [
 		'build_from' => self::NAME,
-		'save_to' => self::SLUG,
+		'save_to'    => self::SLUG,
 	];
 
 	/**
@@ -56,7 +56,25 @@ class Industry extends Model implements SluggableInterface
 	 */
 	public function countries()
 	{
-		return $this->hasMany('App\Ahk\Company');
+		return $this->hasMany(Country::class);
+	}
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function companies()
+	{
+		return $this->hasMany(Company::class);
+	}
+
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function files()
+	{
+		return $this->hasManyThrough(File::class, Company::class, 'industry_id', 'fileable_id')
+			->where('fileable_type', basename(Company::class));
 	}
 
 	/**
@@ -72,15 +90,15 @@ class Industry extends Model implements SluggableInterface
 	 */
 	public function author()
 	{
-		return $this->belongsTo('App\Ahk\User');
+		return $this->belongsTo(User::class);
 	}
-	
+
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
 	 */
 	public function workgroups()
 	{
-		return $this->belongsToMany('App\Ahk\Workgroup')->withTimestamps();
+		return $this->belongsToMany(Workgroup::class)->withTimestamps();
 	}
 }
 

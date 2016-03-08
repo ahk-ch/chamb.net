@@ -14,6 +14,7 @@ use App\Ahk\Company;
 use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Article\DbArticleRepository;
+use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\Workgroup;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -57,6 +58,7 @@ class WorkGroupTest extends TestCase
 	{
 		$dbIndustryRepository = new DbIndustryRepository();
 		$dbArticleRepository = new DbArticleRepository();
+		$dbCompanyRepository = new DbCompanyRepository();
 
 		$industry = factory(Industry::class)->create();
 		$workGroup = factory(Workgroup::class)->create();
@@ -65,8 +67,8 @@ class WorkGroupTest extends TestCase
 		$articleChecker = factory(Article::class)->create();
 
 		$company = factory(Company::class)->create(['industry_id' => $industry->id]);
-		$file = factory(File::class)->create();
-		$file->
+		$files = factory(File::class, 2)->create();
+		$dbCompanyRepository->assignFiles($company, $files);
 
 		$this
 			->visit(route('industries.work_groups.show',
@@ -84,6 +86,10 @@ class WorkGroupTest extends TestCase
 			->see($articles->get(2)->title)
 			->dontSee($articles->get(3)->title)
 			->dontSee($articleChecker->title)
-			->see('<h2 class="title-v2 title-center">PROTOCOLS</h2>');
+			->see('<h2 class="title-v2 title-center">PROTOCOLS</h2>')
+			->see($files->get(0)->name)
+			->see($files->get(0)->description)
+			->see($files->get(1)->name)
+			->see($files->get(1)->description);
 	}
 }
