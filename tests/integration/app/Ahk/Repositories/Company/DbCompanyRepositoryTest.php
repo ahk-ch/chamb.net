@@ -13,6 +13,7 @@ use App\Ahk\Event;
 use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
+use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -97,20 +98,21 @@ class DbCompanyRepositoryTest extends TestCase
 	public function it_returns_files_of_companies_by_industry()
 	{
 		$dbCompanyRepository = new DbCompanyRepository();
+		$dbIndustryRepository = new DbIndustryRepository();
 
 		$industry = factory(Industry::class)->create();
 		$companies = factory(Company::class, 2)->create(['industry_id' => $industry->id]);
 		$files0 = factory(File::class, 2)->create();
 		$files1 = factory(File::class, 2)->create();
 
-		$files = $industry->files()->get();
+		$files = $dbIndustryRepository->companyFiles($industry)->get();
 
 		$this->assertCount(0, $files);
 
 		$this->assertNotFalse($dbCompanyRepository->assignFiles($companies->get(0), $files0));
 		$this->assertNotFalse($dbCompanyRepository->assignFiles($companies->get(1), $files1));
 
-		$files = $industry->files()->get();
+		$files = $dbIndustryRepository->companyFiles($industry)->get();
 
 		$this->assertCount(4, $files);
 	}

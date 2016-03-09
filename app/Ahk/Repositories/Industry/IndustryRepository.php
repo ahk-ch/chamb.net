@@ -83,4 +83,12 @@ interface IndustryRepository
 	 * @return mixed
 	 */
 	public function companyEvents(Industry $industry);
+
+	/**
+	 * Get all files of companies belonging to an industry
+	 *
+	 * @param Industry $industry
+	 * @return mixed
+	 */
+	public function companyFiles(Industry $industry);
 }

@@ -47,18 +47,18 @@ class DbEventRepositoryTest extends TestCase
 
 		$this->assertCount(0, $event->files);
 		$event = $dbEventRepository->assignFiles($event, [$expectedFile]);
-		$this->assertCount(1, $event->companyFiles()->get());
+		$this->assertCount(1, $event->files()->get());
 		$this->assertSame(
-			$event->companyFiles()->get()->get(0)->name,
+			$event->files()->get()->get(0)->name,
 			$expectedFile->name);
 
 		$expectedFile = factory(File::class)->create();
 		$expectedFile1 = factory(File::class)->create();
 
 		$event = $dbEventRepository->assignFiles($event, [$expectedFile, $expectedFile1]);
-		$this->assertCount(3, $event->companyFiles()->get());
+		$this->assertCount(3, $event->files()->get());
 		$this->assertSame(
-			$event->companyFiles()->get()->get(2)->name,
+			$event->files()->get()->get(2)->name,
 			$expectedFile1->name);
 	}
 
@@ -73,16 +73,15 @@ class DbEventRepositoryTest extends TestCase
 		$events0 = factory(Event::class, 2)->create();
 		$events1 = factory(Event::class, 2)->create();
 
-		$events = $industry->companyFiles()->get();
-		$events = $dbIndustryRepository->companyFiles()->get();
+		$events = $dbIndustryRepository->companyEvents($industry)->get();
 
-		$this->assertCount(0, $files);
+		$this->assertCount(0, $events);
 
-		$this->assertNotFalse($dbCompanyRepository->assignFiles($companies->get(0), $events0));
-		$this->assertNotFalse($dbCompanyRepository->assignFiles($companies->get(1), $events1));
+		$this->assertNotFalse($dbCompanyRepository->assignEvents($companies->get(0), $events0));
+		$this->assertNotFalse($dbCompanyRepository->assignEvents($companies->get(1), $events1));
 
-		$files = $industry->companyFiles()->get();
+		$events = $dbIndustryRepository->companyEvents($industry)->get();
 
-		$this->assertCount(4, $files);
+		$this->assertCount(4, $events);
 	}
 }

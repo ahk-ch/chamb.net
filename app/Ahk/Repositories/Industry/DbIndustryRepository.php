@@ -127,5 +127,16 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 	{
 		return $industry->companyEvents();
 	}
+
+	/**
+	 * Get all files of companies belonging to an industry
+	 *
+	 * @param Industry $industry
+	 * @return mixed
+	 */
+	public function companyFiles(Industry $industry)
+	{
+		return $industry->companyFiles();
+	}
 }
 

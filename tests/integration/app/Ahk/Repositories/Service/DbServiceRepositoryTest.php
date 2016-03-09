@@ -21,18 +21,13 @@ class DbServiceRepositoryTest extends TestCase
 	{
 		$dbServiceRepository = new DbServiceRepository();
 
-		$this->assertCount(0, $dbServiceRepository->all());
+		$this->assertCount(8, $dbServiceRepository->all());
 
 		factory(Service::class, 2)->create();
 
 		$expectedServices = $dbServiceRepository->all();
 
-		$this->assertCount(2, $expectedServices);
-
-		$this->assertSame(
-			array_only($expectedServices->toArray(), $expectedServices[0]->getFillable()),
-			array_only($expectedServices->toArray(), $expectedServices[1]->getFillable())
-		);
+		$this->assertCount(10, $expectedServices);
 	}
 
 }

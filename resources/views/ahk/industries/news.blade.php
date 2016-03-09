@@ -2,7 +2,7 @@
 @section('title', 'News')
 @section('css')
 {{--    <link href='{!! url("assets/plugins/fancybox/source/jquery.fancybox.css") !!}' rel='stylesheet' type='text/css'/>--}}
-    <link href='{!! elixir("css/health/news.min.css") !!}' rel='stylesheet' type='text/css'/>
+    {{--<link href='{!! elixir("css/health/news.min.css") !!}' rel='stylesheet' type='text/css'/>--}}
 @endsection
 @section('header_links')
     @include('ahk._partials.header_industries_links')
