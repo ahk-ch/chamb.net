@@ -7,6 +7,7 @@
 
 use App\Ahk\Event;
 use App\Ahk\Repositories\DbRepository;
+use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Class DbEventRepository
@@ -22,5 +23,19 @@ class DbEventRepository extends DbRepository implements EventRepository
 	public function all()
 	{
 		return Event::all();
+	}
+
+	/**
+	 * Add files to event
+	 *
+	 * @param Event $event
+	 * @param array|Collection $files
+	 * @return Event|false
+	 */
+	public function assignFiles(Event $event, $files)
+	{
+		$event->files()->saveMany($files);
+
+		return $event->save() ? $event : false;
 	}
 }
