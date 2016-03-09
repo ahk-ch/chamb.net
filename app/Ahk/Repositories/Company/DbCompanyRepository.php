@@ -167,4 +167,13 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 
 		return $company->save() ? $company : false;
 	}
+
+	/**
+	 * Return all companies
+	 * @return mixed
+	 */
+	public function all()
+	{
+		return Company::all();
+	}
 }

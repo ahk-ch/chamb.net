@@ -22,6 +22,12 @@ interface CompanyRepository
 	public function paginate($items = 10);
 
 	/**
+	 * Return all companies
+	 * @return mixed
+	 */
+	public function all();
+
+	/**
 	 * Return all companies owned by given user, ready to be paginated
 	 * @param User $user
 	 * @return mixed

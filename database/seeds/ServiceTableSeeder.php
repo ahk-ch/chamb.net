@@ -1,6 +1,5 @@
 <?php namespace database\seeds;
 
-use App\Ahk\Service;
 use Illuminate\Database\Seeder;
 
 /**
@@ -10,13 +9,13 @@ use Illuminate\Database\Seeder;
 class ServiceTableSeeder extends Seeder
 {
 
-    /**
-     * Run the database seeds. Services have been inserted on creation.
-     *
-     * @return void
-     */
-    public function run()
-    {
-    }
+	/**
+	 * Run the database seeds. Services have been inserted on creation.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+	}
 }
 

@@ -50,6 +50,24 @@ class DbCompanyRepositoryTest extends TestCase
 	}
 
 	/** @test */
+	public function it_returns_all_companies()
+	{
+		$dbCompanyRepository = new DbCompanyRepository();
+
+		$this->assertCount(0, $dbCompanyRepository->all());
+
+		$actualCompanies = factory(Company::class, 2)->create();
+
+		$expectedCompanies = $dbCompanyRepository->all();
+
+		$this->assertSame(2, $expectedCompanies->count());
+
+		$this->assertSame(
+			array_only($expectedCompanies->toArray(), $expectedCompanies[0]->getFillable()),
+			array_only($actualCompanies->toArray(), $expectedCompanies[0]->getFillable()));
+	}
+
+	/** @test */
 	public function it_returns_companies_by_user()
 	{
 		$dbCompanyRepository = new DbCompanyRepository();

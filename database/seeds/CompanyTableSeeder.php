@@ -63,9 +63,7 @@ class CompanyTableSeeder extends Seeder
 				'user_id'     => $faker->randomElement($companyRepresentativeUsers)['id'],
 				'logo_id'     => factory(File::class)->create()->id,]);
 
-			$files = factory(File::class, 2)->create();
-
-			$dbCompanyRepository->assignFiles($company, $files);
+			$dbCompanyRepository->assignFiles($company, factory(File::class, 2)->create());
 
 			$company->services()->attach([
 				$faker->randomElement($services)['id'] => ['offers' => true],
@@ -83,11 +81,9 @@ class CompanyTableSeeder extends Seeder
 		foreach ($industries as $industry)
 		{
 			factory(Company::class, 'without_industry', 11)->create(['industry_id' => $industry->id])
-				->each(function ($company) use ($services, $faker, $dbCompanyRepository)
+				->each(function (Company $company) use ($services, $faker, $dbCompanyRepository)
 				{
-					$files = factory(File::class, 2)->create();
-
-					$dbCompanyRepository->assignFiles($company, $files);
+					$dbCompanyRepository->assignFiles($company, factory(File::class, 2)->create());
 
 					$company->services()->attach([
 						$faker->randomElement($services)['id'] => ['offers' => true],

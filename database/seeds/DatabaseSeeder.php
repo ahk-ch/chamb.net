@@ -3,6 +3,7 @@
 use database\seeds\ArticleTableSeeder;
 use database\seeds\CompanyTableSeeder;
 use database\seeds\CountryTableSeeder;
+use database\seeds\FileTableSeeder;
 use database\seeds\IndustryTableSeeder;
 use database\seeds\ServiceTableSeeder;
 use database\seeds\TagTableSeeder;
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CompanyTableSeeder::class);
         $this->call(WorkgroupTableSeeder::class);
         $this->call(ArticleTableSeeder::class);
+        $this->call(FileTableSeeder::class);
 
         Model::reguard();
     }
