@@ -8,7 +8,9 @@
 namespace tests\integration\app\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
+use App\Ahk\Event;
 use App\Ahk\Industry;
+use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\User;
 use App\Ahk\Workgroup;
@@ -187,5 +189,31 @@ class DbIndustryRepositoryTest extends TestCase
 			array_only($actualWorkGroups->get(1)->toArray(), $keys));
 	}
 
+	/** @test */
+	public function it_returns_all_companies_events_by_industry()
+	{
+		$dbCompanyRepository = new DbCompanyRepository();
+		$dbIndustryRepository = new DbIndustryRepository();
+
+		$industry = factory(Industry::class)->create();
+		$companies = factory(Company::class, 2)->create(['industry_id' => $industry->id]);
+		$events0 = factory(Event::class, 2)->create();
+		$events1 = factory(Event::class, 2)->create();
+
+		$events = $dbIndustryRepository->companyEvents($industry)->get();
+
+		$this->assertCount(0, $events);
+
+		$this->assertNotFalse($dbCompanyRepository->assignEvents($companies->get(0), $events0));
+		$this->assertNotFalse($dbCompanyRepository->assignEvents($companies->get(1), $events1));
+
+		$events = $dbIndustryRepository->companyEvents($industry)->get();
+
+		$this->assertCount(4, $events);
+
+		$this->assertSame(
+			$events0->merge($events1)->lists('id')->toArray(),
+			$events->lists('id')->toArray());
+	}
 }
 

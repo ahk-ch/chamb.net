@@ -67,14 +67,22 @@ class Industry extends Model implements SluggableInterface
 		return $this->hasMany(Company::class);
 	}
 
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function companyFiles()
+	{
+		return $this->hasManyThrough(File::class, Company::class, 'industry_id', 'fileable_id')
+			->where('fileable_type', basename(Company::class));
+	}
 
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
-	public function files()
+	public function companyEvents()
 	{
-		return $this->hasManyThrough(File::class, Company::class, 'industry_id', 'fileable_id')
-			->where('fileable_type', basename(Company::class));
+		return $this->hasManyThrough(Event::class, Company::class, 'industry_id', 'eventable_id')
+			->where('eventable_type', basename(Company::class));
 	}
 
 	/**

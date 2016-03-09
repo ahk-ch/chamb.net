@@ -116,5 +116,16 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 	{
 		return $industry->workgroups()->paginate($perPage, $columns, $pageName, $page);
 	}
+
+	/**
+	 * Get all events of companies belonging to an industry
+	 *
+	 * @param Industry $industry
+	 * @return mixed
+	 */
+	public function companyEvents(Industry $industry)
+	{
+		return $industry->companyEvents();
+	}
 }
 

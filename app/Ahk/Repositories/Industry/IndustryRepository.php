@@ -75,4 +75,12 @@ interface IndustryRepository
 	 * @return Collection
 	 */
 	public function paginateWorkGroups(Industry $industry, $perPage = null, $columns = ['*'], $pageName = 'page', $page = null);
+
+	/**
+	 * Get all events of companies belonging to an industry
+	 *
+	 * @param Industry $industry
+	 * @return mixed
+	 */
+	public function companyEvents(Industry $industry);
 }

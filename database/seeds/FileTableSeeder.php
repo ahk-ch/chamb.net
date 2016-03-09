@@ -24,18 +24,18 @@ class FileTableSeeder extends Seeder
 		$dbCompanyRepository = new DbCompanyRepository();
 		$dbEventRepository = new DbEventRepository();
 
-		foreach ($dbCompanyRepository->all() as $company)
+		foreach ($dbCompanyRepository->all() as $event)
 		{
 			$files = factory(File::class, 2)->create();
 
-			$dbCompanyRepository->assignFiles($company, $files);
+			$dbCompanyRepository->assignFiles($event, $files);
 		}
 
-		foreach ($dbEventRepository->all() as $company)
+		foreach ($dbEventRepository->all() as $event)
 		{
 			$files = factory(File::class, 2)->create();
 
-			$dbEventRepository->all($company, $files);
+			$dbEventRepository->assignFiles($event, $files);
 		}
 	}
 }
