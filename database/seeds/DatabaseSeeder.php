@@ -1,15 +1,5 @@
-<?php
+<?php namespace database\seeds;
 
-use database\seeds\ArticleTableSeeder;
-use database\seeds\CompanyTableSeeder;
-use database\seeds\CountryTableSeeder;
-use database\seeds\EventTableSeeder;
-use database\seeds\FileTableSeeder;
-use database\seeds\IndustryTableSeeder;
-use database\seeds\ServiceTableSeeder;
-use database\seeds\TagTableSeeder;
-use database\seeds\UserTableSeeder;
-use database\seeds\WorkgroupTableSeeder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
@@ -33,8 +23,8 @@ class DatabaseSeeder extends Seeder
 		$this->call(WorkgroupTableSeeder::class);
 		$this->call(ArticleTableSeeder::class);
 		$this->call(ServiceTableSeeder::class);
-		$this->call(FileTableSeeder::class);
 		$this->call(EventTableSeeder::class);
+		$this->call(FileTableSeeder::class);
 
 		Model::reguard();
 	}

@@ -8,7 +8,6 @@ namespace database\seeds;
 
 use App\Ahk\Event;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
-use Faker\Factory;
 use Illuminate\Database\Seeder;
 
 class EventTableSeeder extends Seeder
@@ -26,7 +25,7 @@ class EventTableSeeder extends Seeder
 		{
 			$events = factory(Event::class, 2)->create();
 
-			$dbCompanyRepository->assign($company, $events);
+			$dbCompanyRepository->assignEvents($company, $events);
 		}
 	}
 }

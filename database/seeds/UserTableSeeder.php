@@ -6,7 +6,6 @@
 
 namespace database\seeds;
 
-
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
 use Illuminate\Database\Seeder;
