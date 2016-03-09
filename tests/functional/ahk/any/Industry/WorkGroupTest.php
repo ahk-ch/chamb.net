@@ -11,6 +11,7 @@ namespace functional\ahk\any\Industry;
 
 use App\Ahk\Article;
 use App\Ahk\Company;
+use App\Ahk\Event;
 use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Article\DbArticleRepository;
@@ -70,6 +71,9 @@ class WorkGroupTest extends TestCase
 		$files = factory(File::class, 2)->create();
 		$dbCompanyRepository->assignFiles($company, $files);
 
+		$events = factory(Event::class, 2)->create();
+		$dbCompanyRepository->assignEvents($company, $events);
+
 		$this
 			->visit(route('industries.work_groups.show',
 				['industry_slug' => $industry->slug, 'work_group_slug' => $workGroup->slug]))
@@ -91,7 +95,14 @@ class WorkGroupTest extends TestCase
 			->see(route('files.download', ['path' => $files->get(0)->path]))
 			->see($files->get(1)->name)
 			->see($files->get(1)->description)
-			->see(route('files.download', ['path' => $files->get(1)->path]));
-
+			->see(route('files.download', ['path' => $files->get(1)->path]))
+			->see("<span>{$events->get(0)->start_date->format('d')}</span>")
+			->see("<small>{$events->get(0)->start_date->format('m, Y')}</small>")
+			->see($events->get(0)->name)
+			->see($events->get(0)->description)
+			->see("<span>{$events->get(1)->start_date->format('d')}</span>")
+			->see("<small>{$events->get(1)->start_date->format('m, Y')}</small>")
+			->see($events->get(1)->name)
+			->see($events->get(1)->description);
 	}
 }

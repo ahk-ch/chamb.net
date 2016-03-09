@@ -23,3 +23,4 @@ interface EventRepository
 	 */
 	public function assignFiles(Event $event, $files);
 }
+

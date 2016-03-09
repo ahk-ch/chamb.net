@@ -1,15 +1,13 @@
 @extends('ahk.layouts.master')
 @section('title', "{$workGroup->name} - {$industry->name}")
 @section('inline-css')
-    <style>
-        {!! File::get(public_path(elixir("css/industries/work-groups.min.css"))) !!}
-    </style>
     <style type="text/css">
         .service-block-v5 {
             background: url('/build/img/breadcrumbs/img3.jpg') no-repeat;
             background-size: cover;
             background-position: center center;
         }
+        {!! File::get(public_path(elixir("css/industries/work-groups/show.min.css"))) !!}
     </style>
 @endsection
 @section('header_links')
@@ -92,7 +90,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($industry->files as $file)
+                @foreach($industry->companyFiles as $file)
                     <tr>
                         <td>{{ $file->name }}</td>
                         <td>{{ $file->description }}</td>
@@ -106,10 +104,111 @@
             </table>
         </div>
         <!--End Basic Table-->
-
         <div class="margin-bottom-40"></div>
-
     </div>
 
+    <div class="container content profile">
+        <div class="row">
+            <div class="profile-body">
 
+                <div class="row margin-bottom-20">
+                    <!--Profile Post-->
+                    <div class="col-sm-6">
+                        <div class="panel panel-profile no-bg">
+                            <div class="panel-heading overflow-h">
+                                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i>Notes</h2>
+                                <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                            </div>
+                            <div id="scrollbar" class="panel-body no-padding mCustomScrollbar"
+                                 data-mcs-theme="minimal-dark">
+                                <div class="profile-post color-one">
+                                    <span class="profile-post-numb">01</span>
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#">Creative Blog</a></h3>
+                                        <p>How to market yourself as a freelance designer</p>
+                                    </div>
+                                </div>
+                                <div class="profile-post color-two">
+                                    <span class="profile-post-numb">02</span>
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#">Codrops Collective #117</a></h3>
+                                        <p>Web Design &amp; Development News</p>
+                                    </div>
+                                </div>
+                                <div class="profile-post color-three">
+                                    <span class="profile-post-numb">03</span>
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#">Sketch Toolbox</a></h3>
+                                        <p>Basic prototype of a package manager for Sketch</p>
+                                    </div>
+                                </div>
+                                <div class="profile-post color-four">
+                                    <span class="profile-post-numb">04</span>
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#">Amazing Portfolio</a></h3>
+                                        <p>Create a free online portfolio lookbook with Readz</p>
+                                    </div>
+                                </div>
+                                <div class="profile-post color-five">
+                                    <span class="profile-post-numb">05</span>
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#">Discover New Features</a></h3>
+                                        <p>More than 100+ amazing add-ons coming soon...</p>
+                                    </div>
+                                </div>
+                                <div class="profile-post color-six">
+                                    <span class="profile-post-numb">06</span>
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#">Corporation Plans</a></h3>
+                                        <p>Discussion of new corporation plans</p>
+                                    </div>
+                                </div>
+                                <div class="profile-post color-seven">
+                                    <span class="profile-post-numb">07</span>
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#">Project Updates</a></h3>
+                                        <p>New features of coming update</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Profile Post-->
+
+                    <!--Profile Event-->
+                    <div class="col-sm-6 md-margin-bottom-20">
+                        <div class="panel panel-profile no-bg">
+                            <div class="panel-heading overflow-h">
+                                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-briefcase"></i>
+                                    Events</h2>
+                            </div>
+                            <div id="scrollbar2" class="panel-body no-padding mCustomScrollbar"
+                                 data-mcs-theme="minimal-dark">
+                                @foreach($events as $event)
+                                    <div class="profile-event">
+                                        <div class="date-formats">
+                                            <span>{{ $event->start_date->format('d') }}</span>
+                                            <small>{{ $event->start_date->format('m, Y') }}</small>
+                                        </div>
+                                        <div class="overflow-h">
+                                            <h3 class="heading-xs"><a href="#">{{ $event->name }}</a></h3>
+                                            <p>{{ $event->description }}</p>
+                                        </div>
+                                    </div>
+
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Profile Event-->
+                </div><!--/end row-->
+
+                <hr>
+
+            </div>
+        </div>
+    </div><!--/container-->
+@endsection
+@section('js-files')
+    <script type="text/javascript" src="{!! elixir('js/industries/work-groups/show.min.js') !!}"></script>
 @endsection

@@ -70,10 +70,16 @@ elixir(function (mix) {
         ], 'public/css/my/companies/create-and-edit.min.css')
         .styles([
             'vendor/UnifyV1.9.1/css/pages/page_job.css',
-        ], 'public/css/health/news.min.css')
+        ], 'public/css/industries/news.min.css')
         .styles([
             'vendor/UnifyV1.9.1/css/pages/page_search_inner.css',
-        ], 'public/css/industries/work-groups.min.css');
+        ], 'public/css/industries/work-groups.min.css')
+        .styles([
+            'vendor/UnifyV1.9.1/plugins/scrollbar/css/jquery.mCustomScrollbar.css',
+            'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/css/sky-forms.css',
+            'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css',
+            'vendor/UnifyV1.9.1/css/pages/profile.css',
+        ], 'public/css/industries/work-groups/show.min.css');
 
 
     mix.scripts([
@@ -101,7 +107,7 @@ elixir(function (mix) {
         ], 'public/js/home.min.js')
         // .scripts([
         // 	'UnifyV1.9.1/css/pages/page_job.css',
-        // ], 'public/js/health/news.min.js')
+        // ], 'public/js/industries/news.min.js')
         .scripts([
             'ahk/companies/index.js',
             'vendor/UnifyV1.9.1/plugins/image-hover/js/touch.js',
@@ -130,7 +136,12 @@ elixir(function (mix) {
         ], 'public/js/my/companies/create-and-edit.min.js')
         .scripts([
             'ahk/loadStyleSheets.js'
-        ], 'public/js/loadStyleSheets.min.js');
+        ], 'public/js/loadStyleSheets.min.js')
+        .scripts([
+            'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js',
+            'vendor/UnifyV1.9.1/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js',
+            'ahk/industries/work-groups/show.js'
+        ], 'public/js/industries/work-groups/show.min.js');
 
 
     mix.version([
@@ -139,10 +150,11 @@ elixir(function (mix) {
         'public/css/companies.min.css',
         'public/css/sign_in.min.css',
         'public/css/my/companies/create-and-edit.min.css',
-        'public/css/health/news.min.css',
+        'public/css/industries/news.min.css',
         'public/css/above-the-fold-content.min.css',
         'public/css/industries/work-groups.min.css',
         'public/css/industries/companies/show.min.css',
+        'public/css/industries/work-groups/show.min.css',
 
         'public/js/master.min.js',
         'public/js/lt-ie9.min.js',
@@ -150,7 +162,8 @@ elixir(function (mix) {
         'public/js/companies/index.min.js',
         'public/js/my/companies/index.min.js',
         'public/js/my/companies/create-and-edit.min.js',
-        'public/js/industries/companies/show.min.js'
+        'public/js/industries/companies/show.min.js',
+        'public/js/industries/work-groups/show.min.js'
     ]);
 
     mix.browserSync({

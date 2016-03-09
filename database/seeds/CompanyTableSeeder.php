@@ -9,10 +9,8 @@ namespace database\seeds;
 
 use App\Ahk\Company;
 use App\Ahk\File;
-use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\Country\DbCountryRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
-use App\Ahk\Repositories\Service\DbServiceRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
 use Faker\Factory;
 use Illuminate\Database\Seeder;

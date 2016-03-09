@@ -50,6 +50,13 @@ class Event extends Model implements SluggableInterface
 	];
 
 	/**
+	 * The attributes that should be mutated to dates.
+	 *
+	 * @var array
+	 */
+	protected $dates = ['created_at', 'updated_at', 'deleted_at', 'start_date', 'end_date'];
+
+	/**
 	 * Get all the owning eventable models.
 	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\MorphTo
