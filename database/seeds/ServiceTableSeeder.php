@@ -11,20 +11,12 @@ class ServiceTableSeeder extends Seeder
 {
 
     /**
-     * Run the database seeds.
+     * Run the database seeds. Services have been inserted on creation.
      *
      * @return void
      */
     public function run()
     {
-        factory(Service::class)->create(['name' => 'Knowledge Exchange', 'color' => Service::$colors[array_rand(Service::$colors)]]);
-        factory(Service::class)->create(['name' => 'Corporations', 'color' => Service::$colors[array_rand(Service::$colors)]]);
-        factory(Service::class)->create(['name' => 'Buyer', 'color' => Service::$colors[array_rand(Service::$colors)]]);
-        factory(Service::class)->create(['name' => 'Supplier', 'color' => Service::$colors[array_rand(Service::$colors)]]);
-        factory(Service::class)->create(['name' => 'Expertise', 'color' => Service::$colors[array_rand(Service::$colors)]]);
-        factory(Service::class)->create(['name' => 'New Products', 'color' => Service::$colors[array_rand(Service::$colors)]]);
-        factory(Service::class)->create(['name' => 'Products', 'color' => Service::$colors[array_rand(Service::$colors)]]);
-        factory(Service::class)->create(['name' => 'Partnership', 'color' => Service::$colors[array_rand(Service::$colors)]]);
     }
 }
 

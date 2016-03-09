@@ -75,10 +75,7 @@ class Company extends Model implements SluggableInterface
 	/**
 	 * @var array
 	 */
-	protected $sluggable = [
-		'build_from' => self::NAME,
-		'save_to'    => self::SLUG,
-	];
+	protected $sluggable = ['build_from' => self::NAME, 'save_to' => self::SLUG,];
 
 	/**
 	 * Get the route key for the model.
@@ -95,7 +92,7 @@ class Company extends Model implements SluggableInterface
 	 */
 	public function industry()
 	{
-		return $this->belongsTo('App\Ahk\Industry');
+		return $this->belongsTo(Industry::class);
 	}
 
 	/**
@@ -103,7 +100,7 @@ class Company extends Model implements SluggableInterface
 	 */
 	public function user()
 	{
-		return $this->belongsTo('App\Ahk\User');
+		return $this->belongsTo(User::class);
 	}
 
 	/**
@@ -111,7 +108,7 @@ class Company extends Model implements SluggableInterface
 	 */
 	public function country()
 	{
-		return $this->belongsTo('App\Ahk\Country');
+		return $this->belongsTo(Country::class);
 	}
 
 	/**
@@ -119,7 +116,7 @@ class Company extends Model implements SluggableInterface
 	 */
 	public function logo()
 	{
-		return $this->belongsTo('App\Ahk\File');
+		return $this->belongsTo(File::class);
 	}
 
 	/**
@@ -127,9 +124,7 @@ class Company extends Model implements SluggableInterface
 	 */
 	public function requiresServices()
 	{
-		return $this->belongsToMany('App\Ahk\Service')
-			->wherePivot('requires', true)
-			->withTimestamps();
+		return $this->belongsToMany(Service::class)->wherePivot('requires', true)->withTimestamps();
 	}
 
 	/**
@@ -137,9 +132,7 @@ class Company extends Model implements SluggableInterface
 	 */
 	public function offersServices()
 	{
-		return $this->belongsToMany('App\Ahk\Service')
-			->wherePivot('offers', true)
-			->withTimestamps();
+		return $this->belongsToMany(Service::class)->wherePivot('offers', true)->withTimestamps();
 	}
 
 	/**
@@ -147,16 +140,23 @@ class Company extends Model implements SluggableInterface
 	 */
 	public function services()
 	{
-		return $this->belongsToMany('App\Ahk\Service')
-			->withTimestamps();
+		return $this->belongsToMany(Service::class)->withTimestamps();
+	}
+
+	/**
+	 * Get the files of this company
+	 */
+	public function files()
+	{
+		return $this->morphMany(File::class, 'fileable');
 	}
 
 	/**
 	 * Get the services this company requires
 	 */
-	public function files()
+	public function events()
 	{
-		return $this->morphMany('App\Ahk\File', 'fileable');
+		return $this->morphMany(Event::class, 'eventable');
 	}
 }
 

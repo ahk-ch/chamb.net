@@ -14,6 +14,7 @@
 use App\Ahk\Article;
 use App\Ahk\Company;
 use App\Ahk\Country;
+use App\Ahk\Event;
 use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Service;
@@ -175,6 +176,19 @@ $factory->defineAs(File::class, 'without_storage', function (Faker\Generator $fa
 });
 
 $factory->define(Workgroup::class, function (Faker\Generator $faker) {
+	$startDate = $faker->dateTimeBetween();
+	$endDate = $faker->dateTimeBetween($startDate);
+
+	return [
+		'name'        => $faker->unique()->name,
+		'description' => $faker->paragraph(),
+		'start_date'  => $startDate,
+		'end_date'    => $endDate,
+		'creator_id'  => factory(User::class)->create()->id,
+	];
+});
+
+$factory->define(Event::class, function (Faker\Generator $faker) {
 	$startDate = $faker->dateTimeBetween();
 	$endDate = $faker->dateTimeBetween($startDate);
 

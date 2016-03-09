@@ -6,19 +6,20 @@
 
 namespace database\seeds;
 
-
+use App\Ahk\Country;
 use Illuminate\Database\Seeder;
 
 class CountryTableSeeder extends Seeder
 {
 
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-    }
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+		factory(Country::class, 9)->create();
+	}
 }
 

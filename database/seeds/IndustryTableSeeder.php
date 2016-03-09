@@ -6,14 +6,13 @@
 
 namespace database\seeds;
 
-
 use Illuminate\Database\Seeder;
 
 class IndustryTableSeeder extends Seeder
 {
 
 	/**
-	 * Run the database seeds.
+	 * Run the database seeds. Only six industries should be on database. Already inserted on creation.
 	 *
 	 * @return void
 	 */
