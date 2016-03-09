@@ -7,10 +7,6 @@
 namespace database\seeds;
 
 
-use App\Ahk\Company;
-use App\Ahk\File;
-use App\Ahk\Repositories\Company\DbCompanyRepository;
-use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use Illuminate\Database\Seeder;
 
 class IndustryTableSeeder extends Seeder
