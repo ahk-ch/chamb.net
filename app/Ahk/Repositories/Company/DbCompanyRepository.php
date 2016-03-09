@@ -176,4 +176,18 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	{
 		return Company::all();
 	}
+
+	/**
+	 * Add events to company
+	 *
+	 * @param Company $company
+	 * @param array|Collection $events
+	 * @return Company|false
+	 */
+	public function assignEvents(Company $company, $events)
+	{
+		$company->events()->saveMany($events);
+
+		return $company->save() ? $company : false;
+	}
 }

@@ -1,5 +1,8 @@
 <?php namespace database\seeds;
 
+use App\Ahk\Repositories\Company\DbCompanyRepository;
+use App\Ahk\Repositories\Service\DbServiceRepository;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 
 /**
@@ -16,6 +19,26 @@ class ServiceTableSeeder extends Seeder
 	 */
 	public function run()
 	{
+		$dbServiceRepository = new DbServiceRepository();
+		$dbCompanyRepository = new DbCompanyRepository();
+		$faker = Factory::create();
+
+		$services = $dbServiceRepository->all()->toArray();
+
+		foreach ($dbCompanyRepository->all() as $company)
+		{
+			$company->services()->attach([
+				$faker->randomElement($services)['id'] => ['offers' => true],
+				$faker->randomElement($services)['id'] => ['offers' => true],
+				$faker->randomElement($services)['id'] => ['offers' => true],
+				$faker->randomElement($services)['id'] => ['offers' => true],]);
+
+			$company->services()->attach([
+				$faker->randomElement($services)['id'] => ['requires' => true],
+				$faker->randomElement($services)['id'] => ['requires' => true],
+				$faker->randomElement($services)['id'] => ['requires' => true],
+				$faker->randomElement($services)['id'] => ['requires' => true],]);
+		}
 	}
 }
 

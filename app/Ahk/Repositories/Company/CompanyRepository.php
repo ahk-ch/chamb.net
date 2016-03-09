@@ -105,5 +105,14 @@ interface CompanyRepository
 	 * @return Company|false
 	 */
 	public function assignFiles(Company $company, $files);
+
+	/**
+	 * Add events to company
+	 *
+	 * @param Company $company
+	 * @param array|Collection $events
+	 * @return Company|false
+	 */
+	public function assignEvents(Company $company, $events);
 }
 

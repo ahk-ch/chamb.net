@@ -41,21 +41,18 @@ class CompanyTableSeeder extends Seeder
 	 */
 	public function run()
 	{
-		$dbCompanyRepository = new DbCompanyRepository();
 		$dbIndustryRepository = new DbIndustryRepository();
 		$dbCountryRepository = new DbCountryRepository();
-		$dbServiceRepository = new DbServiceRepository();
 		$dbUserRepository = new DbUserRepository();
 
 		$industries = $dbIndustryRepository->all();
 		$countries = $dbCountryRepository->all()->toArray();
-		$services = $dbServiceRepository->all()->toArray();
 		$companyRepresentativeUsers = $dbUserRepository->getWithCompanyRepresentativeRole()->toArray();
 		$faker = Factory::create();
 
 		foreach ($this->popularCompanies as $company)
 		{
-			$company = factory(Company::class, 'without_relations')->create([
+			factory(Company::class, 'without_relations')->create([
 				'name'        => $company['name'],
 				'description' => $company['description'],
 				'industry_id' => $faker->randomElement($industries->toArray())['id'],
@@ -63,40 +60,11 @@ class CompanyTableSeeder extends Seeder
 				'user_id'     => $faker->randomElement($companyRepresentativeUsers)['id'],
 				'logo_id'     => factory(File::class)->create()->id,]);
 
-			$dbCompanyRepository->assignFiles($company, factory(File::class, 2)->create());
-
-			$company->services()->attach([
-				$faker->randomElement($services)['id'] => ['offers' => true],
-				$faker->randomElement($services)['id'] => ['offers' => true],
-				$faker->randomElement($services)['id'] => ['offers' => true],
-				$faker->randomElement($services)['id'] => ['offers' => true],]);
-
-			$company->services()->attach([
-				$faker->randomElement($services)['id'] => ['requires' => true],
-				$faker->randomElement($services)['id'] => ['requires' => true],
-				$faker->randomElement($services)['id'] => ['requires' => true],
-				$faker->randomElement($services)['id'] => ['requires' => true],]);
 		}
 
 		foreach ($industries as $industry)
 		{
-			factory(Company::class, 'without_industry', 11)->create(['industry_id' => $industry->id])
-				->each(function (Company $company) use ($services, $faker, $dbCompanyRepository)
-				{
-					$dbCompanyRepository->assignFiles($company, factory(File::class, 2)->create());
-
-					$company->services()->attach([
-						$faker->randomElement($services)['id'] => ['offers' => true],
-						$faker->randomElement($services)['id'] => ['offers' => true],
-						$faker->randomElement($services)['id'] => ['offers' => true],
-						$faker->randomElement($services)['id'] => ['offers' => true],]);
-
-					$company->services()->attach([
-						$faker->randomElement($services)['id'] => ['requires' => true],
-						$faker->randomElement($services)['id'] => ['requires' => true],
-						$faker->randomElement($services)['id'] => ['requires' => true],
-						$faker->randomElement($services)['id'] => ['requires' => true],]);
-				});
+			factory(Company::class, 'without_industry', 11)->create(['industry_id' => $industry->id]);
 		}
 	}
 }

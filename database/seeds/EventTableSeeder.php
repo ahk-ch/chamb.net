@@ -6,18 +6,12 @@
 
 namespace database\seeds;
 
-
-use App\Ahk\Company;
-use App\Ahk\File;
+use App\Ahk\Event;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
-use App\Ahk\Repositories\Country\DbCountryRepository;
-use App\Ahk\Repositories\Industry\DbIndustryRepository;
-use App\Ahk\Repositories\Service\DbServiceRepository;
-use App\Ahk\Repositories\User\DbUserRepository;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 
-class FileTableSeeder extends Seeder
+class EventTableSeeder extends Seeder
 {
 	/**
 	 * Run the database seeds.
@@ -30,9 +24,9 @@ class FileTableSeeder extends Seeder
 
 		foreach ($dbCompanyRepository->all() as $company)
 		{
-			$files = factory(File::class, 2)->create();
+			$events = factory(Event::class, 2)->create();
 
-			$dbCompanyRepository->assignFiles($company, $files);
+			$dbCompanyRepository->assign($company, $events);
 		}
 	}
 }

@@ -9,6 +9,7 @@ namespace tests\integration\app\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
 use App\Ahk\Country;
+use App\Ahk\Event;
 use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
@@ -238,7 +239,7 @@ class DbCompanyRepositoryTest extends TestCase
 	}
 
 	/** @test */
-	public function it_assigns_file_to_company()
+	public function it_assigns_files_to_company()
 	{
 		$dbCompanyRepository = new DbCompanyRepository();
 		$company = factory(Company::class)->create();
@@ -259,5 +260,25 @@ class DbCompanyRepositoryTest extends TestCase
 		$this->assertSame(
 			$company->files()->get()->get(2)->name,
 			$expectedFile1->name);
+	}
+
+	/** @test */
+	public function it_assigns_events_to_company()
+	{
+		$dbCompanyRepository = new DbCompanyRepository();
+		$company = factory(Company::class)->create();
+		$expectedEvent = factory(Event::class)->create();
+
+		$this->assertCount(0, $company->events);
+		$company = $dbCompanyRepository->assignEvents($company, [$expectedEvent]);
+		$this->assertCount(1, $company->events()->get());
+		$this->assertSame($company->events()->get()->get(0)->name, $expectedEvent->name);
+
+		$expectedEvent = factory(Event::class)->create();
+		$expectedEvent1 = factory(Event::class)->create();
+
+		$company = $dbCompanyRepository->assignEvents($company, [$expectedEvent, $expectedEvent1]);
+		$this->assertCount(3, $company->events()->get());
+		$this->assertSame($company->events()->get()->get(2)->name, $expectedEvent1->name);
 	}
 }
