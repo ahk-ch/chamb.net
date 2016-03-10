@@ -23,7 +23,7 @@ class DecisionTableSeeder extends Seeder
 
 		foreach ($dbCompanyRepository->all() as $company)
 		{
-			$decisions = factory(Decision::class, 2)->create();
+			$decisions = factory(Decision::class, 'without_company', 2)->create();
 
 			$dbCompanyRepository->assignDecisions($company, $decisions);
 		}

@@ -229,3 +229,14 @@ $factory->define(Decision::class, function (Faker\Generator $faker)
 		'company_id'    => factory(Company::class)->create()->id,
 	];
 });
+
+$factory->defineAs(Decision::class, 'without_company', function (Faker\Generator $faker)
+{
+	return [
+		'name'          => $faker->unique()->name,
+		'description'   => $faker->paragraph(),
+		'decision_date' => $faker->date(),
+		'creator_id'    => factory(User::class)->create()->id,
+		'file_id'       => factory(File::class)->create()->id,
+	];
+});

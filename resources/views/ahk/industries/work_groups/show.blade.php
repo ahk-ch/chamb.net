@@ -116,7 +116,7 @@
                     <div class="col-sm-6">
                         <div class="panel panel-profile no-bg">
                             <div class="panel-heading overflow-h">
-                                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i>Events</h2>
+                                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i>Decisions</h2>
                                 <a href="#"><i class="fa fa-cog pull-right"></i></a>
                             </div>
                             <div id="scrollbar" class="panel-body no-padding mCustomScrollbar"

@@ -24,7 +24,7 @@ class CreateDecisionsTable extends Migration
 
 			$table->integer('creator_id')->unsigned()->index();
 			$table->foreign('creator_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('cascade');
-			$table->integer('company_id')->unsigned()->index();
+			$table->integer('company_id')->unsigned()->index()->nullable();
 			$table->foreign('company_id')->references('id')->on('companies')->onDelete('restrict')->onUpdate('cascade');
 			$table->integer('file_id')->unsigned()->index()->nullable();
 			$table->foreign('file_id')->references('id')->on('files')->onDelete('restrict')->onUpdate('cascade');
