@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
 		$this->call(ServiceTableSeeder::class);
 		$this->call(EventTableSeeder::class);
 		$this->call(FileTableSeeder::class);
+//		$this->call(DecisionTableSeeder::class);
 
 		Model::reguard();
 	}

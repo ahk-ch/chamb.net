@@ -14,6 +14,7 @@
 use App\Ahk\Article;
 use App\Ahk\Company;
 use App\Ahk\Country;
+use App\Ahk\Decision;
 use App\Ahk\Event;
 use App\Ahk\File;
 use App\Ahk\Industry;
@@ -23,14 +24,16 @@ use App\Ahk\User;
 use App\Ahk\Workgroup;
 use Illuminate\Support\Facades\Storage;
 
-$factory->define(User::class, function (Faker\Generator $faker) {
+$factory->define(User::class, function (Faker\Generator $faker)
+{
 	$user = factory(User::class, 'with_primary_data')->make();
 
 	return array_merge($user->toArray(),
 		['avatar_id' => factory(File::class)->create()->id,]);
 });
 
-$factory->defineAs(App\Ahk\User::class, 'with_primary_data', function (Faker\Generator $faker) {
+$factory->defineAs(App\Ahk\User::class, 'with_primary_data', function (Faker\Generator $faker)
+{
 	return [
 		'name'               => "$faker->firstName $faker->lastName",
 		'email'              => $faker->unique()->email,
@@ -41,7 +44,8 @@ $factory->defineAs(App\Ahk\User::class, 'with_primary_data', function (Faker\Gen
 });
 
 
-$factory->define(App\Ahk\Industry::class, function (Faker\Generator $faker) {
+$factory->define(App\Ahk\Industry::class, function (Faker\Generator $faker)
+{
 	return [
 		'name'        => $faker->unique()->uuid,
 		'fontawesome' => $faker->name,
@@ -49,14 +53,16 @@ $factory->define(App\Ahk\Industry::class, function (Faker\Generator $faker) {
 	];
 });
 
-$factory->define(App\Ahk\Tag::class, function (Faker\Generator $faker) {
+$factory->define(App\Ahk\Tag::class, function (Faker\Generator $faker)
+{
 	return [
 		'name'      => $faker->unique()->word,
 		'author_id' => factory(User::class)->create()->id,
 	];
 });
 
-$factory->define(Article::class, function (Faker\Generator $faker) {
+$factory->define(Article::class, function (Faker\Generator $faker)
+{
 	$article = factory(Article::class, 'without_relations')->make();
 
 	return array_merge($article->toArray(), [
@@ -66,7 +72,8 @@ $factory->define(Article::class, function (Faker\Generator $faker) {
 	]);
 });
 
-$factory->defineAs(App\Ahk\Article::class, 'without_industry', function (Faker\Generator $faker) {
+$factory->defineAs(App\Ahk\Article::class, 'without_industry', function (Faker\Generator $faker)
+{
 	$article = factory(Article::class, 'without_relations')->make();
 
 	return array_merge($article->toArray(), [
@@ -75,7 +82,8 @@ $factory->defineAs(App\Ahk\Article::class, 'without_industry', function (Faker\G
 	]);
 });
 
-$factory->defineAs(App\Ahk\Article::class, 'without_relations', function (Faker\Generator $faker) {
+$factory->defineAs(App\Ahk\Article::class, 'without_relations', function (Faker\Generator $faker)
+{
 	$content = "<p><img src='$faker->imageUrl'></p>";
 	$content .= "<p><strong>" . $faker->sentence() . "</strong></p>";
 	$content .= "<p>" . $faker->paragraphs(3, true) . "</p>";
@@ -99,7 +107,8 @@ $factory->defineAs(App\Ahk\Article::class, 'without_relations', function (Faker\
 });
 
 
-$factory->define(Company::class, function (Faker\Generator $faker) {
+$factory->define(Company::class, function (Faker\Generator $faker)
+{
 
 	$company = factory(Company::class, 'without_relations')->make();
 
@@ -111,7 +120,8 @@ $factory->define(Company::class, function (Faker\Generator $faker) {
 	]);
 });
 
-$factory->defineAs(Company::class, 'without_industry', function (Faker\Generator $faker) {
+$factory->defineAs(Company::class, 'without_industry', function (Faker\Generator $faker)
+{
 
 	$company = factory(Company::class, 'without_relations')->make();
 
@@ -122,7 +132,8 @@ $factory->defineAs(Company::class, 'without_industry', function (Faker\Generator
 	]);
 });
 
-$factory->defineAs(Company::class, 'without_relations', function (Faker\Generator $faker) {
+$factory->defineAs(Company::class, 'without_relations', function (Faker\Generator $faker)
+{
 	return [
 		'name'            => $faker->unique()->name,
 		'focus'           => $faker->words(10, true),
@@ -134,19 +145,22 @@ $factory->defineAs(Company::class, 'without_relations', function (Faker\Generato
 	];
 });
 
-$factory->define(App\Ahk\Country::class, function (Faker\Generator $faker) {
+$factory->define(App\Ahk\Country::class, function (Faker\Generator $faker)
+{
 	return [
 		'name' => $faker->unique()->name,
 	];
 });
 
-$factory->define(Service::class, function (Faker\Generator $faker) {
+$factory->define(Service::class, function (Faker\Generator $faker)
+{
 	return [
 		'name' => $faker->unique()->name,
 	];
 });
 
-$factory->define(File::class, function (Faker\Generator $faker) {
+$factory->define(File::class, function (Faker\Generator $faker)
+{
 	$fileWithPrimaryData = factory(File::class, 'without_storage')->make();
 	$storageLocation = FilesStorage::getFilesDirectory();
 	$clientOriginalName = "{$faker->name}.{$faker->fileExtension}";
@@ -161,7 +175,8 @@ $factory->define(File::class, function (Faker\Generator $faker) {
 	]);
 });
 
-$factory->defineAs(File::class, 'without_storage', function (Faker\Generator $faker) {
+$factory->defineAs(File::class, 'without_storage', function (Faker\Generator $faker)
+{
 	$name = $faker->unique()->name;
 	$clientOriginalName = "{$faker->name}.{$faker->fileExtension}";
 	$storageLocation = FilesStorage::getFilesDirectory();
@@ -175,7 +190,8 @@ $factory->defineAs(File::class, 'without_storage', function (Faker\Generator $fa
 	];
 });
 
-$factory->define(Workgroup::class, function (Faker\Generator $faker) {
+$factory->define(Workgroup::class, function (Faker\Generator $faker)
+{
 	$startDate = $faker->dateTimeBetween();
 	$endDate = $faker->dateTimeBetween($startDate);
 
@@ -188,7 +204,8 @@ $factory->define(Workgroup::class, function (Faker\Generator $faker) {
 	];
 });
 
-$factory->define(Event::class, function (Faker\Generator $faker) {
+$factory->define(Event::class, function (Faker\Generator $faker)
+{
 	$startDate = $faker->dateTimeBetween();
 	$endDate = $faker->dateTimeBetween($startDate);
 
@@ -198,5 +215,17 @@ $factory->define(Event::class, function (Faker\Generator $faker) {
 		'start_date'  => $startDate,
 		'end_date'    => $endDate,
 		'creator_id'  => factory(User::class)->create()->id,
+	];
+});
+
+$factory->define(Decision::class, function (Faker\Generator $faker)
+{
+	return [
+		'name'          => $faker->unique()->name,
+		'description'   => $faker->paragraph(),
+		'decision_date' => $faker->date(),
+		'creator_id'    => factory(User::class)->create()->id,
+		'file_id'       => factory(File::class)->create()->id,
+		'company_id'    => factory(Company::class)->create()->id,
 	];
 });
