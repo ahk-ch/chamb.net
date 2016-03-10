@@ -7,9 +7,8 @@
 namespace database\seeds;
 
 
-use App\Ahk\File;
+use App\Ahk\Decision;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
-use App\Ahk\Repositories\Event\DbEventRepository;
 use Illuminate\Database\Seeder;
 
 class DecisionTableSeeder extends Seeder
@@ -21,22 +20,14 @@ class DecisionTableSeeder extends Seeder
 	 */
 	public function run()
 	{
-//		$dbCompanyRepository = new DbCompanyRepository();
-//		$dbEventRepository = new DbEventRepository();
-//
-//		foreach ($dbCompanyRepository->all() as $event)
-//		{
-//			$files = factory(File::class, 2)->create();
-//
-//			$dbCompanyRepository->assignFiles($event, $files);
-//		}
-//
-//		foreach ($dbEventRepository->all() as $event)
-//		{
-//			$files = factory(File::class, 2)->create();
-//
-//			$dbEventRepository->assignFiles($event, $files);
-//		}
+		$dbCompanyRepository = new DbCompanyRepository();
+
+		foreach ($dbCompanyRepository->all() as $company)
+		{
+			$decisions = factory(Decision::class, 2)->create();
+
+			$dbCompanyRepository->assignDecisions($company, $decisions);
+		}
 	}
 }
 
