@@ -19,7 +19,7 @@ class CountryTableSeeder extends Seeder
 	 */
 	public function run()
 	{
-		factory(Country::class, 9)->create();
+		factory(Country::class, 2)->create();
 	}
 }
 

@@ -137,6 +137,6 @@ interface CompanyRepository
 	 *
 	 * @return Company|false
 	 */
-	public function assignDecisions(Company $company, array $decisions);
+	public function assignDecisions(Company $company, $decisions);
 }
 

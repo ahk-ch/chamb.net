@@ -42,9 +42,9 @@ class FileTableSeeder extends Seeder
 
 		foreach ($dbDecisionRepository->all() as $decision)
 		{
-			$files = factory(File::class, 2)->create();
+			$file = factory(File::class)->create();
 
-			$dbDecisionRepository->assignFile($decision, $files);
+			$dbDecisionRepository->assignFile($decision, $file);
 		}
 	}
 }

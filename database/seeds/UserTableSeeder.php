@@ -35,7 +35,7 @@ class UserTableSeeder extends Seeder
 
 		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentative);
 
-		factory(User::class, 11)->create()->each(function ($user) use ($dbUserRepository)
+		factory(User::class, 2)->create()->each(function ($user) use ($dbUserRepository)
 		{
 			$dbUserRepository->assignAuthorRole($user);
 		});
