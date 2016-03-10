@@ -83,7 +83,9 @@ class IndustriesController extends Controller
 
 		$events = $this->industryRepository->companyEvents($industry)->get();
 
-		return view('ahk.industries.work_groups.show', compact('industry', 'workGroup', 'articles', 'events'));
+		$decisions = $this->industryRepository->companyDecisions($industry)->get();
+
+		return view('ahk.industries.work_groups.show', compact('industry', 'workGroup', 'articles', 'events', 'decisions'));
 	}
 
 	/**

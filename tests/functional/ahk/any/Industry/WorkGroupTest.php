@@ -11,6 +11,7 @@ namespace functional\ahk\any\Industry;
 
 use App\Ahk\Article;
 use App\Ahk\Company;
+use App\Ahk\Decision;
 use App\Ahk\Event;
 use App\Ahk\File;
 use App\Ahk\Industry;
@@ -74,6 +75,9 @@ class WorkGroupTest extends TestCase
 		$events = factory(Event::class, 2)->create();
 		$dbCompanyRepository->assignEvents($company, $events);
 
+		$decisions = factory(Decision::class, 2)->create();
+		$dbCompanyRepository->assignDecisions($company, $decisions);
+
 		$this
 			->visit(route('industries.work_groups.show',
 				['industry_slug' => $industry->slug, 'work_group_slug' => $workGroup->slug]))
@@ -103,6 +107,10 @@ class WorkGroupTest extends TestCase
 			->see("<span>{$events->get(1)->start_date->format('d')}</span>")
 			->see("<small>{$events->get(1)->start_date->format('m, Y')}</small>")
 			->see($events->get(1)->name)
+			->see($events->get(1)->description)
+			->see($decisions->get(0)->name)
+			->see($events->get(0)->description)
+			->see($decisions->get(1)->name)
 			->see($events->get(1)->description);
 	}
 }
