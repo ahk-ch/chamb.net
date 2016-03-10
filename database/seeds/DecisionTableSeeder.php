@@ -6,7 +6,6 @@
 
 namespace database\seeds;
 
-
 use App\Ahk\Decision;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
 use Illuminate\Database\Seeder;

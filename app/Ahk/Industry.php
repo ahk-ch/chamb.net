@@ -79,6 +79,14 @@ class Industry extends Model implements SluggableInterface
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
+	public function companyDecisions()
+	{
+		return $this->hasManyThrough(Decision::class, Company::class);
+	}
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
 	public function companyEvents()
 	{
 		return $this->hasManyThrough(Event::class, Company::class, 'industry_id', 'eventable_id')

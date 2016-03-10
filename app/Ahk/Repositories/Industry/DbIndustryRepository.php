@@ -17,6 +17,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 
 	/**
 	 * Get all industry
+	 *
 	 * @return Collection
 	 */
 	public function all()
@@ -26,8 +27,10 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 
 	/**
 	 * Store a industry on the storage
-	 * @param User $author
+	 *
+	 * @param User  $author
 	 * @param array $fillable
+	 *
 	 * @return Industry|false
 	 */
 	public function store(User $author, array $fillable)
@@ -41,8 +44,10 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 
 	/**
 	 * Update a industry given it id.
-	 * @param $id
+	 *
+	 * @param       $id
 	 * @param array $fillable
+	 *
 	 * @return mixed
 	 */
 	public function updateById($id, array $fillable)
@@ -56,7 +61,9 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 
 	/**
 	 * Get a industry given its id
+	 *
 	 * @param $id
+	 *
 	 * @return Industry
 	 */
 	public function getById($id)
@@ -66,7 +73,9 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 
 	/**
 	 * Get companies of an industry
+	 *
 	 * @param Industry $industry
+	 *
 	 * @return Collection
 	 */
 	public function getCompanies(Industry $industry)
@@ -83,7 +92,8 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 	 * Assign workgroups to an industry
 	 *
 	 * @param Industry $industry
-	 * @param array $workgroupIds
+	 * @param array    $workgroupIds
+	 *
 	 * @return mixed
 	 */
 	public function assignWorkGroupsById(Industry $industry, array $workgroupIds)
@@ -95,7 +105,9 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 
 	/**
 	 * Get workgroups of an industry
+	 *
 	 * @param Industry $industry
+	 *
 	 * @return Collection
 	 */
 	public function getWorkGroups(Industry $industry)
@@ -105,11 +117,13 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 
 	/**
 	 * Paginate workgroups of an industry
+	 *
 	 * @param Industry $industry
-	 * @param int $perPage
-	 * @param array $columns
-	 * @param string $pageName
-	 * @param null $page
+	 * @param int      $perPage
+	 * @param array    $columns
+	 * @param string   $pageName
+	 * @param null     $page
+	 *
 	 * @return Collection
 	 */
 	public function paginateWorkGroups(Industry $industry, $perPage = 10, $columns = ['*'], $pageName = 'page', $page = null)
@@ -121,6 +135,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 	 * Get all events of companies belonging to an industry
 	 *
 	 * @param Industry $industry
+	 *
 	 * @return mixed
 	 */
 	public function companyEvents(Industry $industry)
@@ -132,11 +147,24 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
 	 * Get all files of companies belonging to an industry
 	 *
 	 * @param Industry $industry
+	 *
 	 * @return mixed
 	 */
 	public function companyFiles(Industry $industry)
 	{
 		return $industry->companyFiles();
+	}
+
+	/**
+	 * Get all decisions of companies belonging to an industry
+	 *
+	 * @param Industry $industry
+	 *
+	 * @return mixed
+	 */
+	public function companyDecisions(Industry $industry)
+	{
+		return $industry->companyDecisions();
 	}
 }
 
