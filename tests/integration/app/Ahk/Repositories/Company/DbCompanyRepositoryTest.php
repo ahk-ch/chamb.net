@@ -9,6 +9,7 @@ namespace tests\integration\app\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
 use App\Ahk\Country;
+use App\Ahk\Decision;
 use App\Ahk\Event;
 use App\Ahk\File;
 use App\Ahk\Industry;
@@ -262,6 +263,30 @@ class DbCompanyRepositoryTest extends TestCase
 		$this->assertSame(
 			$company->files()->get()->get(2)->name,
 			$expectedFile1->name);
+	}
+
+	/** @test */
+	public function it_assigns_decision_to_company()
+	{
+		$dbCompanyRepository = new DbCompanyRepository();
+		$company = factory(Company::class)->create();
+		$expectedDecision = factory(Decision::class)->create();
+
+		$this->assertCount(0, $company->decisions);
+		$company = $dbCompanyRepository->assignDecisions($company, [$expectedDecision]);
+		$this->assertCount(1, $company->decisions()->get());
+		$this->assertSame(
+			$company->decisions()->get()->get(0)->name,
+			$expectedDecision->name);
+
+		$expectedDecision = factory(Decision::class)->create();
+		$expectedDecision1 = factory(Decision::class)->create();
+
+		$company = $dbCompanyRepository->assignDecisions($company, [$expectedDecision, $expectedDecision1]);
+		$this->assertCount(3, $company->decisions()->get());
+		$this->assertSame(
+			$company->decisions()->get()->get(2)->name,
+			$expectedDecision1->name);
 	}
 
 	/** @test */

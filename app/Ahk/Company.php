@@ -158,5 +158,13 @@ class Company extends Model implements SluggableInterface
 	{
 		return $this->morphMany(Event::class, 'eventable');
 	}
+
+	/**
+	 * Get the decisions of this company
+	 */
+	public function decisions()
+	{
+		return $this->hasMany(Decision::class);
+	}
 }
 

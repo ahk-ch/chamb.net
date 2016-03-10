@@ -9,6 +9,7 @@ namespace database\seeds;
 
 use App\Ahk\Decision;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
+use App\Ahk\Repositories\Decision\DbDecisionRepository;
 use Illuminate\Database\Seeder;
 
 class DecisionTableSeeder extends Seeder
@@ -21,12 +22,13 @@ class DecisionTableSeeder extends Seeder
 	public function run()
 	{
 		$dbCompanyRepository = new DbCompanyRepository();
+		$dbDecisionRepository = new DbDecisionRepository();
 
 		foreach ($dbCompanyRepository->all() as $company)
 		{
 			$decisions = factory(Decision::class, 2)->create();
 
-			$dbCompanyRepository->assignDecisions($company, $decisions);
+			$dbCompanyRepository->assignDesicions($company, $decisions);
 		}
 	}
 }

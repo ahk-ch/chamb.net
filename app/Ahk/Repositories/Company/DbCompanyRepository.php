@@ -190,4 +190,19 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 
 		return $company->save() ? $company : false;
 	}
+
+	/**
+	 * Assign decisions to the company
+	 *
+	 * @param Company $company
+	 * @param array   $decisions
+	 *
+	 * @return Company|false
+	 */
+	public function assignDecisions(Company $company, array $decisions)
+	{
+		$company->decisions()->saveMany($decisions);
+
+		return $company->save() ? $company : false;
+	}
 }

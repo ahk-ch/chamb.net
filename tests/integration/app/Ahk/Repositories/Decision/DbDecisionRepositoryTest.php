@@ -57,5 +57,5 @@ class DbDecisionRepositoryTest extends TestCase
 			array_only($actualEvents->toArray(), $expectedDecisions[0]->getFillable()));
 
 	}
-
 }
+

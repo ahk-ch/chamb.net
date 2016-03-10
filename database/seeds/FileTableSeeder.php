@@ -9,6 +9,7 @@ namespace database\seeds;
 
 use App\Ahk\File;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
+use App\Ahk\Repositories\Decision\DbDecisionRepository;
 use App\Ahk\Repositories\Event\DbEventRepository;
 use Illuminate\Database\Seeder;
 
@@ -23,6 +24,7 @@ class FileTableSeeder extends Seeder
 	{
 		$dbCompanyRepository = new DbCompanyRepository();
 		$dbEventRepository = new DbEventRepository();
+		$dbDecisionRepository = new DbDecisionRepository();
 
 		foreach ($dbCompanyRepository->all() as $event)
 		{
@@ -36,6 +38,13 @@ class FileTableSeeder extends Seeder
 			$files = factory(File::class, 2)->create();
 
 			$dbEventRepository->assignFiles($event, $files);
+		}
+
+		foreach ($dbDecisionRepository->all() as $decision)
+		{
+			$files = factory(File::class, 2)->create();
+
+			$dbDecisionRepository->assignFile($decision, $files);
 		}
 	}
 }

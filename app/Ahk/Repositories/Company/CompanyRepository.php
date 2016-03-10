@@ -16,20 +16,25 @@ interface CompanyRepository
 
 	/**
 	 * Paginate through all companies
+	 *
 	 * @param int $items
+	 *
 	 * @return mixed
 	 */
 	public function paginate($items = 10);
 
 	/**
 	 * Return all companies
+	 *
 	 * @return mixed
 	 */
 	public function all();
 
 	/**
 	 * Return all companies owned by given user, ready to be paginated
+	 *
 	 * @param User $user
+	 *
 	 * @return mixed
 	 */
 	public function getByUser(User $user);
@@ -38,7 +43,8 @@ interface CompanyRepository
 	 * Update company
 	 *
 	 * @param Company $company
-	 * @param $data
+	 * @param         $data
+	 *
 	 * @return Company|false
 	 */
 	public function update(Company $company, array $data);
@@ -47,7 +53,8 @@ interface CompanyRepository
 	 * Update company primary data
 	 *
 	 * @param Company $company
-	 * @param $data
+	 * @param         $data
+	 *
 	 * @return Company|false
 	 */
 	public function updatePrimaryData(Company $company, array $data);
@@ -55,8 +62,9 @@ interface CompanyRepository
 	/**
 	 * Store company
 	 *
-	 * @param User $user
+	 * @param User  $user
 	 * @param array $data
+	 *
 	 * @return Company|false
 	 */
 	public function store(User $user, array $data);
@@ -65,7 +73,8 @@ interface CompanyRepository
 	 * Assign company representative user
 	 *
 	 * @param Company $company
-	 * @param User $user
+	 * @param User    $user
+	 *
 	 * @return Company|false
 	 */
 	public function assignRepresentativeUser(Company $company, User $user);
@@ -74,7 +83,8 @@ interface CompanyRepository
 	 * Update the industry of a company
 	 *
 	 * @param Company $company
-	 * @param $industryId
+	 * @param         $industryId
+	 *
 	 * @return Company|false
 	 */
 	public function assignIndustryById(Company $company, $industryId);
@@ -83,7 +93,8 @@ interface CompanyRepository
 	 * Update the country of a company
 	 *
 	 * @param Company $company
-	 * @param $countryId
+	 * @param         $countryId
+	 *
 	 * @return Company|false
 	 */
 	public function assignCountryById(Company $company, $countryId);
@@ -92,7 +103,8 @@ interface CompanyRepository
 	 * Update the logo of a company
 	 *
 	 * @param Company $company
-	 * @param $logoId
+	 * @param         $logoId
+	 *
 	 * @return Company|false
 	 */
 	public function assignLogoById(Company $company, $logoId);
@@ -100,8 +112,9 @@ interface CompanyRepository
 	/**
 	 * Add files to company
 	 *
-	 * @param Company $company
+	 * @param Company          $company
 	 * @param array|Collection $files
+	 *
 	 * @return Company|false
 	 */
 	public function assignFiles(Company $company, $files);
@@ -109,10 +122,21 @@ interface CompanyRepository
 	/**
 	 * Add events to company
 	 *
-	 * @param Company $company
+	 * @param Company          $company
 	 * @param array|Collection $events
+	 *
 	 * @return Company|false
 	 */
 	public function assignEvents(Company $company, $events);
+
+	/**
+	 * Assign decisions to the company
+	 *
+	 * @param Company $company
+	 * @param array   $decisions
+	 *
+	 * @return Company|false
+	 */
+	public function assignDecisions(Company $company, array $decisions);
 }
 
