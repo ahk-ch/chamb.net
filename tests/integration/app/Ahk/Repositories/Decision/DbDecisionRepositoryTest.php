@@ -39,4 +39,23 @@ class DbDecisionRepositoryTest extends TestCase
 		);
 	}
 
+	/** @test */
+	public function it_returns_all_decisions()
+	{
+		$dbDecisionRepository = new DbDecisionRepository();
+
+		$this->assertCount(0, $dbDecisionRepository->all());
+
+		$actualEvents = factory(Decision::class, 2)->create();
+
+		$expectedDecisions = $dbDecisionRepository->all();
+
+		$this->assertSame(2, $expectedDecisions->count());
+
+		$this->assertSame(
+			array_only($expectedDecisions->toArray(), $expectedDecisions[0]->getFillable()),
+			array_only($actualEvents->toArray(), $expectedDecisions[0]->getFillable()));
+
+	}
+
 }

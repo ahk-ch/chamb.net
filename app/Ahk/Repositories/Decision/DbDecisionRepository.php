@@ -25,4 +25,14 @@ class DbDecisionRepository extends DbRepository implements DecisionRepository
 
 		return $decision->save() ? $decision : false;
 	}
+
+	/**
+	 * Return all decisions
+	 *
+	 * @return mixed
+	 */
+	public function all()
+	{
+		return Decision::all();
+	}
 }

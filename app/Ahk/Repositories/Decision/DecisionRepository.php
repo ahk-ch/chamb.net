@@ -26,4 +26,11 @@ interface DecisionRepository
 	 */
 	public function assignFile(Decision $decision, File $file);
 
+	/**
+	 * Return all decisions
+	 *
+	 * @return mixed
+	 */
+	public function all();
+
 }
