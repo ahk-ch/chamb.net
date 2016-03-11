@@ -285,17 +285,30 @@ class DbUserRepository extends DbRepository implements UserRepository
 	 *
 	 * @param $industry
 	 *
-	 * @return mixed
+	 * @return Builder
 	 */
 	public function withIndustry($industry)
 	{
-		return $this->model->whereHas('companies', function (Builder $query) use ($industry)
-		{
-			$query->whereHas('industry', function (Builder $query) use ($industry)
+		ddd($this->getBuilder());
+		$this->setBuilder(
+			$this->getModel()->whereHas('companies', function (Builder $query) use ($industry)
 			{
-				$query->where('id', $industry->id);
-			});
-		});
+				$query->whereHas('industry', function (Builder $query) use ($industry)
+				{
+					$query->where('industries.id', $industry->id);
+				});
+			})
+		);
+
+		return $this;
+
+//		return $this->getModel()->whereHas('companies', function (Builder $query) use ($industry)
+//		{
+//			$query->whereHas('industry', function (Builder $query) use ($industry)
+//			{
+//				$query->where('industries.id', $industry->id);
+//			});
+//		});
 	}
 
 	/**
@@ -305,10 +318,19 @@ class DbUserRepository extends DbRepository implements UserRepository
 	 */
 	public function withCompanyRepresentativeRole()
 	{
-		return $this->model->whereHas('roles', function (Builder $query)
-		{
-			$query->where('roles.name', Role::COMPANY_REPRESENTATIVE_ROLE);
-		});
+		$this->setBuilder(
+			$this->getModel()->whereHas('roles', function (Builder $query)
+			{
+				$query->where('roles.name', Role::COMPANY_REPRESENTATIVE_ROLE);
+			})
+		);
+
+		return $this;
+
+//		return $this->getModel()->whereHas('roles', function (Builder $query)
+//		{
+//			$query->where('roles.name', Role::COMPANY_REPRESENTATIVE_ROLE);
+//		});
 	}
 }
 

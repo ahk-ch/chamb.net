@@ -10,6 +10,7 @@ namespace App\Ahk\Repositories\User;
 use App\Ahk\Company;
 use App\Ahk\Role;
 use App\Ahk\User;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Interface UserRepository
@@ -126,7 +127,7 @@ interface UserRepository
 	/**
 	 * Get all users that have role of company representatiave
 	 *
-	 * @return mixed
+	 * @return Builder
 	 */
 	public function withCompanyRepresentativeRole();
 
@@ -181,7 +182,7 @@ interface UserRepository
 	 *
 	 * @param $industry
 	 *
-	 * @return mixed
+	 * @return Builder
 	 */
 	public function withIndustry($industry);
 }

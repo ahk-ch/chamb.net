@@ -7,12 +7,21 @@
 namespace App\Ahk\Repositories;
 
 
+/**
+ * Class DbRepository
+ *
+ * @package App\Ahk\Repositories
+ */
 abstract class DbRepository
 {
 	/**
 	 * Eloquent model
 	 */
-	protected $model;
+	private $model;
+	/**
+	 * Builder
+	 */
+	private $builder;
 
 	/**
 	 * @param $model
@@ -20,6 +29,14 @@ abstract class DbRepository
 	function __construct($model)
 	{
 		$this->setModel($model);
+	}
+
+	/**
+	 *
+	 */
+	public function get()
+	{
+		$this->getModel()->get();
 	}
 
 	/**
@@ -36,6 +53,22 @@ abstract class DbRepository
 	public function setModel($model)
 	{
 		$this->model = $model;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getBuilder()
+	{
+		return $this->builder;
+	}
+
+	/**
+	 * @param mixed $builder
+	 */
+	public function setBuilder($builder)
+	{
+		$this->builder = $builder;
 	}
 }
 

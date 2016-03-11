@@ -6,6 +6,7 @@ use App\Ahk\Company;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Article\ArticleRepository;
 use App\Ahk\Repositories\Industry\IndustryRepository;
+use App\Ahk\Repositories\User\UserRepository;
 use App\Ahk\Workgroup;
 use App\Http\Controllers\Controller;
 
@@ -19,24 +20,32 @@ class IndustriesController extends Controller
 	 * @var IndustryRepository
 	 */
 	private $industryRepository;
+	/**
+	 * @var UserRepository
+	 */
+	private $userRepository;
 
 
 	/**
 	 * CategoriesController constructor.
-	 * @param ArticleRepository $articleRepository
+	 *
+	 * @param ArticleRepository  $articleRepository
 	 * @param IndustryRepository $industryRepository
+	 * @param UserRepository     $userRepository
 	 */
-	public function __construct(ArticleRepository $articleRepository,
-	                            IndustryRepository $industryRepository)
+	public function __construct(ArticleRepository $articleRepository, IndustryRepository $industryRepository,
+	                            UserRepository $userRepository)
 	{
 		$this->articleRepository = $articleRepository;
 		$this->industryRepository = $industryRepository;
+		$this->userRepository = $userRepository;
 	}
 
 	/**
 	 * Display a listing of the info resource.
 	 *
 	 * @param Industry $industry
+	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function info(Industry $industry)
@@ -48,6 +57,7 @@ class IndustriesController extends Controller
 	 * Display a listing of the news resource.
 	 *
 	 * @param Industry $industry
+	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function news(Industry $industry)
@@ -61,20 +71,22 @@ class IndustriesController extends Controller
 	 * Display a listing of the work-groups resource.
 	 *
 	 * @param Industry $industry
+	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function indexWorkGroup(Industry $industry)
 	{
 		$workGroups = $this->industryRepository->paginateWorkGroups($industry);
-		
+
 		return view('ahk.industries.work_groups.index', compact('industry', 'workGroups'));
 	}
 
 	/**
 	 * Show info about a work-group
 	 *
-	 * @param Industry $industry
+	 * @param Industry  $industry
 	 * @param Workgroup $workGroup
+	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function showWorkGroup(Industry $industry, Workgroup $workGroup)
@@ -85,13 +97,18 @@ class IndustriesController extends Controller
 
 		$decisions = $this->industryRepository->companyDecisions($industry)->get();
 
-		return view('ahk.industries.work_groups.show', compact('industry', 'workGroup', 'articles', 'events', 'decisions'));
+		$members = $this->userRepository->withCompanyRepresentativeRole()->withIndustry($industry)->get();
+		dd($members);
+
+		return view('ahk.industries.work_groups.show',
+			compact('industry', 'workGroup', 'articles', 'events', 'decisions', 'members'));
 	}
 
 	/**
 	 * Display a listing of the news resource.
 	 *
 	 * @param Industry $industry
+	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function indexCompanies(Industry $industry)
@@ -105,7 +122,8 @@ class IndustriesController extends Controller
 	 * Display a listing of the news resource.
 	 *
 	 * @param Industry $industry
-	 * @param Company $company
+	 * @param Company  $company
+	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function showCompanies(Industry $industry, Company $company)
