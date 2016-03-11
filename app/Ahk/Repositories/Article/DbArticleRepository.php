@@ -16,9 +16,21 @@ use Illuminate\Database\Eloquent\Collection;
 
 class DbArticleRepository extends DbRepository implements ArticleRepository
 {
+	/**
+	 * DbArticleRepository constructor.
+	 *
+	 * @param Article $model
+	 */
+	public function __construct(Article $model = null)
+	{
+		$model = $model === null ? new Article : $model;
+
+		parent::__construct($model);
+	}
 
 	/**
 	 * Get all articles
+	 *
 	 * @return Collection
 	 */
 	public function all()
@@ -28,7 +40,9 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 
 	/**
 	 * Store an article on the storage.
+	 *
 	 * @param array $fillable Validated array parameters: author_id, industry_id, thumbnail_id
+	 *
 	 * @return Article|false
 	 */
 	public function store(array $fillable)
@@ -46,9 +60,11 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 
 	/**
 	 * Update an article given it id.
-	 * @param $articleId
-	 * @param array $fillable
+	 *
+	 * @param          $articleId
+	 * @param array    $fillable
 	 * @param Industry $industry
+	 *
 	 * @return mixed
 	 */
 	public function updateById($articleId, array $fillable, Industry $industry)
@@ -64,7 +80,9 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 
 	/**
 	 * Get an article given its id
+	 *
 	 * @param $id
+	 *
 	 * @return Article|\Illuminate\Database\Eloquent\Model|null|static
 	 */
 	public function getById($id)
@@ -75,8 +93,10 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 
 	/**
 	 * Update the tags of an article
-	 * @param $id Article id
+	 *
+	 * @param       $id Article id
 	 * @param array $tagIds
+	 *
 	 * @return Article|false
 	 */
 	public function updateTagsById($id, array $tagIds)
@@ -90,6 +110,7 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 
 	/**
 	 * Return unpublished articles
+	 *
 	 * @return mixed
 	 */
 	public function unpublished()
@@ -99,11 +120,13 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 
 	/**
 	 * Paginate published articles of an industry
+	 *
 	 * @param Industry $industry
-	 * @param int $perPage
-	 * @param array $columns
-	 * @param string $pageName
-	 * @param null $page
+	 * @param int      $perPage
+	 * @param array    $columns
+	 * @param string   $pageName
+	 * @param null     $page
+	 *
 	 * @return mixed
 	 */
 	public function paginatePublishedByIndustry(Industry $industry, $perPage = 10, $columns = ['*'], $pageName = 'page', $page = null)
@@ -116,7 +139,9 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 
 	/**
 	 * Get most viewed articles
+	 *
 	 * @param int $max
+	 *
 	 * @return mixed
 	 */
 	public function mostViewed($max = 10)
@@ -126,6 +151,7 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 
 	/**
 	 * Return published articles
+	 *
 	 * @return mixed
 	 */
 	public function published()
@@ -135,8 +161,10 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
 
 	/**
 	 * Get most viewed articles
-	 * @param $industry
+	 *
+	 * @param     $industry
 	 * @param int $max
+	 *
 	 * @return mixed
 	 */
 	public function mostViewedByIndustry($industry, $max = 10)

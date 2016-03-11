@@ -108,6 +108,7 @@ class WorkGroupTest extends TestCase
 			->see("<small>{$events->get(1)->start_date->format('m, Y')}</small>")
 			->see($events->get(1)->name)
 			->see($events->get(1)->description)
+			->see('<h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i>Decisions</h2>')
 			->see($decisions->get(0)->name)
 			->see($events->get(0)->description)
 			->see($decisions->get(1)->name)

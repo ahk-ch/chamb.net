@@ -45,7 +45,7 @@ class CompanyTableSeeder extends Seeder
 
 		$industries = $dbIndustryRepository->all();
 		$countries = $dbCountryRepository->all()->toArray();
-		$companyRepresentativeUsers = $dbUserRepository->getWithCompanyRepresentativeRole()->toArray();
+		$companyRepresentativeUsers = $dbUserRepository->withCompanyRepresentativeRole()->get()->toArray();
 		$faker = Factory::create();
 
 		foreach ($this->popularCompanies as $company)

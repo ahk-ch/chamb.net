@@ -9,6 +9,8 @@ namespace tests\integration\app\Ahk\Repositories\User;
 
 use App\Ahk\Company;
 use App\Ahk\File;
+use App\Ahk\Industry;
+use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -168,12 +170,43 @@ class DbUserRepositoryTest extends TestCase
 		$dbUserRepository->assignCompanyRepresentativeRole($actualCompanyRepresentativeUsers->get(0));
 		$dbUserRepository->assignCompanyRepresentativeRole($actualCompanyRepresentativeUsers->get(1));
 
-		$expectedUsers = $dbUserRepository->getWithCompanyRepresentativeRole();
+		$expectedUsers = $dbUserRepository->withCompanyRepresentativeRole()->get();
 		$keys = $actualCompanyRepresentativeUsers->get(0)->getFillable();
 
 		$this->assertSame(
 			array_only($expectedUsers->toArray(), $keys),
 			array_only($actualCompanyRepresentativeUsers->toArray(), $keys));
+	}
+
+	/** @test */
+	public function it_returns_users_having_any_company_of_an_industry()
+	{
+		$dbUserRepository = new DbUserRepository();
+		$dbCompanyRepository = new DbCompanyRepository();
+
+		factory(User::class, 2)->create(); # Use to validate it does not return these.
+		$actualUsers = factory(User::class, 2)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($actualUsers->get(0));
+		$dbUserRepository->assignCompanyRepresentativeRole($actualUsers->get(1));
+
+		$industry = factory(Industry::class)->create();
+		$company = factory(Company::class)->create(['industry_id' => $industry->id]);
+		$dbCompanyRepository->assignRepresentativeUser($company, $actualUsers->get(0));
+
+		$keys = $actualUsers->get(0)->getFillable();
+		$expectedUsers = $dbUserRepository->withIndustry($industry)->get();
+
+		$this->assertCount(1, $expectedUsers);
+		$this->assertSame(
+			array_only($expectedUsers->toArray(), $keys),
+			array_only($actualUsers->toArray(), $keys));
+
+		$company = factory(Company::class)->create(['industry_id' => $industry->id]);
+		$dbCompanyRepository->assignRepresentativeUser($company, $actualUsers->get(0));
+
+		$expectedUsers = $dbUserRepository->withIndustry($industry)->get();
+
+		$this->assertCount(2, $expectedUsers);
 	}
 
 	/** @test */
