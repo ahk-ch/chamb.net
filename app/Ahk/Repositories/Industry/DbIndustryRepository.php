@@ -14,6 +14,17 @@ use Illuminate\Database\Eloquent\Collection;
 
 class DbIndustryRepository extends DbRepository implements IndustryRepository
 {
+	/**
+	 * DbIndustryRepository constructor.
+	 *
+	 * @param Industry $model
+	 */
+	public function __construct(Industry $model = null)
+	{
+		$model = $model === null ? new Industry : $model;
+
+		parent::__construct($model);
+	}
 
 	/**
 	 * Get all industry

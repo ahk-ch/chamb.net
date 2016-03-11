@@ -14,34 +14,48 @@ use Illuminate\Support\Facades\Storage;
 
 class DbFileRepository extends DbRepository implements FileRepository
 {
-    /**
-     * @param $data
-     * @return mixed
-     */
-    public function store($data)
-    {
-        return $this->update(new File, $data);
-    }
+	/**
+	 * DbFileRepository constructor.
+	 *
+	 * @param File $model
+	 */
+	public function __construct(File $model = null)
+	{
+		$model = $model === null ? new File : $model;
 
-    /**
-     * @param File $file
-     * @param $data
-     * @return File|false
-     */
-    public function update(File $file, $data)
-    {
-        if (!is_null($file->path)) $currentFilePath = $file->path;
+		parent::__construct($model);
+	}
 
-        $file->fill(array_merge($data,
-            [File::PATH => FilesStorage::getFilesDirectory() . $data[File::CLIENT_ORIGINAL_NAME]]));
+	/**
+	 * @param $data
+	 *
+	 * @return mixed
+	 */
+	public function store($data)
+	{
+		return $this->update(new File, $data);
+	}
 
-        $fileIsStored = Storage::put($file->path, file_get_contents($data[File::TEMPORARY_PATH]));
+	/**
+	 * @param File $file
+	 * @param      $data
+	 *
+	 * @return File|false
+	 */
+	public function update(File $file, $data)
+	{
+		if ( ! is_null($file->path)) $currentFilePath = $file->path;
 
-        if (!$fileIsStored || !$file->save()) return false;
+		$file->fill(array_merge($data,
+			[File::PATH => FilesStorage::getFilesDirectory() . $data[ File::CLIENT_ORIGINAL_NAME ]]));
 
-        if (isset($currentFilePath)) Storage::delete($currentFilePath);
+		$fileIsStored = Storage::put($file->path, file_get_contents($data[ File::TEMPORARY_PATH ]));
 
-        return $file;
-    }
+		if ( ! $fileIsStored || ! $file->save()) return false;
+
+		if (isset($currentFilePath)) Storage::delete($currentFilePath);
+
+		return $file;
+	}
 }
 

@@ -14,53 +14,71 @@ use Illuminate\Database\Eloquent\Collection;
 
 class DbTagRepository extends DbRepository implements TagRepository
 {
+	/**
+	 * DbTagRepository constructor.
+	 *
+	 * @param Tag $model
+	 */
+	public function __construct(Tag $model = null)
+	{
+		$model = $model === null ? new Tag : $model;
 
-    /**
-     * Get all tags
-     * @return Collection
-     */
-    public function all()
-    {
-        return Tag::with('author');
-    }
+		parent::__construct($model);
+	}
 
-    /**
-     * Store a tag on the storage
-     * @param User $author
-     * @param array $fillable
-     * @return Tag|false
-     */
-    public function store(User $author, array $fillable)
-    {
-        $tag = new Tag($fillable);
+	/**
+	 * Get all tags
+	 *
+	 * @return Collection
+	 */
+	public function all()
+	{
+		return Tag::with('author');
+	}
 
-        $tag->assignAuthor($author);
+	/**
+	 * Store a tag on the storage
+	 *
+	 * @param User  $author
+	 * @param array $fillable
+	 *
+	 * @return Tag|false
+	 */
+	public function store(User $author, array $fillable)
+	{
+		$tag = new Tag($fillable);
 
-        return $tag->save() ? $tag : false;
-    }
+		$tag->assignAuthor($author);
 
-    /**
-     * Update a tag given it id.
-     * @param $id
-     * @param array $fillable
-     * @return mixed
-     */
-    public function updateById($id, array $fillable)
-    {
-        $tag = $this->getById($id);
+		return $tag->save() ? $tag : false;
+	}
 
-        $tag->fill($fillable);
+	/**
+	 * Update a tag given it id.
+	 *
+	 * @param       $id
+	 * @param array $fillable
+	 *
+	 * @return mixed
+	 */
+	public function updateById($id, array $fillable)
+	{
+		$tag = $this->getById($id);
 
-        return $tag->save() ? $tag : false;
-    }
+		$tag->fill($fillable);
 
-    /**
-     * Get a tag given its id
-     * @param $id
-     * @return Tag
-     */
-    public function getById($id)
-    {
-        return Tag::find($id);
-    }
+		return $tag->save() ? $tag : false;
+	}
+
+	/**
+	 * Get a tag given its id
+	 *
+	 * @param $id
+	 *
+	 * @return Tag
+	 */
+	public function getById($id)
+	{
+		return Tag::find($id);
+	}
 }

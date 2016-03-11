@@ -12,6 +12,17 @@ use App\Ahk\Repositories\DbRepository;
 
 class DbDecisionRepository extends DbRepository implements DecisionRepository
 {
+	/**
+	 * DbDecisionRepository constructor.
+	 *
+	 * @param Decision $model
+	 */
+	public function __construct(Decision $model = null)
+	{
+		$model = $model === null ? new Decision : $model;
+
+		parent::__construct($model);
+	}
 
 	/**
 	 * @param Decision $decision

@@ -19,8 +19,22 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 {
 
 	/**
+	 * DbCompanyRepository constructor.
+	 *
+	 * @param Company $model
+	 */
+	public function __construct(Company $model = null)
+	{
+		$model = $model === null ? new Company : $model;
+
+		parent::__construct($model);
+	}
+
+	/**
 	 * Paginate through all companies
+	 *
 	 * @param int $items
+	 *
 	 * @return mixed
 	 */
 	public function paginate($items = 10)
@@ -30,7 +44,9 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 
 	/**
 	 * Return all companies owned by given user, ready to be paginated
+	 *
 	 * @param User $user
+	 *
 	 * @return mixed
 	 */
 	public function getByUser(User $user)
@@ -42,8 +58,9 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	/**
 	 * Store company
 	 *
-	 * @param User $user
+	 * @param User  $user
 	 * @param array $data
+	 *
 	 * @return Company|false
 	 */
 	public function store(User $user, array $data)
@@ -61,7 +78,8 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	 * Assign company representative user
 	 *
 	 * @param Company $company
-	 * @param User $user
+	 * @param User    $user
+	 *
 	 * @return Company|false
 	 */
 	public function assignRepresentativeUser(Company $company, User $user)
@@ -75,7 +93,8 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	 * Update the logo of a company
 	 *
 	 * @param Company $company
-	 * @param $logoId
+	 * @param         $logoId
+	 *
 	 * @return Company|false
 	 */
 	public function assignLogoById(Company $company, $logoId)
@@ -91,7 +110,8 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	 * Update company
 	 *
 	 * @param Company $company
-	 * @param $data
+	 * @param         $data
+	 *
 	 * @return Company|false
 	 */
 	public function update(Company $company, array $data)
@@ -109,7 +129,8 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	 * Update company primary data
 	 *
 	 * @param Company $company
-	 * @param $data
+	 * @param         $data
+	 *
 	 * @return Company|false
 	 */
 	public function updatePrimaryData(Company $company, array $data)
@@ -125,8 +146,9 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	/**
 	 * Update the industry of a company
 	 *
-	 * @param Company $company
+	 * @param Company  $company
 	 * @param Industry $industryId
+	 *
 	 * @return Company|false
 	 */
 	public function assignIndustryById(Company $company, $industryId)
@@ -142,7 +164,8 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	 * Update the country of a company
 	 *
 	 * @param Company $company
-	 * @param $countryId
+	 * @param         $countryId
+	 *
 	 * @return Company|false
 	 */
 	public function assignCountryById(Company $company, $countryId)
@@ -157,8 +180,9 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	/**
 	 * Add files to company
 	 *
-	 * @param Company $company
+	 * @param Company          $company
 	 * @param array|Collection $files
+	 *
 	 * @return Company|false
 	 */
 	public function assignFiles(Company $company, $files)
@@ -170,6 +194,7 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 
 	/**
 	 * Return all companies
+	 *
 	 * @return mixed
 	 */
 	public function all()
@@ -180,8 +205,9 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 	/**
 	 * Add events to company
 	 *
-	 * @param Company $company
+	 * @param Company          $company
 	 * @param array|Collection $events
+	 *
 	 * @return Company|false
 	 */
 	public function assignEvents(Company $company, $events)

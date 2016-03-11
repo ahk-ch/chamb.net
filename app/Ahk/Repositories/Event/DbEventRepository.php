@@ -2,7 +2,7 @@
 
 /**
  * @author Rizart Dokollari <r.dokollari@gmail.com>
- * @since 09/03/16
+ * @since  09/03/16
  */
 
 use App\Ahk\Event;
@@ -11,13 +11,26 @@ use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Class DbEventRepository
+ *
  * @package App\Ahk\Repositories
  */
 class DbEventRepository extends DbRepository implements EventRepository
 {
+	/**
+	 * DbEventRepository constructor.
+	 *
+	 * @param Event $model
+	 */
+	public function __construct(Event $model = null)
+	{
+		$model = $model === null ? new Event : $model;
+
+		parent::__construct($model);
+	}
 
 	/**
 	 * Return all events
+	 *
 	 * @return mixed
 	 */
 	public function all()
@@ -28,8 +41,9 @@ class DbEventRepository extends DbRepository implements EventRepository
 	/**
 	 * Add files to event
 	 *
-	 * @param Event $event
+	 * @param Event            $event
 	 * @param array|Collection $files
+	 *
 	 * @return Event|false
 	 */
 	public function assignFiles(Event $event, $files)
