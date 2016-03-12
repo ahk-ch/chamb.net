@@ -8,6 +8,7 @@ namespace App\Ahk\Repositories\User;
 
 
 use App\Ahk\Company;
+use App\Ahk\Industry;
 use App\Ahk\Role;
 use App\Ahk\User;
 use Illuminate\Database\Eloquent\Builder;
@@ -180,10 +181,10 @@ interface UserRepository
 	/**
 	 * Get all users with role of company representative, which company/companies belong to the given industry.
 	 *
-	 * @param $industry
+	 * @param Industry $industry
 	 *
 	 * @return Builder
 	 */
-	public function withIndustry($industry);
+	public function whereHasCompanyRepresentativeRoleAndIndustry(Industry $industry);
 }
 

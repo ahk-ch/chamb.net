@@ -102,7 +102,7 @@ class User extends Model implements AuthenticatableContract,
      */
     public function roles()
     {
-        return $this->belongsToMany('App\Ahk\Role')->withTimestamps();
+        return $this->belongsToMany(Role::class)->withTimestamps();
     }
 
     /**
@@ -110,7 +110,7 @@ class User extends Model implements AuthenticatableContract,
      */
     public function companies()
     {
-        return $this->hasMany('App\Ahk\Company');
+        return $this->hasMany(Company::class);
     }
 
     /**
@@ -118,7 +118,7 @@ class User extends Model implements AuthenticatableContract,
      */
     public function avatar()
     {
-        return $this->belongsTo('App\Ahk\File');
+        return $this->belongsTo(File::class);
     }
 }
 

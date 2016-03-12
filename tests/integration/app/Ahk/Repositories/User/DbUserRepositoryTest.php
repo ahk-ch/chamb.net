@@ -8,7 +8,6 @@
 namespace tests\integration\app\Ahk\Repositories\User;
 
 use App\Ahk\Company;
-use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
@@ -76,14 +75,14 @@ class DbUserRepositoryTest extends TestCase
 		$user = factory(User::class)->make(['password' => 'pass']);
 
 		$this->assertNotFalse($user = $userRepository->storeCompanyRepresentativeAccount([
-			'email'     => $user->email,
-			'name'      => $user->name,
-			'password'  => 'pass',
+			'email'    => $user->email,
+			'name'     => $user->name,
+			'password' => 'pass',
 		]));
 
 		$this->seeInDatabase('users', [
-			'email'     => $user->email,
-			'name'      => $user->name,
+			'email' => $user->email,
+			'name'  => $user->name,
 		]);
 
 		$this->assertTrue(Hash::check('pass', $user->password));
@@ -185,28 +184,32 @@ class DbUserRepositoryTest extends TestCase
 		$dbCompanyRepository = new DbCompanyRepository();
 
 		factory(User::class, 2)->create(); # Use to validate it does not return these.
-		$actualUsers = factory(User::class, 2)->create();
-		$dbUserRepository->assignCompanyRepresentativeRole($actualUsers->get(0));
-		$dbUserRepository->assignCompanyRepresentativeRole($actualUsers->get(1));
+		$expectedUsers = factory(User::class, 2)->create();
+		$dbUserRepository->assignCompanyRepresentativeRole($expectedUsers->get(0));
+		$dbUserRepository->assignCompanyRepresentativeRole($expectedUsers->get(1));
 
 		$industry = factory(Industry::class)->create();
+		factory(Company::class)->create(['industry_id' => $industry->id]);
 		$company = factory(Company::class)->create(['industry_id' => $industry->id]);
-		$dbCompanyRepository->assignRepresentativeUser($company, $actualUsers->get(0));
+		$dbCompanyRepository->assignRepresentativeUser($company, $expectedUsers->get(0));
 
-		$keys = $actualUsers->get(0)->getFillable();
-		$expectedUsers = $dbUserRepository->withIndustry($industry)->get();
+		$keys = $expectedUsers->get(0)->getFillable();
+		$actualUsers = $dbUserRepository->whereHasCompanyRepresentativeRoleAndIndustry($industry)->get();
 
-		$this->assertCount(1, $expectedUsers);
+		var_dump($dbUserRepository->hasCompanyRepresentativeRole($actualUsers->get(0)));
+
+		$this->assertCount(1, $actualUsers);
+
 		$this->assertSame(
 			array_only($expectedUsers->toArray(), $keys),
 			array_only($actualUsers->toArray(), $keys));
 
 		$company = factory(Company::class)->create(['industry_id' => $industry->id]);
-		$dbCompanyRepository->assignRepresentativeUser($company, $actualUsers->get(0));
+		$dbCompanyRepository->assignRepresentativeUser($company, $expectedUsers->get(0));
 
-		$expectedUsers = $dbUserRepository->withIndustry($industry)->get();
+		$actualUsers = $dbUserRepository->whereHasCompanyRepresentativeRoleAndIndustry($industry)->get();
 
-		$this->assertCount(2, $expectedUsers);
+		$this->assertCount(2, $actualUsers);
 	}
 
 	/** @test */

@@ -7,6 +7,7 @@
 namespace App\Ahk\Repositories\User;
 
 use App\Ahk\Company;
+use App\Ahk\Industry;
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\DbRepository;
 use App\Ahk\Role;
@@ -281,34 +282,23 @@ class DbUserRepository extends DbRepository implements UserRepository
 	}
 
 	/**
-	 * Get all users who have companies which company/companies belong to the given industry.
+	 * Get all users with role of company representative, which company/companies belong to the given industry.
 	 *
-	 * @param $industry
+	 * @param Industry $industry
 	 *
 	 * @return Builder
 	 */
-	public function withIndustry($industry)
+	public function whereHasCompanyRepresentativeRoleAndIndustry(Industry $industry)
 	{
-		ddd($this->getBuilder());
-		$this->setBuilder(
-			$this->getModel()->whereHas('companies', function (Builder $query) use ($industry)
-			{
-				$query->whereHas('industry', function (Builder $query) use ($industry)
-				{
-					$query->where('industries.id', $industry->id);
-				});
-			})
-		);
-
-		return $this;
-
-//		return $this->getModel()->whereHas('companies', function (Builder $query) use ($industry)
-//		{
-//			$query->whereHas('industry', function (Builder $query) use ($industry)
+		return User::whereHas('companies.industry', function (Builder $query) use ($industry)
+		{
+			$query->where('industries.id', $industry->id);
+		})
+//			->whereHas('roles', function (Builder $query)
 //			{
-//				$query->where('industries.id', $industry->id);
-//			});
-//		});
+//				$query->where('roles.name', Role::COMPANY_REPRESENTATIVE_ROLE);
+//			})
+			;
 	}
 
 	/**
@@ -318,19 +308,10 @@ class DbUserRepository extends DbRepository implements UserRepository
 	 */
 	public function withCompanyRepresentativeRole()
 	{
-		$this->setBuilder(
-			$this->getModel()->whereHas('roles', function (Builder $query)
-			{
-				$query->where('roles.name', Role::COMPANY_REPRESENTATIVE_ROLE);
-			})
-		);
-
-		return $this;
-
-//		return $this->getModel()->whereHas('roles', function (Builder $query)
-//		{
-//			$query->where('roles.name', Role::COMPANY_REPRESENTATIVE_ROLE);
-//		});
+		return $this->getModel()->whereHas('roles', function (Builder $query)
+		{
+			$query->where('roles.name', Role::COMPANY_REPRESENTATIVE_ROLE);
+		});
 	}
 }
 
