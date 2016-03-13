@@ -34,3 +34,4 @@ interface DecisionRepository
 	public function all();
 
 }
+
