@@ -185,6 +185,6 @@ interface UserRepository
 	 *
 	 * @return Builder
 	 */
-	public function whereHasCompanyRepresentativeRoleAndIndustry(Industry $industry);
+	public function whereIndustry(Industry $industry);
 }
 

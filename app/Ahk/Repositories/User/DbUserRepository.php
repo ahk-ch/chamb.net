@@ -288,17 +288,12 @@ class DbUserRepository extends DbRepository implements UserRepository
 	 *
 	 * @return Builder
 	 */
-	public function whereHasCompanyRepresentativeRoleAndIndustry(Industry $industry)
+	public function whereIndustry(Industry $industry)
 	{
 		return User::whereHas('companies.industry', function (Builder $query) use ($industry)
 		{
 			$query->where('industries.id', $industry->id);
-		})
-//			->whereHas('roles', function (Builder $query)
-//			{
-//				$query->where('roles.name', Role::COMPANY_REPRESENTATIVE_ROLE);
-//			})
-			;
+		});
 	}
 
 	/**
