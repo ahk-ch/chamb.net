@@ -18,6 +18,7 @@ use App\Ahk\Industry;
 use App\Ahk\Repositories\Article\DbArticleRepository;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
+use App\Ahk\User;
 use App\Ahk\Workgroup;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
@@ -62,13 +63,14 @@ class WorkGroupTest extends TestCase
 		$dbArticleRepository = new DbArticleRepository();
 		$dbCompanyRepository = new DbCompanyRepository();
 
+		$users = factory(User::class, 2)->create();
 		$industry = factory(Industry::class)->create();
 		$workGroup = factory(Workgroup::class)->create();
 		$dbIndustryRepository->assignWorkGroupsById($industry, [$workGroup->id]);
 		$articles = factory(Article::class, 3)->create(['industry_id' => $industry->id, 'publish' => true]);
 		$articleChecker = factory(Article::class)->create();
 
-		$company = factory(Company::class)->create(['industry_id' => $industry->id]);
+		$company = factory(Company::class)->create(['industry_id' => $industry->id, 'user_id' => $users->get(0)->id]);
 		$files = factory(File::class, 2)->create();
 		$dbCompanyRepository->assignFiles($company, $files);
 
@@ -108,10 +110,18 @@ class WorkGroupTest extends TestCase
 			->see("<small>{$events->get(1)->start_date->format('m, Y')}</small>")
 			->see($events->get(1)->name)
 			->see($events->get(1)->description)
-			->see('<h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i>Decisions</h2>')
+			->see('<i class="fa fa-pencil"></i>Decisions')
 			->see($decisions->get(0)->name)
 			->see($events->get(0)->description)
 			->see($decisions->get(1)->name)
-			->see($events->get(1)->description);
+			->see($events->get(1)->description)
+			->see($users->get(0)->name)
+			->see($users->get(0)->created_at->format('M D, Y'))
+			->see($users->get(0)->facebook_url)
+			->see($users->get(0)->twitter_url)
+			->see($users->get(0)->linked_in_url)
+			->see($users->get(0)->email)
+			->see($users->get(0)->website_url)
+			->dontSee($users->get(1)->name);
 	}
 }

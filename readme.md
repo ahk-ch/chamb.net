@@ -2,14 +2,16 @@
 [![Build Status](https://travis-ci.org/ahk-ch/chamb.net.svg?branch=master)](https://travis-ci.org/ahk-ch/chamb.net) [![Coverage Status](https://coveralls.io/repos/github/ahk-ch/chamb.net/badge.svg?branch=master)](https://coveralls.io/github/ahk-ch/chamb.net?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/d11c5e6f-ed63-42f0-ad20-a3754787d91c/mini.png)](https://insight.sensiolabs.com/projects/d11c5e6f-ed63-42f0-ad20-a3754787d91c)
 
-## Deployment
+## Development
+> Whether you are a front-end or backend developer the below steps are required. 
 
-- Clone the repo to your web server.
+- [Set Up Laravel Homestead](https://laravel.com/docs/5.2/homestead). From this point onwards, you should ssh into this virtual machine, and continue with next steps.
+- [Clone this repo to your development machine](https://help.github.com/articles/cloning-a-repository/)
 - [Generate Laravel key][laravel_recipes_generate_key]
-- Use composer to install back-end packages.
+- [Set up Node & NPM](https://docs.npmjs.com/getting-started/installing-node)
+- Install local npm packages `npm install`
 - Use bower to install front-end packages. 
-    - You'll need to separately get a [Unify Template][unify_website_url] copy as it requires a license. Put the assets folder into /bower_components/Unify directory. If 
-    - Or if you wish to contribute send us message with a ssh key as a deployment key. This will give your bower access to the private Unify package.
+- Use composer to install back-end packages.
 - Run command `gulp --production` to minimize and copy all css & js to public directory.
 - Run tests using phpunit
 - Run migrations 

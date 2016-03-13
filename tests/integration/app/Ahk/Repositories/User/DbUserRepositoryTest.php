@@ -193,7 +193,7 @@ class DbUserRepositoryTest extends TestCase
 		factory(Company::class)->create(['industry_id' => $industry->id, 'user_id' => $expectedUsers->get(0)->id]);
 
 		$keys = $expectedUsers->get(0)->getFillable();
-		$actualUsers = $dbUserRepository->whereIndustry($industry)->get();
+		$actualUsers = $dbUserRepository->whereCompaniesIndustry($industry)->get();
 
 		$this->assertTrue($dbUserRepository->hasCompanyRepresentativeRole($actualUsers->get(0)));
 
@@ -206,7 +206,7 @@ class DbUserRepositoryTest extends TestCase
 		$company = factory(Company::class)->create(['industry_id' => $industry->id]);
 		$dbCompanyRepository->assignRepresentativeUser($company, $expectedUsers->get(0));
 
-		$actualUsers = $dbUserRepository->whereIndustry($industry)->get();
+		$actualUsers = $dbUserRepository->whereCompaniesIndustry($industry)->get();
 
 		$this->assertCount(2, $actualUsers);
 	}

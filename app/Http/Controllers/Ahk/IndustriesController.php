@@ -97,8 +97,7 @@ class IndustriesController extends Controller
 
 		$decisions = $this->industryRepository->companyDecisions($industry)->get();
 
-		$members = $this->userRepository->withCompanyRepresentativeRole()->withIndustry($industry)->get();
-		dd($members);
+		$members = $this->userRepository->whereCompaniesIndustry($industry)->get();
 
 		return view('ahk.industries.work_groups.show',
 			compact('industry', 'workGroup', 'articles', 'events', 'decisions', 'members'));

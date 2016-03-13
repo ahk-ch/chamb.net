@@ -40,6 +40,10 @@ $factory->defineAs(App\Ahk\User::class, 'with_primary_data', function (Faker\Gen
 		'password'           => bcrypt(str_random(10)),
 		'verified'           => 0,
 		User::RECOVERY_TOKEN => str_random(),
+		'facebook_url'       => $faker->url,
+		'twitter_url'        => $faker->url,
+		'linked_in_url'      => $faker->url,
+		'website_url'        => $faker->url,
 	];
 });
 

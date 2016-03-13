@@ -177,9 +177,8 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                            <th>User Image</th>
+                            <th></th>
                             <th class="hidden-sm">About</th>
-                            <th>Status</th>
                             <th>Contacts</th>
                         </tr>
                         </thead>
@@ -190,44 +189,32 @@
                                     <img class="rounded-x" src="{!! route('files.render', ['path' => $member->avatar->path]) !!}" alt="Member Avatar">
                                 </td>
                                 <td class="td-width">
-                                    <h3><a href="#">Sed nec elit arcu</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id commodo lacus.
-                                        Fusce
-                                        non malesuada ante. Donec vel arcu.</p>
-                                    <small class="hex">Joined February 28, 2014</small>
-                                </td>
-                                <td>
-                                    <span class="label label-success">Success</span>
+                                    <h3><a href="#">{{ $member->name }}</a></h3>
+                                    <small class="hex">Joined at {!! $member->created_at->format('M D, Y') !!}</small>
                                 </td>
                                 <td>
                                     <ul class="list-inline s-icons">
                                         <li>
                                             <a data-placement="top" data-toggle="tooltip" class="tooltips"
-                                               data-original-title="Facebook" href="#">
+                                               data-original-title="Facebook" href="{{ $member->facebook_url }}">
                                                 <i class="fa fa-facebook"></i>
                                             </a>
                                         </li>
                                         <li>
                                             <a data-placement="top" data-toggle="tooltip" class="tooltips"
-                                               data-original-title="Twitter" href="#">
+                                               data-original-title="Twitter" href="{{ $member->twitter_url }}">
                                                 <i class="fa fa-twitter"></i>
                                             </a>
                                         </li>
                                         <li>
                                             <a data-placement="top" data-toggle="tooltip" class="tooltips"
-                                               data-original-title="Dropbox" href="#">
-                                                <i class="fa fa-dropbox"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a data-placement="top" data-toggle="tooltip" class="tooltips"
-                                               data-original-title="Linkedin" href="#">
+                                               data-original-title="Linkedin" href="{{ $member->linked_in_url }}">
                                                 <i class="fa fa-linkedin"></i>
                                             </a>
                                         </li>
                                     </ul>
-                                    <span><a href="#">info@example.com</a></span>
-                                    <span><a href="#">www.htmlstream.com</a></span>
+                                    <span><a href="mail:to{{ $member->email }}">{{ $member->email }}</a></span>
+                                    <span><a href="{{ $member->website_url }}">{{ $member->website_url }}</a></span>
                                 </td>
                             </tr>
                         @endforeach

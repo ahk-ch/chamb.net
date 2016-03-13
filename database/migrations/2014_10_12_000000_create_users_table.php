@@ -24,6 +24,10 @@ class CreateUsersTable extends Migration
 			$table->string('token')->nullable();
 			$table->string(User::SLUG)->unique();
 			$table->string(User::RECOVERY_TOKEN)->nullable();
+			$table->string('facebook_url')->nullable();
+			$table->string('twitter_url')->nullable();
+			$table->string('linked_in_url')->nullable();
+			$table->string('website_url')->nullable();
 			$table->rememberToken();
 			$table->timestamps();
 		});

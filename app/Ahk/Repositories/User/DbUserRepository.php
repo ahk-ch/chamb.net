@@ -288,7 +288,7 @@ class DbUserRepository extends DbRepository implements UserRepository
 	 *
 	 * @return Builder
 	 */
-	public function whereIndustry(Industry $industry)
+	public function whereCompaniesIndustry(Industry $industry)
 	{
 		return User::whereHas('companies.industry', function (Builder $query) use ($industry)
 		{

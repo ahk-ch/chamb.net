@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Event
  * @package App\Ahk
+ * @codeCoverageIgnore
  */
 class Event extends Model implements SluggableInterface
 {
