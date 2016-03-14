@@ -1,8 +1,5 @@
 language: php
 
-addons:
-  ssh_known_hosts: bitbucket.org
-
 php:
   - 5.5.9
   - 5.6
@@ -18,22 +15,14 @@ matrix:
 before_script:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS chamb_testing;'
   - php artisan migrate -n
-  - npm install -g bower
-  - npm install --global gulp
-  - npm install
-  - bower install -s
 
 before_install:
   - composer self-update
   - composer install --prefer-source --no-interaction
   - composer require satooshi/php-coveralls
 
-install:
-  - npm install -g npm@2
-
 script:
   - composer install --prefer-source --no-interaction
-  - gulp
   - phpunit tests/ --coverage-clover build/logs/clover.xml
 
 after_script: php vendor/bin/coveralls -v

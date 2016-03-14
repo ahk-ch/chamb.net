@@ -1,169 +1,164 @@
 var elixir = require('laravel-elixir');
 
 elixir.config.sourcemaps = false;
+
 process.env.DISABLE_NOTIFIER = true;
 
 elixir(function (mix) {
-    // Plugins
-    mix.copy('bower_components/pnotify/src', 'resources/assets/css/vendor/pnotify');
-    mix.copy('bower_components/pnotify/src', 'resources/assets/js/vendor/pnotify');
-    mix.copy('bower_components/Readmore.js/', 'resources/assets/js/vendor/Readmore.js/');
-    mix.copy('bower_components/jasny-bootstrap/dist/css', 'resources/assets/css/vendor/jasny-bootstrap/');
-    mix.copy('bower_components/jasny-bootstrap/dist/js', 'resources/assets/js/vendor/jasny-bootstrap/');
-    mix.copy('bower_components/select2/dist/css', 'resources/assets/css/vendor/select2/');
-    mix.copy('bower_components/select2/dist/js', 'resources/assets/js/vendor/select2/');
 
-    // mix.copy('bower_components/UnifyV1.9.1/', 'public');
-
-    // Unify
-    mix.copy('bower_components/UnifyV1.9.1/css', 'resources/assets/css/vendor/UnifyV1.9.1/css');
-    mix.copy('bower_components/UnifyV1.9.1/plugins', 'resources/assets/css/vendor/UnifyV1.9.1/plugins');
-    mix.copy('bower_components/UnifyV1.9.1/js', 'resources/assets/js/vendor/UnifyV1.9.1/js');
-    mix.copy('bower_components/UnifyV1.9.1/plugins', 'resources/assets/js/vendor/UnifyV1.9.1/plugins');
-    mix.copy('bower_components/UnifyV1.9.1/img', 'public/build/img');
-
-    // Font Imports
-    mix.copy('bower_components/UnifyV1.9.1/plugins/bootstrap/fonts', 'public/build/css/fonts');
-    mix.copy('bower_components/UnifyV1.9.1/plugins/line-icons/fonts', 'public/build/css/fonts');
+    mix.copy('bower_components/UnifyV1.9.1/plugins/bootstrap/fonts', 'public/build/fonts');
     mix.copy('bower_components/UnifyV1.9.1/plugins/font-awesome/fonts', 'public/build/fonts');
-    // Stylesheets Imports
-    mix.styles('vendor/UnifyV1.9.1/css/app.css', 'public/build/css/app.css');
-    mix.styles('vendor/UnifyV1.9.1/css/blocks.css', 'public/build/css/blocks.css');
+    mix.copy('bower_components/UnifyV1.9.1/plugins/line-icons/fonts', 'public/build/fonts');
 
     mix
         .styles([
-            'vendor/UnifyV1.9.1/plugins/bootstrap/css/bootstrap.min.css',
-            'vendor/UnifyV1.9.1/css/app.css',
-            'vendor/UnifyV1.9.1/css/blocks.css',
-            'vendor/UnifyV1.9.1/css/style.css',
-            'vendor/UnifyV1.9.1/css/headers/header-default.css',
-            'vendor/UnifyV1.9.1/css/footers/footer-v2.css',
-            'vendor/UnifyV1.9.1/css/theme-colors/dark-blue.css',
-            'vendor/UnifyV1.9.1/css/theme-skins/dark.css',
-        ], 'public/css/above-the-fold-content.min.css')
+            'bower_components/UnifyV1.9.1/plugins/bootstrap/css/bootstrap.min.css',
+            'bower_components/UnifyV1.9.1/css/app.css',
+            'bower_components/UnifyV1.9.1/css/blocks.css',
+            'bower_components/UnifyV1.9.1/css/style.css',
+            'bower_components/UnifyV1.9.1/css/headers/header-default.css',
+            'bower_components/UnifyV1.9.1/css/footers/footer-v2.css',
+            'bower_components/UnifyV1.9.1/css/theme-colors/dark-blue.css',
+            'bower_components/UnifyV1.9.1/css/theme-skins/dark.css',
+        ], 'build/css/above-the-fold-content.min.css', '.')
         .styles([
-            'vendor/UnifyV1.9.1/plugins/animate.css',
-            'vendor/UnifyV1.9.1/plugins/line-icons/line-icons.css',
-            'vendor/UnifyV1.9.1/plugins/font-awesome/css/font-awesome.min.css',
-            'vendor/pnotify/pnotify.core.min.css',
-        ], 'public/css/master.min.css')
+            'bower_components/UnifyV1.9.1/plugins/animate.css',
+            'bower_components/UnifyV1.9.1/plugins/line-icons/style.css',
+            'bower_components/UnifyV1.9.1/plugins/font-awesome/css/font-awesome.min.css',
+            'bower_components/pnotify/src/pnotify.core.min.css',
+        ], 'build/css/master.min.css', '.')
         .styles([
-            'vendor/UnifyV1.9.1/css/pages/page_about.css'
-        ], 'public/css/about.min.css')
+            'bower_components/UnifyV1.9.1/css/pages/page_search.css',
+        ], 'build/css/industries/info/above-the-fold.min.css', '.')
         .styles([
-            'vendor/UnifyV1.9.1/plugins/image-hover/css/img-hover.css',
-            'vendor/UnifyV1.9.1/css/pages/page_job.css',
-        ], 'public/css/companies.min.css')
-        .styles([
-            'vendor/UnifyV1.9.1/plugins/scrollbar/css/jquery.mCustomScrollbar.css',
-            'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/css/sky-forms.css',
-            'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css',
-            'vendor/UnifyV1.9.1/css/pages/profile.css',
-            'vendor/UnifyV1.9.1/css/pages/shortcode_timeline2.css',
-        ], 'public/css/industries/companies/show.min.css')
-        .styles([
-            'vendor/UnifyV1.9.1/css/pages/page_log_reg_v1.css',
-        ], 'public/css/sign_in.min.css')
-        .styles([
-            'vendor/jasny-bootstrap/jasny-bootstrap.min.css',
-            'resources/assets/css/vendor/select2/select2.min.css'
-        ], 'public/css/my/companies/create-and-edit.min.css')
-        .styles([
-            'vendor/UnifyV1.9.1/css/pages/page_job.css',
-        ], 'public/css/industries/news.min.css')
-        .styles([
-            'vendor/UnifyV1.9.1/css/pages/page_search_inner.css',
-        ], 'public/css/industries/work-groups.min.css')
-        .styles([
-            'vendor/UnifyV1.9.1/plugins/scrollbar/css/jquery.mCustomScrollbar.css',
-            'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/css/sky-forms.css',
-            'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css',
-            'vendor/UnifyV1.9.1/css/pages/profile.css',
-        ], 'public/css/industries/work-groups/show.min.css');
+            'bower_components/UnifyV1.9.1/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css',
+            'bower_components/UnifyV1.9.1/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css',
+        ], 'build/css/industries/info/vendor.min.css', '.');
+
+
+    //.styles([
+    //    'vendor/UnifyV1.9.1/css/pages/page_about.css'
+    //], 'public/css/about.min.css', '.')
+    //.styles([
+    //    'vendor/UnifyV1.9.1/plugins/image-hover/css/img-hover.css',
+    //    'vendor/UnifyV1.9.1/css/pages/page_job.css',
+    //], 'public/css/companies.min.css', '.')
+    //.styles([
+    //    'vendor/UnifyV1.9.1/plugins/scrollbar/css/jquery.mCustomScrollbar.css',
+    //    'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/css/sky-forms.css',
+    //    'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css',
+    //    'vendor/UnifyV1.9.1/css/pages/profile.css',
+    //    'vendor/UnifyV1.9.1/css/pages/shortcode_timeline2.css',
+    //], 'public/css/industries/companies/show.min.css', '.')
+    //.styles([
+    //    'vendor/UnifyV1.9.1/css/pages/page_log_reg_v1.css',
+    //], 'public/css/sign_in.min.css', '.')
+    //.styles([
+    //    'vendor/jasny-bootstrap/jasny-bootstrap.min.css',
+    //    'resources/assets/css/vendor/select2/select2.min.css'
+    //], 'public/css/my/companies/create-and-edit.min.css', '.')
+    //.styles([
+    //    'vendor/UnifyV1.9.1/css/pages/page_job.css',
+    //], 'public/css/industries/news.min.css', '.')
+    //.styles([
+    //    'vendor/UnifyV1.9.1/css/pages/page_search_inner.css',
+    //], 'public/css/industries/work-groups.min.css', '.')
+    //.styles([
+    //    'vendor/UnifyV1.9.1/plugins/scrollbar/css/jquery.mCustomScrollbar.css',
+    //    'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/css/sky-forms.css',
+    //    'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css',
+    //    'vendor/UnifyV1.9.1/css/pages/profile.css',
+    //], 'public/css/industries/work-groups/show.min.css', '.');
 
 
     mix.scripts([
-            'vendor/UnifyV1.9.1/plugins/jquery/jquery.min.js',
-            'vendor/UnifyV1.9.1/plugins/jquery/jquery-migrate.min.js',
-            'vendor/UnifyV1.9.1/plugins/bootstrap/js/bootstrap.min.js',
-            'vendor/UnifyV1.9.1/plugins/smoothScroll.js',
-            'vendor/UnifyV1.9.1/plugins/jquery.parallax.js',
-            'vendor/pnotify/pnotify.core.min.js',
-            'vendor/pnotify/pnotify.confirm.min.js',
-            'vendor/UnifyV1.9.1/js/app.js',
-            'vendor/UnifyV1.9.1/plugins/back-to-top.js',
-            'vendor/UnifyV1.9.1/js/plugins/style-switcher.js',
-            'vendor/UnifyV1.9.1/plugins/modernizr.js',
-            'ahk/master.js',
-            'ahk/flash.js'
-        ], 'public/js/master.min.js')
+            'bower_components/UnifyV1.9.1/plugins/jquery/jquery.min.js',
+            'bower_components/UnifyV1.9.1/plugins/jquery/jquery-migrate.min.js',
+            'bower_components//UnifyV1.9.1/plugins/bootstrap/js/bootstrap.min.js',
+            'bower_components//UnifyV1.9.1/plugins/smoothScroll.js',
+            'bower_components/UnifyV1.9.1/plugins/jquery.parallax.js',
+            'bower_components/pnotify/src/pnotify.core.min.js',
+            'bower_components/pnotify/src/pnotify.confirm.min.js',
+            'bower_components/UnifyV1.9.1/js/app.js',
+            'bower_components/UnifyV1.9.1/plugins/back-to-top.js',
+            'bower_components/UnifyV1.9.1/js/plugins/style-switcher.js',
+            'bower_components/UnifyV1.9.1/plugins/modernizr.js',
+            'resources/assets/js/ahk/master.js',
+            'resources/assets/js/ahk/flash.js',
+            'resources/assets/js/ahk/loadStyleSheets.js'
+        ], 'build/js/master.min.js', '.')
+            .scripts([
+                'bower_components/UnifyV1.9.1/plugins/respond.js',
+                'bower_components/UnifyV1.9.1/plugins/html5shiv.js',
+                'bower_components/UnifyV1.9.1/plugins/placeholder-IE-fixes.js'
+            ], 'build/js/lt-ie9.min.js', '.')
         .scripts([
-            'vendor/UnifyV1.9.1/plugins/respond.js',
-            'vendor/UnifyV1.9.1/plugins/html5shiv.js',
-            'vendor/UnifyV1.9.1/plugins/placeholder-IE-fixes.js'
-        ], 'public/js/lt-ie9.min.js')
+            'resources/assets/js/ahk/home.js'
+        ], 'build/js/home.min.js', '.')
         .scripts([
-            'ahk/home.js'
-        ], 'public/js/home.min.js')
-        // .scripts([
-        // 	'UnifyV1.9.1/css/pages/page_job.css',
-        // ], 'public/js/industries/news.min.js')
-        .scripts([
-            'ahk/companies/index.js',
-            'vendor/UnifyV1.9.1/plugins/image-hover/js/touch.js',
-            'vendor/Readmore.js/readmore.min.js',
-        ], 'public/js/companies/index.min.js')
-        .scripts([
-            'ahk/companies/show.js',
-            'vendor/UnifyV1.9.1/plugins/circles-master/circles.js',
-            'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js',
-            'vendor/UnifyV1.9.1/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js',
-            'vendor/UnifyV1.9.1/plugins/gmap/gmap.js',
-            'vendor/UnifyV1.9.1/js/plugins/datepicker.js',
-            'vendor/UnifyV1.9.1/js/plugins/circles-master.js',
-            'vendor/UnifyV1.9.1/js/forms/login.js',
-            'vendor/UnifyV1.9.1/js/forms/contact.js',
-            'vendor/UnifyV1.9.1/js/pages/page_contacts.js',
-        ], 'public/js/industries/companies/show.min.js')
-        .scripts([
-            'vendor/Readmore.js/readmore.min.js',
-            'ahk/my/companies/index.js'
-        ], 'public/js/my/companies/index.min.js')
-        .scripts([
-            'vendor/jasny-bootstrap/jasny-bootstrap.min.js',
-            'vendor/select2/select2.min.js',
-            'ahk/my/companies/create.js'
-        ], 'public/js/my/companies/create-and-edit.min.js')
-        .scripts([
-            'ahk/loadStyleSheets.js'
-        ], 'public/js/loadStyleSheets.min.js')
-        .scripts([
-            'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js',
-            'vendor/UnifyV1.9.1/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js',
-            'ahk/industries/work-groups/show.js'
-        ], 'public/js/industries/work-groups/show.min.js');
+            'bower_components/holderjs/holder.min.js'
+        ], 'build/js/industries/info/vendor.min.js', '.')
+    // .scripts([
+    // 	'UnifyV1.9.1/css/pages/page_job.css',
+    // ], 'public/js/industries/news.min.js')
+    //    .scripts([
+    //        'ahk/companies/index.js',
+    //        'vendor/UnifyV1.9.1/plugins/image-hover/js/touch.js',
+    //        'vendor/Readmore.js/readmore.min.js',
+    //    ], 'public/js/companies/index.min.js')
+    //    .scripts([
+    //        'ahk/companies/show.js',
+    //        'vendor/UnifyV1.9.1/plugins/circles-master/circles.js',
+    //        'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js',
+    //        'vendor/UnifyV1.9.1/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js',
+    //        'vendor/UnifyV1.9.1/plugins/gmap/gmap.js',
+    //        'vendor/UnifyV1.9.1/js/plugins/datepicker.js',
+    //        'vendor/UnifyV1.9.1/js/plugins/circles-master.js',
+    //        'vendor/UnifyV1.9.1/js/forms/login.js',
+    //        'vendor/UnifyV1.9.1/js/forms/contact.js',
+    //        'vendor/UnifyV1.9.1/js/pages/page_contacts.js',
+    //    ], 'public/js/industries/companies/show.min.js')
+    //    .scripts([
+    //        'vendor/Readmore.js/readmore.min.js',
+    //        'ahk/my/companies/index.js'
+    //    ], 'public/js/my/companies/index.min.js')
+    //    .scripts([
+    //        'vendor/jasny-bootstrap/jasny-bootstrap.min.js',
+    //        'vendor/select2/select2.min.js',
+    //        'ahk/my/companies/create.js'
+    //    ], 'public/js/my/companies/create-and-edit.min.js')
+    //    .scripts([
+    //        'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js',
+    //        'vendor/UnifyV1.9.1/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js',
+    //        'ahk/industries/work-groups/show.js'
+    //    ], 'public/js/industries/work-groups/show.min.js');
 
 
     mix.version([
-        'public/css/master.min.css',
-        'public/css/about.min.css',
-        'public/css/companies.min.css',
-        'public/css/sign_in.min.css',
-        'public/css/my/companies/create-and-edit.min.css',
-        'public/css/industries/news.min.css',
-        'public/css/above-the-fold-content.min.css',
-        'public/css/industries/work-groups.min.css',
-        'public/css/industries/companies/show.min.css',
-        'public/css/industries/work-groups/show.min.css',
+        './build/css/industries/info/above-the-fold.min.css',
+        './build/css/industries/info/vendor.min.css',
 
-        'public/js/master.min.js',
-        'public/js/lt-ie9.min.js',
-        'public/js/home.min.js',
-        'public/js/companies/index.min.js',
-        'public/js/my/companies/index.min.js',
-        'public/js/my/companies/create-and-edit.min.js',
-        'public/js/industries/companies/show.min.js',
-        'public/js/industries/work-groups/show.min.js'
+
+        './build/css/above-the-fold-content.min.css',
+        './build/css/master.min.css',
+        //'public/css/about.min.css',
+        //'public/css/companies.min.css',
+        //'public/css/sign_in.min.css',
+        //'public/css/my/companies/create-and-edit.min.css',
+        //'public/css/industries/news.min.css',
+        //'public/css/industries/work-groups.min.css',
+        //'public/css/industries/companies/show.min.css',
+        //'public/css/industries/work-groups/show.min.css',
+
+        './build/js/master.min.js',
+        './build/js/lt-ie9.min.js',
+        './build/js/home.min.js',
+        './build/js/industries/info/vendor.min.js',
+        //'public/js/companies/index.min.js',
+        //'public/js/my/companies/index.min.js',
+        //'public/js/my/companies/create-and-edit.min.js',
+        //'public/js/industries/companies/show.min.js',
+        //'public/js/industries/work-groups/show.min.js'
     ]);
 
     mix.browserSync({

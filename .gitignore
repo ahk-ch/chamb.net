@@ -6,16 +6,7 @@ Homestead.json
 build/
 
 /.rbenv
-/bower_components/*
-# Travis.org hass some issues with pulling unify through private repo. Track it for now
-!/bower_components/UnifyV1.9.1
-
-# All public assets are generated through Gulp
-/public/*
-!/public/.htaccess
-!/public/index.php
-!/public/robots.txt
-!/public/favicon.ico
+/bower_components/
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
 

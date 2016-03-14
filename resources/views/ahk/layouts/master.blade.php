@@ -29,19 +29,22 @@
 
 </div>
 
-<!-- Optimize css delivery -->
-{!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/master.min.css")) !!}
 <!-- Flash Data -->
 {!! Form::input('hidden', 'notifications', json_encode(Session::get('flash_notifications'))) !!}
-<!-- Page Data -->
-@yield('hidden-inputs')
 
-@yield('optimize-css-delivery')
-<script type="text/javascript" src="{!! url('js/loadStyleSheets.min.js') !!}"></script>
+        <!-- Optimize css delivery -->
+{!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/master.min.css")) !!}
+
+        <!-- Page Data to be passed to js. E.g. Async load css, mainly for libraries, using the styleSheetUrls array input field, see the previous command -->
+@yield('extra-data')
+
 <script type="text/javascript" src="{!! elixir('js/master.min.js') !!}"></script>
+
 @yield('js-files')
+
 <!--[if lt IE 9]>
 <script src="{!! elixir('js/lt-ie9.min.js') !!}"></script><![endif]-->
+
 </body>
 </html>
 
