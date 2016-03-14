@@ -2,12 +2,14 @@
 @section('title', "{$workGroup->name} - {$industry->name}")
 @section('inline-css')
     <style type="text/css">
+        {!! File::get(public_path(elixir("css/industries/work-groups/show.min.css"))) !!}
+    </style>
+    <style type="text/css">
         .service-block-v5 {
             background: url('/build/img/breadcrumbs/img3.jpg') no-repeat;
             background-size: cover;
             background-position: center center;
         }
-        {!! File::get(public_path(elixir("css/industries/work-groups/show.min.css"))) !!}
     </style>
 @endsection
 @section('header_links')

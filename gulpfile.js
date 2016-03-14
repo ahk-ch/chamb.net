@@ -8,7 +8,8 @@ elixir(function (mix) {
 
     mix.copy('bower_components/UnifyV1.9.1/plugins/bootstrap/fonts', 'public/build/fonts');
     mix.copy('bower_components/UnifyV1.9.1/plugins/font-awesome/fonts', 'public/build/fonts');
-    mix.copy('bower_components/UnifyV1.9.1/plugins/line-icons/fonts', 'public/build/fonts');
+    mix.copy('bower_components/UnifyV1.9.1/plugins/line-icons/fonts', 'public/build/css/fonts');
+    mix.copy('bower_components/UnifyV1.9.1/img', 'public/img');
 
     mix
         .styles([
@@ -23,7 +24,7 @@ elixir(function (mix) {
         ], 'build/css/above-the-fold-content.min.css', '.')
         .styles([
             'bower_components/UnifyV1.9.1/plugins/animate.css',
-            'bower_components/UnifyV1.9.1/plugins/line-icons/style.css',
+            'bower_components/UnifyV1.9.1/plugins/line-icons/line-icons.css',
             'bower_components/UnifyV1.9.1/plugins/font-awesome/css/font-awesome.min.css',
             'bower_components/pnotify/src/pnotify.core.min.css',
         ], 'build/css/master.min.css', '.')
@@ -39,13 +40,11 @@ elixir(function (mix) {
         ], 'build/css/industries/news/above-the-fold.min.css', '.')
         .styles([
             'bower_components/UnifyV1.9.1/plugins/fancybox/source/jquery.fancybox.css',
-        ], 'build/css/industries/news/vendor.min.css', '.');
+        ], 'build/css/industries/news/vendor.min.css', '.')
+        .styles([
+            'bower_components/UnifyV1.9.1/css/pages/page_about.css'
+        ], 'build/css/about.min.css', '.');
 
-
-
-    //.styles([
-    //    'vendor/UnifyV1.9.1/css/pages/page_about.css'
-    //], 'public/css/about.min.css', '.')
     //.styles([
     //    'vendor/UnifyV1.9.1/plugins/image-hover/css/img-hover.css',
     //    'vendor/UnifyV1.9.1/css/pages/page_job.css',
@@ -94,11 +93,11 @@ elixir(function (mix) {
             'resources/assets/js/ahk/flash.js',
             'resources/assets/js/ahk/loadStyleSheets.js'
         ], 'build/js/master.min.js', '.')
-            .scripts([
-                'bower_components/UnifyV1.9.1/plugins/respond.js',
-                'bower_components/UnifyV1.9.1/plugins/html5shiv.js',
-                'bower_components/UnifyV1.9.1/plugins/placeholder-IE-fixes.js'
-            ], 'build/js/lt-ie9.min.js', '.')
+        .scripts([
+            'bower_components/UnifyV1.9.1/plugins/respond.js',
+            'bower_components/UnifyV1.9.1/plugins/html5shiv.js',
+            'bower_components/UnifyV1.9.1/plugins/placeholder-IE-fixes.js'
+        ], 'build/js/lt-ie9.min.js', '.')
         .scripts([
             'resources/assets/js/ahk/home.js'
         ], 'build/js/home.min.js', '.')
@@ -145,6 +144,9 @@ elixir(function (mix) {
         './build/css/above-the-fold-content.min.css',
         './build/css/master.min.css',
 
+        './build/js/home.min.js',
+        './build/css/about.min.css',
+
         './build/css/industries/info/above-the-fold.min.css',
         './build/css/industries/info/vendor.min.css',
 
@@ -152,7 +154,7 @@ elixir(function (mix) {
         './build/css/industries/news/above-the-fold.min.css',
 
 
-        //'public/css/about.min.css',
+
         //'public/css/companies.min.css',
         //'public/css/sign_in.min.css',
         //'public/css/my/companies/create-and-edit.min.css',
@@ -163,7 +165,6 @@ elixir(function (mix) {
 
         './build/js/master.min.js',
         './build/js/lt-ie9.min.js',
-        './build/js/home.min.js',
         './build/js/industries/info/vendor.min.js',
         //'public/js/companies/index.min.js',
         //'public/js/my/companies/index.min.js',
