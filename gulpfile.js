@@ -33,7 +33,14 @@ elixir(function (mix) {
         .styles([
             'bower_components/UnifyV1.9.1/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css',
             'bower_components/UnifyV1.9.1/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css',
-        ], 'build/css/industries/info/vendor.min.css', '.');
+        ], 'build/css/industries/info/vendor.min.css', '.')
+        .styles([
+            'bower_components/UnifyV1.9.1/css/pages/page_job.css',
+        ], 'build/css/industries/news/above-the-fold.min.css', '.')
+        .styles([
+            'bower_components/UnifyV1.9.1/plugins/fancybox/source/jquery.fancybox.css',
+        ], 'build/css/industries/news/vendor.min.css', '.');
+
 
 
     //.styles([
@@ -135,12 +142,16 @@ elixir(function (mix) {
 
 
     mix.version([
+        './build/css/above-the-fold-content.min.css',
+        './build/css/master.min.css',
+
         './build/css/industries/info/above-the-fold.min.css',
         './build/css/industries/info/vendor.min.css',
 
+        './build/css/industries/news/vendor.min.css',
+        './build/css/industries/news/above-the-fold.min.css',
 
-        './build/css/above-the-fold-content.min.css',
-        './build/css/master.min.css',
+
         //'public/css/about.min.css',
         //'public/css/companies.min.css',
         //'public/css/sign_in.min.css',
