@@ -4,7 +4,7 @@
 @endsection
 @section('inline-css')
     <style>
-        {!! File::get(public_path(elixir("css/industries/work-groups.min.css"))) !!}
+        {!! File::get(public_path(elixir("css/industries/work-groups/index.min.css"))) !!}
     </style>
 @endsection
 @section('header_links')

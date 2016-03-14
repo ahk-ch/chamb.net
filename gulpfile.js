@@ -43,12 +43,13 @@ elixir(function (mix) {
         ], 'build/css/industries/news/vendor.min.css', '.')
         .styles([
             'bower_components/UnifyV1.9.1/css/pages/page_about.css'
-        ], 'build/css/about.min.css', '.');
+        ], 'build/css/about.min.css', '.')
+        .styles([
+            'bower_components/UnifyV1.9.1/plugins/image-hover/css/img-hover.css',
+            'bower_componentsUnifyV1.9.1/css/pages/page_job.css',
+        ], 'build/css/companies/index/above-the-fold.min.css', '.')
+        .styles([], 'build/css/companies/index/vendor.min.css', '.');
 
-    //.styles([
-    //    'vendor/UnifyV1.9.1/plugins/image-hover/css/img-hover.css',
-    //    'vendor/UnifyV1.9.1/css/pages/page_job.css',
-    //], 'public/css/companies.min.css', '.')
     //.styles([
     //    'vendor/UnifyV1.9.1/plugins/scrollbar/css/jquery.mCustomScrollbar.css',
     //    'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/css/sky-forms.css',
@@ -104,14 +105,18 @@ elixir(function (mix) {
         .scripts([
             'bower_components/holderjs/holder.min.js'
         ], 'build/js/industries/info/vendor.min.js', '.')
-    // .scripts([
-    // 	'UnifyV1.9.1/css/pages/page_job.css',
-    // ], 'public/js/industries/news.min.js')
+        .scripts([
+            'bower_components/ahk/companies/index.js',
+            'bower_components/UnifyV1.9.1/plugins/image-hover/js/touch.js',
+            'bower_components/Readmore.js/readmore.min.js',
+        ], 'build/js/companies/index/vendor.min.js', '.');
+
     //    .scripts([
     //        'ahk/companies/index.js',
     //        'vendor/UnifyV1.9.1/plugins/image-hover/js/touch.js',
     //        'vendor/Readmore.js/readmore.min.js',
     //    ], 'public/js/companies/index.min.js')
+
     //    .scripts([
     //        'ahk/companies/show.js',
     //        'vendor/UnifyV1.9.1/plugins/circles-master/circles.js',
@@ -154,8 +159,6 @@ elixir(function (mix) {
         './build/css/industries/news/above-the-fold.min.css',
 
 
-
-        //'public/css/companies.min.css',
         //'public/css/sign_in.min.css',
         //'public/css/my/companies/create-and-edit.min.css',
         //'public/css/industries/news.min.css',
@@ -166,9 +169,12 @@ elixir(function (mix) {
         './build/js/master.min.js',
         './build/js/lt-ie9.min.js',
         './build/js/industries/info/vendor.min.js',
+
         //'public/js/companies/index.min.js',
+        './build/css/companies/index/above-the-fold.min.css',
         //'public/js/my/companies/index.min.js',
         //'public/js/my/companies/create-and-edit.min.js',
+
         //'public/js/industries/companies/show.min.js',
         //'public/js/industries/work-groups/show.min.js'
     ]);
