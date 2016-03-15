@@ -2,7 +2,7 @@
 @section('title', "{$workGroup->name} - {$industry->name}")
 @section('inline-css')
     <style type="text/css">
-        {!! File::get(public_path(elixir("css/industries/work-groups/show.min.css"))) !!}
+        {!! File::get(public_path(elixir("css/industries/work-groups/show/above-the-fold-content.min.css"))) !!}
     </style>
     <style type="text/css">
         .service-block-v5 {
@@ -234,6 +234,9 @@
     <div class="margin-bottom-40"></div>
     </div>
 @endsection
+@section('extra-data')
+    {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/industries/work-groups/show/vendor.min.css")) !!}
+@endsection
 @section('js-files')
-    <script type="text/javascript" src="{!! elixir('js/industries/work-groups/show.min.js') !!}"></script>
+{{--    <script type="text/javascript" src="{!! elixir('js/industries/work-groups/show.min.js') !!}"></script>--}}
 @endsection

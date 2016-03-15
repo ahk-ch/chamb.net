@@ -2,7 +2,7 @@
 @section('title', trans('ahk.info'))
 @section('inline-css')
     <style type="text/css">
-        {!! File::get(public_path(elixir("css/industries/info/above-the-fold.min.css"))) !!}
+        {!! File::get(public_path(elixir("css/industries/info/above-the-fold-content.min.css"))) !!}
     </style>
 @endsection
 @section('header_links')

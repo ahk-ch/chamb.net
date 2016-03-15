@@ -2,7 +2,7 @@
 @section('title', trans('ahk.community'))
 @section('inline-css')
     <style>
-        {!! File::get(public_path(elixir("css/companies/index/above-the-fold.min.css"))) !!}
+        {!! File::get(public_path(elixir("css/companies/index/above-the-fold-content.min.css"))) !!}
     </style>
     <style>
         .job-img {

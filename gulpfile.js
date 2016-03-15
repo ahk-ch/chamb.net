@@ -30,14 +30,14 @@ elixir(function (mix) {
         ], 'build/css/master.min.css', '.')
         .styles([
             'bower_components/UnifyV1.9.1/css/pages/page_search.css',
-        ], 'build/css/industries/info/above-the-fold.min.css', '.')
+        ], 'build/css/industries/info/above-the-fold-content.min.css', '.')
         .styles([
             'bower_components/UnifyV1.9.1/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css',
             'bower_components/UnifyV1.9.1/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css',
         ], 'build/css/industries/info/vendor.min.css', '.')
         .styles([
             'bower_components/UnifyV1.9.1/css/pages/page_job.css',
-        ], 'build/css/industries/news/above-the-fold.min.css', '.')
+        ], 'build/css/industries/news/above-the-fold-content.min.css', '.')
         .styles([
             'bower_components/UnifyV1.9.1/plugins/fancybox/source/jquery.fancybox.css',
         ], 'build/css/industries/news/vendor.min.css', '.')
@@ -46,9 +46,24 @@ elixir(function (mix) {
         ], 'build/css/about.min.css', '.')
         .styles([
             'bower_components/UnifyV1.9.1/plugins/image-hover/css/img-hover.css',
-            'bower_componentsUnifyV1.9.1/css/pages/page_job.css',
-        ], 'build/css/companies/index/above-the-fold.min.css', '.')
-        .styles([], 'build/css/companies/index/vendor.min.css', '.');
+            'bower_components/UnifyV1.9.1/css/pages/page_job.css',
+        ], 'build/css/companies/index/above-the-fold-content.min.css', '.')
+        .styles([], 'build/css/companies/index/vendor.min.css', '.')
+        .styles([
+            'bower_components/UnifyV1.9.1/css/pages/page_log_reg_v1.css',
+        ], 'build/css/auth/sign-in/above-the-fold-content.min.css', '.')
+        .styles([
+            'bower_components/UnifyV1.9.1/css/pages/page_search_inner.css',
+        ], 'build/css/industries/work-groups/index/above-the-fold-content.min.css', '.')
+        .styles([
+            'bower_components/UnifyV1.9.1/css/pages/profile.css',
+        ], 'build/css/industries/work-groups/show/above-the-fold-content.min.css', '.')
+        .styles([
+            'bower_components/UnifyV1.9.1/plugins/scrollbar/css/jquery.mCustomScrollbar.css',
+            'bower_components/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/css/sky-forms.css',
+            'bower_components/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css',
+        ], 'build/css/industries/work-groups/show/vendor.min.css', '.');
+
 
     //.styles([
     //    'vendor/UnifyV1.9.1/plugins/scrollbar/css/jquery.mCustomScrollbar.css',
@@ -56,26 +71,11 @@ elixir(function (mix) {
     //    'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css',
     //    'vendor/UnifyV1.9.1/css/pages/profile.css',
     //    'vendor/UnifyV1.9.1/css/pages/shortcode_timeline2.css',
-    //], 'public/css/industries/companies/show.min.css', '.')
-    //.styles([
-    //    'vendor/UnifyV1.9.1/css/pages/page_log_reg_v1.css',
-    //], 'public/css/sign_in.min.css', '.')
+    //], 'public/css/industries/companies/show.min.css', '.');
     //.styles([
     //    'vendor/jasny-bootstrap/jasny-bootstrap.min.css',
     //    'resources/assets/css/vendor/select2/select2.min.css'
     //], 'public/css/my/companies/create-and-edit.min.css', '.')
-    //.styles([
-    //    'vendor/UnifyV1.9.1/css/pages/page_job.css',
-    //], 'public/css/industries/news.min.css', '.')
-    //.styles([
-    //    'vendor/UnifyV1.9.1/css/pages/page_search_inner.css',
-    //], 'public/css/industries/work-groups.min.css', '.')
-    //.styles([
-    //    'vendor/UnifyV1.9.1/plugins/scrollbar/css/jquery.mCustomScrollbar.css',
-    //    'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/css/sky-forms.css',
-    //    'vendor/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css',
-    //    'vendor/UnifyV1.9.1/css/pages/profile.css',
-    //], 'public/css/industries/work-groups/show.min.css', '.');
 
 
     mix.scripts([
@@ -106,7 +106,7 @@ elixir(function (mix) {
             'bower_components/holderjs/holder.min.js'
         ], 'build/js/industries/info/vendor.min.js', '.')
         .scripts([
-            'bower_components/ahk/companies/index.js',
+            'resources/assets/js/ahk/industries/companies/index.js',
             'bower_components/UnifyV1.9.1/plugins/image-hover/js/touch.js',
             'bower_components/Readmore.js/readmore.min.js',
         ], 'build/js/companies/index/vendor.min.js', '.');
@@ -151,15 +151,18 @@ elixir(function (mix) {
 
         './build/js/home.min.js',
         './build/css/about.min.css',
+        './build/css/auth/sign-in/above-the-fold-content.min.css',
 
-        './build/css/industries/info/above-the-fold.min.css',
+        './build/css/industries/info/above-the-fold-content.min.css',
         './build/css/industries/info/vendor.min.css',
 
         './build/css/industries/news/vendor.min.css',
-        './build/css/industries/news/above-the-fold.min.css',
+        './build/css/industries/news/above-the-fold-content.min.css',
 
+        './build/css/industries/work-groups/index/above-the-fold-content.min.css',
+        './build/css/industries/work-groups/show/above-the-fold-content.min.css',
+        './build/css/industries/work-groups/show/vendor.min.css',
 
-        //'public/css/sign_in.min.css',
         //'public/css/my/companies/create-and-edit.min.css',
         //'public/css/industries/news.min.css',
         //'public/css/industries/work-groups.min.css',
@@ -171,7 +174,7 @@ elixir(function (mix) {
         './build/js/industries/info/vendor.min.js',
 
         //'public/js/companies/index.min.js',
-        './build/css/companies/index/above-the-fold.min.css',
+        './build/css/companies/index/above-the-fold-content.min.css',
         //'public/js/my/companies/index.min.js',
         //'public/js/my/companies/create-and-edit.min.js',
 

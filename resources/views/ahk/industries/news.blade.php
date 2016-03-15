@@ -1,8 +1,8 @@
 @extends('ahk.layouts.master')
 @section('title', 'News')
-@section('css')
+@section('inline-css')
     <style type="text/css">
-        {!! File::get(public_path(elixir("css/industries/news/above-the-fold.min.css"))) !!}
+        {!! File::get(public_path(elixir("css/industries/news/above-the-fold-content.min.css"))) !!}
     </style>
 @endsection
 @section('header_links')

@@ -3,6 +3,11 @@
 @section('header_links')
     @include('ahk._partials.header_default_links')
 @endsection
+@section('inline-css')
+    <style type="text/css">
+        {!! File::get(public_path(elixir("css/auth/sign-in/above-the-fold-content.min.css"))) !!}
+    </style>
+@endsection
 @section('content')
     <div class="container content">
 
@@ -53,7 +58,4 @@
             </div>
         </div><!--/row-->
     </div>
-@endsection
-@section('optimize-css-delivery')
-    {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/sign_in.min.css")) !!}
 @endsection
