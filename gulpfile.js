@@ -7,7 +7,7 @@ process.env.DISABLE_NOTIFIER = true;
 elixir(function (mix) {
 
     mix.copy('bower_components/UnifyV1.9.1/plugins/bootstrap/fonts', 'public/build/fonts');
-    mix.copy('bower_components/UnifyV1.9.1/plugins/font-awesome/fonts', 'public/build/fonts');
+    mix.copy('bower_components/font-awesome/fonts', 'public/build/fonts');
     mix.copy('bower_components/UnifyV1.9.1/plugins/line-icons/fonts', 'public/build/css/fonts');
     mix.copy('bower_components/UnifyV1.9.1/img', 'public/build/img');
 
