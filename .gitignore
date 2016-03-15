@@ -3,7 +3,7 @@
 Homestead.yaml
 Homestead.json
 .env
-build/
+/build/
 
 /.rbenv
 /bower_components/
