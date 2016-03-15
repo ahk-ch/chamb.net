@@ -57,11 +57,19 @@ class PasswordResetsController extends Controller
 		$this->mailer = $mailer;
 	}
 
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
 	public function getEmail()
 	{
 		return view('ahk.auth.passwords.email');
 	}
 
+	/**
+	 * @param PostRecoverAccountRequest $request
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
 	public function postEmail(PostRecoverAccountRequest $request)
 	{
 		$user = $this->userRepository->findByEmail($request->get('email'));
@@ -75,6 +83,12 @@ class PasswordResetsController extends Controller
 		return redirect()->back();
 	}
 
+	/**
+	 * @param $slug
+	 * @param $recovery_token
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+	 */
 	public function getReset($slug, $recovery_token)
 	{
 		$user = $this->userRepository->findBySlugAndRecoveryToken($slug, $recovery_token);
@@ -88,6 +102,13 @@ class PasswordResetsController extends Controller
 		return view('ahk.auth.passwords.reset', compact('slug', 'recovery_token'));
 	}
 
+	/**
+	 * @param                      $slug
+	 * @param                      $recovery_token
+	 * @param ResetPasswordRequest $request
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
 	public function postReset($slug, $recovery_token, ResetPasswordRequest $request)
 	{
 		$user = $this->userRepository->findBySlugAndRecoveryToken($slug, $recovery_token);

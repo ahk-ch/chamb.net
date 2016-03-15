@@ -42,7 +42,7 @@ Route::group(['prefix' => 'auth'], function ()
 {
 	Route::get('sign-in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@getLogin']);
 	Route::post('sign-in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@postLogin']);
-	Route::get('reset', ['as' => 'auth.reset', 'uses' => 'Ahk\Auth\AuthenticationController@getReset']);
+	Route::get('reset', ['as' => 'auth.reset', 'uses' => 'Ahk\Auth\PasswordResetsController@getReset']);
 	Route::delete('logout', ['as' => 'auth.destroy', 'uses' => 'Ahk\Auth\AuthenticationController@destroy']);
 	Route::get('register', ['as' => 'auth.register', 'uses' => 'Ahk\Auth\RegistrationController@getRegistration']);
 	Route::post('register', ['as' => 'auth.register', 'uses' => 'Ahk\Auth\RegistrationController@postRegistration']);

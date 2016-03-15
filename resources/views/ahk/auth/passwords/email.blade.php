@@ -1,7 +1,12 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.reset_password'))
-@section('css-page-style')
-    <link href='{!! url("assets/css/pages/page_log_reg_v1.css") !!}' rel='stylesheet' type='text/css'/>
+@section('inline-css')
+    <style type="text/css">
+        {!! File::get(public_path(elixir("css/auth/sign-in/above-the-fold-content.min.css"))) !!}
+    </style>
+@endsection
+@section('header_links')
+    @include('ahk._partials.header_default_links')
 @endsection
 @section('content')
     <div class="container content">

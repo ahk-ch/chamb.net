@@ -3,6 +3,11 @@
 @section('header_links')
     @include('ahk._partials.header_default_links')
 @endsection
+@section('inline-css')
+    <style type="text/css">
+        {!! File::get(public_path(elixir("css/my/companies/create-and-edit.min.css"))) !!}
+    </style>
+@endsection
 @section('content')
     <div class="container content profile">
         <div class="row">
@@ -34,9 +39,9 @@
         </div>
     </div>
 @endsection
-@section('optimize-css-delivery')
-    {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/my/companies/create-and-edit.min.css")) !!}
-@endsection
-@section('js')
+{{--@section('optimize-css-delivery')--}}
+    {{--{!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/my/companies/create-and-edit.min.css")) !!}--}}
+{{--@endsection--}}
+@section('js-files')
     <script src="{!! elixir('js/my/companies/create-and-edit.min.js') !!}"></script>
 @endsection

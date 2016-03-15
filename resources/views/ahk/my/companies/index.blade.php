@@ -59,7 +59,7 @@
         </div>
     </div>
 @endsection
-@section('hidden-inputs')
+@section('extra-data')
     {!! Form::input('hidden', 'readMoreText', trans('ahk.read_more')) !!}
     {!! Form::input('hidden', 'readLessText', trans('ahk.read_less')) !!}
 @endsection

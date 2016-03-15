@@ -1,6 +1,9 @@
 @extends('ahk.layouts.master')
 @section('title', "{$company->name} - {$industry->name}")
 @section('inline-css')
+    <style type="text/css">
+        {!! File::get(public_path(elixir("css/industries/companies/show/above-the-fold-content.min.css"))) !!}
+    </style>
 @endsection
 @section('header_links')
     @include('ahk._partials.header_default_links')
@@ -266,9 +269,6 @@
             <!-- End Profile Content -->
         </div>
     </div>
-@endsection
-@section('optimize-css-delivery')
-    {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/industries/companies/show.min.css")) !!}
 @endsection
 @section('js-files')
     <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>

@@ -2,7 +2,7 @@
 @section('title', trans('ahk.community'))
 @section('inline-css')
     <style>
-        {!! File::get(public_path(elixir("css/companies/index/above-the-fold-content.min.css"))) !!}
+        {!! File::get(public_path(elixir("css/industries/companies/index/above-the-fold-content.min.css"))) !!}
     </style>
     <style>
         .job-img {
@@ -84,14 +84,11 @@
         </div>
     </div>
 @endsection
-@section('hidden-inputs')
+@section('extra-data')
     {!! Form::input('hidden', 'readMoreText', trans('ahk.read_more')) !!}
     {!! Form::input('hidden', 'readLessText', trans('ahk.read_less')) !!}
 @endsection
-@section('optimize-css-delivery')
-    {{--{!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/companies.min.css")) !!}--}}
-@endsection
 @section('js-files')
-    <script type="text/javascript" src="{!! elixir('js/companies/index.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! elixir('js/industries/companies/index.min.js') !!}"></script>
 @endsection
 

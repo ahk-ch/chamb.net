@@ -1,14 +1,20 @@
 @extends('ahk.layouts.master')
 @section('title', trans('ahk.reset_password'))
-@section('css')
-    <link href='{!! elixir("css/sign_in.min.css") !!}' rel='stylesheet' type='text/css'/>
+@section('inline-css')
+    <style type="text/css">
+        {!! File::get(public_path(elixir("css/auth/sign-in/above-the-fold-content.min.css"))) !!}
+    </style>
+@endsection
+@section('header_links')
+    @include('ahk._partials.header_default_links')
 @endsection
 @section('content')
     <div class="container content">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
 
-                {!! Form::open(['route' => ['auth.recover.reset', $slug, $recovery_token ], 'class' => 'form-horizontal reg-page', 'role' => 'form']) !!}
+                {!! Form::open(['route' => ['auth.recover.reset', $slug, $recovery_token ],
+                 'class' => 'form-horizontal reg-page', 'role' => 'form']) !!}
 
                 <div class="reg-header">
                     <h2>{!! trans('ahk.reset_password') !!}</h2>
@@ -33,7 +39,7 @@
                 {!! $errors->first('password_confirmation', '<div class="alert alert-danger fade in">:message</div>') !!}
 
                 <div class="form-group">
-                    <div class="col-md-4 col-md-offset-4">
+                    <div class="col-md-12">
                         <button type="submit" class="btn-u btn btn-primary btn-block">
                             <i class="fa fa-btn fa-refresh"></i> {!! trans('ahk.reset_password') !!}
                         </button>

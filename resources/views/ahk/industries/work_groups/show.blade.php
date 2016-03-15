@@ -238,5 +238,5 @@
     {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/industries/work-groups/show/vendor.min.css")) !!}
 @endsection
 @section('js-files')
-{{--    <script type="text/javascript" src="{!! elixir('js/industries/work-groups/show.min.js') !!}"></script>--}}
+    {{--<script type="text/javascript" src="{!! elixir('js/industries/work-groups/show.min.js') !!}"></script>--}}
 @endsection
