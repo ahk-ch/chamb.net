@@ -26,8 +26,8 @@ class NewsTest extends TestCase
 		$unpublishedArticle = factory(Article::class)->create(['publish' => false, 'industry_id' => $industry->id]);
 		$publishedOtherIndustry = factory(Article::class)->create(['publish' => true]);
 
-		$this->visit(route('industries.news', ['industry_slug' => $industry->slug]))
-			->seePageIs(route('industries.news', ['industry_slug' => $industry->slug]))
+		$this->visit(route('industries.articles.index', ['industry_slug' => $industry->slug]))
+			->seePageIs(route('industries.articles.index', ['industry_slug' => $industry->slug]))
 			->see("<title> " . trans('ahk.news') . " · Chamb.Net</title>")
 			->dontSee(route('files.render', ['path' => $unpublishedArticle->thumbnail->path]))
 			->dontSee($unpublishedArticle->author->name)
