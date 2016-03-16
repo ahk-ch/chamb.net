@@ -17,14 +17,15 @@ Route::group(['prefix' => 'my'], function ()
 Route::group(['prefix' => 'industries/{industry_slug}'], function ()
 {
 	Route::get('info', ['as' => 'industries.info', 'uses' => 'Ahk\IndustriesController@info']);
-	Route::get('news', ['as' => 'industries.news', 'uses' => 'Ahk\IndustriesController@news']);
+	Route::get('news', ['as' => 'industries.articles.index', 'uses' => 'Ahk\IndustriesController@indexArticles']);
+	Route::get('news/{article_slug}', ['as' => 'industries.articles.show', 'uses' => 'Ahk\IndustriesController@showArticle']);
 	Route::get('work-groups', ['as' => 'industries.work_groups.index', 'uses' => 'Ahk\IndustriesController@indexWorkGroup']);
 	Route::get('work-groups/{work_group_slug}', ['as' => 'industries.work_groups.show', 'uses' => 'Ahk\IndustriesController@showWorkGroup']);
 	Route::get('events', ['as' => 'industries.events', 'uses' => 'Ahk\WorkingGroupsController@index']);
 	Route::get('links', ['as' => 'industries.links', 'uses' => 'Ahk\WorkingGroupsController@index']);
 	Route::get('downloads', ['as' => 'industries.downloads', 'uses' => 'Ahk\IndustriesController@index']);
 	Route::get('companies', ['as' => 'industries.companies.index', 'uses' => 'Ahk\IndustriesController@indexCompanies']);
-	Route::get('companies/{company_slug}', ['as' => 'industries.companies.show', 'uses' => 'Ahk\IndustriesController@showCompanies']);
+	Route::get('companies/{company_slug}', ['as' => 'industries.companies.show', 'uses' => 'Ahk\IndustriesController@showCompany']);
 });
 
 Route::group(['prefix' => 'files'], function ()

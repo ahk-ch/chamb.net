@@ -10,8 +10,8 @@
             <a href="{!! route('industries.info', ['industry_slug' => $industry->slug]) !!}">
                 {!! trans('ahk.info') !!}</a>
         </li>
-        <li class="{!! $utilities->activate(['industries.news']) !!}">
-            <a href="{!! route('industries.news', ['industry_slug' => $industry->slug]) !!}">
+        <li class="{!! $utilities->activate(['industries.articles.index']) !!}">
+            <a href="{!! route('industries.articles.index', ['industry_slug' => $industry->slug]) !!}">
                 {!! trans('ahk.news') !!}</a>
         </li>
         <li class="{!! $utilities->activate(['industries.events']) !!}">

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Ahk\Article;
 use App\Ahk\Company;
 use App\Ahk\Industry;
 use App\Ahk\Workgroup;
@@ -32,6 +33,7 @@ class RouteServiceProvider extends ServiceProvider
 		$router->model('company_slug', Company::class);
 		$router->model('industry_slug', Industry::class);
 		$router->model('work_group_slug', Workgroup::class);
+		$router->model('article_slug', Article::class);
 	}
 
 	/**

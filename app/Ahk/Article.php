@@ -2,79 +2,108 @@
 
 namespace App\Ahk;
 
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Article
+ *
  * @package App\Ahk
  * @codeCoverageIgnore
  */
-class Article extends Model
+class Article extends Model implements SluggableInterface
 {
+	use SluggableTrait;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = ['title', 'publish', 'source', 'description', 'content'];
+	const TITLE = 'title';
+	const PUBLISH = 'publish';
+	const SOURCE = 'source';
+	const DESCRIPTION = 'description';
+	const CONTENT = 'content';
+	const SLUG = 'slug';
 
-    /**
-     * The tags this article belongs to.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function tags()
-    {
-        return $this->belongsToMany('App\Ahk\Tag')->withTimestamps();;
-    }
+	/**
+	 * The attributes that are mass assignable.
+	 *
+	 * @var array
+	 */
+	protected $fillable = [self::TITLE, self::PUBLISH, self::SOURCE, self::DESCRIPTION, self::CONTENT];
 
-    /**
-     * @param User $user
-     */
-    public function assignAuthor(User $user)
-    {
-        $this->author()->associate($user);
-    }
+	/**
+	 * @var array
+	 */
+	protected $sluggable = [
+		'build_from' => self::TITLE,
+		'save_to'    => self::SLUG,
+	];
 
-    /**
-     * Get the user this article was created from.
-     */
-    public function author()
-    {
-        return $this->belongsTo('App\Ahk\User');
-    }
+	/**
+	 * Get the route key for the model.
+	 *
+	 * @return string
+	 */
+	public function getRouteKeyName()
+	{
+		return self::SLUG;
+	}
 
-    /**
-     * @param Industry $industry
-     */
-    public function assignIndustry(Industry $industry)
-    {
-        $this->industry()->associate($industry);
-    }
+	/**
+	 * The tags this article belongs to.
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
+	public function tags()
+	{
+		return $this->belongsToMany('App\Ahk\Tag')->withTimestamps();;
+	}
 
-    /**
-     * Get the industry this article belongs to.
-     */
-    public function industry()
-    {
-        return $this->belongsTo('App\Ahk\Industry');
-    }
+	/**
+	 * @param User $user
+	 */
+	public function assignAuthor(User $user)
+	{
+		$this->author()->associate($user);
+	}
 
-    /**
-     * @param File $thumbnail
-     */
-    public function assignThumbnail(File $thumbnail)
-    {
-        $this->thumbnail()->associate($thumbnail);
-    }
+	/**
+	 * Get the user this article was created from.
+	 */
+	public function author()
+	{
+		return $this->belongsTo('App\Ahk\User');
+	}
 
-    /**
-     * Get the industry this article belongs to.
-     */
-    public function thumbnail()
-    {
-        return $this->belongsTo('App\Ahk\File');
-    }
+	/**
+	 * @param Industry $industry
+	 */
+	public function assignIndustry(Industry $industry)
+	{
+		$this->industry()->associate($industry);
+	}
+
+	/**
+	 * Get the industry this article belongs to.
+	 */
+	public function industry()
+	{
+		return $this->belongsTo('App\Ahk\Industry');
+	}
+
+	/**
+	 * @param File $thumbnail
+	 */
+	public function assignThumbnail(File $thumbnail)
+	{
+		$this->thumbnail()->associate($thumbnail);
+	}
+
+	/**
+	 * Get the industry this article belongs to.
+	 */
+	public function thumbnail()
+	{
+		return $this->belongsTo('App\Ahk\File');
+	}
 }
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Ahk\Article;
 use database\DbTruncator;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -23,6 +24,7 @@ class CreateArticlesTable extends Migration
 			$table->mediumText('description');
 			$table->longText('content');
 			$table->integer('view_count')->default(0);
+			$table->string(Article::SLUG)->unique();
 			$table->timestamps();
 
 			$table->integer('author_id')->unsigned()->index();

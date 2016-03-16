@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Ahk;
 
+use App\Ahk\Article;
 use App\Ahk\Company;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Article\ArticleRepository;
@@ -60,11 +61,11 @@ class IndustriesController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function news(Industry $industry)
+	public function indexArticles(Industry $industry)
 	{
 		$articles = $this->articleRepository->paginatePublishedByIndustry($industry);
 
-		return view('ahk.industries.news', compact('articles', 'industry'));
+		return view('ahk.industries.articles.index', compact('articles', 'industry'));
 	}
 
 	/**
@@ -118,16 +119,29 @@ class IndustriesController extends Controller
 	}
 
 	/**
-	 * Display a listing of the news resource.
+	 * Display the company
 	 *
 	 * @param Industry $industry
 	 * @param Company  $company
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function showCompanies(Industry $industry, Company $company)
+	public function showCompany(Industry $industry, Company $company)
 	{
 		return view('ahk.industries.companies.show', compact('industry', 'company'));
+	}
+
+	/**
+	 * Display the article
+	 *
+	 * @param Industry $industry
+	 * @param Article  $article
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function showArticle(Industry $industry, Article $article)
+	{
+		return view('ahk.industries.articles.show', compact('industry', 'article'));
 	}
 }
 

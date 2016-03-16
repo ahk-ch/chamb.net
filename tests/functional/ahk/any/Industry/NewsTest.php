@@ -2,7 +2,7 @@
 
 /**
  * @author Rizart Dokollari
- * @since 12/10/2015
+ * @since  12/10/2015
  */
 use App\Ahk\Article;
 use App\Ahk\Industry;
@@ -10,18 +10,16 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 
 /**
- * Class HomeTest
+ * Class NewsTest
+ *
+ * @package tests\functional\ahk\any\Industry
  */
 class NewsTest extends TestCase
 {
 	use DatabaseMigrations;
 
-	/**
-	 * A basic functional test example.
-	 *
-	 * @return void
-	 */
-	public function test_it_reads_news_contents()
+	/** @test */
+	public function it_reads_news_contents()
 	{
 		$industry = factory(Industry::class)->create();
 		$articles = factory(Article::class, 2)->create(['publish' => true, 'industry_id' => $industry->id]);
@@ -47,4 +45,22 @@ class NewsTest extends TestCase
 			->see($articles->get(1)->title)
 			->see($articles->get(1)->description);
 	}
+
+	/** @test */
+	public function it_reads_news_shows()
+	{
+		$article = factory(Article::class)->create();
+
+		$this
+			->visit(route('industries.articles.show', ['industry_slug' => $article->industry->slug,
+			                                               'article_slug' => $article->slug]))
+			->see($article->title)
+			->see($article->created_at->format('M d, Y'))
+			->see($article->author->name)
+			->see($article->source)
+			->see($article->description)
+			->see(substr($article->content, 0, 10))
+			->see($article->view_count);
+	}
 }
+

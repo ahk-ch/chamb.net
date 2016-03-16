@@ -1,7 +1,8 @@
 <div class="{!! $index % 2 ? 'bg-color-light' : '' !!} content-md">
     <div class="row">
         <div class="col-sm-5 sm-margin-bottom-20">
-            <img class="img-responsive" src="{!! route('files.render', ['path' => $article->thumbnail->path]) !!}" alt="Article Thumbnail">
+            <img class="img-responsive" src="{!! route('files.render', ['path' => $article->thumbnail->path]) !!}"
+                 alt="Article Thumbnail">
         </div>
         <div class="col-sm-7 news-v3">
             <div class="news-v3-in-sm no-padding">
@@ -10,7 +11,10 @@
                     <li>In <a href="#">{!! $article->industry->name !!}</a></li>
                     <li>{!! $article->created_at->format('M d, Y') !!}</li>
                 </ul>
-                <h2><a href="#">{!! $article->title !!}</a></h2>
+                <h2>
+                    <a id="url-{!! $article->slug !!}" href="{!! route('industries.articles.show',
+                            ['industry_slug' => $article->industry->slug,'article_slug' => $article->slug]) !!}">
+                        {!! $article->title !!}</a></h2>
                 <p>{!! $article->description !!}</p>
                 <ul class="post-shares">
                     <li>
