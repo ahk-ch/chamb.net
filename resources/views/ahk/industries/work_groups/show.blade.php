@@ -59,7 +59,7 @@
         <div class="row news-v2">
             @foreach($articles as $article)
                 <div class="col-md-4 md-margin-bottom-30">
-                    <a href="#">
+                    <a href="{!! route('industries.articles.show', ['industry_slug' => $article->industry->slug, 'article_slug' => $article->slug]) !!}">
                         <div class="news-v2-badge">
                             <img class="img-responsive"
                                  src="{!! route('files.render', ['path' => $article->thumbnail->path]) !!}"
