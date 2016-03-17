@@ -60,7 +60,7 @@
 
                                 <a href="{!! route('industries.companies.show', ['industry_slug' => $industry->slug,
                             'company_slug' => $company->slug]) !!}">
-                                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel slide" data-ride="carousel">
                                         <div class="carousel-inner">
                                             <div class="item active">
                                                 <img alt="Company Logo" src="{!! route('files.render',

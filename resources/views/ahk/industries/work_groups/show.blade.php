@@ -88,6 +88,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Description</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -168,7 +169,7 @@
 
     </div><!--/container-->
 
-    <div class="container content-sm profile" id="protocols">
+    <div class="container content-sm profile" id="members">
         <div class="text-center margin-bottom-50">
             <h2 class="title-v2 title-center">Members</h2>
         </div>
@@ -232,7 +233,6 @@
     </div>
 
     <div class="margin-bottom-40"></div>
-    </div>
 @endsection
 @section('extra-data')
     {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/industries/work-groups/show/vendor.min.css")) !!}
