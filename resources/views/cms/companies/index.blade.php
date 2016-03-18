@@ -22,8 +22,8 @@
                         <td><img src="{{ $company->logo }}" height="30" alt="Company Logo"/></td>
                         <td>{{ $company->name_of_contact_partner }}</td>
                     </tr>
-
                 @endforeach
+
             </table>
         </div><!-- /.box-body -->
         <div class="box-footer clearfix">

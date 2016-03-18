@@ -1,6 +1,8 @@
 <!--Left Sidebar-->
+@if($user->avatar)
 <img class="img-responsive profile-img margin-bottom-20"
-        src="{!! route('files.render', ['path' => $user->avatar->path]) !!}" alt="">
+        src="{!! route('files.render', ['path' => $user->avatar->path ]) !!}" alt="">
+@endif
 
 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
     <li class="list-group-item {!$utilities->activate(['my.profile']) !!}">
