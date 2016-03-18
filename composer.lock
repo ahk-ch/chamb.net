@@ -1342,7 +1342,7 @@
         },
         {
             "name": "orchestra/database",
-            "version": "v3.2.1",
+            "version": "v3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/database.git",
