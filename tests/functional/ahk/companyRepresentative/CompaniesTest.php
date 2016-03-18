@@ -9,7 +9,6 @@ namespace tests\functional\ahk\companyRepresentative;
 
 use App\Ahk\Company;
 use App\Ahk\Country;
-use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\Storage\FilesStorage;
@@ -27,7 +26,14 @@ class CompaniesTest extends TestCase
 	public function it_reads_owned_companies_index()
 	{
 		$dbUserRepository = new DbUserRepository();
-		$companyRepresentativeUser = factory(User::class)->create();
+		$companyRepresentativeUser = factory(User::class)->create(['avatar_id' => null]);
+		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeUser);
+
+		// Access when on company on data set.
+		$this->actingAs($companyRepresentativeUser)
+			->visit(route('my.companies.index')); // check exception due to missing avatar
+
+		$companyRepresentativeUser = factory(User::class)->create([]);
 		$dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeUser);
 		$companies = factory(Company::class, 2)->create(['user_id' => $companyRepresentativeUser->id]);
 		$companyValidator = factory(Company::class)->create();
