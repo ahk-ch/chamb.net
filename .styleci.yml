@@ -1,0 +1,4 @@
+preset: laravel
+
+disabled:
+  - single_blank_line_at_eof
