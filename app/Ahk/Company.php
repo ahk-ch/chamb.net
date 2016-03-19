@@ -39,7 +39,8 @@ class Company extends Model implements SluggableInterface
     /**
      * @var array
      */
-    protected $sluggable = ['build_from' => self::NAME, 'save_to' => self::SLUG,];
+    protected $sluggable = ['build_from' => self::NAME, 'save_to' => self::SLUG];
+
 
     /**
      * Get the route key for the model.
@@ -84,7 +85,7 @@ class Company extends Model implements SluggableInterface
     }
 
     /**
-     * Get the services this company requires
+     * Get the services this company requires.
      */
     public function requiresServices()
     {
@@ -92,7 +93,7 @@ class Company extends Model implements SluggableInterface
     }
 
     /**
-     * Get the services this company requires
+     * Get the services this company requires.
      */
     public function offersServices()
     {
@@ -100,7 +101,7 @@ class Company extends Model implements SluggableInterface
     }
 
     /**
-     * Get the services this company requires
+     * Get the services this company requires.
      */
     public function services()
     {
@@ -108,7 +109,7 @@ class Company extends Model implements SluggableInterface
     }
 
     /**
-     * Get the files of this company
+     * Get the files of this company.
      */
     public function files()
     {
@@ -116,7 +117,7 @@ class Company extends Model implements SluggableInterface
     }
 
     /**
-     * Get the services this company requires
+     * Get the services this company requires.
      */
     public function events()
     {
@@ -124,7 +125,7 @@ class Company extends Model implements SluggableInterface
     }
 
     /**
-     * Get the decisions of this company
+     * Get the decisions of this company.
      */
     public function decisions()
     {

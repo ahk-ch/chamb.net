@@ -52,7 +52,7 @@ class Event extends Model implements SluggableInterface
     }
 
     /**
-     * Get the files of this events
+     * Get the files of this events.
      */
     public function files()
     {

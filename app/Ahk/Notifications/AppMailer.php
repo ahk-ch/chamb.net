@@ -27,11 +27,11 @@ class AppMailer
     /**
      * @var string
      */
-    protected $fromEmail = "no-reply@chamb.net";
+    protected $fromEmail = 'no-reply@chamb.net';
     /**
      * @var string
      */
-    protected $fromName = "Chamb.Net Web Services";
+    protected $fromName = 'Chamb.Net Web Services';
     /**
      * @var
      */
@@ -39,7 +39,7 @@ class AppMailer
     /**
      * @var string
      */
-    protected $subject = "System Message";
+    protected $subject = 'System Message';
     /**
      * @var array
      */
@@ -63,7 +63,7 @@ class AppMailer
     public function sendEmailConfirmation(User $user)
     {
         $this->to = $user->email;
-        $this->view = "ahk.emails.confirm";
+        $this->view = 'ahk.emails.confirm';
         $this->data = compact('user');
         $this->subject = trans('ahk.verify_email');
 
@@ -72,13 +72,9 @@ class AppMailer
         return true;
     }
 
-    /**
-     *
-     */
     private function deliver()
     {
-        $this->mailer->send($this->view, $this->data, function (Message $message)
-        {
+        $this->mailer->send($this->view, $this->data, function (Message $message) {
             $message->from($this->fromEmail, $this->fromName)
                 ->subject($this->subject)
                 ->to($this->to);
@@ -94,7 +90,7 @@ class AppMailer
     {
         $this->to = $user->email;
 
-        $this->view = "ahk.emails.reset_password";
+        $this->view = 'ahk.emails.reset_password';
 
         $this->data = compact('user');
 

@@ -12,13 +12,13 @@ use App\Ahk\Industry;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
- * Interface ArticleRepository
+ * Interface ArticleRepository.
  */
 interface ArticleRepository
 {
 
     /**
-     * Get all articles
+     * Get all articles.
      *
      * @return Collection
      */
@@ -46,14 +46,14 @@ interface ArticleRepository
     public function updateById($articleId, array $fillable, Industry $industry);
 
     /**
-     * Return published articles
+     * Return published articles.
      *
      * @return mixed
      */
     public function published();
 
     /**
-     * Return published articles of an industry
+     * Return published articles of an industry.
      *
      * @param Industry $industry
      *
@@ -62,7 +62,7 @@ interface ArticleRepository
     public function paginatePublishedByIndustry(Industry $industry);
 
     /**
-     * Return unpublished articles
+     * Return unpublished articles.
      *
      * @return mixed
      */
@@ -88,7 +88,7 @@ interface ArticleRepository
     public function updateTagsById($id, array $tagIds);
 
     /**
-     * Get most viewed articles
+     * Get most viewed articles.
      *
      * @param int $max
      *
@@ -97,7 +97,7 @@ interface ArticleRepository
     public function mostViewed($max = 10);
 
     /**
-     * Get most viewed articles
+     * Get most viewed articles.
      *
      * @param     $industry
      * @param int $max

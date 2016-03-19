@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * Class Flash.
- *
- * @package App\Ahk\Notifications
  */
 class Flash extends Facade
 {

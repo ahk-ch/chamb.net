@@ -15,17 +15,8 @@ class Industry extends Model implements SluggableInterface
 {
     use SluggableTrait;
 
-    /**
-     *
-     */
     const SLUG = 'slug';
-    /**
-     *
-     */
     const NAME = 'name';
-    /**
-     *
-     */
     const FONTAWESOME = 'fontawesome';
 
     /**

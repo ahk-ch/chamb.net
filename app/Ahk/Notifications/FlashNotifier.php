@@ -44,7 +44,7 @@ class FlashNotifier
      */
     public function message($message, $level = 'info')
     {
-        $notification = new \stdClass;
+        $notification = new \stdClass();
 
         $notification->message = $message;
 

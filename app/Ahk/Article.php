@@ -54,7 +54,7 @@ class Article extends Model implements SluggableInterface
      */
     public function tags()
     {
-        return $this->belongsToMany('App\Ahk\Tag')->withTimestamps();;
+        return $this->belongsToMany('App\Ahk\Tag')->withTimestamps();
     }
 
     /**
