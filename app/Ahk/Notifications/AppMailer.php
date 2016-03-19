@@ -11,21 +11,55 @@ use App\Ahk\User;
 use Illuminate\Mail\Mailer;
 use Illuminate\Mail\Message;
 
+/**
+ * Class AppMailer.
+ */
 class AppMailer
 {
+    /**
+     * @var Mailer
+     */
     protected $mailer;
+    /**
+     * @var
+     */
     protected $view;
+    /**
+     * @var string
+     */
     protected $fromEmail = "no-reply@chamb.net";
+    /**
+     * @var string
+     */
     protected $fromName = "Chamb.Net Web Services";
+    /**
+     * @var
+     */
     protected $to;
+    /**
+     * @var string
+     */
     protected $subject = "System Message";
+    /**
+     * @var array
+     */
     protected $data = [];
 
+    /**
+     * AppMailer constructor.
+     *
+     * @param Mailer $mailer
+     */
     public function __construct(Mailer $mailer)
     {
         $this->mailer = $mailer;
     }
 
+    /**
+     * @param User $user
+     *
+     * @return bool
+     */
     public function sendEmailConfirmation(User $user)
     {
         $this->to = $user->email;
@@ -38,15 +72,24 @@ class AppMailer
         return true;
     }
 
+    /**
+     *
+     */
     private function deliver()
     {
-        $this->mailer->send($this->view, $this->data, function (Message $message) {
+        $this->mailer->send($this->view, $this->data, function (Message $message)
+        {
             $message->from($this->fromEmail, $this->fromName)
                 ->subject($this->subject)
                 ->to($this->to);
         });
     }
 
+    /**
+     * @param User $user
+     *
+     * @return bool
+     */
     public function sendRecoveryEmail(User $user)
     {
         $this->to = $user->email;
@@ -62,3 +105,4 @@ class AppMailer
         return true;
     }
 }
+

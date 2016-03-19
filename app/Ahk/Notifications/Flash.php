@@ -9,9 +9,9 @@ namespace App\Ahk\Notifications;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class Flash
+ * Class Flash.
+ *
  * @package App\Ahk\Notifications
- * @codeCoverageIgnore
  */
 class Flash extends Facade
 {
@@ -24,3 +24,4 @@ class Flash extends Facade
         return 'flash';
     }
 }
+

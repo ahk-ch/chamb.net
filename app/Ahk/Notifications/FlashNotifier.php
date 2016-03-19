@@ -10,8 +10,7 @@ namespace App\Ahk\Notifications;
 use Illuminate\Session\Store;
 
 /**
- * Class FlashNotifier
- * @package App\Ahk\Notifications
+ * Class FlashNotifier.
  */
 class FlashNotifier
 {
@@ -23,6 +22,7 @@ class FlashNotifier
 
     /**
      * FlashNotifier constructor.
+     *
      * @param Store $session
      */
     public function __construct(Store $session)
@@ -39,7 +39,7 @@ class FlashNotifier
     }
 
     /**
-     * @param $message
+     * @param        $message
      * @param string $level
      */
     public function message($message, $level = 'info')
@@ -65,3 +65,4 @@ class FlashNotifier
         $this->message($message, 'error');
     }
 }
+

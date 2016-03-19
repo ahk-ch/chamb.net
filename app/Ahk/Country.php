@@ -5,8 +5,8 @@ namespace App\Ahk;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Country
- * @package App\Ahk
+ * Class Country.
+ *
  * @codeCoverageIgnore
  */
 class Country extends Model
