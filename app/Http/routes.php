@@ -1,4 +1,5 @@
 <?php
+
 // ################ chamb.net ####################
 
 // Pages
@@ -52,7 +53,6 @@ Route::group(['prefix' => 'auth'], function () {
         Route::post('/reset/{slug}/{recovery_token}', ['as' => 'auth.recover.reset', 'uses' => 'Ahk\Auth\PasswordResetsController@postReset']);
     });
 });
-
 
 // ############### chamb.net/cms ####################
 

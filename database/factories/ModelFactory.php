@@ -102,7 +102,6 @@ $factory->defineAs(App\Ahk\Article::class, 'without_relations', function (Faker\
 
 });
 
-
 $factory->define(Company::class, function (Faker\Generator $faker) {
 
     $company = factory(Company::class, 'without_relations')->make();

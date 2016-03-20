@@ -1,9 +1,10 @@
-<?php namespace database;
-
+<?php
 /**
  * @author  Rizart Dokollari
  * @version 6/29/2015
  */
+namespace database;
+
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -13,7 +14,6 @@ use Illuminate\Support\Facades\Schema;
  */
 class DbTruncator
 {
-
     public static function truncateByModel($model)
     {
         $table = with($model)->getTable();

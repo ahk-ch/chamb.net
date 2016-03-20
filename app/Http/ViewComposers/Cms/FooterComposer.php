@@ -14,7 +14,6 @@ use Illuminate\Contracts\View\View;
  */
 class FooterComposer
 {
-
     /**
      * Bind data to the view.
      *

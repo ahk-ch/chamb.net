@@ -1,4 +1,10 @@
-<?php namespace database\seeds;
+<?php
+
+/**
+ * @author  Rizart Dokollari <r.dokollari@gmail.com>
+ * @since   16/2/2016
+ */
+namespace database\seeds;
 
 use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\Service\DbServiceRepository;
@@ -6,39 +12,36 @@ use Faker\Factory;
 use Illuminate\Database\Seeder;
 
 /**
- * @author  Rizart Dokollari <r.dokollari@gmail.com>
- * @since   16/2/2016
+ * Class ServiceTableSeeder.
  */
 class ServiceTableSeeder extends Seeder
 {
+    /**
+     * Run the database seeds. Services have been inserted on creation.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $dbServiceRepository = new DbServiceRepository();
+        $dbCompanyRepository = new DbCompanyRepository();
+        $faker = Factory::create();
 
-	/**
-	 * Run the database seeds. Services have been inserted on creation.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
-		$dbServiceRepository = new DbServiceRepository();
-		$dbCompanyRepository = new DbCompanyRepository();
-		$faker = Factory::create();
+        $services = $dbServiceRepository->all()->toArray();
 
-		$services = $dbServiceRepository->all()->toArray();
+        foreach ($dbCompanyRepository->all() as $company) {
+            $company->services()->attach([
+                $faker->randomElement($services)[ 'id' ] => ['offers' => true],
+                $faker->randomElement($services)[ 'id' ] => ['offers' => true],
+                $faker->randomElement($services)[ 'id' ] => ['offers' => true],
+                $faker->randomElement($services)[ 'id' ] => ['offers' => true],]);
 
-		foreach ($dbCompanyRepository->all() as $company)
-		{
-			$company->services()->attach([
-				$faker->randomElement($services)['id'] => ['offers' => true],
-				$faker->randomElement($services)['id'] => ['offers' => true],
-				$faker->randomElement($services)['id'] => ['offers' => true],
-				$faker->randomElement($services)['id'] => ['offers' => true],]);
-
-			$company->services()->attach([
-				$faker->randomElement($services)['id'] => ['requires' => true],
-				$faker->randomElement($services)['id'] => ['requires' => true],
-				$faker->randomElement($services)['id'] => ['requires' => true],
-				$faker->randomElement($services)['id'] => ['requires' => true],]);
-		}
-	}
+            $company->services()->attach([
+                $faker->randomElement($services)[ 'id' ] => ['requires' => true],
+                $faker->randomElement($services)[ 'id' ] => ['requires' => true],
+                $faker->randomElement($services)[ 'id' ] => ['requires' => true],
+                $faker->randomElement($services)[ 'id' ] => ['requires' => true],]);
+        }
+    }
 }
 

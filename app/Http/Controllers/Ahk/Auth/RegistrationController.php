@@ -83,6 +83,5 @@ class RegistrationController extends Controller
 
         return redirect()->route('home_path');
     }
-
 }
 

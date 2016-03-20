@@ -5,37 +5,37 @@ use Illuminate\Support\Facades\Storage;
 
 class TestCase extends \Illuminate\Foundation\Testing\TestCase
 {
-	/**
-	 * The base URL to use while testing the application.
-	 *
-	 * @var string
-	 */
-	protected $baseUrl = 'http://localhost';
+    /**
+     * The base URL to use while testing the application.
+     *
+     * @var string
+     */
+    protected $baseUrl = 'http://localhost';
 
-	/**
-	 * Creates the application.
-	 *
-	 * @return \Illuminate\Foundation\Application
-	 */
-	public function createApplication()
-	{
-		$app = require __DIR__ . '/../bootstrap/app.php';
+    /**
+     * Creates the application.
+     *
+     * @return \Illuminate\Foundation\Application
+     */
+    public function createApplication()
+    {
+        $app = require __DIR__.'/../bootstrap/app.php';
 
-		$app->make(Kernel::class)->bootstrap();
+        $app->make(Kernel::class)->bootstrap();
 
-		return $app;
-	}
+        return $app;
+    }
 
-	public function tearDown()
-	{
-		parent::tearDown();
+    public function tearDown()
+    {
+        parent::tearDown();
 
-		$this->refreshApplication();
+        $this->refreshApplication();
 
-		Storage::deleteDirectory('testing/ahk');
+        Storage::deleteDirectory('testing/ahk');
 
-		Storage::deleteDirectory('testing/cms');
-		
-		Storage::deleteDirectory('testing/img');
-	}
+        Storage::deleteDirectory('testing/cms');
+
+        Storage::deleteDirectory('testing/img');
+    }
 }

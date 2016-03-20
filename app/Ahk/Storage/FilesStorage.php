@@ -17,6 +17,5 @@ class FilesStorage
     {
         return env('APP_ENV').DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR;
     }
-
 }
 

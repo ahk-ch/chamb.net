@@ -3,7 +3,6 @@
  * @author  Rizart Dokollari <r.dokollari@gmail.com>
  * @since   25/11/2015
  */
-
 namespace database\seeds;
 
 use App\Ahk\Company;
@@ -54,7 +53,8 @@ class CompanyTableSeeder extends Seeder
                 'industry_id' => $faker->randomElement($industries->toArray())[ 'id' ],
                 'country_id'  => $faker->randomElement($countries)[ 'id' ],
                 'user_id'     => $faker->randomElement($companyRepresentativeUsers)[ 'id' ],
-                'logo_id'     => factory(File::class)->create()->id,]);
+                'logo_id'     => factory(File::class)->create()->id,
+            ]);
 
         }
     }
