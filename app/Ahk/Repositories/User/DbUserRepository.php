@@ -119,7 +119,9 @@ class DbUserRepository extends DbRepository implements UserRepository
     public function hasRole(User $user, $roleName)
     {
         foreach ($user->roles()->get() as $role) {
-            if ($role->name === $roleName) return true;
+            if ($role->name === $roleName) {
+                return true;
+            }
         }
 
         return false;

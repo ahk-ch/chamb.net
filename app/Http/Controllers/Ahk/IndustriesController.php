@@ -29,7 +29,6 @@ class IndustriesController extends Controller
      */
     private $userRepository;
 
-
     /**
      * CategoriesController constructor.
      *

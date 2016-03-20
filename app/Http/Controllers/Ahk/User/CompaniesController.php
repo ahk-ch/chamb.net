@@ -115,7 +115,7 @@ class CompaniesController extends Controller
 
         $file = $this->fileRepository->store([
             File::CLIENT_ORIGINAL_NAME => $file->getClientOriginalName(),
-            File::TEMPORARY_PATH       => $file->getRealPath()]);
+            File::TEMPORARY_PATH       => $file->getRealPath() ]);
 
         if (! $file) {
             Flash::error(trans('ahk_messages.unknown_error_occurred'));
@@ -133,7 +133,7 @@ class CompaniesController extends Controller
 
         Flash::success(trans('ahk_messages.company_successfully_stored'));
 
-        return redirect()->route('my.companies.edit', ['slug' => $company->slug]);
+        return redirect()->route('my.companies.edit', [ 'slug' => $company->slug ]);
     }
 
     /**
@@ -175,7 +175,7 @@ class CompaniesController extends Controller
         if (null !== $file) {
             $this->fileRepository->update($company->logo, [
                 File::CLIENT_ORIGINAL_NAME => $file->getClientOriginalName(),
-                File::TEMPORARY_PATH       => $file->getRealPath()]);
+                File::TEMPORARY_PATH       => $file->getRealPath(), ]);
         }
 
         if (! $company = $this->companyRepository->update($company, $request->all())) {
@@ -186,7 +186,7 @@ class CompaniesController extends Controller
 
         Flash::success(trans('ahk_messages.company_successfully_updated'));
 
-        return redirect()->route('my.companies.edit', ['slug' => $company->slug]);
+        return redirect()->route('my.companies.edit', [ 'slug' => $company->slug ]);
     }
 
     /**

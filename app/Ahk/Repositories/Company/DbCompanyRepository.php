@@ -4,7 +4,6 @@
  * @author  Rizart Dokollari <r.dokollari@gmail.com>
  * @since   17/12/2015
  */
-
 namespace App\Ahk\Repositories\Company;
 
 use App\Ahk\Company;
@@ -71,7 +70,9 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
 
         $this->assignRepresentativeUser($company, $user);
 
-        if (array_has($data, Company::LOGO_ID)) $this->assignLogoById($company, $data[ Company::LOGO_ID ]);
+        if (array_has($data, Company::LOGO_ID)) {
+            $this->assignLogoById($company, $data[ Company::LOGO_ID ]);
+        }
 
         return $this->update($company, $data);
     }
@@ -109,7 +110,7 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
     }
 
     /**
-     * Update company
+     * Update company.
      *
      * @param Company $company
      * @param         $data
@@ -128,7 +129,7 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
     }
 
     /**
-     * Update company primary data
+     * Update company primary data.
      *
      * @param Company $company
      * @param         $data
@@ -146,7 +147,7 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
     }
 
     /**
-     * Update the industry of a company
+     * Update the industry of a company.
      *
      * @param Company  $company
      * @param Industry $industryId

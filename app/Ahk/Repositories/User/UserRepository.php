@@ -80,7 +80,6 @@ interface UserRepository
      */
     public function hasAuthorRole(User $user);
 
-
     /**
      * Check whether the given user has role of company representative.
      *

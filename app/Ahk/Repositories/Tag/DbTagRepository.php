@@ -38,7 +38,7 @@ class DbTagRepository extends DbRepository implements TagRepository
     }
 
     /**
-     * Store a tag on the storage
+     * Store a tag on the storage.
      *
      * @param User  $author
      * @param array $fillable
@@ -72,7 +72,7 @@ class DbTagRepository extends DbRepository implements TagRepository
     }
 
     /**
-     * Get a tag given its id
+     * Get a tag given its id.
      *
      * @param $id
      *

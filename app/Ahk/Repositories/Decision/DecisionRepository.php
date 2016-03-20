@@ -10,8 +10,6 @@ use App\Ahk\File;
 
 /**
  * Interface DecisionRepository
- *
- * @package App\Ahk\Repositories\Decision
  */
 interface DecisionRepository
 {
@@ -24,11 +22,10 @@ interface DecisionRepository
     public function assignFile(Decision $decision, File $file);
 
     /**
-     * Return all decisions
+     * Return all decisions.
      *
      * @return mixed
      */
     public function all();
-
 }
 

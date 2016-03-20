@@ -19,6 +19,5 @@ interface ServiceRepository
      * @return Collection
      */
     public function all();
-
 }
 

@@ -66,7 +66,9 @@ class RegistrationController extends Controller
 
         Flash::success(trans('ahk_messages.user_created'));
 
-        if (! $this->appMailer->sendEmailConfirmation($userIsStored)) return redirect()->back();
+        if (! $this->appMailer->sendEmailConfirmation($userIsStored)) {
+            return redirect()->back();
+        }
 
         Flash::success(trans('ahk_messages.check_your_email_and_complete_registration'));
 
