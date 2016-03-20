@@ -1,15 +1,12 @@
 <?php
-
 /**
  * @author  Rizart Dokollari <r.dokollari@gmail.com>
  * @since   19/2/2016
  */
-
 namespace App\Ahk\Storage;
 
 /**
- * Class FilesStorage
- * @package App\Ahk\Storage
+ * Class FilesStorage.
  */
 class FilesStorage
 {

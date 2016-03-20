@@ -5,6 +5,9 @@ namespace App\Http\Requests\Cms;
 use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class UpdateCategoryRequest.
+ */
 class UpdateCategoryRequest extends Request
 {
     /**

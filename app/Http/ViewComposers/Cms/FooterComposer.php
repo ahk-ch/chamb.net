@@ -9,7 +9,9 @@ namespace App\Http\ViewComposers\Cms;
 use App\Ahk\Helpers\Utilities;
 use Illuminate\Contracts\View\View;
 
-
+/**
+ * Class FooterComposer.
+ */
 class FooterComposer
 {
 
@@ -17,6 +19,7 @@ class FooterComposer
      * Bind data to the view.
      *
      * @param  View $view
+     *
      * @return void
      */
     public function compose(View $view)

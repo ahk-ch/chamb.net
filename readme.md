@@ -1,6 +1,7 @@
 ![Chamb Logo](http://i1341.photobucket.com/albums/o752/rdokollari/16003106_zps4kbvxlru.png "Chamb.Net Logo")  
 [![Build Status](https://travis-ci.org/ahk-ch/chamb.net.svg?branch=master)](https://travis-ci.org/ahk-ch/chamb.net) [![Coverage Status](https://coveralls.io/repos/github/ahk-ch/chamb.net/badge.svg?branch=master)](https://coveralls.io/github/ahk-ch/chamb.net?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/d11c5e6f-ed63-42f0-ad20-a3754787d91c/mini.png)](https://insight.sensiolabs.com/projects/d11c5e6f-ed63-42f0-ad20-a3754787d91c)
+[![StyleCI](https://styleci.io/repos/46805254/shield)](https://styleci.io/repos/46805254)
 
 ## Development
 > Whether you are a front-end or backend developer the below steps are required. 

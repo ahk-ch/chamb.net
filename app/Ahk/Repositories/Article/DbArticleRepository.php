@@ -3,9 +3,7 @@
  * @author  Rizart Dokollari <r.dokollari@gmail.com>
  * @since   26/11/2015
  */
-
 namespace App\Ahk\Repositories\Article;
-
 
 use App\Ahk\Article;
 use App\Ahk\File;
@@ -32,7 +30,7 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
     }
 
     /**
-     * Get all articles
+     * Get all articles.
      *
      * @return Collection
      */
@@ -62,7 +60,7 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
     }
 
     /**
-     * Update an article given it id.
+     * Update an article given it's id.
      *
      * @param          $articleId
      * @param array    $fillable
@@ -82,7 +80,7 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
     }
 
     /**
-     * Get an article given its id
+     * Get an article given it's id.
      *
      * @param $id
      *
@@ -95,7 +93,7 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
     }
 
     /**
-     * Update the tags of an article
+     * Update the tags of an article.
      *
      * @param       $id Article id
      * @param array $tagIds
@@ -112,7 +110,7 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
     }
 
     /**
-     * Return unpublished articles
+     * Return unpublished articles.
      *
      * @return mixed
      */
@@ -122,7 +120,7 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
     }
 
     /**
-     * Paginate published articles of an industry
+     * Paginate published articles of an industry.
      *
      * @param Industry $industry
      * @param int      $perPage
@@ -141,7 +139,7 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
     }
 
     /**
-     * Get most viewed articles
+     * Get most viewed articles.
      *
      * @param int $max
      *
@@ -153,7 +151,7 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
     }
 
     /**
-     * Return published articles
+     * Return published articles.
      *
      * @return mixed
      */
@@ -163,7 +161,7 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
     }
 
     /**
-     * Get most viewed articles
+     * Get most viewed articles.
      *
      * @param     $industry
      * @param int $max

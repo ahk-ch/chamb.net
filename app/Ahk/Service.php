@@ -5,8 +5,8 @@ namespace App\Ahk;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Service
- * @package App\Ahk
+ * Class Service.
+ *
  * @codeCoverageIgnore
  */
 class Service extends Model
@@ -14,8 +14,9 @@ class Service extends Model
     /**
      * @var array
      */
-    public static $colors = ['color-one', 'color-two', 'color-three', 'color-four', 'color-five',
-        'color-six', 'color-seven'];
+    public static $colors = [
+        'color-one', 'color-two', 'color-three', 'color-four', 'color-five', 'color-six', 'color-seven',
+    ];
 
     /**
      * The attributes that are mass assignable.

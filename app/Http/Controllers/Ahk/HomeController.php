@@ -1,79 +1,79 @@
 <?php
-
+/**
+ * @author  Rizart Dokollari <r.dokollari@gmail.com>
+ * @since   23/11/2015
+ */
 namespace App\Http\Controllers\Ahk;
 
 use App\Ahk\Repositories\Industry\IndustryRepository;
 use App\Http\Controllers\Controller;
 
 /**
- * Home controller.
- *
- * @author  Rizart Dokollari <r.dokollari@gmail.com>
- * @since   23/11/2015
+ * Class HomeController.
  */
 class HomeController extends Controller
 {
-	/**
-	 * @var IndustryRepository
-	 */
-	private $industryRepository;
+    /**
+     * @var IndustryRepository
+     */
+    private $industryRepository;
 
-	public function __construct(IndustryRepository $industryRepository)
-	{
-		$this->industryRepository = $industryRepository;
-	}
+    public function __construct(IndustryRepository $industryRepository)
+    {
+        $this->industryRepository = $industryRepository;
+    }
 
-	/**
-	 * Display the home resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function home()
-	{
-		$industries = $this->industryRepository->all();
+    /**
+     * Display the home resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function home()
+    {
+        $industries = $this->industryRepository->all();
 
-		return view('ahk.home', compact('industries'));
-	}
+        return view('ahk.home', compact('industries'));
+    }
 
-	/**
-	 * Display the about resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function about()
-	{
-		return view('ahk.about');
-	}
+    /**
+     * Display the about resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function about()
+    {
+        return view('ahk.about');
+    }
 
-	/**
-	 * Display the health resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function health()
-	{
-		return view('ahk.health');
-	}
+    /**
+     * Display the health resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function health()
+    {
+        return view('ahk.health');
+    }
 
-	/**
-	 * Display the companies resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function companies()
-	{
-		return view('ahk.companies');
-	}
+    /**
+     * Display the companies resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function companies()
+    {
+        return view('ahk.companies');
+    }
 
 
-	/**
-	 * Display the terms of use resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function termsOfUse()
-	{
-		return view('ahk.terms_of_use');
-	}
+    /**
+     * Display the terms of use resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function termsOfUse()
+    {
+        return view('ahk.terms_of_use');
+    }
 }
 

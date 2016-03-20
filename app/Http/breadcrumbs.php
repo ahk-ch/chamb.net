@@ -5,31 +5,26 @@
  */
 use DaveJamesMiller\Breadcrumbs\Generator;
 
-Breadcrumbs::register('home_path', function (Generator $breadcrumbs)
-{
-	$breadcrumbs->push(trans('breadcrumbs.home'), route('home_path'));
+Breadcrumbs::register('home_path', function (Generator $breadcrumbs) {
+    $breadcrumbs->push(trans('breadcrumbs.home'), route('home_path'));
 });
 
-Breadcrumbs::register('companies.index', function (Generator $breadcrumbs)
-{
-	$breadcrumbs->parent('home_path');
-	$breadcrumbs->push(trans('breadcrumbs.companies'), route('health.news'));
+Breadcrumbs::register('companies.index', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('home_path');
+    $breadcrumbs->push(trans('breadcrumbs.companies'), route('health.news'));
 });
 
-Breadcrumbs::register('about_path', function (Generator $breadcrumbs)
-{
-	$breadcrumbs->parent('home_path');
-	$breadcrumbs->push(trans('breadcrumbs.about'), route('home_path'));
+Breadcrumbs::register('about_path', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('home_path');
+    $breadcrumbs->push(trans('breadcrumbs.about'), route('home_path'));
 });
 
-Breadcrumbs::register('auth.sign_in', function (Generator $breadcrumbs)
-{
-	$breadcrumbs->parent('home_path');
-	$breadcrumbs->push(trans('breadcrumbs.sign_in'), route('auth.sign_in'));
+Breadcrumbs::register('auth.sign_in', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('home_path');
+    $breadcrumbs->push(trans('breadcrumbs.sign_in'), route('auth.sign_in'));
 });
 
-Breadcrumbs::register('auth.register', function (Generator $breadcrumbs)
-{
-	$breadcrumbs->parent('home_path');
-	$breadcrumbs->push(trans('breadcrumbs.register'), route('auth.register'));
+Breadcrumbs::register('auth.register', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('home_path');
+    $breadcrumbs->push(trans('breadcrumbs.register'), route('auth.register'));
 });

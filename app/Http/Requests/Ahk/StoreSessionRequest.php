@@ -6,6 +6,9 @@ use App\Ahk\Notifications\Flash;
 use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class StoreSessionRequest.
+ */
 class StoreSessionRequest extends Request
 {
     /**
@@ -15,7 +18,7 @@ class StoreSessionRequest extends Request
      */
     public function authorize()
     {
-        return !Auth::check();
+        return ! Auth::check();
     }
 
     /**
@@ -26,7 +29,7 @@ class StoreSessionRequest extends Request
     public function rules()
     {
         return [
-            'email' => 'required|exists:users,email',
+            'email'    => 'required|exists:users,email',
             'password' => 'required',
         ];
     }
@@ -38,3 +41,4 @@ class StoreSessionRequest extends Request
         return parent::response($messages);
     }
 }
+

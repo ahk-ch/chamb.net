@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Cms;
 
+/**
+ * Class UsersController.
+ */
 class UsersController extends BaseController
 {
     /**

@@ -11,33 +11,36 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
-
+/**
+ * Class HeaderComposer.
+ */
 class HeaderComposer
 {
-	/**
-	 * @var IndustryRepository
-	 */
-	private $industryRepository;
+    /**
+     * @var IndustryRepository
+     */
+    private $industryRepository;
 
-	public function __construct(IndustryRepository $industryRepository)
-	{
+    public function __construct(IndustryRepository $industryRepository)
+    {
 
-		$this->industryRepository = $industryRepository;
-	}
+        $this->industryRepository = $industryRepository;
+    }
 
-	/**
-	 * Bind data to the view.
-	 *
-	 * @param  View $view
-	 * @return void
-	 */
-	public function compose(View $view)
-	{
-		$view->with('user', Auth::user());
+    /**
+     * Bind data to the view.
+     *
+     * @param  View $view
+     *
+     * @return void
+     */
+    public function compose(View $view)
+    {
+        $view->with('user', Auth::user());
 
-		$view->with('locale', App::getLocale());
+        $view->with('locale', App::getLocale());
 
-		$view->with('industries', $this->industryRepository->all());
-	}
+        $view->with('industries', $this->industryRepository->all());
+    }
 }
 

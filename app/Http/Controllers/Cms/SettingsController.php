@@ -5,12 +5,16 @@ namespace App\Http\Controllers\Cms;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
+/**
+ * Class SettingsController.
+ */
 class SettingsController extends Controller
 {
     /**
      * Change the language of the app.
      *
      * @param Requests\Cms\SetLanguageRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function setLocale(Requests\Cms\SetLanguageRequest $request)

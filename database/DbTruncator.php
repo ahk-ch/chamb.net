@@ -8,6 +8,9 @@ use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * Class DbTruncator.
+ */
 class DbTruncator
 {
 
@@ -20,6 +23,7 @@ class DbTruncator
 
     /**
      * @param $table
+     *
      * @throws Exception
      */
     public static function truncateByTable($table)

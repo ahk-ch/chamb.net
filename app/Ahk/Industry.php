@@ -7,7 +7,7 @@ use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Industry
+ * Class Industry.
  *
  * @codeCoverageIgnore
  */

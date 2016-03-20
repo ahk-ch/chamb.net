@@ -12,6 +12,9 @@ use App\Http\Requests\Cms\StoreArticleRequest;
 use App\Http\Requests\Cms\UpdateArticleRequest;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class ArticlesController.
+ */
 class ArticlesController extends BaseController
 {
 
@@ -30,9 +33,10 @@ class ArticlesController extends BaseController
 
     /**
      * CategoriesController constructor.
-     * @param ArticleRepository $articleRepository
+     *
+     * @param ArticleRepository  $articleRepository
      * @param IndustryRepository $categoryRepository
-     * @param TagRepository $tagRepository
+     * @param TagRepository      $tagRepository
      */
     public function __construct(ArticleRepository $articleRepository, IndustryRepository $categoryRepository,
                                 TagRepository $tagRepository)
@@ -100,6 +104,7 @@ class ArticlesController extends BaseController
      * Store a newly created resource in storage.
      *
      * @param StoreArticleRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(StoreArticleRequest $request)
@@ -109,7 +114,7 @@ class ArticlesController extends BaseController
         $articleStored = $this->articleRepository->store(
             Auth::user(), $request->only(['title', 'description', 'publish', 'source', 'content', 'img_url']), $category);
 
-        if (!$articleStored) {
+        if ( ! $articleStored) {
             Flash::error(trans('cms.unable_to_store_article'));
 
             return redirect()->back();
@@ -119,7 +124,7 @@ class ArticlesController extends BaseController
 
         $tagsStored = $this->articleRepository->updateTagsById($articleStored->id, $request->get('tagIds', []));
 
-        if (!$tagsStored) Flash::error(trans('cms.unable_to_attach_tags'));
+        if ( ! $tagsStored) Flash::error(trans('cms.unable_to_attach_tags'));
 
         return redirect()->route('cms.articles.edit', $articleStored);
     }
@@ -128,6 +133,7 @@ class ArticlesController extends BaseController
      * Display the specified resource.
      *
      * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -139,6 +145,7 @@ class ArticlesController extends BaseController
      * Show the form for editing the specified resource.
      *
      * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -164,7 +171,8 @@ class ArticlesController extends BaseController
      * Update the specified resource in storage.
      *
      * @param UpdateArticleRequest $request
-     * @param  int $id
+     * @param  int                 $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update($id, UpdateArticleRequest $request)
@@ -182,7 +190,7 @@ class ArticlesController extends BaseController
         $articleUpdated = $this->articleRepository->updateById(
             $id, $request->only(['title', 'description', 'publish', 'source', 'content', 'img_url']), $category);
 
-        if (!$articleUpdated) {
+        if ( ! $articleUpdated) {
             Flash::error(trans('cms.unable_to_update_article'));
 
             return redirect()->back();
@@ -192,7 +200,7 @@ class ArticlesController extends BaseController
 
         $tagsUpdated = $this->articleRepository->updateTagsById($articleUpdated->id, $request->get('tagIds', []));
 
-        if (!$tagsUpdated) Flash::error(trans('cms.unable_to_update_tags'));
+        if ( ! $tagsUpdated) Flash::error(trans('cms.unable_to_update_tags'));
 
         return redirect()->route('cms.articles.edit', $articleUpdated);
     }
@@ -201,6 +209,7 @@ class ArticlesController extends BaseController
      * Remove the specified resource from storage.
      *
      * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

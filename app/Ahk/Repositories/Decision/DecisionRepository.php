@@ -3,9 +3,7 @@
  * @author Rizart Dokollari <r.dokollari@gmail.com>
  * @since  10/03/16
  */
-
 namespace App\Ahk\Repositories\Decision;
-
 
 use App\Ahk\Decision;
 use App\Ahk\File;
@@ -17,7 +15,6 @@ use App\Ahk\File;
  */
 interface DecisionRepository
 {
-
 	/**
 	 * @param Decision $decision
 	 * @param File     $file

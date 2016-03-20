@@ -5,6 +5,9 @@ namespace App\Http\Requests\Ahk;
 use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class SignInRequest.
+ */
 class SignInRequest extends Request
 {
     /**
@@ -14,7 +17,7 @@ class SignInRequest extends Request
      */
     public function authorize()
     {
-        return !Auth::check();
+        return ! Auth::check();
     }
 
     /**
@@ -25,8 +28,8 @@ class SignInRequest extends Request
     public function rules()
     {
         return [
-            'email' => 'required|exists:users',
-            'password' => 'required',
+            'email'       => 'required|exists:users',
+            'password'    => 'required',
             'remember_me' => 'sometimes|boolean',
         ];
     }

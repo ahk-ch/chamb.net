@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Cms;
 use App\Ahk\Repositories\Company\CompanyRepository;
 use Illuminate\Http\Request;
 
+/**
+ * Class CompaniesController.
+ */
 class CompaniesController extends BaseController
 {
     protected $companyRepository;
@@ -42,6 +45,7 @@ class CompaniesController extends BaseController
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -53,6 +57,7 @@ class CompaniesController extends BaseController
      * Display the specified resource.
      *
      * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -64,6 +69,7 @@ class CompaniesController extends BaseController
      * Show the form for editing the specified resource.
      *
      * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -75,7 +81,8 @@ class CompaniesController extends BaseController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -87,6 +94,7 @@ class CompaniesController extends BaseController
      * Remove the specified resource from storage.
      *
      * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

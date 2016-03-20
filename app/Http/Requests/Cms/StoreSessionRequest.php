@@ -5,6 +5,9 @@ namespace App\Http\Requests\Cms;
 use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class StoreSessionRequest.
+ */
 class StoreSessionRequest extends Request
 {
 
@@ -15,7 +18,7 @@ class StoreSessionRequest extends Request
      */
     public function authorize()
     {
-        return !Auth::check();
+        return ! Auth::check();
     }
 
     /**

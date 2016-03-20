@@ -5,20 +5,13 @@ namespace App\Ahk;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Role
- * @package App\Ahk
+ * Class Role.
+ *
  * @codeCoverageIgnore
  */
 class Role extends Model
 {
-    /**
-     *
-     */
     const COMPANY_REPRESENTATIVE_ROLE = 'CompanyRepresentativeRole';
-
-    /**
-     *
-     */
     const AUTHOR_ROLE = 'AuthorRole';
 
     /**
@@ -27,7 +20,6 @@ class Role extends Model
      * @var array
      */
     protected $fillable = ['name'];
-
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

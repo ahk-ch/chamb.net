@@ -6,13 +6,11 @@
 
 namespace App\Ahk\Helpers;
 
-
 /**
  * Class Utilities.
  */
 class Utilities
 {
-
     /**
      * @param $year
      *

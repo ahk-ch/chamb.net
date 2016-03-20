@@ -7,6 +7,9 @@ use App\Ahk\User;
 use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class StoreUserRequest.
+ */
 class StoreUserRequest extends Request
 {
     /**
@@ -16,7 +19,7 @@ class StoreUserRequest extends Request
      */
     public function authorize()
     {
-        return !Auth::check();
+        return ! Auth::check();
     }
 
     /**
@@ -27,8 +30,8 @@ class StoreUserRequest extends Request
     public function rules()
     {
         return [
-            User::EMAIL => 'required|email|max:255|unique:users,email',
-            User::PASSWORD => 'required|confirmed|min:6',
+            User::EMAIL      => 'required|email|max:255|unique:users,email',
+            User::PASSWORD   => 'required|confirmed|min:6',
             'agree_to_terms' => 'required',
         ];
     }

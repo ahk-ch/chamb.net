@@ -3,9 +3,7 @@
  * @author  Rizart Dokollari <r.dokollari@gmail.com>
  * @since   26/11/2015
  */
-
 namespace App\Ahk\Repositories\Article;
-
 
 use App\Ahk\Article;
 use App\Ahk\Industry;
@@ -16,7 +14,6 @@ use Illuminate\Database\Eloquent\Collection;
  */
 interface ArticleRepository
 {
-
     /**
      * Get all articles.
      *

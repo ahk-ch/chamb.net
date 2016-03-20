@@ -10,6 +10,9 @@ use App\Http\Requests\Cms\StoreTagRequest;
 use App\Http\Requests\Cms\UpdateTagRequest;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class TagsController.
+ */
 class TagsController extends BaseController
 {
     /**
@@ -55,13 +58,14 @@ class TagsController extends BaseController
      * Store a newly created resource in storage.
      *
      * @param StoreTagRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(StoreTagRequest $request)
     {
         $tagStored = $this->tagRepository->store(Auth::user(), $request->only('name'));
 
-        if (!$tagStored) {
+        if ( ! $tagStored) {
             Flash::error(trans('cms.unable_to_store_tag'));
 
             return redirect()->back();
@@ -76,6 +80,7 @@ class TagsController extends BaseController
      * Display the specified resource.
      *
      * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -87,6 +92,7 @@ class TagsController extends BaseController
      * Show the form for editing the specified resource.
      *
      * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -99,15 +105,16 @@ class TagsController extends BaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int $id
+     * @param  int             $id
      * @param UpdateTagRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function update($id, UpdateTagRequest $request)
     {
         $tagSaved = $this->tagRepository->updateById($id, $request->only('name'));
 
-        if (!$tagSaved) {
+        if ( ! $tagSaved) {
             Flash::error(trans('cms.something_went_wrong'));
 
             return redirect()->back();
@@ -122,6 +129,7 @@ class TagsController extends BaseController
      * Remove the specified resource from storage.
      *
      * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

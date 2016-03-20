@@ -13,9 +13,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 
 /**
- * Class User
+ * Class User.
  *
- * @package App\Ahk
  * @codeCoverageIgnore
  */
 class User extends Model implements AuthenticatableContract,
@@ -94,7 +93,7 @@ class User extends Model implements AuthenticatableContract,
     }
 
     /**
-     * Get avatar of the user
+     * Get avatar of the user.
      */
     public function avatar()
     {

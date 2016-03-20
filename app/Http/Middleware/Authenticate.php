@@ -9,6 +9,9 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class Authenticate.
+ */
 class Authenticate
 {
     /**
@@ -25,8 +28,9 @@ class Authenticate
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \Closure $next
-     * @param Guard|null $guard
+     * @param  \Closure                 $next
+     * @param Guard|null                $guard
+     *
      * @return mixed
      */
     public function handle(Request $request, Closure $next, Guard $guard = null)
@@ -41,7 +45,7 @@ class Authenticate
             }
         }
 
-        if (!$this->userRepository->hasCompanyRepresentativeRole(Auth::user())) {
+        if ( ! $this->userRepository->hasCompanyRepresentativeRole(Auth::user())) {
             Flash::error(trans('ahk_messages.you_do_not_have_the_necessary_privileges'));
 
             return redirect()->route('home_path');

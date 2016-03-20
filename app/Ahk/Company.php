@@ -41,7 +41,6 @@ class Company extends Model implements SluggableInterface
      */
     protected $sluggable = ['build_from' => self::NAME, 'save_to' => self::SLUG];
 
-
     /**
      * Get the route key for the model.
      *

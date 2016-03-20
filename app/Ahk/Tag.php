@@ -1,17 +1,15 @@
 <?php
-
 namespace App\Ahk;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Tag
- * @package App\Ahk
+ * Class Tag.
+ *
  * @codeCoverageIgnore
  */
 class Tag extends Model
 {
-
     /**
      * The attributes that are mass assignable.
      *

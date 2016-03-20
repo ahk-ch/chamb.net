@@ -1,26 +1,30 @@
 <?php
 
-namespace app\Http\ViewComposers\Cms;
-
 /**
  * @author  Rizart Dokollari <r.dokollari@gmail.com>
  * @since   24/11/2015
  */
+namespace app\Http\ViewComposers\Cms;
+
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class HeaderComposer.
+ */
+class HeaderComposer
+{
 
-class HeaderComposer {
-
-	/**
-	 * Bind data to the view.
-	 *
-	 * @param  View $view
-	 * @return void
-	 */
-	public function compose(View $view)
-	{
-		$view->with('user', Auth::user());
-	}
+    /**
+     * Bind data to the view.
+     *
+     * @param  View $view
+     *
+     * @return void
+     */
+    public function compose(View $view)
+    {
+        $view->with('user', Auth::user());
+    }
 }
 

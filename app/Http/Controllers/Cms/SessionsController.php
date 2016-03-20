@@ -9,9 +9,15 @@ use App\Http\Requests\Cms\StoreSessionRequest;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class SessionsController.
+ */
 class SessionsController extends Controller
 {
 
+    /**
+     * SessionsController constructor.
+     */
     public function __construct()
     {
         $this->middleware('cms.guest', ['except' => 'destroy']);
@@ -31,6 +37,7 @@ class SessionsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param StoreSessionRequest $request
+     *
      * @return Response
      */
     public function store(StoreSessionRequest $request)

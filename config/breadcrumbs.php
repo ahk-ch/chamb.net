@@ -1,5 +1,5 @@
 <?php
 
 return [
-	'view' => 'ahk._partials/breadcrumbs',
+    'view' => 'ahk._partials/breadcrumbs',
 ];

@@ -10,7 +10,9 @@ use App\Http\Requests\Cms\StoreCategoryRequest;
 use App\Http\Requests\Cms\UpdateCategoryRequest;
 use Illuminate\Support\Facades\Auth;
 
-
+/**
+ * Class CategoriesController.
+ */
 class CategoriesController extends BaseController
 {
 
@@ -21,6 +23,7 @@ class CategoriesController extends BaseController
 
     /**
      * CategoriesController constructor.
+     *
      * @param IndustryRepository $categoryRepository
      */
     public function __construct(IndustryRepository $categoryRepository)
@@ -58,13 +61,14 @@ class CategoriesController extends BaseController
      * Store a newly created resource in storage.
      *
      * @param StoreCategoryRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(StoreCategoryRequest $request)
     {
         $categoryStored = $this->categoryRepository->store($request, Auth::user());
 
-        if (!$categoryStored) {
+        if ( ! $categoryStored) {
             Flash::error(trans('cms.unable_to_store_category'));
 
             return redirect()->back();
@@ -79,6 +83,7 @@ class CategoriesController extends BaseController
      * Show the form for editing the specified resource.
      *
      * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -91,15 +96,16 @@ class CategoriesController extends BaseController
     /**
      * Update the specified category in storage.
      *
-     * @param $id
+     * @param                       $id
      * @param UpdateCategoryRequest $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update($id, UpdateCategoryRequest $request)
     {
         $categorySaved = $this->categoryRepository->updateById($id, $request->only('name'));
 
-        if (!$categorySaved) {
+        if ( ! $categorySaved) {
             Flash::error(trans('cms.something_went_wrong'));
 
             return redirect()->back();
