@@ -100,18 +100,18 @@ class DbUserRepositoryTest extends TestCase
         $dbUserRepository = new DbUserRepository();
         $user = factory(User::class)->create(['password' => $hashedPassword]);
 
-        # User has not a company representative role; system should deny access
+        // User has not a company representative role; system should deny access
         $this->assertFalse(
             $dbUserRepository->attemptToSignIn(['email' => $user->email, 'password' => 'some-password']));
         $this->assertFalse(Auth::check($user));
 
-        # User is not verified; system should deny signing in.
+        // User is not verified; system should deny signing in.
         $dbUserRepository->assignCompanyRepresentativeRole($user);
         $this->assertFalse(
             $dbUserRepository->attemptToSignIn(['email' => $user->email, 'password' => 'some-password']));
         $this->assertFalse(Auth::check($user));
 
-        # System should allow user to sign in
+        // System should allow user to sign in
         $user = factory(User::class)->create(['password' => $hashedPassword, 'verified' => 1]);
         $dbUserRepository->assignCompanyRepresentativeRole($user);
         $this->assertNotFalse(
@@ -166,7 +166,7 @@ class DbUserRepositoryTest extends TestCase
     {
         $dbUserRepository = new DbUserRepository();
 
-        factory(User::class, 2)->create(); # Use to validate it does not return these.
+        factory(User::class, 2)->create(); // Use to validate it does not return these.
         $actualCompanyRepresentativeUsers = factory(User::class, 2)->create();
         $dbUserRepository->assignCompanyRepresentativeRole($actualCompanyRepresentativeUsers->get(0));
         $dbUserRepository->assignCompanyRepresentativeRole($actualCompanyRepresentativeUsers->get(1));
@@ -185,7 +185,7 @@ class DbUserRepositoryTest extends TestCase
         $dbUserRepository = new DbUserRepository();
         $dbCompanyRepository = new DbCompanyRepository();
 
-        factory(User::class, 2)->create(); # Use to validate it does not return these.
+        factory(User::class, 2)->create(); // Use to validate it does not return these.
         $expectedUsers = factory(User::class, 2)->create();
         $dbUserRepository->assignCompanyRepresentativeRole($expectedUsers->get(0));
         $dbUserRepository->assignCompanyRepresentativeRole($expectedUsers->get(1));
@@ -217,7 +217,7 @@ class DbUserRepositoryTest extends TestCase
     public function it_returns_author_users()
     {
         $dbUserRepository = new DbUserRepository();
-        factory(User::class, 2)->create(); # Use to validate it does not return these.
+        factory(User::class, 2)->create(); // Use to validate it does not return these.
         $actualAuthorUsers = factory(User::class, 2)->create();
         $dbUserRepository->assignAuthorRole($actualAuthorUsers->get(0));
         $dbUserRepository->assignAuthorRole($actualAuthorUsers->get(1));

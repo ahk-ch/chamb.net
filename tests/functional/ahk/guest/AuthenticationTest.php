@@ -38,7 +38,7 @@ class AuthenticationTest extends TestCase
             ->see('<i class="fa fa-envelope"></i>')
             ->see('<input class="form-control" placeholder="Email" required="required" name="email" type="email">')
             ->see('<i class="fa fa-lock"></i>')
-            ->see('<input class="form-control" placeholder="'.trans("ahk.password").'" required="required" name="password" type="password" value="">')
+            ->see('<input class="form-control" placeholder="'.trans('ahk.password').'" required="required" name="password" type="password" value="">')
             ->see('<input name="remember_me" type="checkbox" value="1"> '.trans('ahk.remember_me'))
             ->see('<input class="btn-u pull-right" id="sign-in" name="sign-in" type="submit" value="Sign In">')
             ->see('<a href="'.route('auth.recover.get').'">'.trans('ahk.forgot_your_password').'</a>');

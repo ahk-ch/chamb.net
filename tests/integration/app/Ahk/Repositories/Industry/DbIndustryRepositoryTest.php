@@ -144,7 +144,9 @@ class DbIndustryRepositoryTest extends TestCase
         $this->assertSame(0, $industry->workgroups()->count());
 
         $dbIndustryRepository = new DbIndustryRepository();
-        $dbIndustryRepository->assignWorkGroupsById($industry, [$workGroups->get(0)->id, $workGroups->get(1)->id,]);
+        $dbIndustryRepository->assignWorkGroupsById($industry, [
+            $workGroups->get(0)->id, $workGroups->get(1)->id,
+        ]);
         $actualWorkgroups = $industry->workgroups;
 
         $this->assertNotSame(0, $actualWorkgroups->count());

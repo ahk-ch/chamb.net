@@ -37,7 +37,9 @@ class DbFileRepositoryTest extends TestCase
 
         $this->notSeeInDatabase('files', $requestData);
 
-        if (Storage::exists($expectedFilePath)) Storage::delete($expectedFilePath);
+        if (Storage::exists($expectedFilePath)) {
+            Storage::delete($expectedFilePath);
+        }
 
         $this->assertFalse(Storage::exists($expectedFilePath));
 
@@ -57,7 +59,7 @@ class DbFileRepositoryTest extends TestCase
         $expectedClientOriginalName = 'dummy_logo3.png';
         $expectedFilePath = FilesStorage::getFilesDirectory().$expectedClientOriginalName;
         $expectedFile = factory(File::class, 'without_storage')->make(
-            ['path' => $expectedFilePath, 'client_original_name' => $expectedClientOriginalName]);;
+            ['path' => $expectedFilePath, 'client_original_name' => $expectedClientOriginalName]);
         $expectedTemporaryPath = storage_path('app/testing/dummy_logo.png');
 
         $requestData[ File::NAME ] = $expectedFile->name;

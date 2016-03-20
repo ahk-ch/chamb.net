@@ -27,7 +27,7 @@ class NewsTest extends TestCase
 
         $this->visit(route('industries.articles.index', ['industry_slug' => $industry->slug]))
             ->seePageIs(route('industries.articles.index', ['industry_slug' => $industry->slug]))
-            ->see("<title> ".trans('ahk.news')." · Chamb.Net</title>")
+            ->see('<title> '.trans('ahk.news').' · Chamb.Net</title>')
             ->dontSee(route('files.render', ['path' => $unpublishedArticle->thumbnail->path]))
             ->dontSee($unpublishedArticle->author->name)
             ->dontSee($publishedOtherIndustry->author->name)
@@ -51,8 +51,9 @@ class NewsTest extends TestCase
         $article = factory(Article::class)->create();
 
         $this
-            ->visit(route('industries.articles.show', ['industry_slug' => $article->industry->slug,
-                                                       'article_slug'  => $article->slug]))
+            ->visit(route('industries.articles.show', [
+                'industry_slug' => $article->industry->slug, 'article_slug' => $article->slug,
+            ]))
             ->see($article->title)
             ->see($article->created_at->format('M d, Y'))
             ->see($article->author->name)

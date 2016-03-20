@@ -1,7 +1,7 @@
 <?php
 /**
  * @author Rizart Dokollari
- * @since 06/03/16
+ * @since  06/03/16
  */
 namespace functional\ahk\any\Industry;
 
@@ -38,21 +38,22 @@ class WorkGroupTest extends TestCase
         $this
             ->visit(route('industries.work_groups.index', ['industry_slug' => $industry->slug]))
             ->seePageIs(route('industries.work_groups.index', ['industry_slug' => $industry->slug]))
-            ->see("<title> Work-groups - Health · Chamb.Net</title>")
-            ->see("<h2>All Work-groups</h2>")
+            ->see('<title> Work-groups - Health · Chamb.Net</title>')
+            ->see('<h2>All Work-groups</h2>')
             ->see('<span class="results-number">11 result(s)</span>')
             ->seeLink($workGroups->get(0)->name,
-                route('industries.work_groups.show',
-                    ['industry_slug'   => $industry->slug,
-                     'work_group_slug' => $workGroups->get(0)->slug]))
+                route('industries.work_groups.show', [
+                    'industry_slug' => $industry->slug, 'work_group_slug' => $workGroups->get(0)->slug,
+                ]))
             ->see($workGroups->get(1)->description)
             ->seeLink($workGroups->get(1)->name,
-                route('industries.work_groups.show',
-                    ['industry_slug'   => $industry->slug,
-                     'work_group_slug' => $workGroups->get(1)->slug]))
+                route('industries.work_groups.show', [
+                    'industry_slug' => $industry->slug, 'work_group_slug' => $workGroups->get(1)->slug,
+                ]))
             ->seeLink(2,
-                route('industries.work_groups.index',
-                    ['industry_slug' => $industry->slug, 'page' => 2]));
+                route('industries.work_groups.index', [
+                    'industry_slug' => $industry->slug, 'page' => 2,
+                ]));
     }
 
     /** @test */
@@ -85,10 +86,10 @@ class WorkGroupTest extends TestCase
             ->seePageIs(route('industries.work_groups.show',
                 ['industry_slug' => $industry->slug, 'work_group_slug' => $workGroup->slug]))
             ->see("<title> $workGroup->name - $industry->name · Chamb.Net</title>")
-            ->see("<span>Protocols</span>")
-            ->see("<span>Ideas</span>")
-            ->see("<span>Decisions</span>")
-            ->see("<span>Events</span>")
+            ->see('<span>Protocols</span>')
+            ->see('<span>Ideas</span>')
+            ->see('<span>Decisions</span>')
+            ->see('<span>Events</span>')
             ->see('<h2 class="title-v2 title-center">POPULAR NEWS</h2>')
             ->see($articles->get(0)->title)
             ->see($articles->get(1)->title)

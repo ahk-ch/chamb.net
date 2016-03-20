@@ -64,7 +64,6 @@ class CompaniesTest extends TestCase
             ->visit(route('my.companies.index'))
             ->click("#edit-company-btn-$company->slug")
             ->seePageIs(route('my.companies.edit', ['slug' => $company->slug]));
-
     }
 
     /** @test */
@@ -155,7 +154,7 @@ class CompaniesTest extends TestCase
 
         $this->actingAs($companyRepresentativeUser)
             ->visit(route('my.companies.index'))
-            ->click("#create-company-btn")
+            ->click('#create-company-btn')
             ->seePageIs(route('my.companies.create'));
     }
 
@@ -200,7 +199,6 @@ class CompaniesTest extends TestCase
         $expectedIndustry = factory(Industry::class)->create();
         $expectedCountry = factory(Country::class)->create();
         $expectedLogoPath = FilesStorage::getFilesDirectory().'dummy_logo.png';
-
 
         $this->actingAs($companyRepresentativeUser)
             ->visit(route('my.companies.create'))

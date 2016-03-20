@@ -20,9 +20,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 
 /**
- * Class DbCompanyRepositoryTest
- *
- * @package tests\integration\app\Ahk\Repositories\Company
+ * Class DbCompanyRepositoryTest.
  */
 class DbCompanyRepositoryTest extends TestCase
 {
@@ -77,7 +75,7 @@ class DbCompanyRepositoryTest extends TestCase
         $dbUserRepository = new DbUserRepository();
         $companyRepresentativeUser = factory(User::class)->create();
         $dbUserRepository->assignCompanyRepresentativeRole($companyRepresentativeUser);
-        factory(Company::class)->create();  # Company validator
+        factory(Company::class)->create();  // Company validator
 
         $this->assertCount(0, $dbCompanyRepository->getByUser($companyRepresentativeUser)->get());
 
@@ -133,7 +131,9 @@ class DbCompanyRepositoryTest extends TestCase
 
         $keys = $newCompanyData->getFillable();
 
-        if (false !== ($key = array_search(Company::SLUG, $keys))) unset($keys[ $key ]);
+        if (false !== ($key = array_search(Company::SLUG, $keys))) {
+            unset($keys[ $key ]);
+        }
 
         $expectedCompanyData = array_only($newCompanyData->toArray(), $keys);
         $currentCompanyData = array_only($company->toArray(), $keys);
@@ -146,7 +146,8 @@ class DbCompanyRepositoryTest extends TestCase
         $company = $dbCompanyRepository->update($company, $expectedCompanyData + [
                 'industry_id' => $expectedIndustry->id,
                 'country_id'  => $expectedCountry->id,
-                'logo_id'     => $expectedFile->id,]);
+                'logo_id'     => $expectedFile->id,
+            ]);
 
         $currentCompanyData = array_only($company->toArray(), $keys);
 
@@ -210,7 +211,6 @@ class DbCompanyRepositoryTest extends TestCase
         $company = $dbCompanyRepository->assignIndustryById($company, $expectedIndustry->id);
 
         $this->assertSame($company->industry->id, $expectedIndustry->id);
-
     }
 
     /** @test */

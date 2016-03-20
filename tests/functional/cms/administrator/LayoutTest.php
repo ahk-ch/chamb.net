@@ -39,7 +39,6 @@ class LayoutTest extends TestCase
             ->see('<i class="fa fa-puzzle-piece"></i> '.trans('cms.categories'))
             ->see('<i class="fa fa-tags"></i> '.trans('cms.tags'))
             ->see('<i class="fa fa-building"></i> <span>'.trans('cms.companies'));
-
     }
 
     /** @test */
