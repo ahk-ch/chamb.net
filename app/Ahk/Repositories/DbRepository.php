@@ -15,7 +15,7 @@ abstract class DbRepository
      */
     private $model;
     /**
-     * Builder
+     * Builder.
      */
     private $builder;
 
@@ -27,9 +27,6 @@ abstract class DbRepository
         $this->setModel($model);
     }
 
-    /**
-     *
-     */
     public function get()
     {
         $this->getModel()->get();
