@@ -7,6 +7,7 @@ namespace App\Ahk\Repositories;
 
 /**
  * Class DbRepository.
+ * @codeCoverageIgnore
  */
 abstract class DbRepository
 {

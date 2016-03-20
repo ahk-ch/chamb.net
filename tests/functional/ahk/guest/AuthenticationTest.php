@@ -50,7 +50,7 @@ class AuthenticationTest extends TestCase
         $dbUserRepository = new DbUserRepository();
 
         $user = factory(User::class)
-            ->create(['email' => 'email@email.com', 'password' => Hash::make('some-password'), 'verified' => 1]);
+            ->create(['password' => Hash::make('some-password'), 'verified' => 1]);
 
         $dbUserRepository->assignCompanyRepresentativeRole($user);
 
@@ -67,7 +67,7 @@ class AuthenticationTest extends TestCase
     {
         $dbUserRepository = new DbUserRepository();
         $user = factory(User::class)
-            ->create(['email' => 'email@email.com', 'password' => Hash::make('some-password'), 'verified' => 1]);
+            ->create(['password' => Hash::make('some-password'), 'verified' => 1]);
         $dbUserRepository->assignCompanyRepresentativeRole($user);
 
         $this->visit(route('auth.sign_in'))
@@ -83,7 +83,7 @@ class AuthenticationTest extends TestCase
     {
         $dbUserRepository = new DbUserRepository();
         $user = factory(User::class)
-            ->create(['email' => 'email@email.com', 'password' => Hash::make('some-password'), 'verified' => 0]);
+            ->create(['password' => Hash::make('some-password'), 'verified' => 0]);
         $dbUserRepository->assignCompanyRepresentativeRole($user);
 
         $this->visit(route('auth.sign_in'))
@@ -98,7 +98,7 @@ class AuthenticationTest extends TestCase
     public function it_shows_missing_privileges_error()
     {
         $user = factory(User::class)
-            ->create(['email' => 'email@email.com', 'password' => Hash::make('some-password'), 'verified' => 1]);
+            ->create(['password' => Hash::make('some-password'), 'verified' => 1]);
 
         $this->visit(route('auth.sign_in'))
             ->type($user->email, 'email')

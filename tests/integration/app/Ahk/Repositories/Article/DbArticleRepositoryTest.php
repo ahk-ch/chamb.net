@@ -38,6 +38,9 @@ class DbArticleRepositoryTest extends TestCase
     public function it_returns_most_viewed_articles()
     {
         $dbArticleRepository = new DbArticleRepository();
+
+        $this->assertCount(0, $dbArticleRepository->mostViewed()->get());
+
         $article1 = factory(Article::class)->create(['view_count' => 1, 'publish' => 1]);
         $article2 = factory(Article::class)->create(['view_count' => 5, 'publish' => 1]);
         $article3 = factory(Article::class)->create(['view_count' => 10, 'publish' => 1]);

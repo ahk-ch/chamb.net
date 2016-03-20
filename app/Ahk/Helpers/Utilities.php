@@ -17,19 +17,15 @@ class Utilities
      */
     public function autoCopyright($year = 'auto')
     {
-        if (strcmp($year, 'auto') === 0) {
+        if ($year  === 'auto' || intval($year) == date('Y')) {
             return date('Y');
-        }
-
-        if (intval($year) == date('Y')) {
-            return $year;
         }
 
         if (intval($year) < date('Y')) {
             return $year.' - '.date('Y');
         }
 
-        return date('Y');
+        return date('Y').' - '.$year;
     }
 
     /**

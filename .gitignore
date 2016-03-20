@@ -7,6 +7,7 @@ Homestead.json
 
 /.rbenv
 /bower_components/
+/public/build/tests/
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
 
