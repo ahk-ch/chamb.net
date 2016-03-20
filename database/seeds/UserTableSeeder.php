@@ -27,12 +27,14 @@ class UserTableSeeder extends Seeder
         factory(User::class)->create([
             'email'    => env('ADMIN_EMAIL'),
             'password' => Hash::make(env('ADMIN_PASSWORD')),
-            'verified' => 1,]);
+            'verified' => 1,
+        ]);
 
         $companyRepresentative = factory(User::class)->create([
             'email'    => env('COMPANY_REPRESENTATIVE_EMAIL'),
             'password' => Hash::make(env('COMPANY_REPRESENTATIVE_PASSWORD')),
-            'verified' => 1,]);
+            'verified' => 1,
+        ]);
 
         $dbUserRepository->assignCompanyRepresentativeRole($companyRepresentative);
 

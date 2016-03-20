@@ -1,4 +1,6 @@
-<?php namespace tests;
+<?php
+
+namespace tests;
 
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Support\Facades\Storage;

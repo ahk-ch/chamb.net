@@ -34,13 +34,15 @@ class ServiceTableSeeder extends Seeder
                 $faker->randomElement($services)[ 'id' ] => ['offers' => true],
                 $faker->randomElement($services)[ 'id' ] => ['offers' => true],
                 $faker->randomElement($services)[ 'id' ] => ['offers' => true],
-                $faker->randomElement($services)[ 'id' ] => ['offers' => true],]);
+                $faker->randomElement($services)[ 'id' ] => ['offers' => true],
+            ]);
 
             $company->services()->attach([
                 $faker->randomElement($services)[ 'id' ] => ['requires' => true],
                 $faker->randomElement($services)[ 'id' ] => ['requires' => true],
                 $faker->randomElement($services)[ 'id' ] => ['requires' => true],
-                $faker->randomElement($services)[ 'id' ] => ['requires' => true],]);
+                $faker->randomElement($services)[ 'id' ] => ['requires' => true],
+            ]);
         }
     }
 }

@@ -55,7 +55,6 @@ class CompanyTableSeeder extends Seeder
                 'user_id'     => $faker->randomElement($companyRepresentativeUsers)[ 'id' ],
                 'logo_id'     => factory(File::class)->create()->id,
             ]);
-
         }
     }
 }
