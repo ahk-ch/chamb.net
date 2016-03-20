@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Auth;
  */
 class SessionsController extends Controller
 {
-
     /**
      * SessionsController constructor.
      */

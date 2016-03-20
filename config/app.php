@@ -144,7 +144,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-
         /*
          * External Service Providers
          */
@@ -153,7 +152,6 @@ return [
         GrahamCampbell\HTMLMin\HTMLMinServiceProvider::class,
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
-
 
         /*
          * Internal Service Providers
@@ -217,7 +215,6 @@ return [
         'Form'        => Collective\Html\FormFacade::class,
         'Html'        => Collective\Html\HtmlFacade::class,
         'Active'      => HieuLe\Active\Facades\Active::class,
-
 
         /*
          * Internal aliases

@@ -9,7 +9,7 @@ use App\Ahk\Decision;
 use App\Ahk\File;
 
 /**
- * Interface DecisionRepository
+ * Interface DecisionRepository.
  */
 interface DecisionRepository
 {

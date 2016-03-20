@@ -28,7 +28,7 @@ class UpdateCategoryRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|min:1|unique:categories,name,' . $this->get('id'),
+            'name' => 'required|min:1|unique:categories,name,'.$this->get('id'),
         ];
     }
 }

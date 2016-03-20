@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\ViewComposers\Cms;
-
 /**
  * @author  Rizart Dokollari <r.dokollari@gmail.com>
  * @since   24/11/2015
  */
+namespace App\Http\ViewComposers\Cms;
+
 use App\Ahk\Helpers\Utilities;
 use Illuminate\Contracts\View\View;
 
@@ -24,7 +24,9 @@ class FooterComposer
      */
     public function compose(View $view)
     {
-        $view->with('copyrightDate', Utilities::autoCopyright("2015"));
+        $utilities = new Utilities();
+
+        $view->with('copyrightDate', $utilities->autoCopyright('2015'));
     }
 }
 

@@ -6,12 +6,10 @@
 
 namespace database\seeds;
 
-
 use Illuminate\Database\Seeder;
 
 class ArticleIndustryTableSeeder extends Seeder
 {
-
     /**
      * Run the database seeds.
      *

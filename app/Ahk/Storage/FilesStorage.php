@@ -15,7 +15,7 @@ class FilesStorage
      */
     public static function getFilesDirectory()
     {
-        return env('APP_ENV') . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR;
+        return env('APP_ENV').DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR;
     }
 
 }

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 class AddCountryToCompanyTable extends Migration
@@ -26,8 +26,7 @@ class AddCountryToCompanyTable extends Migration
      */
     public function down()
     {
-        Schema::table('companies', function (Blueprint $table)
-        {
+        Schema::table('companies', function (Blueprint $table) {
             $table->dropForeign('companies_country_id_foreign');
             $table->dropIndex('companies_country_id_index');
             $table->removeColumn('country_id');

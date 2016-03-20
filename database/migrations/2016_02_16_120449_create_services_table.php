@@ -7,38 +7,37 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateServicesTable extends Migration
 {
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::create('services', function (Blueprint $table)
-		{
-			$table->increments('id');
-			$table->string('name')->unique();
-			$table->string('color')->nullable()->default(Service::$colors[ array_rand(Service::$colors) ]);
-			$table->timestamps();
-		});
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('services', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->unique();
+            $table->string('color')->nullable()->default(Service::$colors[ array_rand(Service::$colors) ]);
+            $table->timestamps();
+        });
 
-		Service::create(['name' => 'Knowledge Exchange', 'color' => Service::$colors[array_rand(Service::$colors)]]);
-		Service::create(['name' => 'Corporations', 'color' => Service::$colors[array_rand(Service::$colors)]]);
-		Service::create(['name' => 'Buyer', 'color' => Service::$colors[array_rand(Service::$colors)]]);
-		Service::create(['name' => 'Supplier', 'color' => Service::$colors[array_rand(Service::$colors)]]);
-		Service::create(['name' => 'Expertise', 'color' => Service::$colors[array_rand(Service::$colors)]]);
-		Service::create(['name' => 'New Products', 'color' => Service::$colors[array_rand(Service::$colors)]]);
-		Service::create(['name' => 'Products', 'color' => Service::$colors[array_rand(Service::$colors)]]);
-		Service::create(['name' => 'Partnership', 'color' => Service::$colors[array_rand(Service::$colors)]]);
-	}
+        Service::create(['name' => 'Knowledge Exchange', 'color' => Service::$colors[ array_rand(Service::$colors) ]]);
+        Service::create(['name' => 'Corporations', 'color' => Service::$colors[ array_rand(Service::$colors) ]]);
+        Service::create(['name' => 'Buyer', 'color' => Service::$colors[ array_rand(Service::$colors) ]]);
+        Service::create(['name' => 'Supplier', 'color' => Service::$colors[ array_rand(Service::$colors) ]]);
+        Service::create(['name' => 'Expertise', 'color' => Service::$colors[ array_rand(Service::$colors) ]]);
+        Service::create(['name' => 'New Products', 'color' => Service::$colors[ array_rand(Service::$colors) ]]);
+        Service::create(['name' => 'Products', 'color' => Service::$colors[ array_rand(Service::$colors) ]]);
+        Service::create(['name' => 'Partnership', 'color' => Service::$colors[ array_rand(Service::$colors) ]]);
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::drop('services');
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('services');
+    }
 }

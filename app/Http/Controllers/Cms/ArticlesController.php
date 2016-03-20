@@ -123,7 +123,9 @@ class ArticlesController extends BaseController
 
         $tagsStored = $this->articleRepository->updateTagsById($articleStored->id, $request->get('tagIds', []));
 
-        if (! $tagsStored) Flash::error(trans('cms.unable_to_attach_tags'));
+        if (! $tagsStored) {
+            Flash::error(trans('cms.unable_to_attach_tags'));
+        }
 
         return redirect()->route('cms.articles.edit', $articleStored);
     }
@@ -199,7 +201,9 @@ class ArticlesController extends BaseController
 
         $tagsUpdated = $this->articleRepository->updateTagsById($articleUpdated->id, $request->get('tagIds', []));
 
-        if (! $tagsUpdated) Flash::error(trans('cms.unable_to_update_tags'));
+        if (! $tagsUpdated) {
+            Flash::error(trans('cms.unable_to_update_tags'));
+        }
 
         return redirect()->route('cms.articles.edit', $articleUpdated);
     }

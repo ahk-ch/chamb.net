@@ -14,7 +14,7 @@ use Illuminate\Support\Collection;
 interface ServiceRepository
 {
     /**
-     * Get all services
+     * Get all services.
      *
      * @return Collection
      */

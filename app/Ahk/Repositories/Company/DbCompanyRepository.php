@@ -55,7 +55,6 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
         return Company::where('user_id', $user->id);
     }
 
-
     /**
      * Store company.
      *

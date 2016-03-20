@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\App;
  */
 class RightSideBarComposer
 {
-
     /**
      * Bind data to the view.
      *

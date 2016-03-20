@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Cms;
 use App\Ahk\Category;
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\Industry\IndustryRepository;
-use App\Http\Requests;
 use App\Http\Requests\Cms\StoreCategoryRequest;
 use App\Http\Requests\Cms\UpdateCategoryRequest;
 use Illuminate\Support\Facades\Auth;

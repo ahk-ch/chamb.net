@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\ViewComposers\Ahk;
-
 /**
  * @author  Rizart Dokollari <r.dokollari@gmail.com>
  * @since   24/11/2015
  */
+namespace App\Http\ViewComposers\Ahk;
+
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 

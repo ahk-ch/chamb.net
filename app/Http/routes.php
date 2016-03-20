@@ -1,7 +1,7 @@
 <?php
-################ chamb.net ####################
+// ################ chamb.net ####################
 
-# Pages
+// Pages
 Route::get('/', ['as' => 'home_path', 'uses' => 'Ahk\HomeController@home']);
 Route::get('about-us', ['as' => 'about_path', 'uses' => 'Ahk\HomeController@about']);
 Route::get('lang/{lang}', ['as' => 'set_language', 'uses' => 'Ahk\SettingsController@setLocale']);
@@ -31,11 +31,11 @@ Route::group(['prefix' => 'files'], function () {
     Route::get('download', ['as' => 'files.download', 'uses' => 'FilesController@download']);
 });
 
-# Working Groups
+// Working Groups
 
 Route::get('terms-of-use', ['as' => 'terms_of_use_path', 'uses' => 'Ahk\HomeController@termsOfUse']);
 
-# Authentication
+// Authentication
 Route::group(['prefix' => 'auth'], function () {
     Route::get('sign-in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@getLogin']);
     Route::post('sign-in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@postLogin']);
@@ -54,7 +54,7 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 
-################ chamb.net/cms ####################
+// ############### chamb.net/cms ####################
 
 Route::group(['prefix' => 'cms'], function () {
     Route::get('', ['as' => 'cms.dashboard', 'uses' => 'Cms\DashboardController@dashboard']);
@@ -65,10 +65,10 @@ Route::group(['prefix' => 'cms'], function () {
         Route::get('administrators', ['as' => 'cms.users.administrators', 'uses' => 'Cms\UsersController@administrators']);
     });
 
-    # Companies
+    // Companies
     Route::resource('companies', 'Cms\CompaniesController', ['only' => ['index']]);
 
-    # Articles
+    // Articles
     Route::group(['prefix' => 'articles'], function () {
         Route::get('published', ['as' => 'cms.articles.published', 'uses' => 'Cms\ArticlesController@published']);
         Route::get('unpublished', ['as' => 'cms.articles.unpublished', 'uses' => 'Cms\ArticlesController@unpublished']);
@@ -77,10 +77,10 @@ Route::group(['prefix' => 'cms'], function () {
     });
     Route::resource('articles', 'Cms\ArticlesController', ['except' => ['index', 'show', 'destroy']]);
 
-    # Users
+    // Users
     Route::get('users', ['as' => 'cms.users', 'uses' => 'Cms\DashboardController@dashboard']);
 
-    # Authentication
+    //j Authentication
     Route::get('auth/sign-in', ['as' => 'cms.sessions.create', 'uses' => 'Cms\SessionsController@create']);
     Route::post('auth/sign-in', ['as' => 'cms.sessions.store', 'uses' => 'Cms\SessionsController@store']);
     Route::delete('auth/logout', ['as' => 'cms.sessions.destroy', 'uses' => 'Cms\SessionsController@destroy']);

@@ -28,7 +28,7 @@ $factory->define(User::class, function (Faker\Generator $faker) {
     $user = factory(User::class, 'with_primary_data')->make();
 
     return array_merge($user->toArray(),
-        ['avatar_id' => factory(File::class)->create()->id,]);
+        ['avatar_id' => factory(File::class)->create()->id]);
 });
 
 $factory->defineAs(App\Ahk\User::class, 'with_primary_data', function (Faker\Generator $faker) {
@@ -44,7 +44,6 @@ $factory->defineAs(App\Ahk\User::class, 'with_primary_data', function (Faker\Gen
         'website_url'        => $faker->url,
     ];
 });
-
 
 $factory->define(App\Ahk\Industry::class, function (Faker\Generator $faker) {
     return [
@@ -82,15 +81,15 @@ $factory->defineAs(App\Ahk\Article::class, 'without_industry', function (Faker\G
 
 $factory->defineAs(App\Ahk\Article::class, 'without_relations', function (Faker\Generator $faker) {
     $content = "<p><img src='$faker->imageUrl'></p>";
-    $content .= "<p><strong>" . $faker->sentence() . "</strong></p>";
-    $content .= "<p>" . $faker->paragraphs(3, true) . "</p>";
-    $content .= "<p>";
+    $content .= "<p><strong>{$faker->sentence()}</strong></p>";
+    $content .= "<p>{$faker->paragraphs(3, true)}</p>";
+    $content .= '<p>';
     $content .= "<a href='$faker->url'>$faker->sentence</a>";
     $content .= $faker->paragraphs(3, true);
-    $content .= "</p>";
-    $content .= "<p>";
+    $content .= '</p>';
+    $content .= '<p>';
     $content .= $faker->paragraphs(3, true);
-    $content .= "</p>";
+    $content .= '</p>';
 
     return [
         'title'       => $faker->sentence,
@@ -154,9 +153,9 @@ $factory->define(Service::class, function (Faker\Generator $faker) {
 $factory->define(File::class, function (Faker\Generator $faker) {
     $fileWithPrimaryData = factory(File::class, 'without_storage')->make();
     $storageLocation = FilesStorage::getFilesDirectory();
-    $clientOriginalName = "{$faker->name}.{$faker->fileExtension}";
-    $tempFilePath = file_get_contents(storage_path("app/testing/dummy_logo.png"));
-    $fileLocation = $storageLocation . $clientOriginalName;
+    $clientOriginalName = $faker->name.$faker->fileExtension;
+    $tempFilePath = file_get_contents(storage_path('app/testing/dummy_logo.png'));
+    $fileLocation = $storageLocation.$clientOriginalName;
 
     Storage::put($fileLocation, $tempFilePath);
 
@@ -170,7 +169,7 @@ $factory->defineAs(File::class, 'without_storage', function (Faker\Generator $fa
     $name = $faker->unique()->name;
     $clientOriginalName = "{$faker->name}.{$faker->fileExtension}";
     $storageLocation = FilesStorage::getFilesDirectory();
-    $fileLocation = $storageLocation . $clientOriginalName;
+    $fileLocation = $storageLocation.$clientOriginalName;
 
     return [
         'name'                 => $name,
