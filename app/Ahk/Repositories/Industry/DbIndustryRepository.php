@@ -29,7 +29,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
     }
 
     /**
-     * Get all industry
+     * Get all industry.
      *
      * @return Collection
      */
@@ -39,7 +39,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
     }
 
     /**
-     * Store a industry on the storage
+     * Store a industry on the storage.
      *
      * @param User  $author
      * @param array $fillable
@@ -73,7 +73,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
     }
 
     /**
-     * Get a industry given its id
+     * Get an industry given its id.
      *
      * @param $id
      *
@@ -102,7 +102,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
     }
 
     /**
-     * Assign workgroups to an industry
+     * Assign workgroups to an industry.
      *
      * @param Industry $industry
      * @param array    $workgroupIds
@@ -129,7 +129,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
     }
 
     /**
-     * Paginate workgroups of an industry
+     * Paginate workgroups of an industry.
      *
      * @param Industry $industry
      * @param int      $perPage
@@ -145,7 +145,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
     }
 
     /**
-     * Get all events of companies belonging to an industry
+     * Get all events of companies belonging to an industry.
      *
      * @param Industry $industry
      *
@@ -157,7 +157,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
     }
 
     /**
-     * Get all files of companies belonging to an industry
+     * Get all files of companies belonging to an industry.
      *
      * @param Industry $industry
      *
@@ -169,7 +169,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
     }
 
     /**
-     * Get all decisions of companies belonging to an industry
+     * Get all decisions of companies belonging to an industry.
      *
      * @param Industry $industry
      *

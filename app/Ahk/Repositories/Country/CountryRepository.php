@@ -12,10 +12,11 @@ use Illuminate\Database\Eloquent\Collection;
  */
 interface CountryRepository
 {
-    /**
-     * Get all industries
-     * @return Collection
-     */
-    public function all();
+	/**
+	 * Get all industries.
+	 *
+	 * @return Collection
+	 */
+	public function all();
 }
 

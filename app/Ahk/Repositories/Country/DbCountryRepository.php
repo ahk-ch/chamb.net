@@ -15,27 +15,26 @@ use Illuminate\Database\Eloquent\Collection;
  */
 class DbCountryRepository extends DbRepository implements CountryRepository
 {
+	/**
+	 * DbCountryRepository constructor.
+	 *
+	 * @param Country $model
+	 */
+	public function __construct(Country $model = null)
+	{
+		$model = $model === null ? new Country : $model;
 
-    /**
-     * DbCountryRepository constructor.
-     *
-     * @param Country $model
-     */
-    public function __construct(Country $model = null)
-    {
-        $model = $model === null ? new Country : $model;
+		parent::__construct($model);
+	}
 
-        parent::__construct($model);
-    }
-
-    /**
-     * Get all industry
-     *
-     * @return Collection
-     */
-    public function all()
-    {
-        return Country::all();
-    }
+	/**
+	 * Get all industry.
+	 *
+	 * @return Collection
+	 */
+	public function all()
+	{
+		return Country::all();
+	}
 }
 

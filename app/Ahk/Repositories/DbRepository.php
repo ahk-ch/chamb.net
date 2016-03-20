@@ -3,18 +3,15 @@
  * @author  Rizart Dokollari <r.dokollari@gmail.com>
  * @since   25/11/2015
  */
-
 namespace App\Ahk\Repositories;
 
 /**
  * Class DbRepository.
- *
- * @package App\Ahk\Repositories
  */
 abstract class DbRepository
 {
     /**
-     * Eloquent model
+     * Eloquent model.
      */
     private $model;
     /**
@@ -25,7 +22,7 @@ abstract class DbRepository
     /**
      * @param $model
      */
-    function __construct($model)
+    public function __construct($model)
     {
         $this->setModel($model);
     }

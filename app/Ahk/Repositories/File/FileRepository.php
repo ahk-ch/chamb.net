@@ -13,20 +13,19 @@ use App\Ahk\File;
  */
 interface FileRepository
 {
-    /**
-     * @param $data
-     *
-     * @return mixed
-     */
-    public function store($data);
+	/**
+	 * @param $data
+	 *
+	 * @return mixed
+	 */
+	public function store($data);
 
-    /**
-     * @param File $file
-     * @param      $data
-     *
-     * @return File|false
-     */
-    public function update(File $file, $data);
-
+	/**
+	 * @param File $file
+	 * @param      $data
+	 *
+	 * @return File|false
+	 */
+	public function update(File $file, $data);
 }
 

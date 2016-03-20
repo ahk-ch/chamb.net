@@ -15,26 +15,26 @@ use Illuminate\Support\Collection;
  */
 class DbServiceRepository extends DbRepository implements ServiceRepository
 {
-    /**
-     * DbServiceRepository constructor.
-     *
-     * @param Service $model
-     */
-    public function __construct(Service $model = null)
-    {
-        $model = $model === null ? new Service : $model;
+	/**
+	 * DbServiceRepository constructor.
+	 *
+	 * @param Service $model
+	 */
+	public function __construct(Service $model = null)
+	{
+		$model = $model === null ? new Service : $model;
 
-        parent::__construct($model);
-    }
+		parent::__construct($model);
+	}
 
-    /**
-     * Get all services
-     *
-     * @return Collection
-     */
-    public function all()
-    {
-        return Service::all();
-    }
+	/**
+	 * Get all services.
+	 *
+	 * @return Collection
+	 */
+	public function all()
+	{
+		return Service::all();
+	}
 }
 

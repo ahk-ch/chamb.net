@@ -40,7 +40,7 @@ class DbDecisionRepository extends DbRepository implements DecisionRepository
     }
 
     /**
-     * Return all decisions
+     * Return all decisions.
      *
      * @return mixed
      */
