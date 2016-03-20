@@ -27,7 +27,7 @@ class UtilitiesTest extends TestCase
 
         $this->assertSame('2010 - '.date('Y'), $utilities->autoCopyright('2010'));
 
-        $this->assertSame(date('Y'), $utilities->autoCopyright('10000'));
+        $this->assertSame('1000 - '.date('Y'), $utilities->autoCopyright('1000'));
     }
 }
 

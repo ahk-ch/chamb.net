@@ -26,7 +26,7 @@ class Utilities
         }
 
         if (intval($year) < date('Y')) {
-            return '{$year} - '.date('Y');
+            return $year.' - '.date('Y');
         }
 
         return date('Y');
