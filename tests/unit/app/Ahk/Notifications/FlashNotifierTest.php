@@ -4,15 +4,12 @@
  * @author  Rizart Dokollari <r.dokollari@gmail.com>
  * @since   27/2/2016
  */
-
 namespace tests\unit\app\Ahk\Notifications;
 
 use tests\TestCase;
 
 /**
- * Class FlashNotifierTest
- *
- * @package tests\unit\ap\Ahk\Notifications
+ * Class FlashNotifierTest.
  */
 class FlashNotifierTest extends TestCase
 {
