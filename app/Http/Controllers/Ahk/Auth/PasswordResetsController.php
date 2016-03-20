@@ -92,7 +92,7 @@ class PasswordResetsController extends Controller
     {
         $user = $this->userRepository->findBySlugAndRecoveryToken($slug, $recovery_token);
 
-        if ( ! $user) {
+        if (! $user) {
             Flash::error('ahk_messages.validation_error_occurred');
 
             return redirect()->route('auth.sign_in');
@@ -112,7 +112,7 @@ class PasswordResetsController extends Controller
     {
         $user = $this->userRepository->findBySlugAndRecoveryToken($slug, $recovery_token);
 
-        if ( ! $user) {
+        if (! $user) {
             Flash::error('ahk_messages.validation_error_occurred');
 
             return redirect()->back();
@@ -120,7 +120,7 @@ class PasswordResetsController extends Controller
 
         $user = $this->userRepository->updatePassword($user, $request->get(User::PASSWORD));
 
-        if ( ! $user) {
+        if (! $user) {
             Flash::error(trans('ahk_messages.unknown_error_occurred'));
         } else {
             Flash::success(trans('ahk_messages.you_updated_your_accounts_password'));

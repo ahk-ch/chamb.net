@@ -7,7 +7,6 @@
 namespace App\Http\Controllers\Ahk;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Http\Requests\Ahk\SetLanguageRequest;
 
 /**
@@ -15,7 +14,6 @@ use App\Http\Requests\Ahk\SetLanguageRequest;
  */
 class SettingsController extends Controller
 {
-
     /**
      * Change the language of the app.
      *

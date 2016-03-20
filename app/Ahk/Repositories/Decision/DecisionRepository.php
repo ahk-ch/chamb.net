@@ -15,20 +15,20 @@ use App\Ahk\File;
  */
 interface DecisionRepository
 {
-	/**
-	 * @param Decision $decision
-	 * @param File     $file
-	 *
-	 * @return Decision|false
-	 */
-	public function assignFile(Decision $decision, File $file);
+    /**
+     * @param Decision $decision
+     * @param File     $file
+     *
+     * @return Decision|false
+     */
+    public function assignFile(Decision $decision, File $file);
 
-	/**
-	 * Return all decisions
-	 *
-	 * @return mixed
-	 */
-	public function all();
+    /**
+     * Return all decisions
+     *
+     * @return mixed
+     */
+    public function all();
 
 }
 

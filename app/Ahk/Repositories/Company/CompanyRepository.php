@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Interface CompanyRepository.
- *
  */
 interface CompanyRepository
 {

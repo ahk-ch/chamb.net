@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Builder;
 interface UserRepository
 {
     /**
-     * Store a user on the storage
+     * Store a user on the storage.
      *
      * @param array $data
      *
@@ -26,7 +26,7 @@ interface UserRepository
     public function store(array $data);
 
     /**
-     * Store a user on the storage
+     * Store a user on the storage.
      *
      * @param array $data
      *
@@ -35,7 +35,7 @@ interface UserRepository
     public function storeCompanyRepresentativeAccount(array $data);
 
     /**
-     * Assign company representative role to the given user
+     * Assign company representative role to the given user.
      *
      * @param User $user
      *
@@ -44,7 +44,7 @@ interface UserRepository
     public function assignCompanyRepresentativeRole(User $user);
 
     /**
-     * Assign author role to the given user
+     * Assign author role to the given user.
      *
      * @param User $user
      *
@@ -53,7 +53,7 @@ interface UserRepository
     public function assignAuthorRole(User $user);
 
     /**
-     * Assign a role to the given user
+     * Assign a role to the given user.
      *
      * @param User $user
      * @param Role $role
@@ -63,7 +63,7 @@ interface UserRepository
     public function assignRole(User $user, Role $role);
 
     /**
-     * Check whether the given user has role of company representative
+     * Check whether the given user has role of company representative.
      *
      * @param User $user
      *
@@ -72,7 +72,7 @@ interface UserRepository
     public function hasCompanyRepresentativeRole(User $user);
 
     /**
-     * Check whether the given user has role of author
+     * Check whether the given user has role of author.
      *
      * @param User $user
      *
@@ -82,7 +82,7 @@ interface UserRepository
 
 
     /**
-     * Check whether the given user has role of company representative
+     * Check whether the given user has role of company representative.
      *
      * @param User $user
      * @param      $roleName
@@ -92,7 +92,7 @@ interface UserRepository
     public function hasRole(User $user, $roleName);
 
     /**
-     * Enable user account
+     * Enable user account.
      *
      * @param $token
      *
@@ -101,7 +101,7 @@ interface UserRepository
     public function confirmEmail($token);
 
     /**
-     * Sign User
+     * Sign User.
      *
      * @param array $data
      * @param bool  $rememberMe
@@ -112,7 +112,7 @@ interface UserRepository
     public function attemptToSignIn(array $data, $rememberMe = false, $login = false);
 
     /**
-     * Find user by email
+     * Find user by email.
      *
      * @param $email
      *
@@ -121,21 +121,21 @@ interface UserRepository
     public function findByEmail($email);
 
     /**
-     * Get all users that have role of company representatiave
+     * Get all users that have role of company representative.
      *
      * @return Builder
      */
     public function withCompanyRepresentativeRole();
 
     /**
-     * Get all users that have role of author
+     * Get all users that have role of author.
      *
      * @return mixed
      */
     public function getWithAuthorRole();
 
     /**
-     * Verify a company is owned by a user
+     * Verify a company is owned by a user.
      *
      * @param User    $user
      * @param Company $company
@@ -145,7 +145,7 @@ interface UserRepository
     public function hasCompany(User $user, Company $company);
 
     /**
-     * Verify a company is owned by a user
+     * Verify a company is owned by a user.
      *
      * @param User $user
      *
@@ -154,7 +154,7 @@ interface UserRepository
     public function generateRecoveryToken(User $user);
 
     /**
-     * Find user by slug and recovery token
+     * Find user by slug and recovery token.
      *
      * @param $slug
      * @param $recoveryToken
@@ -164,7 +164,7 @@ interface UserRepository
     public function findBySlugAndRecoveryToken($slug, $recoveryToken);
 
     /**
-     * Update password of a user
+     * Update password of a user.
      *
      * @param User $user
      * @param      $password

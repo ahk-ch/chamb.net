@@ -15,9 +15,9 @@ class Utilities
      *
      * @return bool|string
      */
-    public function autoCopyright($year = "auto")
+    public function autoCopyright($year = 'auto')
     {
-        if (strcmp($year, "auto") === 0) {
+        if (strcmp($year, 'auto') === 0) {
             return date('Y');
         }
 
@@ -26,7 +26,7 @@ class Utilities
         }
 
         if (intval($year) < date('Y')) {
-            return "{$year} - ".date('Y');
+            return '{$year} - '.date('Y');
         }
 
         return date('Y');

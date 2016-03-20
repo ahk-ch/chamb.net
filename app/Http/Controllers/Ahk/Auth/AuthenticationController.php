@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Auth;
 /**
  * Login, Logout, and register a company representative account.
  * Class AuthenticationController.
- *
  */
 class AuthenticationController extends Controller
 {

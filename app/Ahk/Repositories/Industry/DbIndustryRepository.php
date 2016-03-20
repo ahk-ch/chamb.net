@@ -85,7 +85,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
     }
 
     /**
-     * Get companies of an industry
+     * Get companies of an industry.
      *
      * @param Industry $industry
      *
@@ -117,7 +117,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
     }
 
     /**
-     * Get workgroups of an industry
+     * Get workgroups of an industry.
      *
      * @param Industry $industry
      *

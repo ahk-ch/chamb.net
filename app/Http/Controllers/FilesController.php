@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class FilesController extends Controller
 {
     /**
-     * Render file specified by path
+     * Render file specified by path.
      *
      * @param Request $request
      *
@@ -25,7 +25,7 @@ class FilesController extends Controller
     }
 
     /**
-     * Download file specified by path
+     * Download file specified by path.
      *
      * @param Request $request
      *
@@ -35,7 +35,7 @@ class FilesController extends Controller
     {
         $path = $request->get('path');
 
-        return response()->download(storage_path('app' . DIRECTORY_SEPARATOR . $path));
+        return response()->download(storage_path('app'.DIRECTORY_SEPARATOR.$path));
     }
 }
 

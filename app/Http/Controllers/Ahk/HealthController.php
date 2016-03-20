@@ -5,7 +5,6 @@
  */
 namespace App\Http\Controllers\Ahk;
 
-
 use App\Ahk\Repositories\Article\ArticleRepository;
 use App\Http\Controllers\Controller;
 
@@ -18,7 +17,6 @@ class HealthController extends Controller
      * @var ArticleRepository
      */
     private $articleRepository;
-
 
     /**
      * CategoriesController constructor.

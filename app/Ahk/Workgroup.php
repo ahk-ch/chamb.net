@@ -58,7 +58,7 @@ class Workgroup extends Model implements SluggableInterface
     }
 
     /**
-     * Get creator user
+     * Get creator user.
      */
     public function creator()
     {

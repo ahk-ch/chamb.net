@@ -23,7 +23,9 @@ class RedirectIfAuthenticated
      */
     public function handle(Request $request, Closure $next, Guard $guard = null)
     {
-        if (Auth::guard($guard)->check()) return redirect(route('cms.dashboard'));
+        if (Auth::guard($guard)->check()) {
+            return redirect(route('cms.dashboard'));
+        }
 
         return $next($request);
     }

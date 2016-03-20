@@ -7,7 +7,6 @@ use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\Article\ArticleRepository;
 use App\Ahk\Repositories\Industry\IndustryRepository;
 use App\Ahk\Repositories\Tag\TagRepository;
-use App\Http\Requests;
 use App\Http\Requests\Cms\StoreArticleRequest;
 use App\Http\Requests\Cms\UpdateArticleRequest;
 use Illuminate\Support\Facades\Auth;
@@ -114,7 +113,7 @@ class ArticlesController extends BaseController
         $articleStored = $this->articleRepository->store(
             Auth::user(), $request->only(['title', 'description', 'publish', 'source', 'content', 'img_url']), $category);
 
-        if ( ! $articleStored) {
+        if (! $articleStored) {
             Flash::error(trans('cms.unable_to_store_article'));
 
             return redirect()->back();
@@ -124,7 +123,7 @@ class ArticlesController extends BaseController
 
         $tagsStored = $this->articleRepository->updateTagsById($articleStored->id, $request->get('tagIds', []));
 
-        if ( ! $tagsStored) Flash::error(trans('cms.unable_to_attach_tags'));
+        if (! $tagsStored) Flash::error(trans('cms.unable_to_attach_tags'));
 
         return redirect()->route('cms.articles.edit', $articleStored);
     }
@@ -190,7 +189,7 @@ class ArticlesController extends BaseController
         $articleUpdated = $this->articleRepository->updateById(
             $id, $request->only(['title', 'description', 'publish', 'source', 'content', 'img_url']), $category);
 
-        if ( ! $articleUpdated) {
+        if (! $articleUpdated) {
             Flash::error(trans('cms.unable_to_update_article'));
 
             return redirect()->back();
@@ -200,7 +199,7 @@ class ArticlesController extends BaseController
 
         $tagsUpdated = $this->articleRepository->updateTagsById($articleUpdated->id, $request->get('tagIds', []));
 
-        if ( ! $tagsUpdated) Flash::error(trans('cms.unable_to_update_tags'));
+        if (! $tagsUpdated) Flash::error(trans('cms.unable_to_update_tags'));
 
         return redirect()->route('cms.articles.edit', $articleUpdated);
     }

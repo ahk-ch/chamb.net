@@ -14,21 +14,21 @@ use Illuminate\Database\Eloquent\Collection;
  */
 interface EventRepository
 {
-	/**
-	 * Return all events
-	 *
-	 * @return mixed
-	 */
-	public function all();
+    /**
+     * Return all events
+     *
+     * @return mixed
+     */
+    public function all();
 
-	/**
-	 * Add files to event
-	 *
-	 * @param Event            $event
-	 * @param array|Collection $files
-	 *
-	 * @return Event|false
-	 */
-	public function assignFiles(Event $event, $files);
+    /**
+     * Add files to event
+     *
+     * @param Event            $event
+     * @param array|Collection $files
+     *
+     * @return Event|false
+     */
+    public function assignFiles(Event $event, $files);
 }
 

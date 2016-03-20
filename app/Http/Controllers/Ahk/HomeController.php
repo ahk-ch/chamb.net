@@ -65,7 +65,6 @@ class HomeController extends Controller
         return view('ahk.companies');
     }
 
-
     /**
      * Display the terms of use resource.
      *

@@ -22,7 +22,6 @@ class MasterComposer
 
     public function __construct(IndustryRepository $industryRepository)
     {
-
         $this->industryRepository = $industryRepository;
     }
 

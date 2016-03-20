@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Auth;
  */
 class HeaderDefaultComposer
 {
-
     /**
      * Bind data to the view.
      *

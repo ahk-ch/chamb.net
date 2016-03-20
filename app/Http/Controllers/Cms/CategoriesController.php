@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Auth;
  */
 class CategoriesController extends BaseController
 {
-
     /**
      * @var IndustryRepository
      */
@@ -68,7 +67,7 @@ class CategoriesController extends BaseController
     {
         $categoryStored = $this->categoryRepository->store($request, Auth::user());
 
-        if ( ! $categoryStored) {
+        if (! $categoryStored) {
             Flash::error(trans('cms.unable_to_store_category'));
 
             return redirect()->back();
@@ -105,7 +104,7 @@ class CategoriesController extends BaseController
     {
         $categorySaved = $this->categoryRepository->updateById($id, $request->only('name'));
 
-        if ( ! $categorySaved) {
+        if (! $categorySaved) {
             Flash::error(trans('cms.something_went_wrong'));
 
             return redirect()->back();

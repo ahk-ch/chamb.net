@@ -115,9 +115,9 @@ class CompaniesController extends Controller
 
         $file = $this->fileRepository->store([
             File::CLIENT_ORIGINAL_NAME => $file->getClientOriginalName(),
-            File::TEMPORARY_PATH       => $file->getRealPath(),]);
+            File::TEMPORARY_PATH       => $file->getRealPath()]);
 
-        if ( ! $file) {
+        if (! $file) {
             Flash::error(trans('ahk_messages.unknown_error_occurred'));
 
             return redirect()->back();
@@ -125,7 +125,7 @@ class CompaniesController extends Controller
 
         $requestData[ Company::LOGO_ID ] = $file->id;
 
-        if ( ! $company = $this->companyRepository->store($user, $requestData)) {
+        if (! $company = $this->companyRepository->store($user, $requestData)) {
             Flash::error(trans('ahk_messages.unknown_error_occurred'));
 
             return back()->withInput();
@@ -164,7 +164,7 @@ class CompaniesController extends Controller
     {
         $user = Auth::user();
 
-        if ( ! $this->userRepository->hasCompany($user, $company)) {
+        if (! $this->userRepository->hasCompany($user, $company)) {
             Flash::error(trans('ahk_messages.you_do_not_have_the_necessary_privileges'));
 
             return back()->withInput();
@@ -175,10 +175,10 @@ class CompaniesController extends Controller
         if (null !== $file) {
             $this->fileRepository->update($company->logo, [
                 File::CLIENT_ORIGINAL_NAME => $file->getClientOriginalName(),
-                File::TEMPORARY_PATH       => $file->getRealPath(),]);
+                File::TEMPORARY_PATH       => $file->getRealPath()]);
         }
 
-        if ( ! $company = $this->companyRepository->update($company, $request->all())) {
+        if (! $company = $this->companyRepository->update($company, $request->all())) {
             Flash::error(trans('ahk_messages.unknown_error_occurred'));
 
             return redirect()->back();

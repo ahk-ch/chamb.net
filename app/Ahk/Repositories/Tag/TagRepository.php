@@ -15,14 +15,14 @@ use Illuminate\Database\Eloquent\Collection;
 interface TagRepository
 {
     /**
-     * Get all tags
+     * Get all tags.
      *
      * @return Collection
      */
     public function all();
 
     /**
-     * Store a tag on the storage
+     * Store a tag on the storage.
      *
      * @param User  $author
      * @param array $fillable

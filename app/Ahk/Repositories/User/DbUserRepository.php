@@ -33,7 +33,7 @@ class DbUserRepository extends DbRepository implements UserRepository
     }
 
     /**
-     * Enable user account
+     * Enable user account.
      *
      * @param $token
      *
@@ -47,7 +47,7 @@ class DbUserRepository extends DbRepository implements UserRepository
 
         $user->token = null;
 
-        return $user->save() ? $user : false;;
+        return $user->save() ? $user : false;
     }
 
     /**
@@ -59,7 +59,7 @@ class DbUserRepository extends DbRepository implements UserRepository
      */
     public function attemptToSignIn(array $data, $rememberMe = false, $login = false)
     {
-        if ( ! Auth::validate(array_only($data, ['email', 'password']))) {
+        if (! Auth::validate(array_only($data, ['email', 'password']))) {
             Flash::error(trans('ahk_messages.credentials_mismatch'));
 
             return false;
@@ -67,13 +67,13 @@ class DbUserRepository extends DbRepository implements UserRepository
 
         $user = $this->findByEmail($data['email']);
 
-        if ( ! $user->verified) {
+        if (! $user->verified) {
             Flash::error(trans('ahk_messages.please_validate_your_email_first'));
 
             return false;
         }
 
-        if ( ! $this->hasCompanyRepresentativeRole($user)) {
+        if (! $this->hasCompanyRepresentativeRole($user)) {
             Flash::error(trans('ahk_messages.you_do_not_have_the_necessary_privileges'));
 
             return false;
@@ -85,7 +85,7 @@ class DbUserRepository extends DbRepository implements UserRepository
     }
 
     /**
-     * Find user by email
+     * Find user by email.
      *
      * @param $email
      *
@@ -97,7 +97,7 @@ class DbUserRepository extends DbRepository implements UserRepository
     }
 
     /**
-     * Check whether the given user has role of company representative
+     * Check whether the given user has role of company representative.
      *
      * @param User $user
      *
@@ -109,7 +109,7 @@ class DbUserRepository extends DbRepository implements UserRepository
     }
 
     /**
-     * Check whether the given user has role of company representative
+     * Check whether the given user has role of company representative.
      *
      * @param User $user
      * @param      $roleName
@@ -126,7 +126,7 @@ class DbUserRepository extends DbRepository implements UserRepository
     }
 
     /**
-     * Store a user on the storage
+     * Store a user on the storage.
      *
      * @param array $data
      *
@@ -140,7 +140,7 @@ class DbUserRepository extends DbRepository implements UserRepository
     }
 
     /**
-     * Store a user on the storage
+     * Store a user on the storage.
      *
      * @param array $data
      *
@@ -156,7 +156,7 @@ class DbUserRepository extends DbRepository implements UserRepository
     }
 
     /**
-     * Assign company representative role to the given user
+     * Assign company representative role to the given user.
      *
      * @param User $user
      *
@@ -164,13 +164,13 @@ class DbUserRepository extends DbRepository implements UserRepository
      */
     public function assignCompanyRepresentativeRole(User $user)
     {
-        $role = Role::where("name", Role::COMPANY_REPRESENTATIVE_ROLE)->firstOrFail();
+        $role = Role::where('name', Role::COMPANY_REPRESENTATIVE_ROLE)->firstOrFail();
 
         return $this->assignRole($user, $role);
     }
 
     /**
-     * Assign a role to the given user
+     * Assign a role to the given user.
      *
      * @param User $user
      * @param Role $role
@@ -185,7 +185,7 @@ class DbUserRepository extends DbRepository implements UserRepository
     }
 
     /**
-     * Verify a company is owned by a user
+     * Verify a company is owned by a user.
      *
      * @param User    $user
      * @param Company $company
@@ -198,7 +198,7 @@ class DbUserRepository extends DbRepository implements UserRepository
     }
 
     /**
-     * Verify a company is owned by a user
+     * Verify a company is owned by a user.
      *
      * @param User $user
      *
@@ -210,7 +210,7 @@ class DbUserRepository extends DbRepository implements UserRepository
     }
 
     /**
-     * Find user by slug and recovery token
+     * Find user by slug and recovery token.
      *
      * @param $slug
      * @param $recoveryToken
@@ -223,7 +223,7 @@ class DbUserRepository extends DbRepository implements UserRepository
     }
 
     /**
-     * Update password of a user
+     * Update password of a user.
      *
      * @param User $user
      * @param      $password
@@ -236,7 +236,7 @@ class DbUserRepository extends DbRepository implements UserRepository
     }
 
     /**
-     * Check whether the given user has role of author
+     * Check whether the given user has role of author.
      *
      * @param User $user
      *
@@ -248,7 +248,7 @@ class DbUserRepository extends DbRepository implements UserRepository
     }
 
     /**
-     * Assign author role to the given user
+     * Assign author role to the given user.
      *
      * @param User $user
      *
@@ -256,13 +256,13 @@ class DbUserRepository extends DbRepository implements UserRepository
      */
     public function assignAuthorRole(User $user)
     {
-        $role = Role::where("name", Role::AUTHOR_ROLE)->firstOrFail();
+        $role = Role::where('name', Role::AUTHOR_ROLE)->firstOrFail();
 
         return $this->assignRole($user, $role);
     }
 
     /**
-     * Get all users that have role of author
+     * Get all users that have role of author.
      *
      * @return mixed
      */
@@ -288,7 +288,7 @@ class DbUserRepository extends DbRepository implements UserRepository
     }
 
     /**
-     * Get all users that have role of company representatiave
+     * Get all users that have role of company representative.
      *
      * @return Builder
      */

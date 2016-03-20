@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Cms;
 
 use App\Ahk\Notifications\Flash;
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Http\Requests\Cms\StoreSessionRequest;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;

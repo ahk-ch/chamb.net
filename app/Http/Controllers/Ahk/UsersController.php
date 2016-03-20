@@ -40,7 +40,7 @@ class UsersController extends Controller
     {
         $userStored = $this->userRepository->store($request->all());
 
-        if ( ! $userStored) {
+        if (! $userStored) {
             Flash::error(trans('ahk_messages.unable_to_store_user'));
 
             return redirect()->back();

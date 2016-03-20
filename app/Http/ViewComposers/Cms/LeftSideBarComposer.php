@@ -8,13 +8,11 @@ namespace app\Http\ViewComposers\Cms;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 
-
 /**
  * Class LeftSideBarComposer.
  */
 class LeftSideBarComposer
 {
-
     /**
      * Bind data to the view.
      *

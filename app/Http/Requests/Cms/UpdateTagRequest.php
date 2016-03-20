@@ -28,7 +28,7 @@ class UpdateTagRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|min:1|unique:tags,name,' . $this->get('id'),
+            'name' => 'required|min:1|unique:tags,name,'.$this->get('id'),
         ];
     }
 }

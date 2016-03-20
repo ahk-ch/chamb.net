@@ -14,7 +14,6 @@ use Illuminate\Contracts\View\View;
  */
 class FooterComposer
 {
-
     /**
      * Bind data to the view.
      *
@@ -26,7 +25,7 @@ class FooterComposer
     {
         $utilities = new Utilities();
 
-        $view->with('copyrightDate', $utilities->autoCopyright("2015"));
+        $view->with('copyrightDate', $utilities->autoCopyright('2015'));
     }
 }
 

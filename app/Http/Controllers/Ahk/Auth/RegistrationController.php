@@ -10,7 +10,7 @@ use App\Http\Requests;
 use Illuminate\Http\Response;
 
 /**
- * Class RegistrationController
+ * Class RegistrationController.
  */
 class RegistrationController extends Controller
 {
@@ -58,7 +58,7 @@ class RegistrationController extends Controller
     {
         $userIsStored = $this->userRepository->storeCompanyRepresentativeAccount($request->only('email', 'password'));
 
-        if ( ! $userIsStored) {
+        if (! $userIsStored) {
             Flash::error(trans('ahk_messages.unable_to_store_user'));
 
             return redirect()->back();
@@ -66,7 +66,7 @@ class RegistrationController extends Controller
 
         Flash::success(trans('ahk_messages.user_created'));
 
-        if ( ! $this->appMailer->sendEmailConfirmation($userIsStored)) return redirect()->back();
+        if (! $this->appMailer->sendEmailConfirmation($userIsStored)) return redirect()->back();
 
         Flash::success(trans('ahk_messages.check_your_email_and_complete_registration'));
 

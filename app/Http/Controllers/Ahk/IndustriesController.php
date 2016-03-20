@@ -54,7 +54,7 @@ class IndustriesController extends Controller
      */
     public function info(Industry $industry)
     {
-        return view("ahk.industries.info", compact('industry'));
+        return view('ahk.industries.info', compact('industry'));
     }
 
     /**
@@ -86,7 +86,7 @@ class IndustriesController extends Controller
     }
 
     /**
-     * Show info about a work-group
+     * Show info about a work-group.
      *
      * @param Industry  $industry
      * @param Workgroup $workGroup
@@ -122,7 +122,7 @@ class IndustriesController extends Controller
     }
 
     /**
-     * Display the company
+     * Display the company.
      *
      * @param Industry $industry
      * @param Company  $company
@@ -135,7 +135,7 @@ class IndustriesController extends Controller
     }
 
     /**
-     * Display the article
+     * Display the article.
      *
      * @param Industry $industry
      * @param Article  $article

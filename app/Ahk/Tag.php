@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Ahk;
 
 use Illuminate\Database\Eloquent\Model;
