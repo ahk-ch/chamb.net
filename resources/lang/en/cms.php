@@ -34,6 +34,7 @@ return [
     'main_navigation'                  => 'Main Navigation',
     'name'                             => 'Name',
     'name_of_contact_partner'          => 'Name of Contact Partner',
+    'missing_required_role'            => 'You do not have the necessary privileges.',
     'sign_out'                         => 'Sign Out',
     'subscribers'                      => 'Subscribers',
     'something_went_wrong'             => 'Something went wrong.',

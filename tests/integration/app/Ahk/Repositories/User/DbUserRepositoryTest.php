@@ -38,6 +38,20 @@ class DbUserRepositoryTest extends TestCase
     }
 
     /** @test */
+    public function it_assigns_administrator_role()
+    {
+        $dbUserRepository = new DbUserRepository();
+
+        $user = factory(User::class)->create();
+
+        $this->assertFalse($dbUserRepository->hasAdministratorRole($user));
+
+        $this->assertNotFalse($user = $dbUserRepository->assignAdministratorRole($user));
+
+        $this->assertTrue($dbUserRepository->hasAdministratorRole($user));
+    }
+
+    /** @test */
     public function it_assigns_author_role()
     {
         $dbUserRepository = new DbUserRepository();
@@ -131,6 +145,20 @@ class DbUserRepositoryTest extends TestCase
         $dbUserRepository->assignCompanyRepresentativeRole($user);
 
         $this->assertTrue($dbUserRepository->hasCompanyRepresentativeRole($user));
+    }
+
+    /** @test */
+    public function it_checks_administrator_role()
+    {
+        $dbUserRepository = new DbUserRepository();
+
+        $user = factory(User::class)->create();
+
+        $this->assertFalse($dbUserRepository->hasAdministratorRole($user));
+
+        $dbUserRepository->assignAdministratorRole($user);
+
+        $this->assertTrue($dbUserRepository->hasAdministratorRole($user));
     }
 
     /** @test */
@@ -288,4 +316,3 @@ class DbUserRepositoryTest extends TestCase
         $this->assertTrue(Hash::check($newPassword, $user->password));
     }
 }
-

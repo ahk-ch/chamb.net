@@ -300,5 +300,30 @@ class DbUserRepository extends DbRepository implements UserRepository
             $query->where('roles.name', Role::COMPANY_REPRESENTATIVE_ROLE);
         });
     }
-}
 
+    /**
+     * Assign administrator role to the given user.
+     *
+     * @param User $user
+     *
+     * @return User|bool
+     */
+    public function assignAdministratorRole(User $user)
+    {
+        $role = Role::where('name', Role::ADMINISTRATOR_ROLE)->firstOrFail();
+
+        return $this->assignRole($user, $role);
+    }
+
+    /**
+     * Check whether the given user has role of administrator.
+     *
+     * @param User $user
+     *
+     * @return bool
+     */
+    public function hasAdministratorRole(User $user)
+    {
+        return $this->hasRole($user, Role::ADMINISTRATOR_ROLE);
+    }
+}

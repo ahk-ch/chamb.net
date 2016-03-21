@@ -25,9 +25,10 @@ class CompaniesTest extends TestCase
 
         // TODO: see https://github.com/ahk-ch/chamb.net/issues/10
 
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $this->actingAs($administrator)
+            ->visit(route('cms.companies.index'))
+            ->seePageIs(route('cms.sessions.create'))
+            ->see(trans('cms.missing_required_role'));
 
         $this->actingAs($administrator)
             ->visit(route('cms.companies.index'))
@@ -45,4 +46,3 @@ class CompaniesTest extends TestCase
             ->see($companies->get(1)->name_of_contact_partner);
     }
 }
-

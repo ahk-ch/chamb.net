@@ -3,6 +3,7 @@
 namespace App\Http\Middleware\Cms;
 
 use App\Ahk\Notifications\Flash;
+use App\Ahk\Repositories\User\UserRepository;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
@@ -13,6 +14,17 @@ use Illuminate\Support\Facades\Auth;
  */
 class Authenticate
 {
+    /**
+     * @var UserRepository
+     */
+    private $userRepository;
+
+    public function __construct(UserRepository $userRepository)
+    {
+
+        $this->userRepository = $userRepository;
+    }
+
     /**
      * Handle an incoming request.
      *
@@ -34,7 +46,12 @@ class Authenticate
             }
         }
 
+        if (! $this->userRepository->hasAdministratorRole($guard->user())) {
+            Flash::error(trans('cms.you_need_to_sign_in_first'));
+
+            return redirect()->guest(route('cms.sessions.create'));
+        }
+
         return $next($request);
     }
 }
-

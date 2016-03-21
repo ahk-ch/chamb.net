@@ -6,6 +6,7 @@
  */
 namespace tests\functional\cms\guest;
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
 
 /**
@@ -13,15 +14,13 @@ use tests\TestCase;
  */
 class DashboardTest extends TestCase
 {
+    use DatabaseMigrations;
+
     /** @test */
     public function it_denies_access()
     {
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
         $this->visit(route('cms.dashboard'))
             ->seePageIs(route('cms.sessions.create'))
             ->see(trans('cms.you_need_to_sign_in_first'));
     }
 }
-
