@@ -6,6 +6,7 @@
 namespace tests\functional\cms\administrator;
 
 use App\Ahk\Company;
+use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use tests\TestCase;
@@ -20,15 +21,16 @@ class CompaniesTest extends TestCase
     /** @test */
     public function it_reads_companies_index()
     {
+        $dbUserRepository = new DbUserRepository();
         $administrator = factory(User::class)->create();
         $companies = factory(Company::class, 2)->create();
-
-        // TODO: see https://github.com/ahk-ch/chamb.net/issues/10
 
         $this->actingAs($administrator)
             ->visit(route('cms.companies.index'))
             ->seePageIs(route('cms.sessions.create'))
             ->see(trans('cms.missing_required_role'));
+
+        $dbUserRepository->assignAdministratorRole($administrator);
 
         $this->actingAs($administrator)
             ->visit(route('cms.companies.index'))
@@ -39,10 +41,10 @@ class CompaniesTest extends TestCase
             ->see('<th>'.trans('cms.logo').'</th>')
             ->see('<th>'.trans('cms.name_of_contact_partner').'</th>')
             ->see($companies->get(0)->name)
-            ->see($companies->get(0)->logo)
+            ->see($companies->get(0)->logo->path)
             ->see($companies->get(0)->name_of_contact_partner)
             ->see($companies->get(1)->name)
-            ->see($companies->get(1)->logo)
+            ->see($companies->get(1)->logo->path)
             ->see($companies->get(1)->name_of_contact_partner);
     }
 }

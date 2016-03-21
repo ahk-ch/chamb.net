@@ -40,7 +40,8 @@ class SessionsController extends Controller
      */
     public function store(StoreSessionRequest $request)
     {
-        if (Auth::attempt($request->only('username', 'password'), $request->has('remember'))) {
+        if (Auth::attempt($request->only('email', 'password'), $request->has('remember'))) {
+
             Flash::success('Welcome!');
 
             return redirect()->intended(route('cms.dashboard'));

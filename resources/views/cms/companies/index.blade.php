@@ -19,7 +19,7 @@
                 @foreach($companies as $company)
                     <tr>
                         <td>{{ $company->name }}</td>
-                        <td><img src="{{ $company->logo }}" height="30" alt="Company Logo"/></td>
+                        <td><img src="{{ $company->logo->path }}" height="30" alt="Company Logo"/></td>
                         <td>{{ $company->name_of_contact_partner }}</td>
                     </tr>
                 @endforeach

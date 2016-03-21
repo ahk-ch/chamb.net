@@ -21,7 +21,6 @@ class Authenticate
 
     public function __construct(UserRepository $userRepository)
     {
-
         $this->userRepository = $userRepository;
     }
 
@@ -46,10 +45,10 @@ class Authenticate
             }
         }
 
-        if (! $this->userRepository->hasAdministratorRole($guard->user())) {
-            Flash::error(trans('cms.you_need_to_sign_in_first'));
+        if (! $this->userRepository->hasAdministratorRole(Auth::user())) {
+            Flash::error(trans('cms.missing_required_role'));
 
-            return redirect()->guest(route('cms.sessions.create'));
+            return redirect()->route('cms.sessions.create');
         }
 
         return $next($request);

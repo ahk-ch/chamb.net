@@ -28,9 +28,8 @@ class StoreSessionRequest extends Request
     public function rules()
     {
         return [
-            'username' => 'required|exists:users,username',
+            'email' => 'required|exists:users,email',
             'password' => 'required',
         ];
     }
 }
-

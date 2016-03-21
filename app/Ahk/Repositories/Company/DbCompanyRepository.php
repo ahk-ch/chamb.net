@@ -40,7 +40,7 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
      */
     public function paginate($items = 10)
     {
-        return Company::paginate($items);
+        return Company::with('logo')->paginate($items);
     }
 
     /**
