@@ -11,6 +11,9 @@ elixir(function (mix) {
     mix.copy('bower_components/UnifyV1.9.1/plugins/line-icons/fonts', 'public/build/css/fonts');
     mix.copy('bower_components/UnifyV1.9.1/img', 'public/build/img');
 
+    // CMS
+    mix.copy('bower_components/bootstrap/fonts', 'public/cms/fonts');
+
     mix
         .styles([
             'bower_components/UnifyV1.9.1/plugins/bootstrap/css/bootstrap.min.css',
@@ -70,11 +73,21 @@ elixir(function (mix) {
             'bower_components/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/css/sky-forms.css',
             'bower_components/UnifyV1.9.1/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css',
         ], 'build/css/industries/work-groups/show/vendor.min.css', '.')
-    .styles([
-        'bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css',
-        'bower_components/select2/dist/css/select2.min.css'
-    ], './build/css/my/companies/create-and-edit.min.css', '.');
-
+        .styles([
+            'bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css',
+            'bower_components/select2/dist/css/select2.min.css'
+        ], './build/css/my/companies/create-and-edit.min.css', '.')
+        // CMS
+        .styles([
+            'bower_components/AdminLTE/bootstrap/css/bootstrap.min.css',
+            'bower_components/AdminLTE/dist/css/AdminLTE.min.css',
+            'bower_components/AdminLTE/dist/css/skins/skin-black.min.css',
+        ], 'build/css/cms/above-the-fold-content.min.css', '.')
+        .styles([
+            'bower_components/Ionicons/css/ionicons.min.css',
+            'bower_components/font-awesome/css/font-awesome.min.css',
+            'bower_components/pnotify/src/pnotify.core.min.css',
+        ], 'build/css/cms/master.min.css', '.');
 
     mix.scripts([
             'bower_components/UnifyV1.9.1/plugins/jquery/jquery.min.js',
@@ -90,7 +103,7 @@ elixir(function (mix) {
             'bower_components/UnifyV1.9.1/plugins/modernizr.js',
             'resources/assets/js/ahk/master.js',
             'resources/assets/js/ahk/flash.js',
-            'resources/assets/js/ahk/loadStyleSheets.js'
+            'resources/assets/js/loadStyleSheets.js'
         ], 'build/js/master.min.js', '.')
         .scripts([
             'bower_components/UnifyV1.9.1/plugins/respond.js',
@@ -129,7 +142,16 @@ elixir(function (mix) {
             'bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
             'bower_components/select2/dist/js/select2.min.js',
             'resources/assets/js/ahk/my/companies/create.js'
-        ], 'build/js/my/companies/create-and-edit.min.js', '.');
+        ], 'build/js/my/companies/create-and-edit.min.js', '.')
+        // CMS
+        .scripts([
+            'bower_components/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js',
+            'bower_components/AdminLTE/bootstrap/js/bootstrap.min.js',
+            'bower_components/AdminLTE/plugins/iCheck/icheck.min.js',
+            'bower_components/pnotify/src/pnotify.core.min.js',
+            'bower_components/pnotify/src/pnotify.confirm.min.js',
+        ], 'build/js/cms/master.min.js', '.');
+
 
 
     mix.version([
@@ -162,7 +184,12 @@ elixir(function (mix) {
 
         './build/css/my/companies/create-and-edit.min.css',
         './build/js/my/companies/index.min.js',
-        './build/js/my/companies/create-and-edit.min.js'
+        './build/js/my/companies/create-and-edit.min.js',
+
+        // CMS
+        './build/css/cms/above-the-fold-content.min.css',
+        './build/css/cms/master.min.css',
+        './build/js/cms/master.min.js'
     ]);
 
     mix.browserSync({

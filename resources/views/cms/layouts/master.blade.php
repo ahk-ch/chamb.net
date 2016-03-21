@@ -5,14 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title') | CmsChamb</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="{!! url('vendor/AdminLTE/bootstrap/css/bootstrap.min.css') !!}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link href='{!! url("vendor/pnotify/src/pnotify.core.css") !!}' rel='stylesheet' type='text/css'/>
-    @yield('styles')
-    <link rel="stylesheet" href="{!! url('vendor/AdminLTE/dist/css/AdminLTE.min.css') !!}">
-    <link rel="stylesheet" href="{!! url('vendor/AdminLTE/dist/css/skins/skin-black.min.css') !!}">
-
+    <style type="text/css">
+        {!! File::get(public_path(elixir("css/cms/above-the-fold-content.min.css"))) !!}
+    </style>
     @yield('inline-styles')
 
     <!--[if lt IE 9]>
