@@ -6,13 +6,15 @@
     <title>@yield('title') | CmsChamb</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <style type="text/css">
-        {!! File::get(public_path(elixir("css/cms/above-the-fold-content.min.css"))) !!}
+{{--        {!! File::get(public_path(elixir("css/cms/above-the-fold-content.min.css"))) !!}--}}
+{{--        {!! File::get(public_path(elixir("css/cms/above-the-fold-content2.min.css"))) !!}--}}
     </style>
+    <link href="{!! elixir("css/cms/above-the-fold-content.min.css") !!}">
     @yield('inline-styles')
 
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    {{--<!--[if lt IE 9]>--}}
+    {{--<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>--}}
+    {{--<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->--}}
 </head>
 <body class="hold-transition skin-black">
 <!-- Site wrapper -->
@@ -43,15 +45,8 @@
 
 </div><!-- ./wrapper -->
 
-<script src="{!! url('vendor/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js') !!}"></script>
-<script src="{!! url('vendor/AdminLTE/bootstrap/js/bootstrap.min.js') !!}"></script>
-<script src="{!! url('vendor/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js') !!}"></script>
-<script src="{!! url('vendor/AdminLTE/plugins/fastclick/fastclick.min.js') !!}"></script>
-<script src="{!! url('vendor/AdminLTE/dist/js/app.min.js') !!}"></script>
-<script type="text/javascript" src='{!! url("vendor/pnotify/src/pnotify.core.min.js") !!}'></script>
-<script type="text/javascript" src='{!! url("vendor/pnotify/src/pnotify.confirm.min.js") !!}'></script>
+<script src="{!! elixir('js/cms/master.min.js') !!}"></script>
 @include('cms._partials.flash')
-@yield('scripts')
 @yield('inline-scripts')
 </body>
 </html>
