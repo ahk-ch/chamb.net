@@ -41,10 +41,10 @@ class CompaniesTest extends TestCase
             ->see('<th>'.trans('cms.logo').'</th>')
             ->see('<th>'.trans('cms.name_of_contact_partner').'</th>')
             ->see($companies->get(0)->name)
-            ->see($companies->get(0)->logo->path)
+            ->see(route('files.render', ['path' => $companies->get(0)->logo->path]))
             ->see($companies->get(0)->name_of_contact_partner)
             ->see($companies->get(1)->name)
-            ->see($companies->get(1)->logo->path)
+            ->see(route('files.render', ['path' => $companies->get(1)->logo->path]))
             ->see($companies->get(1)->name_of_contact_partner);
     }
 }
