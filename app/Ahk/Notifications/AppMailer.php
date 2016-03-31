@@ -100,4 +100,3 @@ class AppMailer
         return true;
     }
 }
-

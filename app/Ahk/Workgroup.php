@@ -65,4 +65,3 @@ class Workgroup extends Model implements SluggableInterface
         return $this->belongsTo('App\Ahk\User');
     }
 }
-

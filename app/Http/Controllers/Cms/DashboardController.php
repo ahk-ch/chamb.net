@@ -14,4 +14,3 @@ class DashboardController extends BaseController
         return view('cms.blank');
     }
 }
-

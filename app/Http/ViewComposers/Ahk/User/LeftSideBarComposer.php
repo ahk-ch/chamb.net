@@ -26,4 +26,3 @@ class LeftSideBarComposer
         $view->with('user', Auth::user());
     }
 }
-

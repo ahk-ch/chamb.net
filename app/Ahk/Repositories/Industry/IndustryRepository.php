@@ -118,4 +118,3 @@ interface IndustryRepository
      */
     public function companyDecisions(Industry $industry);
 }
-

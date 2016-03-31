@@ -199,4 +199,3 @@ interface UserRepository
      */
     public function whereCompaniesIndustry(Industry $industry);
 }
-

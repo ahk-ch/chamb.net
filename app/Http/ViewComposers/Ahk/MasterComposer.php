@@ -41,4 +41,3 @@ class MasterComposer
         $view->with('industries', $this->industryRepository->all());
     }
 }
-

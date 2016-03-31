@@ -18,4 +18,3 @@ class IndustryTableSeeder extends Seeder
     {
     }
 }
-

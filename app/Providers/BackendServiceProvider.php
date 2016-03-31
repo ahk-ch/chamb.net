@@ -46,4 +46,3 @@ class BackendServiceProvider extends ServiceProvider
         $this->app->bind(CompanyRepository::class, DbCompanyRepository::class);
     }
 }
-

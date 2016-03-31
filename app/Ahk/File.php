@@ -45,4 +45,3 @@ class File extends Model implements SluggableInterface
         return $this->morphTo();
     }
 }
-

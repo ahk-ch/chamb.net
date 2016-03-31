@@ -18,4 +18,3 @@ class FlashNotifierTest extends TestCase
     {
     }
 }
-

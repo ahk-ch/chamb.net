@@ -41,4 +41,3 @@ class ComposerServiceProvider extends ServiceProvider
         //
     }
 }
-

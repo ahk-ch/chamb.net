@@ -27,4 +27,3 @@ class EventTableSeeder extends Seeder
         }
     }
 }
-

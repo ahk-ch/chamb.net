@@ -234,4 +234,3 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
         return $company->save() ? $company : false;
     }
 }
-

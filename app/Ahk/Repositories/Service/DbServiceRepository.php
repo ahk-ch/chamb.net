@@ -37,4 +37,3 @@ class DbServiceRepository extends DbRepository implements ServiceRepository
         return Service::all();
     }
 }
-

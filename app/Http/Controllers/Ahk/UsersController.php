@@ -51,4 +51,3 @@ class UsersController extends Controller
         return redirect()->route('home_path');
     }
 }
-

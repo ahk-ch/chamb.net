@@ -35,4 +35,3 @@ class HomeTest extends TestCase
             ->see('Law')->see('fa fa-university');
     }
 }
-

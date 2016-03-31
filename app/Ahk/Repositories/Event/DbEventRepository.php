@@ -52,4 +52,3 @@ class DbEventRepository extends DbRepository implements EventRepository
         return $event->save() ? $event : false;
     }
 }
-

@@ -219,4 +219,3 @@ class ArticlesController extends BaseController
         //
     }
 }
-

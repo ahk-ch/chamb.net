@@ -28,4 +28,3 @@ class AboutTest extends TestCase
             ->see('<title> '.trans('ahk.about').' · Chamb.Net</title>');
     }
 }
-

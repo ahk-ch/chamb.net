@@ -35,4 +35,3 @@ class Decision extends Model
         return $this->belongsTo(User::class);
     }
 }
-

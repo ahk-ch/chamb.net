@@ -140,4 +140,3 @@ interface CompanyRepository
      */
     public function assignDecisions(Company $company, $decisions);
 }
-

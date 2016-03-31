@@ -59,4 +59,3 @@ class Event extends Model implements SluggableInterface
         return $this->morphMany(File::class, 'fileable');
     }
 }
-

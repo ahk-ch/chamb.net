@@ -131,4 +131,3 @@ class Company extends Model implements SluggableInterface
         return $this->hasMany(Decision::class);
     }
 }
-

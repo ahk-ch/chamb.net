@@ -37,4 +37,3 @@ class DbCountryRepository extends DbRepository implements CountryRepository
         return Country::all();
     }
 }
-

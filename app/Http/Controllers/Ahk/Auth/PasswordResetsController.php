@@ -129,4 +129,3 @@ class PasswordResetsController extends Controller
         return redirect()->route('auth.sign_in');
     }
 }
-

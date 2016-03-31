@@ -37,4 +37,3 @@ class SetLanguageRequest extends Request
         parent::validate();
     }
 }
-

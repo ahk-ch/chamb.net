@@ -27,4 +27,3 @@ class UsersController extends BaseController
         return view('cms.users.administrators.index');
     }
 }
-

@@ -40,4 +40,3 @@ class Utilities
         return active_class(app('active')->checkRoute($routes), $activeClass, $inactiveClass);
     }
 }
-

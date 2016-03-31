@@ -263,4 +263,3 @@ class DbArticleRepositoryTest extends TestCase
             array_only($actualPublishedArticles->get(1)->toArray(), $keys));
     }
 }
-

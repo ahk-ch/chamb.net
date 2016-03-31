@@ -30,4 +30,3 @@ class FlashServiceProvider extends ServiceProvider
         });
     }
 }
-

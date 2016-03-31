@@ -32,4 +32,3 @@ class UpdateTagRequest extends Request
         ];
     }
 }
-

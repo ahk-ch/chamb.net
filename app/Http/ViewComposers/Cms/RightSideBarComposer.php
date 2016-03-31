@@ -26,4 +26,3 @@ class RightSideBarComposer
         $view->with('locale', App::getLocale());
     }
 }
-

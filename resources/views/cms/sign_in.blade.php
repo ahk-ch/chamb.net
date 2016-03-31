@@ -8,7 +8,6 @@
     <style type="text/css">
         {!! File::get(public_path(elixir("css/cms/above-the-fold-content.min.css"))) !!}
     </style>
-
     <!--[if lt IE 9]>
     <script src="{!! url('build/js/lt-ie9.min.js') !!}"></script>
     <![endif]-->

@@ -30,4 +30,3 @@ class InfoTest extends TestCase
             ->see('<title> '.trans('ahk.info').' · Chamb.Net</title>');
     }
 }
-

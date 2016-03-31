@@ -43,4 +43,3 @@ class StoreUserRequest extends Request
         return parent::response($messages);
     }
 }
-

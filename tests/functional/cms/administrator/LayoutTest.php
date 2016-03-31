@@ -80,4 +80,3 @@ class LayoutTest extends TestCase
             ->see('<button type="submit" class="btn btn-default btn-flat">'.trans('ahk.logout').'</button>');
     }
 }
-

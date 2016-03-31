@@ -105,4 +105,3 @@ class Article extends Model implements SluggableInterface
         return $this->belongsTo('App\Ahk\File');
     }
 }
-

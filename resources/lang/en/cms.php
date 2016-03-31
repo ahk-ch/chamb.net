@@ -54,4 +54,3 @@ return [
     'you_have_successfully_logged_out' => 'You have successfully logged out.',
     'you_need_to_sign_in_first'        => 'You need to sign in first.',
 ];
-

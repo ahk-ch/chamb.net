@@ -38,4 +38,3 @@ class FilesController extends Controller
         return response()->download(storage_path('app'.DIRECTORY_SEPARATOR.$path));
     }
 }
-

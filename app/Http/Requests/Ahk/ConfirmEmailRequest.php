@@ -41,4 +41,3 @@ class ConfirmEmailRequest extends Request
         return parent::response($messages);
     }
 }
-

@@ -125,4 +125,3 @@ class WorkGroupTest extends TestCase
             ->dontSee($users->get(1)->name);
     }
 }
-

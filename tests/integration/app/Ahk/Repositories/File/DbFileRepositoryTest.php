@@ -89,4 +89,3 @@ class DbFileRepositoryTest extends TestCase
         $this->assertTrue(Storage::exists($expectedFilePath));
     }
 }
-

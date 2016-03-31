@@ -32,4 +32,3 @@ class DashboardTest extends TestCase
             ->see('Blank');
     }
 }
-

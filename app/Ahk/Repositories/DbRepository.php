@@ -65,4 +65,3 @@ abstract class DbRepository
         $this->builder = $builder;
     }
 }
-

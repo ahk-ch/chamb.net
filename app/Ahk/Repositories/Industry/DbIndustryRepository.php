@@ -180,4 +180,3 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
         return $industry->companyDecisions();
     }
 }
-

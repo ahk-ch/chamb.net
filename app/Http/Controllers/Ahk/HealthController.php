@@ -50,4 +50,3 @@ class HealthController extends Controller
         return view('ahk.health.news', compact('articles'));
     }
 }
-

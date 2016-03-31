@@ -26,4 +26,3 @@ class HeaderDefaultComposer
         $view->with('user', Auth::user());
     }
 }
-

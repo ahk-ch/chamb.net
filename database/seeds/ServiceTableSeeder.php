@@ -46,4 +46,3 @@ class ServiceTableSeeder extends Seeder
         }
     }
 }
-

@@ -66,4 +66,3 @@ class DbFileRepository extends DbRepository implements FileRepository
         return $file;
     }
 }
-

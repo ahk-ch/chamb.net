@@ -49,4 +49,3 @@ class DbDecisionRepository extends DbRepository implements DecisionRepository
         return Decision::all();
     }
 }
-

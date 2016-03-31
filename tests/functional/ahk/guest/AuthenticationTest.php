@@ -108,4 +108,3 @@ class AuthenticationTest extends TestCase
             ->see(trans('ahk_messages.you_do_not_have_the_necessary_privileges'));
     }
 }
-

@@ -15,4 +15,3 @@ class VerifyCsrfToken extends BaseVerifier
         //
     ];
 }
-

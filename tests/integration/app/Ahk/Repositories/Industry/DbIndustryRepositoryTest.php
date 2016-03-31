@@ -216,4 +216,3 @@ class DbIndustryRepositoryTest extends TestCase
             $events->lists('id')->toArray());
     }
 }
-

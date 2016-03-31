@@ -58,4 +58,3 @@ class CompanyTableSeeder extends Seeder
         }
     }
 }
-

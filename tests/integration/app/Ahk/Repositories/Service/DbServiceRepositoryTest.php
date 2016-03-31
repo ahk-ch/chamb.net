@@ -32,4 +32,3 @@ class DbServiceRepositoryTest extends TestCase
         $this->assertCount(10, $expectedServices);
     }
 }
-

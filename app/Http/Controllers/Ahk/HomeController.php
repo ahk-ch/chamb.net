@@ -75,4 +75,3 @@ class HomeController extends Controller
         return view('ahk.terms_of_use');
     }
 }
-

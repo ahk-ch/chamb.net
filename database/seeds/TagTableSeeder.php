@@ -20,4 +20,3 @@ class TagTableSeeder extends Seeder
         factory(Tag::class, 2)->create();
     }
 }
-

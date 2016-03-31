@@ -29,4 +29,3 @@ class StoreTagRequest extends Request
         ];
     }
 }
-

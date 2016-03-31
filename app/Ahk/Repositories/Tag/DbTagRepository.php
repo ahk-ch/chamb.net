@@ -83,4 +83,3 @@ class DbTagRepository extends DbRepository implements TagRepository
         return Tag::find($id);
     }
 }
-

@@ -146,4 +146,3 @@ class IndustriesController extends Controller
         return view('ahk.industries.articles.show', compact('industry', 'article'));
     }
 }
-

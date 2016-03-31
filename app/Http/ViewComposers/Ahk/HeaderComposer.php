@@ -42,4 +42,3 @@ class HeaderComposer
         $view->with('industries', $this->industryRepository->all());
     }
 }
-

@@ -77,4 +77,3 @@ class AuthenticationController extends Controller
         return redirect()->route('home_path');
     }
 }
-

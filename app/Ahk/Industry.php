@@ -108,4 +108,3 @@ class Industry extends Model implements SluggableInterface
         return $this->belongsToMany(Workgroup::class)->withTimestamps();
     }
 }
-

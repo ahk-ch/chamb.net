@@ -28,4 +28,3 @@ class FooterComposer
         $view->with('copyrightDate', $utilities->autoCopyright('2015'));
     }
 }
-

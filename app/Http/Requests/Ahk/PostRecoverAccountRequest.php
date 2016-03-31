@@ -28,4 +28,3 @@ class PostRecoverAccountRequest extends Request
         ];
     }
 }
-

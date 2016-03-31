@@ -20,4 +20,3 @@ class CountryTableSeeder extends Seeder
         factory(Country::class, 2)->create();
     }
 }
-

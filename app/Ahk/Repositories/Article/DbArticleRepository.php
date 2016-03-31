@@ -176,4 +176,3 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
             ->take($max);
     }
 }
-

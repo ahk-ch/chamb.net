@@ -30,4 +30,3 @@ class Role extends Model
         return $this->belongsToMany('App\Ahk\User')->withTimestamps();
     }
 }
-

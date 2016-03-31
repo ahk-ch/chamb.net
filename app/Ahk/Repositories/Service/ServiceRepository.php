@@ -20,4 +20,3 @@ interface ServiceRepository
      */
     public function all();
 }
-

@@ -40,4 +40,3 @@ class UpdateCompanyRequest extends Request
         ];
     }
 }
-

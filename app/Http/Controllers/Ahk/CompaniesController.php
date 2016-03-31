@@ -114,4 +114,3 @@ class CompaniesController extends Controller
         //
     }
 }
-

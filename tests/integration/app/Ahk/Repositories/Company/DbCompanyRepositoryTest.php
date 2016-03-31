@@ -309,4 +309,3 @@ class DbCompanyRepositoryTest extends TestCase
         $this->assertSame($company->events()->get()->get(2)->name, $expectedEvent1->name);
     }
 }
-

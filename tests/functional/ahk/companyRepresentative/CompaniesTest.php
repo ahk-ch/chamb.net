@@ -226,4 +226,3 @@ class CompaniesTest extends TestCase
             ->see(route('files.render', ['path' => $expectedLogoPath]));
     }
 }
-

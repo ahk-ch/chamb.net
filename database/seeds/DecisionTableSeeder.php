@@ -27,4 +27,3 @@ class DecisionTableSeeder extends Seeder
         }
     }
 }
-

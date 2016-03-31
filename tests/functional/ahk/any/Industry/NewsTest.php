@@ -63,4 +63,3 @@ class NewsTest extends TestCase
             ->see($article->view_count);
     }
 }
-

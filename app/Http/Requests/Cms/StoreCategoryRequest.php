@@ -29,4 +29,3 @@ class StoreCategoryRequest extends Request
         ];
     }
 }
-

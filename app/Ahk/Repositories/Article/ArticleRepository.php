@@ -103,4 +103,3 @@ interface ArticleRepository
      */
     public function mostViewedByIndustry($industry, $max = 10);
 }
-

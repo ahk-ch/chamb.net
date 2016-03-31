@@ -100,4 +100,3 @@ class RegistrationTest extends TestCase
             ->see(trans('ahk_messages.you_updated_your_accounts_password'));
     }
 }
-

@@ -8,4 +8,3 @@ class Category extends Model
 {
     //
 }
-

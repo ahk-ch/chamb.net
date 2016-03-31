@@ -62,4 +62,3 @@ class FlashNotifier
         $this->message($message, 'error');
     }
 }
-

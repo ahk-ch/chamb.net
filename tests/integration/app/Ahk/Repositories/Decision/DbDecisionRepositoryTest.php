@@ -85,4 +85,3 @@ class DbDecisionRepositoryTest extends TestCase
         $this->assertCount(4, $events);
     }
 }
-

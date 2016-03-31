@@ -32,4 +32,3 @@ class UpdateCategoryRequest extends Request
         ];
     }
 }
-
