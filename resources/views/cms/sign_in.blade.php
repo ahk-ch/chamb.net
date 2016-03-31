@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Chamb Cms | Log in</title>
+    <title>Sign In | CmsChamb</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <style type="text/css">
         {!! File::get(public_path(elixir("css/cms/above-the-fold-content.min.css"))) !!}
@@ -55,7 +55,10 @@
 
 </div>
 
+{!! Form::input('hidden', 'notifications', json_encode(Session::get('flash_notifications'))) !!}
+{!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/cms/master.min.css")) !!}
+
 <script type="text/javascript" src='{!! elixir("js/cms/master.min.js") !!}'></script>
-@include('cms._partials.flash')
+
 </body>
 </html>

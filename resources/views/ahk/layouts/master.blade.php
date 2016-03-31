@@ -29,10 +29,7 @@
 
 </div>
 
-<!-- Flash Data -->
 {!! Form::input('hidden', 'notifications', json_encode(Session::get('flash_notifications'))) !!}
-
-        <!-- Optimize css delivery -->
 {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/master.min.css")) !!}
 
         <!-- Page Data to be passed to js. E.g. Async load css, mainly for libraries, using the styleSheetUrls array input field, see the previous command -->

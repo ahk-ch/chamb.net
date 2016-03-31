@@ -6,22 +6,18 @@
     <title>@yield('title') | CmsChamb</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <style type="text/css">
-{{--        {!! File::get(public_path(elixir("css/cms/above-the-fold-content.min.css"))) !!}--}}
-{{--        {!! File::get(public_path(elixir("css/cms/above-the-fold-content2.min.css"))) !!}--}}
+        {!! File::get(public_path(elixir("css/cms/above-the-fold-content.min.css"))) !!}
     </style>
-    <link href="{!! elixir("css/cms/above-the-fold-content.min.css") !!}">
-    @yield('inline-styles')
-
-    {{--<!--[if lt IE 9]>--}}
-    {{--<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>--}}
-    {{--<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->--}}
+    @yield('inline-css')
+    <!--[if lt IE 9]>
+    <script src="{!! url('build/js/lt-ie9.min.js') !!}"></script>
+    <![endif]-->
 </head>
-<body class="hold-transition skin-black">
-<!-- Site wrapper -->
+<body class="hold-transition skin-black @yield('body_class')">
+
 <div class="wrapper">
 
     @include('cms._partials.header')
-
     @include('cms._partials.left_sidebar')
 
     <div class="content-wrapper">
@@ -33,22 +29,19 @@
 
         <!-- Main content -->
         <section class="content">
-
             @yield('content')
-
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 
     @include('cms._partials.footer')
-
     @include('cms._partials.right_sidebar')
-
 </div><!-- ./wrapper -->
 
-<script src="{!! elixir('js/cms/master.min.js') !!}"></script>
-@include('cms._partials.flash')
-@yield('inline-scripts')
+{!! Form::input('hidden', 'notifications', json_encode(Session::get('flash_notifications'))) !!}
+{!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/cms/master.min.css")) !!}
+<script type="text/javascript" src='{!! elixir("js/cms/master.min.js") !!}'></script>
+
+@yield('js-files')
+
 </body>
 </html>
-
-

@@ -38,11 +38,11 @@ class Authenticate
         if (Auth::guard($guard)->guest()) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
-            } else {
-                Flash::error(trans('cms.you_need_to_sign_in_first'));
-
-                return redirect()->guest(route('cms.sessions.create'));
             }
+
+            Flash::error(trans('cms.you_need_to_sign_in_first'));
+
+            return redirect()->guest(route('cms.sessions.create'));
         }
 
         if (! $this->userRepository->hasAdministratorRole(Auth::user())) {

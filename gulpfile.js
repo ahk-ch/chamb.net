@@ -8,6 +8,7 @@ elixir(function (mix) {
 
     mix.copy('bower_components/UnifyV1.9.1/plugins/bootstrap/fonts', 'public/build/fonts');
     mix.copy('bower_components/font-awesome/fonts', 'public/build/fonts');
+    mix.copy('bower_components/font-awesome/fonts', 'public/build/css/fonts');
     mix.copy('bower_components/UnifyV1.9.1/plugins/line-icons/fonts', 'public/build/css/fonts');
     mix.copy('bower_components/UnifyV1.9.1/img', 'public/build/img');
 
@@ -104,7 +105,7 @@ elixir(function (mix) {
             'bower_components/UnifyV1.9.1/js/plugins/style-switcher.js',
             'bower_components/UnifyV1.9.1/plugins/modernizr.js',
             'resources/assets/js/ahk/master.js',
-            'resources/assets/js/ahk/flash.js',
+            'resources/assets/js/flash.js',
             'resources/assets/js/loadStyleSheets.js'
         ], 'build/js/master.min.js', '.')
         .scripts([
@@ -151,6 +152,8 @@ elixir(function (mix) {
             'bower_components/AdminLTE/bootstrap/js/bootstrap.min.js',
             'bower_components/pnotify/src/pnotify.core.min.js',
             'bower_components/pnotify/src/pnotify.confirm.min.js',
+            'resources/assets/js/flash.js',
+            'resources/assets/js/loadStyleSheets.js'
         ], 'build/js/cms/master.min.js', '.');
 
 

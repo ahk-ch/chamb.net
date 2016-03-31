@@ -66,4 +66,3 @@ class SessionsController extends Controller
         return redirect()->route('cms.sessions.create');
     }
 }
-
