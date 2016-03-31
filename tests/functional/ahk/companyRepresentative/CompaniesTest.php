@@ -104,7 +104,7 @@ class CompaniesTest extends TestCase
 
         $company = factory(Company::class)->create(['user_id' => $companyRepresentativeUser->id]);
         $expectedCompany = factory(Company::class)->make(['user_id' => $companyRepresentativeUser->id]);
-        $expectedSlug = Str::slug($expectedCompany->name);
+        $expectedSlug = $expectedCompany->slug;
 
         factory(Industry::class, 2)->create();
         factory(Country::class, 2)->create();
