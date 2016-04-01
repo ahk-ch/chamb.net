@@ -45,7 +45,15 @@ class Authenticate
             return redirect()->guest(route('cms.sessions.create'));
         }
 
-        if (! $this->userRepository->hasAdministratorRole(Auth::user())) {
+        $user = Auth::user();
+
+        if (! $user->verified) {
+            Flash::error(trans('ahk_messages.please_validate_your_email_first'));
+
+            return redirect()->route('cms.sessions.create');
+        }
+
+        if (! $this->userRepository->hasAdministratorRole($user)) {
             Flash::error(trans('cms.missing_required_role'));
 
             return redirect()->route('cms.sessions.create');

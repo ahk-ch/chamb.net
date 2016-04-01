@@ -16,7 +16,7 @@ class AuthenticationTest extends TestCase
     use DatabaseMigrations;
 
     /** @test */
-    public function it_signs_in()
+    public function it_can_login()
     {
         $dbUserRepository = new DbUserRepository();
 
@@ -29,5 +29,21 @@ class AuthenticationTest extends TestCase
             ->press('Sign In')
             ->seePageIs(route('cms.dashboard'))
             ->see('Welcome');
+    }
+
+    /** @test */
+    public function it_restricts_not_validated()
+    {
+        $dbUserRepository = new DbUserRepository();
+
+        $user = factory(User::class)->create(['password' => Hash::make('some-password'), 'verified' => 0]);
+        $dbUserRepository->assignAdministratorRole($user);
+
+        $this->visit(route('cms.sessions.create'))
+            ->type($user->email, 'email')
+            ->type('some-password', 'password')
+            ->press('Sign In')
+            ->seePageIs(route('cms.sessions.create'))
+            ->see(trans('ahk_messages.please_validate_your_email_first'));
     }
 }

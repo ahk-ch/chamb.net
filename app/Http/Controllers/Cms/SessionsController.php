@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Ahk\Notifications\Flash;
+use App\Ahk\Repositories\User\UserRepository;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Cms\StoreSessionRequest;
 use Illuminate\Http\Response;
@@ -14,11 +15,19 @@ use Illuminate\Support\Facades\Auth;
 class SessionsController extends Controller
 {
     /**
-     * SessionsController constructor.
+     * @var UserRepository
      */
-    public function __construct()
+    private $userRepository;
+
+    /**
+     * SessionsController constructor.
+     *
+     * @param UserRepository $userRepository
+     */
+    public function __construct(UserRepository $userRepository)
     {
         $this->middleware('cms.guest', ['except' => 'destroy']);
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -40,8 +49,9 @@ class SessionsController extends Controller
      */
     public function store(StoreSessionRequest $request)
     {
-        if (Auth::attempt($request->only('email', 'password'), $request->has('remember'))) {
-
+        if ($this->userRepository->attemptToSignIn(
+            $request->only('email', 'password'), $request->has('remember_me'))
+        ) {
             Flash::success('Welcome!');
 
             return redirect()->intended(route('cms.dashboard'));

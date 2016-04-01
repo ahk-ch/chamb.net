@@ -73,12 +73,6 @@ class DbUserRepository extends DbRepository implements UserRepository
             return false;
         }
 
-        if (! $this->hasCompanyRepresentativeRole($user)) {
-            Flash::error(trans('ahk_messages.you_do_not_have_the_necessary_privileges'));
-
-            return false;
-        }
-
         Auth::login($user);
 
         return $user;
