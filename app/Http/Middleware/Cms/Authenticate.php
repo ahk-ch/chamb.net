@@ -48,7 +48,7 @@ class Authenticate
         $user = Auth::user();
 
         if (! $user->verified) {
-            Flash::error(trans('ahk_messages.please_validate_your_email_first'));
+            Flash::error(trans('cms.missing_required_role'));
 
             return redirect()->route('cms.sessions.create');
         }

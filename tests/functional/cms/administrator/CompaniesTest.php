@@ -22,7 +22,7 @@ class CompaniesTest extends TestCase
     public function it_reads_companies_index()
     {
         $dbUserRepository = new DbUserRepository();
-        $administrator = factory(User::class)->create();
+        $administrator = factory(User::class)->create(['verified' => true]);
         $companies = factory(Company::class, 2)->create();
 
         $this->actingAs($administrator)
@@ -31,7 +31,7 @@ class CompaniesTest extends TestCase
             ->see(trans('cms.missing_required_role'));
 
         $dbUserRepository->assignAdministratorRole($administrator);
-
+//
         $this->actingAs($administrator)
             ->visit(route('cms.companies.index'))
             ->seePageIs(route('cms.companies.index'))

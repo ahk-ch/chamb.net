@@ -105,6 +105,6 @@ class AuthenticationTest extends TestCase
             ->type('some-password', 'password')
             ->press(trans('ahk.sign_in'))
             ->seePageIs(route('auth.sign_in'))
-            ->see(trans('ahk_messages.you_do_not_have_the_necessary_privileges'));
+            ->see(trans('cms.missing_required_role'));
     }
 }

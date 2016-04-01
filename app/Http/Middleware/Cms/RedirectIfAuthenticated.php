@@ -34,7 +34,10 @@ class RedirectIfAuthenticated
      */
     public function handle(Request $request, Closure $next, Guard $guard = null)
     {
-        if (Auth::guard($guard)->check() && $this->userRepository->hasAdministratorRole(Auth::user())) {
+        if (Auth::guard($guard)->check()
+            && $this->userRepository->hasAdministratorRole(Auth::user())
+            && Auth::user()->verified
+        ) {
             return redirect(route('cms.dashboard'));
         }
 

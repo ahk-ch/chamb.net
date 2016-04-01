@@ -11,6 +11,6 @@ class DashboardController extends BaseController
      */
     public function dashboard()
     {
-        return view('cms.blank');
+        return view('cms.dashboard');
     }
 }

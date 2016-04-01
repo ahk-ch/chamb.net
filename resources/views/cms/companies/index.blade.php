@@ -1,9 +1,5 @@
 @extends('cms.layouts.master')
 @section('title', trans('cms.companies'))
-@section('styles')
-@endsection
-@section('inline-styles')
-@endsection
 @section('content')
     <div class="box">
         <div class="box-header with-border">
@@ -33,8 +29,4 @@
             </div>
         </div>
     </div><!-- /.box -->
-@endsection
-@section('scripts')
-@endsection
-@section('inline-scripts')
 @endsection

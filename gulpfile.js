@@ -82,12 +82,11 @@ elixir(function (mix) {
         .styles([
             'bower_components/AdminLTE/bootstrap/css/bootstrap.min.css',
             'bower_components/AdminLTE/dist/css/AdminLTE.min.css',
-            //'bower_components/AdminLTE/dist/css/skins/skin-black.min.css',
-            'bower_components/AdminLTE/plugins/iCheck/square/blue.css',
+            'bower_components/AdminLTE/dist/css/skins/skin-black.min.css',
         ], 'build/css/cms/above-the-fold-content.min.css', '.')
         .styles([
-            'bower_components/Ionicons/css/ionicons.min.css',
             'bower_components/font-awesome/css/font-awesome.min.css',
+            'bower_components/Ionicons/css/ionicons.min.css',
             'bower_components/pnotify/src/pnotify.core.min.css',
         ], 'build/css/cms/master.min.css', '.');
 
@@ -150,10 +149,13 @@ elixir(function (mix) {
         .scripts([
             'bower_components/AdminLTE/plugins/jQuery/jQuery-2.2.0.min.js',
             'bower_components/AdminLTE/bootstrap/js/bootstrap.min.js',
+            'bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js',
+            'bower_components/AdminLTE/plugins/fastclick/fastclick.min.js',
+            'bower_components/AdminLTE/dist/js/app.min.js',
             'bower_components/pnotify/src/pnotify.core.min.js',
             'bower_components/pnotify/src/pnotify.confirm.min.js',
             'resources/assets/js/flash.js',
-            'resources/assets/js/loadStyleSheets.js'
+            'resources/assets/js/loadStyleSheets.js',
         ], 'build/js/cms/master.min.js', '.');
 
 

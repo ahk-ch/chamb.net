@@ -24,7 +24,7 @@ class UserTableSeeder extends Seeder
     {
         $dbUserRepository = new DbUserRepository();
 
-        factory(User::class)->create([
+        $administrator = factory(User::class)->create([
             'email'    => env('ADMIN_EMAIL'),
             'password' => Hash::make(env('ADMIN_PASSWORD')),
             'verified' => 1,
@@ -37,6 +37,7 @@ class UserTableSeeder extends Seeder
         ]);
 
         $dbUserRepository->assignCompanyRepresentativeRole($companyRepresentative);
+        $dbUserRepository->assignAdministratorRole($administrator);
 
         factory(User::class, 2)->create()->each(function ($user) use ($dbUserRepository) {
             $dbUserRepository->assignAuthorRole($user);

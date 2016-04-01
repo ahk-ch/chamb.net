@@ -17,7 +17,7 @@ class StoreSessionRequest extends Request
      */
     public function authorize()
     {
-        return ! Auth::check();
+        return true;
     }
 
     /**
@@ -28,7 +28,7 @@ class StoreSessionRequest extends Request
     public function rules()
     {
         return [
-            'email' => 'required|exists:users,email',
+            'email'    => 'required|exists:users,email',
             'password' => 'required',
         ];
     }
