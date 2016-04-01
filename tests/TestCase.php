@@ -3,6 +3,7 @@
 namespace tests;
 
 use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class TestCase extends \Illuminate\Foundation\Testing\TestCase
@@ -28,6 +29,13 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase
         return $app;
     }
 
+    public function setUp()
+    {
+        parent::setUp();
+
+        File::put(storage_path().'/testing.sqlite', '');
+    }
+
     public function tearDown()
     {
         parent::tearDown();
@@ -35,9 +43,7 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase
         $this->refreshApplication();
 
         Storage::deleteDirectory('testing/ahk');
-
         Storage::deleteDirectory('testing/cms');
-
         Storage::deleteDirectory('testing/img');
     }
 }

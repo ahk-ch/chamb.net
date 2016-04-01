@@ -15,7 +15,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>Admin</b>Ahk</a>
+        <a href="{!! route('cms.sessions.create') !!}"><b>Admin</b>Ahk</a>
     </div>
 
     <div class="login-box-body">
@@ -23,10 +23,10 @@
 
         {!! Form::open(['route' => 'cms.sessions.store', 'method' => 'POST']) !!}
 
-        <div class='form-group @if($errors->first('username')) has-error @endif has-feedback'>
-            {!! Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Enter username', 'required' => 'required']) !!}
+        <div class='form-group @if($errors->first('email')) has-error @endif has-feedback'>
+            {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Enter email', 'required' => 'required']) !!}
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
-            {!! $errors->first('username', '<div class="help-block col-sm-reset inline">:message</div>') !!}
+            {!! $errors->first('email', '<div class="help-block col-sm-reset inline">:message</div>') !!}
         </div>
 
         <br/>
