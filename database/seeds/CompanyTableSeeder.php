@@ -48,11 +48,11 @@ class CompanyTableSeeder extends Seeder
 
         foreach ($this->popularCompanies as $company) {
             factory(Company::class, 'without_relations')->create([
-                'name'        => $company[ 'name' ],
-                'description' => $company[ 'description' ],
-                'industry_id' => $faker->randomElement($industries->toArray())[ 'id' ],
-                'country_id'  => $faker->randomElement($countries)[ 'id' ],
-                'user_id'     => $faker->randomElement($companyRepresentativeUsers)[ 'id' ],
+                'name'        => $company['name'],
+                'description' => $company['description'],
+                'industry_id' => $faker->randomElement($industries->toArray())['id'],
+                'country_id'  => $faker->randomElement($countries)['id'],
+                'user_id'     => $faker->randomElement($companyRepresentativeUsers)['id'],
                 'logo_id'     => factory(File::class)->create()->id,
             ]);
         }

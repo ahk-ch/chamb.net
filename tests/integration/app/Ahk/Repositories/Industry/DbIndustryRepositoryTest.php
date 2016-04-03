@@ -37,8 +37,8 @@ class DbIndustryRepositoryTest extends TestCase
         $this->assertSame($initTotalIndustries + 2, $expectedIndustries->count());
 
         $this->assertSame(
-            array_only($expectedIndustries->toArray(), $expectedIndustries[ 0 ]->getFillable()),
-            array_only($actualCompanies->toArray(), $expectedIndustries[ 0 ]->getFillable())
+            array_only($expectedIndustries->toArray(), $expectedIndustries[0]->getFillable()),
+            array_only($actualCompanies->toArray(), $expectedIndustries[0]->getFillable())
         );
     }
 

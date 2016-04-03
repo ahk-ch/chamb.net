@@ -58,8 +58,8 @@ class DbDecisionRepositoryTest extends TestCase
         $this->assertSame(2, $expectedDecisions->count());
 
         $this->assertSame(
-            array_only($expectedDecisions->toArray(), $expectedDecisions[ 0 ]->getFillable()),
-            array_only($actualEvents->toArray(), $expectedDecisions[ 0 ]->getFillable()));
+            array_only($expectedDecisions->toArray(), $expectedDecisions[0]->getFillable()),
+            array_only($actualEvents->toArray(), $expectedDecisions[0]->getFillable()));
     }
 
     /** @test */

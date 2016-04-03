@@ -53,7 +53,6 @@ class AuthenticationController extends Controller
         if ($this->userRepository->attemptToSignIn($request->only('email', 'password'), $request->has('remember_me'))
             && $this->userRepository->hasCompanyRepresentativeRole(Auth::user())
         ) {
-
             Flash::success(trans('ahk_messages.successful_sign_in'));
 
             return redirect()->intended(route('home_path'));

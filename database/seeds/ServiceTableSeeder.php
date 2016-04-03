@@ -31,17 +31,17 @@ class ServiceTableSeeder extends Seeder
 
         foreach ($dbCompanyRepository->all() as $company) {
             $company->services()->attach([
-                $faker->randomElement($services)[ 'id' ] => ['offers' => true],
-                $faker->randomElement($services)[ 'id' ] => ['offers' => true],
-                $faker->randomElement($services)[ 'id' ] => ['offers' => true],
-                $faker->randomElement($services)[ 'id' ] => ['offers' => true],
+                $faker->randomElement($services)['id'] => ['offers' => true],
+                $faker->randomElement($services)['id'] => ['offers' => true],
+                $faker->randomElement($services)['id'] => ['offers' => true],
+                $faker->randomElement($services)['id'] => ['offers' => true],
             ]);
 
             $company->services()->attach([
-                $faker->randomElement($services)[ 'id' ] => ['requires' => true],
-                $faker->randomElement($services)[ 'id' ] => ['requires' => true],
-                $faker->randomElement($services)[ 'id' ] => ['requires' => true],
-                $faker->randomElement($services)[ 'id' ] => ['requires' => true],
+                $faker->randomElement($services)['id'] => ['requires' => true],
+                $faker->randomElement($services)['id'] => ['requires' => true],
+                $faker->randomElement($services)['id'] => ['requires' => true],
+                $faker->randomElement($services)['id'] => ['requires' => true],
             ]);
         }
     }

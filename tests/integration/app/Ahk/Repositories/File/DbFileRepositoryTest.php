@@ -31,7 +31,7 @@ class DbFileRepositoryTest extends TestCase
 
         $requestData = array_only($expectedFile->toArray(), $expectedFile->getFillable());
 
-        $requestData[ File::CLIENT_ORIGINAL_NAME ] = $expectedFileName;
+        $requestData[File::CLIENT_ORIGINAL_NAME] = $expectedFileName;
 
         $tempFilePath = [File::TEMPORARY_PATH => storage_path('app/testing/dummy_logo.png')];
 
@@ -62,9 +62,9 @@ class DbFileRepositoryTest extends TestCase
             ['path' => $expectedFilePath, 'client_original_name' => $expectedClientOriginalName]);
         $expectedTemporaryPath = storage_path('app/testing/dummy_logo.png');
 
-        $requestData[ File::NAME ] = $expectedFile->name;
-        $requestData[ File::DESCRIPTION ] = $expectedFile->description;
-        $requestData[ File::CLIENT_ORIGINAL_NAME ] = $expectedClientOriginalName;
+        $requestData[File::NAME] = $expectedFile->name;
+        $requestData[File::DESCRIPTION] = $expectedFile->description;
+        $requestData[File::CLIENT_ORIGINAL_NAME] = $expectedClientOriginalName;
         $tempFilePath = [File::TEMPORARY_PATH => $expectedTemporaryPath];
 
         $currentFile = factory(File::class)->create();

@@ -36,8 +36,8 @@ class DbEventRepositoryTest extends TestCase
         $this->assertSame(2, $expectedEvents->count());
 
         $this->assertSame(
-            array_only($expectedEvents->toArray(), $expectedEvents[ 0 ]->getFillable()),
-            array_only($actualEvents->toArray(), $expectedEvents[ 0 ]->getFillable()));
+            array_only($expectedEvents->toArray(), $expectedEvents[0]->getFillable()),
+            array_only($actualEvents->toArray(), $expectedEvents[0]->getFillable()));
     }
 
     /** @test */

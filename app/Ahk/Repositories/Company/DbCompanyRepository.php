@@ -70,7 +70,7 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
         $this->assignRepresentativeUser($company, $user);
 
         if (array_has($data, Company::LOGO_ID)) {
-            $this->assignLogoById($company, $data[ Company::LOGO_ID ]);
+            $this->assignLogoById($company, $data[Company::LOGO_ID]);
         }
 
         return $this->update($company, $data);
@@ -120,9 +120,9 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
     {
         $company = $this->updatePrimaryData($company, $data);
 
-        $company = $this->assignIndustryById($company, $data[ Company::INDUSTRY_ID ]);
+        $company = $this->assignIndustryById($company, $data[Company::INDUSTRY_ID]);
 
-        $company = $this->assignCountryById($company, $data[ Company::COUNTRY_ID ]);
+        $company = $this->assignCountryById($company, $data[Company::COUNTRY_ID]);
 
         return $company->save() ? $company : false;
     }

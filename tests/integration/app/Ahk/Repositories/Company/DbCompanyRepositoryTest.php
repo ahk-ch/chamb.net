@@ -45,8 +45,8 @@ class DbCompanyRepositoryTest extends TestCase
         $this->assertSame(2, $expectedCompanies->count());
 
         $this->assertSame(
-            array_only($expectedCompanies->toArray(), $expectedCompanies[ 0 ]->getFillable()),
-            array_only($actualCompanies->toArray(), $expectedCompanies[ 0 ]->getFillable())
+            array_only($expectedCompanies->toArray(), $expectedCompanies[0]->getFillable()),
+            array_only($actualCompanies->toArray(), $expectedCompanies[0]->getFillable())
         );
     }
 
@@ -64,8 +64,8 @@ class DbCompanyRepositoryTest extends TestCase
         $this->assertSame(2, $expectedCompanies->count());
 
         $this->assertSame(
-            array_only($expectedCompanies->toArray(), $expectedCompanies[ 0 ]->getFillable()),
-            array_only($actualCompanies->toArray(), $expectedCompanies[ 0 ]->getFillable()));
+            array_only($expectedCompanies->toArray(), $expectedCompanies[0]->getFillable()),
+            array_only($actualCompanies->toArray(), $expectedCompanies[0]->getFillable()));
     }
 
     /** @test */
@@ -85,7 +85,7 @@ class DbCompanyRepositoryTest extends TestCase
 
         $this->assertCount(2, $actualCompanies);
 
-        $keys = $expectedCompanies[ 0 ]->getFillable();
+        $keys = $expectedCompanies[0]->getFillable();
 
         $this->assertSame(
             array_only($expectedCompanies->toArray(), $keys),
@@ -132,7 +132,7 @@ class DbCompanyRepositoryTest extends TestCase
         $keys = $newCompanyData->getFillable();
 
         if (false !== ($key = array_search(Company::SLUG, $keys))) {
-            unset($keys[ $key ]);
+            unset($keys[$key]);
         }
 
         $expectedCompanyData = array_only($newCompanyData->toArray(), $keys);
