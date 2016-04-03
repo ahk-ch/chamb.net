@@ -14,7 +14,7 @@ class CreateServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('services', function(Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('color')->nullable()->default(Service::$colors[array_rand(Service::$colors)]);

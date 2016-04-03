@@ -46,7 +46,7 @@ class DbFileRepository extends DbRepository implements FileRepository
      */
     public function update(File $file, $data)
     {
-        if ( ! is_null($file->path)) {
+        if (! is_null($file->path)) {
             $currentFilePath = $file->path;
         }
 
@@ -55,7 +55,7 @@ class DbFileRepository extends DbRepository implements FileRepository
 
         $fileIsStored = Storage::put($file->path, file_get_contents($data[File::TEMPORARY_PATH]));
 
-        if ( ! $fileIsStored || ! $file->save()) {
+        if (! $fileIsStored || ! $file->save()) {
             return false;
         }
 
