@@ -35,13 +35,13 @@ class AuthenticateAhk
      */
     public function handle(Request $request, Closure $next, Guard $guard = null)
     {
-        if (! Auth::check()) {
+        if (Auth::guard($guard)->guest()) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
                 Flash::error(trans('ahk_messages.you_need_to_sign_in'));
 
-                return redirect()->route('auth.sign_in');
+                return redirect()->guest(route('auth.sign_in'));
             }
         }
 

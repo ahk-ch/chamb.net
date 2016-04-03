@@ -35,7 +35,7 @@ class AuthenticateCms
      */
     public function handle(Request $request, Closure $next, Guard $guard = null)
     {
-        if (! Auth::check()) {
+        if (Auth::guard($guard)->guest()) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             }
