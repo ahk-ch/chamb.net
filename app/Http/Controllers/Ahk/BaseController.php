@@ -8,7 +8,7 @@ namespace App\Http\Controllers\Ahk;
 use App\Http\Controllers\Controller;
 
 /**
- * Class BaseController.j
+ * Class BaseController.
  */
 class BaseController extends Controller
 {
