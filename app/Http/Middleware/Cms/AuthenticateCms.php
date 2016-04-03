@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 /**
  * Class Authenticate.
  */
-class Authenticate
+class AuthenticateCms
 {
     /**
      * @var UserRepository
@@ -35,7 +35,7 @@ class Authenticate
      */
     public function handle(Request $request, Closure $next, Guard $guard = null)
     {
-        if (Auth::guard($guard)->guest()) {
+        if (! Auth::check()) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             }
@@ -48,7 +48,7 @@ class Authenticate
         $user = Auth::user();
 
         if (! $user->verified) {
-            Flash::error(trans('cms.missing_required_role'));
+            Flash::error('Please visit your email to validate your account.');
 
             return redirect()->route('cms.sessions.create');
         }

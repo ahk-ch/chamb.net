@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Middleware\Ahk;
 
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\User\UserRepository;
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 /**
  * Class Authenticate.
  */
-class Authenticate
+class AuthenticateAhk
 {
     /**
      * @var UserRepository
@@ -35,20 +35,27 @@ class Authenticate
      */
     public function handle(Request $request, Closure $next, Guard $guard = null)
     {
-        if (Auth::guard($guard)->guest()) {
+        if (! Auth::check()) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
                 Flash::error(trans('ahk_messages.you_need_to_sign_in'));
 
-                return redirect()->guest(route('auth.sign_in'));
+                return redirect()->route('auth.sign_in');
             }
         }
 
-        if (! $this->userRepository->hasCompanyRepresentativeRole(Auth::user())) {
+        $user = Auth::user();
+
+        if (! $user->verified) {
+            Flash::error(trans('cms.missing_required_role'));
+
+            return redirect()->route('cms.sessions.create');
+        }
+        if (! $this->userRepository->hasCompanyRepresentativeRole($user)) {
             Flash::error(trans('ahk_messages.you_do_not_have_the_necessary_privileges'));
 
-            return redirect()->route('home_path');
+            return redirect()->route('auth.sign_in');
         }
 
         return $next($request);

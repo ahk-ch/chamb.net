@@ -26,14 +26,9 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase
 
         $app->make(Kernel::class)->bootstrap();
 
+//        File::put(storage_path().'/testing.sqlite', '');
+
         return $app;
-    }
-
-    public function setUp()
-    {
-        parent::setUp();
-
-        File::put(storage_path().'/testing.sqlite', '');
     }
 
     public function tearDown()

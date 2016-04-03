@@ -12,7 +12,6 @@ use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\Storage\FilesStorage;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Support\Str;
 use tests\TestCase;
 
 /**
@@ -104,7 +103,6 @@ class CompaniesTest extends TestCase
 
         $company = factory(Company::class)->create(['user_id' => $companyRepresentativeUser->id]);
         $expectedCompany = factory(Company::class)->make(['user_id' => $companyRepresentativeUser->id]);
-        $expectedSlug = $expectedCompany->slug;
 
         factory(Industry::class, 2)->create();
         factory(Country::class, 2)->create();
@@ -126,7 +124,6 @@ class CompaniesTest extends TestCase
             ->type($expectedCompany->description, 'description')
             ->attach(storage_path('app/testing/dummy_logo.png'), 'logo_path')
             ->press(trans('ahk.update'))
-            ->seePageIs(route('my.companies.edit', ['slug' => $expectedSlug]))
             ->see(trans('ahk_messages.company_successfully_updated'))
             ->dontSee($company->name)
             ->see($expectedCompany->name)

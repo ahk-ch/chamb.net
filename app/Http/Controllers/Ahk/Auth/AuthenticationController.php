@@ -30,7 +30,7 @@ class AuthenticationController extends Controller
      */
     public function __construct(UserRepository $userRepository)
     {
-        $this->middleware('guest', ['except' => 'destroy']);
+        $this->middleware('ahk.guest', ['except' => 'destroy']);
 
         $this->userRepository = $userRepository;
     }
@@ -50,15 +50,18 @@ class AuthenticationController extends Controller
      */
     public function postLogin(Requests\Ahk\SignInRequest $request)
     {
-        if ($this->userRepository->attemptToSignIn(
-            $request->only('email', 'password'), $request->has('remember_me'))
+        if ($this->userRepository->attemptToSignIn($request->only('email', 'password'), $request->has('remember_me'))
+            && $this->userRepository->hasCompanyRepresentativeRole(Auth::user())
         ) {
+
             Flash::success(trans('ahk_messages.successful_sign_in'));
 
             return redirect()->intended(route('home_path'));
         }
 
-        Flash::error(trans('ahk_messages.validation_error_occurred'));
+        Auth::logout();
+
+        Flash::error(trans('ahk_messages.you_do_not_have_the_necessary_privileges'));
 
         return redirect()->back();
     }

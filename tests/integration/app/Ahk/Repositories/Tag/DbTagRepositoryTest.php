@@ -80,4 +80,3 @@ class DbTagRepositoryTest extends TestCase
         $this->assertEquals($expectedData, $actualData);
     }
 }
-

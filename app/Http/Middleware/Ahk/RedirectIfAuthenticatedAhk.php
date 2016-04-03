@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Middleware\Ahk;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 /**
  * Class RedirectIfAuthenticated.
  */
-class RedirectIfAuthenticated
+class RedirectIfAuthenticatedAhk
 {
     /**
      * Handle an incoming request.

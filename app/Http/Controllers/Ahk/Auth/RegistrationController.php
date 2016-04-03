@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Ahk\Auth;
 use App\Ahk\Notifications\AppMailer;
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\User\UserRepository;
+use App\Http\Controllers\Ahk\BaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Http\Response;
@@ -32,7 +33,7 @@ class RegistrationController extends Controller
      */
     public function __construct(UserRepository $userRepository, AppMailer $appMailer)
     {
-        $this->middleware('guest');
+        $this->middleware('ahk.guest');
 
         $this->userRepository = $userRepository;
 

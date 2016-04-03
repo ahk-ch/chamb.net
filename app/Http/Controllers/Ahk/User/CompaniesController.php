@@ -13,6 +13,7 @@ use App\Ahk\Repositories\File\FileRepository;
 use App\Ahk\Repositories\Industry\IndustryRepository;
 use App\Ahk\Repositories\User\UserRepository;
 use App\Ahk\User;
+use App\Http\Controllers\Ahk\BaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\Ahk\UpdateCompanyRequest;
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 /**
  * Class CompaniesController.
  */
-class CompaniesController extends Controller
+class CompaniesController extends BaseController
 {
     /**
      * @var CompanyRepository
@@ -57,8 +58,6 @@ class CompaniesController extends Controller
                                 IndustryRepository $industryRepository, CountryRepository $countryRepository,
                                 FileRepository $fileRepository)
     {
-        $this->middleware('auth');
-
         $this->companyRepository = $companyRepository;
         $this->userRepository = $userRepository;
         $this->industryRepository = $industryRepository;

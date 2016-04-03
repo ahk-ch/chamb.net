@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 /**
  * Class RedirectIfAuthenticated.
  */
-class RedirectIfAuthenticated
+class RedirectIfAuthenticatedCms
 {
     /**
      * @var UserRepository

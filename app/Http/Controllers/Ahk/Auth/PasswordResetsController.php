@@ -50,7 +50,7 @@ class PasswordResetsController extends Controller
      */
     public function __construct(UserRepository $userRepository, AppMailer $mailer)
     {
-        $this->middleware('guest');
+        $this->middleware('ahk.guest');
 
         $this->userRepository = $userRepository;
         $this->mailer = $mailer;
