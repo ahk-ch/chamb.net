@@ -6,7 +6,7 @@
  */
 namespace tests\functional\cms\guest;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
 
 /**
@@ -14,7 +14,7 @@ use tests\TestCase;
  */
 class DashboardTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /** @test */
     public function it_denies_access()

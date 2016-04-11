@@ -1,7 +1,6 @@
 <?php
 
 use App\Ahk\Article;
-use database\DbTruncator;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -38,6 +37,12 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        DbTruncator::truncateByTable('articles');
+        Schema::table('articles', function (Blueprint $table) {
+            $table->dropForeign('articles_author_id_foreign');
+            $table->dropIndex('articles_author_id_index');
+            $table->removeColumn('author_id');
+        });
+
+        Schema::drop('articles');
     }
 }

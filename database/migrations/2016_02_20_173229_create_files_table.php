@@ -22,7 +22,6 @@ class CreateFilesTable extends Migration
             $table->text('description')->nullable();
             $table->timestamps();
 
-            // See https://laravel.com/docs/5.2/eloquent-relationships#polymorphic-relations
             $table->integer('fileable_id')->nullable();
             $table->string('fileable_type')->nullable();
         });

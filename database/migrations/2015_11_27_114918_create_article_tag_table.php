@@ -30,6 +30,12 @@ class CreateArticleTagTable extends Migration
      */
     public function down()
     {
-        DbTruncator::truncateByTable('article_tag');
+        Schema::table('article_tag', function (Blueprint $table) {
+            $table->dropForeign('article_tag_tag_id_foreign');
+            $table->dropIndex('article_tag_tag_id_index');
+            $table->removeColumn('tag_id');
+        });
+
+        Schema::drop('tags');
     }
 }
