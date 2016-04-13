@@ -69,7 +69,7 @@ return [
             'prefix'    => '',
             'strict'    => false,
         ],
-        
+
         'mysql_testing' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST_TEST', 'localhost'),

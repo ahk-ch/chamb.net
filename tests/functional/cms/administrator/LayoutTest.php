@@ -6,6 +6,7 @@
 namespace tests\functional\cms\administrator;
 
 use App\Ahk\Helpers\Utilities;
+use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
@@ -20,11 +21,9 @@ class LayoutTest extends TestCase
     /** @test */
     public function it_reads_sidebar()
     {
+        $dbUserRepository = new DbUserRepository();
         $administrator = factory(User::class)->create();
-
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $dbUserRepository->assignAdministratorRole($administrator);
 
         $this->actingAs($administrator)
             ->visit(route('cms.dashboard'))
@@ -44,11 +43,9 @@ class LayoutTest extends TestCase
     /** @test */
     public function it_reads_header()
     {
+        $dbUserRepository = new DbUserRepository();
         $administrator = factory(User::class)->create();
-
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $dbUserRepository->assignAdministratorRole($administrator);
 
         $this->actingAs($administrator)
             ->visit(route('cms.dashboard'))
@@ -64,15 +61,13 @@ class LayoutTest extends TestCase
     public function it_reads_footer()
     {
         $utilities = new Utilities();
+        $dbUserRepository = new DbUserRepository();
         $administrator = factory(User::class)->create();
-
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $dbUserRepository->assignAdministratorRole($administrator);
 
         $this->actingAs($administrator)
             ->visit(route('cms.dashboard'))
-            ->see('<strong>Copyright &copy; '.$utilities->autoCopyright('2015'))
+            ->see('<strong>Copyright © '.$utilities->autoCopyright('2015'))
             ->see('<a href="'.route('home_path').'">Chamb.Net</a>.</strong> '.trans('cms.all_rights_reserved'))
             ->see('<img src="'.$administrator->avatar_url.'" class="user-image" alt="User Image">')
             ->see('<span class="hidden-xs">'.$administrator->name or $administrator->username.'</span> </a>')

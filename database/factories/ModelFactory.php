@@ -36,7 +36,7 @@ $factory->defineAs(App\Ahk\User::class, 'with_primary_data', function (Faker\Gen
         'name'               => "$faker->firstName $faker->lastName",
         'email'              => $faker->unique()->email,
         'password'           => bcrypt(str_random(10)),
-        'verified'           => 0,
+        'verified'           => 1,
         User::RECOVERY_TOKEN => str_random(),
         'facebook_url'       => $faker->url,
         'twitter_url'        => $faker->url,

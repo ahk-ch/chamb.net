@@ -9,12 +9,11 @@ jQuery(document).ready(function () {
 			title: notification.level === 'error' ? 'Error.' : 'Info.',
 			text: notification.message,
 			type: notification.level,
-			animation: "slide",
-			animate_speed: "slow",
+			animate_speed: "fast",
 			hide: 'true',
 			shadow: 'true',
 			delay: 3000,
-			addclass: "stack-topleft"
+			addclass: "stack-modal"
 		});
 	}
 

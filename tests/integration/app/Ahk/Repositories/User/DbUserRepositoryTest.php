@@ -112,18 +112,13 @@ class DbUserRepositoryTest extends TestCase
         $hashedPassword = Hash::make('some-password');
 
         $dbUserRepository = new DbUserRepository();
-        $user = factory(User::class)->create(['password' => $hashedPassword]);
-
-        // User has not a company representative role; system should deny access
-        $this->assertFalse(
-            $dbUserRepository->attemptToSignIn(['email' => $user->email, 'password' => 'some-password']));
-        $this->assertFalse(Auth::check($user));
+        $user = factory(User::class)->create(['verified' => 0, 'password' => $hashedPassword]);
 
         // User is not verified; system should deny signing in.
         $dbUserRepository->assignCompanyRepresentativeRole($user);
         $this->assertFalse(
-            $dbUserRepository->attemptToSignIn(['email' => $user->email, 'password' => 'some-password']));
-        $this->assertFalse(Auth::check($user));
+            $user = $dbUserRepository->attemptToSignIn(['email' => $user->email, 'password' => 'some-password']));
+        $this->assertFalse($user);
 
         // System should allow user to sign in
         $user = factory(User::class)->create(['password' => $hashedPassword, 'verified' => 1]);

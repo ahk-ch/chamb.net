@@ -6,6 +6,7 @@
  */
 namespace tests\functional\cms\administrator;
 
+use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
@@ -20,15 +21,13 @@ class DashboardTest extends TestCase
     /** @test */
     public function it_reads_dashboard()
     {
+        $dbUserRepository = new DbUserRepository();
         $administrator = factory(User::class)->create();
-
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $dbUserRepository->assignAdministratorRole($administrator);
 
         $this->actingAs($administrator)
             ->visit(route('cms.dashboard'))
             ->seePageIs(route('cms.dashboard'))
-            ->see('Blank');
+            ->see('<title>Dashboard | CmsChamb</title>');
     }
 }

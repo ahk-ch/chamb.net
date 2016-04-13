@@ -3,86 +3,86 @@
 // ################ chamb.net ####################
 
 // Pages
-Route::get('/', ['as' => 'home_path', 'uses' => 'Ahk\HomeController@home']);
-Route::get('about-us', ['as' => 'about_path', 'uses' => 'Ahk\HomeController@about']);
-Route::get('lang/{lang}', ['as' => 'set_language', 'uses' => 'Ahk\SettingsController@setLocale']);
+$this->get('/', ['as' => 'home_path', 'uses' => 'Ahk\HomeController@home']);
+$this->get('about-us', ['as' => 'about_path', 'uses' => 'Ahk\HomeController@about']);
+$this->get('lang/{lang}', ['as' => 'set_language', 'uses' => 'Ahk\SettingsController@setLocale']);
 
-Route::group(['prefix' => 'my'], function () {
-    Route::resource('companies', 'Ahk\User\CompaniesController',
+$this->group(['prefix' => 'my'], function () {
+    $this->resource('companies', 'Ahk\User\CompaniesController',
         ['except' => ['destroy'], 'parameters' => ['companies' => 'company_slug']]);
 
-    Route::get('profile', ['as' => 'my.profile', 'uses' => 'Ahk\HealthController@news']);
+    $this->get('profile', ['as' => 'my.profile', 'uses' => 'Ahk\HealthController@news']);
 });
 
-Route::group(['prefix' => 'industries/{industry_slug}'], function () {
-    Route::get('info', ['as' => 'industries.info', 'uses' => 'Ahk\IndustriesController@info']);
-    Route::get('news', ['as' => 'industries.articles.index', 'uses' => 'Ahk\IndustriesController@indexArticles']);
-    Route::get('news/{article_slug}', ['as' => 'industries.articles.show', 'uses' => 'Ahk\IndustriesController@showArticle']);
-    Route::get('work-groups', ['as' => 'industries.work_groups.index', 'uses' => 'Ahk\IndustriesController@indexWorkGroup']);
-    Route::get('work-groups/{work_group_slug}', ['as' => 'industries.work_groups.show', 'uses' => 'Ahk\IndustriesController@showWorkGroup']);
-    Route::get('events', ['as' => 'industries.events', 'uses' => 'Ahk\WorkingGroupsController@index']);
-    Route::get('links', ['as' => 'industries.links', 'uses' => 'Ahk\WorkingGroupsController@index']);
-    Route::get('downloads', ['as' => 'industries.downloads', 'uses' => 'Ahk\IndustriesController@index']);
-    Route::get('companies', ['as' => 'industries.companies.index', 'uses' => 'Ahk\IndustriesController@indexCompanies']);
-    Route::get('companies/{company_slug}', ['as' => 'industries.companies.show', 'uses' => 'Ahk\IndustriesController@showCompany']);
+$this->group(['prefix' => 'industries/{industry_slug}'], function () {
+    $this->get('info', ['as' => 'industries.info', 'uses' => 'Ahk\IndustriesController@info']);
+    $this->get('news', ['as' => 'industries.articles.index', 'uses' => 'Ahk\IndustriesController@indexArticles']);
+    $this->get('news/{article_slug}', ['as' => 'industries.articles.show', 'uses' => 'Ahk\IndustriesController@showArticle']);
+    $this->get('work-groups', ['as' => 'industries.work_groups.index', 'uses' => 'Ahk\IndustriesController@indexWorkGroup']);
+    $this->get('work-groups/{work_group_slug}', ['as' => 'industries.work_groups.show', 'uses' => 'Ahk\IndustriesController@showWorkGroup']);
+    $this->get('events', ['as' => 'industries.events', 'uses' => 'Ahk\WorkingGroupsController@index']);
+    $this->get('links', ['as' => 'industries.links', 'uses' => 'Ahk\WorkingGroupsController@index']);
+    $this->get('downloads', ['as' => 'industries.downloads', 'uses' => 'Ahk\IndustriesController@index']);
+    $this->get('companies', ['as' => 'industries.companies.index', 'uses' => 'Ahk\IndustriesController@indexCompanies']);
+    $this->get('companies/{company_slug}', ['as' => 'industries.companies.show', 'uses' => 'Ahk\IndustriesController@showCompany']);
 });
 
-Route::group(['prefix' => 'files'], function () {
-    Route::get('render', ['as' => 'files.render', 'uses' => 'FilesController@render']);
-    Route::get('download', ['as' => 'files.download', 'uses' => 'FilesController@download']);
+$this->group(['prefix' => 'files'], function () {
+    $this->get('render', ['as' => 'files.render', 'uses' => 'FilesController@render']);
+    $this->get('download', ['as' => 'files.download', 'uses' => 'FilesController@download']);
 });
 
 // Working Groups
 
-Route::get('terms-of-use', ['as' => 'terms_of_use_path', 'uses' => 'Ahk\HomeController@termsOfUse']);
+$this->get('terms-of-use', ['as' => 'terms_of_use_path', 'uses' => 'Ahk\HomeController@termsOfUse']);
 
 // Authentication
-Route::group(['prefix' => 'auth'], function () {
-    Route::get('sign-in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@getLogin']);
-    Route::post('sign-in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@postLogin']);
-    Route::get('reset', ['as' => 'auth.reset', 'uses' => 'Ahk\Auth\PasswordResetsController@getReset']);
-    Route::delete('logout', ['as' => 'auth.destroy', 'uses' => 'Ahk\Auth\AuthenticationController@destroy']);
-    Route::get('register', ['as' => 'auth.register', 'uses' => 'Ahk\Auth\RegistrationController@getRegistration']);
-    Route::post('register', ['as' => 'auth.register', 'uses' => 'Ahk\Auth\RegistrationController@postRegistration']);
-    Route::get('register/confirm', ['as' => 'auth.register.confirm', 'uses' => 'Ahk\Auth\RegistrationController@confirmEmail']);
+$this->group(['prefix' => 'auth'], function () {
+    $this->get('sign-in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@getLogin']);
+    $this->post('sign-in', ['as' => 'auth.sign_in', 'uses' => 'Ahk\Auth\AuthenticationController@postLogin']);
+    $this->get('reset', ['as' => 'auth.reset', 'uses' => 'Ahk\Auth\PasswordResetsController@getReset']);
+    $this->delete('logout', ['as' => 'auth.destroy', 'uses' => 'Ahk\Auth\AuthenticationController@destroy']);
+    $this->get('register', ['as' => 'auth.register', 'uses' => 'Ahk\Auth\RegistrationController@getRegistration']);
+    $this->post('register', ['as' => 'auth.register', 'uses' => 'Ahk\Auth\RegistrationController@postRegistration']);
+    $this->get('register/confirm', ['as' => 'auth.register.confirm', 'uses' => 'Ahk\Auth\RegistrationController@confirmEmail']);
 
-    Route::group(['prefix' => 'recover'], function () {
-        Route::get('/', ['as' => 'auth.recover.get', 'uses' => 'Ahk\Auth\PasswordResetsController@getEmail']);
-        Route::post('/', ['as' => 'auth.recover.post', 'uses' => 'Ahk\Auth\PasswordResetsController@postEmail']);
-        Route::get('/reset/{slug}/{recovery_token}', ['as' => 'auth.recover.reset', 'uses' => 'Ahk\Auth\PasswordResetsController@getReset']);
-        Route::post('/reset/{slug}/{recovery_token}', ['as' => 'auth.recover.reset', 'uses' => 'Ahk\Auth\PasswordResetsController@postReset']);
+    $this->group(['prefix' => 'recover'], function () {
+        $this->get('/', ['as' => 'auth.recover.get', 'uses' => 'Ahk\Auth\PasswordResetsController@getEmail']);
+        $this->post('/', ['as' => 'auth.recover.post', 'uses' => 'Ahk\Auth\PasswordResetsController@postEmail']);
+        $this->get('/reset/{slug}/{recovery_token}', ['as' => 'auth.recover.reset', 'uses' => 'Ahk\Auth\PasswordResetsController@getReset']);
+        $this->post('/reset/{slug}/{recovery_token}', ['as' => 'auth.recover.reset', 'uses' => 'Ahk\Auth\PasswordResetsController@postReset']);
     });
 });
 
 // ############### chamb.net/cms ####################
 
-Route::group(['prefix' => 'cms'], function () {
-    Route::get('', ['as' => 'cms.dashboard', 'uses' => 'Cms\DashboardController@dashboard']);
+$this->group(['prefix' => 'cms'], function () {
+    $this->get('', ['as' => 'cms.dashboard', 'uses' => 'Cms\DashboardController@dashboard']);
 
-    Route::get('dashboard', ['as' => 'cms.dashboard', 'uses' => 'Cms\DashboardController@dashboard']);
-    Route::group(['prefix' => 'users'], function () {
-        Route::get('subscribers', ['as' => 'cms.users.subscribers', 'uses' => 'Cms\UsersController@subscribers']);
-        Route::get('administrators', ['as' => 'cms.users.administrators', 'uses' => 'Cms\UsersController@administrators']);
+    $this->get('dashboard', ['as' => 'cms.dashboard', 'uses' => 'Cms\DashboardController@dashboard']);
+    $this->group(['prefix' => 'users'], function () {
+        $this->get('subscribers', ['as' => 'cms.users.subscribers', 'uses' => 'Cms\UsersController@subscribers']);
+        $this->get('administrators', ['as' => 'cms.users.administrators', 'uses' => 'Cms\UsersController@administrators']);
     });
 
     // Companies
-    Route::resource('companies', 'Cms\CompaniesController', ['only' => ['index']]);
+    $this->resource('companies', 'Cms\CompaniesController', ['only' => ['index']]);
 
     // Articles
-    Route::group(['prefix' => 'articles'], function () {
-        Route::get('published', ['as' => 'cms.articles.published', 'uses' => 'Cms\ArticlesController@published']);
-        Route::get('unpublished', ['as' => 'cms.articles.unpublished', 'uses' => 'Cms\ArticlesController@unpublished']);
-        Route::resource('categories', 'Cms\CategoriesController', ['except' => ['show', 'destroy']]);
-        Route::resource('tags', 'Cms\TagsController', ['except' => ['show', 'destroy']]);
+    $this->group(['prefix' => 'articles'], function () {
+        $this->get('published', ['as' => 'cms.articles.published', 'uses' => 'Cms\ArticlesController@published']);
+        $this->get('unpublished', ['as' => 'cms.articles.unpublished', 'uses' => 'Cms\ArticlesController@unpublished']);
+        $this->resource('categories', 'Cms\CategoriesController', ['except' => ['show', 'destroy']]);
+        $this->resource('tags', 'Cms\TagsController', ['except' => ['show', 'destroy']]);
     });
-    Route::resource('articles', 'Cms\ArticlesController', ['except' => ['index', 'show', 'destroy']]);
+    $this->resource('articles', 'Cms\ArticlesController', ['except' => ['index', 'show', 'destroy']]);
 
     // Users
-    Route::get('users', ['as' => 'cms.users', 'uses' => 'Cms\DashboardController@dashboard']);
+    $this->get('users', ['as' => 'cms.users', 'uses' => 'Cms\DashboardController@dashboard']);
 
     //j Authentication
-    Route::get('auth/sign-in', ['as' => 'cms.sessions.create', 'uses' => 'Cms\SessionsController@create']);
-    Route::post('auth/sign-in', ['as' => 'cms.sessions.store', 'uses' => 'Cms\SessionsController@store']);
-    Route::delete('auth/logout', ['as' => 'cms.sessions.destroy', 'uses' => 'Cms\SessionsController@destroy']);
-    Route::get('lang/{lang}', ['as' => 'cms.set_language', 'uses' => 'Cms\SettingsController@setLocale']);
+    $this->get('auth/sign-in', ['as' => 'cms.sessions.create', 'uses' => 'Cms\SessionsController@create']);
+    $this->post('auth/sign-in', ['as' => 'cms.sessions.store', 'uses' => 'Cms\SessionsController@store']);
+    $this->delete('auth/logout', ['as' => 'cms.sessions.destroy', 'uses' => 'Cms\SessionsController@destroy']);
+    $this->get('lang/{lang}', ['as' => 'cms.set_language', 'uses' => 'Cms\SettingsController@setLocale']);
 });
