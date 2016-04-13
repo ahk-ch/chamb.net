@@ -12,7 +12,7 @@ use App\Ahk\Industry;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\Event\DbEventRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
 
 /**
@@ -20,7 +20,7 @@ use tests\TestCase;
  */
 class DbEventRepositoryTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /** @test */
     public function it_returns_all_events()

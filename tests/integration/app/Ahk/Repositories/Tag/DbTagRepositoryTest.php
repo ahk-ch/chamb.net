@@ -9,7 +9,7 @@ namespace tests\integration\app\Ahk\Repositories\Tag;
 use App\Ahk\Repositories\Tag\DbTagRepository;
 use App\Ahk\Tag;
 use App\Ahk\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
 
 /**
@@ -17,7 +17,7 @@ use tests\TestCase;
  */
 class DbTagRepositoryTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /** @test */
     public function it_returns_all_tags()

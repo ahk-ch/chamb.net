@@ -7,7 +7,7 @@ namespace tests\functional\ahk\any\Industry;
 
 use App\Ahk\Company;
 use App\Ahk\Industry;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
 
 /**
@@ -15,7 +15,7 @@ use tests\TestCase;
  */
 class CommunityTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /** @test */
     public function test_it_reads_companies_index()

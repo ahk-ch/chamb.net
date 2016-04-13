@@ -13,7 +13,7 @@ matrix:
 
 before_script:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS chamb_testing;'
-  - php artisan migrate -n
+  - php artisan migrate -n --database mysql_testing
 
 before_install:
   - composer self-update

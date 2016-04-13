@@ -12,7 +12,7 @@ use App\Ahk\Industry;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\Decision\DbDecisionRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
 
 /**
@@ -20,7 +20,7 @@ use tests\TestCase;
  */
 class DbDecisionRepositoryTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /** @test */
     public function it_assigns_file_to_decision()

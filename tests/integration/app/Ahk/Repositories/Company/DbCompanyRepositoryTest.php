@@ -16,7 +16,7 @@ use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
 
 /**
@@ -24,7 +24,7 @@ use tests\TestCase;
  */
 class DbCompanyRepositoryTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /**
      * @var

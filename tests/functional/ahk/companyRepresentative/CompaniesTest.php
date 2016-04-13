@@ -11,7 +11,7 @@ use App\Ahk\Industry;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\Storage\FilesStorage;
 use App\Ahk\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
 
 /**
@@ -19,7 +19,7 @@ use tests\TestCase;
  */
 class CompaniesTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /** @test */
     public function it_reads_owned_companies_index()

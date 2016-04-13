@@ -9,7 +9,7 @@ namespace tests\integration\app\Ahk\Repositories\File;
 use App\Ahk\File;
 use App\Ahk\Repositories\File\DbFileRepository;
 use App\Ahk\Storage\FilesStorage;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Storage;
 use tests\TestCase;
 
@@ -18,7 +18,7 @@ use tests\TestCase;
  */
 class DbFileRepositoryTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /** @test */
     public function it_creates_new_file()

@@ -36,6 +36,6 @@ class CreateArticleTagTable extends Migration
             $table->removeColumn('tag_id');
         });
 
-        Schema::drop('tags');
+        Schema::drop('article_tag');
     }
 }

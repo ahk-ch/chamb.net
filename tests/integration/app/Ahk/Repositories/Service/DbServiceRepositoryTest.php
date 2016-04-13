@@ -8,7 +8,7 @@ namespace tests\integration\app\Ahk\Repositories\Service;
 
 use App\Ahk\Repositories\Service\DbServiceRepository;
 use App\Ahk\Service;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
 
 /**
@@ -16,7 +16,7 @@ use tests\TestCase;
  */
 class DbServiceRepositoryTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /** @test */
     public function it_returns_services()

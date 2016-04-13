@@ -24,7 +24,8 @@
 - [Git][git_path] | Git is a widely used version control system for software development.
 
 ## Testing
-- Create database with name: chamb_testing. This is the database the phpunit will try to use.
+- Input testing credentials as found on .env.example
+- Run: `php artisan migrate:refresh --database mysql_testing`
 
 ### Add credentials
 - Create environment variables using the .env.example. 

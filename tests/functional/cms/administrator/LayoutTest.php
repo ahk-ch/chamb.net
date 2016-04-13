@@ -7,7 +7,6 @@ namespace tests\functional\cms\administrator;
 
 use App\Ahk\Helpers\Utilities;
 use App\Ahk\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
 

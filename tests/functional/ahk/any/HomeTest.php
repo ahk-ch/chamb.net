@@ -6,7 +6,7 @@
  */
 namespace tests\functional\ahk\any;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
 
 /**
@@ -14,7 +14,7 @@ use tests\TestCase;
  */
 class HomeTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /** @test */
     public function test_it_reads_contents()

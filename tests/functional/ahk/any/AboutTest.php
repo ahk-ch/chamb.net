@@ -6,7 +6,7 @@
  */
 namespace tests\functional\ahk\any;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
 
 /**
@@ -14,7 +14,7 @@ use tests\TestCase;
  */
 class AboutTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /**
      * A basic functional test example.

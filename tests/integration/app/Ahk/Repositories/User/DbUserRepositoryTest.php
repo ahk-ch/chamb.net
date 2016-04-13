@@ -11,7 +11,7 @@ use App\Ahk\Industry;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use tests\TestCase;
@@ -21,7 +21,7 @@ use tests\TestCase;
  */
 class DbUserRepositoryTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /** @test */
     public function it_assigns_company_representative_role()

@@ -13,7 +13,7 @@ use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\User;
 use App\Ahk\Workgroup;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
 
 /**
@@ -21,7 +21,7 @@ use tests\TestCase;
  */
 class DbIndustryRepositoryTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /** @test */
     public function it_returns_all_industries()

@@ -12,7 +12,7 @@ use App\Ahk\Industry;
 use App\Ahk\Repositories\Article\DbArticleRepository;
 use App\Ahk\Tag;
 use App\Ahk\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
 
 /**
@@ -20,7 +20,7 @@ use tests\TestCase;
  */
 class DbArticleRepositoryTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /** @test */
     public function it_returns_all_articles()
