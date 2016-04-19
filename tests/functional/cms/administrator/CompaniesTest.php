@@ -31,7 +31,7 @@ class CompaniesTest extends TestCase
             ->see(trans('cms.missing_required_role'));
 
         $dbUserRepository->assignAdministratorRole($administrator);
-//
+
         $this->actingAs($administrator)
             ->visit(route('cms.companies.index'))
             ->seePageIs(route('cms.companies.index'))
@@ -42,9 +42,27 @@ class CompaniesTest extends TestCase
             ->see('<th>'.trans('cms.name_of_contact_partner').'</th>')
             ->see($companies->get(0)->name)
             ->see(route('files.render', ['path' => $companies->get(0)->logo->path]))
-            ->see($companies->get(0)->name_of_contact_partner)
+            ->see($companies->get(0)->business_leader)
             ->see($companies->get(1)->name)
             ->see(route('files.render', ['path' => $companies->get(1)->logo->path]))
-            ->see($companies->get(1)->name_of_contact_partner);
+            ->see($companies->get(1)->business_leader);
+    }
+
+    /** @test */
+    public function it_access_company_edit_page()
+    {
+        $dbUserRepository = new DbUserRepository();
+        $administrator = factory(User::class)->create(['verified' => true]);
+        $dbUserRepository->assignAdministratorRole($administrator);
+        $company = factory(Company::class)->create();
+
+        $this->actingAs($administrator)
+            ->visit(route('cms.companies.edit', $company))
+            ->seePageIs(route('cms.companies.edit', $company));
+
+        $this->actingAs($administrator)
+            ->visit(route('cms.companies.index'))
+            ->click(route('cms.companies.edit', $company))
+            ->seePageIs(route('cms.companies.edit', $company->slug));
     }
 }

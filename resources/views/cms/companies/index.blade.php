@@ -8,16 +8,28 @@
         <div class="box-body">
             <table class="table table-bordered">
                 <tr>
+                    <th>{!! trans('cms.actions') !!}</th>
                     <th>{!! trans('cms.name') !!}</th>
-                    <th>{!! trans('cms.logo') !!}</th>
                     <th>{!! trans('cms.name_of_contact_partner') !!}</th>
+                    <th>{!! trans('cms.logo') !!}</th>
                 </tr>
                 @foreach($companies as $company)
                     <tr>
-                        <td>{{ $company->name }}</td>
-                        <td><img src="{!! route('files.render', ['path' => $company->logo->path]) !!}" height="30"
-                                 alt="Company Logo"/></td>
-                        <td>{{ $company->name_of_contact_partner }}</td>
+                        <td class="col-md-1">
+                            <a href="{!! route('cms.companies.edit', $company) !!}"
+                               class="btn bg-purple btn-flat btn-sm btn-block">
+                                {!! trans('cms.edit') !!}
+                            </a>
+                        </td>
+                        <td class="col-md-6">
+                            {{ $company->name }}</td>
+                        <td class="col-md-4">
+                            {{ $company->business_leader }}
+                        </td>
+                        <td class="col-md-1">
+                            <img src="{!! route('files.render', ['path' => $company->logo->path]) !!}" height="30"
+                                 alt="Company Logo"/>
+                        </td>
                     </tr>
                 @endforeach
 

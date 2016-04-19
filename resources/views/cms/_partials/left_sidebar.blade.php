@@ -9,7 +9,7 @@
                     <li><a href="#"><i class="fa fa-circle-o"></i> Demo</a></li>
                 </ul>
             </li>
-            <li class="treeview @activate(['cms.users.subscribers', 'cms.users.administrators'])">
+            <li class="treeview {!! active_class(Active::checkRoute(['cms.users.subscribers', 'cms.users.administrators'])) !!}">
                 <a href="#"> <i class="fa fa-users"></i> <span>{!! trans('cms.users') !!}</span>
                     <i class="fa fa-angle-left pull-right"></i> </a>
                 <ul class="treeview-menu">
@@ -63,8 +63,10 @@
             </li>
 
             <li class="treeview {!$utilities->activate(['cms.companies.index']) !!}">
-                <a href="{!! route('cms.companies.index') !!}"> <i class="fa fa-building"></i> <span>{!! trans('cms.companies') !!}</span>
-                    </a>
+            <li class="treeview {!! active_class(Active::checkRoute(['cms.companies.index', 'cms.companies.create', 'cms.companies.edit',])) !!}">
+                <a href="{!! route('cms.companies.index') !!}"> <i class="fa fa-building"></i>
+                    <span>{!! trans('cms.companies') !!}</span>
+                </a>
             </li>
         </ul>
     </section>

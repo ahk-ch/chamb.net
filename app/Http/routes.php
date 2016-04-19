@@ -57,7 +57,6 @@ $this->group(['prefix' => 'auth'], function () {
 // ############### chamb.net/cms ####################
 
 $this->group(['prefix' => 'cms'], function () {
-    $this->get('', ['as' => 'cms.dashboard', 'uses' => 'Cms\DashboardController@dashboard']);
 
     $this->get('dashboard', ['as' => 'cms.dashboard', 'uses' => 'Cms\DashboardController@dashboard']);
     $this->group(['prefix' => 'users'], function () {
@@ -66,7 +65,7 @@ $this->group(['prefix' => 'cms'], function () {
     });
 
     // Companies
-    $this->resource('companies', 'Cms\CompaniesController', ['only' => ['index']]);
+    $this->resource('companies', 'Cms\CompaniesController', ['only' => ['index', 'edit']]);
 
     // Articles
     $this->group(['prefix' => 'articles'], function () {
