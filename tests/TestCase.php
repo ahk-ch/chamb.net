@@ -3,7 +3,7 @@
 namespace tests;
 
 use Illuminate\Contracts\Console\Kernel;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
 
 class TestCase extends \Illuminate\Foundation\Testing\TestCase
@@ -15,6 +15,12 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase
      */
     protected $baseUrl = 'http://localhost';
 
+    public function __construct($name = null, array $data = [], $dataName = '')
+    {
+        parent::__construct($name, $data, $dataName);
+
+    }
+
     /**
      * Creates the application.
      *
@@ -25,8 +31,6 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase
         $app = require __DIR__.'/../bootstrap/app.php';
 
         $app->make(Kernel::class)->bootstrap();
-
-//        File::put(storage_path().'/testing.sqlite', '');
 
         return $app;
     }
