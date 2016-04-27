@@ -9,6 +9,7 @@ use App\Ahk\Article;
 use App\Ahk\Company;
 use App\Ahk\Repositories\Article\DbArticleRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
+use App\Ahk\Tag;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
@@ -29,6 +30,9 @@ class ArticlesTest extends TestCase
 
         $dbArticleRepository = new DbArticleRepository();
         $articles = factory(Article::class, 2)->create(['publish' => true]);
+        $tags = factory(Tag::class, 6)->create();
+        $dbArticleRepository->assignTags($articles->get(0), [$tags->get(0)->id, $tags->get(1)->id]);
+        $dbArticleRepository->assignTags($articles->get(1), [$tags->get(2)->id, $tags->get(3)->id]);
         $unPublishedArticle = factory(Article::class)->create(['publish' => false]);
 
         $this->actingAs($administrator)
@@ -48,7 +52,10 @@ class ArticlesTest extends TestCase
             ->see('<td>' . $articles->get(1)->industry->name . '</td>')
             ->dontSee('<td>' . $unPublishedArticle->industry->name . '</td>')
             ->see('<th>Tags</th>')
-            // tags
+            ->see($tags->get(0)->name)->see($tags->get(1)->name)
+            ->see($tags->get(2)->name)->see($tags->get(3)->name)
+            ->dontSee($tags->get(4)->name)
+            ->dontSee($tags->get(5)->name)
             ->see('<th>Author</th>')
             ->see('<td>' . $articles->get(0)->author->name . '</td>')
             ->see('<td>' . $articles->get(1)->author->name . '</td>')

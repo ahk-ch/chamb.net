@@ -110,5 +110,5 @@ interface ArticleRepository
      * @param $tagIds
      * @return mixed
      */
-    public function assignTags(Article $article, $tagIds);
+    public function assignTags(Article $article, array $tagIds);
 }
