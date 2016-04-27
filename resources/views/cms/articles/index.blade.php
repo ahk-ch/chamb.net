@@ -13,8 +13,8 @@
             <table class="table table-bordered">
                 <tr>
                     <th>Actions</th>
-                    <th>title</th>
-                    <th>Category</th>
+                    <th>Title</th>
+                    <th>Industry</th>
                     <th>Tags</th>
                     <th>Author</th>
                     <th>Created at / Updated at</th>
@@ -22,18 +22,18 @@
                 @foreach($articles as $article)
                     <tr>
                         <td>
-                            <a href="{!! route('cms.articles.edit', $article) !!}" class="btn bg-purple btn-flat btn-sm btn-block">
-                                {!! trans('cms.edit') !!}
+                            <a href="{!! route('cms.articles.edit', $article) !!}"
+                               class="btn bg-purple btn-flat btn-sm btn-block">{!! trans('cms.edit') !!}
                             </a>
                         </td>
                         <td>{!! $article->title !!}</td>
-                        <td>{!! $article->category->name !!}</td>
+                        <td>{!! $article->industry->name !!}</td>
                         <td>
                             @foreach($article->tags as $tag)
                                 {!! $tag->name !!}
                             @endforeach
                         </td>
-                        <td>{!! $article->author->name or $article->author->username !!}</td>
+                        <td>{!! $article->author->name !!}</td>
                         <td>{!! $article->created_at !!} / {!! $article->updated_at !!}</td>
                     </tr>
                 @endforeach

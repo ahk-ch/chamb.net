@@ -34,7 +34,7 @@ class Article extends Model implements SluggableInterface
      */
     protected $sluggable = [
         'build_from' => self::TITLE,
-        'save_to'    => self::SLUG,
+        'save_to' => self::SLUG,
     ];
 
     /**
@@ -54,7 +54,7 @@ class Article extends Model implements SluggableInterface
      */
     public function tags()
     {
-        return $this->belongsToMany('App\Ahk\Tag')->withTimestamps();
+        return $this->belongsToMany(Tag::class)->withTimestamps();
     }
 
     /**
@@ -70,7 +70,7 @@ class Article extends Model implements SluggableInterface
      */
     public function author()
     {
-        return $this->belongsTo('App\Ahk\User');
+        return $this->belongsTo(User::class);
     }
 
     /**
@@ -86,7 +86,7 @@ class Article extends Model implements SluggableInterface
      */
     public function industry()
     {
-        return $this->belongsTo('App\Ahk\Industry');
+        return $this->belongsTo(Industry::class);
     }
 
     /**
@@ -98,7 +98,7 @@ class Article extends Model implements SluggableInterface
     }
 
     /**
-     * Get the industry this article belongs to.
+     * Get the thumbnail this article belongs to.
      */
     public function thumbnail()
     {
