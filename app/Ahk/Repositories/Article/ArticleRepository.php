@@ -35,7 +35,7 @@ interface ArticleRepository
      * Update an article given by its id.
      *
      * @param          $articleId
-     * @param array    $fillable
+     * @param array $fillable
      * @param Industry $industry
      *
      * @return mixed
@@ -102,4 +102,13 @@ interface ArticleRepository
      * @return mixed
      */
     public function mostViewedByIndustry($industry, $max = 10);
+
+    /**
+     * Assign tags to the given article.
+     *
+     * @param Article $article
+     * @param $tagIds
+     * @return mixed
+     */
+    public function assignTags(Article $article, $tagIds);
 }

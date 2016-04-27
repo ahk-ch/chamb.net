@@ -63,7 +63,7 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
      * Update an article given it's id.
      *
      * @param          $articleId
-     * @param array    $fillable
+     * @param array $fillable
      * @param Industry $industry
      *
      * @return mixed
@@ -123,10 +123,10 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
      * Paginate published articles of an industry.
      *
      * @param Industry $industry
-     * @param int      $perPage
-     * @param array    $columns
-     * @param string   $pageName
-     * @param null     $page
+     * @param int $perPage
+     * @param array $columns
+     * @param string $pageName
+     * @param null $page
      *
      * @return mixed
      */
@@ -174,5 +174,19 @@ class DbArticleRepository extends DbRepository implements ArticleRepository
             ->where('industry_id', $industry->id)
             ->orderBy('view_count', 'desc')
             ->take($max);
+    }
+
+    /**
+     * Assign tags to the given article.
+     *
+     * @param Article $article
+     * @param $tagIds
+     * @return mixed
+     */
+    public function assignTags(Article $article, $tagIds)
+    {
+        $article->tags()->sync($tagIds);
+
+        return $article->save() ? $article : false;
     }
 }

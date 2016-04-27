@@ -92,6 +92,8 @@ $factory->defineAs(App\Ahk\Article::class, 'without_relations', function (Faker\
     $content .= '<p>';
     $content .= $faker->paragraphs(3, true);
     $content .= '</p>';
+    $createdAt = $faker->dateTimeBetween();
+    $updatedAt = $faker->dateTimeBetween($createdAt);
 
     return [
         'title' => $faker->sentence,
@@ -100,6 +102,8 @@ $factory->defineAs(App\Ahk\Article::class, 'without_relations', function (Faker\
         'description' => $faker->paragraph,
         'content' => $content,
         'view_count' => $faker->numberBetween(),
+        'created_at' => $createdAt,
+        'updated_at' => $updatedAt
     ];
 
 });

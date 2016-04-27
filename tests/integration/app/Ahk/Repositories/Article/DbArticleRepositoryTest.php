@@ -119,9 +119,9 @@ class DbArticleRepositoryTest extends TestCase
         $this->notSeeInDatabase('articles', $expectedData);
 
         $actualArticle = $dbArticleRepository->store(array_merge($expectedData, [
-            'author_id'    => $expectedAuthor->id,
+            'author_id' => $expectedAuthor->id,
             'thumbnail_id' => $expectedFile->id,
-            'industry_id'  => $expectedIndustry->id,
+            'industry_id' => $expectedIndustry->id,
         ]));
 
         $this->seeInDatabase('articles', $expectedData);
@@ -261,5 +261,25 @@ class DbArticleRepositoryTest extends TestCase
         $this->assertNotSame(
             array_only($expectedPublishedArticles->get(1)->toArray(), $keys),
             array_only($actualPublishedArticles->get(1)->toArray(), $keys));
+    }
+
+    /** @test */
+    public function it_assigns_tags_to_an_article()
+    {
+        $dbArticleRepository = new DbArticleRepository();
+        $tags = factory(Tag::class, 2)->create();
+        $article = factory(Article::class)->create();
+        $expectedFirstTag = ['article_id' => $article->id, 'tag_id' => $tags->get(0)->id];
+        $expectedSecondTag = ['article_id' => $article->id, 'tag_id' => $tags->get(1)->id];
+
+        $this->dontSeeInDatabase('article_tag', $expectedFirstTag);
+        $this->dontSeeInDatabase('article_tag', $expectedSecondTag);
+
+        $this->assertNotFalse(
+            $dbArticleRepository->assignTags($article, [$tags->get(0)->id, $tags->get(1)->id])
+        );
+
+        $this->seeInDatabase('article_tag', $expectedFirstTag);
+        $this->seeInDatabase('article_tag', $expectedSecondTag);
     }
 }

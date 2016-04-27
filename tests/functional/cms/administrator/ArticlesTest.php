@@ -7,6 +7,7 @@ namespace tests\functional\cms\administrator;
 
 use App\Ahk\Article;
 use App\Ahk\Company;
+use App\Ahk\Repositories\Article\DbArticleRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -26,7 +27,9 @@ class ArticlesTest extends TestCase
         $administrator = factory(User::class)->create(['verified' => true]);
         $dbUserRepository->assignAdministratorRole($administrator);
 
-        $articles = factory(Article::class, 2)->create();
+        $dbArticleRepository = new DbArticleRepository();
+        $articles = factory(Article::class, 2)->create(['publish' => true]);
+        $unPublishedArticle = factory(Article::class)->create(['publish' => false]);
 
         $this->actingAs($administrator)
             ->visit(route('cms.articles.published'))
@@ -35,19 +38,27 @@ class ArticlesTest extends TestCase
             ->see('<th>Actions</th>')
             ->see(route('cms.articles.edit', $articles->get(0)))
             ->see(route('cms.articles.edit', $articles->get(1)))
+            ->dontSee(route('cms.articles.edit', $unPublishedArticle))
             ->see('<th>Title</th>')
             ->see('<td>' . $articles->get(0)->title . '</td>')
             ->see('<td>' . $articles->get(1)->title . '</td>')
+            ->dontSee('<td>' . $unPublishedArticle->title . '</td>')
             ->see('<th>Industry</th>')
             ->see('<td>' . $articles->get(0)->industry->name . '</td>')
             ->see('<td>' . $articles->get(1)->industry->name . '</td>')
+            ->dontSee('<td>' . $unPublishedArticle->industry->name . '</td>')
             ->see('<th>Tags</th>')
             // tags
             ->see('<th>Author</th>')
+            ->see('<td>' . $articles->get(0)->author->name . '</td>')
+            ->see('<td>' . $articles->get(1)->author->name . '</td>')
+            ->dontSee('<td>' . $unPublishedArticle->author->name . '</td>')
             ->see('<th>Created at / Updated at</th>')
-            ->see($articles->get(0)->name)
-            ->see($articles->get(0)->name_of_contact_partner)
-            ->see($articles->get(1)->name)
-            ->see($articles->get(1)->name_of_contact_partner);
+            ->see($articles->get(0)->created_at)
+            ->see($articles->get(0)->updated_at)
+            ->see($articles->get(1)->created_at)
+            ->see($articles->get(1)->updated_at)
+            ->dontSee($unPublishedArticle->created_at)
+            ->dontSee($unPublishedArticle->updated_at);
     }
 }
