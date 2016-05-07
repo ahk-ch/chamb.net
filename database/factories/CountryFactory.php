@@ -14,6 +14,13 @@
 
 use App\Ahk\Country;
 
+$factory->define(Country::class, function (Faker\Generator $faker) {
+    $country = factory(Country::class, 'relationless')->make();
+
+    return array_merge($country->toArray(), [
+    ]);
+});
+
 $factory->defineAs(Country::class, 'relationless', function (Faker\Generator $faker) {
     return [
         'name' => $faker->unique()->name,

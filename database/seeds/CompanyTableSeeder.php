@@ -41,8 +41,7 @@ class CompanyTableSeeder extends Seeder
         $dbCountryRepository = new DbCountryRepository();
         $dbUserRepository = new DbUserRepository();
 
-        $industries = $dbIndustryRepository->all();
-        $industries = $dbIndustryRepository->fi();
+        $healthIndustry = $dbIndustryRepository->findByName('Health');
         $countries = $dbCountryRepository->all()->toArray();
         $companyRepresentativeUsers = $dbUserRepository->withCompanyRepresentativeRole()->get()->toArray();
         $faker = Factory::create();
@@ -51,7 +50,7 @@ class CompanyTableSeeder extends Seeder
             factory(Company::class, 'without_relations')->create([
                 'name'        => $company['name'],
                 'description' => $company['description'],
-//                'industry_id' => $faker->randomElement($industries->toArray())['id'],
+                'industry_id' => $healthIndustry->id,
                 'country_id'  => $faker->randomElement($countries)['id'],
                 'user_id'     => $faker->randomElement($companyRepresentativeUsers)['id'],
                 'logo_id'     => factory(File::class)->create()->id,

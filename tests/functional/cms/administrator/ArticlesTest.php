@@ -6,7 +6,6 @@
 namespace tests\functional\cms\administrator;
 
 use App\Ahk\Article;
-use App\Ahk\Company;
 use App\Ahk\Repositories\Article\DbArticleRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\Tag;
@@ -38,28 +37,28 @@ class ArticlesTest extends TestCase
         $this->actingAs($administrator)
             ->visit(route('cms.articles.published'))
             ->seePageIs(route('cms.articles.published'))
-            ->see('<title>' . trans('cms.articles') . ' | ' . 'CmsChamb</title>')
+            ->see('<title>'.trans('cms.articles').' | '.'CmsChamb</title>')
             ->see('<th>Actions</th>')
             ->see(route('cms.articles.edit', $articles->get(0)))
             ->see(route('cms.articles.edit', $articles->get(1)))
             ->dontSee(route('cms.articles.edit', $unPublishedArticle))
             ->see('<th>Title</th>')
-            ->see('<td>' . $articles->get(0)->title . '</td>')
-            ->see('<td>' . $articles->get(1)->title . '</td>')
-            ->dontSee('<td>' . $unPublishedArticle->title . '</td>')
+            ->see('<td>'.$articles->get(0)->title.'</td>')
+            ->see('<td>'.$articles->get(1)->title.'</td>')
+            ->dontSee('<td>'.$unPublishedArticle->title.'</td>')
             ->see('<th>Industry</th>')
-            ->see('<td>' . $articles->get(0)->industry->name . '</td>')
-            ->see('<td>' . $articles->get(1)->industry->name . '</td>')
-            ->dontSee('<td>' . $unPublishedArticle->industry->name . '</td>')
+            ->see('<td>'.$articles->get(0)->industry->name.'</td>')
+            ->see('<td>'.$articles->get(1)->industry->name.'</td>')
+            ->dontSee('<td>'.$unPublishedArticle->industry->name.'</td>')
             ->see('<th>Tags</th>')
             ->see($tags->get(0)->name)->see($tags->get(1)->name)
             ->see($tags->get(2)->name)->see($tags->get(3)->name)
             ->dontSee($tags->get(4)->name)
             ->dontSee($tags->get(5)->name)
             ->see('<th>Author</th>')
-            ->see('<td>' . $articles->get(0)->author->name . '</td>')
-            ->see('<td>' . $articles->get(1)->author->name . '</td>')
-            ->dontSee('<td>' . $unPublishedArticle->author->name . '</td>')
+            ->see('<td>'.$articles->get(0)->author->name.'</td>')
+            ->see('<td>'.$articles->get(1)->author->name.'</td>')
+            ->dontSee('<td>'.$unPublishedArticle->author->name.'</td>')
             ->see('<th>Created at / Updated at</th>')
             ->see($articles->get(0)->created_at)
             ->see($articles->get(0)->updated_at)

@@ -1,8 +1,11 @@
 <?php
 
+use database\seeds\ArticleTableSeeder;
 use database\seeds\CompanyTableSeeder;
 use database\seeds\CountryTableSeeder;
+use database\seeds\EventTableSeeder;
 use database\seeds\IndustryTableSeeder;
+use database\seeds\ServiceTableSeeder;
 use database\seeds\TagTableSeeder;
 use database\seeds\UserTableSeeder;
 use database\seeds\WorkgroupTableSeeder;
@@ -26,8 +29,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CountryTableSeeder::class);
         $this->call(CompanyTableSeeder::class);
         $this->call(WorkgroupTableSeeder::class);
-//        $this->call(ArticleTableSeeder::class);
-//        $this->call(ServiceTableSeeder::class);
+        $this->call(ArticleTableSeeder::class);
+        $this->call(ServiceTableSeeder::class);
 //        $this->call(EventTableSeeder::class);
 //        $this->call(DecisionTableSeeder::class);
 //        $this->call(FileTableSeeder::class);
