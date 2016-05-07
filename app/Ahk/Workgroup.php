@@ -46,7 +46,7 @@ class Workgroup extends Model implements SluggableInterface
      */
     public function industries()
     {
-        return $this->belongsToMany('App\Ahk\Industry')->withTimestamps();
+        return $this->belongsToMany(Industry::class)->withTimestamps();
     }
 
     /**
@@ -54,7 +54,7 @@ class Workgroup extends Model implements SluggableInterface
      */
     public function authors()
     {
-        return $this->belongsToMany('App\Ahk\User')->withTimestamps();
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 
     /**
@@ -62,6 +62,6 @@ class Workgroup extends Model implements SluggableInterface
      */
     public function creator()
     {
-        return $this->belongsTo('App\Ahk\User');
+        return $this->belongsTo(User::class);
     }
 }

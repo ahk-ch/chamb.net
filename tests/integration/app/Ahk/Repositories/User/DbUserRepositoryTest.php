@@ -70,7 +70,7 @@ class DbUserRepositoryTest extends TestCase
     {
         $userRepository = new DbUserRepository();
 
-        $expectedUserData = array_only(factory(User::class, 'with_primary_data')->make()->toArray(),
+        $expectedUserData = array_only(factory(User::class, 'relationless')->make()->toArray(),
             ['name', 'email']);
 
         $this->dontSeeInDatabase('users', $expectedUserData);

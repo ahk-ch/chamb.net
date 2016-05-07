@@ -21,6 +21,7 @@ class WorkgroupTableSeeder extends Seeder
      */
     public function run()
     {
+        $dbIndustryRepository = new DbWor();
         $dbIndustryRepository = new DbIndustryRepository();
         $industries = (new DbIndustryRepository())->all();
 

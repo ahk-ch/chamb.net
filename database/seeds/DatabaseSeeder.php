@@ -31,11 +31,11 @@ class DatabaseSeeder extends Seeder
         $this->call(CountryTableSeeder::class);
         $this->call(CompanyTableSeeder::class);
         $this->call(WorkgroupTableSeeder::class);
-        $this->call(ArticleTableSeeder::class);
-        $this->call(ServiceTableSeeder::class);
-        $this->call(EventTableSeeder::class);
-        $this->call(DecisionTableSeeder::class);
-        $this->call(FileTableSeeder::class);
+//        $this->call(ArticleTableSeeder::class);
+//        $this->call(ServiceTableSeeder::class);
+//        $this->call(EventTableSeeder::class);
+//        $this->call(DecisionTableSeeder::class);
+//        $this->call(FileTableSeeder::class);
 
         Model::reguard();
     }
