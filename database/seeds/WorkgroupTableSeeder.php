@@ -6,6 +6,8 @@
 namespace database\seeds;
 
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
+use App\Ahk\Repositories\User\DbUserRepository;
+use App\Ahk\Repositories\Workgroup\DbWorkgroupRepository;
 use App\Ahk\Workgroup;
 use Illuminate\Database\Seeder;
 
@@ -21,15 +23,21 @@ class WorkgroupTableSeeder extends Seeder
      */
     public function run()
     {
-        $dbIndustryRepository = new DbWor();
+        $dbUserRepository = new DbUserRepository();
+        $dbWorkgroupRepository = new DbWorkgroupRepository();
         $dbIndustryRepository = new DbIndustryRepository();
-        $industries = (new DbIndustryRepository())->all();
 
-        foreach ($industries as $industry) {
-            $workGroups = factory(Workgroup::class, 2)->create();
+        $industries = $dbIndustryRepository->all();
+        $authorUser = $dbUserRepository->findByEmail(env('COMPANY_REPRESENTATIVE_EMAIL'));
 
-            $workGroupIds = $workGroups->lists('id')->toArray();
-            $dbIndustryRepository->assignWorkGroupsById($industry, $workGroupIds);
-        }
+        $dbWorkgroupRepository->storeAndAssignCreatorByUser([
+            Workgroup::NAME        => "Work Group 1",
+            Workgroup::DESCRIPTION => "Work Group Description",
+        ], $authorUser);
+
+        $dbWorkgroupRepository->storeAndAssignCreatorByUser([
+            Workgroup::NAME        => "Work Group 2",
+            Workgroup::DESCRIPTION => "Work Group Description",
+        ], $authorUser);
     }
 }

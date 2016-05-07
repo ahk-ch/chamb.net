@@ -33,7 +33,7 @@ interface IndustryRepository
     /**
      * Store an industry on the storage.
      *
-     * @param User  $author
+     * @param User $author
      * @param array $fillable
      *
      * @return Industry|false
@@ -63,7 +63,7 @@ interface IndustryRepository
      * Assign workgroups to an industry.
      *
      * @param Industry $industry
-     * @param array    $workgroupIds
+     * @param array $workgroupIds
      *
      * @return mixed
      */
@@ -82,10 +82,10 @@ interface IndustryRepository
      * Paginate workgroups of an industry.
      *
      * @param Industry $industry
-     * @param null     $perPage
-     * @param array    $columns
-     * @param string   $pageName
-     * @param null     $page
+     * @param null $perPage
+     * @param array $columns
+     * @param string $pageName
+     * @param null $page
      *
      * @return Collection
      */
@@ -117,4 +117,12 @@ interface IndustryRepository
      * @return mixed
      */
     public function companyDecisions(Industry $industry);
+
+    /**
+     * Find industry given its name.
+     *
+     * @param $name
+     * @return Industry|null
+     */
+    public function findByName($name);
 }

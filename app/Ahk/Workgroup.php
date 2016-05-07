@@ -17,6 +17,7 @@ class Workgroup extends Model implements SluggableInterface
 
     const NAME = 'name';
     const SLUG = 'slug';
+    const DESCRIPTION = 'description';
 
     /**
      * @var array
@@ -29,7 +30,7 @@ class Workgroup extends Model implements SluggableInterface
     /**
      * @var array
      */
-    protected $fillable = [self::NAME, self::SLUG];
+    protected $fillable = [self::NAME, self::SLUG, self::DESCRIPTION];
 
     /**
      * Get the route key for the model.

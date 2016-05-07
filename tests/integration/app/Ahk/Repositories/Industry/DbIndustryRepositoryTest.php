@@ -215,4 +215,21 @@ class DbIndustryRepositoryTest extends TestCase
             $events0->merge($events1)->lists('id')->toArray(),
             $events->lists('id')->toArray());
     }
+
+    /** @test */
+    public function it_finds_industry_by_name()
+    {
+        $dbIndustryRepository = new DbIndustryRepository();
+
+        $actualIndustry = factory(Industry::class)->create();
+        $keys = $actualIndustry->getFillable();
+
+        $expectedIndustry = $dbIndustryRepository->findByName($actualIndustry->name);
+
+        $this->assertNotNull($expectedIndustry);
+
+        $this->assertEquals(
+            array_only($actualIndustry->toArray(), $keys),
+            array_only($expectedIndustry->toArray(), $keys));
+    }
 }

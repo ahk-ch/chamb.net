@@ -15,7 +15,7 @@ use App\Ahk\User;
 use App\Ahk\Workgroup;
 
 $factory->define(Workgroup::class, function (Faker\Generator $faker) {
-    $workgroup = factory(Workgroup::class)->make();
+    $workgroup = factory(Workgroup::class, 'relationless')->make();
 
     return array_merge($workgroup->toArray(), [
         'creator_id' => factory(User::class)->create()->id,

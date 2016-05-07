@@ -1,13 +1,8 @@
 <?php
 
-use database\seeds\ArticleTableSeeder;
 use database\seeds\CompanyTableSeeder;
 use database\seeds\CountryTableSeeder;
-use database\seeds\DecisionTableSeeder;
-use database\seeds\EventTableSeeder;
-use database\seeds\FileTableSeeder;
 use database\seeds\IndustryTableSeeder;
-use database\seeds\ServiceTableSeeder;
 use database\seeds\TagTableSeeder;
 use database\seeds\UserTableSeeder;
 use database\seeds\WorkgroupTableSeeder;

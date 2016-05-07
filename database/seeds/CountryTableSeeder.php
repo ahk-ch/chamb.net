@@ -18,7 +18,7 @@ class CountryTableSeeder extends Seeder
     public function run()
     {
         $dbCountryRepository = new DbCountryRepository();
-       
+
         $dbCountryRepository->store(['name' => 'Greece']);
         $dbCountryRepository->store(['name' => 'Germany']);
     }

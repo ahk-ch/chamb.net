@@ -41,7 +41,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
     /**
      * Store a industry on the storage.
      *
-     * @param User  $author
+     * @param User $author
      * @param array $fillable
      *
      * @return Industry|false
@@ -105,7 +105,7 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
      * Assign workgroups to an industry.
      *
      * @param Industry $industry
-     * @param array    $workgroupIds
+     * @param array $workgroupIds
      *
      * @return mixed
      */
@@ -132,10 +132,10 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
      * Paginate workgroups of an industry.
      *
      * @param Industry $industry
-     * @param int      $perPage
-     * @param array    $columns
-     * @param string   $pageName
-     * @param null     $page
+     * @param int $perPage
+     * @param array $columns
+     * @param string $pageName
+     * @param null $page
      *
      * @return Collection
      */
@@ -178,5 +178,16 @@ class DbIndustryRepository extends DbRepository implements IndustryRepository
     public function companyDecisions(Industry $industry)
     {
         return $industry->companyDecisions();
+    }
+
+    /**
+     * Find industry given its name.
+     *
+     * @param $name
+     * @return Industry|null
+     */
+    public function findByName($name)
+    {
+        return Industry::where(Industry::NAME, $name)->first();
     }
 }
