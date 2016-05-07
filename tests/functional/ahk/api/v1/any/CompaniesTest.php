@@ -37,13 +37,23 @@ class CompaniesTest extends TestCase
                         'address'         => $firstCompany->address,
                         'email'           => $firstCompany->email,
                         'phone_number'    => $firstCompany->phone_number,
-                        'created_at'      => $firstCompany->created_at,
-                        'updated_at'      => $firstCompany->created_at,
+                        'created_at'      => [
+                            'date'     => $firstCompany->created_at->toDateTimeString(),
+                            'timezone' => $firstCompany->created_at->tzName,
+                        ],
+                        'updated_at'      => [
+                            'date'     => $firstCompany->updated_at->toDateTimeString(),
+                            'timezone' => $firstCompany->updated_at->tzName,
+                        ],
                         'link'            => route('industries.companies.show', [
-                            'industry_slug' => $industry, 'company_slug' => $firstCompany->slug]),
+                            'industry_slug' => $industry,
+                            'company_slug'  => $firstCompany->slug
+                        ]),
                         'relationships'   => [
                             'logo'    => [
-                                'link' => route('files.download', ['path' => $firstCompany->logo->path]),
+                                'link' => route('files.download', [
+                                    'path' => $firstCompany->logo->path
+                                ]),
                                 'name' => $firstCompany->logo->name
                             ],
                             'country' => [
@@ -60,8 +70,14 @@ class CompaniesTest extends TestCase
                         'address'         => $secondCompany->address,
                         'email'           => $secondCompany->email,
                         'phone_number'    => $secondCompany->phone_number,
-                        'created_at'      => $secondCompany->created_at,
-                        'updated_at'      => $secondCompany->created_at,
+                        'created_at'      => [
+                            'date'     => $secondCompany->created_at->toDateTimeString(),
+                            'timezone' => $secondCompany->created_at->tzName,
+                        ],
+                        'updated_at'      => [
+                            'date'     => $secondCompany->updated_at->toDateTimeString(),
+                            'timezone' => $secondCompany->updated_at->tzName,
+                        ],
                         'link'            => route('industries.companies.show', [
                             'industry_slug' => $industry, 'company_slug' => $secondCompany->slug]),
                         'relationships'   => [
@@ -76,10 +92,10 @@ class CompaniesTest extends TestCase
                     ],
                 ],
                 'paginator' => [
-                    'total_count'   => 1,
+                    'total_count'   => 2,
                     'total_pages'   => 1,
                     'current_page'  => 1,
-                    'limit'         => 1,
+                    'limit'         => 2,
                     'next_page_url' => null,
                 ],
             ])

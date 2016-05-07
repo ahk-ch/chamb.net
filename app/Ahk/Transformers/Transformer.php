@@ -19,7 +19,7 @@ abstract class Transformer
     public function transformCollection($items)
     {
         $transformedItems = [];
-        
+
         foreach ($items as $item) {
             $transformedItems[] = $this->transform($item);
         }
