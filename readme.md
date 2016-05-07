@@ -25,7 +25,12 @@
 
 ## Testing
 - Input testing credentials as found on .env.example
-- Run: `php artisan migrate:refresh --database mysql_testing`
+- Run test based on Laravel frameworo: `php artisan migrate:refresh --database mysql_testing`
+### Codeception
+Laravel framework does not support async testing. Thus we need to use codeception.
+#### Set Up
+1. Download headless browser server [PhantomJS](http://phantomjs.org/download.html)
+2. Run this server: `phantomjs --webdriver=4444`
 
 ### Add credentials
 - Create environment variables using the .env.example. 

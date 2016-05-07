@@ -13,7 +13,6 @@ use App\Ahk\Event;
 use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
-use App\Ahk\Repositories\Country\DbCountryRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
@@ -31,25 +30,6 @@ class DbCompanyRepositoryTest extends TestCase
      * @var
      */
     protected $dbCompanyRepository;
-
-    /** @test */
-    public function it_paginates_companies()
-    {
-        $dbCompanyRepository = new DbCompanyRepository();
-
-        $this->assertSame(0, $dbCompanyRepository->paginate()->count());
-
-        $actualCompanies = factory(Company::class, 2)->create();
-
-        $expectedCompanies = $dbCompanyRepository->paginate(2);
-
-        $this->assertSame(2, $expectedCompanies->count());
-
-        $this->assertSame(
-            array_only($expectedCompanies->toArray(), $expectedCompanies[0]->getFillable()),
-            array_only($actualCompanies->toArray(), $expectedCompanies[0]->getFillable())
-        );
-    }
 
     /** @test */
     public function it_returns_all_companies()
@@ -165,7 +145,7 @@ class DbCompanyRepositoryTest extends TestCase
         $dbUserRepository = new DbUserRepository();
         $user = factory(User::class)->create();
         $dbUserRepository->assignCompanyRepresentativeRole($user);
-        $newCompanyData = factory(Company::class, 'without_relations')->make();
+        $newCompanyData = factory(Company::class, 'relationless')->make();
         $expectedIndustry = factory(Industry::class)->create();
         $expectedCountry = factory(Country::class)->create();
         $expectedLogo = factory(File::class)->create();
@@ -310,4 +290,26 @@ class DbCompanyRepositoryTest extends TestCase
         $this->assertSame($company->events()->get()->get(2)->name, $expectedEvent1->name);
     }
 
+    /** @test */
+    public function it_returns_companies_pagination()
+    {
+        $dbCompanyRepository = new DbCompanyRepository();
+        $expectedCompanies = factory(Company::class, 11)->create();
+        $actualCompanies = $dbCompanyRepository->paginate(10);
+        $keys = $expectedCompanies->get(0)->getFillable();
+
+        $this->assertCount(10, $actualCompanies);
+
+        $this->assertEquals(
+            array_only($expectedCompanies->get(0)->toArray(), $keys),
+            array_only($actualCompanies->get(0)->toArray(), $keys));
+
+        $this->assertEquals(
+            array_only($expectedCompanies->get(9)->toArray(), $keys),
+            array_only($actualCompanies->get(9)->toArray(), $keys));
+
+        $actualCompanies = $dbCompanyRepository->paginate(11);
+
+        $this->assertCount(11, $actualCompanies);
+    }
 }

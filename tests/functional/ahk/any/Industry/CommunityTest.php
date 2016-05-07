@@ -44,4 +44,5 @@ class CommunityTest extends TestCase
             ->see("<title> {$company->name} - {$industry->name} · Chamb.Net</title>")
             ->see(route('files.render', ['path' => $company->logo->path]));
     }
+    
 }

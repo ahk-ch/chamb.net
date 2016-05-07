@@ -1,6 +1,12 @@
 <?php
 
-// ################ chamb.net ####################
+/*
+|--------------------------------------------------------------------------
+| chamb.net
+|--------------------------------------------------------------------------
+|
+| Accessible to all members.
+*/
 
 // Pages
 $this->get('/', ['as' => 'home_path', 'uses' => 'Ahk\HomeController@home']);
@@ -17,14 +23,21 @@ $this->group(['prefix' => 'my'], function () {
 $this->group(['prefix' => 'industries/{industry_slug}'], function () {
     $this->get('info', ['as' => 'industries.info', 'uses' => 'Ahk\IndustriesController@info']);
     $this->get('news', ['as' => 'industries.articles.index', 'uses' => 'Ahk\IndustriesController@indexArticles']);
-    $this->get('news/{article_slug}', ['as' => 'industries.articles.show', 'uses' => 'Ahk\IndustriesController@showArticle']);
-    $this->get('work-groups', ['as' => 'industries.work_groups.index', 'uses' => 'Ahk\IndustriesController@indexWorkGroup']);
-    $this->get('work-groups/{work_group_slug}', ['as' => 'industries.work_groups.show', 'uses' => 'Ahk\IndustriesController@showWorkGroup']);
+    $this->get('news/{article_slug}', [
+        'as' => 'industries.articles.show', 'uses' => 'Ahk\IndustriesController@showArticle']);
+    $this->get('work-groups', [
+        'as' => 'industries.work_groups.index', 'uses' => 'Ahk\IndustriesController@indexWorkGroup'
+    ]);
+    $this->get('work-groups/{work_group_slug}', [
+        'as' => 'industries.work_groups.show', 'uses' => 'Ahk\IndustriesController@showWorkGroup'
+    ]);
     $this->get('events', ['as' => 'industries.events', 'uses' => 'Ahk\WorkingGroupsController@index']);
     $this->get('links', ['as' => 'industries.links', 'uses' => 'Ahk\WorkingGroupsController@index']);
     $this->get('downloads', ['as' => 'industries.downloads', 'uses' => 'Ahk\IndustriesController@index']);
     $this->get('companies', ['as' => 'industries.companies.index', 'uses' => 'Ahk\IndustriesController@indexCompanies']);
-    $this->get('companies/{company_slug}', ['as' => 'industries.companies.show', 'uses' => 'Ahk\IndustriesController@showCompany']);
+    $this->get('companies/{company_slug}', [
+        'as' => 'industries.companies.show', 'uses' => 'Ahk\IndustriesController@showCompany'
+    ]);
 });
 
 $this->group(['prefix' => 'files'], function () {
@@ -44,17 +57,26 @@ $this->group(['prefix' => 'auth'], function () {
     $this->delete('logout', ['as' => 'auth.destroy', 'uses' => 'Ahk\Auth\AuthenticationController@destroy']);
     $this->get('register', ['as' => 'auth.register', 'uses' => 'Ahk\Auth\RegistrationController@getRegistration']);
     $this->post('register', ['as' => 'auth.register', 'uses' => 'Ahk\Auth\RegistrationController@postRegistration']);
-    $this->get('register/confirm', ['as' => 'auth.register.confirm', 'uses' => 'Ahk\Auth\RegistrationController@confirmEmail']);
+    $this->get('register/confirm', [
+        'as' => 'auth.register.confirm', 'uses' => 'Ahk\Auth\RegistrationController@confirmEmail']);
 
     $this->group(['prefix' => 'recover'], function () {
         $this->get('/', ['as' => 'auth.recover.get', 'uses' => 'Ahk\Auth\PasswordResetsController@getEmail']);
         $this->post('/', ['as' => 'auth.recover.post', 'uses' => 'Ahk\Auth\PasswordResetsController@postEmail']);
-        $this->get('/reset/{slug}/{recovery_token}', ['as' => 'auth.recover.reset', 'uses' => 'Ahk\Auth\PasswordResetsController@getReset']);
-        $this->post('/reset/{slug}/{recovery_token}', ['as' => 'auth.recover.reset', 'uses' => 'Ahk\Auth\PasswordResetsController@postReset']);
+        $this->get('/reset/{slug}/{recovery_token}', [
+            'as' => 'auth.recover.reset', 'uses' => 'Ahk\Auth\PasswordResetsController@getReset']);
+        $this->post('/reset/{slug}/{recovery_token}', [
+            'as' => 'auth.recover.reset', 'uses' => 'Ahk\Auth\PasswordResetsController@postReset']);
     });
 });
 
-// ############### chamb.net/cms ####################
+/*
+|--------------------------------------------------------------------------
+| chamb.net/cms
+|--------------------------------------------------------------------------
+|
+| Accessible to administrators, and authors.
+*/
 
 $this->group(['prefix' => 'cms'], function () {
     $this->get('', ['as' => 'cms.dashboard', 'uses' => 'Cms\DashboardController@dashboard']);
@@ -85,4 +107,20 @@ $this->group(['prefix' => 'cms'], function () {
     $this->post('auth/sign-in', ['as' => 'cms.sessions.store', 'uses' => 'Cms\SessionsController@store']);
     $this->delete('auth/logout', ['as' => 'cms.sessions.destroy', 'uses' => 'Cms\SessionsController@destroy']);
     $this->get('lang/{lang}', ['as' => 'cms.set_language', 'uses' => 'Cms\SettingsController@setLocale']);
+});
+
+/*
+|--------------------------------------------------------------------------
+| API
+|--------------------------------------------------------------------------
+|
+*/
+
+$this->group(['prefix' => 'api'], function () {
+    $this->group(['prefix' => 'v1'], function () {
+        $this->group(['prefix' => 'industries/{industry_slug}'], function () {
+            $this->get('companies', [
+                'as' => 'api.v1.industries.companies.index', 'uses' => 'Api\V1\IndustriesController@indexCompanies']);
+        });
+    });
 });

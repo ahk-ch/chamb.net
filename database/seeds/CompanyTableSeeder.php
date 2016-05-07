@@ -47,7 +47,7 @@ class CompanyTableSeeder extends Seeder
         $faker = Factory::create();
 
         foreach ($this->popularCompanies as $company) {
-            factory(Company::class, 'without_relations')->create([
+            factory(Company::class, 'relationless')->create([
                 'name'        => $company['name'],
                 'description' => $company['description'],
                 'industry_id' => $healthIndustry->id,

@@ -192,7 +192,7 @@ class CompaniesTest extends TestCase
         factory(Industry::class, 2)->create();
         factory(Country::class, 2)->create();
 
-        $expectedCompany = factory(Company::class, 'without_relations')->make(['user_id' => $companyRepresentativeUser->id]);
+        $expectedCompany = factory(Company::class, 'relationless')->make(['user_id' => $companyRepresentativeUser->id]);
         $expectedIndustry = factory(Industry::class)->create();
         $expectedCountry = factory(Country::class)->create();
         $expectedLogoPath = FilesStorage::getFilesDirectory().'dummy_logo.png';

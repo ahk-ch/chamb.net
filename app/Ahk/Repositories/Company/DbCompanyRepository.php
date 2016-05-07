@@ -34,13 +34,16 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
     /**
      * Paginate through all companies.
      *
-     * @param int $items
-     *
+     * @param int $perPage
+     * @param array $columns
+     * @param string $pageName
+     * @param null $page
      * @return mixed
+     *
      */
-    public function paginate($items = 10)
+    public function paginate($perPage = 50, $columns = ['*'], $pageName = 'page', $page = null)
     {
-        return Company::with('logo')->paginate($items);
+        return Company::with('logo', 'user')->paginate($perPage, $columns, $pageName, $page);
     }
 
     /**
@@ -58,7 +61,7 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
     /**
      * Store company.
      *
-     * @param User  $user
+     * @param User $user
      * @param array $data
      *
      * @return Company|false
@@ -80,7 +83,7 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
      * Assign company representative user.
      *
      * @param Company $company
-     * @param User    $user
+     * @param User $user
      *
      * @return Company|false
      */
@@ -148,7 +151,7 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
     /**
      * Update the industry of a company.
      *
-     * @param Company  $company
+     * @param Company $company
      * @param Industry $industryId
      *
      * @return Company|false
@@ -182,7 +185,7 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
     /**
      * Add files to company.
      *
-     * @param Company          $company
+     * @param Company $company
      * @param array|Collection $files
      *
      * @return Company|false
@@ -207,7 +210,7 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
     /**
      * Add events to company.
      *
-     * @param Company          $company
+     * @param Company $company
      * @param array|Collection $events
      *
      * @return Company|false
@@ -223,7 +226,7 @@ class DbCompanyRepository extends DbRepository implements CompanyRepository
      * Assign decisions to the company.
      *
      * @param Company $company
-     * @param array   $decisions
+     * @param array $decisions
      *
      * @return Company|false
      */

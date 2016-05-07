@@ -41,7 +41,7 @@ $factory->define(Tag::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(Article::class, function (Faker\Generator $faker) {
-    $article = factory(Article::class, 'without_relations')->make();
+    $article = factory(Article::class, 'relationless')->make();
 
     return array_merge($article->toArray(), [
         'author_id'    => factory(User::class)->create()->id,
@@ -51,7 +51,7 @@ $factory->define(Article::class, function (Faker\Generator $faker) {
 });
 
 $factory->defineAs(App\Ahk\Article::class, 'without_industry', function (Faker\Generator $faker) {
-    $article = factory(Article::class, 'without_relations')->make();
+    $article = factory(Article::class, 'relationless')->make();
 
     return array_merge($article->toArray(), [
         'author_id'    => factory(User::class)->create()->id,
@@ -59,7 +59,7 @@ $factory->defineAs(App\Ahk\Article::class, 'without_industry', function (Faker\G
     ]);
 });
 
-$factory->defineAs(App\Ahk\Article::class, 'without_relations', function (Faker\Generator $faker) {
+$factory->defineAs(App\Ahk\Article::class, 'relationless', function (Faker\Generator $faker) {
     $content = "<p><img src='$faker->imageUrl'></p>";
     $content .= "<p><strong>{$faker->sentence()}</strong></p>";
     $content .= "<p>{$faker->paragraphs(3, true)}</p>";
@@ -88,7 +88,7 @@ $factory->defineAs(App\Ahk\Article::class, 'without_relations', function (Faker\
 
 $factory->define(Company::class, function (Faker\Generator $faker) {
 
-    $company = factory(Company::class, 'without_relations')->make();
+    $company = factory(Company::class, 'relationless')->make();
 
     return array_merge($company->toArray(), [
         'industry_id' => factory(Industry::class)->create()->id,
@@ -100,7 +100,7 @@ $factory->define(Company::class, function (Faker\Generator $faker) {
 
 $factory->defineAs(Company::class, 'without_industry', function (Faker\Generator $faker) {
 
-    $company = factory(Company::class, 'without_relations')->make();
+    $company = factory(Company::class, 'relationless')->make();
 
     return array_merge($company->toArray(), [
         'country_id' => factory(Country::class)->create()->id,
@@ -109,7 +109,7 @@ $factory->defineAs(Company::class, 'without_industry', function (Faker\Generator
     ]);
 });
 
-$factory->defineAs(Company::class, 'without_relations', function (Faker\Generator $faker) {
+$factory->defineAs(Company::class, 'relationless', function (Faker\Generator $faker) {
     return [
         'name'            => $faker->unique()->name,
         'focus'           => $faker->words(10, true),

@@ -18,11 +18,14 @@ interface CompanyRepository
     /**
      * Paginate through all companies.
      *
-     * @param int $items
-     *
+     * @param int $perPage
+     * @param array $columns
+     * @param string $pageName
+     * @param null $page
      * @return mixed
+     *
      */
-    public function paginate($items = 10);
+    public function paginate($perPage = 50, $columns = ['*'], $pageName = 'page', $page = null);
 
     /**
      * Return all companies.
@@ -63,7 +66,7 @@ interface CompanyRepository
     /**
      * Store company.
      *
-     * @param User  $user
+     * @param User $user
      * @param array $data
      *
      * @return Company|false
@@ -74,7 +77,7 @@ interface CompanyRepository
      * Assign company representative user.
      *
      * @param Company $company
-     * @param User    $user
+     * @param User $user
      *
      * @return Company|false
      */
@@ -113,7 +116,7 @@ interface CompanyRepository
     /**
      * Add files to company.
      *
-     * @param Company          $company
+     * @param Company $company
      * @param array|Collection $files
      *
      * @return Company|false
@@ -123,7 +126,7 @@ interface CompanyRepository
     /**
      * Add events to company.
      *
-     * @param Company          $company
+     * @param Company $company
      * @param array|Collection $events
      *
      * @return Company|false
@@ -134,7 +137,7 @@ interface CompanyRepository
      * Assign decisions to the company.
      *
      * @param Company $company
-     * @param array   $decisions
+     * @param array $decisions
      *
      * @return Company|false
      */
