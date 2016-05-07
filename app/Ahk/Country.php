@@ -21,6 +21,6 @@ class Country extends Model
      */
     public function companies()
     {
-        return $this->hasMany('App\Ahk\Country');
+        return $this->hasMany(Country::class);
     }
 }

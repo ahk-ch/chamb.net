@@ -6,6 +6,7 @@
 namespace database\seeds;
 
 use App\Ahk\Country;
+use App\Ahk\Repositories\Country\DbCountryRepository;
 use Illuminate\Database\Seeder;
 
 class CountryTableSeeder extends Seeder
@@ -17,6 +18,10 @@ class CountryTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Country::class, 2)->create();
+       $dbCountryRepository =  new DbCountryRepository();
+        $dbCountryRepository->store();
+        
+        factory(Country::class)->create(['name' => 'Greece']);
+        factory(Country::class)->create(['name' => 'Germany']);
     }
 }

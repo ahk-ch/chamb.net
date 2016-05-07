@@ -13,6 +13,7 @@ use App\Ahk\Event;
 use App\Ahk\File;
 use App\Ahk\Industry;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
+use App\Ahk\Repositories\Country\DbCountryRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
@@ -308,4 +309,5 @@ class DbCompanyRepositoryTest extends TestCase
         $this->assertCount(3, $company->events()->get());
         $this->assertSame($company->events()->get()->get(2)->name, $expectedEvent1->name);
     }
+
 }

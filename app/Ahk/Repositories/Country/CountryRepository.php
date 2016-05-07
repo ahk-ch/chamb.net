@@ -5,6 +5,7 @@
  */
 namespace App\Ahk\Repositories\Country;
 
+use App\Ahk\Country;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
@@ -18,4 +19,12 @@ interface CountryRepository
      * @return Collection
      */
     public function all();
+
+    /**
+     * Store a country.
+     *
+     * @param $data
+     * @return Country|false
+     */
+    public function store($data);
 }

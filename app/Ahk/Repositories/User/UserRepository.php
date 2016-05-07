@@ -121,8 +121,8 @@ interface UserRepository
      * Sign User.
      *
      * @param array $data
-     * @param bool  $rememberMe
-     * @param bool  $login
+     * @param bool $rememberMe
+     * @param bool $login
      *
      * @return User|false
      */
@@ -154,7 +154,7 @@ interface UserRepository
     /**
      * Verify a company is owned by a user.
      *
-     * @param User    $user
+     * @param User $user
      * @param Company $company
      *
      * @return mixed
@@ -162,7 +162,7 @@ interface UserRepository
     public function hasCompany(User $user, Company $company);
 
     /**
-     * Verify a company is owned by a user.
+     * Generate recovery token.
      *
      * @param User $user
      *

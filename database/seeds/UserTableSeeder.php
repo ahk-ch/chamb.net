@@ -6,7 +6,6 @@
 namespace database\seeds;
 
 use App\Ahk\Repositories\User\DbUserRepository;
-use App\Ahk\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -24,23 +23,21 @@ class UserTableSeeder extends Seeder
     {
         $dbUserRepository = new DbUserRepository();
 
-        $administrator = factory(User::class)->create([
+        $administrator = $dbUserRepository->store([
             'email'    => env('ADMIN_EMAIL'),
             'password' => Hash::make(env('ADMIN_PASSWORD')),
-            'verified' => 1,
         ]);
 
-        $companyRepresentative = factory(User::class)->create([
+        $companyRepresentative = $dbUserRepository->store([
             'email'    => env('COMPANY_REPRESENTATIVE_EMAIL'),
             'password' => Hash::make(env('COMPANY_REPRESENTATIVE_PASSWORD')),
-            'verified' => 1,
         ]);
 
+        $dbUserRepository = new DbUserRepository();
         $dbUserRepository->assignCompanyRepresentativeRole($companyRepresentative);
         $dbUserRepository->assignAdministratorRole($administrator);
 
-        factory(User::class, 2)->create()->each(function ($user) use ($dbUserRepository) {
-            $dbUserRepository->assignAuthorRole($user);
-        });
+        $dbUserRepository->confirmEmail($administrator->token);
+        $dbUserRepository->confirmEmail($companyRepresentative->token);
     }
 }

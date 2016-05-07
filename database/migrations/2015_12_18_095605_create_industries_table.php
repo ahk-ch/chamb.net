@@ -25,11 +25,6 @@ class CreateIndustriesTable extends Migration
             $table->foreign('author_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('cascade');
         });
 
-        Industry::create(['name' => 'Health', 'fontawesome' => 'fa fa-heartbeat']);
-        Industry::create(['name' => 'Logistics', 'fontawesome' => 'fa fa-bar-chart']);
-        Industry::create(['name' => 'Energy', 'fontawesome' => 'fa fa-sun-o']);
-        Industry::create(['name' => 'Trade', 'fontawesome' => 'fa fa-exchange']);
-        Industry::create(['name' => 'Law', 'fontawesome' => 'fa fa-university']);
     }
 
     /**

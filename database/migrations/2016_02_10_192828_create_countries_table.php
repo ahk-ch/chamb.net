@@ -19,9 +19,6 @@ class CreateCountriesTable extends Migration
             $table->string('name')->unique();
             $table->timestamps();
         });
-
-        factory(Country::class)->create(['name' => 'Greece']);
-        factory(Country::class)->create(['name' => 'Germany']);
     }
 
     /**

@@ -5,7 +5,6 @@
  */
 namespace database\seeds;
 
-use App\Ahk\Tag;
 use Illuminate\Database\Seeder;
 
 class TagTableSeeder extends Seeder
@@ -17,6 +16,5 @@ class TagTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Tag::class, 20)->create();
     }
 }

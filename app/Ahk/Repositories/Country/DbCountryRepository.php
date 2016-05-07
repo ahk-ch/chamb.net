@@ -36,4 +36,17 @@ class DbCountryRepository extends DbRepository implements CountryRepository
     {
         return Country::all();
     }
+
+    /**
+     * Store a country.
+     *
+     * @param $data
+     * @return Country|false
+     */
+    public function store($data)
+    {
+        $country = new Country(array_only($data, $this->getModel()->getFillable()));
+
+        return $country->save() ? $country : false;
+    }
 }

@@ -17,7 +17,7 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeds. Note these seeds are used for production server.
      *
      * @return void
      */
@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // Careful with orders
         $this->call(UserTableSeeder::class);
         $this->call(TagTableSeeder::class);
         $this->call(IndustryTableSeeder::class);

@@ -52,14 +52,14 @@ class DbUserRepository extends DbRepository implements UserRepository
 
     /**
      * @param array $data
-     * @param bool  $rememberMe
-     * @param bool  $login
+     * @param bool $rememberMe
+     * @param bool $login
      *
      * @return User|false
      */
     public function attemptToSignIn(array $data, $rememberMe = false, $login = false)
     {
-        if (! Auth::validate(array_only($data, ['email', 'password']))) {
+        if (!Auth::validate(array_only($data, ['email', 'password']))) {
             Flash::error(trans('ahk_messages.credentials_mismatch'));
 
             return false;
@@ -67,7 +67,7 @@ class DbUserRepository extends DbRepository implements UserRepository
 
         $user = $this->findByEmail($data['email']);
 
-        if (! $user->verified) {
+        if (!$user->verified) {
             Flash::error(trans('ahk_messages.please_validate_your_email_first'));
 
             return false;
@@ -183,14 +183,14 @@ class DbUserRepository extends DbRepository implements UserRepository
     /**
      * Verify a company is owned by a user.
      *
-     * @param User    $user
+     * @param User $user
      * @param Company $company
      *
      * @return mixed
      */
     public function hasCompany(User $user, Company $company)
     {
-        return ! $user->companies()->where('id', $company->id)->get()->isEmpty();
+        return !$user->companies()->where('id', $company->id)->get()->isEmpty();
     }
 
     /**
