@@ -12,7 +12,7 @@ use App\Ahk\Transformers\Api\CompanyApiTransformer;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use tests\TestCase;
 
-class CompanyTransformerTest extends TestCase
+class CompanyApiTransformerTest extends TestCase
 {
     use DatabaseTransactions;
 
@@ -35,8 +35,14 @@ class CompanyTransformerTest extends TestCase
                 'address'         => $firstCompany->address,
                 'email'           => $firstCompany->email,
                 'phone_number'    => $firstCompany->phone_number,
-                'created_at'      => $firstCompany->created_at,
-                'updated_at'      => $firstCompany->created_at,
+                'created_at'      => [
+                    'date'     => $firstCompany->created_at->toDateTimeString(),
+                    'timezone' => $firstCompany->created_at->tzName,
+                ],
+                'updated_at'      => [
+                    'date'     => $firstCompany->updated_at->toDateTimeString(),
+                    'timezone' => $firstCompany->updated_at->tzName,
+                ],
                 'link'            => route('industries.companies.show', [
                     'industry_slug' => $industry, 'company_slug' => $firstCompany->slug]),
                 'relationships'   => [
@@ -58,8 +64,14 @@ class CompanyTransformerTest extends TestCase
                 'address'         => $secondCompany->address,
                 'email'           => $secondCompany->email,
                 'phone_number'    => $secondCompany->phone_number,
-                'created_at'      => $secondCompany->created_at,
-                'updated_at'      => $secondCompany->created_at,
+                'created_at'      => [
+                    'date'     => $secondCompany->created_at->toDateTimeString(),
+                    'timezone' => $secondCompany->created_at->tzName,
+                ],
+                'updated_at'      => [
+                    'date'     => $secondCompany->updated_at->toDateTimeString(),
+                    'timezone' => $secondCompany->updated_at->tzName,
+                ],
                 'link'            => route('industries.companies.show', [
                     'industry_slug' => $industry, 'company_slug' => $secondCompany->slug]),
                 'relationships'   => [

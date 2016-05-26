@@ -12,7 +12,7 @@ use Illuminate\Database\Seeder;
 class IndustryTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds. Only six industries should be on database. Already inserted on creation.
+     * Run the database seeds.
      *
      * @return void
      */

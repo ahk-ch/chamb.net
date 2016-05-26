@@ -25,7 +25,7 @@
 
 ## Testing
 - Input testing credentials as found on .env.example
-- Run test based on Laravel frameworo: `php artisan migrate:refresh --database mysql_testing`
+- Run test based on Laravel framework: `php artisan migrate:refresh --database mysql_testing`
 ### Codeception
 Laravel framework does not support async testing. Thus we need to use codeception.
 #### Set Up
@@ -37,9 +37,8 @@ Laravel framework does not support async testing. Thus we need to use codeceptio
     - Use the `php artisan key:generate` command for the 'APP_KEY' variable.
 
 ### Set Up Database
-- `php artisan migrate` Creates tables
-- `php artisan migrate:refresh` Drops and creates tables
-- `php artisan migrate:refresh --seed` Drops, and creates tables filling them with seed data.
+- `php artisan migrate:refresh --database=mysql_testing` Drops and creates tables
+- `php artisan db:seed --class=RequiredTableSeeder` Seed testing database with required initial data.
 
 
 ### CSS/SCSS

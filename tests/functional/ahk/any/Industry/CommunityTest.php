@@ -27,6 +27,8 @@ class CommunityTest extends TestCase
             ->seePageIs(route('industries.companies.index', ['industry_slug' => $industry->slug]))
             ->see('<title> '.trans('ahk.community').' · Chamb.Net</title>')
             ->see(trans('ahk.discover_the_community'))
+            ->see('search for company')
+            ->see('order by')
             ->see($companies->get(0)->name)
             ->see(route('files.render', ['path' => $companies->get(0)->logo->path]))
             ->see($companies->get(1)->name)

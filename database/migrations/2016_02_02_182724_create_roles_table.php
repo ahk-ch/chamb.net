@@ -22,10 +22,6 @@ class CreateRolesTable extends Migration
             $table->string('name')->unique();
             $table->timestamps();
         });
-
-        Role::create(['name' => Role::COMPANY_REPRESENTATIVE_ROLE]);
-        Role::create(['name' => Role::AUTHOR_ROLE]);
-        Role::create(['name' => Role::ADMINISTRATOR_ROLE]);
     }
 
     /**

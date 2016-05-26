@@ -21,7 +21,7 @@ class ArticlesTest extends TestCase
     use DatabaseTransactions;
 
     /** @test */
-    public function it_reads_published_articles_index()
+    public function read_published_articles()
     {
         $dbUserRepository = new DbUserRepository();
         $administrator = factory(User::class)->create(['verified' => true]);

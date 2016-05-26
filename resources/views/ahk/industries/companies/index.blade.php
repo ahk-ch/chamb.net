@@ -27,13 +27,13 @@
                     <div class="col-sm-4 md-margin-bottom-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-                            <input type="text" placeholder="what companies you are looking for" class="form-control">
+                            <input type="text" placeholder="search for company" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-4 md-margin-bottom-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                            <input type="text" placeholder="the location of the companies" class="form-control">
+                            <input type="text" placeholder="order by" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-4">
