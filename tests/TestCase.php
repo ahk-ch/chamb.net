@@ -3,7 +3,6 @@
 namespace tests;
 
 use Illuminate\Contracts\Console\Kernel;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
 
 class TestCase extends \Illuminate\Foundation\Testing\TestCase
@@ -18,7 +17,6 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase
     public function __construct($name = null, array $data = [], $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
-
     }
 
     /**

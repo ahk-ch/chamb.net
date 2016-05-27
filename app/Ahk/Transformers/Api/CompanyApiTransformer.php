@@ -6,7 +6,6 @@
 
 namespace App\Ahk\Transformers\Api;
 
-
 use App\Ahk\Transformers\Transformer;
 
 class CompanyApiTransformer extends Transformer implements ApiTransformer

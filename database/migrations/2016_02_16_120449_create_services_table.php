@@ -20,7 +20,6 @@ class CreateServicesTable extends Migration
             $table->string('color')->nullable()->default(Service::$colors[array_rand(Service::$colors)]);
             $table->timestamps();
         });
-
     }
 
     /**

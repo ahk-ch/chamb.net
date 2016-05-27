@@ -6,8 +6,6 @@
 
 namespace App\Ahk\Transformers\Api;
 
-
 interface ApiTransformer
 {
-
 }

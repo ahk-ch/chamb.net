@@ -38,7 +38,7 @@ Laravel framework does not support async testing. Thus we need to use codeceptio
 
 ### Set Up Database
 - `php artisan migrate:refresh --database=mysql_testing` Drops and creates tables
-- `php artisan db:seed --class=RequiredTableSeeder` Seed testing database with required initial data.
+- `php artisan db:seed --class=RequiredTableSeeder --database=mysql_testing` Seed testing database with required initial data.
 
 
 ### CSS/SCSS

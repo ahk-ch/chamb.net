@@ -6,7 +6,6 @@
 
 namespace App\Ahk\Transformers;
 
-
 abstract class Transformer
 {
     /**

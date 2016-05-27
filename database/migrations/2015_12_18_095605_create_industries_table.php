@@ -24,7 +24,6 @@ class CreateIndustriesTable extends Migration
             $table->integer('author_id')->unsigned()->index()->nullable();
             $table->foreign('author_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('cascade');
         });
-
     }
 
     /**

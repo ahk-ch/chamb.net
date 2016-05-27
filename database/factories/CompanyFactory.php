@@ -50,4 +50,3 @@ $factory->defineAs(Company::class, 'relationless', function (Faker\Generator $fa
         'phone_number'    => $faker->phoneNumber,
     ];
 });
-
