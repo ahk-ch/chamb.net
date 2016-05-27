@@ -1,6 +1,7 @@
 <?php
 
 use App\Ahk\Event;
+use App\Ahk\User;
 
 $factory->define(Event::class, function (Faker\Generator $faker) {
     $startDate = $faker->dateTimeBetween();

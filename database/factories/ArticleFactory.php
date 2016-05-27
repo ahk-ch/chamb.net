@@ -2,6 +2,8 @@
 
 use App\Ahk\Article;
 use App\Ahk\File;
+use App\Ahk\Industry;
+use App\Ahk\User;
 
 $factory->define(Article::class, function (Faker\Generator $faker) {
     $article = factory(Article::class, 'relationless')->make();

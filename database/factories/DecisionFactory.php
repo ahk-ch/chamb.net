@@ -3,6 +3,7 @@
 use App\Ahk\Company;
 use App\Ahk\Decision;
 use App\Ahk\File;
+use App\Ahk\User;
 
 $factory->define(Decision::class, function (Faker\Generator $faker) {
     return [

@@ -1,6 +1,7 @@
 <?php
 
 use App\Ahk\Tag;
+use App\Ahk\User;
 
 $factory->define(Tag::class, function (Faker\Generator $faker) {
     return [

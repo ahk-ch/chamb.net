@@ -1,6 +1,7 @@
 <?php
 
 use App\Ahk\Industry;
+use App\Ahk\User;
 
 $factory->define(Industry::class, function (Faker\Generator $faker) {
     return [
