@@ -17,7 +17,8 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
  *
  * @codeCoverageIgnore
  */
-class User extends Model implements AuthenticatableContract,
+class User extends Model implements
+    AuthenticatableContract,
     AuthorizableContract,
     CanResetPasswordContract,
     SluggableInterface
