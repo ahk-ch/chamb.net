@@ -26,6 +26,7 @@ class OptionalTableSeeder extends Seeder
         $this->call(FileTableSeeder::class);
         $this->call(CompanyTableSeeder::class);
         $this->call(WorkgroupTableSeeder::class);
+        $this->call(IndustryWorkgroupTableSeeder::class);
 
         Model::reguard();
     }

@@ -8,6 +8,7 @@ namespace App\Ahk\Repositories\Workgroup;
 
 use App\Ahk\User;
 use App\Ahk\Workgroup;
+use Illuminate\Database\Eloquent\Collection;
 
 interface WorkgroupRepository
 {
@@ -27,4 +28,11 @@ interface WorkgroupRepository
      * @return Workgroup|null
      */
     public function findByName($name);
+
+    /**
+     * Initialize a query will all workgroups.
+     *
+     * @return Collection
+     */
+    public function all();
 }

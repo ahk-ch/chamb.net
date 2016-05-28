@@ -11,9 +11,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Role extends Model
 {
-    const COMPANY_REPRESENTATIVE_ROLE = 'CompanyRepresentativeRole';
-    const AUTHOR_ROLE = 'AuthorRole';
-    const ADMINISTRATOR_ROLE = 'AdministratorRole';
+    const COMPANY_REPRESENTATIVE_ROLE = 'CompanyRepresentative';
+    const AUTHOR_ROLE = 'Author';
+    const ADMINISTRATOR_ROLE = 'Administrator';
 
     /**
      * The attributes that are mass assignable.

@@ -15,22 +15,18 @@ class Workgroup extends Model implements SluggableInterface
 {
     use SluggableTrait;
 
-    const NAME = 'name';
-    const SLUG = 'slug';
-    const DESCRIPTION = 'description';
-
     /**
      * @var array
      */
     protected $sluggable = [
-        'build_from' => self::NAME,
-        'save_to'    => self::SLUG,
+        'build_from' => 'name',
+        'save_to'    => 'slug',
     ];
 
     /**
      * @var array
      */
-    protected $fillable = [self::NAME, self::SLUG, self::DESCRIPTION];
+    protected $fillable = ['name', 'slug', 'description'];
 
     /**
      * Get the route key for the model.
@@ -39,7 +35,7 @@ class Workgroup extends Model implements SluggableInterface
      */
     public function getRouteKeyName()
     {
-        return self::SLUG;
+        return 'slug';
     }
 
     /**

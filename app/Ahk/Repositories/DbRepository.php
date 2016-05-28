@@ -5,6 +5,8 @@
  */
 namespace App\Ahk\Repositories;
 
+use Illuminate\Support\Collection;
+
 /**
  * Class DbRepository.
  * @codeCoverageIgnore
@@ -63,5 +65,15 @@ abstract class DbRepository
     public function setBuilder($builder)
     {
         $this->builder = $builder;
+    }
+
+    /**
+     * Get all models.
+     *
+     * @return Collection
+     */
+    public function all()
+    {
+        return $this->getModel()->all();
     }
 }

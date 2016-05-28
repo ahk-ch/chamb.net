@@ -55,4 +55,14 @@ class DbWorkgroupRepositoryTest extends \tests\TestCase
 
         $this->assertSame($workgroup->name, $dbWorkgroupRepository->findByName($workgroup->name)->name);
     }
+
+    /** @test */
+    public function query_all_workgroups()
+    {
+        $dbWorkgroupRepository = new DbWorkgroupRepository();
+
+        factory(Workgroup::class, 2)->create();
+
+        $this->assertCount(2, $dbWorkgroupRepository->all());
+    }
 }

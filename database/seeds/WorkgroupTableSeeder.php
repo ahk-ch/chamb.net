@@ -5,10 +5,8 @@
  */
 namespace database\seeds;
 
-use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\Repositories\Workgroup\DbWorkgroupRepository;
-use App\Ahk\Workgroup;
 use Illuminate\Database\Seeder;
 
 /**
@@ -16,6 +14,11 @@ use Illuminate\Database\Seeder;
  */
 class WorkgroupTableSeeder extends Seeder
 {
+    public static $workgroupsData = [
+        ['name' => 'Work Group 1', 'description' => 'Work Group 1 Description'],
+        ['name' => 'Work Group 2', 'description' => 'Work Group 2 Description'],
+    ];
+
     /**
      * Run the database seeds.
      *
@@ -25,16 +28,14 @@ class WorkgroupTableSeeder extends Seeder
     {
         $dbUserRepository = new DbUserRepository();
         $dbWorkgroupRepository = new DbWorkgroupRepository();
-        $dbIndustryRepository = new DbIndustryRepository();
 
         $authorUser = $dbUserRepository->findByEmail(env('COMPANY_REPRESENTATIVE_EMAIL'));
 
-        $dbWorkgroupRepository->storeAndAssignCreatorByUser([
-            Workgroup::NAME        => "Work Group 1",
-            Workgroup::DESCRIPTION => "Work Group Description",
-        ], $authorUser);
-
-//        $dbIndustryRepository->assignWorkGroupsById()
-        // todo continue.
+        foreach (static::$workgroupsData as $workgroupData) {
+            $dbWorkgroupRepository->storeAndAssignCreatorByUser([
+                'name'        => $workgroupData['name'],
+                'description' => $workgroupData['description'],
+            ], $authorUser);
+        }
     }
 }

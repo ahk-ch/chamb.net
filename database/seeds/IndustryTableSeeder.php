@@ -11,6 +11,14 @@ use Illuminate\Database\Seeder;
 
 class IndustryTableSeeder extends Seeder
 {
+    public static $industriesData = [
+        ['name' => 'Health', 'fontawesome' => 'fa fa-heartbeat'],
+        ['name' => 'Logistics', 'fontawesome' => 'fa fa-bar-chart'],
+        ['name' => 'Energy', 'fontawesome' => 'fa fa-sun-o'],
+        ['name' => 'Trade', 'fontawesome' => 'fa fa-exchange'],
+        ['name' => 'Law', 'fontawesome' => 'fa fa-university'],
+    ];
+
     /**
      * Run the database seeds.
      *
@@ -23,10 +31,8 @@ class IndustryTableSeeder extends Seeder
 
         $authorUser = $dbUserRepository->findByEmail(env('COMPANY_REPRESENTATIVE_EMAIL'));
 
-        $dbIndustryRepository->store($authorUser, ['name' => 'Health', 'fontawesome' => 'fa fa-heartbeat']);
-        $dbIndustryRepository->store($authorUser, ['name' => 'Logistics', 'fontawesome' => 'fa fa-bar-chart']);
-        $dbIndustryRepository->store($authorUser, ['name' => 'Energy', 'fontawesome' => 'fa fa-sun-o']);
-        $dbIndustryRepository->store($authorUser, ['name' => 'Trade', 'fontawesome' => 'fa fa-exchange']);
-        $dbIndustryRepository->store($authorUser, ['name' => 'Law', 'fontawesome' => 'fa fa-university']);
+        foreach (static::$industriesData as $industryData) {
+            $dbIndustryRepository->store($authorUser, $industryData);
+        }
     }
 }
