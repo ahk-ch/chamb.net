@@ -128,9 +128,9 @@ class DbArticleRepositoryTest extends TestCase
         $this->notSeeInDatabase('articles', $expectedData);
 
         $actualArticle = $dbArticleRepository->store(array_merge($expectedData, [
-            'author_id' => $expectedAuthor->id,
+            'author_id'    => $expectedAuthor->id,
             'thumbnail_id' => $expectedFile->id,
-            'industry_id' => $expectedIndustry->id,
+            'industry_id'  => $expectedIndustry->id,
         ]));
 
         $this->seeInDatabase('articles', $expectedData);

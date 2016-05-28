@@ -15,7 +15,16 @@ interface WorkgroupRepository
      * Store a workgroup.
      *
      * @param $data
+     * @param User $user
      * @return Workgroup|false
      */
     public function storeAndAssignCreatorByUser($data, User $user);
+
+    /**
+     * Find a workgroup by its name.
+     *
+     * @param $name
+     * @return Workgroup|null
+     */
+    public function findByName($name);
 }

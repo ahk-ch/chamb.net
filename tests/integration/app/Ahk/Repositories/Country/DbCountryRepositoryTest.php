@@ -1,6 +1,7 @@
 <?php
 use App\Ahk\Country;
 use App\Ahk\Repositories\Country\DbCountryRepository;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 /**
  * @author Rizart Dokollari <r.dokollari@gmail.com>
@@ -8,6 +9,8 @@ use App\Ahk\Repositories\Country\DbCountryRepository;
  */
 class DbCountryRepositoryTest extends \tests\TestCase
 {
+    use DatabaseTransactions;
+
     /** @test */
     public function it_stores_country()
     {
@@ -15,7 +18,8 @@ class DbCountryRepositoryTest extends \tests\TestCase
         $countryModel = new Country;
         $countryFillableKeys = $countryModel->getFillable();
 
-        $expectedCountryData = array_only(factory(Country::class, 'relationless')->make()->toArray(), $countryFillableKeys);
+        $expectedCountryData = array_only(factory(Country::class, 'relationless')->make()->toArray(),
+            $countryFillableKeys);
 
         $this->dontSeeInDatabase('countries', $expectedCountryData);
 

@@ -35,4 +35,15 @@ class DbWorkgroupRepository extends DbRepository implements WorkgroupRepository
 
         return $workgroup->save() ? $workgroup : false;
     }
+
+    /**
+     * Find a workgroup by its name.
+     *
+     * @param $name
+     * @return Workgroup|null
+     */
+    public function findByName($name)
+    {
+        return Workgroup::where('name', $name)->first();
+    }
 }
