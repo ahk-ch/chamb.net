@@ -26,12 +26,9 @@ class DbArticleRepositoryTest extends TestCase
     public function it_returns_all_articles()
     {
         $dbArticleRepository = new DbArticleRepository();
-        $articles = factory(Article::class, 2)->create();
-        $keys = $articles->get(0)->getFillable();
+        factory(Article::class, 2)->create();
 
-        $this->assertSame(
-            array_only($articles->toArray(), $keys),
-            array_only($dbArticleRepository->all()->get()->toArray(), $keys));
+        $this->assertCount(2, $dbArticleRepository->all()->get());
     }
 
     /** @test */
@@ -75,9 +72,21 @@ class DbArticleRepositoryTest extends TestCase
     {
         $dbArticleRepository = new DbArticleRepository();
         $industry = factory(Industry::class)->create();
-        $article1 = factory(Article::class)->create(['industry_id' => $industry->id, 'view_count' => 1, 'publish' => 1]);
-        $article2 = factory(Article::class)->create(['industry_id' => $industry->id, 'view_count' => 5, 'publish' => 1]);
-        $article3 = factory(Article::class)->create(['industry_id' => $industry->id, 'view_count' => 10, 'publish' => 1]);
+        $article1 = factory(Article::class)->create([
+            'industry_id' => $industry->id,
+            'view_count'  => 1,
+            'publish'     => 1
+        ]);
+        $article2 = factory(Article::class)->create([
+            'industry_id' => $industry->id,
+            'view_count'  => 5,
+            'publish'     => 1
+        ]);
+        $article3 = factory(Article::class)->create([
+            'industry_id' => $industry->id,
+            'view_count'  => 10,
+            'publish'     => 1
+        ]);
         $articleChecker = factory(Article::class)->create(['view_count' => 15, 'publish' => 1]);
         $keys = $article1->getFillable();
 

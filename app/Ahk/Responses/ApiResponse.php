@@ -5,7 +5,7 @@
  */
 namespace App\Ahk\Responses;
 
-use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Response;
 use Symfony\Component\HttpFoundation\Response as HttpResponses;
 
@@ -159,12 +159,12 @@ trait ApiResponse
     }
 
     /**
-     * @param Paginator $paginatorData
+     * @param LengthAwarePaginator $paginatorData
      * @param           $data
      *
      * @return mixed
      */
-    public function respondWithPagination(Paginator $paginatorData, $data)
+    public function respondWithPagination(LengthAwarePaginator $paginatorData, $data)
     {
         $data = array_merge($data, [
             'paginator' => [
