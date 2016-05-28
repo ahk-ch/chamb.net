@@ -5,7 +5,6 @@
  */
 namespace database\seeds;
 
-use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\Repositories\Workgroup\DbWorkgroupRepository;
 use App\Ahk\Workgroup;
