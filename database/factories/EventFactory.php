@@ -15,5 +15,3 @@ $factory->define(Event::class, function (Faker\Generator $faker) {
         'creator_id'  => factory(User::class)->create()->id,
     ];
 });
-
-

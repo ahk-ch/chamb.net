@@ -4,7 +4,6 @@ Homestead.yaml
 Homestead.json
 .env
 /build/
-.idea/
 /.rbenv
 /bower_components/
 /public/build/tests/

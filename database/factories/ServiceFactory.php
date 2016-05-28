@@ -7,4 +7,3 @@ $factory->define(Service::class, function (Faker\Generator $faker) {
         'name' => $faker->unique()->name,
     ];
 });
-

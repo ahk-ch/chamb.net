@@ -32,5 +32,3 @@ $factory->defineAs(File::class, 'without_storage', function (Faker\Generator $fa
         'client_original_name' => $clientOriginalName,
     ];
 });
-
-

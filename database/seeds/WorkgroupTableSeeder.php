@@ -27,7 +27,6 @@ class WorkgroupTableSeeder extends Seeder
         $dbWorkgroupRepository = new DbWorkgroupRepository();
         $dbIndustryRepository = new DbIndustryRepository();
 
-        $industries = $dbIndustryRepository->all();
         $authorUser = $dbUserRepository->findByEmail(env('COMPANY_REPRESENTATIVE_EMAIL'));
 
         $dbWorkgroupRepository->storeAndAssignCreatorByUser([

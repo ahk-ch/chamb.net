@@ -5,8 +5,7 @@ use App\Ahk\User;
 
 $factory->define(Tag::class, function (Faker\Generator $faker) {
     return [
-        'name'      => $faker->unique()->word,
+        'name'      => $faker->unique()->name,
         'author_id' => factory(User::class)->create()->id,
     ];
 });
-

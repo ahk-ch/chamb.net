@@ -164,7 +164,7 @@ trait ApiResponse
      *
      * @return mixed
      */
-    public function respondWithPagination($paginatorData, $data)
+    public function respondWithPagination(Paginator $paginatorData, $data)
     {
         $data = array_merge($data, [
             'paginator' => [

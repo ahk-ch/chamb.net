@@ -25,4 +25,3 @@ $factory->defineAs(Decision::class, 'without_company', function (Faker\Generator
         'file_id'       => factory(File::class)->create()->id,
     ];
 });
-

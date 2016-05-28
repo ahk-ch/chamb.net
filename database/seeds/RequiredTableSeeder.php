@@ -6,7 +6,6 @@ use database\seeds\RoleTableSeeder;
 use database\seeds\ServiceTableSeeder;
 use database\seeds\TagTableSeeder;
 use database\seeds\UserTableSeeder;
-use database\seeds\WorkgroupTableSeeder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 

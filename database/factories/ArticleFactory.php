@@ -50,4 +50,3 @@ $factory->defineAs(App\Ahk\Article::class, 'relationless', function (Faker\Gener
     ];
 
 });
-
