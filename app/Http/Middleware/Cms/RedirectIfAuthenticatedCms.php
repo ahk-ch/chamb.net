@@ -6,7 +6,7 @@ use App\Ahk\Repositories\User\UserRepository;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
 /**
  * Class RedirectIfAuthenticated.
@@ -27,8 +27,8 @@ class RedirectIfAuthenticatedCms
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \Closure                 $next
-     * @param Guard                     $guard
+     * @param  \Closure $next
+     * @param Guard $guard
      *
      * @return mixed
      */

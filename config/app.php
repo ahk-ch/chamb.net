@@ -152,6 +152,7 @@ return [
         GrahamCampbell\HTMLMin\HTMLMinServiceProvider::class,
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*
          * Internal Service Providers
@@ -159,6 +160,8 @@ return [
         \App\Providers\ComposerServiceProvider::class,
         \App\Providers\BackendServiceProvider::class,
         \App\Providers\FlashServiceProvider::class,
+
+
     ],
 
     /*

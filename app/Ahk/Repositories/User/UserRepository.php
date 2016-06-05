@@ -197,5 +197,5 @@ interface UserRepository
      *
      * @return Builder
      */
-    public function whereCompaniesIndustry(Industry $industry);
+    public function allByIndustry(Industry $industry);
 }

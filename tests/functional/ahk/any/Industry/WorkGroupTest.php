@@ -11,7 +11,6 @@ use App\Ahk\Decision;
 use App\Ahk\Event;
 use App\Ahk\File;
 use App\Ahk\Industry;
-use App\Ahk\Repositories\Article\DbArticleRepository;
 use App\Ahk\Repositories\Company\DbCompanyRepository;
 use App\Ahk\Repositories\Industry\DbIndustryRepository;
 use App\Ahk\User;
@@ -43,16 +42,19 @@ class WorkGroupTest extends TestCase
             ->see('<span class="results-number">11 result(s)</span>')
             ->seeLink($workGroups->get(0)->name,
                 route('industries.work_groups.show', [
-                    'industry_slug' => $industry->slug, 'work_group_slug' => $workGroups->get(0)->slug,
+                    'industry_slug'   => $industry->slug,
+                    'work_group_slug' => $workGroups->get(0)->slug,
                 ]))
             ->see($workGroups->get(1)->description)
             ->seeLink($workGroups->get(1)->name,
                 route('industries.work_groups.show', [
-                    'industry_slug' => $industry->slug, 'work_group_slug' => $workGroups->get(1)->slug,
+                    'industry_slug'   => $industry->slug,
+                    'work_group_slug' => $workGroups->get(1)->slug,
                 ]))
             ->seeLink(2,
                 route('industries.work_groups.index', [
-                    'industry_slug' => $industry->slug, 'page' => 2,
+                    'industry_slug' => $industry->slug,
+                    'page'          => 2,
                 ]));
     }
 
@@ -60,7 +62,6 @@ class WorkGroupTest extends TestCase
     public function it_reads_work_groups_show()
     {
         $dbIndustryRepository = new DbIndustryRepository();
-        $dbArticleRepository = new DbArticleRepository();
         $dbCompanyRepository = new DbCompanyRepository();
 
         $users = factory(User::class, 2)->create();

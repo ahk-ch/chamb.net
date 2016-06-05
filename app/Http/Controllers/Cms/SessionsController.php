@@ -27,6 +27,7 @@ class SessionsController extends Controller
     public function __construct(UserRepository $userRepository)
     {
         $this->middleware('cms.guest', ['except' => 'destroy']);
+        
         $this->userRepository = $userRepository;
     }
 

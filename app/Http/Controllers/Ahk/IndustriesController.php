@@ -32,13 +32,15 @@ class IndustriesController extends Controller
     /**
      * CategoriesController constructor.
      *
-     * @param ArticleRepository  $articleRepository
+     * @param ArticleRepository $articleRepository
      * @param IndustryRepository $industryRepository
-     * @param UserRepository     $userRepository
+     * @param UserRepository $userRepository
      */
-    public function __construct(ArticleRepository $articleRepository, IndustryRepository $industryRepository,
-                                UserRepository $userRepository)
-    {
+    public function __construct(
+        ArticleRepository $articleRepository,
+        IndustryRepository $industryRepository,
+        UserRepository $userRepository
+    ) {
         $this->articleRepository = $articleRepository;
         $this->industryRepository = $industryRepository;
         $this->userRepository = $userRepository;
@@ -87,7 +89,7 @@ class IndustriesController extends Controller
     /**
      * Show info about a work-group.
      *
-     * @param Industry  $industry
+     * @param Industry $industry
      * @param Workgroup $workGroup
      *
      * @return \Illuminate\Http\Response
@@ -100,7 +102,7 @@ class IndustriesController extends Controller
 
         $decisions = $this->industryRepository->companyDecisions($industry)->get();
 
-        $members = $this->userRepository->whereCompaniesIndustry($industry)->get();
+        $members = $this->userRepository->allByIndustry($industry)->get();
 
         return view('ahk.industries.work_groups.show',
             compact('industry', 'workGroup', 'articles', 'events', 'decisions', 'members'));
@@ -124,7 +126,7 @@ class IndustriesController extends Controller
      * Display the company.
      *
      * @param Industry $industry
-     * @param Company  $company
+     * @param Company $company
      *
      * @return \Illuminate\Http\Response
      */
@@ -137,7 +139,7 @@ class IndustriesController extends Controller
      * Display the article.
      *
      * @param Industry $industry
-     * @param Article  $article
+     * @param Article $article
      *
      * @return \Illuminate\Http\Response
      */

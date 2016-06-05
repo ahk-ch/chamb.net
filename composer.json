@@ -17,7 +17,8 @@
     "guzzlehttp/guzzle": "~5.3|~6.0",
     "cviebrock/eloquent-sluggable": "^3.1",
     "hieu-le/active": "^3.0",
-    "codeception/codeception": "^2.1"
+    "codeception/codeception": "^2.1",
+    "barryvdh/laravel-ide-helper": "^2.1"
   },
   "require-dev": {
     "mockery/mockery": "0.9.*",
@@ -51,6 +52,8 @@
       "php artisan clear-compiled"
     ],
     "post-update-cmd": [
+      "php artisan clear-compiled",
+      "php artisan ide-helper:generate",
       "php artisan optimize"
     ],
     "post-root-package-install": [

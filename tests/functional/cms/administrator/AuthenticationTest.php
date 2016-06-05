@@ -8,7 +8,7 @@ namespace functional\cms\administrator;
 use App\Ahk\Repositories\User\DbUserRepository;
 use App\Ahk\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Support\Facades\Hash;
+use Hash;
 use tests\TestCase;
 
 class AuthenticationTest extends TestCase

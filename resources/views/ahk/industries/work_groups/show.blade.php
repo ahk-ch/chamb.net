@@ -189,7 +189,9 @@
                         @foreach($members as $member)
                             <tr>
                                 <td>
-                                    <img class="rounded-x" src="{!! route('files.render', ['path' => $member->avatar->path]) !!}" alt="Member Avatar">
+                                    <img class="rounded-x"
+                                         src="{!! route('files.render', ['path' => $member->avatar->path]) !!}"
+                                         alt="Member Avatar">
                                 </td>
                                 <td class="td-width">
                                     <h3><a href="#">{{ $member->name }}</a></h3>
@@ -233,6 +235,7 @@
     </div>
 
     <div class="margin-bottom-40"></div>
+
 @endsection
 @section('extra-data')
     {!! Form::input('hidden', 'styleSheetUrls[]', elixir("css/industries/work-groups/show/vendor.min.css")) !!}

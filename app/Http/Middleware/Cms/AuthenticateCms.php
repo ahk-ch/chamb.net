@@ -28,8 +28,8 @@ class AuthenticateCms
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \Closure                 $next
-     * @param Guard                     $guard
+     * @param  \Closure $next
+     * @param Guard $guard
      *
      * @return mixed
      */
@@ -47,13 +47,13 @@ class AuthenticateCms
 
         $user = Auth::user();
 
-        if (! $user->verified) {
+        if (!$user->verified) {
             Flash::error('Please visit your email to validate your account.');
 
             return redirect()->route('cms.sessions.create');
         }
 
-        if (! $this->userRepository->hasAdministratorRole($user)) {
+        if (!$this->userRepository->hasAdministratorRole($user)) {
             Flash::error(trans('cms.missing_required_role'));
 
             return redirect()->route('cms.sessions.create');
