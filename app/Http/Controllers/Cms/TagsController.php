@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Cms;
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\Tag\TagRepository;
 use App\Ahk\Tag;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Cms\StoreTagRequest;
 use App\Http\Requests\Cms\UpdateTagRequest;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 /**
  * Class TagsController.
  */
-class TagsController extends BaseController
+class TagsController extends Controller
 {
     /**
      * @var TagRepository
@@ -24,8 +25,6 @@ class TagsController extends BaseController
      */
     public function __construct(TagRepository $tagRepository)
     {
-        parent::__construct();
-
         $this->tagRepository = $tagRepository;
     }
 
@@ -64,7 +63,7 @@ class TagsController extends BaseController
     {
         $tagStored = $this->tagRepository->store(Auth::user(), $request->only('name'));
 
-        if (! $tagStored) {
+        if (!$tagStored) {
             Flash::error(trans('cms.unable_to_store_tag'));
 
             return redirect()->back();
@@ -104,7 +103,7 @@ class TagsController extends BaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int             $id
+     * @param  int $id
      * @param UpdateTagRequest $request
      *
      * @return \Illuminate\Http\Response
@@ -113,7 +112,7 @@ class TagsController extends BaseController
     {
         $tagSaved = $this->tagRepository->updateById($id, $request->only('name'));
 
-        if (! $tagSaved) {
+        if (!$tagSaved) {
             Flash::error(trans('cms.something_went_wrong'));
 
             return redirect()->back();

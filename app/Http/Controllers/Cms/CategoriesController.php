@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Cms;
 use App\Ahk\Category;
 use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\Industry\IndustryRepository;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Cms\StoreCategoryRequest;
 use App\Http\Requests\Cms\UpdateCategoryRequest;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 /**
  * Class CategoriesController.
  */
-class CategoriesController extends BaseController
+class CategoriesController extends Controller
 {
     /**
      * @var IndustryRepository
@@ -26,8 +27,6 @@ class CategoriesController extends BaseController
      */
     public function __construct(IndustryRepository $categoryRepository)
     {
-        parent::__construct();
-
         $this->categoryRepository = $categoryRepository;
     }
 
@@ -66,7 +65,7 @@ class CategoriesController extends BaseController
     {
         $categoryStored = $this->categoryRepository->store($request, Auth::user());
 
-        if (! $categoryStored) {
+        if (!$categoryStored) {
             Flash::error(trans('cms.unable_to_store_category'));
 
             return redirect()->back();
@@ -103,7 +102,7 @@ class CategoriesController extends BaseController
     {
         $categorySaved = $this->categoryRepository->updateById($id, $request->only('name'));
 
-        if (! $categorySaved) {
+        if (!$categorySaved) {
             Flash::error(trans('cms.something_went_wrong'));
 
             return redirect()->back();

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Cms;
 
+use App\Http\Controllers\Controller;
+
 /**
  * Class UsersController.
  */
-class UsersController extends BaseController
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.

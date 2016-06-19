@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Cms;
 
-class DashboardController extends BaseController
+use App\Http\Controllers\Controller;
+
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.

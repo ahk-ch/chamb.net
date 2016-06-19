@@ -3,19 +3,18 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Ahk\Repositories\Company\CompanyRepository;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 /**
  * Class CompaniesController.
  */
-class CompaniesController extends BaseController
+class CompaniesController extends Controller
 {
     protected $companyRepository;
 
     public function __construct(CompanyRepository $companyRepository)
     {
-        parent::__construct();
-
         $this->companyRepository = $companyRepository;
     }
 
@@ -81,7 +80,7 @@ class CompaniesController extends BaseController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  int                      $id
+     * @param  int $id
      *
      * @return \Illuminate\Http\Response
      */

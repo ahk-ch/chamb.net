@@ -7,6 +7,7 @@ use App\Ahk\Notifications\Flash;
 use App\Ahk\Repositories\Article\ArticleRepository;
 use App\Ahk\Repositories\Industry\IndustryRepository;
 use App\Ahk\Repositories\Tag\TagRepository;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Cms\StoreArticleRequest;
 use App\Http\Requests\Cms\UpdateArticleRequest;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 /**
  * Class ArticlesController.
  */
-class ArticlesController extends BaseController
+class ArticlesController extends Controller
 {
     /**
      * @var IndustryRepository
@@ -36,11 +37,11 @@ class ArticlesController extends BaseController
      * @param IndustryRepository $categoryRepository
      * @param TagRepository $tagRepository
      */
-    public function __construct(ArticleRepository $articleRepository, IndustryRepository $categoryRepository,
-                                TagRepository $tagRepository)
-    {
-        parent::__construct();
-
+    public function __construct(
+        ArticleRepository $articleRepository,
+        IndustryRepository $categoryRepository,
+        TagRepository $tagRepository
+    ) {
         $this->categoryRepository = $categoryRepository;
         $this->tagRepository = $tagRepository;
         $this->articleRepository = $articleRepository;
@@ -110,7 +111,8 @@ class ArticlesController extends BaseController
         $category = $this->categoryRepository->getById($request->get('category_id'));
 
         $articleStored = $this->articleRepository->store(
-            Auth::user(), $request->only(['title', 'description', 'publish', 'source', 'content', 'img_url']), $category);
+            Auth::user(), $request->only(['title', 'description', 'publish', 'source', 'content', 'img_url']),
+            $category);
 
         if (!$articleStored) {
             Flash::error(trans('cms.unable_to_store_article'));

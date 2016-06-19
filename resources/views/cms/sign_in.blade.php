@@ -6,12 +6,13 @@
     <title>Sign In | CmsChamb</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <style type="text/css">
-        {!! File::get(public_path(elixir("css/cms/above-the-fold-content.min.css"))) !!}
+        {!! File::get(public_path(elixir('css/cms/above-the-fold-content.min.css'))) !!}
     </style>
     <!--[if lt IE 9]>
-    <script src="{!! url('build/js/lt-ie9.min.js') !!}"></script>
+    <script src='{!! url("build/js/lt-ie9.min.js") !!}'></script>
     <![endif]-->
 </head>
+
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
